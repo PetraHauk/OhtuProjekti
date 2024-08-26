@@ -6,7 +6,7 @@ Kohderyhmämme käyttäjillä on vaikeuksia löytää edullisin hotelli, joka va
 Tuotteemme on suunnattu perheille ja aikuisille, jotka etsivät parasta hotellia yöpymiseen matkan tai loman aikana.
 <h3>Arvolupaus</h3>
 Tuotteemme tarjoaa käyttäjille helpon ja miellyttävän kokemuksen, tarjoten merkittäviä etuja, kuten ajan säästöä, kohdennettuja suosituksia ja helppoa hintavertailua, ylittäen nykyiset ratkaisut.
-<3>Keskeiset ominaisuudet ja toiminnot</h3>
+<h3>Keskeiset ominaisuudet ja toiminnot</h3>
 <ul>
   <li>Käyttäjän kirjautuminen ja todennus</li>
   <li>Huoneiden saatavuus ja varaus</li>
