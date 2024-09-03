@@ -1,4 +1,4 @@
-<h2>Hotellin Varaus Järjestelmä</h2>
+<h2>Hotellin Varausjärjestelmä</h2>
 
 <h3>Ongelman kuvaus</h3>
 Kohderyhmämme käyttäjillä on vaikeuksia löytää edullisin hotelli, joka vastaa heidän vaatimuksiaan. Nykyiset ratkaisut eivät pysty riittävästi vastaamaan heidän tarpeisiinsa, mikä johtaa turhautumiseen ja tehottomuuteen.
