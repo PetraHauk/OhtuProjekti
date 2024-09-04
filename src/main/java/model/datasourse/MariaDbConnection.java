@@ -1,4 +1,4 @@
-package datasourse;
+package model.datasourse;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
