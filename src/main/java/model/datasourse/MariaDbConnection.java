@@ -1,5 +1,7 @@
 package model.datasourse;
 
+import jakarta.persistence.EntityManager;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -11,7 +13,7 @@ public class MariaDbConnection {
         try {
             if (conn == null || conn.isClosed()) {
                 conn = DriverManager.getConnection(
-                        "jdbc:mariadb://localhost:3306/hotelli_sgl?user=root&password=" + System.getenv("DB_PASSWORD"));
+                        "jdbc:mariadb://localhost:3306/hotelli_db?user=root&password=" + System.getenv("root"));
             }
             return conn;
         } catch (SQLException e) {
@@ -21,7 +23,7 @@ public class MariaDbConnection {
         }
     }
 
-    public static void terminate() {
+    public static EntityManager terminate() {
         try {
             if (conn != null && !conn.isClosed()) {
                 conn.close();
@@ -29,6 +31,7 @@ public class MariaDbConnection {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return null;
     }
 }
 
