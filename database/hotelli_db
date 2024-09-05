@@ -3,7 +3,7 @@ USE hoteli_db;
 
 
 CREATE TABLE hoteli (
-    hoteli_id INT PRIMARY KEY,
+    hoteli_id INT PRIMARY KEY AUTO_INCREMENT,
     kaupunki VARCHAR(100),
     nimi VARCHAR(100),
     osoite VARCHAR(255),
