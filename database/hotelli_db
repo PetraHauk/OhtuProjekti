@@ -15,18 +15,18 @@ CREATE TABLE kayttaja (
     kayttaja_id INT PRIMARY KEY,
     etunimi VARCHAR(100),
     sukunimi VARCHAR(100),
-    sposti VARCHAR(100) NOT NULL,
+    sposti VARCHAR(100),
     puh VARCHAR(20),
-    rooli VARCHAR(50) NOT NULL,
-    salasana VARCHAR(255) NOT NULL
+    rooli VARCHAR(50),
+    salasana VARCHAR(255)
 );
 
 CREATE TABLE huone (
     huone_id INT PRIMARY KEY,
-    huone_nro INT NOT NULL,
+    huone_nro INT,
     huone_tyyppi VARCHAR(50),
     huone_tila VARCHAR(50),
-    huone_hinta DECIMAL(10, 2) NOT NULL,
+    huone_hinta DECIMAL(10, 2),
     hoteli_id INT,
     FOREIGN KEY (hoteli_id) REFERENCES hoteli(hoteli_id)
 );
@@ -34,9 +34,9 @@ CREATE TABLE huone (
 
 CREATE TABLE huone_varaus (
     varaus_id INT PRIMARY KEY,
-    huone_maara INT NOT NULL,
-    alku_pvm DATE NOT NULL,
-    loppu_pvm DATE NOT NULL,
+    huone_maara INT,
+    alku_pvm DATE,
+    loppu_pvm DATE,
     huone_id INT,
     lasku_id INT,
     FOREIGN KEY (huone_id) REFERENCES huone(huone_id),
@@ -45,17 +45,17 @@ CREATE TABLE huone_varaus (
 
 CREATE TABLE lasku (
     lasku_id INT PRIMARY KEY,
-    maksu_status VARCHAR(50) NOT NULL,
-    varaus_muoto VARCHAR(50) NOT NULL
+    maksu_status VARCHAR(50),
+    varaus_muoto VARCHAR(50)
 );
 
 CREATE TABLE asiakas (
     asiakas_id INT PRIMARY KEY,
-    etunimi VARCHAR(100) NOT NULL,
-    sukunimi VARCHAR(100) NOT NULL,
-    sposti VARCHAR(100) NOT NULL,
+    etunimi VARCHAR(100),
+    sukunimi VARCHAR(100),
+    sposti VARCHAR(100),
     puh VARCHAR(20),
-    henkilo_maara INT(5),
+    henkilo_maara INT,
     lasku_id INT,
     FOREIGN KEY (lasku_id) REFERENCES lasku(lasku_id)
 );
