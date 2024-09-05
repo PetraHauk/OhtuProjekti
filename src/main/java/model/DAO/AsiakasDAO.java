@@ -6,7 +6,7 @@ import jakarta.persistence.EntityManager;
 
 public class AsiakasDAO {
     public void persist(Asiakas asiakas) {
-        EntityManager em = MariaDbConnection.terminate();
+        EntityManager em = MariaDbConnection.getInstance();
         em.getTransaction().begin();
         em.persist(asiakas);
         em.getTransaction().commit();
