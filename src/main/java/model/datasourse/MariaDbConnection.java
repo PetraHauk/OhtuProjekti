@@ -29,6 +29,7 @@ public class MariaDbConnection {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return null;
     }
 }
 
