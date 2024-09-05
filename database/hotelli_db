@@ -12,7 +12,7 @@ CREATE TABLE hoteli (
 );
 
 CREATE TABLE kayttaja (
-    kayttaja_id INT PRIMARY KEY,
+    kayttaja_id INT PRIMARY KEY AUTO_INCREMENT,
     etunimi VARCHAR(100),
     sukunimi VARCHAR(100),
     sposti VARCHAR(100) NOT NULL,
@@ -22,7 +22,7 @@ CREATE TABLE kayttaja (
 );
 
 CREATE TABLE huone (
-    huone_id INT PRIMARY KEY,
+    huone_id INT PRIMARY KEY AUTO_INCREMENT,
     huone_nro INT NOT NULL,
     huone_tyyppi VARCHAR(50),
     huone_tila VARCHAR(50),
@@ -33,7 +33,7 @@ CREATE TABLE huone (
 
 
 CREATE TABLE huone_varaus (
-    varaus_id INT PRIMARY KEY,
+    varaus_id INT PRIMARY KEY AUTO_INCREMENT,
     huone_maara INT NOT NULL,
     alku_pvm DATE NOT NULL,
     loppu_pvm DATE NOT NULL,
@@ -44,13 +44,13 @@ CREATE TABLE huone_varaus (
 );
 
 CREATE TABLE lasku (
-    lasku_id INT PRIMARY KEY,
+    lasku_id INT PRIMARY KEY AUTO_INCREMENT,
     maksu_status VARCHAR(50) NOT NULL,
     varaus_muoto VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE asiakas (
-    asiakas_id INT PRIMARY KEY,
+    asiakas_id INT PRIMARY KEY AUTO_INCREMENT,
     etunimi VARCHAR(100) NOT NULL,
     sukunimi VARCHAR(100) NOT NULL,
     sposti VARCHAR(100) NOT NULL,
