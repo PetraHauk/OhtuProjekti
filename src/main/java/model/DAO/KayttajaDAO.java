@@ -29,17 +29,13 @@ public class KayttajaDAO {
         EntityManager em = MariaDbConnection.getInstance();
         try {
             em.getTransaction().begin();
-
             // Haetaan käyttäjän salasana sähköpostin perusteella
             String salasana = em.createQuery("SELECT k.salasana FROM Kayttaja k WHERE k.sposti = :sposti", String.class)
                     .setParameter("sposti", sposti)
                     .getSingleResult();
-
             em.getTransaction().commit();
-
             // Palautetaan haettu salasana
             return salasana;
-
         } catch (NoResultException e) {
             // Jos käyttäjää ei löytynyt, palautetaan null
             System.out.println("Käyttäjää ei löytynyt sähköpostilla: " + sposti);
@@ -53,7 +49,6 @@ public class KayttajaDAO {
             }
         }
     }
-
 
     //update by id
     public void updateEmailById(int id, String sposti) {
@@ -78,34 +73,52 @@ public class KayttajaDAO {
                 em.close();
             }
         }
-
     }
+
+
+
 
     public Kayttaja changePasswordByEmail(String sposti, String newPassword) {
         EntityManager em = MariaDbConnection.getInstance();
         String hashattuSalasana = BCrypt.hashpw(newPassword, BCrypt.gensalt());
+        Kayttaja kayttaja = null;
+
         try {
             em.getTransaction().begin();
-            //Kayttaja kayttaja = em.find(Kayttaja.class, sposti);
-            Kayttaja kayttaja = em.createQuery("SELECT k FROM Kayttaja k WHERE k.sposti = :sposti", Kayttaja.class)
+
+            // Hae käyttäjä sähköpostin perusteella
+            kayttaja = em.createQuery("SELECT k FROM Kayttaja k WHERE k.sposti = :sposti", Kayttaja.class)
                     .setParameter("sposti", sposti)
                     .getSingleResult();
-            if (kayttaja != null) {
 
-                kayttaja.setSalasana(hashattuSalasana);
+            // Jos käyttäjä löytyy, vaihdetaan salasana
+            kayttaja.setSalasana(hashattuSalasana); // Aseta uusi hashattu salasana
+            System.out.println("Salasana vaihdettu onnistuneesti käyttäjälle: " + kayttaja.getSposti());
+            em.getTransaction().commit(); // Varmista muutosten tallentaminen
 
-            } else {
-                System.out.println("Kayttajaa ei löytynyt");
+        } catch (NoResultException e) {
+            System.out.println("Käyttäjää ei löytynyt sähköpostilla: " + sposti);
+            if (em.getTransaction().isActive()) {
+                em.getTransaction().rollback(); // Perutaan muutokset
             }
         } catch (Exception e) {
-            System.out.println("Kayttajaa ei löytynyt");
+            System.out.println("Virhe tapahtui: " + e.getMessage());
+            if (em.getTransaction().isActive()) {
+                em.getTransaction().rollback(); // Perutaan muutokset virhetilanteessa
+            }
         } finally {
-            if (em != null) {
-                em.close();
+            if (em != null && em.isOpen()) {
+                em.close(); // Suljetaan EntityManager turvallisesti
             }
         }
-        return null;
+
+        return kayttaja; // Palautetaan käyttäjä, jos löytyi ja salasana vaihdettiin
     }
+
+
+
+
+
 
     public Kayttaja removeById(int id) {
         EntityManager em = MariaDbConnection.getInstance();
@@ -113,9 +126,7 @@ public class KayttajaDAO {
 
         try {
             em.getTransaction().begin();
-
             kayttaja = em.find(Kayttaja.class, id);
-
             if (kayttaja != null) {
                 em.remove(kayttaja);
                 System.out.println("Kayttaja poistettu onnistuneesti!");
@@ -123,7 +134,6 @@ public class KayttajaDAO {
             } else {
                 System.out.println("Kayttajaa ei löytynyt ID:llä: " + id);
             }
-
         } catch (Exception e) {
             // Handle exceptions, rollback transaction if something goes wrong
             if (em.getTransaction().isActive()) {
@@ -136,8 +146,6 @@ public class KayttajaDAO {
                 em.close();
             }
         }
-
         return kayttaja;  // Return the removed Kayttaja (or null if not found)
     }
 }
-
