@@ -3,11 +3,8 @@ package model.DAO;
 import jakarta.persistence.EntityManager;
 import model.datasourse.MariaDbConnection;
 import model.enteties.Hoteli;
-import model.enteties.Kayttaja;
-
 
 public class HoteliDAO {
-
     public void persist(Hoteli hoteli) {
         EntityManager em = MariaDbConnection.getInstance();
         em.getTransaction().begin();
