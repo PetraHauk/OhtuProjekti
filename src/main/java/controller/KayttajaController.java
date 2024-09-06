@@ -2,7 +2,6 @@ package controller;
 
 import model.DAO.KayttajaDAO;
 import model.enteties.Kayttaja;
-import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 public class KayttajaController {
