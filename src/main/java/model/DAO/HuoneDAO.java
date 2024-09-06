@@ -7,7 +7,7 @@ import model.enteties.Huone;
 public class HuoneDAO {
 
     public void persist(Huone huone) {
-        EntityManager em = MariaDbConnection.terminate();
+        EntityManager em = MariaDbConnection.getInstance();
         em.getTransaction().begin();
         em.persist(huone);
         em.getTransaction().commit();

@@ -1,5 +1,32 @@
 package model.datasourse;
 
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
+
+public class MariaDbConnection {
+
+    private static EntityManagerFactory emf = null;
+    private static EntityManager em = null;
+
+    public static EntityManager getInstance() {
+
+        if (em==null) {
+            if (emf==null) {
+                emf = Persistence.createEntityManagerFactory("hoteli_db");
+            }
+            em = emf.createEntityManager();
+        }
+        return em;
+    }
+
+}
+
+/*
+
+
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -7,11 +34,14 @@ import java.sql.SQLException;
 public class MariaDbConnection {
 
     private static Connection conn = null;
+
     public static Connection getConnection() {
         try {
             if (conn == null || conn.isClosed()) {
                 conn = DriverManager.getConnection(
-                        "jdbc:mariadb://localhost:3306/hotelli_sgl?user=root&password=" + System.getenv("DB_PASSWORD"));
+
+                        "jdbc:mariadb://localhost:3306/hoteli_db?user=root&password=" + System.getenv("root"));
+
             }
             return conn;
         } catch (SQLException e) {
@@ -29,7 +59,10 @@ public class MariaDbConnection {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return null;
     }
-}
+*/
+
+
+
+
 

@@ -1,10 +1,23 @@
 package app;
 
-import model.enteties.Asiakas;
-import model.enteties.Huone;
-import model.enteties.Varaus;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 
-import java.util.List;
+
+public class Main {
+
+    public static void main(String[] args) {
+        KayttajaHaku kayttajaHaku = new KayttajaHaku();
+        kayttajaHaku.start();
+
+        //HoteliHaku hotelliHaku = new HoteliHaku();
+        //hotelliHaku.start();
+    }
+}
+
+/*
+
+
 
 public class Main {
     public static void main(String[] args) {
@@ -32,4 +45,7 @@ public class Main {
                     " | " + reservation.getHuone().getTila());
         }
     }
-}
+
+ */
+
+
