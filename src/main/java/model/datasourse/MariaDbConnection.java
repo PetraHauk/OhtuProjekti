@@ -40,7 +40,7 @@ public class MariaDbConnection {
             if (conn == null || conn.isClosed()) {
                 conn = DriverManager.getConnection(
 
-                        "jdbc:mariadb://localhost:3306/hoteli_db?user=root&password=" + System.getenv("root"));
+                        "jdbc:mariadb://localhost:3306/hotelli_db?user=root&password=" + System.getenv("root"));
 
             }
             return conn;

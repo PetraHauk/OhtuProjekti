@@ -2,20 +2,20 @@ package model.DAO;
 
 import jakarta.persistence.EntityManager;
 import model.datasourse.MariaDbConnection;
-import model.enteties.Hoteli;
+import model.enteties.Hotelli;
 
-public class HoteliDAO {
-    public void persist(Hoteli hoteli) {
+public class HotelliDAO {
+    public void persist(Hotelli hotelli) {
         EntityManager em = MariaDbConnection.getInstance();
         em.getTransaction().begin();
-        em.persist(hoteli);
+        em.persist(hotelli);
         em.getTransaction().commit();
     }
 
-    public Hoteli findById(int id) {
+    public Hotelli findById(int id) {
         EntityManager em = MariaDbConnection.getInstance();
         try {
-            return em.find(Hoteli.class, id);
+            return em.find(Hotelli.class, id);
         } finally {
             if (em != null) {
                 em.close();
@@ -23,20 +23,20 @@ public class HoteliDAO {
         }
     }
 /*
-    public Hoteli removeById(int id) {
+    public Hotelli removeById(int id) {
         EntityManager em = MariaDbConnection.getInstance();
-        Hoteli hoteli = null;
+        Hotelli hotelli = null;
 
         try {
             em.getTransaction().begin();
-            hoteli = em.find(Hoteli.class, id);
+            hotelli = em.find(Hotelli.class, id);
 
-            if (hoteli != null) {
-                em.remove(hoteli);
-                System.out.println("Hoteli poistettu onnistuneesti!");
+            if (hotelli != null) {
+                em.remove(hotelli);
+                System.out.println("Hotelli poistettu onnistuneesti!");
                 em.getTransaction().commit();  // Commit transaction if removal succeeds
             } else {
-                System.out.println("Hoteli ei löytynyt ID:llä: " + id);
+                System.out.println("Hotelli ei löytynyt ID:llä: " + id);
             }
 
         } catch (Exception e) {
@@ -52,7 +52,7 @@ public class HoteliDAO {
             }
         }
 
-        return hoteli;  // Return the removed hoteli (or null if not found)
+        return hotelli;  // Return the removed hotelli (or null if not found)
     }
 
 

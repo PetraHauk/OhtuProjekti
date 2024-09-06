@@ -4,10 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="065e434f-b050-4145-bce8-5768651a9a60" name="Changes" comment="päivistys">
+    <list default="true" id="065e434f-b050-4145-bce8-5768651a9a60" name="Changes" comment="kieli virheitä korjaus">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/HoteliHaku.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/HotelliHaku.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/KayttajaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/KayttajaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/HoteliDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/HoteliDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/HoteliController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/HoteliController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/HoteliDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/HotelliDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/datasourse/MariaDbConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/datasourse/MariaDbConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/enteties/Hoteli.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enteties/Hotelli.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hoteli.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hotelli.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/datasourse/MariaDbConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/datasourse/MariaDbConnection.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +123,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1725542122228</updated>
-      <workItem from="1725542123275" duration="28227000" />
+      <workItem from="1725542123275" duration="31309000" />
     </task>
     <task id="LOCAL-00001" summary="päivistys">
       <option name="closed" value="true" />
@@ -126,14 +133,40 @@
       <option name="project" value="LOCAL" />
       <updated>1725609857977</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="lisää sarakkeita tauluun">
+      <option name="closed" value="true" />
+      <created>1725619749405</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1725619749405</updated>
+    </task>
+    <task id="LOCAL-00003" summary="päivistys">
+      <option name="closed" value="true" />
+      <created>1725619801233</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1725619801233</updated>
+    </task>
+    <task id="LOCAL-00004" summary="kieli virheitä korjaus">
+      <option name="closed" value="true" />
+      <created>1725620152801</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1725620152801</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="lisää sarakkeita tauluun" />
     <MESSAGE value="päivistys" />
-    <option name="LAST_COMMIT_MESSAGE" value="päivistys" />
+    <MESSAGE value="kieli virheitä korjaus" />
+    <option name="LAST_COMMIT_MESSAGE" value="kieli virheitä korjaus" />
   </component>
 </project>
