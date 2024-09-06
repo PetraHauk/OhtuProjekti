@@ -1299,327 +1299,280 @@ lentopeli|schema||user1|localhost|UPDATE|G</Grants>
       <LastIntrospectionLocalTimestamp>2024-09-05.20:01:16</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
-    <schema id="516" parent="1" name="information_schema">
+    <schema id="516" parent="1" name="hotelli_db">
+      <LastIntrospectionLocalTimestamp>2024-09-06.12:47:02</LastIntrospectionLocalTimestamp>
+      <CollationName>utf8mb4_general_ci</CollationName>
+    </schema>
+    <schema id="517" parent="1" name="information_schema">
       <CollationName>utf8mb3_general_ci</CollationName>
     </schema>
-    <schema id="517" parent="1" name="lentopeli">
+    <schema id="518" parent="1" name="lentopeli">
       <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
-    <schema id="518" parent="1" name="mysql">
+    <schema id="519" parent="1" name="mysql">
       <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
-    <schema id="519" parent="1" name="performance_schema">
+    <schema id="520" parent="1" name="performance_schema">
       <CollationName>utf8mb3_general_ci</CollationName>
     </schema>
-    <schema id="520" parent="1" name="sys">
+    <schema id="521" parent="1" name="sys">
       <CollationName>utf8mb3_general_ci</CollationName>
     </schema>
-    <schema id="521" parent="1" name="test">
+    <schema id="522" parent="1" name="test">
       <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
-    <schema id="522" parent="1" name="toinenDatabase">
+    <schema id="523" parent="1" name="toinenDatabase">
       <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
-    <user id="523" parent="1" name="PUBLIC">
+    <user id="524" parent="1" name="PUBLIC">
       <CanLogin>0</CanLogin>
     </user>
-    <user id="524" parent="1" name="appuser">
+    <user id="525" parent="1" name="appuser">
       <Host>localhost</Host>
     </user>
-    <user id="525" parent="1" name="mariadb.sys">
+    <user id="526" parent="1" name="mariadb.sys">
       <Host>localhost</Host>
     </user>
-    <user id="526" parent="1" name="root">
+    <user id="527" parent="1" name="root">
       <Host>localhost</Host>
     </user>
-    <user id="527" parent="1" name="user1">
+    <user id="528" parent="1" name="user1">
       <Host>localhost</Host>
     </user>
-    <user id="528" parent="1" name="user">
+    <user id="529" parent="1" name="user">
       <Host>localhost</Host>
     </user>
-    <user id="529" parent="1" name="useranna">
+    <user id="530" parent="1" name="useranna">
       <Host>localhost</Host>
     </user>
-    <table id="530" parent="515" name="asiakas">
+    <table id="531" parent="516" name="asiakas">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="531" parent="515" name="hoteli">
+    <table id="532" parent="516" name="hotelli">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="532" parent="515" name="huone">
+    <table id="533" parent="516" name="huone">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="533" parent="515" name="huone_varaus">
+    <table id="534" parent="516" name="kayttaja">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="534" parent="515" name="kayttaja">
+    <table id="535" parent="516" name="lasku">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="535" parent="515" name="lasku">
-      <Engine>InnoDB</Engine>
-      <CollationName>utf8mb4_general_ci</CollationName>
-    </table>
-    <column id="536" parent="530" name="asiakas_id">
+    <column id="536" parent="531" name="asiakas_id">
+      <AutoIncrement>1</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int(11)|0s</StoredType>
     </column>
-    <column id="537" parent="530" name="etunimi">
+    <column id="537" parent="531" name="etunimi">
+      <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>varchar(100)|0s</StoredType>
     </column>
-    <column id="538" parent="530" name="sukunimi">
+    <column id="538" parent="531" name="sukunimi">
+      <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>varchar(100)|0s</StoredType>
     </column>
-    <column id="539" parent="530" name="sposti">
+    <column id="539" parent="531" name="sposti">
+      <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>varchar(100)|0s</StoredType>
     </column>
-    <column id="540" parent="530" name="puh">
+    <column id="540" parent="531" name="puh">
       <Position>5</Position>
       <StoredType>varchar(20)|0s</StoredType>
     </column>
-    <column id="541" parent="530" name="henkilo_maara">
+    <column id="541" parent="531" name="henkilo_maara">
       <Position>6</Position>
-      <StoredType>int(11)|0s</StoredType>
+      <StoredType>int(5)|0s</StoredType>
     </column>
-    <column id="542" parent="530" name="lasku_id">
+    <column id="542" parent="531" name="huomio">
       <Position>7</Position>
+      <StoredType>varchar(500)|0s</StoredType>
+    </column>
+    <column id="543" parent="531" name="lasku_id">
+      <Position>8</Position>
       <StoredType>int(11)|0s</StoredType>
     </column>
-    <foreign-key id="543" parent="530" name="asiakas_ibfk_1">
+    <foreign-key id="544" parent="531" name="asiakas_ibfk_1">
       <ColNames>lasku_id</ColNames>
       <RefColNames>lasku_id</RefColNames>
       <RefTableName>lasku</RefTableName>
     </foreign-key>
-    <index id="544" parent="530" name="PRIMARY">
+    <index id="545" parent="531" name="PRIMARY">
       <ColNames>asiakas_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="545" parent="530" name="lasku_id">
+    <index id="546" parent="531" name="lasku_id">
       <ColNames>lasku_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="546" parent="530" name="PRIMARY">
+    <key id="547" parent="531" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="547" parent="531" name="hoteli_id">
-      <AutoIncrement>2</AutoIncrement>
+    <column id="548" parent="532" name="hotelli_id">
+      <AutoIncrement>1</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int(11)|0s</StoredType>
     </column>
-    <column id="548" parent="531" name="kaupunki">
+    <column id="549" parent="532" name="kaupunki">
       <Position>2</Position>
       <StoredType>varchar(100)|0s</StoredType>
     </column>
-    <column id="549" parent="531" name="nimi">
+    <column id="550" parent="532" name="nimi">
       <Position>3</Position>
       <StoredType>varchar(100)|0s</StoredType>
     </column>
-    <column id="550" parent="531" name="osoite">
+    <column id="551" parent="532" name="osoite">
       <Position>4</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="551" parent="531" name="puh">
+    <column id="552" parent="532" name="puh">
       <Position>5</Position>
       <StoredType>varchar(20)|0s</StoredType>
     </column>
-    <column id="552" parent="531" name="maa">
+    <column id="553" parent="532" name="maa">
       <Position>6</Position>
       <StoredType>varchar(50)|0s</StoredType>
     </column>
-    <index id="553" parent="531" name="PRIMARY">
-      <ColNames>hoteli_id</ColNames>
+    <index id="554" parent="532" name="PRIMARY">
+      <ColNames>hotelli_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="554" parent="531" name="PRIMARY">
+    <key id="555" parent="532" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="555" parent="532" name="huone_id">
+    <column id="556" parent="533" name="huone_id">
       <AutoIncrement>1</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int(11)|0s</StoredType>
     </column>
-    <column id="556" parent="532" name="huone_nro">
+    <column id="557" parent="533" name="huone_nro">
+      <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>int(11)|0s</StoredType>
     </column>
-    <column id="557" parent="532" name="huone_tyyppi">
+    <column id="558" parent="533" name="huone_tyyppi">
       <Position>3</Position>
       <StoredType>varchar(50)|0s</StoredType>
     </column>
-    <column id="558" parent="532" name="huone_tila">
+    <column id="559" parent="533" name="huone_tila">
       <Position>4</Position>
       <StoredType>varchar(50)|0s</StoredType>
     </column>
-    <column id="559" parent="532" name="huone_hinta">
+    <column id="560" parent="533" name="huone_hinta">
+      <NotNull>1</NotNull>
       <Position>5</Position>
       <StoredType>decimal(10,2 digit)|0s</StoredType>
     </column>
-    <column id="560" parent="532" name="hoteli_id">
+    <column id="561" parent="533" name="hotelli_id">
       <Position>6</Position>
       <StoredType>int(11)|0s</StoredType>
     </column>
-    <foreign-key id="561" parent="532" name="huone_ibfk_1">
-      <ColNames>hoteli_id</ColNames>
-      <OnDelete>cascade</OnDelete>
-      <OnUpdate>cascade</OnUpdate>
-      <RefColNames>hoteli_id</RefColNames>
-      <RefTableName>hoteli</RefTableName>
+    <foreign-key id="562" parent="533" name="huone_ibfk_1">
+      <ColNames>hotelli_id</ColNames>
+      <RefColNames>hotelli_id</RefColNames>
+      <RefTableName>hotelli</RefTableName>
     </foreign-key>
-    <index id="562" parent="532" name="PRIMARY">
+    <index id="563" parent="533" name="PRIMARY">
       <ColNames>huone_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="563" parent="532" name="huone_ibfk_1">
-      <ColNames>hoteli_id</ColNames>
+    <index id="564" parent="533" name="hotelli_id">
+      <ColNames>hotelli_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="564" parent="532" name="PRIMARY">
+    <key id="565" parent="533" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="565" parent="533" name="varaus_id">
+    <column id="566" parent="534" name="kayttaja_id">
       <AutoIncrement>1</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int(11)|0s</StoredType>
     </column>
-    <column id="566" parent="533" name="huone_maara">
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-      <StoredType>int(11)|0s</StoredType>
-    </column>
-    <column id="567" parent="533" name="alku_pvm">
-      <NotNull>1</NotNull>
-      <Position>3</Position>
-      <StoredType>date|0s</StoredType>
-    </column>
-    <column id="568" parent="533" name="loppu_pvm">
-      <NotNull>1</NotNull>
-      <Position>4</Position>
-      <StoredType>date|0s</StoredType>
-    </column>
-    <column id="569" parent="533" name="huone_id">
-      <Position>5</Position>
-      <StoredType>int(11)|0s</StoredType>
-    </column>
-    <column id="570" parent="533" name="lasku_id">
-      <Position>6</Position>
-      <StoredType>int(11)|0s</StoredType>
-    </column>
-    <foreign-key id="571" parent="533" name="huone_varaus_ibfk_1">
-      <ColNames>huone_id</ColNames>
-      <RefColNames>huone_id</RefColNames>
-      <RefTableName>huone</RefTableName>
-    </foreign-key>
-    <foreign-key id="572" parent="533" name="huone_varaus_ibfk_2">
-      <ColNames>lasku_id</ColNames>
-      <RefColNames>lasku_id</RefColNames>
-      <RefTableName>lasku</RefTableName>
-    </foreign-key>
-    <index id="573" parent="533" name="PRIMARY">
-      <ColNames>varaus_id</ColNames>
-      <Type>btree</Type>
-      <Unique>1</Unique>
-    </index>
-    <index id="574" parent="533" name="huone_id">
-      <ColNames>huone_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <index id="575" parent="533" name="lasku_id">
-      <ColNames>lasku_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="576" parent="533" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
-    </key>
-    <column id="577" parent="534" name="kayttaja_id">
-      <AutoIncrement>2</AutoIncrement>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-      <StoredType>int(11)|0s</StoredType>
-    </column>
-    <column id="578" parent="534" name="etunimi">
-      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    <column id="567" parent="534" name="etunimi">
       <Position>2</Position>
       <StoredType>varchar(100)|0s</StoredType>
     </column>
-    <column id="579" parent="534" name="sukunimi">
-      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    <column id="568" parent="534" name="sukunimi">
       <Position>3</Position>
       <StoredType>varchar(100)|0s</StoredType>
     </column>
-    <column id="580" parent="534" name="sposti">
-      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    <column id="569" parent="534" name="sposti">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>varchar(100)|0s</StoredType>
     </column>
-    <column id="581" parent="534" name="puh">
+    <column id="570" parent="534" name="puh">
       <Position>5</Position>
       <StoredType>varchar(20)|0s</StoredType>
     </column>
-    <column id="582" parent="534" name="rooli">
-      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    <column id="571" parent="534" name="rooli">
       <NotNull>1</NotNull>
       <Position>6</Position>
       <StoredType>varchar(50)|0s</StoredType>
     </column>
-    <column id="583" parent="534" name="salasana">
-      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    <column id="572" parent="534" name="salasana">
       <NotNull>1</NotNull>
       <Position>7</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <index id="584" parent="534" name="PRIMARY">
+    <index id="573" parent="534" name="PRIMARY">
       <ColNames>kayttaja_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="585" parent="534" name="PRIMARY">
+    <key id="574" parent="534" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="586" parent="535" name="lasku_id">
+    <column id="575" parent="535" name="lasku_id">
+      <AutoIncrement>1</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int(11)|0s</StoredType>
     </column>
-    <column id="587" parent="535" name="maksu_status">
+    <column id="576" parent="535" name="maksu_status">
+      <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>varchar(50)|0s</StoredType>
     </column>
-    <column id="588" parent="535" name="varaus_muoto">
+    <column id="577" parent="535" name="varaus_muoto">
+      <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>varchar(50)|0s</StoredType>
     </column>
-    <index id="589" parent="535" name="PRIMARY">
+    <column id="578" parent="535" name="valuutta">
+      <Position>4</Position>
+      <StoredType>varchar(20)|0s</StoredType>
+    </column>
+    <index id="579" parent="535" name="PRIMARY">
       <ColNames>lasku_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="590" parent="535" name="PRIMARY">
+    <key id="580" parent="535" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>

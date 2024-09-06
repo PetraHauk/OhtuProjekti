@@ -86,10 +86,6 @@ public class Kayttaja {
         return rooli;
     }
 
-    public void setRooli(String rooli) {
-        this.rooli = rooli;
-    }
-
     public String getSalasana() {
         return salasana;
     }

@@ -13,7 +13,7 @@
         <introspection-scope>
           <node kind="schema">
             <name qname="@" />
-            <name qname="hoteli_db" />
+            <name qname="hotelli_db" />
           </node>
         </introspection-scope>
       </schema-mapping>
