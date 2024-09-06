@@ -59,9 +59,3 @@ CREATE TABLE asiakas (
     lasku_id INT,
     FOREIGN KEY (lasku_id) REFERENCES lasku(lasku_id)
 );
-
-
-
-
-
-

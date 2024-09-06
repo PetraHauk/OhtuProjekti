@@ -1,5 +1,6 @@
 package model.datasourse;
 
+
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -24,6 +25,8 @@ public class MariaDbConnection {
 
 /*
 
+
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -36,7 +39,9 @@ public class MariaDbConnection {
         try {
             if (conn == null || conn.isClosed()) {
                 conn = DriverManager.getConnection(
+
                         "jdbc:mariadb://localhost:3306/hoteli_db?user=root&password=" + System.getenv("root"));
+
             }
             return conn;
         } catch (SQLException e) {
