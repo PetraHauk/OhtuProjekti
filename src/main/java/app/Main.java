@@ -10,7 +10,7 @@ public class Main {
         KayttajaHaku kayttajaHaku = new KayttajaHaku();
         kayttajaHaku.start();
 
-        //HoteliHaku hotelliHaku = new HoteliHaku();
+        //HotelliHaku hotelliHaku = new HotelliHaku();
         //hotelliHaku.start();
     }
 }
