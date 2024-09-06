@@ -14,7 +14,7 @@ public class MariaDbConnection {
 
         if (em==null) {
             if (emf==null) {
-                emf = Persistence.createEntityManagerFactory("hoteli_db");
+                emf = Persistence.createEntityManagerFactory("hotelli_db");
             }
             em = emf.createEntityManager();
         }
