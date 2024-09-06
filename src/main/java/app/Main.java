@@ -7,7 +7,18 @@ import model.enteties.Varaus;
 import java.util.List;
 
 public class Main {
+
+    @Override
+    public void start(Stage stage) throws Exception {
+        System.out.println(getClass());
+        Parent root = FXMLLoader.load(getClass().getResource("/view/login.fxml"));
+        stage.setTitle("User Login");
+        stage.setScene(new Scene(root, 800, 500));
+        stage.show();
+    }
     public static void main(String[] args) {
+
+        launch(args);
 
         List<Asiakas> users = MockData.getMockUsers();
         List<Huone> rooms = MockData.getMockRooms();
