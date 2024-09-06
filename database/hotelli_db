@@ -1,9 +1,9 @@
-CREATE DATABASE hoteli_db;
-USE hoteli_db;
+CREATE DATABASE hotelli_db;
+USE hotelli_db;
 
 
-CREATE TABLE hoteli (
-    hoteli_id INT PRIMARY KEY,
+CREATE TABLE hotelli (
+    hotelli_id INT PRIMARY KEY AUTO_INCREMENT,
     kaupunki VARCHAR(100),
     nimi VARCHAR(100),
     osoite VARCHAR(255),
@@ -12,7 +12,7 @@ CREATE TABLE hoteli (
 );
 
 CREATE TABLE kayttaja (
-    kayttaja_id INT PRIMARY KEY,
+    kayttaja_id INT PRIMARY KEY AUTO_INCREMENT,
     etunimi VARCHAR(100),
     sukunimi VARCHAR(100),
     sposti VARCHAR(100) NOT NULL,
@@ -22,18 +22,18 @@ CREATE TABLE kayttaja (
 );
 
 CREATE TABLE huone (
-    huone_id INT PRIMARY KEY,
+    huone_id INT PRIMARY KEY AUTO_INCREMENT,
     huone_nro INT NOT NULL,
     huone_tyyppi VARCHAR(50),
     huone_tila VARCHAR(50),
     huone_hinta DECIMAL(10, 2) NOT NULL,
-    hoteli_id INT,
-    FOREIGN KEY (hoteli_id) REFERENCES hoteli(hoteli_id)
+    hotelli_id INT,
+    FOREIGN KEY (hotelli_id) REFERENCES hotelli(hotelli_id)
 );
 
 
 CREATE TABLE huone_varaus (
-    varaus_id INT PRIMARY KEY,
+    varaus_id INT PRIMARY KEY AUTO_INCREMENT,
     huone_maara INT NOT NULL,
     alku_pvm DATE NOT NULL,
     loppu_pvm DATE NOT NULL,
@@ -44,18 +44,20 @@ CREATE TABLE huone_varaus (
 );
 
 CREATE TABLE lasku (
-    lasku_id INT PRIMARY KEY,
+    lasku_id INT PRIMARY KEY AUTO_INCREMENT,
     maksu_status VARCHAR(50) NOT NULL,
-    varaus_muoto VARCHAR(50) NOT NULL
+    varaus_muoto VARCHAR(50) NOT NULL,
+    valuutta VARCHAR(20)
 );
 
 CREATE TABLE asiakas (
-    asiakas_id INT PRIMARY KEY,
+    asiakas_id INT PRIMARY KEY AUTO_INCREMENT,
     etunimi VARCHAR(100) NOT NULL,
     sukunimi VARCHAR(100) NOT NULL,
     sposti VARCHAR(100) NOT NULL,
     puh VARCHAR(20),
     henkilo_maara INT(5),
+    huomio VARCHAR(500),
     lasku_id INT,
     FOREIGN KEY (lasku_id) REFERENCES lasku(lasku_id)
 );

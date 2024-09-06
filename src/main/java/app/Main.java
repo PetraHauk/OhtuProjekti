@@ -1,24 +1,25 @@
 package app;
 
-import model.enteties.Asiakas;
-import model.enteties.Huone;
-import model.enteties.Varaus;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 
-import java.util.List;
 
 public class Main {
 
-    @Override
-    public void start(Stage stage) throws Exception {
-        System.out.println(getClass());
-        Parent root = FXMLLoader.load(getClass().getResource("/view/login.fxml"));
-        stage.setTitle("User Login");
-        stage.setScene(new Scene(root, 800, 500));
-        stage.show();
-    }
     public static void main(String[] args) {
+        KayttajaHaku kayttajaHaku = new KayttajaHaku();
+        kayttajaHaku.start();
 
-        launch(args);
+        //HoteliHaku hotelliHaku = new HoteliHaku();
+        //hotelliHaku.start();
+    }
+}
+
+
+
+/*
+public class Main {
+    public static void main(String[] args) {
 
         List<Asiakas> users = MockData.getMockUsers();
         List<Huone> rooms = MockData.getMockRooms();
@@ -43,4 +44,7 @@ public class Main {
                     " | " + reservation.getHuone().getTila());
         }
     }
-}
+
+ */
+
+

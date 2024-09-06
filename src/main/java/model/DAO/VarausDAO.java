@@ -6,7 +6,7 @@ import model.enteties.Varaus;
 
 public class VarausDAO {
     public void persist(Varaus varaus) {
-        EntityManager em = MariaDbConnection.terminate();
+        EntityManager em = MariaDbConnection.getInstance();
         em.getTransaction().begin();
         em.persist(varaus);
         em.getTransaction().commit();
