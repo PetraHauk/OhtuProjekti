@@ -30,7 +30,6 @@ public class HuoneController {
         System.out.println("Huone lisätty onnistuneesti hotelliin ID:llä " + hotelli_id);
     }
 
-
     public void findHuoneById(int id) {
         huoneDAO.findById(id);
     }

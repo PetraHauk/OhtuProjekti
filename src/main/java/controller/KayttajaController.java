@@ -3,18 +3,14 @@ package controller;
 import model.DAO.KayttajaDAO;
 import model.enteties.Kayttaja;
 import org.mindrot.jbcrypt.BCrypt;
-//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 public class KayttajaController {
     private KayttajaDAO kayttajaDAO;
-    // Use BCrypt to hash passwords
-
 
     public KayttajaController() {
         kayttajaDAO = new KayttajaDAO();
     }
 
-    // Method to add a new user
     public void lisaaKayttaja(String etunimi, String sukunimi, String sposti, String puh, String rooli, String salasana) {
         // Hash the password using BCrypt
         String hashattuSalasana = BCrypt.hashpw(salasana, BCrypt.gensalt());
@@ -23,7 +19,6 @@ public class KayttajaController {
         kayttajaDAO.persist(kayttaja);
     }
 
-    // Method to find a user by ID
     public Kayttaja haeKayttajaById(int id) {
         return kayttajaDAO.findById(id);
     }
@@ -32,18 +27,14 @@ public class KayttajaController {
         return kayttajaDAO.findPasswordByEmail(sposti);
     }
 
-    // Method to update a user by ID
-    public void paivitaKayttaja(int id, String sposti) {
+    public void paivitaSpostiById(int id, String sposti) {
         kayttajaDAO.updateEmailById(id, sposti);
     }
 
-
-    // Method to change a user's password by email
     public void vaihdaSalasanaPostilla(String sposti, String newPassword) {
         kayttajaDAO.changePasswordByEmail(sposti, newPassword);
     }
 
-    // Method to delete a user by ID
     public void poistaKayttaja(int id) {
         kayttajaDAO.removeById(id);
     }

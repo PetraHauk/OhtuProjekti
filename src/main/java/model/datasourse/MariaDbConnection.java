@@ -8,13 +8,10 @@ import jakarta.persistence.Persistence;
 public class MariaDbConnection {
 
     private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("hotelli_db");
-   // private static EntityManager em = null;
 
     public static EntityManager getInstance() {
         return emf.createEntityManager();  // Luo uusi EntityManager jokaiselle operaatiolle
     }
-
-
 }
 
 

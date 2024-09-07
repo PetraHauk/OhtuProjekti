@@ -42,7 +42,6 @@ public class HuoneHaku {
                     int hotelli_id = scanner.nextInt();
                     scanner.nextLine();
 
-
                     controller.lisaaHuone(huone_nro, huone_tyyppi, huone_tila, huone_hinta, hotelli_id);
                     System.out.println("Huone lisätty onnistuneesti!");
                     break;

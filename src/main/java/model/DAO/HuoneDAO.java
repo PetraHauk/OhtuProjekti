@@ -11,15 +11,12 @@ public class HuoneDAO {
         EntityManager em = MariaDbConnection.getInstance();;
         em.getTransaction().begin();
         try {
-
             if (!em.isOpen()) {
                 throw new IllegalStateException("EntityManager is closed!");
             }
-
             em.persist(huone);  // Tallenna huone tietokantaan
             em.getTransaction().commit();  // Suorita commit onnistuneesti
             System.out.println("Huone lisätty onnistuneesti!");
-
         } catch (Exception e) {
             if (em != null && em.getTransaction().isActive()) {
                 em.getTransaction().rollback();  // Jos virhe, rollback
@@ -82,7 +79,6 @@ public class HuoneDAO {
             }
         }
     }
-
 
     public void updateTilaById(int id, String huone_tila) {
         EntityManager em = MariaDbConnection.getInstance();

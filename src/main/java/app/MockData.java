@@ -7,6 +7,7 @@ import model.enteties.Varaus;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
 public class MockData {
     public static List<Asiakas> getMockUsers() {
         List<Asiakas> users = new ArrayList<>();
@@ -31,3 +32,7 @@ public class MockData {
 
 }
 }
+
+
+
+ */

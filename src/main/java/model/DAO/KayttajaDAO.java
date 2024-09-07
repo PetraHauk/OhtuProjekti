@@ -75,9 +75,6 @@ public class KayttajaDAO {
         }
     }
 
-
-
-
     public Kayttaja changePasswordByEmail(String sposti, String newPassword) {
         EntityManager em = MariaDbConnection.getInstance();
         String hashattuSalasana = BCrypt.hashpw(newPassword, BCrypt.gensalt());
@@ -114,11 +111,6 @@ public class KayttajaDAO {
 
         return kayttaja; // Palautetaan käyttäjä, jos löytyi ja salasana vaihdettiin
     }
-
-
-
-
-
 
     public Kayttaja removeById(int id) {
         EntityManager em = MariaDbConnection.getInstance();
