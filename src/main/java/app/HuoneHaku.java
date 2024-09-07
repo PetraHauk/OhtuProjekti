@@ -26,6 +26,83 @@ public class HuoneHaku {
             int valinta = scanner.nextInt();
             scanner.nextLine(); // Tyhjennä puskuri
 
+            switch (valinta) {
+                case 1:
+                    System.out.println("Anna huoneen numero:");
+                    int huone_nro = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.println("Anna huoneen tyyppi:");
+                    String huone_tyyppi = scanner.nextLine();
+                    System.out.println("Anna huoneen tila:");
+                    String huone_tila = scanner.nextLine();
+                    System.out.println("Anna huoneen hinta:");
+                    double huone_hinta = scanner.nextDouble();
+                    scanner.nextLine();
+                    System.out.println("Anna hotelli ID:");
+                    int hotelli_id = scanner.nextInt();
+                    scanner.nextLine();
+
+
+                    controller.lisaaHuone(huone_nro, huone_tyyppi, huone_tila, huone_hinta, hotelli_id);
+                    System.out.println("Huone lisätty onnistuneesti!");
+                    break;
+
+                case 2:
+                    System.out.println("Anna huoneen ID:");
+                    int idHaku = scanner.nextInt();
+                    scanner.nextLine();
+                    controller.findHuoneById(idHaku);
+
+                    break;
+
+                case 3:
+                    System.out.println("Anna huoneen tyyppi:");
+                    String tyyppiHaku = scanner.nextLine();
+                    controller.findHuoneByTyyppi(tyyppiHaku);
+                    break;
+
+                case 4:
+                    System.out.println("Anna huoneen tila:");
+                    String tilaHaku = scanner.nextLine();
+                    controller.findHuoneByTila(tilaHaku);
+                    break;
+
+                case 5:
+                    System.out.println("Anna huoneen ID:");
+                    int id = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.println("Anna uusi hinta:");
+                    double uusiHinta = scanner.nextDouble();
+                    scanner.nextLine();
+                    controller.updateHuoneHintaById(id, uusiHinta);
+                    break;
+
+                case 6:
+                    System.out.println("Anna huoneen ID:");
+                    int id2 = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.println("Anna uusi tila:");
+                    String uusiTila = scanner.nextLine();
+                    controller.updateHuoneTilaById(id2, uusiTila);
+                    break;
+
+                case 7:
+                    System.out.println("Anna poistettavan huoneen ID:");
+                    int id3 = scanner.nextInt();
+                    scanner.nextLine();
+                    controller.deleteHuone(id3);
+                    break;
+
+                case 8:
+                    System.out.println("Ohjelma lopetetaan.");
+                    return;
+            }
+        }
+    }
+
+
+            /*
+
             if (valinta == 8) {
                 break;
             } else if (valinta == 1) {
@@ -42,6 +119,7 @@ public class HuoneHaku {
                 System.out.println("Anna hotelli ID:");
                 int hotelli_id = scanner.nextInt();
                 scanner.nextLine();
+
                 controller.lisaaHuone(huone_nro, huone_tyyppi, huone_tila, huone_hinta, hotelli_id);
 
             } else if (valinta == 2) {
@@ -97,6 +175,8 @@ public class HuoneHaku {
             }
         }
     }
+
+             */
 
     public void printHuone(Huone huone) {
         System.out.println("Huoneen numero: " + huone.getHuone_nro());

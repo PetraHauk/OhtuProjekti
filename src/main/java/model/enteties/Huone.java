@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 public class Huone {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Tämä mahdollistaa automaattisen ID:n generoinnin
     private int huone_id;
 
     @Column(name = "huone_nro")
@@ -25,8 +25,7 @@ public class Huone {
     private int hotelli_id;
 
 
-    public Huone(int huone_id, String huone_tyyppi, String huone_tila, double huone_hinta, int hotelli_id) {
-        this.huone_id = huone_id;
+    public Huone(int huone_nro, String huone_tyyppi, String huone_tila, double huone_hinta, int hotelli_id) {
         this.huone_nro = huone_nro;
         this.huone_tyyppi = huone_tyyppi;
         this.huone_tila = huone_tila;
@@ -34,7 +33,11 @@ public class Huone {
         this.hotelli_id = hotelli_id;
     }
 
-    public Huone(int i, int huone_nro, String huone_tyyppi, String huone_tila, double huone_hinta, int hotelli_id) {
+    public Huone(int huone_id, int huone_nro, String huone_tyyppi, String huone_tila, double huone_hinta, int hotelli_id) {
+    }
+
+    public Huone() {
+
     }
 
     public int getHuone_id() {

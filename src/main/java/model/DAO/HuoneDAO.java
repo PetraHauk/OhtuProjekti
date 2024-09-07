@@ -2,23 +2,45 @@ package model.DAO;
 
 import jakarta.persistence.EntityManager;
 import model.datasourse.MariaDbConnection;
-import jakarta.persistence.NoResultException;
 import model.enteties.Huone;
+import java.util.List;
 
 public class HuoneDAO {
 
     public void persist(Huone huone) {
-        EntityManager em = MariaDbConnection.getInstance();
+        EntityManager em = MariaDbConnection.getInstance();;
         em.getTransaction().begin();
-        em.persist(huone);
-       System.out.println("Huone lisätty onnistuneesti!");
-        em.getTransaction().commit();
+        try {
+
+            if (!em.isOpen()) {
+                throw new IllegalStateException("EntityManager is closed!");
+            }
+
+            em.persist(huone);  // Tallenna huone tietokantaan
+            em.getTransaction().commit();  // Suorita commit onnistuneesti
+            System.out.println("Huone lisätty onnistuneesti!");
+
+        } catch (Exception e) {
+            if (em != null && em.getTransaction().isActive()) {
+                em.getTransaction().rollback();  // Jos virhe, rollback
+                System.out.println("Virhe tapahtui, rollback suoritettu.");
+            }
+            e.printStackTrace();  // Tulostetaan virhe debuggausta varten
+        } finally {
+            if (em != null && em.isOpen()) {
+                em.close();  // Suljetaan EntityManager
+            }
+        }
     }
 
-    public Huone findById(int id) {
+    // Other methods remain unchanged
+
+
+    public void findById(int id) {
         EntityManager em = MariaDbConnection.getInstance();
         try {
-            return em.find(Huone.class, id);
+            Huone huone = em.find(Huone.class, id);
+            printHuone(huone);
         } finally {
             if (em != null) {
                 em.close();
@@ -26,14 +48,17 @@ public class HuoneDAO {
         }
     }
 
-    public Huone findByHuoneTila(int huone_tila) {
+
+    public void findByHuoneTila(String huone_tila) {
         EntityManager em = MariaDbConnection.getInstance();
+        List<Huone> huoneet = null;
         try {
-            return em.createQuery("SELECT h FROM Huone h WHERE h.huone_id = :huone_id", Huone.class)
-                    .setParameter("huone_id", huone_tila)
-                    .getSingleResult();
-        } catch (NoResultException e) {
-            return null;
+            huoneet = em.createQuery("SELECT h FROM Huone h WHERE h.huone_tila = :huone_tila", Huone.class)
+                    .setParameter("huone_tila", huone_tila)
+                    .getResultList();
+            for (Huone huone : huoneet) {
+                printHuone(huone);
+            }
         } finally {
             if (em != null) {
                 em.close();
@@ -41,20 +66,23 @@ public class HuoneDAO {
         }
     }
 
-    public Huone FindByTyyppi(String huone_tyyppi) {
+    public void findByTyyppi(String huone_tyyppi) {
         EntityManager em = MariaDbConnection.getInstance();
+        List<Huone> huoneet = null;
         try {
-            return em.createQuery("SELECT h FROM Huone h WHERE h.huone_tyyppi = :huone_tyyppi", Huone.class)
+            huoneet = em.createQuery("SELECT h FROM Huone h WHERE h.huone_tyyppi = :huone_tyyppi", Huone.class)
                     .setParameter("huone_tyyppi", huone_tyyppi)
-                    .getSingleResult();
-        } catch (NoResultException e) {
-            return null;
+                    .getResultList();
+            for (Huone huone : huoneet) {
+                printHuone(huone);
+            }
         } finally {
             if (em != null) {
-                em.close();
+                em.close();  // Sulje EntityManager
             }
         }
     }
+
 
     public void updateTilaById(int id, String huone_tila) {
         EntityManager em = MariaDbConnection.getInstance();
@@ -103,6 +131,14 @@ public class HuoneDAO {
             }
         }
     }
-
+    public void printHuone(Huone huone) {
+        System.out.println("Huoneen numero: " + huone.getHuone_nro());
+        System.out.println("Huoneen tyyppi: " + huone.getHuone_tyyppi());
+        System.out.println("Huoneen tila: " + huone.getHuone_tila());
+        System.out.println("Huoneen hinta: " + huone.getHuone_hinta());
+        System.out.println("Hotelli ID: " + huone.getHotelli_id());
+    }
 
 }
+
+

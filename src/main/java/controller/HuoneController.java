@@ -6,37 +6,41 @@ import model.enteties.Hotelli;
 import model.DAO.HotelliDAO;
 
 public class HuoneController {
-   private HuoneDAO huoneDAO;
-   private HotelliDAO hotelliDAO;
+    private HuoneDAO huoneDAO;
+    private HotelliDAO hotelliDAO;
 
-   public HuoneController() {
-       huoneDAO = new HuoneDAO();
-         hotelliDAO = new HotelliDAO();
+    public HuoneController() {
+        huoneDAO = new HuoneDAO();
+        hotelliDAO = new HotelliDAO();
 
-   }
+    }
 
     public void lisaaHuone(int huone_nro, String huone_tyyppi, String huone_tila, double huone_hinta, int hotelli_id) {
 
+        // Tarkista, onko hotelli olemassa
         Hotelli hotelli = hotelliDAO.findById(hotelli_id);
-        if (hotelli != null) {
-            Huone huone = new Huone(0, huone_nro, huone_tyyppi, huone_tila, huone_hinta, hotelli_id);
-            huoneDAO.persist(huone);
-        } else {
-            throw new IllegalArgumentException("Hotelli ID " + hotelli_id + " ei löytyy");
+        if (hotelli == null) {
+            System.out.println("Hotellia ei löytynyt ID:llä " + hotelli_id);
+            return; // Lopetetaan toiminto, jos hotellia ei löydy
         }
+
+        // Jos hotelli löytyy, lisätään huone
+        Huone huone = new Huone(0, huone_nro, huone_tyyppi, huone_tila, huone_hinta, hotelli_id);
+        huoneDAO.persist(huone);
+        System.out.println("Huone lisätty onnistuneesti hotelliin ID:llä " + hotelli_id);
     }
 
 
-    public Huone findHuoneById(int id) {
-         return huoneDAO.findById(id);
+    public void findHuoneById(int id) {
+        huoneDAO.findById(id);
     }
 
-    public Huone findHuoneByTila(String tila) {
-        return huoneDAO.findByHuoneTila(Integer.parseInt(tila));
+    public void findHuoneByTila(String huone_tila) {
+      huoneDAO.findByHuoneTila(huone_tila);
     }
 
-    public Huone findHuoneByTyyppi(String huone_tyyppi) {
-        return huoneDAO.FindByTyyppi(huone_tyyppi);
+    public void findHuoneByTyyppi(String huone_tyyppi) {
+        huoneDAO.findByTyyppi(huone_tyyppi);
     }
 
     public void updateHuoneTilaById(int id, String huone_tila) {
