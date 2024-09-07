@@ -7,11 +7,14 @@ import javafx.fxml.FXMLLoader;
 public class Main {
 
     public static void main(String[] args) {
-        KayttajaHaku kayttajaHaku = new KayttajaHaku();
-        kayttajaHaku.start();
+       // KayttajaHaku kayttajaHaku = new KayttajaHaku();
+        //kayttajaHaku.start();
 
         //HotelliHaku hotelliHaku = new HotelliHaku();
         //hotelliHaku.start();
+
+        HuoneHaku huoneHaku = new HuoneHaku();
+        huoneHaku.start();
     }
 }
 
