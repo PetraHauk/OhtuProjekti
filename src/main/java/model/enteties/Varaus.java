@@ -1,15 +1,17 @@
 package model.enteties;
 
+import java.time.LocalDate;
+
 public class Varaus {
 
     private static int varausIdCounter = 1;
     private Huone huone;
     private Asiakas asiakas;
-    private String alkuPvm;
-    private String loppuPvm;
+    private LocalDate alkuPvm;
+    private LocalDate loppuPvm;
 
 
-    public Varaus(Huone huone, Asiakas asiakas, String alkuPvm, String loppuPvm) {
+    public Varaus(Huone huone, Asiakas asiakas, LocalDate alkuPvm, LocalDate loppuPvm) {
         varausIdCounter++;
         this.huone = huone;
         this.asiakas = asiakas;
@@ -25,11 +27,23 @@ public class Varaus {
         return asiakas;
     }
 
-    public String getAlkuPvm() {
+    public LocalDate getAlkuPvm() {
         return alkuPvm;
     }
 
-    public String getLoppuPvm() {
+    public LocalDate getLoppuPvm() {
         return loppuPvm;
+    }
+
+    public void setHuone(Huone huone) {
+        this.huone = huone;
+    }
+
+    public void setAlkuPvm(LocalDate alkuPvm) {
+        this.alkuPvm = alkuPvm;
+    }
+
+    public void setLoppuPvm(LocalDate loppuPvm) {
+        this.loppuPvm = loppuPvm;
     }
 }

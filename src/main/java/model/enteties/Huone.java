@@ -13,7 +13,7 @@ public class Huone {
         this.numero = numero;
         this.hinta = hinta;
         this.huoneenTyyppi = huoneenTyyppi;
-        this.tila = updateVaraus();
+        this.tila = "Vapaa";
     }
 
     public double getHinta() {
@@ -32,12 +32,19 @@ public class Huone {
         return tila;
     }
 
-    public String updateVaraus() {
-        if (this.tila == null) {
-            return "Vapaa";
-        } else {
-            return "Varattu";
-        }
+    public void setHinta(double hinta) {
+        this.hinta = hinta;
     }
 
+    public void setHuoneNro(int numero) {
+        this.numero = numero;
+    }
+
+    public void setHuoneenTyyppi(String huoneenTyyppi) {
+        this.huoneenTyyppi = huoneenTyyppi;
+    }
+
+    public void setTila(String tila) {
+        this.tila = tila;
+    }
 }
