@@ -49,6 +49,7 @@ public class KayttajaHaku {
                     System.out.println("Anna käyttäjän ID:");
                     int idHaku = scanner.nextInt();
                     Kayttaja kayttaja = controller.haeKayttajaById(idHaku);
+
                     if (kayttaja != null) {
                         System.out.println("Käyttäjä löytyi:");
                         System.out.println("Etunimi: " + kayttaja.getEtunimi());
@@ -60,6 +61,8 @@ public class KayttajaHaku {
                     } else {
                         System.out.println("Käyttäjää ei löytynyt ID:llä " + idHaku);
                     }
+
+
                     break;
 
                 case 3:
@@ -69,7 +72,7 @@ public class KayttajaHaku {
 
                     System.out.println("Anna uusi sähköposti:");
                     String uusiSposti = scanner.nextLine();
-                    controller.paivitaKayttaja(idPaivitys, uusiSposti);
+                    controller.paivitaSpostiById(idPaivitys, uusiSposti);
                     break;
                 case 4:
                     System.out.println("Anna sähköposti vaihtaaksesi salasana:");

@@ -3,12 +3,10 @@ package model.enteties;
 public class Asiakas {
 
     private static int asiakasIdCounter = 1;
-
     private String etunimi;
     private String sukunimi;
     private String puhelin;
     private String email;
-
 
     public Asiakas(String etunimi, String sukunimi, String puhelin, String email) {
         asiakasIdCounter++;

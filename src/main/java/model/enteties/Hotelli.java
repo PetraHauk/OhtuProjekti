@@ -1,5 +1,4 @@
 package model.enteties;
-
 import jakarta.persistence.*;
 
 @Entity
@@ -8,7 +7,6 @@ public class Hotelli {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Tämä mahdollistaa automaattisen ID:n generoinnin
-    //@Column(name = "hotelli_id")
     private int hotelli_id;
 
     @Column(name = "nimi")

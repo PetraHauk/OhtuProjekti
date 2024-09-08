@@ -7,6 +7,7 @@ import model.enteties.Varaus;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
 public class MockData {
 
     private static List<Varaus> mockReservations = new ArrayList<>();
@@ -52,3 +53,7 @@ public class MockData {
         rooms.remove(huone);
     }
 }
+
+
+
+ */
