@@ -43,7 +43,7 @@ public class MainPetra {
         System.out.println("\nAvailable Rooms (before reservation):");
         List<Huone> availableRooms = controller.vapaatHuoneet(LocalDate.of(2024, 9, 10), LocalDate.of(2024, 9, 15));
         for (Huone availableRoom : availableRooms) {
-            System.out.println("Room " + availableRoom.getHuoneNro() + " (" + availableRoom.getHuoneenTyyppi() + ")");
+            System.out.println("Room " + availableRoom.getHuone_nro() + " (" + availableRoom.getHuone_tyyppi() + ")");
         }
 
         // Create a reservation
@@ -52,24 +52,25 @@ public class MainPetra {
         List<Varaus> reservations = MockData.getMockReservations();
         System.out.println("\nReservations:");
         for (Varaus varaus : reservations) {
-            System.out.println("Room: " + varaus.getHuone().getHuoneNro() + " | User: " + varaus.getAsiakas().getEtunimi() + " | Dates: " + varaus.getAlkuPvm() + " to " + varaus.getLoppuPvm());
+            System.out.println("Room: " + varaus.getHuone().getHuone_nro() + " | User: " + varaus.getAsiakas().getEtunimi() + " | Dates: " + varaus.getAlkuPvm() + " to " + varaus.getLoppuPvm());
         }
 
         controller.luoVaraus(room2, jane, LocalDate.of(2024, 9, 5), LocalDate.of(2024, 9, 10));
 
         System.out.println("\nReservations:");
         for (Varaus varaus : reservations) {
-            System.out.println("Room: " + varaus.getHuone().getHuoneNro() + " | User: " + varaus.getAsiakas().getEtunimi() + " | Dates: " + varaus.getAlkuPvm() + " to " + varaus.getLoppuPvm());
+            System.out.println("Room: " + varaus.getHuone().getHuone_nro() + " | User: " + varaus.getAsiakas().getEtunimi() + " | Dates: " + varaus.getAlkuPvm() + " to " + varaus.getLoppuPvm());
         }
 
+/*
         // Display available rooms after creating the reservation
         System.out.println("\nAvailable Rooms (after reservation):");
         availableRooms = controller.vapaatHuoneet(LocalDate.of(2024, 9, 10), LocalDate.of(2024, 9, 15));
         for (Huone availableRoom : availableRooms) {
-            System.out.println("Room " + availableRoom.getHuoneNro() + " (" + availableRoom.getHuoneenTyyppi() + ")");
+            System.out.println("Room " + availableRoom.getHuone_nro() + " (" + availableRoom.getHuone_tyyppi() + ")");
         }
 
-        /*
+
 
         // Cancel a reservation
         controller.peruVaraus(reservations.get(0));

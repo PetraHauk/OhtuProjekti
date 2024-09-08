@@ -28,6 +28,7 @@ public class VarausDAO {
         em.getTransaction().commit();
     }
 
+    /*
     public void updateVarausTilaById(int id, String varaus_status) {
         EntityManager em = MariaDbConnection.getInstance();
         em.getTransaction().begin();
@@ -37,4 +38,6 @@ public class VarausDAO {
         }
         em.getTransaction().commit();
     }
+
+     */
 }

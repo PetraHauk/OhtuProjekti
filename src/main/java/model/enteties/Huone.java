@@ -37,10 +37,11 @@ public class Huone {
     }
 
     public Huone(int numero, double hinta, String huoneenTyyppi) {
-        this.numero = numero;
-        this.hinta = hinta;
-        this.huoneenTyyppi = huoneenTyyppi;
-        this.tila = "Vapaa";
+        this.huone_nro = numero;
+        this.huone_hinta = hinta;
+        this.huone_tyyppi = huoneenTyyppi;
+        this.huone_tyyppi = "Vapaa";
+        this.hotelli_id = hotelli_id;
     }
 
     public int getHuone_id() {
@@ -74,20 +75,5 @@ public class Huone {
     public void setHuone_hinta(double huone_hinta) {
         this.huone_hinta = huone_hinta;
     }
-
-/*
-    public String updateVaraus() {
-        if (this.huone_tila == null) {
-            return "Vapaa";
-        } else {
-            return "Varattu";
-        }
-    }
-
-    public void setHuoneenTyyppi(String huoneenTyyppi) {
-        this.huoneenTyyppi = huoneenTyyppi;
-    }
-
- */
 
 }

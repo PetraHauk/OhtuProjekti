@@ -26,7 +26,7 @@ public class VarausController {
 
         MockData.addReservation(varaus); // Lisätään varaus tietokantaan
 
-        huone.setTila("Varattu");
+        huone.setHuone_tila("Varattu");
 
         // Debug: Print confirmation of reservation
         // System.out.println("Reservation created for Room: " + huone.getHuoneNro() + " from " + alkuPvm + " to " + loppuPvm);
@@ -40,7 +40,7 @@ public class VarausController {
 
         MockData.getMockReservations().remove(varaus); // Poistetaan varaus tietokannasta
 
-        varaus.getHuone().setTila("Vapaa");
+        varaus.getHuone().setHuone_tila("Vapaa");
 
         // Debug: Print confirmation of cancellation
         // System.out.println("Reservation cancelled for Room: " + varaus.getHuone().getHuoneNro() + " from " + varaus.getAlkuPvm() + " to " + varaus.getLoppuPvm());
@@ -57,11 +57,11 @@ public class VarausController {
             return;
         }
 
-        varaus.getHuone().setTila("Vapaa");
+        varaus.getHuone().setHuone_tila("Vapaa");
         varaus.setHuone(uusiHuone);
         varaus.setAlkuPvm(alkuPvm);
         varaus.setLoppuPvm(loppuPvm);
-        varaus.getHuone().setTila("Varattu");
+        varaus.getHuone().setHuone_tila("Varattu");
     }
 
     public List<Huone> vapaatHuoneet(LocalDate alkuPvm, LocalDate loppuPvm) {
@@ -84,7 +84,7 @@ public class VarausController {
         if (varaukset != null) {
             for (Varaus varaus : varaukset) {
                 if (alkuPvm.isBefore(varaus.getLoppuPvm()) && loppuPvm.isAfter(varaus.getAlkuPvm().minusDays(1))){
-                    if (varaus.getHuone().getHuoneNro() == huone.getHuoneNro()) {
+                    if (varaus.getHuone().getHuone_nro() == huone.getHuone_nro()) {
                         return false;
                     }
                 }

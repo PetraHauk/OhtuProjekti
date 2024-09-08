@@ -2,7 +2,7 @@ package app;
 
 public class AnnaMain {
 
-    /*
+
     public static void main(String[] args) {
         KayttajaHaku kayttajaHaku = new KayttajaHaku();
         kayttajaHaku.start();
@@ -10,5 +10,5 @@ public class AnnaMain {
         //HotelliHaku hotelliHaku = new HotelliHaku();
         //hotelliHaku.start();
     }
- */
+
 }
