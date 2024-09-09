@@ -1,20 +1,20 @@
 package app;
 
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 
-
-public class Main {
+public class AnnaMain {
 
     public static void main(String[] args) {
-       // KayttajaHaku kayttajaHaku = new KayttajaHaku();
+       //KayttajaHaku kayttajaHaku = new KayttajaHaku();
         //kayttajaHaku.start();
 
         //HotelliHaku hotelliHaku = new HotelliHaku();
         //hotelliHaku.start();
 
-        HuoneHaku huoneHaku = new HuoneHaku();
-        huoneHaku.start();
+        //HuoneHaku huoneHaku = new HuoneHaku();
+        //huoneHaku.start();
+
+        VarausHaku varausHaku = new VarausHaku();
+        varausHaku.start();
     }
 }
 

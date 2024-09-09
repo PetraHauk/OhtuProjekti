@@ -31,7 +31,7 @@ public class HuoneController {
     }
 
     public void findHuoneById(int id) {
-        huoneDAO.findById(id);
+        huoneDAO.findByRoomId(id);
     }
 
     public void findHuoneByTila(String huone_tila) {

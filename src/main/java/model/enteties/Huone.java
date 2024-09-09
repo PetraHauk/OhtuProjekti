@@ -71,6 +71,8 @@ public class Huone {
     public void setHuone_hinta(double huone_hinta) {
         this.huone_hinta = huone_hinta;
     }
+}
+
 
 /*
     public String updateVaraus() {
@@ -83,4 +85,4 @@ public class Huone {
 
  */
 
-}
+

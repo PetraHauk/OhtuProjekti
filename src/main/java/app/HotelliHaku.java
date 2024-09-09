@@ -34,14 +34,14 @@ public class HotelliHaku {
                     System.out.println("Anna maa:");
                     String maa = scanner.nextLine();
 
-                    hotelli_controller.lisaaHotelli(nimi, osoite, kaupunki, puh, maa);
+                    hotelli_controller.addHotelli(nimi, osoite, kaupunki, puh, maa);
                     System.out.println("Hotelli lisätty onnistuneesti!");
                     break;
 
                 case 2:
                     System.out.println("Anna hotellin ID:");
                     int idHaku = scanner.nextInt();
-                    Hotelli hotelli = hotelli_controller.haeHotelliById(idHaku);
+                    Hotelli hotelli = hotelli_controller.findHotelliById(idHaku);
                     if (hotelli != null) {
                         System.out.println("Hotelli löytyi:");
                         System.out.println("Nimi: " + hotelli.getNimi());

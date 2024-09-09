@@ -4,20 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="065e434f-b050-4145-bce8-5768651a9a60" name="Changes" comment="päivistys">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/aa989b5b-8fef-408c-b7b9-47f367b75a5e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/aa989b5b-8fef-408c-b7b9-47f367b75a5e.xml" afterDir="false" />
+    <list default="true" id="065e434f-b050-4145-bce8-5768651a9a60" name="Changes" comment="koodin siistiminen">
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/VarausHaku.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/VarausController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/enteties/Lasku.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/KayttajaHaku.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/KayttajaHaku.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/MockData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/MockData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/KayttajaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/KayttajaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/KayttajaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/KayttajaDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/enteties/Hotelli.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enteties/Hotelli.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/HotelliHaku.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/HotelliHaku.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/AnnaMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/HotelliController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/HotelliController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/HuoneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/HuoneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/HuoneDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/HuoneDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/VarausDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/VarausDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/enteties/Huone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enteties/Huone.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/enteties/Varaus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enteties/Varaus.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/target/classes/app/KayttajaHaku.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/app/KayttajaHaku.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/app/Main.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/target/classes/app/MockData.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/target/classes/controller/KayttajaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/controller/KayttajaController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/HuoneDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/DAO/HuoneDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/KayttajaDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/DAO/KayttajaDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/VarausDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/DAO/VarausDAO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/target/classes/model/datasourse/MariaDbConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/datasourse/MariaDbConnection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/enteties/Asiakas.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/enteties/Asiakas.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/enteties/Varaus.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/enteties/Varaus.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +35,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -39,24 +48,24 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "annagaom"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;annagaom&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/PetraHauk/OhtuProjekti.git",
-    "accountId": "d12f10a6-d5cf-492d-aceb-5d1198a70491"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/PetraHauk/OhtuProjekti.git&quot;,
+    &quot;accountId&quot;: &quot;d12f10a6-d5cf-492d-aceb-5d1198a70491&quot;
   }
-}]]></component>
+}</component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2leYgd5LUOn8ijdYfmOTF1ggQv2" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -65,13 +74,13 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.AnnaMain.executor": "Run",
     "Application.Main.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "anna-2",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -96,8 +105,8 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="app.Main" />
+    <configuration name="AnnaMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="app.AnnaMain" />
       <module name="gui" />
       <extension name="coverage">
         <pattern>
@@ -111,7 +120,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.AnnaMain" />
       </list>
     </recent_temporary>
   </component>
@@ -131,7 +140,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1725542122228</updated>
-      <workItem from="1725542123275" duration="69610000" />
+      <workItem from="1725542123275" duration="86220000" />
+      <workItem from="1725864343562" duration="157000" />
     </task>
     <task id="LOCAL-00001" summary="päivistys">
       <option name="closed" value="true" />
@@ -221,7 +231,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725746526899</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="koodin siistiminen">
+      <option name="closed" value="true" />
+      <created>1725748457412</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1725748457413</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -233,11 +251,11 @@
     <MESSAGE value="korjaa kaikki hoteli -&gt; hotelli" />
     <MESSAGE value="kayttaja taulukko: lisää, haut, päivitä" />
     <MESSAGE value="kayttaja taulukko: vaihda salasana toimi" />
-    <MESSAGE value="koodin siistiminen" />
     <MESSAGE value="huone taulu: javat" />
     <MESSAGE value="huone taulu: haut , poista ja päivitä" />
     <MESSAGE value="päivistys" />
-    <option name="LAST_COMMIT_MESSAGE" value="päivistys" />
+    <MESSAGE value="koodin siistiminen" />
+    <option name="LAST_COMMIT_MESSAGE" value="koodin siistiminen" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

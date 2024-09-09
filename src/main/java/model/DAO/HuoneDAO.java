@@ -8,36 +8,18 @@ import java.util.List;
 public class HuoneDAO {
 
     public void persist(Huone huone) {
-        EntityManager em = MariaDbConnection.getInstance();;
+        EntityManager em = MariaDbConnection.getInstance();
         em.getTransaction().begin();
-        try {
-            if (!em.isOpen()) {
-                throw new IllegalStateException("EntityManager is closed!");
-            }
-            em.persist(huone);  // Tallenna huone tietokantaan
-            em.getTransaction().commit();  // Suorita commit onnistuneesti
-            System.out.println("Huone lisätty onnistuneesti!");
-        } catch (Exception e) {
-            if (em != null && em.getTransaction().isActive()) {
-                em.getTransaction().rollback();  // Jos virhe, rollback
-                System.out.println("Virhe tapahtui, rollback suoritettu.");
-            }
-            e.printStackTrace();  // Tulostetaan virhe debuggausta varten
-        } finally {
-            if (em != null && em.isOpen()) {
-                em.close();  // Suljetaan EntityManager
-            }
-        }
+        em.persist(huone);
+        em.getTransaction().commit();
     }
 
-    // Other methods remain unchanged
-
-
-    public void findById(int id) {
+    public Huone findByRoomId(int id) {
         EntityManager em = MariaDbConnection.getInstance();
         try {
             Huone huone = em.find(Huone.class, id);
             printHuone(huone);
+            return huone;
         } finally {
             if (em != null) {
                 em.close();
