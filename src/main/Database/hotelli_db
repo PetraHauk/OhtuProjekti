@@ -1,0 +1,107 @@
+CREATE DATABASE hotelli_db;
+USE hotelli_db;
+
+
+CREATE TABLE hotelli (
+    hotelli_id INT PRIMARY KEY AUTO_INCREMENT,
+    kaupunki VARCHAR(100),
+    nimi VARCHAR(100),
+    osoite VARCHAR(255),
+    puh VARCHAR(20),
+    maa VARCHAR(50)
+);
+
+CREATE TABLE kayttaja (
+    kayttaja_id INT PRIMARY KEY AUTO_INCREMENT,
+    etunimi VARCHAR(100),
+    sukunimi VARCHAR(100),
+    sposti VARCHAR(100) NOT NULL,
+    puh VARCHAR(20),
+    rooli VARCHAR(50) NOT NULL,
+    salasana VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE huone (
+    huone_id INT PRIMARY KEY AUTO_INCREMENT,
+    huone_nro INT NOT NULL,
+    huone_tyyppi VARCHAR(50),
+    huone_tila VARCHAR(50),
+    huone_hinta DECIMAL(10, 2) NOT NULL,
+    hotelli_id INT,
+    FOREIGN KEY (hotelli_id) REFERENCES hotelli(hotelli_id)
+);
+
+
+CREATE TABLE huone_varaus (
+    varaus_id INT PRIMARY KEY AUTO_INCREMENT,
+    huone_maara INT NOT NULL,
+    alku_pvm DATE NOT NULL,
+    loppu_pvm DATE NOT NULL,
+    huone_id INT,
+    lasku_id INT,
+    FOREIGN KEY (huone_id) REFERENCES huone(huone_id),
+    FOREIGN KEY (lasku_id) REFERENCES lasku(lasku_id)
+);
+
+CREATE TABLE lasku (
+    lasku_id INT PRIMARY KEY AUTO_INCREMENT,
+    maksu_status VARCHAR(50) NOT NULL,
+    varaus_muoto VARCHAR(50) NOT NULL,
+    valuutta VARCHAR(20)
+);
+
+CREATE TABLE asiakas (
+    asiakas_id INT PRIMARY KEY AUTO_INCREMENT,
+    etunimi VARCHAR(100) NOT NULL,
+    sukunimi VARCHAR(100) NOT NULL,
+    sposti VARCHAR(100) NOT NULL,
+    puh VARCHAR(20),
+    henkilo_maara INT(5),
+    huomio VARCHAR(500),
+    lasku_id INT,
+    FOREIGN KEY (lasku_id) REFERENCES lasku(lasku_id)
+);
+
+//kayttaja, tällä tavalla ei voi lisää hashed salasana, ohjelman kautta (ajja ohjelma) voi.
+INSERT INTO `kayttaja` (`etunimi`, `sukunimi`, `sposti`, `puh`, `rooli`, `salasana`)
+VALUES ('Milla','Koskiainen', 'milla.koskiainen@hoteli.com', '03762387168', 'admin', 'milla');
+
+INSERT INTO `kayttaja` (`etunimi`, `sukunimi`, `sposti`, `puh`, `rooli`, `salasana`)
+VALUES ('Lisa','Paranen', 'lisa.paranen@hoteli.com', '03762387168', 'normaali', 'lisa');
+
+//asiakas
+INSERT INTO asiakas (etunimi, sukunimi, sposti, puh, henkilo_maara, huomio, lasku_id)
+VALUES ('Matti', 'Meikäläinen', 'matti@sposti.fi', '09123456', 1, 'ei erikoista', 1);
+
+INSERT INTO asiakas (etunimi, sukunimi, sposti, puh, henkilo_maara, huomio, lasku_id)
+VALUES ('Mia', 'Makki', 'mia@sposti.fi', '0923456', 2, 'Rauhallinen huone', 2);
+
+INSERT INTO asiakas (etunimi, sukunimi, sposti, puh, henkilo_maara, huomio, lasku_id)
+VALUES ('Niko', 'Niskka', 'nikko@sposti.fi', '06872398', 3, 'ei erikoista', 3);
+
+//hotelli
+INSERT INTO `hotelli` (`kaupunki`, `nimi`, `osoite`, `puh`, `maa`)
+VALUES ('Helsinki', 'EkaHoteli', 'parastie 29', '09576345', 'Suomi');
+
+INSERT INTO `hotelli` (`kaupunki`, `nimi`, `osoite`, `puh`, `maa`)
+VALUES ('Espoo', 'TokaHoteli', 'toisentie 89', '0265662', 'Suomi');
+
+//huone
+INSERT INTO `huone` (`huone_id`, `huone_nro`, `huone_tyyppi`, `huone_tila`, `huone_hinta`, `hotelli_id`)
+VALUES (4, '101', 'family', 'vapaa', '150.00', 1);
+
+INSERT INTO `huone` (`huone_id`, `huone_nro`, `huone_tyyppi`, `huone_tila`, `huone_hinta`, `hotelli_id`)
+VALUES (4, '202', 'suit', 'varattu', '250.00', 1);
+
+INSERT INTO `huone` (`huone_id`, `huone_nro`, `huone_tyyppi`, `huone_tila`, `huone_hinta`, `hotelli_id`)
+VALUES (4, '203', 'standard', 'varattu', '100.00', 2);
+
+//Lasku
+INSERT INTO `lasku` (`maksu_status`, `varaus_muoto`, `valuutta`)
+VALUES ('maksettu', 'all_inslusive', 'EUR');
+
+
+//huone_varaus
+INSERT INTO `huone_varaus` (`huone_maara`, `alku_pvm`, `loppu_pvm`, `huone_id`, `lasku_id`)
+VALUES (1, '2024-08-12', '2024-08-15', 1, 1);
+
