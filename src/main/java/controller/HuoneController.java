@@ -30,25 +30,26 @@ public class HuoneController {
         System.out.println("Huone lisätty onnistuneesti hotelliin ID:llä " + hotelli_id);
     }
 
+    public void FindHuoneetByHoteliId(int hotelli_id) {
+        huoneDAO.haeHuoneetByHotelliId(hotelli_id);
+    }
+
     public void findHuoneById(int id) {
         huoneDAO.findByRoomId(id);
     }
 
-    public void findHuoneByTila(String huone_tila) {
-      huoneDAO.findByHuoneTila(huone_tila);
+    public Huone findHuoneByTila(String huone_tila) {
+      return huoneDAO.findByHuoneTila(huone_tila);
     }
 
-    public void findHuoneByTyyppi(String huone_tyyppi) {
-        huoneDAO.findByTyyppi(huone_tyyppi);
+    public Huone findHuoneByTyyppi(String huone_tyyppi) {
+        return huoneDAO.findByTyyppi(huone_tyyppi);
     }
 
-    public void updateHuoneTilaById(int id, String huone_tila) {
-        huoneDAO.updateTilaById(id, huone_tila);
+    public void updateHuoneById(int id, int huone_nro, String huone_tyyppi, String huone_tila, double huone_hinta) {
+        huoneDAO.updateHuoneById(id, huone_nro, huone_tyyppi, huone_tila, huone_hinta);
     }
 
-    public void updateHuoneHintaById(int id, double huone_hinta) {
-        huoneDAO.updateHintaById(id, huone_hinta);
-    }
 
     public void deleteHuone(int id) {
         huoneDAO.removeById(id);

@@ -25,7 +25,8 @@ public class Huone {
     private int hotelli_id;
 
 
-    public Huone(int huone_nro, String huone_tyyppi, String huone_tila, double huone_hinta, int hotelli_id) {
+    public Huone(int huone_id, int huone_nro, String huone_tyyppi, String huone_tila, double huone_hinta, int hotelli_id) {
+        this.huone_id = huone_id;
         this.huone_nro = huone_nro;
         this.huone_tyyppi = huone_tyyppi;
         this.huone_tila = huone_tila;
@@ -33,8 +34,6 @@ public class Huone {
         this.hotelli_id = hotelli_id;
     }
 
-    public Huone(int huone_id, int huone_nro, String huone_tyyppi, String huone_tila, double huone_hinta, int hotelli_id) {
-    }
 
     public Huone() {
 
@@ -62,6 +61,14 @@ public class Huone {
 
     public int getHotelli_id() {
         return hotelli_id;
+    }
+
+    public void setHuone_nro(int huone_nro) {
+        this.huone_nro = huone_nro;
+    }
+
+    public void setHuone_tyyppi(String huone_tyyppi) {
+        this.huone_tyyppi = huone_tyyppi;
     }
 
     public void setHuone_tila(String huone_tila) {

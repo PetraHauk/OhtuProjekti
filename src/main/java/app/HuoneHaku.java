@@ -18,9 +18,9 @@ public class HuoneHaku {
             System.out.println("2. Hae huone_ID:llä");
             System.out.println("3. Hae huoneen tyypillä");
             System.out.println("4. Hae huoneen tilalla");
-            System.out.println("5. Päivitä hinta huone_ID:llä");
-            System.out.println("6. Päivitä tila huone_ID:llä");
-            System.out.println("7. Poista huone");
+            System.out.println("5. Päivitä huoneen tiedot huone_ID:llä");
+            System.out.println("6. Poista huone");
+            System.out.println("7. Hae huoneet hotelli_id:llä");
             System.out.println("8. Lopeta");
 
             int valinta = scanner.nextInt();
@@ -70,26 +70,32 @@ public class HuoneHaku {
                     System.out.println("Anna huoneen ID:");
                     int id = scanner.nextInt();
                     scanner.nextLine();
-                    System.out.println("Anna uusi hinta:");
-                    double uusiHinta = scanner.nextDouble();
+                    System.out.println("Anna uusi huoneen numero:");
+                    int uusiHuoneNro = scanner.nextInt();
                     scanner.nextLine();
-                    controller.updateHuoneHintaById(id, uusiHinta);
+                    System.out.println("Anna uusi huoneen tyyppi:");
+                    String uusiHuoneTyyppi = scanner.nextLine();
+                    scanner.nextLine();
+                    System.out.println("Anna uusi huoneen tila:");
+                    String uusiHuoneTila = scanner.nextLine();
+                    scanner.nextLine();
+                    System.out.println("Anna uusi huoneen hinta:");
+                    double uusiHuoneHinta = scanner.nextDouble();
+                    scanner.nextLine();
+                    controller.updateHuoneById(id, uusiHuoneNro, uusiHuoneTyyppi, uusiHuoneTila, uusiHuoneHinta);
                     break;
 
                 case 6:
-                    System.out.println("Anna huoneen ID:");
-                    int id2 = scanner.nextInt();
-                    scanner.nextLine();
-                    System.out.println("Anna uusi tila:");
-                    String uusiTila = scanner.nextLine();
-                    controller.updateHuoneTilaById(id2, uusiTila);
-                    break;
-
-                case 7:
                     System.out.println("Anna poistettavan huoneen ID:");
                     int id3 = scanner.nextInt();
                     scanner.nextLine();
                     controller.deleteHuone(id3);
+                    break;
+                case 7:
+                    System.out.println("Anna hotelli ID:");
+                    int hotelliId = scanner.nextInt();
+                    scanner.nextLine();
+                    controller.FindHuoneetByHoteliId(hotelliId);
                     break;
 
                 case 8:

@@ -1,7 +1,7 @@
 package model.enteties;
 
 import jakarta.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "huone_varaus")
@@ -12,15 +12,13 @@ public class Varaus {
     private int varaus_id;
 
     @Column(name = "huone_maara")
-    private int huone_maara;
+    private int huoneMaara;
 
     @Column(name = "alku_pvm")
-    @Temporal(TemporalType.DATE)  // Määritellään, että käytetään päivämäärää
-    private Date alku_pvm;
+    private LocalDate alkuPvm;
 
     @Column(name = "loppu_pvm")
-    @Temporal(TemporalType.DATE)  // Määritellään, että käytetään päivämäärää
-    private Date loppu_pvm;
+    private LocalDate loppuPvm;
 
     @Column(name = "huone_id")
     private int huoneId;
@@ -29,34 +27,33 @@ public class Varaus {
     private int laskuId;
 
     // Parametrillinen konstruktori
-    public Varaus(int varaus_id, int huone_maara, Date alkuPvm, Date loppuPvm, int huoneId, int laskuId) {
+    public Varaus(int varaus_id, int huone_maara, LocalDate alkuPvm, LocalDate loppuPvm, int huoneId, int laskuId) {
         this.varaus_id = varaus_id;
-        this.huone_maara = huone_maara;
-        this.alku_pvm = alkuPvm;
-        this.loppu_pvm = loppuPvm;
+        this.huoneMaara = huone_maara;
+        this.alkuPvm = alkuPvm;
+        this.loppuPvm = loppuPvm;
         this.huoneId = huoneId;
         this.laskuId = laskuId;
     }
 
-    // Oletuskonstruktori
     public Varaus() {
     }
 
     // Getterit ja setterit
-    public int getVaraus_id() {
+    public int getVarausId() {
         return varaus_id;
     }
 
-    public int getHuone_maara() {
-        return huone_maara;
+    public int getHuoneMaara() {
+        return huoneMaara;
     }
 
-    public Date getAlku_pvm() {
-        return alku_pvm;
+    public LocalDate getAlkuPvm() {
+        return alkuPvm;
     }
 
-    public Date getLoppu_pvm() {
-        return loppu_pvm;
+    public LocalDate getLoppuPvm() {
+        return loppuPvm;
     }
 
     public int getHuoneId() {
@@ -67,27 +64,19 @@ public class Varaus {
         return laskuId;
     }
 
-    public void setHuone_maara(int huoneMaara) {
-        this.huone_maara = huoneMaara;
+    public void setHuoneMaara() {
+        this.huoneMaara = huoneMaara;
     }
 
-    public void setAlku_pvm(Date alkuPvm) {
-        this.alku_pvm = alkuPvm;
+    public void setAlkuPvm(LocalDate alkuPvm) {
+        this.alkuPvm = alkuPvm;
     }
 
-    public void setLoppu_pvm(Date loppuPvm) {
-        this.loppu_pvm = loppuPvm;
+    public void setLoppuPvm(LocalDate loppuPvm) {
+        this.loppuPvm = loppuPvm;
     }
 
-    public void setHuoneId(int huoneId) {
-        this.huoneId = huoneId;
-    }
-
-    public void setLaskuId(int laskuId) {
-        this.laskuId = laskuId;
-    }
-
-    public void start() {
-    }
 }
+
+
 
