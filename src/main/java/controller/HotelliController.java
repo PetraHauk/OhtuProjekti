@@ -19,11 +19,8 @@ public class HotelliController {
         return hotelliDAO.findById(id);
     }
 
-   /* public void poistaHotelli(int id) {
-        Hotelli hotelli = hotelliDAO.removeById(id);
-        hotelliDAO.removeById(id);
+   public void removeHotelliById(int hotelli_id) {
+        hotelliDAO.removeById(hotelli_id);
     }
-
-    */
 
 }

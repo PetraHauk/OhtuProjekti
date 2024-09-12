@@ -3,7 +3,6 @@ package model.DAO;
 import model.datasourse.MariaDbConnection;
 import model.enteties.Asiakas;
 import jakarta.persistence.EntityManager;
-import model.enteties.Kayttaja;
 
 public class AsiakasDAO {
 

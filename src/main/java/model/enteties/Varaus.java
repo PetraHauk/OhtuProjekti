@@ -26,6 +26,7 @@ public class Varaus {
     @Column(name = "lasku_id")
     private int laskuId;
 
+
     // Parametrillinen konstruktori
     public Varaus(int varaus_id, int huone_maara, LocalDate alkuPvm, LocalDate loppuPvm, int huoneId, int laskuId) {
         this.varaus_id = varaus_id;

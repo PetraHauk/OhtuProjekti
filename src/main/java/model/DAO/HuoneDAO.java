@@ -17,13 +17,20 @@ public class HuoneDAO {
     public Huone haeHuoneetByHotelliId(int hotelli_id) {
         EntityManager em = MariaDbConnection.getInstance();
         List<Huone> huoneet = null;
+        Huone palautettavaHuone = null;
         try {
             huoneet = em.createQuery("SELECT h FROM Huone h WHERE h.hotelli_id = :hotelli_id", Huone.class)
                     .setParameter("hotelli_id", hotelli_id)
                     .getResultList();
+            if (!huoneet.isEmpty()) {
+                // Palautetaan ensimmäinen huone
+                palautettavaHuone = huoneet.get(0);
+            } else {
+                System.out.println("Huoneita ei löytynyt hotellista ID:llä " + hotelli_id);
+            }
+            // Tulostetaan kaikki huoneet
             for (Huone huone : huoneet) {
                 printHuone(huone);
-                return huone;
             }
 
         } finally {
@@ -31,7 +38,7 @@ public class HuoneDAO {
                 em.close();
             }
         }
-        return null;
+        return palautettavaHuone;
     }
 
     public Huone findByRoomId(int id) {
@@ -127,6 +134,7 @@ public class HuoneDAO {
         System.out.println("Huoneen tila: " + huone.getHuone_tila());
         System.out.println("Huoneen hinta: " + huone.getHuone_hinta());
         System.out.println("Hotelli ID: " + huone.getHotelli_id());
+        System.out.println(" ");
     }
 
 }

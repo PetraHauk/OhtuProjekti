@@ -24,7 +24,6 @@ public class Huone {
     @Column(name = "hotelli_id")
     private int hotelli_id;
 
-
     public Huone(int huone_id, int huone_nro, String huone_tyyppi, String huone_tila, double huone_hinta, int hotelli_id) {
         this.huone_id = huone_id;
         this.huone_nro = huone_nro;
@@ -36,7 +35,6 @@ public class Huone {
 
 
     public Huone() {
-
     }
 
     public int getHuone_id() {
@@ -79,17 +77,5 @@ public class Huone {
         this.huone_hinta = huone_hinta;
     }
 }
-
-
-/*
-    public String updateVaraus() {
-        if (this.huone_tila == null) {
-            return "Vapaa";
-        } else {
-            return "Varattu";
-        }
-    }
-
- */
 
 

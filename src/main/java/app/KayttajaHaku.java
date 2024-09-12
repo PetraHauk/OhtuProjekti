@@ -2,7 +2,6 @@ package app;
 
 import model.enteties.Kayttaja;
 import controller.KayttajaController;
-
 import java.util.Scanner;
 
 public class KayttajaHaku {
@@ -11,7 +10,6 @@ public class KayttajaHaku {
     private Scanner scanner = new Scanner(System.in);
 
     public void start() {
-        //Lisää käyttäjä ja hae, päivitä, poista
 
         while (true) {
             System.out.println("Valitse toiminto:");
@@ -61,8 +59,6 @@ public class KayttajaHaku {
                     } else {
                         System.out.println("Käyttäjää ei löytynyt ID:llä " + idHaku);
                     }
-
-
                     break;
 
                 case 3:

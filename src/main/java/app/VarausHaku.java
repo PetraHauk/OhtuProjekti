@@ -99,7 +99,6 @@ public class VarausHaku {
                     }
                     break;
 
-
                 case 5:
                     System.out.println("Anna varauksen ID:");
                     int idPoisto = scanner.nextInt();

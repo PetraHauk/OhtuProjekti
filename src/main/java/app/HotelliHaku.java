@@ -15,7 +15,7 @@ public class HotelliHaku {
             System.out.println("Valitse toiminto:");
             System.out.println("1. Lisää uusi hotelli");
             System.out.println("2. Hae hotelli ID:llä");
-            //System.out.println("3. Poista id:llä");
+            System.out.println("3. Poista id:llä");
             System.out.println("4. Lopeta");
 
             int valinta = scanner.nextInt();
@@ -54,14 +54,12 @@ public class HotelliHaku {
                     }
                     break;
 
-                /*case 3:
+                case 3:
                     System.out.println("Anna hotellin ID:");
                     int idPoisto = scanner.nextInt();
-                     hotelli_controller.poistaHotelli(idPoisto);
-
+                     hotelli_controller.removeHotelliById(idPoisto);
                     break;
 
-                 */
                 case 4:
                     System.out.println("Lopetetaan ohjelma.");
                     scanner.close();

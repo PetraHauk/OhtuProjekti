@@ -1,5 +1,4 @@
 package model.enteties;
-
 import jakarta.persistence.*;
 
 @Entity

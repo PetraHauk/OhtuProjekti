@@ -108,7 +108,6 @@ public class KayttajaDAO {
                 em.close(); // Suljetaan EntityManager turvallisesti
             }
         }
-
         return kayttaja; // Palautetaan käyttäjä, jos löytyi ja salasana vaihdettiin
     }
 

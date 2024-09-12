@@ -12,7 +12,6 @@ public class HuoneController {
     public HuoneController() {
         huoneDAO = new HuoneDAO();
         hotelliDAO = new HotelliDAO();
-
     }
 
     public void lisaaHuone(int huone_nro, String huone_tyyppi, String huone_tila, double huone_hinta, int hotelli_id) {
