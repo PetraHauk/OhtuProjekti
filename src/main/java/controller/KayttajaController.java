@@ -34,6 +34,11 @@ public class KayttajaController {
         kayttajaDAO.changePasswordByEmail(sposti, newPassword);
     }
 
+    public void paivitaKayttaja(int id, String etunimi, String sukunimi, String sposti, String puh, String rooli, String salasana) {
+        String hashedSalasana = BCrypt.hashpw(salasana, BCrypt.gensalt());
+        kayttajaDAO.updateKayttajaById(id, etunimi, sukunimi, sposti, puh, rooli, hashedSalasana);
+    }
+
     public void poistaKayttaja(int id) {
         kayttajaDAO.removeById(id);
     }

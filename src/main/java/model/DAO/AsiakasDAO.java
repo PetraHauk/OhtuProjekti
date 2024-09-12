@@ -1,11 +1,12 @@
 package model.DAO;
 
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
 import model.datasourse.MariaDbConnection;
 import model.enteties.Asiakas;
-import jakarta.persistence.EntityManager;
+import java.util.List;
 
 public class AsiakasDAO {
-
     public void persist(Asiakas asiakas) {
         EntityManager em = MariaDbConnection.getInstance();
         em.getTransaction().begin();
@@ -13,10 +14,12 @@ public class AsiakasDAO {
         em.getTransaction().commit();
     }
 
-    public Asiakas findById(int id) {
+    public Asiakas findByLaskuId(int lasku_id) {
         EntityManager em = MariaDbConnection.getInstance();
         try {
-            return em.find(Asiakas.class, id);
+            Asiakas asikas = em.find(Asiakas.class, lasku_id);
+            printAsiakas(asikas);
+            return asikas;
         } finally {
             if (em != null) {
                 em.close();
@@ -24,47 +27,97 @@ public class AsiakasDAO {
         }
     }
 
-        public void updateById(int id) {
-            EntityManager em = MariaDbConnection.getInstance();
+    public Asiakas findByEmail(String email) {
+        EntityManager em = MariaDbConnection.getInstance();
+        try {
+            em.getTransaction().begin();
 
-            try {
-                em.getTransaction().begin();
-                Asiakas asiakas = em.find(Asiakas.class, id);
-                if (asiakas != null) {
-                    em.getTransaction().commit();
-                } else {
-                    System.out.println("Asiakasta ei löytynyt");
-                }
-            } catch (Exception e) {
-                System.out.println("Asiakasta ei löytynyt");
-            } finally {
-                if (em != null) {
-                    em.close();
-                }
+            Asiakas asiakas = em.createQuery("SELECT a FROM Asiakas a WHERE a.sposti = :sposti", Asiakas.class)
+                    .setParameter("sposti", email)
+                    .getSingleResult();
+            em.getTransaction().commit();
+            printAsiakas(asiakas);
+            return asiakas;
+        } catch (NoResultException e) {
+            System.out.println("Asiakasta ei löytynyt sähköpostilla: " + email);
+            return null;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null; // Jokin muu virhe tapahtui
+        } finally {
+            if (em != null) {
+                em.close();
             }
         }
+    }
 
-           /* public void removeById(int id) {
-                EntityManager em = MariaDbConnection.getInstance();
-                try {
-                    em.getTransaction().begin();
-                    Asiakas asiakas = em.find(Asiakas.class, id);
-                    if (asiakas != null) {
-                        em.remove(asiakas);
-                        em.getTransaction().commit();
-                    } else {
-                        System.out.println("Asiakas ei löytynyt");
-                    }
-                } catch (Exception e) {
-                    System.out.println("Asiakas ei löytynyt");
-                } finally {
-                    if (em != null) {
-                        em.close();
-                    }
-                }
+    public Asiakas findByNImet(String etunimi, String sukunimi) {
+        EntityManager em = MariaDbConnection.getInstance();
+        List <Asiakas> asiakkaat = null;
+        Asiakas palauttavaAsiakkaat = null;
+        try {
+            asiakkaat = em.createQuery("SELECT a FROM Asiakas a WHERE a.etunimi = :etunimi AND a.sukunimi = :sukunimi", Asiakas.class)
+                    .setParameter("etunimi", etunimi)
+                    .setParameter("sukunimi", sukunimi)
+                    .getResultList();
+            if (!asiakkaat.isEmpty()) {
+                // Palautetaan ensimmäinen asiakas
+                palauttavaAsiakkaat = asiakkaat.get(0);
+            } else {
+                System.out.println("Asiakasta ei löytynyt etunimellä: " + etunimi + " ja sukunimellä: " + sukunimi);
+            }
+            for (Asiakas asiakas : asiakkaat) {
+                printAsiakas(asiakas);
+            }
+        } finally {
+            if (em != null) {
+                em.close();
             }
         }
+        return palauttavaAsiakkaat;
 
-            */
+    }
+
+    public void updateAsiakasById(int id, String etunimi, String sukunimi, String sposti, String puh, int henkiloMaara, String huomio, int laskuId) {
+        EntityManager em = MariaDbConnection.getInstance();
+        try {
+            em.getTransaction().begin();
+            Asiakas asiakas = em.find(Asiakas.class, id);
+            if (asiakas != null) {
+                asiakas.setEtunimi(etunimi);
+                asiakas.setSukunimi(sukunimi);
+                asiakas.setSposti(sposti);
+                asiakas.setPuh(puh);
+                asiakas.setHenkiloMaara(henkiloMaara);
+                asiakas.setHuomio(huomio);
+                asiakas.setLaskuId(laskuId);
+
+                System.out.println("Asiakkaan tiedot päivitetty onnistuneesti!");
+                em.getTransaction().commit();
+            } else {
+                System.out.println("Asiakas ei löytynyt ID:llä: " + id);
+            }
+        } catch (Exception e) {
+            if (em.getTransaction().isActive()) {
+                em.getTransaction().rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+    }
+
+    public void printAsiakas(Asiakas asiakas) {
+        System.out.println("Asiakas ID: " + asiakas.getAsiakasId());
+        System.out.println("Etunimi: " + asiakas.getEtunimi());
+        System.out.println("Sukunimi: " + asiakas.getSukunimi());
+        System.out.println("Sähköposti: " + asiakas.getSposti());
+        System.out.println("Puhelin: " + asiakas.getPuh());
+        System.out.println("Henkilömäärä: " + asiakas.getHenkiloMaara());
+        System.out.println("Huomio: " + asiakas.getHuomio());
+        System.out.println("Lasku ID: " + asiakas.getLaskuId());
+        System.out.println();
+    }
 }
-

@@ -17,7 +17,9 @@ public class KayttajaDAO {
     public Kayttaja findById(int id) {
         EntityManager em = MariaDbConnection.getInstance();
         try {
-            return em.find(Kayttaja.class, id);
+            Kayttaja kayttaja = em.find(Kayttaja.class, id);
+            printKayttaja(kayttaja);
+            return kayttaja;
         } finally {
             if (em != null) {
                 em.close();
@@ -139,4 +141,43 @@ public class KayttajaDAO {
         }
         return kayttaja;  // Return the removed Kayttaja (or null if not found)
     }
+
+    public void updateKayttajaById(int id, String etunimi, String sukunimi, String sposti, String puh, String rooli, String salasana) {
+        EntityManager em = MariaDbConnection.getInstance();
+        try {
+            em.getTransaction().begin();
+            Kayttaja kayttaja = em.find(Kayttaja.class, id);
+            if (kayttaja != null) {
+                kayttaja.setEtunimi(etunimi);
+                kayttaja.setSukunimi(sukunimi);
+                kayttaja.setSposti(sposti);
+                kayttaja.setPuh(puh);
+                kayttaja.setRooli(rooli);
+                kayttaja.setSalasana(salasana);
+                System.out.println("Käyttäjän tiedot päivitetty onnistuneesti!");
+                em.getTransaction().commit();
+            } else {
+                System.out.println("Kayttäjä ei löytynyt ID:llä: " + id);
+            }
+        } catch (Exception e) {
+            if (em.getTransaction().isActive()) {
+                em.getTransaction().rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+    }
+    public void printKayttaja(Kayttaja kayttaja) {
+        System.out.println("Etunimi: " + kayttaja.getEtunimi());
+        System.out.println("Sukunimi: " + kayttaja.getSukunimi());
+        System.out.println("Sähköposti: " + kayttaja.getSposti());
+        System.out.println("Puhelin: " + kayttaja.getPuh());
+        System.out.println("Rooli: " + kayttaja.getRooli());
+        System.out.println("Salasana: " + kayttaja.getSalasana());
+        System.out.println(" ");
+    }
+
 }

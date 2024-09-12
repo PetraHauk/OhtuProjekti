@@ -19,7 +19,8 @@ public class KayttajaHaku {
             System.out.println("4. Vaihta salasana sähköpostilla");
             System.out.println("5. Poista käyttäjä ID:llä");
             System.out.println("6. Hae salasana sähköpostilla");
-            System.out.println("7. Lopeta");
+            System.out.println("7. Päivitä käyttäjän tiedot");
+            System.out.println("8. Lopeta");
 
             int valinta = scanner.nextInt();
             scanner.nextLine(); // Clear the newline character from the buffer
@@ -34,31 +35,18 @@ public class KayttajaHaku {
                     String sposti = scanner.nextLine();
                     System.out.println("Anna puhelinnumero:");
                     String puh = scanner.nextLine();
-                    System.out.println("Anna rooli:");
+                    System.out.println("Anna henkilö määrä:");
                     String rooli = scanner.nextLine();
                     System.out.println("Anna salasana:");
                     String salasana = scanner.nextLine();
-
                     controller.lisaaKayttaja(etunimi, sukunimi, sposti, puh, rooli, salasana);
-                    System.out.println("Käyttäjä lisätty onnistuneesti!");
+
                     break;
 
                 case 2:
                     System.out.println("Anna käyttäjän ID:");
                     int idHaku = scanner.nextInt();
-                    Kayttaja kayttaja = controller.haeKayttajaById(idHaku);
-
-                    if (kayttaja != null) {
-                        System.out.println("Käyttäjä löytyi:");
-                        System.out.println("Etunimi: " + kayttaja.getEtunimi());
-                        System.out.println("Sukunimi: " + kayttaja.getSukunimi());
-                        System.out.println("Sähköposti: " + kayttaja.getSposti());
-                        System.out.println("Puhelin: " + kayttaja.getPuh());
-                        System.out.println("Rooli: " + kayttaja.getRooli());
-                        System.out.println("Salasana: " + kayttaja.getSalasana());
-                    } else {
-                        System.out.println("Käyttäjää ei löytynyt ID:llä " + idHaku);
-                    }
+                    controller.haeKayttajaById(idHaku);
                     break;
 
                 case 3:
@@ -76,7 +64,6 @@ public class KayttajaHaku {
                     System.out.println("Anna uusi salasana:");
                     String newPassword = scanner.nextLine();
                     controller.vaihdaSalasanaPostilla(kayttajaSposti, newPassword);
-
                     break;
                 case 5:
                     System.out.println("Anna käyttäjän ID poistaaksesi käyttäjän:");
@@ -95,6 +82,25 @@ public class KayttajaHaku {
                     }
                     break;
                 case 7:
+                    System.out.println("Anna käyttäjän ID päivittääksesi tiedot:");
+                    int idPaivitysTiedot = scanner.nextInt();
+                    scanner.nextLine(); // Clear the newline character from the buffer
+
+                    System.out.println("Anna etunimi:");
+                    String etunimiPaivitys = scanner.nextLine();
+                    System.out.println("Anna sukunimi:");
+                    String sukunimiPaivitys = scanner.nextLine();
+                    System.out.println("Anna sähköposti:");
+                    String spostiPaivitys = scanner.nextLine();
+                    System.out.println("Anna puhelinnumero:");
+                    String puhPaivitys = scanner.nextLine();
+                    System.out.println("Anna rooli:");
+                    String rooliPaivitys = scanner.nextLine();
+                    System.out.println("Anna salasana:");
+                    String salasanaPaivitys = scanner.nextLine();
+                    controller.paivitaKayttaja(idPaivitysTiedot, etunimiPaivitys, sukunimiPaivitys, spostiPaivitys, puhPaivitys, rooliPaivitys, salasanaPaivitys);
+                    break;
+                case 8:
                     System.out.println("Lopetetaan ohjelma.");
                     scanner.close();
                     System.exit(0);
@@ -104,6 +110,5 @@ public class KayttajaHaku {
             }
         }
     }
-
 }
 
