@@ -32,13 +32,8 @@ public class KayttajaDAO {
                     .getSingleResult();
 
             return kayttaja;  // Return the Kayttaja object
-
         } catch (Exception e) {
             e.printStackTrace();  // Log the exception for debugging
-        } finally {
-            if (em != null) {
-                em.close();
-            }
         }
         return null;  // Return null if no user is found or an exception occurs
     }

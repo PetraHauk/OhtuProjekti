@@ -1,22 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="dataSourceStorageLocal" created-in="IU-242.20224.419">
+  <component name="dataSourceStorageLocal" created-in="IU-233.13135.103">
     <data-source name="@localhost" uuid="aa989b5b-8fef-408c-b7b9-47f367b75a5e">
-      <database-info product="MariaDB" version="10.11.2-MariaDB" jdbc-version="4.2" driver-name="MariaDB Connector/J" driver-version="3.0.7" dbms="MARIADB" exact-version="10.11.2" exact-driver-version="3.0">
+      <database-info product="MariaDB" version="10.10.2-MariaDB" jdbc-version="4.2" driver-name="MariaDB Connector/J" driver-version="3.0.7" dbms="MARIADB" exact-version="10.10.2" exact-driver-version="3.0">
         <extra-name-characters>#@</extra-name-characters>
         <identifier-quote-string>`</identifier-quote-string>
       </database-info>
-      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower" />
       <secret-storage>master_key</secret-storage>
       <user-name>root</user-name>
       <schema-mapping>
         <introspection-scope>
           <node kind="schema">
             <name qname="@" />
-            <name qname="hoteli_db" />
+            <name qname="hotelli_db" />
+            <name qname="sys" />
           </node>
         </introspection-scope>
       </schema-mapping>
+    </data-source>
+    <data-source name="@localhost [2]" uuid="7a4a3a96-d02d-43a0-a8c2-e30424e272d2">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MARIADB" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-mapping />
     </data-source>
   </component>
 </project>
