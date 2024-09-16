@@ -1,0 +1,24 @@
+<changelist name="Uncommitted_changes_before_Update_at_16_09_2024_09_03_[Changes]" date="1726466581482" recycled="false" toDelete="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_09_2024_09_03_[Changes]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 16/09/2024 09:03 [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="src/target/classes/model/enteties/Varaus.class" />
+    <option name="AFTER_PATH" value="src/target/classes/model/enteties/Varaus.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_09_2024_09_03_[Changes]/Varaus.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value=".idea/copilot/chatSessions/00000000000.xd" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="src/target/classes/model/enteties/Huone.class" />
+    <option name="AFTER_PATH" value="src/target/classes/model/enteties/Huone.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_09_2024_09_03_[Changes]/Huone.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value=".idea/copilot/chatSessions/blobs/version" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+</changelist>
