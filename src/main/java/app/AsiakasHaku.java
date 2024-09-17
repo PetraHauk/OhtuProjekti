@@ -15,6 +15,7 @@ public class AsiakasHaku {
             System.out.println("1. Lisää uusi asiakas");
             System.out.println("2. Hae asiakas spostilla");
             System.out.println("3. Hae asiakas nimellä");
+            System.out.println("4. Hae kaikki asiakkaat");
             System.out.println("4. Päivitä asiakasn tiedot");
             System.out.println("5. Lopeta");
 
@@ -59,6 +60,9 @@ public class AsiakasHaku {
                     controller.findByNimet(etunimiHaku, sukunimiHaku);
                     break;
                 case 4:
+                    controller.findAllAsiakkaat();
+                    break;
+                case 5:
                     System.out.println("Anna asiakasn ID päivittääksesi tiedot:");
                     int idPaivitysTiedot = scanner.nextInt();
                     scanner.nextLine(); // Clear the newline character from the buffer
@@ -83,7 +87,7 @@ public class AsiakasHaku {
                     String huomioPaivitys = scanner.nextLine();
                     controller.paivitaAsiakas(idPaivitysTiedot, etunimiPaivitys, sukunimiPaivitys, spostiPaivitys, puhPaivitys, hMaaraPaivitys, huomioPaivitys);
                     break;
-                case 5:
+                case 6:
                     System.out.println("Lopetetaan ohjelma.");
                     scanner.close();
                     System.exit(0);
