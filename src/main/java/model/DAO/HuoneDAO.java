@@ -8,36 +8,45 @@ import java.util.List;
 public class HuoneDAO {
 
     public void persist(Huone huone) {
-        EntityManager em = MariaDbConnection.getInstance();;
+        EntityManager em = MariaDbConnection.getInstance();
         em.getTransaction().begin();
-        try {
-            if (!em.isOpen()) {
-                throw new IllegalStateException("EntityManager is closed!");
-            }
-            em.persist(huone);  // Tallenna huone tietokantaan
-            em.getTransaction().commit();  // Suorita commit onnistuneesti
-            System.out.println("Huone lisätty onnistuneesti!");
-        } catch (Exception e) {
-            if (em != null && em.getTransaction().isActive()) {
-                em.getTransaction().rollback();  // Jos virhe, rollback
-                System.out.println("Virhe tapahtui, rollback suoritettu.");
-            }
-            e.printStackTrace();  // Tulostetaan virhe debuggausta varten
-        } finally {
-            if (em != null && em.isOpen()) {
-                em.close();  // Suljetaan EntityManager
-            }
-        }
+        em.persist(huone);
+        em.getTransaction().commit();
     }
 
-    // Other methods remain unchanged
+    public Huone haeHuoneetByHotelliId(int hotelli_id) {
+        EntityManager em = MariaDbConnection.getInstance();
+        List<Huone> huoneet = null;
+        Huone palautettavaHuone = null;
+        try {
+            huoneet = em.createQuery("SELECT h FROM Huone h WHERE h.hotelli_id = :hotelli_id", Huone.class)
+                    .setParameter("hotelli_id", hotelli_id)
+                    .getResultList();
+            if (!huoneet.isEmpty()) {
+                // Palautetaan ensimmäinen huone
+                palautettavaHuone = huoneet.get(0);
+            } else {
+                System.out.println("Huoneita ei löytynyt hotellista ID:llä " + hotelli_id);
+            }
+            // Tulostetaan kaikki huoneet
+            for (Huone huone : huoneet) {
+                printHuone(huone);
+            }
 
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return palautettavaHuone;
+    }
 
-    public void findById(int id) {
+    public Huone findByRoomId(int id) {
         EntityManager em = MariaDbConnection.getInstance();
         try {
             Huone huone = em.find(Huone.class, id);
             printHuone(huone);
+            return huone;
         } finally {
             if (em != null) {
                 em.close();
@@ -46,7 +55,7 @@ public class HuoneDAO {
     }
 
 
-    public void findByHuoneTila(String huone_tila) {
+    public Huone findByHuoneTila(String huone_tila) {
         EntityManager em = MariaDbConnection.getInstance();
         List<Huone> huoneet = null;
         try {
@@ -55,15 +64,17 @@ public class HuoneDAO {
                     .getResultList();
             for (Huone huone : huoneet) {
                 printHuone(huone);
+                return huone;
             }
         } finally {
             if (em != null) {
                 em.close();
             }
         }
+        return null;
     }
 
-    public void findByTyyppi(String huone_tyyppi) {
+    public Huone findByTyyppi(String huone_tyyppi) {
         EntityManager em = MariaDbConnection.getInstance();
         List<Huone> huoneet = null;
         try {
@@ -75,33 +86,21 @@ public class HuoneDAO {
             }
         } finally {
             if (em != null) {
-                em.close();  // Sulje EntityManager
-            }
-        }
-    }
-
-    public void updateTilaById(int id, String huone_tila) {
-        EntityManager em = MariaDbConnection.getInstance();
-        try {
-            em.getTransaction().begin();
-            Huone huone = em.find(Huone.class, id);
-            if (huone != null) {
-                huone.setHuone_tila(huone_tila);
-            }
-            em.getTransaction().commit();
-        } finally {
-            if (em != null) {
                 em.close();
             }
         }
+        return null;
     }
 
-    public void updateHintaById(int id, double huone_hinta) {
+    public void updateHuoneById(int id, int huone_nro, String huone_tyyppi, String huone_tila, double huone_hinta) {
         EntityManager em = MariaDbConnection.getInstance();
         try {
             em.getTransaction().begin();
             Huone huone = em.find(Huone.class, id);
             if (huone != null) {
+                huone.setHuone_nro(huone_nro);
+                huone.setHuone_tyyppi(huone_tyyppi);
+                huone.setHuone_tila(huone_tila);
                 huone.setHuone_hinta(huone_hinta);
             }
             em.getTransaction().commit();
@@ -110,7 +109,9 @@ public class HuoneDAO {
                 em.close();
             }
         }
+
     }
+
 
     public void removeById(int huone_id) {
         EntityManager em = MariaDbConnection.getInstance();
@@ -133,6 +134,7 @@ public class HuoneDAO {
         System.out.println("Huoneen tila: " + huone.getHuone_tila());
         System.out.println("Huoneen hinta: " + huone.getHuone_hinta());
         System.out.println("Hotelli ID: " + huone.getHotelli_id());
+        System.out.println(" ");
     }
 
 }

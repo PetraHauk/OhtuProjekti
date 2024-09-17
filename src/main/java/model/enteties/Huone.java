@@ -24,8 +24,8 @@ public class Huone {
     @Column(name = "hotelli_id")
     private int hotelli_id;
 
-
-    public Huone(int huone_nro, String huone_tyyppi, String huone_tila, double huone_hinta, int hotelli_id) {
+    public Huone(int huone_id, int huone_nro, String huone_tyyppi, String huone_tila, double huone_hinta, int hotelli_id) {
+        this.huone_id = huone_id;
         this.huone_nro = huone_nro;
         this.huone_tyyppi = huone_tyyppi;
         this.huone_tila = huone_tila;
@@ -33,15 +33,8 @@ public class Huone {
         this.hotelli_id = hotelli_id;
     }
 
-    public Huone(int huone_id, int huone_nro, String huone_tyyppi, String huone_tila, double huone_hinta, int hotelli_id) {
-    }
 
-    public Huone(int numero, double hinta, String huoneenTyyppi) {
-        this.huone_nro = numero;
-        this.huone_hinta = hinta;
-        this.huone_tyyppi = huoneenTyyppi;
-        this.huone_tyyppi = "Vapaa";
-        this.hotelli_id = hotelli_id;
+    public Huone() {
     }
 
     public int getHuone_id() {
@@ -68,6 +61,14 @@ public class Huone {
         return hotelli_id;
     }
 
+    public void setHuone_nro(int huone_nro) {
+        this.huone_nro = huone_nro;
+    }
+
+    public void setHuone_tyyppi(String huone_tyyppi) {
+        this.huone_tyyppi = huone_tyyppi;
+    }
+
     public void setHuone_tila(String huone_tila) {
         this.huone_tila = huone_tila;
     }
@@ -75,5 +76,6 @@ public class Huone {
     public void setHuone_hinta(double huone_hinta) {
         this.huone_hinta = huone_hinta;
     }
-
 }
+
+
