@@ -67,10 +67,10 @@ CREATE TABLE huone_varaus (
 
 //kayttaja, tällä tavalla ei voi lisää hashed salasana, ohjelman kautta (ajja ohjelma) voi.
 INSERT INTO `kayttaja` (`etunimi`, `sukunimi`, `sposti`, `puh`, `rooli`, `salasana`)
-VALUES ('Milla','Koskiainen', 'milla.koskiainen@hoteli.com', '03762387168', 'admin', 'milla');
+VALUES ('Milla','Koskiainen', 'milla.koskiainen@hotelli.com', '03762387168', 'admin', 'milla');
 
 INSERT INTO `kayttaja` (`etunimi`, `sukunimi`, `sposti`, `puh`, `rooli`, `salasana`)
-VALUES ('Lisa','Paranen', 'lisa.paranen@hoteli.com', '03762387168', 'normaali', 'lisa');
+VALUES ('Lisa','Paranen', 'lisa.paranen@hotelli.com', '03762387168', 'normaali', 'lisa');
 
 //asiakas
 INSERT INTO `asiakas` (`etunimi`, `sukunimi`, `sposti`, `puh`, `henkilo_maara`, `huomio`)
