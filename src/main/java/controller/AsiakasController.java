@@ -26,6 +26,10 @@ public class AsiakasController {
         return asiakasDAO.findByNImet(etunimi, sukunimi);
     }
 
+    public Asiakas findAllAsiakkaat() {
+        return asiakasDAO.findAsukkaat();
+    }
+
     public void paivitaAsiakas(int id, String etunimi, String sukunimi, String sposti, String puh, int henkiloMaara, String huomio) {
         asiakasDAO.updateAsiakasById(id, etunimi, sukunimi, sposti, puh, henkiloMaara, huomio);
     }

@@ -75,7 +75,24 @@ public class AsiakasDAO {
             }
         }
         return palauttavaAsiakkaat;
+    }
 
+    public Asiakas findAsukkaat() {
+        EntityManager em = MariaDbConnection.getInstance();
+        List<Asiakas> asiakkaat = null;
+        Asiakas palauttavaAsiakkaat = null;
+        try {
+            asiakkaat = em.createQuery("SELECT v FROM Asiakas v", Asiakas.class).getResultList();
+
+            for (Asiakas asiakas : asiakkaat) {
+                printAsiakas(asiakas);  // Tulosta varaus, jos tarpeellista
+            }
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return palauttavaAsiakkaat;  // Palautetaan lista varauksista
     }
 
     public void updateAsiakasById(int id, String etunimi, String sukunimi, String sposti, String puh, int henkiloMaara, String huomio) {
