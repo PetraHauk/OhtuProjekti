@@ -1,5 +1,4 @@
 package model.enteties;
-
 import jakarta.persistence.*;
 
 @Entity
@@ -84,6 +83,9 @@ public class Kayttaja {
 
     public String getRooli() {
         return rooli;
+    }
+    public void setRooli(String rooli) {
+        this.rooli = rooli;
     }
 
     public String getSalasana() {
