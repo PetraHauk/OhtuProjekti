@@ -22,40 +22,21 @@ public class HotelliDAO {
             }
         }
     }
-/*
-    public Hotelli removeById(int id) {
-        EntityManager em = MariaDbConnection.getInstance();
-        Hotelli hotelli = null;
 
+    public void removeById(int hotelli_id) {
+        EntityManager em = MariaDbConnection.getInstance();
         try {
             em.getTransaction().begin();
-            hotelli = em.find(Hotelli.class, id);
-
+            Hotelli hotelli = em.find(Hotelli.class, hotelli_id);
             if (hotelli != null) {
                 em.remove(hotelli);
-                System.out.println("Hotelli poistettu onnistuneesti!");
-                em.getTransaction().commit();  // Commit transaction if removal succeeds
-            } else {
-                System.out.println("Hotelli ei löytynyt ID:llä: " + id);
             }
-
-        } catch (Exception e) {
-            // Handle exceptions, rollback transaction if something goes wrong
-            if (em.getTransaction().isActive()) {
-                em.getTransaction().rollback();
-            }
-            e.printStackTrace();
+            em.getTransaction().commit();
         } finally {
-            // Ensure the EntityManager is closed
             if (em != null) {
                 em.close();
             }
         }
-
-        return hotelli;  // Return the removed hotelli (or null if not found)
     }
-
-
- */
 
 }
