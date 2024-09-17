@@ -10,20 +10,17 @@ public class HotelliController {
         hotelliDAO = new HotelliDAO();
     }
 
-    public void lisaaHotelli(String nimi, String osoite, String kaupunki, String puh, String maa) {
+    public void addHotelli(String nimi, String osoite, String kaupunki, String puh, String maa) {
         Hotelli hotelli = new Hotelli(0, nimi, osoite, kaupunki, puh, maa);
         hotelliDAO.persist(hotelli);
     }
 
-    public Hotelli haeHotelliById(int id) {
+    public Hotelli findHotelliById(int id) {
         return hotelliDAO.findById(id);
     }
 
-   /* public void poistaHotelli(int id) {
-        Hotelli hotelli = hotelliDAO.removeById(id);
-        hotelliDAO.removeById(id);
+    public void removeHotelliById(int hotelli_id) {
+        hotelliDAO.removeById(hotelli_id);
     }
-
-    */
 
 }
