@@ -5,6 +5,8 @@ import model.enteties.Huone;
 import model.enteties.Hotelli;
 import model.DAO.HotelliDAO;
 
+import java.util.List;
+
 public class HuoneController {
     private HuoneDAO huoneDAO;
     private HotelliDAO hotelliDAO;
@@ -29,8 +31,8 @@ public class HuoneController {
         System.out.println("Huone lisätty onnistuneesti hotelliin ID:llä " + hotelli_id);
     }
 
-    public void FindHuoneetByHoteliId(int hotelli_id) {
-        huoneDAO.haeHuoneetByHotelliId(hotelli_id);
+    public List<Huone> FindHuoneetByHoteliId(int hotelli_id) {
+        return huoneDAO.haeHuoneetByHotelliId(hotelli_id);
     }
 
     public void findHuoneById(int id) {

@@ -4,57 +4,47 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="065e434f-b050-4145-bce8-5768651a9a60" name="Changes" comment="github testi">
-      <change beforePath="$PROJECT_DIR$/.gitIgnore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitIgnore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="Window opens and shows basic layout when WilmaMain is launched">
+      <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/blobs/version" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_9_2024_10_00__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_9_2024_10_00__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui.iml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/HuoneHaku.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/MockData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/MockData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/OhjelmistoGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/OhjelmistoGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/HuoneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/HuoneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/HuoneDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/HuoneDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/target/classes/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/app/HotelliHaku.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/app/HotelliHaku.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/app/HuoneHaku.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/app/KayttajaHaku.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/app/KayttajaHaku.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/app/MockData.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/app/MockData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/app/OhjelmistoGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/app/OhjelmistoGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/HotelliController.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/controller/HotelliController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/HuoneController.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/controller/HuoneController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/KayttajaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/controller/KayttajaController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/HotelliDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/DAO/HotelliDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/HuoneDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/DAO/HuoneDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/KayttajaDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/DAO/KayttajaDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/enteties/Huone.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/enteties/Huone.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/enteties/Kayttaja.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/enteties/Kayttaja.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-        <option value="CSS File" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="main" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;annagaom&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/PetraHauk/OhtuProjekti.git&quot;,
-    &quot;accountId&quot;: &quot;d12f10a6-d5cf-492d-aceb-5d1198a70491&quot;
-  }
-}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
-  </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 3
+  &quot;associatedIndex&quot;: 2
 }</component>
-  <component name="ProjectId" id="2leYgd5LUOn8ijdYfmOTF1ggQv2" />
+  <component name="ProjectId" id="2mBeOaKBnqoIeJgOkk3YNpKoFbH" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -62,42 +52,18 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.AnnaMain.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.MainPetra.executor": "Run",
-    "Application.OhjelmistoGUI.executor": "Run",
     "Application.WilmaMain.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "wilma",
     "kotlin-language-version-configured": "true",
-    "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.5482759",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
     "vue.rearranger.settings.migration": "true"
-  },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mariadb"
-    ]
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="model.enteties" />
-    </key>
-  </component>
   <component name="RunManager">
     <configuration name="AnnaMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="app.AnnaMain" />
@@ -140,9 +106,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.AnnaMain" />
         <item itemvalue="Application.MainPetra" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.AnnaMain" />
       </list>
     </recent_temporary>
   </component>
@@ -155,128 +121,30 @@
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task id="LOCAL−00001" summary="Window opens and shows basic layout when WilmaMain is launched">
+      <option name="closed" value="true" />
+      <created>1726038545983</created>
+      <option name="number" value="LOCAL−00001" />
+      <option name="presentableId" value="LOCAL−00001" />
+      <updated>1726038545983</updated>
+    </task>
     <task active="true" id="Default" summary="Default task">
-      <changelist id="065e434f-b050-4145-bce8-5768651a9a60" name="Changes" comment="" />
-      <created>1725542122228</created>
+      <changelist id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="Window opens and shows basic layout when WilmaMain is launched" />
+      <created>1726554373190</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1725542122228</updated>
-      <workItem from="1725542123275" duration="69610000" />
-      <workItem from="1725951025272" duration="6032000" />
+      <updated>1726554373190</updated>
+      <workItem from="1726554375584" duration="1777000" />
     </task>
-    <task id="LOCAL-00001" summary="päivistys">
-      <option name="closed" value="true" />
-      <created>1725609857977</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1725609857977</updated>
-    </task>
-    <task id="LOCAL-00002" summary="lisää sarakkeita tauluun">
-      <option name="closed" value="true" />
-      <created>1725619749405</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1725619749405</updated>
-    </task>
-    <task id="LOCAL-00003" summary="päivistys">
-      <option name="closed" value="true" />
-      <created>1725619801233</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1725619801233</updated>
-    </task>
-    <task id="LOCAL-00004" summary="kieli virheitä korjaus">
-      <option name="closed" value="true" />
-      <created>1725620152801</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1725620152801</updated>
-    </task>
-    <task id="LOCAL-00005" summary="korjaa kaikki hoteli -&gt; hotelli">
-      <option name="closed" value="true" />
-      <created>1725624830732</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1725624830732</updated>
-    </task>
-    <task id="LOCAL-00006" summary="kayttaja taulukko: lisää, haut, päivitä">
-      <option name="closed" value="true" />
-      <created>1725633440958</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1725633440958</updated>
-    </task>
-    <task id="LOCAL-00007" summary="kayttaja taulukko: vaihda salasana toimi">
-      <option name="closed" value="true" />
-      <created>1725634791047</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1725634791047</updated>
-    </task>
-    <task id="LOCAL-00008" summary="koodin siistiminen">
-      <option name="closed" value="true" />
-      <created>1725651837984</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1725651837984</updated>
-    </task>
-    <task id="LOCAL-00009" summary="huone taulu: javat">
-      <option name="closed" value="true" />
-      <created>1725730939801</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1725730939802</updated>
-    </task>
-    <task id="LOCAL-00010" summary="huone taulu: haut , poista ja päivitä">
-      <option name="closed" value="true" />
-      <created>1725746477917</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1725746477917</updated>
-    </task>
-    <task id="LOCAL-00011" summary="päivistys">
-      <option name="closed" value="true" />
-      <created>1725746526899</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1725746526899</updated>
-    </task>
-    <task id="LOCAL−00012" summary="github testi">
-      <option name="closed" value="true" />
-      <created>1725951128496</created>
-      <option name="number" value="LOCAL−00012" />
-      <option name="presentableId" value="LOCAL−00012" />
-      <updated>1725951128496</updated>
-    </task>
-    <option name="localTasksCounter" value="13" />
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="lisää sarakkeita tauluun" />
-    <MESSAGE value="kieli virheitä korjaus" />
-    <MESSAGE value="korjaa kaikki hoteli -&gt; hotelli" />
-    <MESSAGE value="kayttaja taulukko: lisää, haut, päivitä" />
-    <MESSAGE value="kayttaja taulukko: vaihda salasana toimi" />
-    <MESSAGE value="koodin siistiminen" />
-    <MESSAGE value="huone taulu: javat" />
-    <MESSAGE value="huone taulu: haut , poista ja päivitä" />
-    <MESSAGE value="päivistys" />
-    <MESSAGE value="github testi" />
-    <option name="LAST_COMMIT_MESSAGE" value="github testi" />
+    <MESSAGE value="Window opens and shows basic layout when WilmaMain is launched" />
+    <option name="LAST_COMMIT_MESSAGE" value="Window opens and shows basic layout when WilmaMain is launched" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

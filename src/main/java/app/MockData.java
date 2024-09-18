@@ -35,13 +35,9 @@ public class MockData {
         customers.add(asiakas);
     }
 
+
     public static List<Huone> getMockRooms() {
-        rooms.add(new Huone(101, 100.0, "Standard"));
-        rooms.add(new Huone(102, 200.0, "Suite"));
-        rooms.add(new Huone(103, 200.0, "Suite"));
-        rooms.add(new Huone(104, 100.0, "Standard"));
-        rooms.add(new Huone(105, 200.0, "Suite"));
-        rooms.add(new Huone(106, 100.0, "Standard"));
+        rooms.add(new Huone(101, 1, "Yhden hengen", "Vapaa", 100.0, 1));
         return rooms;
     }
 
