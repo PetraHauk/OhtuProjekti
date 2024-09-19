@@ -1,15 +1,13 @@
 package model.enteties;
-
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "hoteli")
-public class Hoteli {
+@Table(name = "hotelli")
+public class Hotelli {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Tämä mahdollistaa automaattisen ID:n generoinnin
-    //@Column(name = "hoteli_id")
-    private int hoteli_id;
+    private int hotelli_id;
 
     @Column(name = "nimi")
     private String nimi;
@@ -26,8 +24,8 @@ public class Hoteli {
     @Column(name = "maa")
     private String maa;
 
-    public Hoteli(int hoteli_id, String nimi, String osoite, String kaupunki, String puh, String maa) {
-        this.hoteli_id = hoteli_id;
+    public Hotelli(int hotelli_id, String nimi, String osoite, String kaupunki, String puh, String maa) {
+        this.hotelli_id = hotelli_id;
         this.nimi = nimi;
         this.kaupunki = kaupunki;
         this.osoite = osoite;
@@ -35,11 +33,11 @@ public class Hoteli {
         this.maa = maa;
     }
 
-    public Hoteli() {
+    public Hotelli() {
     }
 
-    public int getHoteli_id() {
-        return hoteli_id;
+    public int getHotelli_id() {
+        return hotelli_id;
     }
 
     public String getNimi() {
@@ -63,6 +61,3 @@ public class Hoteli {
     }
 
 }
-
-
-

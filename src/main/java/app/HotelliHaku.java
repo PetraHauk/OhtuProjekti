@@ -1,21 +1,21 @@
 package app;
 
 import model.enteties.*;
-import controller.HoteliController;
+import controller.HotelliController;
 
 import java.util.Scanner;
 
-public class HoteliHaku {
-    HoteliController hoteli_controller = new HoteliController();
+public class HotelliHaku {
+    HotelliController hotelli_controller = new HotelliController();
     Scanner scanner = new Scanner(System.in);
 
     public void start() {
-        //lisää hoteli ja hae
+        //lisää hotelli ja hae
         while (true) {
             System.out.println("Valitse toiminto:");
-            System.out.println("1. Lisää uusi hoteli");
-            System.out.println("2. Hae hoteli ID:llä");
-            //System.out.println("3. Poista id:llä");
+            System.out.println("1. Lisää uusi hotelli");
+            System.out.println("2. Hae hotelli ID:llä");
+            System.out.println("3. Poista id:llä");
             System.out.println("4. Lopeta");
 
             int valinta = scanner.nextInt();
@@ -23,7 +23,7 @@ public class HoteliHaku {
 
             switch (valinta) {
                 case 1:
-                    System.out.println("Anna hoteli nimi:");
+                    System.out.println("Anna hotelli nimi:");
                     String nimi = scanner.nextLine();
                     System.out.println("Anna osoite:");
                     String osoite = scanner.nextLine();
@@ -34,14 +34,14 @@ public class HoteliHaku {
                     System.out.println("Anna maa:");
                     String maa = scanner.nextLine();
 
-                    hoteli_controller.lisaaHoteli(nimi, osoite, kaupunki, puh, maa);
-                    System.out.println("Hoteli lisätty onnistuneesti!");
+                    hotelli_controller.addHotelli(nimi, osoite, kaupunki, puh, maa);
+                    System.out.println("Hotelli lisätty onnistuneesti!");
                     break;
 
                 case 2:
                     System.out.println("Anna hotellin ID:");
                     int idHaku = scanner.nextInt();
-                    Hoteli hotelli = hoteli_controller.haeHoteliById(idHaku);
+                    Hotelli hotelli = hotelli_controller.findHotelliById(idHaku);
                     if (hotelli != null) {
                         System.out.println("Hotelli löytyi:");
                         System.out.println("Nimi: " + hotelli.getNimi());
@@ -54,14 +54,12 @@ public class HoteliHaku {
                     }
                     break;
 
-                /*case 3:
+                case 3:
                     System.out.println("Anna hotellin ID:");
                     int idPoisto = scanner.nextInt();
-                     hoteli_controller.poistaHoteli(idPoisto);
-
+                    hotelli_controller.removeHotelliById(idPoisto);
                     break;
 
-                 */
                 case 4:
                     System.out.println("Lopetetaan ohjelma.");
                     scanner.close();
