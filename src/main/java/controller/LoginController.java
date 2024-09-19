@@ -62,7 +62,7 @@ public class LoginController {
         return passwordField;
     }
 
-    // Change access to public so they can be accessed from other classes
+
     @FXML
     public void handleLogin() throws IOException {
         String email = emailIdField.getText();
@@ -142,10 +142,10 @@ public class LoginController {
             kayttaja.setSukunimi(sukunimi);
             kayttaja.setSposti(sposti);
             kayttaja.setPuh(puh);
-            kayttaja.setSalasana(salasana);  // Ideally, hash the password before storing it
-            kayttaja.setRooli("1");  // Assuming "1" is the default role
+            kayttaja.setSalasana(salasana);
+            kayttaja.setRooli("1");
 
-            // Persist the user to the database
+
             kayttajaDAO.persist(kayttaja);
 
             // Show success message
