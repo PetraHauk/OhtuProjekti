@@ -4,32 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="065e434f-b050-4145-bce8-5768651a9a60" name="Changes" comment="päivistys">
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/HomeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/utils/PasswordUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/view/home.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/view/register.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/aa989b5b-8fef-408c-b7b9-47f367b75a5e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/aa989b5b-8fef-408c-b7b9-47f367b75a5e.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="065e434f-b050-4145-bce8-5768651a9a60" name="Changes" comment="Kirjautuminen, rekisteröinti ja uloskirjautuminen implementoitu ilman häshäystä">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/KayttajaHaku.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/KayttajaHaku.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/KayttajaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/KayttajaDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/datasourse/MariaDbConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/datasourse/MariaDbConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hoteli.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hoteli.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/app/KayttajaHaku.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/app/KayttajaHaku.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/app/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/app/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/controller/LoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/hoteli.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/hoteli.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/KayttajaDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/DAO/KayttajaDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/model/datasourse/MariaDbConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/datasourse/MariaDbConnection.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,6 +128,10 @@
       <workItem from="1725784660183" duration="4299000" />
       <workItem from="1725879085929" duration="616000" />
       <workItem from="1726135278807" duration="2308000" />
+      <workItem from="1726214364196" duration="1017000" />
+      <workItem from="1726486497586" duration="24000" />
+      <workItem from="1726561911689" duration="300000" />
+      <workItem from="1726656914297" duration="358000" />
     </task>
     <task id="LOCAL-00001" summary="päivistys">
       <option name="closed" value="true" />
@@ -160,7 +141,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725609857977</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Kirjautuminen, rekisteröinti ja uloskirjautuminen implementoitu ilman häshäystä">
+      <option name="closed" value="true" />
+      <created>1726214775087</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1726214775087</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -169,6 +158,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="päivistys" />
     <MESSAGE value="lol" />
-    <option name="LAST_COMMIT_MESSAGE" value="lol" />
+    <MESSAGE value="Kirjautuminen, rekisteröinti ja uloskirjautuminen implementoitu ilman häshäystä" />
+    <option name="LAST_COMMIT_MESSAGE" value="Kirjautuminen, rekisteröinti ja uloskirjautuminen implementoitu ilman häshäystä" />
   </component>
 </project>

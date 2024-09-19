@@ -73,9 +73,9 @@ public class LoginController {
         if (kayttaja != null && kayttaja.getSalasana().equals(password)) {
             // Login successful
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Login Success");
+            alert.setTitle("Kirjautuminen onnistui");
             alert.setHeaderText(null);
-            alert.setContentText("Welcome " + kayttaja.getEtunimi() + "!");
+            alert.setContentText("Tervetuloa " + kayttaja.getEtunimi() + "!");
             alert.showAndWait();
 
             // Load the home page FXML
@@ -95,9 +95,9 @@ public class LoginController {
         } else {
             // Login failed
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Login Failed");
+            alert.setTitle("Kirjautuminen epäonnistui");
             alert.setHeaderText(null);
-            alert.setContentText("Invalid email or password.");
+            alert.setContentText("Tarkista sähköposti ja salasana.");
             alert.showAndWait();
         }
     }
@@ -131,9 +131,9 @@ public class LoginController {
         // Validate input before registering
         if (etunimi.isEmpty() || sukunimi.isEmpty() || sposti.isEmpty() || puh.isEmpty() || salasana.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Registration Failed");
+            alert.setTitle("Rekisteröinti epäonnistui");
             alert.setHeaderText(null);
-            alert.setContentText("Please fill out all fields.");
+            alert.setContentText("Täytä kaikki kohdat.");
             alert.showAndWait();
         } else {
             // Create a new Kayttaja object and register it
@@ -150,9 +150,9 @@ public class LoginController {
 
             // Show success message
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Registration Successful");
+            alert.setTitle("Rekisteröinti onnistui");
             alert.setHeaderText(null);
-            alert.setContentText("Welcome, " + etunimi + " " + sukunimi + "!");
+            alert.setContentText("Tervetuloa, " + etunimi + " " + sukunimi + "!");
             alert.showAndWait();
 
             // Load the home page FXML
