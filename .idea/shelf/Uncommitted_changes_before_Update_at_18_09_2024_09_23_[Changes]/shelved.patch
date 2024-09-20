@@ -1,0 +1,337 @@
+Index: src/main/Database/hotelli_db
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>CREATE DATABASE hotelli_db;\r\nUSE hotelli_db;\r\n\r\n\r\nCREATE TABLE hotelli (\r\n    hotelli_id INT PRIMARY KEY AUTO_INCREMENT,\r\n    kaupunki VARCHAR(100),\r\n    nimi VARCHAR(100),\r\n    osoite VARCHAR(255),\r\n    puh VARCHAR(20),\r\n    maa VARCHAR(50)\r\n);\r\n\r\nCREATE TABLE kayttaja (\r\n    kayttaja_id INT PRIMARY KEY AUTO_INCREMENT,\r\n    etunimi VARCHAR(100),\r\n    sukunimi VARCHAR(100),\r\n    sposti VARCHAR(100) NOT NULL,\r\n    puh VARCHAR(20),\r\n    rooli VARCHAR(50) NOT NULL,\r\n    salasana VARCHAR(255) NOT NULL\r\n);\r\n\r\nCREATE TABLE huone (\r\n    huone_id INT PRIMARY KEY AUTO_INCREMENT,\r\n    huone_nro INT NOT NULL,\r\n    huone_tyyppi VARCHAR(50),\r\n    huone_tila VARCHAR(50),\r\n    huone_hinta DECIMAL(10, 2) NOT NULL,\r\n    hotelli_id INT,\r\n    FOREIGN KEY (hotelli_id) REFERENCES hotelli(hotelli_id)\r\n);\r\n\r\n\r\nCREATE TABLE huone_varaus (\r\n    varaus_id INT PRIMARY KEY AUTO_INCREMENT,\r\n    huone_maara INT NOT NULL,\r\n    alku_pvm DATE NOT NULL,\r\n    loppu_pvm DATE NOT NULL,\r\n    huone_id INT,\r\n    lasku_id INT,\r\n    FOREIGN KEY (huone_id) REFERENCES huone(huone_id),\r\n    FOREIGN KEY (lasku_id) REFERENCES lasku(lasku_id)\r\n);\r\n\r\nCREATE TABLE lasku (\r\n    lasku_id INT PRIMARY KEY AUTO_INCREMENT,\r\n    maksu_status VARCHAR(50) NOT NULL,\r\n    varaus_muoto VARCHAR(50) NOT NULL,\r\n    valuutta VARCHAR(20)\r\n);\r\n\r\nCREATE TABLE asiakas (\r\n    asiakas_id INT PRIMARY KEY AUTO_INCREMENT,\r\n    etunimi VARCHAR(100) NOT NULL,\r\n    sukunimi VARCHAR(100) NOT NULL,\r\n    sposti VARCHAR(100) NOT NULL,\r\n    puh VARCHAR(20),\r\n    henkilo_maara INT(5),\r\n    huomio VARCHAR(500),\r\n    lasku_id INT,\r\n    FOREIGN KEY (lasku_id) REFERENCES lasku(lasku_id)\r\n);\r\n\r\n//kayttaja, tällä tavalla ei voi lisää hashed salasana, ohjelman kautta (ajja ohjelma) voi.\r\nINSERT INTO `kayttaja` (`etunimi`, `sukunimi`, `sposti`, `puh`, `rooli`, `salasana`)\r\nVALUES ('Milla','Koskiainen', 'milla.koskiainen@hoteli.com', '03762387168', 'admin', 'milla');\r\n\r\nINSERT INTO `kayttaja` (`etunimi`, `sukunimi`, `sposti`, `puh`, `rooli`, `salasana`)\r\nVALUES ('Lisa','Paranen', 'lisa.paranen@hoteli.com', '03762387168', 'normaali', 'lisa');\r\n\r\n//asiakas\r\nINSERT INTO asiakas (etunimi, sukunimi, sposti, puh, henkilo_maara, huomio, lasku_id)\r\nVALUES ('Matti', 'Meikäläinen', 'matti@sposti.fi', '09123456', 1, 'ei erikoista', 1);\r\n\r\nINSERT INTO asiakas (etunimi, sukunimi, sposti, puh, henkilo_maara, huomio, lasku_id)\r\nVALUES ('Mia', 'Makki', 'mia@sposti.fi', '0923456', 2, 'Rauhallinen huone', 2);\r\n\r\nINSERT INTO asiakas (etunimi, sukunimi, sposti, puh, henkilo_maara, huomio, lasku_id)\r\nVALUES ('Niko', 'Niskka', 'nikko@sposti.fi', '06872398', 3, 'ei erikoista', 3);\r\n\r\n//hotelli\r\nINSERT INTO `hotelli` (`kaupunki`, `nimi`, `osoite`, `puh`, `maa`)\r\nVALUES ('Helsinki', 'EkaHoteli', 'parastie 29', '09576345', 'Suomi');\r\n\r\nINSERT INTO `hotelli` (`kaupunki`, `nimi`, `osoite`, `puh`, `maa`)\r\nVALUES ('Espoo', 'TokaHoteli', 'toisentie 89', '0265662', 'Suomi');\r\n\r\n//huone\r\nINSERT INTO `huone` (`huone_id`, `huone_nro`, `huone_tyyppi`, `huone_tila`, `huone_hinta`, `hotelli_id`)\r\nVALUES (4, '101', 'family', 'vapaa', '150.00', 1);\r\n\r\nINSERT INTO `huone` (`huone_id`, `huone_nro`, `huone_tyyppi`, `huone_tila`, `huone_hinta`, `hotelli_id`)\r\nVALUES (4, '202', 'suit', 'varattu', '250.00', 1);\r\n\r\nINSERT INTO `huone` (`huone_id`, `huone_nro`, `huone_tyyppi`, `huone_tila`, `huone_hinta`, `hotelli_id`)\r\nVALUES (4, '203', 'standard', 'varattu', '100.00', 2);\r\n\r\n//Lasku\r\nINSERT INTO `lasku` (`maksu_status`, `varaus_muoto`, `valuutta`)\r\nVALUES ('maksettu', 'all_inslusive', 'EUR');\r\n\r\n\r\n//huone_varaus\r\nINSERT INTO `huone_varaus` (`huone_maara`, `alku_pvm`, `loppu_pvm`, `huone_id`, `lasku_id`)\r\nVALUES (1, '2024-08-12', '2024-08-15', 1, 1);\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/Database/hotelli_db b/src/main/Database/hotelli_db
+--- a/src/main/Database/hotelli_db	(revision ae813440e2c1943c5f489f80dad40006e36b6572)
++++ b/src/main/Database/hotelli_db	(date 1726561440721)
+@@ -83,18 +83,15 @@
+ INSERT INTO `hotelli` (`kaupunki`, `nimi`, `osoite`, `puh`, `maa`)
+ VALUES ('Helsinki', 'EkaHoteli', 'parastie 29', '09576345', 'Suomi');
+ 
+-INSERT INTO `hotelli` (`kaupunki`, `nimi`, `osoite`, `puh`, `maa`)
+-VALUES ('Espoo', 'TokaHoteli', 'toisentie 89', '0265662', 'Suomi');
+-
+ //huone
+ INSERT INTO `huone` (`huone_id`, `huone_nro`, `huone_tyyppi`, `huone_tila`, `huone_hinta`, `hotelli_id`)
+ VALUES (4, '101', 'family', 'vapaa', '150.00', 1);
+ 
+ INSERT INTO `huone` (`huone_id`, `huone_nro`, `huone_tyyppi`, `huone_tila`, `huone_hinta`, `hotelli_id`)
+-VALUES (4, '202', 'suit', 'varattu', '250.00', 1);
++VALUES (1, '202', 'suit', 'varattu', '250.00', 1);
+ 
+ INSERT INTO `huone` (`huone_id`, `huone_nro`, `huone_tyyppi`, `huone_tila`, `huone_hinta`, `hotelli_id`)
+-VALUES (4, '203', 'standard', 'varattu', '100.00', 2);
++VALUES (2, '203', 'standard', 'varattu', '100.00', 1);
+ 
+ //Lasku
+ INSERT INTO `lasku` (`maksu_status`, `varaus_muoto`, `valuutta`)
+Index: .idea/dataSources.local.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"dataSourceStorageLocal\" created-in=\"IU-233.15619.7\">\r\n    <data-source name=\"@localhost\" uuid=\"aa989b5b-8fef-408c-b7b9-47f367b75a5e\">\r\n      <database-info product=\"MariaDB\" version=\"10.11.2-MariaDB\" jdbc-version=\"4.2\" driver-name=\"MariaDB Connector/J\" driver-version=\"3.0.7\" dbms=\"MARIADB\" exact-version=\"10.11.2\" exact-driver-version=\"3.0\">\r\n        <extra-name-characters>#@</extra-name-characters>\r\n        <identifier-quote-string>`</identifier-quote-string>\r\n      </database-info>\r\n      <case-sensitivity plain-identifiers=\"mixed\" quoted-identifiers=\"mixed\" />\r\n      <secret-storage>master_key</secret-storage>\r\n      <user-name>root</user-name>\r\n      <schema-mapping>\r\n        <introspection-scope>\r\n          <node kind=\"schema\">\r\n            <name qname=\"@\" />\r\n            <name qname=\"hotelli_db\" />\r\n          </node>\r\n        </introspection-scope>\r\n      </schema-mapping>\r\n    </data-source>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/dataSources.local.xml b/.idea/dataSources.local.xml
+--- a/.idea/dataSources.local.xml	(revision ae813440e2c1943c5f489f80dad40006e36b6572)
++++ b/.idea/dataSources.local.xml	(date 1726466882412)
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="dataSourceStorageLocal" created-in="IU-233.15619.7">
++  <component name="dataSourceStorageLocal" created-in="IU-233.13135.103">
+     <data-source name="@localhost" uuid="aa989b5b-8fef-408c-b7b9-47f367b75a5e">
+       <database-info product="MariaDB" version="10.11.2-MariaDB" jdbc-version="4.2" driver-name="MariaDB Connector/J" driver-version="3.0.7" dbms="MARIADB" exact-version="10.11.2" exact-driver-version="3.0">
+         <extra-name-characters>#@</extra-name-characters>
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"AnnaMain\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"app.AnnaMain\" />\r\n      <module name=\"gui\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"app.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"app.Main\" />\r\n      <module name=\"gui\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"app.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"MainPetra\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"app.MainPetra\" />\r\n      <module name=\"gui\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"app.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.MainPetra\" />\r\n        <item itemvalue=\"Application.Main\" />\r\n        <item itemvalue=\"Application.AnnaMain\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision ae813440e2c1943c5f489f80dad40006e36b6572)
++++ b/.idea/workspace.xml	(date 1726640624568)
+@@ -1,6 +1,71 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="RunManager">
++  <component name="AutoImportSettings">
++    <option name="autoReloadType" value="SELECTIVE" />
++  </component>
++  <component name="ChangeListManager">
++    <list default="true" id="7980e41e-5880-4600-8b82-580d154807da" name="Changes" comment="Target Commit 12/09">
++      <change afterPath="$PROJECT_DIR$/src/main/java/model/enteties/Lasku.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/blobs/version" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_9_2024_10_00__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_9_2024_10_00__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/Database/hotelli_db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Database/hotelli_db" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/controller/VarausController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/VarausController.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/model/enteties/Varaus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enteties/Varaus.java" afterDir="false" />
++    </list>
++    <option name="SHOW_DIALOG" value="false" />
++    <option name="HIGHLIGHT_CONFLICTS" value="true" />
++    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
++    <option name="LAST_RESOLUTION" value="IGNORE" />
++  </component>
++  <component name="FileTemplateManagerImpl">
++    <option name="RECENT_TEMPLATES">
++      <list>
++        <option value="Class" />
++      </list>
++    </option>
++  </component>
++  <component name="Git.Settings">
++    <option name="RECENT_BRANCH_BY_REPOSITORY">
++      <map>
++        <entry key="$PROJECT_DIR$" value="main" />
++      </map>
++    </option>
++    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
++  </component>
++  <component name="MarkdownSettingsMigration">
++    <option name="stateVersion" value="1" />
++  </component>
++  <component name="ProjectColorInfo">{
++  &quot;customColor&quot;: &quot;&quot;,
++  &quot;associatedIndex&quot;: 3
++}</component>
++  <component name="ProjectId" id="2mBhafV7DYNhhC4kMGHgV0B1QWy" />
++  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
++  <component name="ProjectViewState">
++    <option name="hideEmptyMiddlePackages" value="true" />
++    <option name="showLibraryContents" value="true" />
++  </component>
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;Application.AnnaMain.executor&quot;: &quot;Run&quot;,
++    &quot;Application.MainPetra.executor&quot;: &quot;Run&quot;,
++    &quot;Application.WilmaMain.executor&quot;: &quot;Run&quot;,
++    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;git-widget-placeholder&quot;: &quot;Petra&quot;,
++    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
++    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
++    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
++    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
++    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
++    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
++    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
++  }
++}</component>
++  <component name="RunManager" selected="Application.WilmaMain">
+     <configuration name="AnnaMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+       <option name="MAIN_CLASS_NAME" value="app.AnnaMain" />
+       <module name="gui" />
+@@ -29,6 +94,19 @@
+     </configuration>
+     <configuration name="MainPetra" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+       <option name="MAIN_CLASS_NAME" value="app.MainPetra" />
++      <module name="gui" />
++      <extension name="coverage">
++        <pattern>
++          <option name="PATTERN" value="app.*" />
++          <option name="ENABLED" value="true" />
++        </pattern>
++      </extension>
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
++    <configuration name="WilmaMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="MAIN_CLASS_NAME" value="app.WilmaMain" />
+       <module name="gui" />
+       <extension name="coverage">
+         <pattern>
+@@ -42,10 +120,39 @@
+     </configuration>
+     <recent_temporary>
+       <list>
++        <item itemvalue="Application.WilmaMain" />
+         <item itemvalue="Application.MainPetra" />
+         <item itemvalue="Application.Main" />
+         <item itemvalue="Application.AnnaMain" />
++        <item itemvalue="Application.WilmaMain" />
+       </list>
+     </recent_temporary>
+   </component>
++  <component name="SharedIndexes">
++    <attachedChunks>
++      <set>
++        <option value="jdk-21.0.2-openjdk-21.0.2-f644763e9732-c0c073db" />
++      </set>
++    </attachedChunks>
++  </component>
++  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
++  <component name="TaskManager">
++    <task active="true" id="Default" summary="Default task">
++      <changelist id="7980e41e-5880-4600-8b82-580d154807da" name="Changes" comment="Target Commit 12/09" />
++      <created>1726555943695</created>
++      <option name="number" value="Default" />
++      <option name="presentableId" value="Default" />
++      <updated>1726555943695</updated>
++      <workItem from="1726555945937" duration="5150000" />
++      <workItem from="1726573363281" duration="22000" />
++    </task>
++    <servers />
++  </component>
++  <component name="TypeScriptGeneratedFilesManager">
++    <option name="version" value="3" />
++  </component>
++  <component name="VcsManagerConfiguration">
++    <MESSAGE value="Target Commit 12/09" />
++    <option name="LAST_COMMIT_MESSAGE" value="Target Commit 12/09" />
++  </component>
+ </project>
+\ No newline at end of file
+Index: src/main/java/model/enteties/Varaus.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package model.enteties;\r\n\r\nimport java.time.LocalDate;\r\n\r\npublic class Varaus {\r\n\r\n    private static int varausIdCounter = 1;\r\n    private Huone huone;\r\n    private Asiakas asiakas;\r\n    private LocalDate alkuPvm;\r\n    private LocalDate loppuPvm;\r\n\r\n\r\n    public Varaus(Huone huone, Asiakas asiakas, LocalDate alkuPvm, LocalDate loppuPvm) {\r\n        varausIdCounter++;\r\n        this.huone = huone;\r\n        this.asiakas = asiakas;\r\n        this.alkuPvm = alkuPvm;\r\n        this.loppuPvm = loppuPvm;\r\n    }\r\n\r\n    public Huone getHuone() {\r\n        return huone;\r\n    }\r\n\r\n    public Asiakas getAsiakas() {\r\n        return asiakas;\r\n    }\r\n\r\n    public LocalDate getAlkuPvm() {\r\n        return alkuPvm;\r\n    }\r\n\r\n    public LocalDate getLoppuPvm() {\r\n        return loppuPvm;\r\n    }\r\n\r\n    public void setHuone(Huone huone) {\r\n        this.huone = huone;\r\n    }\r\n\r\n    public void setAlkuPvm(LocalDate alkuPvm) {\r\n        this.alkuPvm = alkuPvm;\r\n    }\r\n\r\n    public void setLoppuPvm(LocalDate loppuPvm) {\r\n        this.loppuPvm = loppuPvm;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/model/enteties/Varaus.java b/src/main/java/model/enteties/Varaus.java
+--- a/src/main/java/model/enteties/Varaus.java	(revision ae813440e2c1943c5f489f80dad40006e36b6572)
++++ b/src/main/java/model/enteties/Varaus.java	(date 1726562184911)
+@@ -1,22 +1,34 @@
+ package model.enteties;
+ 
++import jakarta.persistence.*;
++
+ import java.time.LocalDate;
+ 
++@Entity
++@Table(name = "huone_varaus")
+ public class Varaus {
+ 
+-    private static int varausIdCounter = 1;
+-    private Huone huone;
+-    private Asiakas asiakas;
++    @Id
++    @GeneratedValue(strategy = GenerationType.IDENTITY)
++    private int varausIdCounter;
++
++    @Column(name = "alku_pvm")
+     private LocalDate alkuPvm;
++    @Column(name = "loppu_pvm")
+     private LocalDate loppuPvm;
++    @Column(name = "lasku_id")
++    private int Lasku;
++    @Column(name = "huone_id")
++    private int huone;
+ 
+-
+-    public Varaus(Huone huone, Asiakas asiakas, LocalDate alkuPvm, LocalDate loppuPvm) {
+-        varausIdCounter++;
+-        this.huone = huone;
+-        this.asiakas = asiakas;
++    public Varaus(LocalDate alkuPvm, LocalDate loppuPvm, int lasku, int huone) {
+         this.alkuPvm = alkuPvm;
+         this.loppuPvm = loppuPvm;
++        Lasku = lasku;
++        this.huone = huone;
++    }
++
++    public Varaus() {
+     }
+ 
+     public Huone getHuone() {
+Index: src/main/java/controller/VarausController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package controller;\r\n\r\nimport java.time.LocalDate;\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\n\r\nimport app.MockData;\r\nimport model.enteties.Asiakas;\r\nimport model.enteties.Huone;\r\nimport model.enteties.Varaus;\r\n\r\npublic class VarausController {\r\n\r\n    public void luoVaraus(Huone huone, Asiakas asiakas, LocalDate alkuPvm, LocalDate loppuPvm) {\r\n        if (huone == null || asiakas == null || alkuPvm == null || loppuPvm == null) {\r\n            System.out.println(\"Invalid reservation data\");\r\n            return;\r\n        }\r\n\r\n        if (alkuPvm.isAfter(loppuPvm)) {\r\n            System.out.println(\"Invalid reservation dates\");\r\n            return;\r\n        }\r\n\r\n        Varaus varaus = new Varaus(huone, asiakas, alkuPvm, loppuPvm);\r\n\r\n        MockData.addReservation(varaus); // Lisätään varaus tietokantaan\r\n\r\n        huone.setHuone_tila(\"Varattu\");\r\n\r\n        // Debug: Print confirmation of reservation\r\n        // System.out.println(\"Reservation created for Room: \" + huone.getHuoneNro() + \" from \" + alkuPvm + \" to \" + loppuPvm);\r\n    }\r\n\r\n    public void peruVaraus(Varaus varaus) {\r\n        if (varaus == null) {\r\n            System.out.println(\"Invalid reservation data\");\r\n            return;\r\n        }\r\n\r\n        MockData.getMockReservations().remove(varaus); // Poistetaan varaus tietokannasta\r\n\r\n        varaus.getHuone().setHuone_tila(\"Vapaa\");\r\n\r\n        // Debug: Print confirmation of cancellation\r\n        // System.out.println(\"Reservation cancelled for Room: \" + varaus.getHuone().getHuoneNro() + \" from \" + varaus.getAlkuPvm() + \" to \" + varaus.getLoppuPvm());\r\n    }\r\n\r\n    public void muokkaaVarausta(Varaus varaus, Huone uusiHuone, LocalDate alkuPvm, LocalDate loppuPvm){\r\n        if (varaus == null || alkuPvm == null || loppuPvm == null) {\r\n            System.out.println(\"Invalid reservation data\");\r\n            return;\r\n        }\r\n\r\n        if (alkuPvm.isAfter(loppuPvm)) {\r\n            System.out.println(\"Invalid reservation dates\");\r\n            return;\r\n        }\r\n\r\n        varaus.getHuone().setHuone_tila(\"Vapaa\");\r\n        varaus.setHuone(uusiHuone);\r\n        varaus.setAlkuPvm(alkuPvm);\r\n        varaus.setLoppuPvm(loppuPvm);\r\n        varaus.getHuone().setHuone_tila(\"Varattu\");\r\n    }\r\n\r\n    public List<Huone> vapaatHuoneet(LocalDate alkuPvm, LocalDate loppuPvm) {\r\n        List<Huone> huoneet = MockData.getMockRooms();  // Haetaan kaikki huoneet Tietokannasta\r\n        List<Huone> vapaatHuoneet = new ArrayList<>();\r\n\r\n        if (huoneet != null) {\r\n            for (Huone huone : huoneet) {\r\n                if (huoneVapaa(huone, alkuPvm, loppuPvm)) {\r\n                    vapaatHuoneet.add(huone);\r\n                }\r\n            }\r\n        }\r\n        return vapaatHuoneet;\r\n    }\r\n\r\n    public boolean huoneVapaa(Huone huone, LocalDate alkuPvm, LocalDate loppuPvm) {\r\n        List<Varaus> varaukset = MockData.getMockReservations();  // Haetaan kaikki varaukset Tietokannasta\r\n\r\n        if (varaukset != null) {\r\n            for (Varaus varaus : varaukset) {\r\n                if (alkuPvm.isBefore(varaus.getLoppuPvm()) && loppuPvm.isAfter(varaus.getAlkuPvm().minusDays(1))){\r\n                    if (varaus.getHuone().getHuone_nro() == huone.getHuone_nro()) {\r\n                        return false;\r\n                    }\r\n                }\r\n            }\r\n        }\r\n        return true;\r\n    }\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/controller/VarausController.java b/src/main/java/controller/VarausController.java
+--- a/src/main/java/controller/VarausController.java	(revision ae813440e2c1943c5f489f80dad40006e36b6572)
++++ b/src/main/java/controller/VarausController.java	(date 1726560023536)
+@@ -22,7 +22,9 @@
+             return;
+         }
+ 
+-        Varaus varaus = new Varaus(huone, asiakas, alkuPvm, loppuPvm);
++
++
++        Varaus varaus = new Varaus(alkuPvm, loppuPvm, asiakas, huone);
+ 
+         MockData.addReservation(varaus); // Lisätään varaus tietokantaan
+ 
+Index: src/main/java/model/enteties/Lasku.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/model/enteties/Lasku.java b/src/main/java/model/enteties/Lasku.java
+new file mode 100644
+--- /dev/null	(date 1726558580063)
++++ b/src/main/java/model/enteties/Lasku.java	(date 1726558580063)
+@@ -0,0 +1,59 @@
++package model.enteties;
++
++import jakarta.persistence.*;
++
++@Entity
++@Table(name = "lasku")
++public class Lasku {
++
++    @Id
++    @GeneratedValue(strategy = GenerationType.IDENTITY)
++    @Column(name = "lasku_id")
++    private int laskuId;
++
++    @Column(name = "maksu_status")
++    private String maksuStatus;
++
++    @Column(name="varaus_muoto")
++    private String varausMuoto;
++
++    @Column(name = "valuutta")
++    private String valuutta;
++
++    @Column(name = "asiakas_id")
++    private int asiakas;
++
++
++    public Lasku(int laskuId, String maksuStatus, String varausMuoto, String valuutta, int asiakas) {
++        this.laskuId = laskuId;
++        this.maksuStatus = maksuStatus;
++        this.varausMuoto = varausMuoto;
++        this.valuutta = valuutta;
++        this.asiakas = asiakas;
++    }
++
++    public Lasku() {
++    }
++
++    public int getLaskuId() {
++        return laskuId;
++    }
++
++    public String getMaksuStatus() {
++        return maksuStatus;
++    }
++
++    public String getVarausMuoto() {
++        return varausMuoto;
++    }
++
++    public String getValuutta() {
++        return valuutta;
++    }
++
++    public int getAsiakas() {
++        return asiakas;
++    }
++
++
++}
+\ No newline at end of file

@@ -1,0 +1,89 @@
+<changelist name="Uncommitted_changes_before_Checkout_at_20_09_2024_10_00_[Changes]1" date="1726815619968" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_09_2024_10_00_[Changes]1/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 20/09/2024 10:00 [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="src/target/classes/model/enteties/Varaus.class" />
+    <option name="AFTER_PATH" value="src/target/classes/model/enteties/Varaus.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_09_2024_10_00_[Changes]1/Varaus.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="src/target/classes/app/HuoneHaku.class" />
+    <option name="AFTER_PATH" value="src/target/classes/app/HuoneHaku.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_09_2024_10_00_[Changes]1/HuoneHaku.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="src/target/classes/model/DAO/KayttajaDAO.class" />
+    <option name="AFTER_PATH" value="src/target/classes/model/DAO/KayttajaDAO.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_09_2024_10_00_[Changes]1/KayttajaDAO.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="src/target/classes/controller/HuoneController.class" />
+    <option name="AFTER_PATH" value="src/target/classes/controller/HuoneController.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_09_2024_10_00_[Changes]1/HuoneController.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="src/target/classes/app/KayttajaHaku.class" />
+    <option name="AFTER_PATH" value="src/target/classes/app/KayttajaHaku.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_09_2024_10_00_[Changes]1/KayttajaHaku.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="src/target/classes/model/DAO/HotelliDAO.class" />
+    <option name="AFTER_PATH" value="src/target/classes/model/DAO/HotelliDAO.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_09_2024_10_00_[Changes]1/HotelliDAO.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="src/target/classes/controller/KayttajaController.class" />
+    <option name="AFTER_PATH" value="src/target/classes/controller/KayttajaController.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_09_2024_10_00_[Changes]1/KayttajaController.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="src/target/classes/model/enteties/Kayttaja.class" />
+    <option name="AFTER_PATH" value="src/target/classes/model/enteties/Kayttaja.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_09_2024_10_00_[Changes]1/Kayttaja.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="src/target/classes/app/AnnaMain.class" />
+    <option name="AFTER_PATH" value="src/target/classes/app/AnnaMain.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_09_2024_10_00_[Changes]1/AnnaMain.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="src/target/classes/app/HotelliHaku.class" />
+    <option name="AFTER_PATH" value="src/target/classes/app/HotelliHaku.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_09_2024_10_00_[Changes]1/HotelliHaku.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="src/target/classes/model/DAO/HuoneDAO.class" />
+    <option name="AFTER_PATH" value="src/target/classes/model/DAO/HuoneDAO.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_09_2024_10_00_[Changes]1/HuoneDAO.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="src/target/classes/model/enteties/Huone.class" />
+    <option name="AFTER_PATH" value="src/target/classes/model/enteties/Huone.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_09_2024_10_00_[Changes]1/Huone.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="src/target/classes/controller/HotelliController.class" />
+    <option name="AFTER_PATH" value="src/target/classes/controller/HotelliController.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_09_2024_10_00_[Changes]1/HotelliController.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="src/target/classes/model/enteties/Asiakas.class" />
+    <option name="AFTER_PATH" value="src/target/classes/model/enteties/Asiakas.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_09_2024_10_00_[Changes]1/Asiakas.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="src/target/classes/model/DAO/VarausDAO.class" />
+    <option name="AFTER_PATH" value="src/target/classes/model/DAO/VarausDAO.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_09_2024_10_00_[Changes]1/VarausDAO.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="src/target/classes/controller/VarausController.class" />
+    <option name="AFTER_PATH" value="src/target/classes/controller/VarausController.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_09_2024_10_00_[Changes]1/VarausController.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="src/target/classes/app/MainPetra.class" />
+    <option name="AFTER_PATH" value="src/target/classes/app/MainPetra.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_09_2024_10_00_[Changes]1/MainPetra.class" />
+  </binary>
+</changelist>
