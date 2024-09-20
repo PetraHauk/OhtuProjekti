@@ -14,7 +14,6 @@ public class HuoneHaku {
 
     public void start() {
         //Lisää huone ja hae, päivitä, poista
-
         while (true) {
             System.out.println("Valitse toiminto:");
             System.out.println("1. Lisää uusi huone");
@@ -53,20 +52,27 @@ public class HuoneHaku {
                     System.out.println("Anna huoneen ID:");
                     int idHaku = scanner.nextInt();
                     scanner.nextLine();
-                    controller.findHuoneById(idHaku);
+                    Huone huoneById = controller.findHuoneById(idHaku);
+                    printHuone(huoneById);
 
                     break;
 
                 case 3:
                     System.out.println("Anna huoneen tyyppi:");
                     String tyyppiHaku = scanner.nextLine();
-                    controller.findHuoneByTyyppi(tyyppiHaku);
+                    List<Huone> huoneetByTyyppi = controller.findHuoneByTyyppi(tyyppiHaku);
+                    for (Huone h : huoneetByTyyppi) {
+                        printHuone(h);
+                    }
                     break;
 
                 case 4:
                     System.out.println("Anna huoneen tila:");
                     String tilaHaku = scanner.nextLine();
-                    controller.findHuoneByTila(tilaHaku);
+                    List<Huone> huoneetByTila =controller.findHuoneByTila(tilaHaku);
+                    for (Huone h : huoneetByTila) {
+                        printHuone(h);
+                    }
                     break;
 
                 case 5:
@@ -122,5 +128,6 @@ public class HuoneHaku {
         System.out.println("Huoneen tila: " + huone.getHuone_tila());
         System.out.println("Huoneen hinta: " + huone.getHuone_hinta());
         System.out.println("Hotelli ID: " + huone.getHotelli_id());
+        System.out.println(" ");
     }
 }
