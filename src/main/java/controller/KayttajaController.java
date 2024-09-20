@@ -22,22 +22,22 @@ public class KayttajaController {
         return kayttajaDAO.findById(id);
     }
 
-    public String haeSalasanaSpostilla(String sposti) {
+    public Kayttaja haeSalasanaSpostilla(String sposti) {
         return kayttajaDAO.findPasswordByEmail(sposti);
     }
 
-    public void paivitaSpostiById(int id, String sposti) {
-        kayttajaDAO.updateEmailById(id, sposti);
-    }
+//    public void paivitaSpostiById(int id, String sposti) {
+//        kayttajaDAO.updateEmailById(id, sposti);
+//    }
 
     public void vaihdaSalasanaPostilla(String sposti, String newPassword) {
         kayttajaDAO.changePasswordByEmail(sposti, newPassword);
     }
 
-    public void paivitaKayttaja(int id, String etunimi, String sukunimi, String sposti, String puh, String rooli, String salasana) {
-        String hashedSalasana = BCrypt.hashpw(salasana, BCrypt.gensalt());
-        kayttajaDAO.updateKayttajaById(id, etunimi, sukunimi, sposti, puh, rooli, hashedSalasana);
-    }
+//    public void paivitaKayttaja(int id, String etunimi, String sukunimi, String sposti, String puh, String rooli, String salasana) {
+//        String hashedSalasana = BCrypt.hashpw(salasana, BCrypt.gensalt());
+//        kayttajaDAO.updateKayttajaById(id, etunimi, sukunimi, sposti, puh, rooli, hashedSalasana);
+//    }
 
     public void poistaKayttaja(int id) {
         kayttajaDAO.removeById(id);
