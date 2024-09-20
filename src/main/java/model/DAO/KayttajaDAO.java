@@ -6,6 +6,8 @@ import model.datasourse.MariaDbConnection;
 import model.enteties.Kayttaja;
 import org.mindrot.jbcrypt.BCrypt;
 
+import java.util.List;
+
 public class KayttajaDAO {
     public void persist(Kayttaja kayttaja) {
         EntityManager em = MariaDbConnection.getInstance();
@@ -18,7 +20,6 @@ public class KayttajaDAO {
         EntityManager em = MariaDbConnection.getInstance();
         try {
             Kayttaja kayttaja = em.find(Kayttaja.class, id);
-            printKayttaja(kayttaja);
             return kayttaja;
         } finally {
             if (em != null) {
@@ -39,7 +40,6 @@ public class KayttajaDAO {
             // Palautetaan haettu salasana
             return salasana;
         } catch (NoResultException e) {
-            // Jos käyttäjää ei löytynyt, palautetaan null
             System.out.println("Käyttäjää ei löytynyt sähköpostilla: " + sposti);
             return null;
         } catch (Exception e) {
@@ -52,7 +52,6 @@ public class KayttajaDAO {
         }
     }
 
-    //update by id
     public void updateEmailById(int id, String sposti) {
         EntityManager em = MariaDbConnection.getInstance();
         try {
@@ -134,7 +133,6 @@ public class KayttajaDAO {
             }
             e.printStackTrace();
         } finally {
-            // Ensure the EntityManager is closed
             if (em != null) {
                 em.close();
             }
@@ -170,14 +168,20 @@ public class KayttajaDAO {
             }
         }
     }
-    public void printKayttaja(Kayttaja kayttaja) {
-        System.out.println("Etunimi: " + kayttaja.getEtunimi());
-        System.out.println("Sukunimi: " + kayttaja.getSukunimi());
-        System.out.println("Sähköposti: " + kayttaja.getSposti());
-        System.out.println("Puhelin: " + kayttaja.getPuh());
-        System.out.println("Rooli: " + kayttaja.getRooli());
-        System.out.println("Salasana: " + kayttaja.getSalasana());
-        System.out.println(" ");
-    }
 
+    public List<Kayttaja> findAllKayttaja() {
+        EntityManager em = MariaDbConnection.getInstance();
+        List<Kayttaja> kayttajat = null;
+        try {
+            kayttajat = em.createQuery("SELECT k FROM Kayttaja k", Kayttaja.class).getResultList();
+           if (!kayttajat.isEmpty()) {
+               return kayttajat;
+           }
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return null;
+    }
 }

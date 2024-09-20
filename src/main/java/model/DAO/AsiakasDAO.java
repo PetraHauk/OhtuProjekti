@@ -1,11 +1,7 @@
 package model.DAO;
-
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.NoResultException;
 import model.datasourse.MariaDbConnection;
 import model.enteties.Asiakas;
-import model.enteties.Huone;
-
 import java.util.List;
 
 public class AsiakasDAO {
@@ -20,12 +16,15 @@ public class AsiakasDAO {
         EntityManager em = MariaDbConnection.getInstance();
         try {
             Asiakas asikas = em.find(Asiakas.class, lasku_id);
-            return asikas;
+            if (asikas != null) {
+                return asikas;
+            }
         } finally {
             if (em != null) {
                 em.close();
             }
         }
+        return null;
     }
 
     public Asiakas findByEmail(String email) {
@@ -37,18 +36,15 @@ public class AsiakasDAO {
                     .setParameter("sposti", email)
                     .getSingleResult();
             em.getTransaction().commit();
-            return asiakas;
-        } catch (NoResultException e) {
-            System.out.println("Asiakasta ei löytynyt sähköpostilla: " + email);
-            return null;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null; // Jokin muu virhe tapahtui
+          if (asiakas != null) {
+              return asiakas;
+          }
         } finally {
             if (em != null) {
                 em.close();
             }
         }
+        return null;
     }
 
     public List <Asiakas> findByNImet(String etunimi, String sukunimi) {
@@ -60,16 +56,14 @@ public class AsiakasDAO {
                     .setParameter("sukunimi", sukunimi)
                     .getResultList();
             if (!asiakkaat.isEmpty()) {
-               return asiakkaat;
-            } else {
-                System.out.println("Asiakasta ei löytynyt etunimellä: " + etunimi + " ja sukunimellä: " + sukunimi);
+                return asiakkaat;
             }
         } finally {
             if (em != null) {
                 em.close();
             }
         }
-        return asiakkaat;
+        return null;
 
     }
 
@@ -80,17 +74,14 @@ public class AsiakasDAO {
             asiakkaat = em.createQuery("SELECT v FROM Asiakas v", Asiakas.class).getResultList();
 
             if (!asiakkaat.isEmpty()) {
-                // Voit palauttaa koko listan
                 return asiakkaat;
-            } else {
-                System.out.println("Asiakkaita ei löytynyt");
             }
         } finally {
             if (em != null) {
                 em.close();
             }
         }
-        return asiakkaat;
+        return null;
     }
 
     public void updateAsiakasById(int id, String etunimi, String sukunimi, String sposti, String puh, int henkiloMaara, String huomio) {

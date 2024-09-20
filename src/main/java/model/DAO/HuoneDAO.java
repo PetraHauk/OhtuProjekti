@@ -1,12 +1,10 @@
 package model.DAO;
-
 import jakarta.persistence.EntityManager;
 import model.datasourse.MariaDbConnection;
 import model.enteties.Huone;
 import java.util.List;
 
 public class HuoneDAO {
-
     public void persist(Huone huone) {
         EntityManager em = MariaDbConnection.getInstance();
         em.getTransaction().begin();
@@ -22,29 +20,29 @@ public class HuoneDAO {
                     .setParameter("hotelli_id", hotelli_id)
                     .getResultList();
             if (!huoneet.isEmpty()) {
-                // Voit palauttaa koko listan
                 return huoneet;
-            } else {
-                System.out.println("Huoneita ei löytynyt hotellista ID:llä " + hotelli_id);
             }
         } finally {
             if (em != null) {
                 em.close();
             }
         }
-        return huoneet;
+        return null;
     }
 
     public Huone findByRoomId(int id) {
         EntityManager em = MariaDbConnection.getInstance();
         try {
             Huone huone = em.find(Huone.class, id);
-            return huone;
+            if (huone != null) {
+                return huone;
+            }
         } finally {
             if (em != null) {
                 em.close();
             }
         }
+        return null;
     }
 
 
@@ -57,8 +55,6 @@ public class HuoneDAO {
                     .getResultList();
             if(!huoneet.isEmpty()) {
                 return huoneet;
-            } else {
-                System.out.println("Huonetta ei löytynyt tilalla: " + huone_tila);
             }
         } finally {
             if (em != null) {
@@ -77,8 +73,6 @@ public class HuoneDAO {
                     .getResultList();
             if (!huoneet.isEmpty()) {
                 return huoneet;
-            } else {
-                System.out.println("Huonetta ei löytynyt tyypillä: " + huone_tyyppi);
             }
         } finally {
             if (em != null) {
@@ -98,6 +92,8 @@ public class HuoneDAO {
                 huone.setHuone_tyyppi(huone_tyyppi);
                 huone.setHuone_tila(huone_tila);
                 huone.setHuone_hinta(huone_hinta);
+            } else {
+                System.out.println("Huonetta ei löytynyt id:llä " + id);
             }
             em.getTransaction().commit();
         } finally {
@@ -114,6 +110,8 @@ public class HuoneDAO {
             Huone huone = em.find(Huone.class, huone_id);
             if (huone != null) {
                 em.remove(huone);
+            } else {
+                System.out.println("Huonetta ei löytynyt id:llä " + huone_id);
             }
             em.getTransaction().commit();
         } finally {

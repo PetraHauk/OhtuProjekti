@@ -1,5 +1,4 @@
 package model.DAO;
-
 import jakarta.persistence.EntityManager;
 import model.datasourse.MariaDbConnection;
 import model.enteties.Hotelli;
@@ -15,12 +14,17 @@ public class HotelliDAO {
     public Hotelli findById(int id) {
         EntityManager em = MariaDbConnection.getInstance();
         try {
-            return em.find(Hotelli.class, id);
+            em.getTransaction().begin();
+            Hotelli hoteli =  em.find(Hotelli.class, id);
+            if(hoteli != null) {
+                return hoteli;
+            }
         } finally {
             if (em != null) {
                 em.close();
             }
         }
+        return null;
     }
 
     public void removeById(int hotelli_id) {
@@ -30,6 +34,8 @@ public class HotelliDAO {
             Hotelli hotelli = em.find(Hotelli.class, hotelli_id);
             if (hotelli != null) {
                 em.remove(hotelli);
+            } else {
+                System.out.println("Hotellia ei löytynyt id:llä: " + hotelli_id);
             }
             em.getTransaction().commit();
         } finally {
@@ -38,5 +44,4 @@ public class HotelliDAO {
             }
         }
     }
-
 }

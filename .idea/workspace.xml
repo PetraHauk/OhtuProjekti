@@ -4,35 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="065e434f-b050-4145-bce8-5768651a9a60" name="Changes" comment="asiakas-taulukon kanssa toiminnat valmis">
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/OhjelmistoGUI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/WilmaMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/VarausController3.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/aa989b5b-8fef-408c-b7b9-47f367b75a5e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/aa989b5b-8fef-408c-b7b9-47f367b75a5e.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/aa989b5b-8fef-408c-b7b9-47f367b75a5e/storage_v2/_src_/schema/hoteli_db.yPM-8Q.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/aa989b5b-8fef-408c-b7b9-47f367b75a5e/storage_v2/_src_/schema/hoteli_db.yPM-8Q.meta" afterDir="false" />
+    <list default="true" id="065e434f-b050-4145-bce8-5768651a9a60" name="Changes" comment="lasku palautus korjaus ja lisää hae kaikki laskut">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui.iml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/AnnaMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/AnnaMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/AsiakasHaku.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/AsiakasHaku.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/HuoneHaku.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/HuoneHaku.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/LaskuHaku.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/LaskuHaku.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/KayttajaHaku.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/KayttajaHaku.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/VarausHaku.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/VarausHaku.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/AsiakasController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/AsiakasController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/HuoneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/HuoneController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/LaskuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/LaskuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/VarausController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/VarausController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/AsiakasDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/AsiakasDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/HuoneDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/HuoneDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/LaskuDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/LaskuDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/KayttajaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/KayttajaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/VarausController3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/VarausController3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/KayttajaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/KayttajaDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/VarausDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/VarausDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/enteties/Asiakas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enteties/Asiakas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/enteties/Lasku.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enteties/Lasku.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/app/KayttajaHaku.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/app/KayttajaHaku.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/KayttajaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/controller/KayttajaController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/AsiakasDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/DAO/AsiakasDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/HuoneDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/DAO/HuoneDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/VarausDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/DAO/VarausDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/model/enteties/Asiakas.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/enteties/Asiakas.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/KayttajaDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/DAO/KayttajaDAO.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +157,7 @@
       <workItem from="1725956680191" duration="39914000" />
       <workItem from="1726489081883" duration="4239000" />
       <workItem from="1726557762030" duration="5539000" />
-      <workItem from="1726566634854" duration="11713000" />
+      <workItem from="1726566634854" duration="18283000" />
     </task>
     <task id="LOCAL-00001" summary="päivistys">
       <option name="closed" value="true" />
@@ -295,7 +279,39 @@
       <option name="project" value="LOCAL" />
       <updated>1726143573054</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Kaikki huoneet palautus">
+      <option name="closed" value="true" />
+      <created>1726809663897</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1726809663897</updated>
+    </task>
+    <task id="LOCAL-00017" summary="huone palautus korjaus">
+      <option name="closed" value="true" />
+      <created>1726814904413</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1726814904413</updated>
+    </task>
+    <task id="LOCAL-00018" summary="huone palautus korjaus">
+      <option name="closed" value="true" />
+      <created>1726815721541</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1726815721541</updated>
+    </task>
+    <task id="LOCAL-00019" summary="lasku palautus korjaus ja lisää hae kaikki laskut">
+      <option name="closed" value="true" />
+      <created>1726817675174</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1726817675174</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -313,7 +329,10 @@
     <MESSAGE value="päivistys" />
     <MESSAGE value="koodin siisti ja  varaus, huone, hoteli valmis" />
     <MESSAGE value="kaikki valmis" />
-    <option name="LAST_COMMIT_MESSAGE" value="kaikki valmis" />
+    <MESSAGE value="Kaikki huoneet palautus" />
+    <MESSAGE value="huone palautus korjaus" />
+    <MESSAGE value="lasku palautus korjaus ja lisää hae kaikki laskut" />
+    <option name="LAST_COMMIT_MESSAGE" value="lasku palautus korjaus ja lisää hae kaikki laskut" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -322,15 +341,6 @@
           <properties class="java.lang.IllegalStateException" package="java.lang" />
           <option name="timeStamp" value="8" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/model/DAO/KayttajaDAO.java</url>
-          <line>29</line>
-          <properties class="model.DAO.KayttajaDAO" method="findPasswordByEmail">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
