@@ -1,3 +1,4 @@
+
 package model.DAO;
 
 import jakarta.persistence.EntityManager;
@@ -14,23 +15,20 @@ public class HuoneDAO {
         em.getTransaction().commit();
     }
 
-    public Huone haeHuoneetByHotelliId(int hotelli_id) {
-        EntityManager em = MariaDbConnection.getInstance();
+    public List<Huone> haeHuoneetByHotelliId(int hotelli_id) {
+        EntityManager em = MariaDbConnection.getInstance();  // Assuming MariaDbConnection provides EntityManager instance
         List<Huone> huoneet = null;
-        Huone palautettavaHuone = null;
+
         try {
+            // Query to get all rooms for the given hotel ID
             huoneet = em.createQuery("SELECT h FROM Huone h WHERE h.hotelli_id = :hotelli_id", Huone.class)
                     .setParameter("hotelli_id", hotelli_id)
                     .getResultList();
-            if (!huoneet.isEmpty()) {
-                // Palautetaan ensimmäinen huone
-                palautettavaHuone = huoneet.get(0);
-            } else {
+
+            if (huoneet.isEmpty()) {
                 System.out.println("Huoneita ei löytynyt hotellista ID:llä " + hotelli_id);
-            }
-            // Tulostetaan kaikki huoneet
-            for (Huone huone : huoneet) {
-                printHuone(huone);
+            } else {
+                System.out.println("Huoneet löydetty!");
             }
 
         } finally {
@@ -38,8 +36,11 @@ public class HuoneDAO {
                 em.close();
             }
         }
-        return palautettavaHuone;
+
+        // Return the list of rooms (which may be empty, but not null)
+        return huoneet;
     }
+
 
     public Huone findByRoomId(int id) {
         EntityManager em = MariaDbConnection.getInstance();
@@ -138,5 +139,3 @@ public class HuoneDAO {
     }
 
 }
-
-

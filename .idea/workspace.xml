@@ -1,6 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="RunManager">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="34a1b2f4-d48c-49a3-9a68-f7106d3b8e37" name="Changes" comment="Huoneet haetaan tietokannasta taulukkoon. Uuden huoneen lisäys visuaalissa toimii.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/VarausControllerPetra.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitIgnore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitIgnore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_9_2024_10_00__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_9_2024_10_00__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/HuoneHaku.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/HuoneHaku.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/MainPetra.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/MainPetra.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/MockData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/MockData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/OhjelmistoGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/OhjelmistoGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/VarausHaku.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/VarausHaku.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/HuoneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/HuoneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/KayttajaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/KayttajaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/VarausController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/VarausController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/VarausControllerAnna.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/AsiakasDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/AsiakasDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/HuoneDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/HuoneDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/VarausDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/VarausDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/enteties/Asiakas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enteties/Asiakas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/enteties/Huone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enteties/Huone.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/enteties/Kayttaja.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enteties/Kayttaja.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/enteties/Lasku.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enteties/Lasku.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/enteties/Varaus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enteties/Varaus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/app/HotelliHaku.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/app/HotelliHaku.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/app/HuoneHaku.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/app/HuoneHaku.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/app/KayttajaHaku.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/app/KayttajaHaku.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/app/MainPetra.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/app/MainPetra.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/app/OhjelmistoGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/app/OhjelmistoGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/HotelliController.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/controller/HotelliController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/HuoneController.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/controller/HuoneController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/KayttajaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/controller/KayttajaController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/VarausController.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/controller/VarausController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/AsiakasDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/DAO/AsiakasDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/HotelliDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/DAO/HotelliDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/HuoneDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/DAO/HuoneDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/KayttajaDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/DAO/KayttajaDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/VarausDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/DAO/VarausDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/enteties/Asiakas.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/enteties/Asiakas.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/enteties/Huone.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/enteties/Huone.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/enteties/Kayttaja.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/enteties/Kayttaja.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/enteties/Varaus.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/enteties/Varaus.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.WilmaMain.executor": "Run",
+    "git-widget-placeholder": "Petra",
+    "node.js.selected.package.tslint": "(autodetect)"
+  }
+}]]></component>
+  <component name="RunManager" selected="Application.WilmaMain">
     <configuration name="AnnaMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="app.AnnaMain" />
       <module name="gui" />
@@ -40,12 +100,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="WilmaMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="app.WilmaMain" />
+      <module name="gui" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="app.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.WilmaMain" />
         <item itemvalue="Application.MainPetra" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.AnnaMain" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="TaskManager">
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Huoneet haetaan tietokannasta taulukkoon. Uuden huoneen lisäys visuaalissa toimii." />
+    <option name="LAST_COMMIT_MESSAGE" value="Huoneet haetaan tietokannasta taulukkoon. Uuden huoneen lisäys visuaalissa toimii." />
   </component>
 </project>

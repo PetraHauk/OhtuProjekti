@@ -1,15 +1,15 @@
 package app;
 
-import controller.VarausControllerAnna;
+import controller.VarausController;
+import controller.VarausControllerPetra;
 
-import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 
 public class VarausHaku {
-    private VarausControllerAnna controller = new VarausControllerAnna();
+    private VarausController controller = new VarausController();
     private Scanner scanner = new Scanner(System.in);
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
 

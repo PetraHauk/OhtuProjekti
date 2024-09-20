@@ -73,7 +73,7 @@ public class HuoneHaku {
                     System.out.println("Anna uusi hinta:");
                     double uusiHinta = scanner.nextDouble();
                     scanner.nextLine();
-                    controller.updateHuoneHintaById(id, uusiHinta);
+                    //controller.updateHuoneHintaById(id, uusiHinta);
                     break;
 
                 case 6:
@@ -82,7 +82,7 @@ public class HuoneHaku {
                     scanner.nextLine();
                     System.out.println("Anna uusi tila:");
                     String uusiTila = scanner.nextLine();
-                    controller.updateHuoneTilaById(id2, uusiTila);
+                    //controller.updateHuoneTilaById(id2, uusiTila);
                     break;
 
                 case 7:
