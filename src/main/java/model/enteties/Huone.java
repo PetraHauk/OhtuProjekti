@@ -1,3 +1,4 @@
+
 package model.enteties;
 import jakarta.persistence.*;
 
@@ -77,5 +78,3 @@ public class Huone {
         this.huone_hinta = huone_hinta;
     }
 }
-
-

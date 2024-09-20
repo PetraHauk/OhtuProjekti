@@ -16,31 +16,31 @@ public class VarausDAO {
     }
 
 
-    public Varaus haeVaraukset() {
+    public List<Varaus> haeVaraukset() {
         EntityManager em = MariaDbConnection.getInstance();
         List<Varaus> varaukset = null;
-        Varaus palauttavaVaraukset = null;
         try {
             // Hae kaikki varaukset käyttäen JPQL-kyselyä
             varaukset = em.createQuery("SELECT v FROM Varaus v", Varaus.class).getResultList();
 
-            // Tulosta jokainen varaus
+            /* Tulosta jokainen varaus
             for (Varaus varaus : varaukset) {
                 printVaraus(varaus);  // Tulosta varaus, jos tarpeellista
             }
+             */
         } finally {
             if (em != null) {
                 em.close();
             }
         }
-        return palauttavaVaraukset;  // Palautetaan lista varauksista
+        return varaukset;  // Palautetaan lista varauksista
     }
 
     public void haeByVarausId(int varaus_id) {
         EntityManager em = MariaDbConnection.getInstance();
         try {
             Varaus varaus = em.find(Varaus.class, varaus_id);
-            printVaraus(varaus);
+            //printVaraus(varaus);
 
         } finally {
             if (em != null) {
@@ -64,9 +64,9 @@ public class VarausDAO {
             } else {
                 System.out.println("Varauksia ei löytynyt lasku_id:llä " + lasku_id);
             }
-            for (Varaus varaus : varaukset) {
-                printVaraus(varaus);
-            }
+            //for (Varaus varaus : varaukset) {
+            //  printVaraus(varaus);
+            //}
         } finally {
             if (em != null) {
                 em.close();
@@ -97,6 +97,7 @@ public class VarausDAO {
         em.getTransaction().commit();
     }
 
+    /*
     public void printVaraus(Varaus varaus) {
         System.out.println("Varaus ID: " + varaus.getVarausId());
         System.out.println("Huoneen määrä: " + varaus.getVarausId());
@@ -106,4 +107,6 @@ public class VarausDAO {
         System.out.println("Lasku ID: " + varaus.getLaskuId());
         System.out.println(" ");
     }
+
+     */
 }

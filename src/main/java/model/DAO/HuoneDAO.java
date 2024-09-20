@@ -1,3 +1,4 @@
+
 package model.DAO;
 
 import jakarta.persistence.EntityManager;
@@ -138,5 +139,3 @@ public class HuoneDAO {
     }
 
 }
-
-
