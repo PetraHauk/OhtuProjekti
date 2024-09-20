@@ -20,7 +20,7 @@ import java.util.List;
 
 public class OhjelmistoGUI extends Application {
 
-    private HuoneController huoneController; // Add HuoneController instance
+    private HuoneController huoneController;
 
     @Override
     public void start(Stage primaryStage) {
