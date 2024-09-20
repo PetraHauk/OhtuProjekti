@@ -15,62 +15,54 @@ public class VarausDAO {
         em.getTransaction().commit();
     }
 
-
-    public Varaus haeVaraukset() {
+    public List<Varaus> haeVaraukset() {
         EntityManager em = MariaDbConnection.getInstance();
         List<Varaus> varaukset = null;
-        Varaus palauttavaVaraukset = null;
         try {
             varaukset = em.createQuery("SELECT v FROM Varaus v", Varaus.class).getResultList();
-
-            for (Varaus varaus : varaukset) {
-                printVaraus(varaus);  // Tulosta varaus, jos tarpeellista
+            if (!varaukset.isEmpty()) {
+                return varaukset;
             }
         } finally {
             if (em != null) {
                 em.close();
             }
         }
-        return palauttavaVaraukset;  // Palautetaan lista varauksista
+        return null;
     }
 
-    public void haeByVarausId(int varaus_id) {
+    public Varaus haeByVarausId(int varaus_id) {
         EntityManager em = MariaDbConnection.getInstance();
         try {
             Varaus varaus = em.find(Varaus.class, varaus_id);
-            printVaraus(varaus);
-
+            if (varaus != null) {
+                return varaus;
+            }
         } finally {
             if (em != null) {
                 em.close();
             }
         }
+        return null;
     }
 
-    public Varaus haeByLaskuId(int lasku_id) {
+    public List<Varaus> haeByLaskuId(int lasku_id) {
         EntityManager em = MariaDbConnection.getInstance();
         List<Varaus> varaukset = null;
-        Varaus palautettavaVaraus = null;
         try {
-            // Haetaan kaikki varaukset, jotka kuuluvat samaan lasku_id:hen
             varaukset = em.createQuery("SELECT v FROM Varaus v WHERE v.laskuId = :lasku_id", Varaus.class)
                     .setParameter("lasku_id", lasku_id)
                     .getResultList();
             if(!varaukset.isEmpty()) {
                 // Palautetaan ensimmäinen varaus
-                palautettavaVaraus = varaukset.get(0);
-            } else {
-                System.out.println("Varauksia ei löytynyt lasku_id:llä " + lasku_id);
-            }
-            for (Varaus varaus : varaukset) {
-                printVaraus(varaus);
+                return varaukset;
             }
         } finally {
             if (em != null) {
                 em.close();
             }
         }
-        return palautettavaVaraus;
+        return null;
     }
 
     public void paivitaVarausById(int varaus_id, int huone_maara, LocalDate alkuPvm, LocalDate loppuPvm) {
@@ -81,6 +73,8 @@ public class VarausDAO {
             varaus.setHuoneMaara();
             varaus.setAlkuPvm(LocalDate.now());
             varaus.setLoppuPvm(LocalDate.now());
+        } else {
+            System.out.println("Varausta ei löytynyt id:llä " + varaus_id);
         }
         em.getTransaction().commit();
     }
@@ -91,17 +85,9 @@ public class VarausDAO {
         Varaus varaus = em.find(Varaus.class, id);
         if (varaus != null) {
             em.remove(varaus);
+        } else {
+            System.out.println("Varausta ei löytynyt id:llä " + id);
         }
         em.getTransaction().commit();
-    }
-
-    public void printVaraus(Varaus varaus) {
-        System.out.println("Varaus ID: " + varaus.getVarausId());
-        System.out.println("Huoneen määrä: " + varaus.getVarausId());
-        System.out.println("Alku pvm: " + varaus.getAlkuPvm());
-        System.out.println("Loppu pvm: " + varaus.getLoppuPvm());
-        System.out.println("Huoneen id: " + varaus.getHuoneId());
-        System.out.println("Lasku ID: " + varaus.getLaskuId());
-        System.out.println(" ");
     }
 }

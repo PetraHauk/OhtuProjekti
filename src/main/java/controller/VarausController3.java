@@ -2,6 +2,7 @@ package controller;
 import model.enteties.Varaus;
 import model.DAO.VarausDAO;
 import java.time.LocalDate;
+import java.util.List;
 
 public class VarausController3 {
     private VarausDAO varausDAO;
@@ -15,16 +16,16 @@ public class VarausController3 {
             varausDAO.persist(varaus);
         }
 
-    public Varaus findAllVaraukset() {
+    public List<Varaus> findAllVaraukset() {
         return varausDAO.haeVaraukset();
     }
 
-    public void findByVarausId(int varaus_id) {
-        varausDAO.haeByVarausId(varaus_id);
+    public Varaus findByVarausId(int varaus_id) {
+        return varausDAO.haeByVarausId(varaus_id);
     }
 
-    public void findByLaskuId (int lasku_id) {
-        varausDAO.haeByLaskuId(lasku_id);
+    public List<Varaus> findByLaskuId (int lasku_id) {
+        return varausDAO.haeByLaskuId(lasku_id);
     }
 
     public void updateVarausById(int varaus_id, int huone_maara, LocalDate alkuPvm, LocalDate loppuPvm) {
