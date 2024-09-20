@@ -2,6 +2,8 @@ package app;
 
 import model.enteties.Asiakas;
 import controller.AsiakasController;
+
+import java.util.List;
 import java.util.Scanner;
 
 public class AsiakasHaku {
@@ -50,17 +52,24 @@ public class AsiakasHaku {
                 case 2:
                     System.out.println("Anna sposti:");
                     String spostiHaku = scanner.nextLine();
-                    controller.findByEmail(spostiHaku);
+                    Asiakas asiakas = controller.findByEmail(spostiHaku);
+                    printAsiakas(asiakas);
                     break;
                 case 3:
                     System.out.println("Anna Etunimi:");
                     String etunimiHaku = scanner.nextLine();
                     System.out.println("Anna Sukunimi:");
                     String sukunimiHaku = scanner.nextLine();
-                    controller.findByNimet(etunimiHaku, sukunimiHaku);
+                    List<Asiakas> asiakasByNimet =controller.findByNimet(etunimiHaku, sukunimiHaku);
+                    for (Asiakas a : asiakasByNimet) {
+                        printAsiakas(a);
+                    }
                     break;
                 case 4:
-                    controller.findAllAsiakkaat();
+                    List <Asiakas> asiakkaat = controller.findAllAsiakkaat();
+                    for (Asiakas a : asiakkaat) {
+                        printAsiakas(a);
+                    }
                     break;
                 case 5:
                     System.out.println("Anna asiakasn ID päivittääksesi tiedot:");
@@ -98,5 +107,15 @@ public class AsiakasHaku {
         }
     }
 
+    public void printAsiakas(Asiakas asiakas) {
+        System.out.println("Asiakas ID: " + asiakas.getAsiakasId());
+        System.out.println("Etunimi: " + asiakas.getEtunimi());
+        System.out.println("Sukunimi: " + asiakas.getSukunimi());
+        System.out.println("Sähköposti: " + asiakas.getSposti());
+        System.out.println("Puhelin: " + asiakas.getPuh());
+        System.out.println("Henkilömäärä: " + asiakas.getHenkiloMaara());
+        System.out.println("Huomio: " + asiakas.getHuomio());
+        System.out.println();
+    }
 }
 

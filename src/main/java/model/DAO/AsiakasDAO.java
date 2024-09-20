@@ -4,7 +4,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
 import model.datasourse.MariaDbConnection;
 import model.enteties.Asiakas;
-import model.enteties.Varaus;
+import model.enteties.Huone;
 
 import java.util.List;
 
@@ -20,7 +20,6 @@ public class AsiakasDAO {
         EntityManager em = MariaDbConnection.getInstance();
         try {
             Asiakas asikas = em.find(Asiakas.class, lasku_id);
-            printAsiakas(asikas);
             return asikas;
         } finally {
             if (em != null) {
@@ -38,7 +37,6 @@ public class AsiakasDAO {
                     .setParameter("sposti", email)
                     .getSingleResult();
             em.getTransaction().commit();
-            printAsiakas(asiakas);
             return asiakas;
         } catch (NoResultException e) {
             System.out.println("Asiakasta ei löytynyt sähköpostilla: " + email);
@@ -53,49 +51,46 @@ public class AsiakasDAO {
         }
     }
 
-    public Asiakas findByNImet(String etunimi, String sukunimi) {
+    public List <Asiakas> findByNImet(String etunimi, String sukunimi) {
         EntityManager em = MariaDbConnection.getInstance();
         List <Asiakas> asiakkaat = null;
-        Asiakas palauttavaAsiakkaat = null;
         try {
             asiakkaat = em.createQuery("SELECT a FROM Asiakas a WHERE a.etunimi = :etunimi AND a.sukunimi = :sukunimi", Asiakas.class)
                     .setParameter("etunimi", etunimi)
                     .setParameter("sukunimi", sukunimi)
                     .getResultList();
             if (!asiakkaat.isEmpty()) {
-                // Palautetaan ensimmäinen asiakas
-                palauttavaAsiakkaat = asiakkaat.get(0);
+               return asiakkaat;
             } else {
                 System.out.println("Asiakasta ei löytynyt etunimellä: " + etunimi + " ja sukunimellä: " + sukunimi);
             }
-            for (Asiakas asiakas : asiakkaat) {
-                printAsiakas(asiakas);
-            }
         } finally {
             if (em != null) {
                 em.close();
             }
         }
-        return palauttavaAsiakkaat;
+        return asiakkaat;
 
     }
 
-    public Asiakas findAsukkaat() {
+    public List<Asiakas> findAsukkaat() {
         EntityManager em = MariaDbConnection.getInstance();
         List<Asiakas> asiakkaat = null;
-        Asiakas palauttavaAsiakkaat = null;
         try {
             asiakkaat = em.createQuery("SELECT v FROM Asiakas v", Asiakas.class).getResultList();
 
-            for (Asiakas asiakas : asiakkaat) {
-                printAsiakas(asiakas);  // Tulosta varaus, jos tarpeellista
+            if (!asiakkaat.isEmpty()) {
+                // Voit palauttaa koko listan
+                return asiakkaat;
+            } else {
+                System.out.println("Asiakkaita ei löytynyt");
             }
         } finally {
             if (em != null) {
                 em.close();
             }
         }
-        return palauttavaAsiakkaat;  // Palautetaan lista varauksista
+        return asiakkaat;
     }
 
     public void updateAsiakasById(int id, String etunimi, String sukunimi, String sposti, String puh, int henkiloMaara, String huomio) {
@@ -126,16 +121,5 @@ public class AsiakasDAO {
                 em.close();
             }
         }
-    }
-
-    public void printAsiakas(Asiakas asiakas) {
-        System.out.println("Asiakas ID: " + asiakas.getAsiakasId());
-        System.out.println("Etunimi: " + asiakas.getEtunimi());
-        System.out.println("Sukunimi: " + asiakas.getSukunimi());
-        System.out.println("Sähköposti: " + asiakas.getSposti());
-        System.out.println("Puhelin: " + asiakas.getPuh());
-        System.out.println("Henkilömäärä: " + asiakas.getHenkiloMaara());
-        System.out.println("Huomio: " + asiakas.getHuomio());
-        System.out.println();
     }
 }

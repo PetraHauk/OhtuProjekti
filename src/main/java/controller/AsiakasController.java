@@ -4,6 +4,8 @@ import model.DAO.AsiakasDAO;
 import model.enteties.Asiakas;
 import model.enteties.Varaus;
 
+import java.util.List;
+
 public class AsiakasController {
     private AsiakasDAO asiakasDAO;
 
@@ -23,11 +25,11 @@ public class AsiakasController {
         return asiakasDAO.findByEmail(email);
     }
 
-    public Asiakas findByNimet(String etunimi, String sukunimi) {
+    public List<Asiakas> findByNimet(String etunimi, String sukunimi) {
         return asiakasDAO.findByNImet(etunimi, sukunimi);
     }
 
-    public Asiakas findAllAsiakkaat() {
+    public List<Asiakas> findAllAsiakkaat() {
         return asiakasDAO.findAsukkaat();
     }
     public void paivitaAsiakas(int id, String etunimi, String sukunimi, String sposti, String puh, int henkiloMaara, String huomio) {
