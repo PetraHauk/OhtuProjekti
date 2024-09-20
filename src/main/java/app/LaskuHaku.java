@@ -3,6 +3,7 @@ package app;
 import controller.LaskuController;
 import model.enteties.Lasku;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class LaskuHaku {
@@ -16,9 +17,10 @@ public class LaskuHaku {
             System.out.println("1. Lisää uusi lasku");
             System.out.println("2. Hae lasku ID:llä");
             System.out.println("3. Hae asiakas ID:llä");
-            System.out.println("4. Päivitä lasku ID:llä");
-            System.out.println("5. Poista id:llä");
-            System.out.println("6. Lopeta");
+            System.out.println("4. Hae kaikki laskut");
+            System.out.println("5. Päivitä lasku ID:llä");
+            System.out.println("6. Poista id:llä");
+            System.out.println("7. Lopeta");
 
             int valinta = scanner.nextInt();
             scanner.nextLine(); // Clear the newline character from the buffer
@@ -39,16 +41,24 @@ public class LaskuHaku {
                 case 2:
                     System.out.println("Anna laskun ID:");
                     int idHaku = scanner.nextInt();
-                    controller.findLaskuById(idHaku);
+                    Lasku laskuByLaskuId = controller.findLaskuById(idHaku);
+                    printLasku(laskuByLaskuId);
                     break;
 
                 case 3:
                     System.out.println("Anna asiakas ID:");
                     int asiakas_idHaku = scanner.nextInt();
-                    controller.findLaskuByAsiakasId(asiakas_idHaku);
+                    Lasku laskuByAsiakasId = controller.findLaskuByAsiakasId(asiakas_idHaku);
+                    printLasku(laskuByAsiakasId);
+                    break;
+                case 4:
+                    List<Lasku> laskut = controller.findAllLaskut();
+                    for (Lasku lasku : laskut) {
+                        printLasku(lasku);
+                    }
                     break;
 
-                case 4:
+                case 5:
                     System.out.println("Anna laskun ID:");
                     int idPaivitys = scanner.nextInt();
                     scanner.nextLine();
@@ -67,13 +77,13 @@ public class LaskuHaku {
                    controller.updateLaskuById(idPaivitys, maksu_statusPaivitys, varaus_muotoPaivitys, valuuttaPaivitys, asiakas_idPaivitys);
                     break;
 
-                case 5:
+                case 6:
                     System.out.println("Anna laskun ID:");
                     int idPoisto = scanner.nextInt();
                     controller.removeLaskuById(idPoisto);
                     break;
 
-                case 6:
+                case 7:
                     System.out.println("Ohjelma lopetetaan.");
                     return;
                 default:
@@ -82,5 +92,18 @@ public class LaskuHaku {
             }
         }
     }
+
+    public void printLasku(Lasku lasku) {
+        if (lasku != null) {
+            System.out.println("Lasku ID: " + lasku.getLaskuId());
+            System.out.println("Asiakas ID: " + lasku.getAsiakasId());
+            System.out.println("Maksu status: " + lasku.getMaksuStatus());
+            System.out.println("Valuutta: " + lasku.getValuutta());
+            System.out.println("Varaus muoto: " + lasku.getVarausMuoto());
+        } else {
+            System.out.println("Laskua ei löytynyt.");
+        }
+    }
+
 }
 
