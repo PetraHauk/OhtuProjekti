@@ -1,7 +1,6 @@
 package app;
 
 import controller.VarausController;
-import controller.VarausControllerPetra;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
