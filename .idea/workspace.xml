@@ -4,28 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="065e434f-b050-4145-bce8-5768651a9a60" name="Changes" comment="koodin siisti ja  varaus, huone, hoteli valmis">
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/AsiakasHaku.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/LaskuHaku.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/AsiakasController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/LaskuController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/DAO/LaskuDAO.java" afterDir="false" />
+    <list default="true" id="065e434f-b050-4145-bce8-5768651a9a60" name="Changes" comment="asiakas-taulukon kanssa toiminnat valmis">
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/OhjelmistoGUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/WilmaMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/VarausController3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/aa989b5b-8fef-408c-b7b9-47f367b75a5e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/aa989b5b-8fef-408c-b7b9-47f367b75a5e.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/aa989b5b-8fef-408c-b7b9-47f367b75a5e/storage_v2/_src_/schema/hoteli_db.yPM-8Q.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/aa989b5b-8fef-408c-b7b9-47f367b75a5e/storage_v2/_src_/schema/hoteli_db.yPM-8Q.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui.iml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/AnnaMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/AnnaMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/KayttajaHaku.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/KayttajaHaku.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/KayttajaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/KayttajaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/AsiakasHaku.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/AsiakasHaku.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/HuoneHaku.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/HuoneHaku.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/LaskuHaku.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/LaskuHaku.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/VarausHaku.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/VarausHaku.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/AsiakasController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/AsiakasController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/HuoneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/HuoneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/LaskuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/LaskuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/VarausController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/VarausController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/AsiakasDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/AsiakasDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/KayttajaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/KayttajaDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/HuoneDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/HuoneDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/LaskuDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/LaskuDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/VarausDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/VarausDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/enteties/Asiakas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enteties/Asiakas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/enteties/Kayttaja.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enteties/Kayttaja.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/app/KayttajaHaku.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/app/KayttajaHaku.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/KayttajaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/controller/KayttajaController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/enteties/Lasku.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enteties/Lasku.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/AsiakasDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/DAO/AsiakasDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/KayttajaDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/DAO/KayttajaDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/HuoneDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/DAO/HuoneDAO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/VarausDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/DAO/VarausDAO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/target/classes/model/enteties/Asiakas.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/enteties/Asiakas.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/model/enteties/Huone.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/enteties/Huone.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/model/enteties/Kayttaja.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/enteties/Kayttaja.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,6 +83,7 @@
   &quot;keyToString&quot;: {
     &quot;Application.AnnaMain.executor&quot;: &quot;Run&quot;,
     &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.WilmaMain.executor&quot;: &quot;Run&quot;,
     &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
     &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
     &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
@@ -83,6 +91,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;anna-2&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/anna/IdeaProjects/OhtuProjekti-anna&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -104,10 +113,26 @@
     <key name="CreateClassDialog.RecentsKey">
       <recent name="model.enteties" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+    </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.AnnaMain">
     <configuration name="AnnaMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="app.AnnaMain" />
+      <module name="gui" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="app.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WilmaMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="app.WilmaMain" />
       <module name="gui" />
       <extension name="coverage">
         <pattern>
@@ -122,6 +147,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.AnnaMain" />
+        <item itemvalue="Application.WilmaMain" />
       </list>
     </recent_temporary>
   </component>
@@ -144,7 +170,10 @@
       <workItem from="1725542123275" duration="86220000" />
       <workItem from="1725864343562" duration="157000" />
       <workItem from="1725876462139" duration="6337000" />
-      <workItem from="1725956680191" duration="31520000" />
+      <workItem from="1725956680191" duration="39914000" />
+      <workItem from="1726489081883" duration="4239000" />
+      <workItem from="1726557762030" duration="5539000" />
+      <workItem from="1726566634854" duration="11713000" />
     </task>
     <task id="LOCAL-00001" summary="päivistys">
       <option name="closed" value="true" />
@@ -258,7 +287,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726132781190</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="kaikki valmis">
+      <option name="closed" value="true" />
+      <created>1726143573054</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1726143573054</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -275,7 +312,8 @@
     <MESSAGE value="koodin siistiminen" />
     <MESSAGE value="päivistys" />
     <MESSAGE value="koodin siisti ja  varaus, huone, hoteli valmis" />
-    <option name="LAST_COMMIT_MESSAGE" value="koodin siisti ja  varaus, huone, hoteli valmis" />
+    <MESSAGE value="kaikki valmis" />
+    <option name="LAST_COMMIT_MESSAGE" value="kaikki valmis" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

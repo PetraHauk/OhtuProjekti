@@ -28,18 +28,13 @@ public class Asiakas {
     @Column(name = "huomio")
     private String huomio;
 
-    @Column(name = "lasku_id")
-    private int laskuId;
-
-    public Asiakas(int asiakasId, String etunimi, String sukunimi, String sposti, String puh, int henkiloMaara, String huomio, int laskuId) {
-        this.asiakasId = asiakasId;
+    public Asiakas(int asiakasId, String etunimi, String sukunimi, String sposti, String puh, int henkiloMaara, String huomio) {
         this.etunimi = etunimi;
         this.sukunimi = sukunimi;
         this.sposti = sposti;
         this.puh = puh;
         this.henkiloMaara = henkiloMaara;
         this.huomio = huomio;
-        this.laskuId = laskuId;
     }
 
     public Asiakas() {
@@ -101,11 +96,4 @@ public class Asiakas {
         this.huomio = huomio;
     }
 
-    public int getLaskuId() {
-        return laskuId;
-    }
-
-    public void setLaskuId(int laskuId) {
-        this.laskuId = laskuId;
-    }
 }

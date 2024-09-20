@@ -14,23 +14,24 @@ public class HuoneDAO {
         em.getTransaction().commit();
     }
 
-    public Huone haeHuoneetByHotelliId(int hotelli_id) {
+    public List<Huone> haeHuoneetByHotelliId(int hotelli_id) {
         EntityManager em = MariaDbConnection.getInstance();
         List<Huone> huoneet = null;
-        Huone palautettavaHuone = null;
+
         try {
             huoneet = em.createQuery("SELECT h FROM Huone h WHERE h.hotelli_id = :hotelli_id", Huone.class)
                     .setParameter("hotelli_id", hotelli_id)
                     .getResultList();
+
             if (!huoneet.isEmpty()) {
-                // Palautetaan ensimmäinen huone
-                palautettavaHuone = huoneet.get(0);
+                // Tulostetaan kaikki huoneet
+                for (Huone huone : huoneet) {
+                    System.out.println(huone.getHuone_tila()); // Huoneen toString()-metodin pitäisi olla määritelty
+                }
+                // Voit palauttaa koko listan
+                return huoneet;
             } else {
                 System.out.println("Huoneita ei löytynyt hotellista ID:llä " + hotelli_id);
-            }
-            // Tulostetaan kaikki huoneet
-            for (Huone huone : huoneet) {
-                printHuone(huone);
             }
 
         } finally {
@@ -38,7 +39,7 @@ public class HuoneDAO {
                 em.close();
             }
         }
-        return palautettavaHuone;
+        return huoneet; // Palautetaan tyhjä lista jos huoneita ei löydy
     }
 
     public Huone findByRoomId(int id) {

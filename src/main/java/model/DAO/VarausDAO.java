@@ -21,10 +21,8 @@ public class VarausDAO {
         List<Varaus> varaukset = null;
         Varaus palauttavaVaraukset = null;
         try {
-            // Hae kaikki varaukset käyttäen JPQL-kyselyä
             varaukset = em.createQuery("SELECT v FROM Varaus v", Varaus.class).getResultList();
 
-            // Tulosta jokainen varaus
             for (Varaus varaus : varaukset) {
                 printVaraus(varaus);  // Tulosta varaus, jos tarpeellista
             }

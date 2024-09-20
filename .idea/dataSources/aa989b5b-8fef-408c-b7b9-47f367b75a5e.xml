@@ -35,6 +35,7 @@
 |root||root|localhost|REPLICATION SLAVE ADMIN|G
 |root||root|localhost|SELECT|G
 |root||root|localhost|SET USER|G
+|root||root|localhost|SHOW CREATE ROUTINE|G
 |root||root|localhost|SHOW DATABASES|G
 |root||root|localhost|SHOW VIEW|G
 |root||root|localhost|SHUTDOWN|G
@@ -75,6 +76,7 @@ hammaslaakarikeskus|schema||appuser|localhost|INSERT|G
 hammaslaakarikeskus|schema||appuser|localhost|LOCK TABLES|G
 hammaslaakarikeskus|schema||appuser|localhost|REFERENCES|G
 hammaslaakarikeskus|schema||appuser|localhost|SELECT|G
+hammaslaakarikeskus|schema||appuser|localhost|SHOW CREATE ROUTINE|G
 hammaslaakarikeskus|schema||appuser|localhost|SHOW VIEW|G
 hammaslaakarikeskus|schema||appuser|localhost|TRIGGER|G
 hammaslaakarikeskus|schema||appuser|localhost|UPDATE|G
@@ -82,7 +84,7 @@ lentopeli|schema||user1|localhost|DELETE|G
 lentopeli|schema||user1|localhost|INSERT|G
 lentopeli|schema||user1|localhost|SELECT|G
 lentopeli|schema||user1|localhost|UPDATE|G</Grants>
-      <ServerVersion>10.11.2</ServerVersion>
+      <ServerVersion>11.5.2</ServerVersion>
     </root>
     <collation id="2" parent="1" name="armscii8_bin">
       <Charset>armscii8</Charset>
@@ -765,7 +767,6 @@ lentopeli|schema||user1|localhost|UPDATE|G</Grants>
     </collation>
     <collation id="340" parent="1" name="ucs2_general_ci">
       <Charset>ucs2</Charset>
-      <DefaultForCharset>1</DefaultForCharset>
     </collation>
     <collation id="341" parent="1" name="ucs2_general_mysql500_ci">
       <Charset>ucs2</Charset>
@@ -881,7 +882,6 @@ lentopeli|schema||user1|localhost|UPDATE|G</Grants>
     </collation>
     <collation id="378" parent="1" name="utf16_general_ci">
       <Charset>utf16</Charset>
-      <DefaultForCharset>1</DefaultForCharset>
     </collation>
     <collation id="379" parent="1" name="utf16_general_nopad_ci">
       <Charset>utf16</Charset>
@@ -994,7 +994,6 @@ lentopeli|schema||user1|localhost|UPDATE|G</Grants>
     </collation>
     <collation id="415" parent="1" name="utf32_general_ci">
       <Charset>utf32</Charset>
-      <DefaultForCharset>1</DefaultForCharset>
     </collation>
     <collation id="416" parent="1" name="utf32_general_nopad_ci">
       <Charset>utf32</Charset>
@@ -1092,548 +1091,548 @@ lentopeli|schema||user1|localhost|UPDATE|G</Grants>
     <collation id="447" parent="1" name="utf8mb3_estonian_ci">
       <Charset>utf8mb3</Charset>
     </collation>
-    <collation id="448" parent="1" name="utf8mb3_general_ci">
-      <Charset>utf8mb3</Charset>
-      <DefaultForCharset>1</DefaultForCharset>
-    </collation>
-    <collation id="449" parent="1" name="utf8mb3_general_mysql500_ci">
+    <collation id="448" parent="1" name="utf8mb3_general1400_as_ci">
       <Charset>utf8mb3</Charset>
     </collation>
-    <collation id="450" parent="1" name="utf8mb3_general_nopad_ci">
+    <collation id="449" parent="1" name="utf8mb3_general_ci">
       <Charset>utf8mb3</Charset>
     </collation>
-    <collation id="451" parent="1" name="utf8mb3_german2_ci">
+    <collation id="450" parent="1" name="utf8mb3_general_mysql500_ci">
       <Charset>utf8mb3</Charset>
     </collation>
-    <collation id="452" parent="1" name="utf8mb3_hungarian_ci">
+    <collation id="451" parent="1" name="utf8mb3_general_nopad_ci">
       <Charset>utf8mb3</Charset>
     </collation>
-    <collation id="453" parent="1" name="utf8mb3_icelandic_ci">
+    <collation id="452" parent="1" name="utf8mb3_german2_ci">
       <Charset>utf8mb3</Charset>
     </collation>
-    <collation id="454" parent="1" name="utf8mb3_latvian_ci">
+    <collation id="453" parent="1" name="utf8mb3_hungarian_ci">
       <Charset>utf8mb3</Charset>
     </collation>
-    <collation id="455" parent="1" name="utf8mb3_lithuanian_ci">
+    <collation id="454" parent="1" name="utf8mb3_icelandic_ci">
       <Charset>utf8mb3</Charset>
     </collation>
-    <collation id="456" parent="1" name="utf8mb3_myanmar_ci">
+    <collation id="455" parent="1" name="utf8mb3_latvian_ci">
       <Charset>utf8mb3</Charset>
     </collation>
-    <collation id="457" parent="1" name="utf8mb3_nopad_bin">
+    <collation id="456" parent="1" name="utf8mb3_lithuanian_ci">
       <Charset>utf8mb3</Charset>
     </collation>
-    <collation id="458" parent="1" name="utf8mb3_persian_ci">
+    <collation id="457" parent="1" name="utf8mb3_myanmar_ci">
       <Charset>utf8mb3</Charset>
     </collation>
-    <collation id="459" parent="1" name="utf8mb3_polish_ci">
+    <collation id="458" parent="1" name="utf8mb3_nopad_bin">
       <Charset>utf8mb3</Charset>
     </collation>
-    <collation id="460" parent="1" name="utf8mb3_roman_ci">
+    <collation id="459" parent="1" name="utf8mb3_persian_ci">
       <Charset>utf8mb3</Charset>
     </collation>
-    <collation id="461" parent="1" name="utf8mb3_romanian_ci">
+    <collation id="460" parent="1" name="utf8mb3_polish_ci">
       <Charset>utf8mb3</Charset>
     </collation>
-    <collation id="462" parent="1" name="utf8mb3_sinhala_ci">
+    <collation id="461" parent="1" name="utf8mb3_roman_ci">
       <Charset>utf8mb3</Charset>
     </collation>
-    <collation id="463" parent="1" name="utf8mb3_slovak_ci">
+    <collation id="462" parent="1" name="utf8mb3_romanian_ci">
       <Charset>utf8mb3</Charset>
     </collation>
-    <collation id="464" parent="1" name="utf8mb3_slovenian_ci">
+    <collation id="463" parent="1" name="utf8mb3_sinhala_ci">
       <Charset>utf8mb3</Charset>
     </collation>
-    <collation id="465" parent="1" name="utf8mb3_spanish2_ci">
+    <collation id="464" parent="1" name="utf8mb3_slovak_ci">
       <Charset>utf8mb3</Charset>
     </collation>
-    <collation id="466" parent="1" name="utf8mb3_spanish_ci">
+    <collation id="465" parent="1" name="utf8mb3_slovenian_ci">
       <Charset>utf8mb3</Charset>
     </collation>
-    <collation id="467" parent="1" name="utf8mb3_swedish_ci">
+    <collation id="466" parent="1" name="utf8mb3_spanish2_ci">
       <Charset>utf8mb3</Charset>
     </collation>
-    <collation id="468" parent="1" name="utf8mb3_thai_520_w2">
+    <collation id="467" parent="1" name="utf8mb3_spanish_ci">
       <Charset>utf8mb3</Charset>
     </collation>
-    <collation id="469" parent="1" name="utf8mb3_turkish_ci">
+    <collation id="468" parent="1" name="utf8mb3_swedish_ci">
       <Charset>utf8mb3</Charset>
     </collation>
-    <collation id="470" parent="1" name="utf8mb3_unicode_520_ci">
+    <collation id="469" parent="1" name="utf8mb3_thai_520_w2">
       <Charset>utf8mb3</Charset>
     </collation>
-    <collation id="471" parent="1" name="utf8mb3_unicode_520_nopad_ci">
+    <collation id="470" parent="1" name="utf8mb3_turkish_ci">
       <Charset>utf8mb3</Charset>
     </collation>
-    <collation id="472" parent="1" name="utf8mb3_unicode_ci">
+    <collation id="471" parent="1" name="utf8mb3_unicode_520_ci">
       <Charset>utf8mb3</Charset>
     </collation>
-    <collation id="473" parent="1" name="utf8mb3_unicode_nopad_ci">
+    <collation id="472" parent="1" name="utf8mb3_unicode_520_nopad_ci">
       <Charset>utf8mb3</Charset>
     </collation>
-    <collation id="474" parent="1" name="utf8mb3_vietnamese_ci">
+    <collation id="473" parent="1" name="utf8mb3_unicode_ci">
       <Charset>utf8mb3</Charset>
     </collation>
-    <collation id="475" parent="1" name="utf8mb4_bin">
+    <collation id="474" parent="1" name="utf8mb3_unicode_nopad_ci">
+      <Charset>utf8mb3</Charset>
+    </collation>
+    <collation id="475" parent="1" name="utf8mb3_vietnamese_ci">
+      <Charset>utf8mb3</Charset>
+    </collation>
+    <collation id="476" parent="1" name="utf8mb4_bin">
       <Charset>utf8mb4</Charset>
     </collation>
-    <collation id="476" parent="1" name="utf8mb4_croatian_ci">
+    <collation id="477" parent="1" name="utf8mb4_croatian_ci">
       <Charset>utf8mb4</Charset>
     </collation>
-    <collation id="477" parent="1" name="utf8mb4_croatian_mysql561_ci">
+    <collation id="478" parent="1" name="utf8mb4_croatian_mysql561_ci">
       <Charset>utf8mb4</Charset>
     </collation>
-    <collation id="478" parent="1" name="utf8mb4_czech_ci">
+    <collation id="479" parent="1" name="utf8mb4_czech_ci">
       <Charset>utf8mb4</Charset>
     </collation>
-    <collation id="479" parent="1" name="utf8mb4_danish_ci">
+    <collation id="480" parent="1" name="utf8mb4_danish_ci">
       <Charset>utf8mb4</Charset>
     </collation>
-    <collation id="480" parent="1" name="utf8mb4_esperanto_ci">
+    <collation id="481" parent="1" name="utf8mb4_esperanto_ci">
       <Charset>utf8mb4</Charset>
     </collation>
-    <collation id="481" parent="1" name="utf8mb4_estonian_ci">
+    <collation id="482" parent="1" name="utf8mb4_estonian_ci">
       <Charset>utf8mb4</Charset>
     </collation>
-    <collation id="482" parent="1" name="utf8mb4_general_ci">
-      <Charset>utf8mb4</Charset>
-      <DefaultForCharset>1</DefaultForCharset>
-    </collation>
-    <collation id="483" parent="1" name="utf8mb4_general_nopad_ci">
+    <collation id="483" parent="1" name="utf8mb4_general1400_as_ci">
       <Charset>utf8mb4</Charset>
     </collation>
-    <collation id="484" parent="1" name="utf8mb4_german2_ci">
+    <collation id="484" parent="1" name="utf8mb4_general_ci">
       <Charset>utf8mb4</Charset>
     </collation>
-    <collation id="485" parent="1" name="utf8mb4_hungarian_ci">
+    <collation id="485" parent="1" name="utf8mb4_general_nopad_ci">
       <Charset>utf8mb4</Charset>
     </collation>
-    <collation id="486" parent="1" name="utf8mb4_icelandic_ci">
+    <collation id="486" parent="1" name="utf8mb4_german2_ci">
       <Charset>utf8mb4</Charset>
     </collation>
-    <collation id="487" parent="1" name="utf8mb4_latvian_ci">
+    <collation id="487" parent="1" name="utf8mb4_hungarian_ci">
       <Charset>utf8mb4</Charset>
     </collation>
-    <collation id="488" parent="1" name="utf8mb4_lithuanian_ci">
+    <collation id="488" parent="1" name="utf8mb4_icelandic_ci">
       <Charset>utf8mb4</Charset>
     </collation>
-    <collation id="489" parent="1" name="utf8mb4_myanmar_ci">
+    <collation id="489" parent="1" name="utf8mb4_latvian_ci">
       <Charset>utf8mb4</Charset>
     </collation>
-    <collation id="490" parent="1" name="utf8mb4_nopad_bin">
+    <collation id="490" parent="1" name="utf8mb4_lithuanian_ci">
       <Charset>utf8mb4</Charset>
     </collation>
-    <collation id="491" parent="1" name="utf8mb4_persian_ci">
+    <collation id="491" parent="1" name="utf8mb4_myanmar_ci">
       <Charset>utf8mb4</Charset>
     </collation>
-    <collation id="492" parent="1" name="utf8mb4_polish_ci">
+    <collation id="492" parent="1" name="utf8mb4_nopad_bin">
       <Charset>utf8mb4</Charset>
     </collation>
-    <collation id="493" parent="1" name="utf8mb4_roman_ci">
+    <collation id="493" parent="1" name="utf8mb4_persian_ci">
       <Charset>utf8mb4</Charset>
     </collation>
-    <collation id="494" parent="1" name="utf8mb4_romanian_ci">
+    <collation id="494" parent="1" name="utf8mb4_polish_ci">
       <Charset>utf8mb4</Charset>
     </collation>
-    <collation id="495" parent="1" name="utf8mb4_sinhala_ci">
+    <collation id="495" parent="1" name="utf8mb4_roman_ci">
       <Charset>utf8mb4</Charset>
     </collation>
-    <collation id="496" parent="1" name="utf8mb4_slovak_ci">
+    <collation id="496" parent="1" name="utf8mb4_romanian_ci">
       <Charset>utf8mb4</Charset>
     </collation>
-    <collation id="497" parent="1" name="utf8mb4_slovenian_ci">
+    <collation id="497" parent="1" name="utf8mb4_sinhala_ci">
       <Charset>utf8mb4</Charset>
     </collation>
-    <collation id="498" parent="1" name="utf8mb4_spanish2_ci">
+    <collation id="498" parent="1" name="utf8mb4_slovak_ci">
       <Charset>utf8mb4</Charset>
     </collation>
-    <collation id="499" parent="1" name="utf8mb4_spanish_ci">
+    <collation id="499" parent="1" name="utf8mb4_slovenian_ci">
       <Charset>utf8mb4</Charset>
     </collation>
-    <collation id="500" parent="1" name="utf8mb4_swedish_ci">
+    <collation id="500" parent="1" name="utf8mb4_spanish2_ci">
       <Charset>utf8mb4</Charset>
     </collation>
-    <collation id="501" parent="1" name="utf8mb4_thai_520_w2">
+    <collation id="501" parent="1" name="utf8mb4_spanish_ci">
       <Charset>utf8mb4</Charset>
     </collation>
-    <collation id="502" parent="1" name="utf8mb4_turkish_ci">
+    <collation id="502" parent="1" name="utf8mb4_swedish_ci">
       <Charset>utf8mb4</Charset>
     </collation>
-    <collation id="503" parent="1" name="utf8mb4_unicode_520_ci">
+    <collation id="503" parent="1" name="utf8mb4_thai_520_w2">
       <Charset>utf8mb4</Charset>
     </collation>
-    <collation id="504" parent="1" name="utf8mb4_unicode_520_nopad_ci">
+    <collation id="504" parent="1" name="utf8mb4_turkish_ci">
       <Charset>utf8mb4</Charset>
     </collation>
-    <collation id="505" parent="1" name="utf8mb4_unicode_ci">
+    <collation id="505" parent="1" name="utf8mb4_unicode_520_ci">
       <Charset>utf8mb4</Charset>
     </collation>
-    <collation id="506" parent="1" name="utf8mb4_unicode_nopad_ci">
+    <collation id="506" parent="1" name="utf8mb4_unicode_520_nopad_ci">
       <Charset>utf8mb4</Charset>
     </collation>
-    <collation id="507" parent="1" name="utf8mb4_vietnamese_ci">
+    <collation id="507" parent="1" name="utf8mb4_unicode_ci">
       <Charset>utf8mb4</Charset>
     </collation>
-    <schema id="508" parent="1" name="Currency">
+    <collation id="508" parent="1" name="utf8mb4_unicode_nopad_ci">
+      <Charset>utf8mb4</Charset>
+    </collation>
+    <collation id="509" parent="1" name="utf8mb4_vietnamese_ci">
+      <Charset>utf8mb4</Charset>
+    </collation>
+    <schema id="510" parent="1" name="Currency">
       <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
-    <schema id="509" parent="1" name="askahvila">
+    <schema id="511" parent="1" name="askahvila">
       <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
-    <schema id="510" parent="1" name="company">
+    <schema id="512" parent="1" name="company">
       <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
-    <schema id="511" parent="1" name="company2">
+    <schema id="513" parent="1" name="company2">
       <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
-    <schema id="512" parent="1" name="flight_game">
+    <schema id="514" parent="1" name="flight_game">
       <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
-    <schema id="513" parent="1" name="hammaslaakariKeskus">
+    <schema id="515" parent="1" name="hammaslaakariKeskus">
       <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
-    <schema id="514" parent="1" name="hoteliVarausJarjestelma">
+    <schema id="516" parent="1" name="hoteliVarausJarjestelma">
       <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
-    <schema id="515" parent="1" name="hoteli_db">
-      <LastIntrospectionLocalTimestamp>2024-09-05.20:01:16</LastIntrospectionLocalTimestamp>
+    <schema id="517" parent="1" name="hotelli_db">
+      <LastIntrospectionLocalTimestamp>2024-09-17.10:13:00</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
-    <schema id="516" parent="1" name="hotelli_db">
-      <LastIntrospectionLocalTimestamp>2024-09-07.18:47:19</LastIntrospectionLocalTimestamp>
-      <CollationName>utf8mb4_general_ci</CollationName>
-    </schema>
-    <schema id="517" parent="1" name="information_schema">
+    <schema id="518" parent="1" name="information_schema">
       <CollationName>utf8mb3_general_ci</CollationName>
     </schema>
-    <schema id="518" parent="1" name="lentopeli">
+    <schema id="519" parent="1" name="lentopeli">
       <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
-    <schema id="519" parent="1" name="mysql">
+    <schema id="520" parent="1" name="mysql">
       <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
-    <schema id="520" parent="1" name="performance_schema">
+    <schema id="521" parent="1" name="performance_schema">
       <CollationName>utf8mb3_general_ci</CollationName>
     </schema>
-    <schema id="521" parent="1" name="sys">
+    <schema id="522" parent="1" name="sys">
       <CollationName>utf8mb3_general_ci</CollationName>
     </schema>
-    <schema id="522" parent="1" name="test">
+    <schema id="523" parent="1" name="test">
       <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
-    <schema id="523" parent="1" name="toinenDatabase">
+    <schema id="524" parent="1" name="toinenDatabase">
       <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
-    <user id="524" parent="1" name="PUBLIC">
+    <user id="525" parent="1" name="PUBLIC">
       <CanLogin>0</CanLogin>
     </user>
-    <user id="525" parent="1" name="appuser">
+    <user id="526" parent="1" name="appuser">
       <Host>localhost</Host>
     </user>
-    <user id="526" parent="1" name="mariadb.sys">
+    <user id="527" parent="1" name="mariadb.sys">
       <Host>localhost</Host>
     </user>
-    <user id="527" parent="1" name="root">
+    <user id="528" parent="1" name="root">
       <Host>localhost</Host>
     </user>
-    <user id="528" parent="1" name="user1">
+    <user id="529" parent="1" name="user1">
       <Host>localhost</Host>
     </user>
-    <user id="529" parent="1" name="user">
+    <user id="530" parent="1" name="user">
       <Host>localhost</Host>
     </user>
-    <user id="530" parent="1" name="useranna">
+    <user id="531" parent="1" name="useranna">
       <Host>localhost</Host>
     </user>
-    <table id="531" parent="516" name="asiakas">
+    <table id="532" parent="517" name="asiakas">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="532" parent="516" name="hotelli">
+    <table id="533" parent="517" name="hotelli">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="533" parent="516" name="huone">
+    <table id="534" parent="517" name="huone">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="534" parent="516" name="huone_varaus">
+    <table id="535" parent="517" name="huone_varaus">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="535" parent="516" name="kayttaja">
+    <table id="536" parent="517" name="kayttaja">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="536" parent="516" name="lasku">
+    <table id="537" parent="517" name="lasku">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <column id="537" parent="531" name="asiakas_id">
-      <AutoIncrement>1</AutoIncrement>
+    <column id="538" parent="532" name="asiakas_id">
+      <AutoIncrement>4</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int(11)|0s</StoredType>
     </column>
-    <column id="538" parent="531" name="etunimi">
+    <column id="539" parent="532" name="etunimi">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>varchar(100)|0s</StoredType>
     </column>
-    <column id="539" parent="531" name="sukunimi">
+    <column id="540" parent="532" name="sukunimi">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>varchar(100)|0s</StoredType>
     </column>
-    <column id="540" parent="531" name="sposti">
+    <column id="541" parent="532" name="sposti">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>varchar(100)|0s</StoredType>
     </column>
-    <column id="541" parent="531" name="puh">
+    <column id="542" parent="532" name="puh">
       <Position>5</Position>
       <StoredType>varchar(20)|0s</StoredType>
     </column>
-    <column id="542" parent="531" name="henkilo_maara">
+    <column id="543" parent="532" name="henkilo_maara">
       <Position>6</Position>
       <StoredType>int(5)|0s</StoredType>
     </column>
-    <column id="543" parent="531" name="huomio">
+    <column id="544" parent="532" name="huomio">
       <Position>7</Position>
       <StoredType>varchar(500)|0s</StoredType>
     </column>
-    <column id="544" parent="531" name="lasku_id">
-      <Position>8</Position>
-      <StoredType>int(11)|0s</StoredType>
-    </column>
-    <foreign-key id="545" parent="531" name="asiakas_ibfk_1">
-      <ColNames>lasku_id</ColNames>
-      <RefColNames>lasku_id</RefColNames>
-      <RefTableName>lasku</RefTableName>
-    </foreign-key>
-    <index id="546" parent="531" name="PRIMARY">
+    <index id="545" parent="532" name="PRIMARY">
       <ColNames>asiakas_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="547" parent="531" name="lasku_id">
-      <ColNames>lasku_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="548" parent="531" name="PRIMARY">
+    <key id="546" parent="532" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="549" parent="532" name="hotelli_id">
-      <AutoIncrement>2</AutoIncrement>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-      <StoredType>int(11)|0s</StoredType>
-    </column>
-    <column id="550" parent="532" name="kaupunki">
-      <Position>2</Position>
-      <StoredType>varchar(100)|0s</StoredType>
-    </column>
-    <column id="551" parent="532" name="nimi">
-      <Position>3</Position>
-      <StoredType>varchar(100)|0s</StoredType>
-    </column>
-    <column id="552" parent="532" name="osoite">
-      <Position>4</Position>
-      <StoredType>varchar(255)|0s</StoredType>
-    </column>
-    <column id="553" parent="532" name="puh">
-      <Position>5</Position>
-      <StoredType>varchar(20)|0s</StoredType>
-    </column>
-    <column id="554" parent="532" name="maa">
-      <Position>6</Position>
-      <StoredType>varchar(50)|0s</StoredType>
-    </column>
-    <index id="555" parent="532" name="PRIMARY">
-      <ColNames>hotelli_id</ColNames>
-      <Type>btree</Type>
-      <Unique>1</Unique>
-    </index>
-    <key id="556" parent="532" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
-    </key>
-    <column id="557" parent="533" name="huone_id">
-      <AutoIncrement>2</AutoIncrement>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-      <StoredType>int(11)|0s</StoredType>
-    </column>
-    <column id="558" parent="533" name="huone_nro">
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-      <StoredType>int(11)|0s</StoredType>
-    </column>
-    <column id="559" parent="533" name="huone_tyyppi">
-      <Position>3</Position>
-      <StoredType>varchar(50)|0s</StoredType>
-    </column>
-    <column id="560" parent="533" name="huone_tila">
-      <Position>4</Position>
-      <StoredType>varchar(50)|0s</StoredType>
-    </column>
-    <column id="561" parent="533" name="huone_hinta">
-      <NotNull>1</NotNull>
-      <Position>5</Position>
-      <StoredType>decimal(10,2 digit)|0s</StoredType>
-    </column>
-    <column id="562" parent="533" name="hotelli_id">
-      <Position>6</Position>
-      <StoredType>int(11)|0s</StoredType>
-    </column>
-    <foreign-key id="563" parent="533" name="huone_ibfk_1">
-      <ColNames>hotelli_id</ColNames>
-      <RefColNames>hotelli_id</RefColNames>
-      <RefTableName>hotelli</RefTableName>
-    </foreign-key>
-    <index id="564" parent="533" name="PRIMARY">
-      <ColNames>huone_id</ColNames>
-      <Type>btree</Type>
-      <Unique>1</Unique>
-    </index>
-    <index id="565" parent="533" name="hotelli_id">
-      <ColNames>hotelli_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="566" parent="533" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
-    </key>
-    <column id="567" parent="534" name="varaus_id">
-      <AutoIncrement>1</AutoIncrement>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-      <StoredType>int(11)|0s</StoredType>
-    </column>
-    <column id="568" parent="534" name="huone_maara">
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-      <StoredType>int(11)|0s</StoredType>
-    </column>
-    <column id="569" parent="534" name="alku_pvm">
-      <NotNull>1</NotNull>
-      <Position>3</Position>
-      <StoredType>date|0s</StoredType>
-    </column>
-    <column id="570" parent="534" name="loppu_pvm">
-      <NotNull>1</NotNull>
-      <Position>4</Position>
-      <StoredType>date|0s</StoredType>
-    </column>
-    <column id="571" parent="534" name="huone_id">
-      <Position>5</Position>
-      <StoredType>int(11)|0s</StoredType>
-    </column>
-    <column id="572" parent="534" name="lasku_id">
-      <Position>6</Position>
-      <StoredType>int(11)|0s</StoredType>
-    </column>
-    <foreign-key id="573" parent="534" name="huone_varaus_ibfk_1">
-      <ColNames>huone_id</ColNames>
-      <RefColNames>huone_id</RefColNames>
-      <RefTableName>huone</RefTableName>
-    </foreign-key>
-    <foreign-key id="574" parent="534" name="huone_varaus_ibfk_2">
-      <ColNames>lasku_id</ColNames>
-      <RefColNames>lasku_id</RefColNames>
-      <RefTableName>lasku</RefTableName>
-    </foreign-key>
-    <index id="575" parent="534" name="PRIMARY">
-      <ColNames>varaus_id</ColNames>
-      <Type>btree</Type>
-      <Unique>1</Unique>
-    </index>
-    <index id="576" parent="534" name="huone_id">
-      <ColNames>huone_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <index id="577" parent="534" name="lasku_id">
-      <ColNames>lasku_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="578" parent="534" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
-    </key>
-    <column id="579" parent="535" name="kayttaja_id">
+    <column id="547" parent="533" name="hotelli_id">
       <AutoIncrement>3</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int(11)|0s</StoredType>
     </column>
-    <column id="580" parent="535" name="etunimi">
+    <column id="548" parent="533" name="kaupunki">
       <Position>2</Position>
       <StoredType>varchar(100)|0s</StoredType>
     </column>
-    <column id="581" parent="535" name="sukunimi">
+    <column id="549" parent="533" name="nimi">
       <Position>3</Position>
       <StoredType>varchar(100)|0s</StoredType>
     </column>
-    <column id="582" parent="535" name="sposti">
-      <NotNull>1</NotNull>
+    <column id="550" parent="533" name="osoite">
       <Position>4</Position>
-      <StoredType>varchar(100)|0s</StoredType>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="583" parent="535" name="puh">
+    <column id="551" parent="533" name="puh">
       <Position>5</Position>
       <StoredType>varchar(20)|0s</StoredType>
     </column>
-    <column id="584" parent="535" name="rooli">
-      <NotNull>1</NotNull>
+    <column id="552" parent="533" name="maa">
       <Position>6</Position>
       <StoredType>varchar(50)|0s</StoredType>
     </column>
-    <column id="585" parent="535" name="salasana">
-      <NotNull>1</NotNull>
-      <Position>7</Position>
-      <StoredType>varchar(255)|0s</StoredType>
-    </column>
-    <index id="586" parent="535" name="PRIMARY">
-      <ColNames>kayttaja_id</ColNames>
+    <index id="553" parent="533" name="PRIMARY">
+      <ColNames>hotelli_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="587" parent="535" name="PRIMARY">
+    <key id="554" parent="533" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="588" parent="536" name="lasku_id">
-      <AutoIncrement>1</AutoIncrement>
+    <column id="555" parent="534" name="huone_id">
+      <AutoIncrement>6</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int(11)|0s</StoredType>
     </column>
-    <column id="589" parent="536" name="maksu_status">
+    <column id="556" parent="534" name="huone_nro">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>int(11)|0s</StoredType>
+    </column>
+    <column id="557" parent="534" name="huone_tyyppi">
+      <Position>3</Position>
+      <StoredType>varchar(50)|0s</StoredType>
+    </column>
+    <column id="558" parent="534" name="huone_tila">
+      <Position>4</Position>
+      <StoredType>varchar(50)|0s</StoredType>
+    </column>
+    <column id="559" parent="534" name="huone_hinta">
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StoredType>decimal(10,2 digit)|0s</StoredType>
+    </column>
+    <column id="560" parent="534" name="hotelli_id">
+      <Position>6</Position>
+      <StoredType>int(11)|0s</StoredType>
+    </column>
+    <foreign-key id="561" parent="534" name="huone_ibfk_1">
+      <ColNames>hotelli_id</ColNames>
+      <RefColNames>hotelli_id</RefColNames>
+      <RefTableName>hotelli</RefTableName>
+    </foreign-key>
+    <index id="562" parent="534" name="PRIMARY">
+      <ColNames>huone_id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="563" parent="534" name="hotelli_id">
+      <ColNames>hotelli_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="564" parent="534" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="565" parent="535" name="varaus_id">
+      <AutoIncrement>4</AutoIncrement>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int(11)|0s</StoredType>
+    </column>
+    <column id="566" parent="535" name="huone_maara">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>int(11)|0s</StoredType>
+    </column>
+    <column id="567" parent="535" name="alku_pvm">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>date|0s</StoredType>
+    </column>
+    <column id="568" parent="535" name="loppu_pvm">
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StoredType>date|0s</StoredType>
+    </column>
+    <column id="569" parent="535" name="huone_id">
+      <Position>5</Position>
+      <StoredType>int(11)|0s</StoredType>
+    </column>
+    <column id="570" parent="535" name="lasku_id">
+      <Position>6</Position>
+      <StoredType>int(11)|0s</StoredType>
+    </column>
+    <foreign-key id="571" parent="535" name="huone_varaus_ibfk_1">
+      <ColNames>huone_id</ColNames>
+      <RefColNames>huone_id</RefColNames>
+      <RefTableName>huone</RefTableName>
+    </foreign-key>
+    <foreign-key id="572" parent="535" name="huone_varaus_ibfk_2">
+      <ColNames>lasku_id</ColNames>
+      <RefColNames>lasku_id</RefColNames>
+      <RefTableName>lasku</RefTableName>
+    </foreign-key>
+    <index id="573" parent="535" name="PRIMARY">
+      <ColNames>varaus_id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="574" parent="535" name="huone_id">
+      <ColNames>huone_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="575" parent="535" name="lasku_id">
+      <ColNames>lasku_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="576" parent="535" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="577" parent="536" name="kayttaja_id">
+      <AutoIncrement>4</AutoIncrement>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int(11)|0s</StoredType>
+    </column>
+    <column id="578" parent="536" name="etunimi">
+      <Position>2</Position>
+      <StoredType>varchar(100)|0s</StoredType>
+    </column>
+    <column id="579" parent="536" name="sukunimi">
+      <Position>3</Position>
+      <StoredType>varchar(100)|0s</StoredType>
+    </column>
+    <column id="580" parent="536" name="sposti">
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StoredType>varchar(100)|0s</StoredType>
+    </column>
+    <column id="581" parent="536" name="puh">
+      <Position>5</Position>
+      <StoredType>varchar(20)|0s</StoredType>
+    </column>
+    <column id="582" parent="536" name="rooli">
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+      <StoredType>varchar(50)|0s</StoredType>
+    </column>
+    <column id="583" parent="536" name="salasana">
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </column>
+    <index id="584" parent="536" name="PRIMARY">
+      <ColNames>kayttaja_id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="585" parent="536" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="586" parent="537" name="lasku_id">
+      <AutoIncrement>3</AutoIncrement>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int(11)|0s</StoredType>
+    </column>
+    <column id="587" parent="537" name="maksu_status">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>varchar(50)|0s</StoredType>
     </column>
-    <column id="590" parent="536" name="varaus_muoto">
+    <column id="588" parent="537" name="varaus_muoto">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>varchar(50)|0s</StoredType>
     </column>
-    <column id="591" parent="536" name="valuutta">
+    <column id="589" parent="537" name="valuutta">
       <Position>4</Position>
       <StoredType>varchar(20)|0s</StoredType>
     </column>
-    <index id="592" parent="536" name="PRIMARY">
+    <column id="590" parent="537" name="asiakas_id">
+      <Position>5</Position>
+      <StoredType>int(11)|0s</StoredType>
+    </column>
+    <foreign-key id="591" parent="537" name="lasku_ibfk_1">
+      <ColNames>asiakas_id</ColNames>
+      <RefColNames>asiakas_id</RefColNames>
+      <RefTableName>asiakas</RefTableName>
+    </foreign-key>
+    <index id="592" parent="537" name="PRIMARY">
       <ColNames>lasku_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="593" parent="536" name="PRIMARY">
+    <index id="593" parent="537" name="asiakas_id">
+      <ColNames>asiakas_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="594" parent="537" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>

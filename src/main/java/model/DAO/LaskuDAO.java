@@ -12,29 +12,6 @@ public class LaskuDAO {
         em.persist(lasku);
         em.getTransaction().commit();
     }
-/*
-    public Lasku haeVaraukset() {
-        EntityManager em = MariaDbConnection.getInstance();
-        List<Lasku> varaukset = null;
-        Lasku palauttavaVaraukset = null;
-        try {
-            // Hae kaikki varaukset käyttäen JPQL-kyselyä
-            varaukset = em.createQuery("SELECT v FROM Lasku v", Lasku.class).getResultList();
-
-            // Tulosta jokainen Lasku
-            for (Lasku Lasku : varaukset) {
-                printLasku(Lasku);  // Tulosta Lasku, jos tarpeellista
-            }
-        } finally {
-            if (em != null) {
-                em.close();
-            }
-        }
-        return palauttavaVaraukset;  // Palautetaan lista varauksista
-    }
-    
-    
- */
 
     public Lasku haeByLaskuId(int lasku_id) {
         EntityManager em = MariaDbConnection.getInstance();
@@ -49,8 +26,21 @@ public class LaskuDAO {
             }
         }
     }
+    public Lasku haeByAsiakasId(int asiakas_id) {
+    EntityManager em = MariaDbConnection.getInstance();
+        try {
+        Lasku lasku = em.find(Lasku.class, asiakas_id);
+        printLasku(lasku);
+        return lasku;
 
-    public void updateLaskuById(int id, String maksuStatus, String varausMuoto, String valuutta) {
+    } finally {
+        if (em != null) {
+            em.close();
+        }
+    }
+}
+
+    public void updateLaskuById(int id, String maksuStatus, String varausMuoto, String valuutta, int asiakasId) {
         EntityManager em = MariaDbConnection.getInstance();
         try {
             em.getTransaction().begin();
@@ -66,7 +56,6 @@ public class LaskuDAO {
                 em.close();
             }
         }
-
     }
 
     public void removeById(int id) {
@@ -84,6 +73,7 @@ public class LaskuDAO {
         System.out.println("Maksu status: " + Lasku.getMaksuStatus());
         System.out.println("Varaus muoto: " + Lasku.getVarausMuoto());
         System.out.println("Valuutta: " + Lasku.getValuutta());
+        System.out.println("Asiakas id: " + Lasku.getAsiakasId());
         System.out.println();
     }
 }

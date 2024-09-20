@@ -15,9 +15,10 @@ public class LaskuHaku {
             System.out.println("Valitse toiminto:");
             System.out.println("1. Lisää uusi lasku");
             System.out.println("2. Hae lasku ID:llä");
-            System.out.println("3. Päivitä lasku ID:llä");
-            System.out.println("4. Poista id:llä");
-            System.out.println("5. Lopeta");
+            System.out.println("3. Hae asiakas ID:llä");
+            System.out.println("4. Päivitä lasku ID:llä");
+            System.out.println("5. Poista id:llä");
+            System.out.println("6. Lopeta");
 
             int valinta = scanner.nextInt();
             scanner.nextLine(); // Clear the newline character from the buffer
@@ -31,7 +32,7 @@ public class LaskuHaku {
                     System.out.println("Anna valuutta:");
                     String valuutta = scanner.nextLine();
 
-                    controller.addLasku(maksu_status, varaus_muoto, valuutta);
+                    controller.addLasku(maksu_status, varaus_muoto, valuutta, 0);
                     System.out.println("lasku lisätty onnistuneesti!");
                     break;
 
@@ -40,7 +41,14 @@ public class LaskuHaku {
                     int idHaku = scanner.nextInt();
                     controller.findLaskuById(idHaku);
                     break;
+
                 case 3:
+                    System.out.println("Anna asiakas ID:");
+                    int asiakas_idHaku = scanner.nextInt();
+                    controller.findLaskuByAsiakasId(asiakas_idHaku);
+                    break;
+
+                case 4:
                     System.out.println("Anna laskun ID:");
                     int idPaivitys = scanner.nextInt();
                     scanner.nextLine();
@@ -53,21 +61,26 @@ public class LaskuHaku {
 
                     System.out.println("Anna valuutta:");
                     String valuuttaPaivitys = scanner.nextLine();
-                   controller.updateLaskuById(idPaivitys, maksu_statusPaivitys, varaus_muotoPaivitys, valuuttaPaivitys);
+
+                    System.out.println("Anna asiakas_id:");
+                    int asiakas_idPaivitys = scanner.nextInt();
+                   controller.updateLaskuById(idPaivitys, maksu_statusPaivitys, varaus_muotoPaivitys, valuuttaPaivitys, asiakas_idPaivitys);
                     break;
 
-                case 4:
+                case 5:
                     System.out.println("Anna laskun ID:");
                     int idPoisto = scanner.nextInt();
                     controller.removeLaskuById(idPoisto);
                     break;
+
+                case 6:
+                    System.out.println("Ohjelma lopetetaan.");
+                    return;
                 default:
                     System.out.println("Virheellinen valinta, yritä uudelleen.");
                     break;
             }
-
         }
-
     }
 }
 

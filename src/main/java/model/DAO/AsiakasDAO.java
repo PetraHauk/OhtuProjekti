@@ -4,6 +4,8 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
 import model.datasourse.MariaDbConnection;
 import model.enteties.Asiakas;
+import model.enteties.Varaus;
+
 import java.util.List;
 
 public class AsiakasDAO {
@@ -78,7 +80,25 @@ public class AsiakasDAO {
 
     }
 
-    public void updateAsiakasById(int id, String etunimi, String sukunimi, String sposti, String puh, int henkiloMaara, String huomio, int laskuId) {
+    public Asiakas findAsukkaat() {
+        EntityManager em = MariaDbConnection.getInstance();
+        List<Asiakas> asiakkaat = null;
+        Asiakas palauttavaAsiakkaat = null;
+        try {
+            asiakkaat = em.createQuery("SELECT v FROM Asiakas v", Asiakas.class).getResultList();
+
+            for (Asiakas asiakas : asiakkaat) {
+                printAsiakas(asiakas);  // Tulosta varaus, jos tarpeellista
+            }
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return palauttavaAsiakkaat;  // Palautetaan lista varauksista
+    }
+
+    public void updateAsiakasById(int id, String etunimi, String sukunimi, String sposti, String puh, int henkiloMaara, String huomio) {
         EntityManager em = MariaDbConnection.getInstance();
         try {
             em.getTransaction().begin();
@@ -90,7 +110,6 @@ public class AsiakasDAO {
                 asiakas.setPuh(puh);
                 asiakas.setHenkiloMaara(henkiloMaara);
                 asiakas.setHuomio(huomio);
-                asiakas.setLaskuId(laskuId);
 
                 System.out.println("Asiakkaan tiedot päivitetty onnistuneesti!");
                 em.getTransaction().commit();
@@ -117,7 +136,6 @@ public class AsiakasDAO {
         System.out.println("Puhelin: " + asiakas.getPuh());
         System.out.println("Henkilömäärä: " + asiakas.getHenkiloMaara());
         System.out.println("Huomio: " + asiakas.getHuomio());
-        System.out.println("Lasku ID: " + asiakas.getLaskuId());
         System.out.println();
     }
 }

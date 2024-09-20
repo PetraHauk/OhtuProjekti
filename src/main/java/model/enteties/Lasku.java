@@ -18,12 +18,17 @@ public class Lasku {
     @Column(name = "valuutta")
     private String valuutta;
 
+    @Column(name = "asiakas_id")
+    private int asiakas_id;
+
+
     // Parametrillinen konstruktori
-    public Lasku(int lasku_id, String maksu_status, String varaus_muoto, String valuutta) {
+    public Lasku(int lasku_id, String maksu_status, String varaus_muoto, String valuutta, int asiakas_id) {
         this.lasku_id = lasku_id;
         this.maksu_status = maksu_status;
         this.varaus_muoto = varaus_muoto;
         this.valuutta = valuutta;
+        this.asiakas_id = asiakas_id;
     }
 
     public Lasku() {
@@ -46,6 +51,10 @@ public class Lasku {
         return valuutta;
     }
 
+    public int getAsiakasId() {
+        return asiakas_id;
+    }
+
     public void setMaksuStatus(String maksu_status) {
         this.maksu_status = maksu_status;
     }
@@ -56,5 +65,9 @@ public class Lasku {
 
     public void setValuutta(String valuutta) {
         this.valuutta = valuutta;
+    }
+
+    public void setAsiakasId(int asiakas_id) {
+        this.asiakas_id = asiakas_id;
     }
 }

@@ -2,7 +2,10 @@ package app;
 
 import controller.HuoneController;
 import model.enteties.Huone;
+
+import java.util.List;
 import java.util.Scanner;
+
 
 public class HuoneHaku {
 
@@ -92,10 +95,18 @@ public class HuoneHaku {
                     controller.deleteHuone(id3);
                     break;
                 case 7:
+
                     System.out.println("Anna hotelli ID:");
                     int hotelliId = scanner.nextInt();
                     scanner.nextLine();
-                    controller.FindHuoneetByHoteliId(hotelliId);
+                    //arrylist huoneet
+
+
+                    List<Huone> huoneet = null;
+                    huoneet = controller.FindHuoneetByHoteliId(hotelliId);
+                    for (Huone huone : huoneet) {
+                        printHuone(huone);
+                    }
                     break;
 
                 case 8:

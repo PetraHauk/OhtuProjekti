@@ -1,15 +1,14 @@
 package app;
+/*
+import controller.VarausController3;
 
-import controller.VarausController;
-
-import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 
 public class VarausHaku {
-    private VarausController controller = new VarausController();
+    private VarausController3 controller = new VarausController3();
     private Scanner scanner = new Scanner(System.in);
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
 
@@ -118,3 +117,6 @@ public class VarausHaku {
         }
     }
 }
+
+
+ */
