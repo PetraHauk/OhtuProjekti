@@ -3,12 +3,8 @@
   <option name="DESCRIPTION" value="Uncommitted changes before Update at 18/09/2024 09:23 [Changes]" />
   <binary>
     <option name="BEFORE_PATH" value=".idea/copilot/chatSessions/00000000000.xd" />
-    <option name="AFTER_PATH" />
-    <option name="SHELVED_PATH" />
   </binary>
   <binary>
     <option name="BEFORE_PATH" value=".idea/copilot/chatSessions/blobs/version" />
-    <option name="AFTER_PATH" />
-    <option name="SHELVED_PATH" />
   </binary>
 </changelist>
