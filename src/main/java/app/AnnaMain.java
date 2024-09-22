@@ -11,13 +11,13 @@ public class AnnaMain {
         //hotelliHaku.start();
 
         //HuoneHaku huoneHaku = new HuoneHaku();
-       // huoneHaku.start();
+       //huoneHaku.start();
 
-        VarausHaku varausHaku = new VarausHaku();
-        varausHaku.start();
+       // VarausHaku varausHaku = new VarausHaku();
+        //varausHaku.start();
 
-        //LaskuHaku laskuHaku = new LaskuHaku();
-        //laskuHaku.start();
+        LaskuHaku laskuHaku = new LaskuHaku();
+        laskuHaku.start();
 
         //AsiakasHaku asiakasHaku = new AsiakasHaku();
         //asiakasHaku.start();

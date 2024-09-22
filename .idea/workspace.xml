@@ -4,17 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="065e434f-b050-4145-bce8-5768651a9a60" name="Changes" comment="lasku palautus korjaus ja lisää hae kaikki laskut">
+    <list default="true" id="065e434f-b050-4145-bce8-5768651a9a60" name="Changes" comment="koodin siistiminen">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/AnnaMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/AnnaMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/KayttajaHaku.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/KayttajaHaku.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/OhjelmistoGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/OhjelmistoGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/VarausHaku.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/VarausHaku.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/KayttajaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/KayttajaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/VarausController3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/VarausController3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/KayttajaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/KayttajaDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/VarausDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/VarausDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/app/KayttajaHaku.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/app/KayttajaHaku.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/KayttajaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/controller/KayttajaController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/HuoneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/HuoneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/VarausController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/VarausController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/VarausController3.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/AsiakasDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/DAO/AsiakasDAO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/KayttajaDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/DAO/KayttajaDAO.class" afterDir="false" />
     </list>
@@ -157,7 +155,8 @@
       <workItem from="1725956680191" duration="39914000" />
       <workItem from="1726489081883" duration="4239000" />
       <workItem from="1726557762030" duration="5539000" />
-      <workItem from="1726566634854" duration="18283000" />
+      <workItem from="1726566634854" duration="32475000" />
+      <workItem from="1727009300569" duration="6708000" />
     </task>
     <task id="LOCAL-00001" summary="päivistys">
       <option name="closed" value="true" />
@@ -311,7 +310,23 @@
       <option name="project" value="LOCAL" />
       <updated>1726817675174</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="varaus palautus korjaus">
+      <option name="closed" value="true" />
+      <created>1726818667403</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1726818667403</updated>
+    </task>
+    <task id="LOCAL-00021" summary="koodin siistiminen">
+      <option name="closed" value="true" />
+      <created>1726819202068</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1726819202068</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -325,14 +340,15 @@
     <MESSAGE value="kayttaja taulukko: vaihda salasana toimi" />
     <MESSAGE value="huone taulu: javat" />
     <MESSAGE value="huone taulu: haut , poista ja päivitä" />
-    <MESSAGE value="koodin siistiminen" />
     <MESSAGE value="päivistys" />
     <MESSAGE value="koodin siisti ja  varaus, huone, hoteli valmis" />
     <MESSAGE value="kaikki valmis" />
     <MESSAGE value="Kaikki huoneet palautus" />
     <MESSAGE value="huone palautus korjaus" />
     <MESSAGE value="lasku palautus korjaus ja lisää hae kaikki laskut" />
-    <option name="LAST_COMMIT_MESSAGE" value="lasku palautus korjaus ja lisää hae kaikki laskut" />
+    <MESSAGE value="varaus palautus korjaus" />
+    <MESSAGE value="koodin siistiminen" />
+    <option name="LAST_COMMIT_MESSAGE" value="koodin siistiminen" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

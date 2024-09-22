@@ -1,6 +1,8 @@
 package app;
 
+import controller.HuoneController;
 import javafx.application.Application;
+import javafx.concurrent.Task;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -14,11 +16,17 @@ import model.DAO.AsiakasDAO;
 import model.enteties.Huone;
 import model.enteties.Asiakas;
 
+import java.util.List;
+
 public class OhjelmistoGUI extends Application {
+
+    private HuoneController huoneController;
 
     @Override
     public void start(Stage primaryStage) {
         primaryStage.setTitle("Hotel Management System");
+
+        huoneController = new HuoneController();
 
         HBox mainLayout = new HBox(10);
         VBox leftBar = createLeftBar(mainLayout, primaryStage);
@@ -68,7 +76,7 @@ public class OhjelmistoGUI extends Application {
     }
 
 
-    // Creates the content for etusivu
+    // Creates the content for Etusivu
     private VBox createEtusivu() {
         VBox etusivuInfo = new VBox(10);
         etusivuInfo.getStyleClass().add("info");
@@ -81,18 +89,110 @@ public class OhjelmistoGUI extends Application {
         return etusivuInfo;
     }
 
-    // Creates the content for huoneet
+    // Creates the content for Huoneiden hallinta
     private VBox createHuoneet() {
         VBox huoneetInfo = new VBox(10);
         huoneetInfo.getStyleClass().add("info");
         Label huoneetOtsikkoLabel = new Label("Huoneet");
         huoneetOtsikkoLabel.getStyleClass().add("otsikko");
+
         TableView<Huone> roomTable = createRoomTable();
-        huoneetInfo.getChildren().addAll(huoneetOtsikkoLabel, roomTable);
+
+        populateRoomTable(roomTable, 1);
+
+        Button addRoomButton = new Button("Lisää uusi huone");
+        addRoomButton.setOnAction(e -> openAddRoomWindow(roomTable));
+
+        huoneetInfo.getChildren().addAll(huoneetOtsikkoLabel, roomTable, addRoomButton);
         return huoneetInfo;
     }
 
-    // Creates the content for asiakkaat
+    private void openAddRoomWindow(TableView<Huone> roomTable) {
+        Stage addRoomStage = new Stage();
+        addRoomStage.setTitle("Lisää uusi huone");
+
+        VBox formLayout = new VBox(10);
+        formLayout.setAlignment(Pos.CENTER);
+
+        Label numberLabel = new Label("Huoneen Numero:");
+        TextField numberField = new TextField();
+
+        Label typeLabel = new Label("Tyyppi:");
+        ComboBox<String> typeField = new ComboBox<>();
+        typeField.getItems().addAll("Yhden hengen huone", "Kahden hengen huone", "Kolmen hengen huone", "Perhehuone", "Sviitti");
+        typeField.setPromptText("Valitse huonetyyppi...");
+
+        Label priceLabel = new Label("Hinta/Yö (€):");
+        TextField priceField = new TextField();
+
+        Button saveButton = new Button("Lisää huone");
+        saveButton.setOnAction(e -> {
+            saveNewRoom(numberField, typeField, priceField, roomTable, addRoomStage);
+        });
+
+        formLayout.getChildren().addAll(numberLabel, numberField, typeLabel, typeField, priceLabel, priceField, saveButton);
+
+        Scene scene = new Scene(formLayout, 400, 400);
+        addRoomStage.setScene(scene);
+        addRoomStage.show();
+    }
+
+    private void saveNewRoom(TextField numberField, ComboBox<String> typeField, TextField priceField, TableView<Huone> roomTable, Stage addRoomStage) {
+        try {
+            int roomNumber = Integer.parseInt(numberField.getText());
+            String roomType = typeField.getValue();
+            String roomStatus = "Vapaa";
+            double roomPrice = Double.parseDouble(priceField.getText());
+
+            huoneController.lisaaHuone(roomNumber, roomType, roomStatus, roomPrice, 1);
+
+            populateRoomTable(roomTable, 1);  // Assuming hotel ID is 1 for this example
+
+            addRoomStage.close();
+
+        } catch (NumberFormatException e) {
+            System.out.println("Virheellinen syöte. Tarkista numero- ja hintakentät.");
+        }
+    }
+
+
+    // Populate the room table. Runs it in a thread and shows loading indicator.
+    private void populateRoomTable(TableView<Huone> roomTable, int hotelliId) {
+        ProgressIndicator loadingIndicator = new ProgressIndicator();
+        loadingIndicator.setVisible(true);
+
+        roomTable.getItems().clear();
+        roomTable.setPlaceholder(loadingIndicator);
+
+        Task<List<Huone>> fetchRoomsTask = new Task<>() {
+            @Override
+            protected List<Huone> call() throws Exception {
+                return huoneController.FindHuoneetByHoteliId(hotelliId);
+            }
+        };
+
+        fetchRoomsTask.setOnSucceeded(event -> {
+            List<Huone> rooms = fetchRoomsTask.getValue();
+            if (rooms != null && !rooms.isEmpty()) {
+                roomTable.getItems().setAll(rooms);
+            } else {
+                roomTable.setPlaceholder(new Label("No rooms found for the given hotel ID"));
+            }
+            loadingIndicator.setVisible(false);
+        });
+
+        fetchRoomsTask.setOnFailed(event -> {
+            roomTable.setPlaceholder(new Label("Failed to load room data"));
+            System.err.println("Failed to fetch rooms: " + fetchRoomsTask.getException());
+            loadingIndicator.setVisible(false);
+        });
+
+        new Thread(fetchRoomsTask).start();
+    }
+
+
+
+    // Creates the content for Asiakasrekisteri
     private VBox createAsiakkaat() {
         VBox asiakkaatInfo = new VBox(10);
         asiakkaatInfo.getStyleClass().add("info");
@@ -103,16 +203,14 @@ public class OhjelmistoGUI extends Application {
         return asiakkaatInfo;
     }
 
-    // Creates the content for check-in
+    // Creates the content for Check-in
     private VBox createCheckIn() {
         VBox huoneVarausInfo = new VBox(5);
         huoneVarausInfo.getStyleClass().add("info");
 
-        // otsikko
         Label checkInInfoLabel = new Label("Check-In");
         checkInInfoLabel.getStyleClass().add("otsikko");
 
-        // huone tyyppi
         VBox huoneTyyppi = new VBox(0);
         Label huoneLabel = new Label("Huoneen tyyppi:");
         ComboBox<String> huoneField = new ComboBox<>();
@@ -126,31 +224,26 @@ public class OhjelmistoGUI extends Application {
         huoneField.setPromptText("Valitse huonetyyppi...");
         huoneTyyppi.getChildren().addAll(huoneLabel, huoneField);
 
-        // tulo päivä
         VBox tuloPaiva = new VBox(0);
         Label tuloLabel = new Label("Saapumispäivä:");
         DatePicker tuloDatePicker = new DatePicker();
         tuloPaiva.getChildren().addAll(tuloLabel, tuloDatePicker);
 
-        // poistumis päivä
         VBox poistumisPaiva = new VBox(0);
         Label poistumisLabel = new Label("Lähtöpäivä:");
         DatePicker poistumisDatePicker = new DatePicker();
         poistumisPaiva.getChildren().addAll(poistumisLabel, poistumisDatePicker);
 
-        // päivät
         VBox paivat = new VBox(0);
         Label paivatLabel = new Label("Päivät:");
         Label paivatValue = new Label("0");
         paivat.getChildren().addAll(paivatLabel, paivatValue);
 
-        // huoneen hinta
         VBox huoneHinta = new VBox(0);
         Label hintaLabel = new Label("Huoneen hinta:");
         Label hinta = new Label("0.00 €");
         huoneHinta.getChildren().addAll(hintaLabel, hinta);
 
-        // table showing available rooms
         VBox availableRooms = new VBox(10);
         Label availableRoomsTitle = new Label("Vapaat huoneet:");
         availableRoomsTitle.getStyleClass().add("otsikko");
@@ -166,7 +259,7 @@ public class OhjelmistoGUI extends Application {
         return checkIn;
     }
 
-    // Creates the content for check-out
+    // Creates the content for Check-out
     private VBox createCheckOut() {
         VBox checkOutInfo = new VBox(10);
         checkOutInfo.getStyleClass().add("info");
@@ -174,6 +267,12 @@ public class OhjelmistoGUI extends Application {
         checkOutInfoLabel.getStyleClass().add("otsikko");
         checkOutInfo.getChildren().add(checkOutInfoLabel);
         return checkOutInfo;
+    }
+
+    // Updates the main layout with new content
+    private void updateMainLayout(HBox mainLayout, VBox leftBar, VBox info) {
+        mainLayout.getChildren().clear();
+        mainLayout.getChildren().addAll(leftBar, info);
     }
 
     // Creates a button with custom styling
@@ -185,30 +284,26 @@ public class OhjelmistoGUI extends Application {
         return button;
     }
 
-    // Updates the main layout with new content
-    private void updateMainLayout(HBox mainLayout, VBox leftBar, VBox info) {
-        mainLayout.getChildren().clear();
-        mainLayout.getChildren().addAll(leftBar, info);
-    }
-
     // Method to create the Room table view
     private TableView<Huone> createRoomTable() {
         TableView<Huone> roomTable = new TableView<>();
 
+        roomTable.setPrefWidth(500);
+
         TableColumn<Huone, Integer> idColumn = new TableColumn<>("Huone ID");
-        idColumn.setCellValueFactory(new PropertyValueFactory<>("huoneId"));
+        idColumn.setCellValueFactory(new PropertyValueFactory<>("huone_id"));
 
         TableColumn<Huone, Integer> numberColumn = new TableColumn<>("Huoneen Numero");
-        numberColumn.setCellValueFactory(new PropertyValueFactory<>("huoneNro"));
+        numberColumn.setCellValueFactory(new PropertyValueFactory<>("huone_nro"));
 
         TableColumn<Huone, String> typeColumn = new TableColumn<>("Tyyppi");
-        typeColumn.setCellValueFactory(new PropertyValueFactory<>("huoneTyyppi"));
+        typeColumn.setCellValueFactory(new PropertyValueFactory<>("huone_tyyppi"));
 
         TableColumn<Huone, String> statusColumn = new TableColumn<>("Status");
-        statusColumn.setCellValueFactory(new PropertyValueFactory<>("huoneTila"));
+        statusColumn.setCellValueFactory(new PropertyValueFactory<>("huone_tila"));
 
         TableColumn<Huone, Double> priceColumn = new TableColumn<>("Hinta/Yö");
-        priceColumn.setCellValueFactory(new PropertyValueFactory<>("huoneHinta"));
+        priceColumn.setCellValueFactory(new PropertyValueFactory<>("huone_hinta"));
 
         roomTable.getColumns().add(idColumn);
         roomTable.getColumns().add(numberColumn);
