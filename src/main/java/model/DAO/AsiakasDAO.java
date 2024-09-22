@@ -1,10 +1,9 @@
 
 package model.DAO;
-
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.NoResultException;
 import model.datasourse.MariaDbConnection;
 import model.enteties.Asiakas;
+
 import java.util.List;
 
 public class AsiakasDAO {
@@ -19,13 +18,15 @@ public class AsiakasDAO {
         EntityManager em = MariaDbConnection.getInstance();
         try {
             Asiakas asikas = em.find(Asiakas.class, lasku_id);
-            printAsiakas(asikas);
-            return asikas;
+            if (asikas != null) {
+                return asikas;
+            }
         } finally {
             if (em != null) {
                 em.close();
             }
         }
+        return null;
     }
 
     public Asiakas findByEmail(String email) {
@@ -37,63 +38,52 @@ public class AsiakasDAO {
                     .setParameter("sposti", email)
                     .getSingleResult();
             em.getTransaction().commit();
-            printAsiakas(asiakas);
-            return asiakas;
-        } catch (NoResultException e) {
-            System.out.println("Asiakasta ei löytynyt sähköpostilla: " + email);
-            return null;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null; // Jokin muu virhe tapahtui
+            if (asiakas != null) {
+                return asiakas;
+            }
         } finally {
             if (em != null) {
                 em.close();
             }
         }
+        return null;
     }
 
-    public Asiakas findByNImet(String etunimi, String sukunimi) {
+    public List <Asiakas> findByNImet(String etunimi, String sukunimi) {
         EntityManager em = MariaDbConnection.getInstance();
         List <Asiakas> asiakkaat = null;
-        Asiakas palauttavaAsiakkaat = null;
         try {
             asiakkaat = em.createQuery("SELECT a FROM Asiakas a WHERE a.etunimi = :etunimi AND a.sukunimi = :sukunimi", Asiakas.class)
                     .setParameter("etunimi", etunimi)
                     .setParameter("sukunimi", sukunimi)
                     .getResultList();
             if (!asiakkaat.isEmpty()) {
-                // Palautetaan ensimmäinen asiakas
-                palauttavaAsiakkaat = asiakkaat.get(0);
-            } else {
-                System.out.println("Asiakasta ei löytynyt etunimellä: " + etunimi + " ja sukunimellä: " + sukunimi);
-            }
-            for (Asiakas asiakas : asiakkaat) {
-                printAsiakas(asiakas);
+                return asiakkaat;
             }
         } finally {
             if (em != null) {
                 em.close();
             }
         }
-        return palauttavaAsiakkaat;
+        return null;
+
     }
 
-    public Asiakas findAsukkaat() {
+    public List<Asiakas> findAsukkaat() {
         EntityManager em = MariaDbConnection.getInstance();
         List<Asiakas> asiakkaat = null;
-        Asiakas palauttavaAsiakkaat = null;
         try {
             asiakkaat = em.createQuery("SELECT v FROM Asiakas v", Asiakas.class).getResultList();
 
-            for (Asiakas asiakas : asiakkaat) {
-                printAsiakas(asiakas);  // Tulosta varaus, jos tarpeellista
+            if (!asiakkaat.isEmpty()) {
+                return asiakkaat;
             }
         } finally {
             if (em != null) {
                 em.close();
             }
         }
-        return palauttavaAsiakkaat;  // Palautetaan lista varauksista
+        return null;
     }
 
     public void updateAsiakasById(int id, String etunimi, String sukunimi, String sposti, String puh, int henkiloMaara, String huomio) {
@@ -126,14 +116,4 @@ public class AsiakasDAO {
         }
     }
 
-    public void printAsiakas(Asiakas asiakas) {
-        System.out.println("Asiakas ID: " + asiakas.getAsiakasId());
-        System.out.println("Etunimi: " + asiakas.getEtunimi());
-        System.out.println("Sukunimi: " + asiakas.getSukunimi());
-        System.out.println("Sähköposti: " + asiakas.getSposti());
-        System.out.println("Puhelin: " + asiakas.getPuh());
-        System.out.println("Henkilömäärä: " + asiakas.getHenkiloMaara());
-        System.out.println("Huomio: " + asiakas.getHuomio());
-        System.out.println();
-    }
 }

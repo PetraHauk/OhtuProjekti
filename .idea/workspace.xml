@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+
     <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="Target Commit 2 20.9" />
+
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,11 +15,23 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="wilma" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "annagaom"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/PetraHauk/OhtuProjekti.git",
+    "accountId": "d12f10a6-d5cf-492d-aceb-5d1198a70491"
+  }
+}]]></component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -37,7 +51,9 @@
     "Application.WilmaMain.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+
     "git-widget-placeholder": "main",
+
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -46,7 +62,9 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+
   <component name="RunManager" selected="Application.WilmaMain">
+
     <configuration name="AnnaMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="app.AnnaMain" />
       <module name="gui" />
@@ -101,8 +119,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.WilmaMain" />
+
         <item itemvalue="Application.AnnaMain" />
+        <item itemvalue="Application.WilmaMain" />
         <item itemvalue="Application.MainPetra" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.MainPetra" />
@@ -112,7 +131,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-21.0.2-openjdk-21.0.2-f644763e9732-c0c073db" />
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.20224.419" />
+        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-IU-242.20224.419" />
       </set>
     </attachedChunks>
   </component>
@@ -132,6 +152,7 @@
       <option name="presentableId" value="Default" />
       <updated>1726554373190</updated>
       <workItem from="1726554375584" duration="1777000" />
+      <workItem from="1726857549279" duration="2385000" />
     </task>
     <task id="LOCAL−00002" summary="Huoneet haetaan tietokannasta taulukkoon. Uuden huoneen lisäys visuaalissa toimii.">
       <option name="closed" value="true" />
