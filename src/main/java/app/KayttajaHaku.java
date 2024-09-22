@@ -121,13 +121,17 @@ public class KayttajaHaku {
     }
 
     public void printKayttaja(Kayttaja kayttaja) {
-        System.out.println("Etunimi: " + kayttaja.getEtunimi());
-        System.out.println("Sukunimi: " + kayttaja.getSukunimi());
-        System.out.println("Sähköposti: " + kayttaja.getSposti());
-        System.out.println("Puhelin: " + kayttaja.getPuh());
-        System.out.println("Rooli: " + kayttaja.getRooli());
-        System.out.println("Salasana: " + kayttaja.getSalasana());
-        System.out.println(" ");
+        if (kayttaja != null) {
+            System.out.println("Etunimi: " + kayttaja.getEtunimi());
+            System.out.println("Sukunimi: " + kayttaja.getSukunimi());
+            System.out.println("Sähköposti: " + kayttaja.getSposti());
+            System.out.println("Puhelin: " + kayttaja.getPuh());
+            System.out.println("Rooli: " + kayttaja.getRooli());
+            System.out.println("Salasana: " + kayttaja.getSalasana());
+            System.out.println(" ");
+        } else {
+            System.out.println("Käyttäjää ei löytynyt.");
+        }
     }
 }
 
