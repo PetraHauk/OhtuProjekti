@@ -1,9 +1,10 @@
-
 package controller;
 
 import model.DAO.KayttajaDAO;
 import model.enteties.Kayttaja;
 import org.mindrot.jbcrypt.BCrypt;
+
+import java.util.List;
 
 public class KayttajaController {
     private KayttajaDAO kayttajaDAO;
@@ -42,5 +43,9 @@ public class KayttajaController {
 
     public void poistaKayttaja(int id) {
         kayttajaDAO.removeById(id);
+    }
+
+    public List<Kayttaja> haeKaikkiKayttajat() {
+        return kayttajaDAO.findAllKayttaja();
     }
 }

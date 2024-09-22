@@ -2,6 +2,8 @@ package controller;
 import model.DAO.LaskuDAO;
 import model.enteties.Lasku;
 
+import java.util.List;
+
 public class LaskuController {
     private LaskuDAO laskuDAO;
 
@@ -27,5 +29,9 @@ public class LaskuController {
 
     public void removeLaskuById(int lasku_id) {
         laskuDAO.removeById(lasku_id);
+    }
+
+    public List<Lasku> findAllLaskut() {
+        return laskuDAO.haeKaikkilaskut();
     }
 }

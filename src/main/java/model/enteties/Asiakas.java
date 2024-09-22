@@ -37,6 +37,9 @@ public class Asiakas {
         this.huomio = huomio;
     }
 
+    public Asiakas() {
+    }
+
     public int getAsiakasId() {
         return asiakasId;
     }
