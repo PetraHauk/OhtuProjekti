@@ -60,7 +60,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.WilmaMain">
+  <component name="RunManager" selected="Application.AnnaMain">
     <configuration name="AnnaMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="app.AnnaMain" />
       <module name="gui" />
@@ -115,8 +115,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.WilmaMain" />
         <item itemvalue="Application.AnnaMain" />
+        <item itemvalue="Application.WilmaMain" />
         <item itemvalue="Application.MainPetra" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.MainPetra" />

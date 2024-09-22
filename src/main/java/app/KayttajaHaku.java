@@ -2,6 +2,8 @@ package app;
 
 import model.enteties.Kayttaja;
 import controller.KayttajaController;
+
+import java.util.List;
 import java.util.Scanner;
 
 public class KayttajaHaku {
@@ -20,7 +22,8 @@ public class KayttajaHaku {
             System.out.println("5. Poista käyttäjä ID:llä");
             System.out.println("6. Hae salasana sähköpostilla");
             System.out.println("7. Päivitä käyttäjän tiedot");
-            System.out.println("8. Lopeta");
+            System.out.println("8.Hae kaikki kayttäjät");
+            System.out.println("9. Lopeta");
 
             int valinta = scanner.nextInt();
             scanner.nextLine(); // Clear the newline character from the buffer
@@ -35,7 +38,7 @@ public class KayttajaHaku {
                     String sposti = scanner.nextLine();
                     System.out.println("Anna puhelinnumero:");
                     String puh = scanner.nextLine();
-                    System.out.println("Anna rooli:");
+                    System.out.println("Anna henkilö määrä:");
                     String rooli = scanner.nextLine();
                     System.out.println("Anna salasana:");
                     String salasana = scanner.nextLine();
@@ -101,6 +104,12 @@ public class KayttajaHaku {
                     controller.paivitaKayttaja(idPaivitysTiedot, etunimiPaivitys, sukunimiPaivitys, spostiPaivitys, puhPaivitys, rooliPaivitys, salasanaPaivitys);
                     break;
                 case 8:
+                    List<Kayttaja> kayttajat = controller.haeKaikkiKayttajat();
+                    for (Kayttaja kayttaja : kayttajat) {
+                        printKayttaja(kayttaja);
+                    }
+                    break;
+                case 9:
                     System.out.println("Lopetetaan ohjelma.");
                     scanner.close();
                     System.exit(0);
@@ -109,6 +118,16 @@ public class KayttajaHaku {
                     break;
             }
         }
+    }
+
+    public void printKayttaja(Kayttaja kayttaja) {
+        System.out.println("Etunimi: " + kayttaja.getEtunimi());
+        System.out.println("Sukunimi: " + kayttaja.getSukunimi());
+        System.out.println("Sähköposti: " + kayttaja.getSposti());
+        System.out.println("Puhelin: " + kayttaja.getPuh());
+        System.out.println("Rooli: " + kayttaja.getRooli());
+        System.out.println("Salasana: " + kayttaja.getSalasana());
+        System.out.println(" ");
     }
 }
 

@@ -4,8 +4,8 @@ public class AnnaMain {
 
 
     public static void main(String[] args) {
-        //KayttajaHaku kayttajaHaku = new KayttajaHaku();
-        //kayttajaHaku.start();
+        KayttajaHaku kayttajaHaku = new KayttajaHaku();
+        kayttajaHaku.start();
 
         //HotelliHaku hotelliHaku = new HotelliHaku();
         //hotelliHaku.start();
@@ -19,8 +19,8 @@ public class AnnaMain {
         //LaskuHaku laskuHaku = new LaskuHaku();
         //laskuHaku.start();
 
-        AsiakasHaku asiakasHaku = new AsiakasHaku();
-        asiakasHaku.start();
+        //AsiakasHaku asiakasHaku = new AsiakasHaku();
+        //asiakasHaku.start();
     }
 
 }
