@@ -254,10 +254,51 @@ public class OhjelmistoGUI extends Application {
         HBox huoneTiedot = new HBox(10);
         huoneTiedot.getChildren().addAll(huoneVarausInfo, availableRooms);
 
+        tuloDatePicker.valueProperty().addListener((observable, oldValue, newValue) -> {
+            populateFreeRoomTable(huoneTable, 1, tuloDatePicker, poistumisDatePicker);  // Assuming hotel ID is 1 for this example
+        });
+        poistumisDatePicker.valueProperty().addListener((observable, oldValue, newValue) -> {
+            populateFreeRoomTable(huoneTable, 1, tuloDatePicker, poistumisDatePicker);  // Assuming hotel ID is 1 for this example
+        });
+
         VBox checkIn = new VBox(10);
         checkIn.getChildren().addAll(huoneTiedot);
         return checkIn;
     }
+
+    private void populateFreeRoomTable(TableView<Huone> huoneTable, int hotelliId, DatePicker tuloDatePicker, DatePicker poistumisDatePicker) {
+        ProgressIndicator loadingIndicator = new ProgressIndicator();
+        loadingIndicator.setVisible(true);
+
+        huoneTable.getItems().clear();
+        huoneTable.setPlaceholder(loadingIndicator);
+
+        Task<List<Huone>> fetchRoomsTask = new Task<>() {
+            @Override
+            protected List<Huone> call() throws Exception {
+                return huoneController.findVapaatHuoneetByHotelliId(hotelliId, tuloDatePicker.getValue(), poistumisDatePicker.getValue());
+            }
+        };
+
+        fetchRoomsTask.setOnSucceeded(event -> {
+            List<Huone> rooms = fetchRoomsTask.getValue();
+            if (rooms != null && !rooms.isEmpty()) {
+                huoneTable.getItems().setAll(rooms);
+            } else {
+                huoneTable.setPlaceholder(new Label("No free rooms found for the given hotel ID"));
+            }
+            loadingIndicator.setVisible(false);
+        });
+
+        fetchRoomsTask.setOnFailed(event -> {
+            huoneTable.setPlaceholder(new Label("Failed to load free room data"));
+            System.err.println("Failed to fetch free rooms: " + fetchRoomsTask.getException());
+            loadingIndicator.setVisible(false);
+        });
+
+        new Thread(fetchRoomsTask).start();
+    }
+
 
     // Creates the content for Check-out
     private VBox createCheckOut() {

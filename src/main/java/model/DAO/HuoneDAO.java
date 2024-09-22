@@ -1,3 +1,4 @@
+
 package model.DAO;
 import jakarta.persistence.EntityManager;
 import model.datasourse.MariaDbConnection;
@@ -121,5 +122,3 @@ public class HuoneDAO {
         }
     }
 }
-
-
