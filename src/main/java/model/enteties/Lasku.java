@@ -31,6 +31,9 @@ public class Lasku {
         this.asiakas_id = asiakas_id;
     }
 
+    public Lasku() {
+    }
+
     // Getterit ja setterit
     public int getLaskuId() {
         return lasku_id;
