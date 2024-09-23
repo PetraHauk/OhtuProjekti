@@ -1,0 +1,501 @@
+Index: src/main/java/app/OhjelmistoGUI.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package app;\r\n\r\nimport javafx.application.Application;\r\nimport javafx.geometry.Pos;\r\nimport javafx.scene.Scene;\r\nimport javafx.scene.control.*;\r\nimport javafx.scene.control.cell.PropertyValueFactory;\r\nimport javafx.scene.layout.*;\r\nimport javafx.stage.Stage;\r\nimport javafx.scene.control.ComboBox;\r\n\r\nimport model.DAO.HuoneDAO;\r\nimport model.DAO.AsiakasDAO;\r\nimport model.enteties.Huone;\r\nimport model.enteties.Asiakas;\r\n\r\npublic class OhjelmistoGUI extends Application {\r\n\r\n    @Override\r\n    public void start(Stage primaryStage) {\r\n        primaryStage.setTitle(\"Hotel Management System\");\r\n\r\n        HBox mainLayout = new HBox(10);\r\n        VBox leftBar = createLeftBar(mainLayout, primaryStage);\r\n        mainLayout.getChildren().addAll(leftBar, createEtusivu());\r\n\r\n        Scene scene = new Scene(mainLayout, 900, 600);\r\n        scene.getStylesheets().add(\"style.css\");\r\n        primaryStage.setScene(scene);\r\n        primaryStage.show();\r\n    }\r\n\r\n\r\n    // Creates the left bar with buttons and user info\r\n    private VBox createLeftBar(HBox mainLayout, Stage primaryStage) {\r\n        Label loggedInUsername = new Label(\"Username\");\r\n        Label loggedInImage = new Label(\"[IMAGE]\");\r\n        HBox userBox = new HBox(10);\r\n        userBox.getStyleClass().add(\"user-box\");\r\n        userBox.getChildren().addAll(loggedInImage, loggedInUsername);\r\n\r\n        Button frontPageButton = createStyledButton(\"Etusivu\");\r\n        Button showRoomsButton = createStyledButton(\"Huoneiden hallinta\");\r\n        Button showCustomersButton = createStyledButton(\"Asiakasrekisteri\");\r\n        Button checkInButton = createStyledButton(\"Check-In\");\r\n        Button checkOutButton = createStyledButton(\"Check-Out\");\r\n\r\n        VBox leftButtons = new VBox(10);\r\n        leftButtons.getChildren().addAll(frontPageButton, showRoomsButton, showCustomersButton, checkInButton, checkOutButton);\r\n        leftButtons.getStyleClass().add(\"left-buttons\");\r\n\r\n        Button logoutButton = new Button(\"Kirjaudu ulos\");\r\n        logoutButton.setPrefWidth(200);\r\n        logoutButton.getStyleClass().add(\"button-log-out\");\r\n\r\n        VBox leftBar = new VBox(30);\r\n        leftBar.getChildren().addAll(userBox, leftButtons, logoutButton);\r\n        leftBar.getStyleClass().add(\"left-bar\");\r\n\r\n        frontPageButton.setOnAction(e -> handleFrontPageButtonAction(mainLayout, leftBar));\r\n        showRoomsButton.setOnAction(e -> handleShowRoomsButtonAction(mainLayout, leftBar));\r\n        showCustomersButton.setOnAction(e -> handleShowCustomersButtonAction(mainLayout, leftBar));\r\n        checkInButton.setOnAction(e -> handleCheckInButtonAction(mainLayout, leftBar));\r\n        checkOutButton.setOnAction(e -> handleCheckOutButtonAction(mainLayout, leftBar));\r\n        logoutButton.setOnAction(e -> handleLogoutButtonAction(primaryStage));\r\n\r\n        return leftBar;\r\n    }\r\n\r\n\r\n    // Creates the content for etusivu\r\n    private VBox createEtusivu() {\r\n        VBox etusivuInfo = new VBox(10);\r\n        etusivuInfo.getStyleClass().add(\"info\");\r\n        Label etusivuOtsikkoLabel = new Label(\"Etusivu\");\r\n        etusivuOtsikkoLabel.getStyleClass().add(\"otsikko\");\r\n        Label etusivuKuvausLabel = new Label(\"Täältä voit hallita hotellin huoneita ja asiakkaita sekä tehdä check-in ja check-out toimintoja.\");\r\n        etusivuKuvausLabel.setWrapText(true);\r\n        etusivuKuvausLabel.setMaxWidth(400);\r\n        etusivuInfo.getChildren().addAll(etusivuOtsikkoLabel, etusivuKuvausLabel);\r\n        return etusivuInfo;\r\n    }\r\n\r\n    // Creates the content for huoneet\r\n    private VBox createHuoneet() {\r\n        VBox huoneetInfo = new VBox(10);\r\n        huoneetInfo.getStyleClass().add(\"info\");\r\n        Label huoneetOtsikkoLabel = new Label(\"Huoneet\");\r\n        huoneetOtsikkoLabel.getStyleClass().add(\"otsikko\");\r\n        TableView<Huone> roomTable = createRoomTable();\r\n        huoneetInfo.getChildren().addAll(huoneetOtsikkoLabel, roomTable);\r\n        return huoneetInfo;\r\n    }\r\n\r\n    // Creates the content for asiakkaat\r\n    private VBox createAsiakkaat() {\r\n        VBox asiakkaatInfo = new VBox(10);\r\n        asiakkaatInfo.getStyleClass().add(\"info\");\r\n        Label asiakkaatOtsikkoLabel = new Label(\"Asiakkaat\");\r\n        asiakkaatOtsikkoLabel.getStyleClass().add(\"otsikko\");\r\n        TableView<Asiakas> customerTable = createCustomerTable();\r\n        asiakkaatInfo.getChildren().addAll(asiakkaatOtsikkoLabel, customerTable);\r\n        return asiakkaatInfo;\r\n    }\r\n\r\n    // Creates the content for check-in\r\n    private VBox createCheckIn() {\r\n        VBox huoneVarausInfo = new VBox(5);\r\n        huoneVarausInfo.getStyleClass().add(\"info\");\r\n\r\n        // otsikko\r\n        Label checkInInfoLabel = new Label(\"Check-In\");\r\n        checkInInfoLabel.getStyleClass().add(\"otsikko\");\r\n\r\n        // huone tyyppi\r\n        VBox huoneTyyppi = new VBox(0);\r\n        Label huoneLabel = new Label(\"Huoneen tyyppi:\");\r\n        ComboBox<String> huoneField = new ComboBox<>();\r\n        huoneField.getItems().addAll(\r\n                \"Yhden hengen huone\",\r\n                \"Kahden hengen huone\",\r\n                \"Kolmen hengen huone\",\r\n                \"Perhehuone\",\r\n                \"Sviitti\"\r\n        );\r\n        huoneField.setPromptText(\"Valitse huonetyyppi...\");\r\n        huoneTyyppi.getChildren().addAll(huoneLabel, huoneField);\r\n\r\n        // tulo päivä\r\n        VBox tuloPaiva = new VBox(0);\r\n        Label tuloLabel = new Label(\"Saapumispäivä:\");\r\n        DatePicker tuloDatePicker = new DatePicker();\r\n        tuloPaiva.getChildren().addAll(tuloLabel, tuloDatePicker);\r\n\r\n        // poistumis päivä\r\n        VBox poistumisPaiva = new VBox(0);\r\n        Label poistumisLabel = new Label(\"Lähtöpäivä:\");\r\n        DatePicker poistumisDatePicker = new DatePicker();\r\n        poistumisPaiva.getChildren().addAll(poistumisLabel, poistumisDatePicker);\r\n\r\n        // päivät\r\n        VBox paivat = new VBox(0);\r\n        Label paivatLabel = new Label(\"Päivät:\");\r\n        Label paivatValue = new Label(\"0\");\r\n        paivat.getChildren().addAll(paivatLabel, paivatValue);\r\n\r\n        // huoneen hinta\r\n        VBox huoneHinta = new VBox(0);\r\n        Label hintaLabel = new Label(\"Huoneen hinta:\");\r\n        Label hinta = new Label(\"0.00 €\");\r\n        huoneHinta.getChildren().addAll(hintaLabel, hinta);\r\n\r\n        // table showing available rooms\r\n        VBox availableRooms = new VBox(10);\r\n        Label availableRoomsTitle = new Label(\"Vapaat huoneet:\");\r\n        availableRoomsTitle.getStyleClass().add(\"otsikko\");\r\n        TableView<Huone> huoneTable = createRoomTable();\r\n        availableRooms.getChildren().addAll(availableRoomsTitle, huoneTable);\r\n\r\n        huoneVarausInfo.getChildren().addAll(checkInInfoLabel, huoneTyyppi, tuloPaiva, poistumisPaiva, paivat, huoneHinta);\r\n        HBox huoneTiedot = new HBox(10);\r\n        huoneTiedot.getChildren().addAll(huoneVarausInfo, availableRooms);\r\n\r\n        VBox checkIn = new VBox(10);\r\n        checkIn.getChildren().addAll(huoneTiedot);\r\n        return checkIn;\r\n    }\r\n\r\n    // Creates the content for check-out\r\n    private VBox createCheckOut() {\r\n        VBox checkOutInfo = new VBox(10);\r\n        checkOutInfo.getStyleClass().add(\"info\");\r\n        Label checkOutInfoLabel = new Label(\"Check-Out\");\r\n        checkOutInfoLabel.getStyleClass().add(\"otsikko\");\r\n        checkOutInfo.getChildren().add(checkOutInfoLabel);\r\n        return checkOutInfo;\r\n    }\r\n\r\n    // Creates a button with custom styling\r\n    private Button createStyledButton(String text) {\r\n        Button button = new Button(text);\r\n        button.setPrefWidth(200);\r\n        button.setAlignment(Pos.CENTER_LEFT);\r\n        button.getStyleClass().add(\"button-front-page\");\r\n        return button;\r\n    }\r\n\r\n    // Updates the main layout with new content\r\n    private void updateMainLayout(HBox mainLayout, VBox leftBar, VBox info) {\r\n        mainLayout.getChildren().clear();\r\n        mainLayout.getChildren().addAll(leftBar, info);\r\n    }\r\n\r\n    // Method to create the Room table view\r\n    private TableView<Huone> createRoomTable() {\r\n        TableView<Huone> roomTable = new TableView<>();\r\n\r\n        TableColumn<Huone, Integer> idColumn = new TableColumn<>(\"Huone ID\");\r\n        idColumn.setCellValueFactory(new PropertyValueFactory<>(\"huoneId\"));\r\n\r\n        TableColumn<Huone, Integer> numberColumn = new TableColumn<>(\"Huoneen Numero\");\r\n        numberColumn.setCellValueFactory(new PropertyValueFactory<>(\"huoneNro\"));\r\n\r\n        TableColumn<Huone, String> typeColumn = new TableColumn<>(\"Tyyppi\");\r\n        typeColumn.setCellValueFactory(new PropertyValueFactory<>(\"huoneTyyppi\"));\r\n\r\n        TableColumn<Huone, String> statusColumn = new TableColumn<>(\"Status\");\r\n        statusColumn.setCellValueFactory(new PropertyValueFactory<>(\"huoneTila\"));\r\n\r\n        TableColumn<Huone, Double> priceColumn = new TableColumn<>(\"Hinta/Yö\");\r\n        priceColumn.setCellValueFactory(new PropertyValueFactory<>(\"huoneHinta\"));\r\n\r\n        roomTable.getColumns().add(idColumn);\r\n        roomTable.getColumns().add(numberColumn);\r\n        roomTable.getColumns().add(typeColumn);\r\n        roomTable.getColumns().add(statusColumn);\r\n        roomTable.getColumns().add(priceColumn);\r\n\r\n        return roomTable;\r\n    }\r\n\r\n    // Method to create the Customer table view\r\n    private TableView<Asiakas> createCustomerTable() {\r\n        TableView<Asiakas> customerTable = new TableView<>();\r\n\r\n        TableColumn<Asiakas, Integer> idColumn = new TableColumn<>(\"Asiakas ID\");\r\n        idColumn.setCellValueFactory(new PropertyValueFactory<>(\"asiakasId\"));\r\n\r\n        TableColumn<Asiakas, String> firstNameColumn = new TableColumn<>(\"Etunimi\");\r\n        firstNameColumn.setCellValueFactory(new PropertyValueFactory<>(\"etunimi\"));\r\n\r\n        TableColumn<Asiakas, String> lastNameColumn = new TableColumn<>(\"Sukunimi\");\r\n        lastNameColumn.setCellValueFactory(new PropertyValueFactory<>(\"sukunimi\"));\r\n\r\n        TableColumn<Asiakas, String> emailColumn = new TableColumn<>(\"Sähköposti\");\r\n        emailColumn.setCellValueFactory(new PropertyValueFactory<>(\"sposti\"));\r\n\r\n        TableColumn<Asiakas, String> phoneColumn = new TableColumn<>(\"Puhelin\");\r\n        phoneColumn.setCellValueFactory(new PropertyValueFactory<>(\"puh\"));\r\n\r\n        customerTable.getColumns().add(idColumn);\r\n        customerTable.getColumns().add(firstNameColumn);\r\n        customerTable.getColumns().add(lastNameColumn);\r\n        customerTable.getColumns().add(emailColumn);\r\n        customerTable.getColumns().add(phoneColumn);\r\n\r\n        return customerTable;\r\n    }\r\n\r\n    // Button Actions\r\n    private void handleFrontPageButtonAction(HBox mainLayout, VBox leftBar) {\r\n        updateMainLayout(mainLayout, leftBar, createEtusivu());\r\n    }\r\n\r\n    private void handleShowRoomsButtonAction(HBox mainLayout, VBox leftBar) {\r\n        updateMainLayout(mainLayout, leftBar, createHuoneet());\r\n    }\r\n\r\n    private void handleShowCustomersButtonAction(HBox mainLayout, VBox leftBar) {\r\n        updateMainLayout(mainLayout, leftBar, createAsiakkaat());\r\n    }\r\n\r\n    private void handleCheckInButtonAction(HBox mainLayout, VBox leftBar) {\r\n        updateMainLayout(mainLayout, leftBar, createCheckIn());\r\n    }\r\n\r\n    private void handleCheckOutButtonAction(HBox mainLayout, VBox leftBar) {\r\n        updateMainLayout(mainLayout, leftBar, createCheckOut());\r\n    }\r\n\r\n    private void handleLogoutButtonAction(Stage primaryStage) {\r\n        primaryStage.close();\r\n    }\r\n\r\n    public static void main(String[] args) {\r\n        launch(args);\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/app/OhjelmistoGUI.java b/src/main/java/app/OhjelmistoGUI.java
+--- a/src/main/java/app/OhjelmistoGUI.java	(revision 329bb5726b75d0af56204dc95df706723138446e)
++++ b/src/main/java/app/OhjelmistoGUI.java	(date 1726819953658)
+@@ -1,6 +1,8 @@
+ package app;
+ 
++import controller.HuoneController;
+ import javafx.application.Application;
++import javafx.concurrent.Task;
+ import javafx.geometry.Pos;
+ import javafx.scene.Scene;
+ import javafx.scene.control.*;
+@@ -14,12 +16,18 @@
+ import model.enteties.Huone;
+ import model.enteties.Asiakas;
+ 
++import java.util.List;
++
+ public class OhjelmistoGUI extends Application {
+ 
++    private HuoneController huoneController;
++
+     @Override
+     public void start(Stage primaryStage) {
+         primaryStage.setTitle("Hotel Management System");
+ 
++        huoneController = new HuoneController();
++
+         HBox mainLayout = new HBox(10);
+         VBox leftBar = createLeftBar(mainLayout, primaryStage);
+         mainLayout.getChildren().addAll(leftBar, createEtusivu());
+@@ -68,7 +76,7 @@
+     }
+ 
+ 
+-    // Creates the content for etusivu
++    // Creates the content for Etusivu
+     private VBox createEtusivu() {
+         VBox etusivuInfo = new VBox(10);
+         etusivuInfo.getStyleClass().add("info");
+@@ -81,18 +89,110 @@
+         return etusivuInfo;
+     }
+ 
+-    // Creates the content for huoneet
++    // Creates the content for Huoneiden hallinta
+     private VBox createHuoneet() {
+         VBox huoneetInfo = new VBox(10);
+         huoneetInfo.getStyleClass().add("info");
+         Label huoneetOtsikkoLabel = new Label("Huoneet");
+         huoneetOtsikkoLabel.getStyleClass().add("otsikko");
++
+         TableView<Huone> roomTable = createRoomTable();
+-        huoneetInfo.getChildren().addAll(huoneetOtsikkoLabel, roomTable);
++
++        populateRoomTable(roomTable, 1);
++
++        Button addRoomButton = new Button("Lisää uusi huone");
++        addRoomButton.setOnAction(e -> openAddRoomWindow(roomTable));
++
++        huoneetInfo.getChildren().addAll(huoneetOtsikkoLabel, roomTable, addRoomButton);
+         return huoneetInfo;
+     }
+ 
+-    // Creates the content for asiakkaat
++    private void openAddRoomWindow(TableView<Huone> roomTable) {
++        Stage addRoomStage = new Stage();
++        addRoomStage.setTitle("Lisää uusi huone");
++
++        VBox formLayout = new VBox(10);
++        formLayout.setAlignment(Pos.CENTER);
++
++        Label numberLabel = new Label("Huoneen Numero:");
++        TextField numberField = new TextField();
++
++        Label typeLabel = new Label("Tyyppi:");
++        ComboBox<String> typeField = new ComboBox<>();
++        typeField.getItems().addAll("Yhden hengen huone", "Kahden hengen huone", "Kolmen hengen huone", "Perhehuone", "Sviitti");
++        typeField.setPromptText("Valitse huonetyyppi...");
++
++        Label priceLabel = new Label("Hinta/Yö (€):");
++        TextField priceField = new TextField();
++
++        Button saveButton = new Button("Lisää huone");
++        saveButton.setOnAction(e -> {
++            saveNewRoom(numberField, typeField, priceField, roomTable, addRoomStage);
++        });
++
++        formLayout.getChildren().addAll(numberLabel, numberField, typeLabel, typeField, priceLabel, priceField, saveButton);
++
++        Scene scene = new Scene(formLayout, 400, 400);
++        addRoomStage.setScene(scene);
++        addRoomStage.show();
++    }
++
++    private void saveNewRoom(TextField numberField, ComboBox<String> typeField, TextField priceField, TableView<Huone> roomTable, Stage addRoomStage) {
++        try {
++            int roomNumber = Integer.parseInt(numberField.getText());
++            String roomType = typeField.getValue();
++            String roomStatus = "Vapaa";
++            double roomPrice = Double.parseDouble(priceField.getText());
++
++            huoneController.lisaaHuone(roomNumber, roomType, roomStatus, roomPrice, 1);
++
++            populateRoomTable(roomTable, 1);  // Assuming hotel ID is 1 for this example
++
++            addRoomStage.close();
++
++        } catch (NumberFormatException e) {
++            System.out.println("Virheellinen syöte. Tarkista numero- ja hintakentät.");
++        }
++    }
++
++
++    // Populate the room table. Runs it in a thread and shows loading indicator.
++    private void populateRoomTable(TableView<Huone> roomTable, int hotelliId) {
++        ProgressIndicator loadingIndicator = new ProgressIndicator();
++        loadingIndicator.setVisible(true);
++
++        roomTable.getItems().clear();
++        roomTable.setPlaceholder(loadingIndicator);
++
++        Task<List<Huone>> fetchRoomsTask = new Task<>() {
++            @Override
++            protected List<Huone> call() throws Exception {
++                return huoneController.FindHuoneetByHoteliId(hotelliId);
++            }
++        };
++
++        fetchRoomsTask.setOnSucceeded(event -> {
++            List<Huone> rooms = fetchRoomsTask.getValue();
++            if (rooms != null && !rooms.isEmpty()) {
++                roomTable.getItems().setAll(rooms);
++            } else {
++                roomTable.setPlaceholder(new Label("No rooms found for the given hotel ID"));
++            }
++            loadingIndicator.setVisible(false);
++        });
++
++        fetchRoomsTask.setOnFailed(event -> {
++            roomTable.setPlaceholder(new Label("Failed to load room data"));
++            System.err.println("Failed to fetch rooms: " + fetchRoomsTask.getException());
++            loadingIndicator.setVisible(false);
++        });
++
++        new Thread(fetchRoomsTask).start();
++    }
++
++
++
++    // Creates the content for Asiakasrekisteri
+     private VBox createAsiakkaat() {
+         VBox asiakkaatInfo = new VBox(10);
+         asiakkaatInfo.getStyleClass().add("info");
+@@ -103,16 +203,14 @@
+         return asiakkaatInfo;
+     }
+ 
+-    // Creates the content for check-in
++    // Creates the content for Check-in
+     private VBox createCheckIn() {
+         VBox huoneVarausInfo = new VBox(5);
+         huoneVarausInfo.getStyleClass().add("info");
+ 
+-        // otsikko
+         Label checkInInfoLabel = new Label("Check-In");
+         checkInInfoLabel.getStyleClass().add("otsikko");
+ 
+-        // huone tyyppi
+         VBox huoneTyyppi = new VBox(0);
+         Label huoneLabel = new Label("Huoneen tyyppi:");
+         ComboBox<String> huoneField = new ComboBox<>();
+@@ -126,31 +224,26 @@
+         huoneField.setPromptText("Valitse huonetyyppi...");
+         huoneTyyppi.getChildren().addAll(huoneLabel, huoneField);
+ 
+-        // tulo päivä
+         VBox tuloPaiva = new VBox(0);
+         Label tuloLabel = new Label("Saapumispäivä:");
+         DatePicker tuloDatePicker = new DatePicker();
+         tuloPaiva.getChildren().addAll(tuloLabel, tuloDatePicker);
+ 
+-        // poistumis päivä
+         VBox poistumisPaiva = new VBox(0);
+         Label poistumisLabel = new Label("Lähtöpäivä:");
+         DatePicker poistumisDatePicker = new DatePicker();
+         poistumisPaiva.getChildren().addAll(poistumisLabel, poistumisDatePicker);
+ 
+-        // päivät
+         VBox paivat = new VBox(0);
+         Label paivatLabel = new Label("Päivät:");
+         Label paivatValue = new Label("0");
+         paivat.getChildren().addAll(paivatLabel, paivatValue);
+ 
+-        // huoneen hinta
+         VBox huoneHinta = new VBox(0);
+         Label hintaLabel = new Label("Huoneen hinta:");
+         Label hinta = new Label("0.00 €");
+         huoneHinta.getChildren().addAll(hintaLabel, hinta);
+ 
+-        // table showing available rooms
+         VBox availableRooms = new VBox(10);
+         Label availableRoomsTitle = new Label("Vapaat huoneet:");
+         availableRoomsTitle.getStyleClass().add("otsikko");
+@@ -166,7 +259,7 @@
+         return checkIn;
+     }
+ 
+-    // Creates the content for check-out
++    // Creates the content for Check-out
+     private VBox createCheckOut() {
+         VBox checkOutInfo = new VBox(10);
+         checkOutInfo.getStyleClass().add("info");
+@@ -176,6 +269,12 @@
+         return checkOutInfo;
+     }
+ 
++    // Updates the main layout with new content
++    private void updateMainLayout(HBox mainLayout, VBox leftBar, VBox info) {
++        mainLayout.getChildren().clear();
++        mainLayout.getChildren().addAll(leftBar, info);
++    }
++
+     // Creates a button with custom styling
+     private Button createStyledButton(String text) {
+         Button button = new Button(text);
+@@ -185,30 +284,26 @@
+         return button;
+     }
+ 
+-    // Updates the main layout with new content
+-    private void updateMainLayout(HBox mainLayout, VBox leftBar, VBox info) {
+-        mainLayout.getChildren().clear();
+-        mainLayout.getChildren().addAll(leftBar, info);
+-    }
+-
+     // Method to create the Room table view
+     private TableView<Huone> createRoomTable() {
+         TableView<Huone> roomTable = new TableView<>();
+ 
++        roomTable.setPrefWidth(500);
++
+         TableColumn<Huone, Integer> idColumn = new TableColumn<>("Huone ID");
+-        idColumn.setCellValueFactory(new PropertyValueFactory<>("huoneId"));
++        idColumn.setCellValueFactory(new PropertyValueFactory<>("huone_id"));
+ 
+         TableColumn<Huone, Integer> numberColumn = new TableColumn<>("Huoneen Numero");
+-        numberColumn.setCellValueFactory(new PropertyValueFactory<>("huoneNro"));
++        numberColumn.setCellValueFactory(new PropertyValueFactory<>("huone_nro"));
+ 
+         TableColumn<Huone, String> typeColumn = new TableColumn<>("Tyyppi");
+-        typeColumn.setCellValueFactory(new PropertyValueFactory<>("huoneTyyppi"));
++        typeColumn.setCellValueFactory(new PropertyValueFactory<>("huone_tyyppi"));
+ 
+         TableColumn<Huone, String> statusColumn = new TableColumn<>("Status");
+-        statusColumn.setCellValueFactory(new PropertyValueFactory<>("huoneTila"));
++        statusColumn.setCellValueFactory(new PropertyValueFactory<>("huone_tila"));
+ 
+         TableColumn<Huone, Double> priceColumn = new TableColumn<>("Hinta/Yö");
+-        priceColumn.setCellValueFactory(new PropertyValueFactory<>("huoneHinta"));
++        priceColumn.setCellValueFactory(new PropertyValueFactory<>("huone_hinta"));
+ 
+         roomTable.getColumns().add(idColumn);
+         roomTable.getColumns().add(numberColumn);
+Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_11_9_2024_10_00__Changes_.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_9_2024_10_00__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_9_2024_10_00__Changes_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_9_2024_10_00__Changes_.xml	(revision 329bb5726b75d0af56204dc95df706723138446e)
++++ /dev/null	(revision 329bb5726b75d0af56204dc95df706723138446e)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Checkout_at_11_9_2024_10_00_[Changes]" date="1726038087790" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_9_2024_10_00_[Changes]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 11.9.2024 10.00 [Changes]" />
+-</changelist>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_11_9_2024_10_00_[Changes]/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_9_2024_10_00_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_9_2024_10_00_[Changes]/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_9_2024_10_00_[Changes]/shelved.patch	(revision 329bb5726b75d0af56204dc95df706723138446e)
++++ /dev/null	(revision 329bb5726b75d0af56204dc95df706723138446e)
+@@ -1,96 +0,0 @@
+-Index: src/main/resources/META-INF/persistence.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\r\n<persistence xmlns=\"https://jakarta.ee/xml/ns/persistence\"\r\n             xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n             version=\"3.0\"\r\n             xsi:schemaLocation=\"https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd\">\r\n    <persistence-unit name=\"hotelli_db\" transaction-type=\"RESOURCE_LOCAL\">\r\n        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>\r\n        <properties>\r\n            <property name=\"jakarta.persistence.jdbc.url\" value=\"jdbc:mariadb://localhost:3306/hotelli_db\"/>\r\n            <property name=\"jakarta.persistence.jdbc.user\" value=\"root\"/>\r\n            <property name=\"jakarta.persistence.jdbc.password\" value=\"root\"/>\r\n            <property name=\"jakarta.persistence.jdbc.driver\" value=\"org.mariadb.jdbc.Driver\"/>\r\n            <property name=\"jakarta.persistence.schema-generation.database.action\" value=\"none\"/>\r\n            <property name=\"jakarta.persistence.sql-dialect\" value=\"org.hibernate.dialect.MariaDBDialect\"/>\r\n            <property name=\"hibernate.show_sql\" value=\"true\" />\r\n        </properties>\r\n    </persistence-unit>\r\n</persistence>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/src/main/resources/META-INF/persistence.xml b/src/main/resources/META-INF/persistence.xml
+---- a/src/main/resources/META-INF/persistence.xml	(revision 60885854456d66983dbeb8749632a10d6ca48274)
+-+++ b/src/main/resources/META-INF/persistence.xml	(date 1725951182638)
+-@@ -8,7 +8,7 @@
+-         <properties>
+-             <property name="jakarta.persistence.jdbc.url" value="jdbc:mariadb://localhost:3306/hotelli_db"/>
+-             <property name="jakarta.persistence.jdbc.user" value="root"/>
+--            <property name="jakarta.persistence.jdbc.password" value="root"/>
+-+            <property name="jakarta.persistence.jdbc.password" value="assiponi"/>
+-             <property name="jakarta.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver"/>
+-             <property name="jakarta.persistence.schema-generation.database.action" value="none"/>
+-             <property name="jakarta.persistence.sql-dialect" value="org.hibernate.dialect.MariaDBDialect"/>
+-Index: src/target/classes/META-INF/persistence.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\r\n<persistence xmlns=\"https://jakarta.ee/xml/ns/persistence\"\r\n             xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n             version=\"3.0\"\r\n             xsi:schemaLocation=\"https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd\">\r\n    <persistence-unit name=\"hotelli_db\" transaction-type=\"RESOURCE_LOCAL\">\r\n        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>\r\n        <properties>\r\n            <property name=\"jakarta.persistence.jdbc.url\" value=\"jdbc:mariadb://localhost:3306/hotelli_db\"/>\r\n            <property name=\"jakarta.persistence.jdbc.user\" value=\"root\"/>\r\n            <property name=\"jakarta.persistence.jdbc.password\" value=\"root\"/>\r\n            <property name=\"jakarta.persistence.jdbc.driver\" value=\"org.mariadb.jdbc.Driver\"/>\r\n            <property name=\"jakarta.persistence.schema-generation.database.action\" value=\"none\"/>\r\n            <property name=\"jakarta.persistence.sql-dialect\" value=\"org.hibernate.dialect.MariaDBDialect\"/>\r\n            <property name=\"hibernate.show_sql\" value=\"true\" />\r\n        </properties>\r\n    </persistence-unit>\r\n</persistence>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/src/target/classes/META-INF/persistence.xml b/src/target/classes/META-INF/persistence.xml
+---- a/src/target/classes/META-INF/persistence.xml	(revision 60885854456d66983dbeb8749632a10d6ca48274)
+-+++ b/src/target/classes/META-INF/persistence.xml	(date 1725951182638)
+-@@ -8,7 +8,7 @@
+-         <properties>
+-             <property name="jakarta.persistence.jdbc.url" value="jdbc:mariadb://localhost:3306/hotelli_db"/>
+-             <property name="jakarta.persistence.jdbc.user" value="root"/>
+--            <property name="jakarta.persistence.jdbc.password" value="root"/>
+-+            <property name="jakarta.persistence.jdbc.password" value="assiponi"/>
+-             <property name="jakarta.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver"/>
+-             <property name="jakarta.persistence.schema-generation.database.action" value="none"/>
+-             <property name="jakarta.persistence.sql-dialect" value="org.hibernate.dialect.MariaDBDialect"/>
+-Index: .idea/workspace.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"065e434f-b050-4145-bce8-5768651a9a60\" name=\"Changes\" comment=\"github testi\">\r\n      <change beforePath=\"$PROJECT_DIR$/.gitIgnore\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.gitIgnore\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/dataSources.local.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/dataSources.local.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/gui.iml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/gui.iml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/target/classes/META-INF/persistence.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/target/classes/META-INF/persistence.xml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n        <option value=\"CSS File\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"main\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;annagaom&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">{\r\n  &quot;selectedUrlAndAccountId&quot;: {\r\n    &quot;url&quot;: &quot;https://github.com/PetraHauk/OhtuProjekti.git&quot;,\r\n    &quot;accountId&quot;: &quot;d12f10a6-d5cf-492d-aceb-5d1198a70491&quot;\r\n  }\r\n}</component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProblemsViewState\">\r\n    <option name=\"selectedTabId\" value=\"CurrentFile\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 3\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2leYgd5LUOn8ijdYfmOTF1ggQv2\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"Application.AnnaMain.executor\": \"Run\",\r\n    \"Application.Main.executor\": \"Run\",\r\n    \"Application.MainPetra.executor\": \"Run\",\r\n    \"Application.OhjelmistoGUI.executor\": \"Run\",\r\n    \"Application.WilmaMain.executor\": \"Run\",\r\n    \"Downloaded.Files.Path.Enabled\": \"false\",\r\n    \"Repository.Attach.Annotations\": \"false\",\r\n    \"Repository.Attach.JavaDocs\": \"false\",\r\n    \"Repository.Attach.Sources\": \"false\",\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"git-widget-placeholder\": \"wilma\",\r\n    \"kotlin-language-version-configured\": \"true\",\r\n    \"list.type.of.created.stylesheet\": \"CSS\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"project.structure.last.edited\": \"Modules\",\r\n    \"project.structure.proportion\": \"0.15\",\r\n    \"project.structure.side.proportion\": \"0.5482759\",\r\n    \"settings.editor.selected.configurable\": \"reference.settings.project.maven.repository.indices\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  },\r\n  \"keyToStringList\": {\r\n    \"DatabaseDriversLRU\": [\r\n      \"mariadb\"\r\n    ]\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CreateClassDialog.RecentsKey\">\r\n      <recent name=\"model.enteties\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"AnnaMain\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"app.AnnaMain\" />\r\n      <module name=\"gui\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"app.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"app.Main\" />\r\n      <module name=\"gui\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"app.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"MainPetra\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"app.MainPetra\" />\r\n      <module name=\"gui\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"app.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.AnnaMain\" />\r\n        <item itemvalue=\"Application.MainPetra\" />\r\n        <item itemvalue=\"Application.Main\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"jdk-21.0.2-openjdk-21.0.2-f644763e9732-c0c073db\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"065e434f-b050-4145-bce8-5768651a9a60\" name=\"Changes\" comment=\"\" />\r\n      <created>1725542122228</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1725542122228</updated>\r\n      <workItem from=\"1725542123275\" duration=\"69610000\" />\r\n      <workItem from=\"1725951025272\" duration=\"6032000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"päivistys\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1725609857977</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1725609857977</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"lisää sarakkeita tauluun\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1725619749405</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1725619749405</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"päivistys\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1725619801233</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1725619801233</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"kieli virheitä korjaus\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1725620152801</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1725620152801</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"korjaa kaikki hoteli -&gt; hotelli\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1725624830732</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1725624830732</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"kayttaja taulukko: lisää, haut, päivitä\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1725633440958</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1725633440958</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"kayttaja taulukko: vaihda salasana toimi\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1725634791047</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1725634791047</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"koodin siistiminen\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1725651837984</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1725651837984</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"huone taulu: javat\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1725730939801</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1725730939802</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"huone taulu: haut , poista ja päivitä\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1725746477917</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1725746477917</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"päivistys\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1725746526899</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1725746526899</updated>\r\n    </task>\r\n    <task id=\"LOCAL−00012\" summary=\"github testi\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1725951128496</created>\r\n      <option name=\"number\" value=\"LOCAL−00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL−00012\" />\r\n      <updated>1725951128496</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"13\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"lisää sarakkeita tauluun\" />\r\n    <MESSAGE value=\"kieli virheitä korjaus\" />\r\n    <MESSAGE value=\"korjaa kaikki hoteli -&gt; hotelli\" />\r\n    <MESSAGE value=\"kayttaja taulukko: lisää, haut, päivitä\" />\r\n    <MESSAGE value=\"kayttaja taulukko: vaihda salasana toimi\" />\r\n    <MESSAGE value=\"koodin siistiminen\" />\r\n    <MESSAGE value=\"huone taulu: javat\" />\r\n    <MESSAGE value=\"huone taulu: haut , poista ja päivitä\" />\r\n    <MESSAGE value=\"päivistys\" />\r\n    <MESSAGE value=\"github testi\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"github testi\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <breakpoint type=\"java-exception\">\r\n          <properties class=\"java.lang.IllegalStateException\" package=\"java.lang\" />\r\n          <option name=\"timeStamp\" value=\"8\" />\r\n        </breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n</project>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+---- a/.idea/workspace.xml	(revision 60885854456d66983dbeb8749632a10d6ca48274)
+-+++ b/.idea/workspace.xml	(date 1726037924090)
+-@@ -4,11 +4,7 @@
+-     <option name="autoReloadType" value="SELECTIVE" />
+-   </component>
+-   <component name="ChangeListManager">
+--    <list default="true" id="065e434f-b050-4145-bce8-5768651a9a60" name="Changes" comment="github testi">
+--      <change beforePath="$PROJECT_DIR$/.gitIgnore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitIgnore" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/src/gui.iml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui.iml" afterDir="false" />
+-+    <list default="true" id="065e434f-b050-4145-bce8-5768651a9a60" name="Changes" comment="Window opens and shows basic layout when WilmaMain is launched">
+-       <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+-       <change beforePath="$PROJECT_DIR$/src/target/classes/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/META-INF/persistence.xml" afterDir="false" />
+-     </list>
+-@@ -162,7 +158,7 @@
+-       <option name="presentableId" value="Default" />
+-       <updated>1725542122228</updated>
+-       <workItem from="1725542123275" duration="69610000" />
+--      <workItem from="1725951025272" duration="6032000" />
+-+      <workItem from="1725951025272" duration="6343000" />
+-     </task>
+-     <task id="LOCAL-00001" summary="päivistys">
+-       <option name="closed" value="true" />
+-@@ -259,7 +255,14 @@
+-       <option name="presentableId" value="LOCAL−00012" />
+-       <updated>1725951128496</updated>
+-     </task>
+--    <option name="localTasksCounter" value="13" />
+-+    <task id="LOCAL−00013" summary="Window opens and shows basic layout when WilmaMain is launched">
+-+      <option name="closed" value="true" />
+-+      <created>1726037765848</created>
+-+      <option name="number" value="LOCAL−00013" />
+-+      <option name="presentableId" value="LOCAL−00013" />
+-+      <updated>1726037765848</updated>
+-+    </task>
+-+    <option name="localTasksCounter" value="14" />
+-     <servers />
+-   </component>
+-   <component name="TypeScriptGeneratedFilesManager">
+-@@ -276,7 +279,8 @@
+-     <MESSAGE value="huone taulu: haut , poista ja päivitä" />
+-     <MESSAGE value="päivistys" />
+-     <MESSAGE value="github testi" />
+--    <option name="LAST_COMMIT_MESSAGE" value="github testi" />
+-+    <MESSAGE value="Window opens and shows basic layout when WilmaMain is launched" />
+-+    <option name="LAST_COMMIT_MESSAGE" value="Window opens and shows basic layout when WilmaMain is launched" />
+-   </component>
+-   <component name="XDebuggerManager">
+-     <breakpoint-manager>
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"AnnaMain\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"app.AnnaMain\" />\r\n      <module name=\"gui\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"app.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"app.Main\" />\r\n      <module name=\"gui\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"app.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"MainPetra\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"app.MainPetra\" />\r\n      <module name=\"gui\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"app.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.MainPetra\" />\r\n        <item itemvalue=\"Application.Main\" />\r\n        <item itemvalue=\"Application.AnnaMain\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 329bb5726b75d0af56204dc95df706723138446e)
++++ b/.idea/workspace.xml	(date 1726819963466)
+@@ -1,5 +1,46 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
++  <component name="AutoImportSettings">
++    <option name="autoReloadType" value="SELECTIVE" />
++  </component>
++  <component name="ChangeListManager">
++    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="Huoneet haetaan tietokannasta taulukkoon. Uuden huoneen lisäys visuaalissa toimii.">
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++    </list>
++    <option name="SHOW_DIALOG" value="false" />
++    <option name="HIGHLIGHT_CONFLICTS" value="true" />
++    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
++    <option name="LAST_RESOLUTION" value="IGNORE" />
++  </component>
++  <component name="Git.Settings">
++    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
++  </component>
++  <component name="MarkdownSettingsMigration">
++    <option name="stateVersion" value="1" />
++  </component>
++  <component name="ProjectColorInfo">{
++  &quot;associatedIndex&quot;: 2
++}</component>
++  <component name="ProjectId" id="2mBeOaKBnqoIeJgOkk3YNpKoFbH" />
++  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
++  <component name="ProjectViewState">
++    <option name="hideEmptyMiddlePackages" value="true" />
++    <option name="showLibraryContents" value="true" />
++  </component>
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "Application.WilmaMain.executor": "Run",
++    "RunOnceActivity.OpenProjectViewOnStart": "true",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "git-widget-placeholder": "wilma",
++    "kotlin-language-version-configured": "true",
++    "node.js.detected.package.eslint": "true",
++    "node.js.selected.package.eslint": "(autodetect)",
++    "node.js.selected.package.tslint": "(autodetect)",
++    "nodejs_package_manager_path": "npm",
++    "vue.rearranger.settings.migration": "true"
++  }
++}]]></component>
+   <component name="RunManager">
+     <configuration name="AnnaMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+       <option name="MAIN_CLASS_NAME" value="app.AnnaMain" />
+@@ -48,4 +89,56 @@
+       </list>
+     </recent_temporary>
+   </component>
++  <component name="SharedIndexes">
++    <attachedChunks>
++      <set>
++        <option value="jdk-21.0.2-openjdk-21.0.2-f644763e9732-c0c073db" />
++      </set>
++    </attachedChunks>
++  </component>
++  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
++  <component name="TaskManager">
++    <task id="LOCAL−00001" summary="Window opens and shows basic layout when WilmaMain is launched">
++      <option name="closed" value="true" />
++      <created>1726038545983</created>
++      <option name="number" value="LOCAL−00001" />
++      <option name="presentableId" value="LOCAL−00001" />
++      <updated>1726038545983</updated>
++    </task>
++    <task active="true" id="Default" summary="Default task">
++      <changelist id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="Window opens and shows basic layout when WilmaMain is launched" />
++      <created>1726554373190</created>
++      <option name="number" value="Default" />
++      <option name="presentableId" value="Default" />
++      <updated>1726554373190</updated>
++      <workItem from="1726554375584" duration="1777000" />
++    </task>
++    <task id="LOCAL−00002" summary="Huoneet haetaan tietokannasta taulukkoon. Uuden huoneen lisäys visuaalissa toimii.">
++      <option name="closed" value="true" />
++      <created>1726657655449</created>
++      <option name="number" value="LOCAL−00002" />
++      <option name="presentableId" value="LOCAL−00002" />
++      <updated>1726657655449</updated>
++    </task>
++    <option name="localTasksCounter" value="3" />
++    <servers />
++  </component>
++  <component name="TypeScriptGeneratedFilesManager">
++    <option name="version" value="3" />
++  </component>
++  <component name="VcsManagerConfiguration">
++    <MESSAGE value="Window opens and shows basic layout when WilmaMain is launched" />
++    <MESSAGE value="Huoneet haetaan tietokannasta taulukkoon. Uuden huoneen lisäys visuaalissa toimii." />
++    <option name="LAST_COMMIT_MESSAGE" value="Huoneet haetaan tietokannasta taulukkoon. Uuden huoneen lisäys visuaalissa toimii." />
++  </component>
++  <component name="XDebuggerManager">
++    <breakpoint-manager>
++      <breakpoints>
++        <breakpoint type="java-exception">
++          <properties class="java.lang.IllegalStateException" package="java.lang" />
++          <option name="timeStamp" value="8" />
++        </breakpoint>
++      </breakpoints>
++    </breakpoint-manager>
++  </component>
+ </project>
+\ No newline at end of file
