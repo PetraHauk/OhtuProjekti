@@ -1,0 +1,122 @@
+Index: src/main/java/model/enteties/Lasku.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package model.enteties;\r\nimport jakarta.persistence.*;\r\n\r\n@Entity\r\n@Table(name = \"lasku\")\r\npublic class Lasku {\r\n\r\n    @Id\r\n    @GeneratedValue(strategy = GenerationType.IDENTITY) // Tämä mahdollistaa automaattisen ID:n generoinnin\r\n    private int lasku_id;\r\n\r\n    @Column(name = \"maksu_status\")\r\n    private String maksu_status;\r\n\r\n    @Column(name = \"varaus_muoto\")\r\n    private String varaus_muoto;\r\n\r\n    @Column(name = \"valuutta\")\r\n    private String valuutta;\r\n\r\n    @Column(name = \"asiakas_id\")\r\n    private int asiakas_id;\r\n\r\n\r\n    // Parametrillinen konstruktori\r\n    public Lasku(int lasku_id, String maksu_status, String varaus_muoto, String valuutta, int asiakas_id) {\r\n        this.lasku_id = lasku_id;\r\n        this.maksu_status = maksu_status;\r\n        this.varaus_muoto = varaus_muoto;\r\n        this.valuutta = valuutta;\r\n        this.asiakas_id = asiakas_id;\r\n    }\r\n\r\n    public Lasku() {\r\n    }\r\n\r\n    // Getterit ja setterit\r\n    public int getLaskuId() {\r\n        return lasku_id;\r\n    }\r\n\r\n    public String getMaksuStatus() {\r\n        return maksu_status;\r\n    }\r\n\r\n    public String getVarausMuoto() {\r\n        return varaus_muoto;\r\n    }\r\n\r\n    public String getValuutta() {\r\n        return valuutta;\r\n    }\r\n\r\n    public int getAsiakasId() {\r\n        return asiakas_id;\r\n    }\r\n\r\n    public void setMaksuStatus(String maksu_status) {\r\n        this.maksu_status = maksu_status;\r\n    }\r\n\r\n    public void setVarausMuoto(String varaus_muoto) {\r\n        this.varaus_muoto = varaus_muoto;\r\n    }\r\n\r\n    public void setValuutta(String valuutta) {\r\n        this.valuutta = valuutta;\r\n    }\r\n\r\n    public void setAsiakasId(int asiakas_id) {\r\n        this.asiakas_id = asiakas_id;\r\n    }\r\n}
+===================================================================
+diff --git a/src/main/java/model/enteties/Lasku.java b/src/main/java/model/enteties/Lasku.java
+--- a/src/main/java/model/enteties/Lasku.java	
++++ b/src/main/java/model/enteties/Lasku.java	
+@@ -1,4 +1,5 @@
+ package model.enteties;
++
+ import jakarta.persistence.*;
+ 
+ @Entity
+@@ -6,68 +7,64 @@
+ public class Lasku {
+ 
+     @Id
+-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Tämä mahdollistaa automaattisen ID:n generoinnin
+-    private int lasku_id;
++    @GeneratedValue(strategy = GenerationType.IDENTITY)
++    @Column(name = "lasku_id")
++    private int laskuId;
+ 
+     @Column(name = "maksu_status")
+-    private String maksu_status;
++    private String maksuStatus;
+ 
+-    @Column(name = "varaus_muoto")
+-    private String varaus_muoto;
++    @Column(name="varaus_muoto")
++    private String varausMuoto;
+ 
+     @Column(name = "valuutta")
+     private String valuutta;
+ 
+     @Column(name = "asiakas_id")
+-    private int asiakas_id;
++    private int asiakas;
+ 
+ 
+-    // Parametrillinen konstruktori
+-    public Lasku(int lasku_id, String maksu_status, String varaus_muoto, String valuutta, int asiakas_id) {
+-        this.lasku_id = lasku_id;
+-        this.maksu_status = maksu_status;
+-        this.varaus_muoto = varaus_muoto;
++    public Lasku(int laskuId, String maksuStatus, String varausMuoto, String valuutta, int asiakas) {
++        this.laskuId = laskuId;
++        this.maksuStatus = maksuStatus;
++        this.varausMuoto = varausMuoto;
+         this.valuutta = valuutta;
+-        this.asiakas_id = asiakas_id;
++        this.asiakas = asiakas;
+     }
+ 
+     public Lasku() {
+     }
+ 
+-    // Getterit ja setterit
+     public int getLaskuId() {
+-        return lasku_id;
++        return laskuId;
+     }
+ 
+     public String getMaksuStatus() {
+-        return maksu_status;
++        return maksuStatus;
+     }
+ 
+     public String getVarausMuoto() {
+-        return varaus_muoto;
++        return varausMuoto;
+     }
+ 
+     public String getValuutta() {
+         return valuutta;
+     }
+ 
+-    public int getAsiakasId() {
+-        return asiakas_id;
++    public int getAsiakas() {
++        return asiakas;
+     }
+ 
+-    public void setMaksuStatus(String maksu_status) {
+-        this.maksu_status = maksu_status;
++    public void setMaksuStatus(String maksuStatus) {
++        this.maksuStatus = maksuStatus;
+     }
+ 
+-    public void setVarausMuoto(String varaus_muoto) {
+-        this.varaus_muoto = varaus_muoto;
++    public void setVarausMuoto(String varausMuoto) {
++        this.varausMuoto = varausMuoto;
+     }
+ 
+     public void setValuutta(String valuutta) {
+         this.valuutta = valuutta;
+     }
+ 
+-    public void setAsiakasId(int asiakas_id) {
+-        this.asiakas_id = asiakas_id;
+-    }
+ }
+\ No newline at end of file
+Index: src/main/java/model/DAO/LaskuDAO.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package model.DAO;\r\n\r\nimport jakarta.persistence.EntityManager;\r\nimport model.datasourse.MariaDbConnection;\r\nimport model.enteties.Lasku;\r\nimport java.util.List;\r\n\r\npublic class LaskuDAO {\r\n    public void persist(Lasku lasku) {\r\n        EntityManager em = MariaDbConnection.getInstance();\r\n        em.getTransaction().begin();\r\n        em.persist(lasku);\r\n        em.getTransaction().commit();\r\n    }\r\n\r\n    public Lasku haeByLaskuId(int lasku_id) {\r\n        EntityManager em = MariaDbConnection.getInstance();\r\n        try {\r\n            Lasku lasku = em.find(Lasku.class, lasku_id);\r\n            printLasku(lasku);\r\n            return lasku;\r\n\r\n        } finally {\r\n            if (em != null) {\r\n                em.close();\r\n            }\r\n        }\r\n    }\r\n    public Lasku haeByAsiakasId(int asiakas_id) {\r\n        EntityManager em = MariaDbConnection.getInstance();\r\n        try {\r\n            Lasku lasku = em.find(Lasku.class, asiakas_id);\r\n            printLasku(lasku);\r\n            return lasku;\r\n\r\n        } finally {\r\n            if (em != null) {\r\n                em.close();\r\n            }\r\n        }\r\n    }\r\n\r\n    public void updateLaskuById(int id, String maksuStatus, String varausMuoto, String valuutta, int asiakasId) {\r\n        EntityManager em = MariaDbConnection.getInstance();\r\n        try {\r\n            em.getTransaction().begin();\r\n            Lasku lasku = em.find(Lasku.class, id);\r\n            if (lasku != null) {\r\n                lasku.setMaksuStatus(maksuStatus);\r\n                lasku.setVarausMuoto(varausMuoto);\r\n                lasku.setValuutta(valuutta);\r\n            }\r\n            em.getTransaction().commit();\r\n        } finally {\r\n            if (em != null) {\r\n                em.close();\r\n            }\r\n        }\r\n    }\r\n\r\n    public void removeById(int id) {\r\n        EntityManager em = MariaDbConnection.getInstance();\r\n        em.getTransaction().begin();\r\n        Lasku lasku = em.find(Lasku.class, id);\r\n        if (lasku != null) {\r\n            em.remove(lasku);\r\n        }\r\n        em.getTransaction().commit();\r\n    }\r\n\r\n    public void printLasku(Lasku Lasku) {\r\n        System.out.println(\"Lasku id: \" + Lasku.getLaskuId());\r\n        System.out.println(\"Maksu status: \" + Lasku.getMaksuStatus());\r\n        System.out.println(\"Varaus muoto: \" + Lasku.getVarausMuoto());\r\n        System.out.println(\"Valuutta: \" + Lasku.getValuutta());\r\n        System.out.println(\"Asiakas id: \" + Lasku.getAsiakasId());\r\n        System.out.println();\r\n    }\r\n}\r\n
+===================================================================
+diff --git a/src/main/java/model/DAO/LaskuDAO.java b/src/main/java/model/DAO/LaskuDAO.java
+--- a/src/main/java/model/DAO/LaskuDAO.java	
++++ b/src/main/java/model/DAO/LaskuDAO.java	
+@@ -73,7 +73,7 @@
+         System.out.println("Maksu status: " + Lasku.getMaksuStatus());
+         System.out.println("Varaus muoto: " + Lasku.getVarausMuoto());
+         System.out.println("Valuutta: " + Lasku.getValuutta());
+-        System.out.println("Asiakas id: " + Lasku.getAsiakasId());
++        System.out.println("Asiakas: " + Lasku.getAsiakas());
+         System.out.println();
+     }
+ }

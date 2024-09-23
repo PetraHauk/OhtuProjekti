@@ -1,15 +1,17 @@
 package app;
 
-import controller.VarausControllerAnna;
+import controller.VarausController;
+import model.enteties.Kayttaja;
+import model.enteties.Varaus;
 
-import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.util.List;
 import java.util.Scanner;
 
 public class VarausHaku {
-    private VarausControllerAnna controller = new VarausControllerAnna();
+    private VarausController controller = new VarausController();
     private Scanner scanner = new Scanner(System.in);
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
 
@@ -107,7 +109,10 @@ public class VarausHaku {
                     break;
 
                 case 6:
-                    controller.findAllVaraukset();
+                    List<Varaus> varaukset =  controller.findAllVaraukset();
+                    for (Varaus varaus : varaukset) {
+                        printVaraus(varaus);
+                    }
                 case 7:
                     return;
 
@@ -117,4 +122,15 @@ public class VarausHaku {
             }
         }
     }
+
+    public void printVaraus(Varaus varaus) {
+        System.out.println("varaus_id: " + varaus.getVarausId());
+        System.out.println("Huonemäärä: " + varaus.getHuoneMaara());
+        System.out.println("AlkuPvm: " + varaus.getAlkuPvm());
+        System.out.println("loppuPvm: " + varaus.getLoppuPvm());
+        System.out.println("Huone id: " + varaus.getHuoneId());
+        System.out.println("lasku id: " + varaus.getLaskuId());
+        System.out.println(" ");
+    }
 }
+
