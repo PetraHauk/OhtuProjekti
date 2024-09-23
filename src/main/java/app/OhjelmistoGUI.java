@@ -254,10 +254,70 @@ public class OhjelmistoGUI extends Application {
         HBox huoneTiedot = new HBox(10);
         huoneTiedot.getChildren().addAll(huoneVarausInfo, availableRooms);
 
+        tuloDatePicker.valueProperty().addListener((observable, oldValue, newValue) -> {
+            if (tuloDatePicker.getValue() != null && poistumisDatePicker.getValue() != null) {
+                paivatValue.setText(String.valueOf(tuloDatePicker.getValue().until(poistumisDatePicker.getValue()).getDays()));
+            }
+        });
+        poistumisDatePicker.valueProperty().addListener((observable, oldValue, newValue) -> {
+            if (tuloDatePicker.getValue() != null && poistumisDatePicker.getValue() != null) {
+                paivatValue.setText(String.valueOf(tuloDatePicker.getValue().until(poistumisDatePicker.getValue()).getDays()));
+            }
+        });
+
+        tuloDatePicker.valueProperty().addListener((observable, oldValue, newValue) -> {
+            populateFreeRoomTable(huoneTable, 1, tuloDatePicker, poistumisDatePicker);  // Assuming hotel ID is 1 for this example
+        });
+        poistumisDatePicker.valueProperty().addListener((observable, oldValue, newValue) -> {
+            populateFreeRoomTable(huoneTable, 1, tuloDatePicker, poistumisDatePicker);  // Assuming hotel ID is 1 for this example
+        });
+
+        huoneTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) {
+                double price = newValue.getHuone_hinta() * Integer.parseInt(paivatValue.getText());
+                hinta.setText(String.format("%.2f €", price));
+            }
+        });
+
         VBox checkIn = new VBox(10);
         checkIn.getChildren().addAll(huoneTiedot);
         return checkIn;
     }
+
+    private void populateFreeRoomTable(TableView<Huone> huoneTable, int hotelliId, DatePicker tuloDatePicker, DatePicker poistumisDatePicker) {
+        ProgressIndicator loadingIndicator = new ProgressIndicator();
+        loadingIndicator.setVisible(true);
+        huoneTable.getItems().clear();
+        huoneTable.setPlaceholder(loadingIndicator);
+
+        if (tuloDatePicker.getValue() != null && poistumisDatePicker.getValue() != null && tuloDatePicker.getValue().isAfter(poistumisDatePicker.getValue())) {
+            huoneTable.setPlaceholder(new Label("Check-out date must be after check-in date"));
+            loadingIndicator.setVisible(false);
+            return;
+        }
+        Task<List<Huone>> fetchRoomsTask = new Task<>() {
+            @Override
+            protected List<Huone> call() throws Exception {
+                return huoneController.findVapaatHuoneetByHotelliId(hotelliId, tuloDatePicker.getValue(), poistumisDatePicker.getValue());
+            }
+        };
+        fetchRoomsTask.setOnSucceeded(event -> {
+            List<Huone> rooms = fetchRoomsTask.getValue();
+            if (rooms != null && !rooms.isEmpty()) {
+                huoneTable.getItems().setAll(rooms);
+            } else {
+                huoneTable.setPlaceholder(new Label("No free rooms found for the given hotel ID"));
+            }
+            loadingIndicator.setVisible(false);
+        });
+        fetchRoomsTask.setOnFailed(event -> {
+            huoneTable.setPlaceholder(new Label("Failed to load free room data"));
+            System.err.println("Failed to fetch free rooms: " + fetchRoomsTask.getException());
+            loadingIndicator.setVisible(false);
+        });
+        new Thread(fetchRoomsTask).start();
+    }
+
 
     // Creates the content for Check-out
     private VBox createCheckOut() {
