@@ -64,9 +64,9 @@ public class LoginGui extends Application {
         if (savedHashedPassword != null && BCrypt.checkpw(password, savedHashedPassword)) {
             // Login successful
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Login Successful");
+            alert.setTitle("Kirjautumine onnistui");
             alert.setHeaderText(null);
-            alert.setContentText("Welcome!");
+            alert.setContentText("Tervetuloa!");
             alert.showAndWait();
 
             // Close the login window
@@ -77,9 +77,9 @@ public class LoginGui extends Application {
         } else {
             // Login failed
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Login Failed");
+            alert.setTitle("Kirjautuminen epäonnistui");
             alert.setHeaderText(null);
-            alert.setContentText("Please check your email and password.");
+            alert.setContentText("Tarkista sähköposti ja salasana.");
             alert.showAndWait();
         }
     }
