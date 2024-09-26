@@ -4,6 +4,8 @@ import model.DAO.KayttajaDAO;
 import model.enteties.Kayttaja;
 import org.mindrot.jbcrypt.BCrypt;
 
+import java.util.List;
+
 public class KayttajaController {
     private KayttajaDAO kayttajaDAO;
 
@@ -22,24 +24,29 @@ public class KayttajaController {
         return kayttajaDAO.findById(id);
     }
 
-    public Kayttaja haeSalasanaSpostilla(String sposti) {
+    public String haeSalasanaSpostilla(String sposti) {
         return kayttajaDAO.findPasswordByEmail(sposti);
     }
 
-//    public void paivitaSpostiById(int id, String sposti) {
-//        kayttajaDAO.updateEmailById(id, sposti);
-//    }
+
+    public void paivitaSpostiById(int id, String sposti) {
+        kayttajaDAO.updateEmailById(id, sposti);
+    }
 
     public void vaihdaSalasanaPostilla(String sposti, String newPassword) {
         kayttajaDAO.changePasswordByEmail(sposti, newPassword);
     }
 
-//    public void paivitaKayttaja(int id, String etunimi, String sukunimi, String sposti, String puh, String rooli, String salasana) {
-//        String hashedSalasana = BCrypt.hashpw(salasana, BCrypt.gensalt());
-//        kayttajaDAO.updateKayttajaById(id, etunimi, sukunimi, sposti, puh, rooli, hashedSalasana);
-//    }
+    public void paivitaKayttaja(int id, String etunimi, String sukunimi, String sposti, String puh, String rooli, String salasana) {
+        String hashedSalasana = BCrypt.hashpw(salasana, BCrypt.gensalt());
+        kayttajaDAO.updateKayttajaById(id, etunimi, sukunimi, sposti, puh, rooli, hashedSalasana);
+    }
 
     public void poistaKayttaja(int id) {
         kayttajaDAO.removeById(id);
+    }
+
+    public List<Kayttaja> haeKaikkiKayttajat() {
+        return kayttajaDAO.findAllKayttaja();
     }
 }

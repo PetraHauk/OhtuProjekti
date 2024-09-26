@@ -1,57 +1,59 @@
 package app;
 
 import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.enteties.Kayttaja;
 import model.DAO.KayttajaDAO;
+import org.mindrot.jbcrypt.BCrypt;
 
 public class RegistrationGui extends Application {
 
     private KayttajaDAO kayttajaDAO = new KayttajaDAO();
-    private Stage primaryStage; // To keep a reference to the current stage
 
     @Override
     public void start(Stage primaryStage) {
-        this.primaryStage = primaryStage; // Save the stage reference
-        primaryStage.setTitle("Register");
+        primaryStage.setTitle("Rekisteröinti");
 
         // Create UI elements
         TextField etunimiField = new TextField();
-        etunimiField.setPromptText("First Name");
+        etunimiField.setPromptText("Etunimi");
+        etunimiField.getStyleClass().add("text-field");
 
         TextField sukunimiField = new TextField();
-        sukunimiField.setPromptText("Last Name");
+        sukunimiField.setPromptText("Sukunimi");
+        sukunimiField.getStyleClass().add("text-field");
 
         TextField spostiField = new TextField();
         spostiField.setPromptText("Email");
+        spostiField.getStyleClass().add("text-field");
 
         TextField puhField = new TextField();
-        puhField.setPromptText("Phone");
+        puhField.setPromptText("Puh");
+        puhField.getStyleClass().add("text-field");
 
         PasswordField salasanaField = new PasswordField();
-        salasanaField.setPromptText("Password");
+        salasanaField.setPromptText("Salasana");
+        salasanaField.getStyleClass().add("password-field");
 
-        Button registerButton = new Button("Register");
-        Button backButton = new Button("Back");
+        Button registerButton = new Button("Rekisteröidy");
+        registerButton.getStyleClass().add("button-one");
+
+        Button backButton = new Button("Kirjautumiseen");
+        backButton.getStyleClass().add("button-two");
 
         // Layout
-        GridPane grid = new GridPane();
-        grid.setHgap(10);
-        grid.setVgap(10);
-        grid.add(etunimiField, 0, 0);
-        grid.add(sukunimiField, 0, 1);
-        grid.add(spostiField, 0, 2);
-        grid.add(puhField, 0, 3);
-        grid.add(salasanaField, 0, 4);
-        grid.add(registerButton, 0, 5);
-        grid.add(backButton, 1, 5);
+        VBox vbox = new VBox(10);
+        vbox.setAlignment(Pos.CENTER);
+        vbox.setPadding(new Insets(20, 20, 20, 20)); // Add padding around the VBox
+        vbox.getChildren().addAll(etunimiField, sukunimiField, spostiField, puhField, salasanaField, registerButton, backButton);
 
         // Event Handlers
         registerButton.setOnAction(e -> handleRegister(
@@ -59,7 +61,8 @@ public class RegistrationGui extends Application {
                 sukunimiField.getText(),
                 spostiField.getText(),
                 puhField.getText(),
-                salasanaField.getText()
+                salasanaField.getText(),
+                primaryStage
         ));
 
         backButton.setOnAction(e -> {
@@ -67,32 +70,37 @@ public class RegistrationGui extends Application {
             new LoginGui().start(new Stage()); // Return to login page
         });
 
-        // Set Scene
-        Scene scene = new Scene(grid, 300, 300);
+        // Set Scene with preferred size
+        Scene scene = new Scene(vbox, 400, 400); // Increase the size of the scene
+        scene.getStylesheets().add(getClass().getResource("/login.css").toExternalForm());
         primaryStage.setScene(scene);
         primaryStage.show();
     }
 
-    private void handleRegister(String etunimi, String sukunimi, String sposti, String puh, String salasana) {
+    private void handleRegister(String etunimi, String sukunimi, String sposti, String puh, String salasana, Stage primaryStage) {
         if (etunimi.isEmpty() || sukunimi.isEmpty() || sposti.isEmpty() || puh.isEmpty() || salasana.isEmpty()) {
-            Alert alert = new Alert(AlertType.ERROR);
-            alert.setTitle("Registration Failed");
-            alert.setContentText("Please fill out all fields.");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Rekisteröinti epäonnistui");
+            alert.setContentText("Täytä kaikki kohdat.");
             alert.showAndWait();
         } else {
+            // Hash the password using BCrypt
+            String hashattuSalasana = BCrypt.hashpw(salasana, BCrypt.gensalt());
+
+            // Create a new Kayttaja object and set the hashed password
             Kayttaja kayttaja = new Kayttaja();
             kayttaja.setEtunimi(etunimi);
             kayttaja.setSukunimi(sukunimi);
             kayttaja.setSposti(sposti);
             kayttaja.setPuh(puh);
-            kayttaja.setSalasana(salasana);
+            kayttaja.setSalasana(hashattuSalasana); // Store the hashed password
             kayttaja.setRooli("1");
 
             kayttajaDAO.persist(kayttaja);
 
-            Alert alert = new Alert(AlertType.INFORMATION);
-            alert.setTitle("Registration Successful");
-            alert.setContentText("Welcome, " + etunimi + " " + sukunimi + "!");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Rekiisteröinti onnistui");
+            alert.setContentText("Tervetuloa, " + etunimi + " " + sukunimi + "!");
             alert.showAndWait();
 
             // Open login page and close the current stage
