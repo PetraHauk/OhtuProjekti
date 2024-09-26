@@ -30,10 +30,12 @@ public class HuoneDAO {
         return null;
     }
 
-    public Huone findByRoomId(int id) {
+    public Huone findByRoomNro(int huone_nro) {
         EntityManager em = MariaDbConnection.getInstance();
         try {
-            Huone huone = em.find(Huone.class, id);
+            Huone huone = em.createQuery("SELECT h FROM Huone h WHERE h.huone_nro = :huone_nro", Huone.class)
+                    .setParameter("huone_nro", huone_nro)
+                    .getSingleResult();
             if (huone != null) {
                 return huone;
             }

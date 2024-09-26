@@ -60,7 +60,7 @@ public class AsiakasHaku {
                     String etunimiHaku = scanner.nextLine();
                     System.out.println("Anna Sukunimi:");
                     String sukunimiHaku = scanner.nextLine();
-                    List<Asiakas> asiakasByNimet =controller.findByNimet(etunimiHaku, sukunimiHaku);
+                    List<Asiakas> asiakasByNimet =controller.findIdByNimet(etunimiHaku, sukunimiHaku);
                     for (Asiakas a : asiakasByNimet) {
                         printAsiakas(a);
                     }

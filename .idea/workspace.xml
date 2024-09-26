@@ -4,17 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="065e434f-b050-4145-bce8-5768651a9a60" name="Changes" comment="koodin siistiminen">
+    <list default="true" id="065e434f-b050-4145-bce8-5768651a9a60" name="Changes" comment="update">
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/CheckOut.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/Gui2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/LaskuData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/AnnaMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/AnnaMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/AsiakasHaku.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/AsiakasHaku.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/HuoneHaku.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/HuoneHaku.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/LaskuHaku.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/LaskuHaku.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/MockData.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/OhjelmistoGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/OhjelmistoGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/VarausHaku.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/VarausHaku.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/AsiakasController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/AsiakasController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/HuoneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/HuoneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/LaskuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/LaskuController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/VarausController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/VarausController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/VarausController3.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/AsiakasDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/AsiakasDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/HuoneDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/HuoneDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/LaskuDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/LaskuDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/VarausDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/VarausDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/enteties/Lasku.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enteties/Lasku.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/AsiakasDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/DAO/AsiakasDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/KayttajaDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/DAO/KayttajaDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/VarausDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/DAO/VarausDAO.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,13 +106,14 @@
 }</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="app" />
       <recent name="model.enteties" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.AnnaMain">
+  <component name="RunManager" selected="Application.WilmaMain">
     <configuration name="AnnaMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="app.AnnaMain" />
       <module name="gui" />
@@ -128,8 +142,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.AnnaMain" />
         <item itemvalue="Application.WilmaMain" />
+        <item itemvalue="Application.AnnaMain" />
       </list>
     </recent_temporary>
   </component>
@@ -156,7 +170,10 @@
       <workItem from="1726489081883" duration="4239000" />
       <workItem from="1726557762030" duration="5539000" />
       <workItem from="1726566634854" duration="32475000" />
-      <workItem from="1727009300569" duration="6708000" />
+      <workItem from="1727009300569" duration="46750000" />
+      <workItem from="1727162462501" duration="1822000" />
+      <workItem from="1727298514353" duration="8000" />
+      <workItem from="1727298960975" duration="3635000" />
     </task>
     <task id="LOCAL-00001" summary="päivistys">
       <option name="closed" value="true" />
@@ -326,7 +343,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726819202068</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="update">
+      <option name="closed" value="true" />
+      <created>1727016074470</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1727016074470</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -348,7 +373,8 @@
     <MESSAGE value="lasku palautus korjaus ja lisää hae kaikki laskut" />
     <MESSAGE value="varaus palautus korjaus" />
     <MESSAGE value="koodin siistiminen" />
-    <option name="LAST_COMMIT_MESSAGE" value="koodin siistiminen" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

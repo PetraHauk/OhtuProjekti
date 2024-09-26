@@ -47,16 +47,18 @@ public class AsiakasDAO {
         return null;
     }
 
-    public List <Asiakas> findByNImet(String etunimi, String sukunimi) {
+    public List <Asiakas> findIdByNImet(String etunimi, String sukunimi) {
         EntityManager em = MariaDbConnection.getInstance();
-        List <Asiakas> asiakkaat = null;
+        List <Asiakas> asiakasList = null;
         try {
-            asiakkaat = em.createQuery("SELECT a FROM Asiakas a WHERE a.etunimi = :etunimi AND a.sukunimi = :sukunimi", Asiakas.class)
+            asiakasList = em.createQuery(
+                            "SELECT a FROM Asiakas a WHERE a.etunimi = :etunimi AND a.sukunimi = :sukunimi", Asiakas.class)
                     .setParameter("etunimi", etunimi)
                     .setParameter("sukunimi", sukunimi)
                     .getResultList();
-            if (!asiakkaat.isEmpty()) {
-                return asiakkaat;
+
+            if (!asiakasList.isEmpty()) {
+                return asiakasList;
             }
         } finally {
             if (em != null) {

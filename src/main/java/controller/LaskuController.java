@@ -12,7 +12,7 @@ public class LaskuController {
     }
 
     public void addLasku(String maksu_status, String varaus_muoto, String valuutta,int asiakas_id) {
-        Lasku lasku = new Lasku( 0, maksu_status, varaus_muoto, valuutta, asiakas_id);
+        Lasku lasku = new Lasku(maksu_status);
         laskuDAO.persist(lasku);
     }
 
@@ -20,7 +20,7 @@ public class LaskuController {
         return laskuDAO.haeByLaskuId(id);
     }
 
-    public Lasku findLaskuByAsiakasId(int asiakas_id) {
+    public List<Lasku> findLaskuByAsiakasId(int asiakas_id) {
         return laskuDAO.haeByAsiakasId(asiakas_id);
     }
     public void updateLaskuById(int id, String maksu_status, String varaus_muoto, String valuutta, int asiakas_id) {

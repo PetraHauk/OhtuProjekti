@@ -1,11 +1,10 @@
 package app;
-
+/*
 import controller.HuoneController;
 import controller.AsiakasController;
 import controller.VarausController;
 import controller.LaskuController;
 import javafx.application.Application;
-import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -22,6 +21,7 @@ import model.enteties.Lasku;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.ArrayList;
 import java.util.List;
 
 public class OhjelmistoGUI extends Application {
@@ -305,7 +305,7 @@ public class OhjelmistoGUI extends Application {
         VBox maksattavaLaskut = new VBox(10);
         Label maksattavaLaskuOtsikko = new Label("Laskut");
         maksattavaLaskuOtsikko.getStyleClass().add("otsikko");
-        TableView<LaskuData> laskuTable = createLaskuTable();
+        TableView<String> laskuTable = createLaskuTable();
         maksattavaLaskut.getChildren().addAll(maksattavaLaskuOtsikko, laskuTable);
 
         // Button action handler
@@ -313,19 +313,20 @@ public class OhjelmistoGUI extends Application {
             // Clear table before loading new data
             laskuTable.getItems().clear();
 
+
             // Check if the room number is a valid integer
             int huoneNro;
             try {
                 huoneNro = Integer.parseInt(huoneNroInput.getText());
             } catch (NumberFormatException ex) {
-                showAlert("Virhe", "Huoneen numero on virheellinen.");
+                System.out.println("Invalid room number format.");
                 return;
             }
 
             // Fetch customers by names
             List<Asiakas> asiakkaat = asiakasController.findIdByNimet(asiakasEtunimiInput.getText(), asiakasSukunimiInput.getText());
             if (asiakkaat == null || asiakkaat.isEmpty()) {
-                showAlert("Virhe", "Asiakkaan nimellä ei löytynyt asiakkaita.");
+                System.out.println("No customers found for the given name.");
                 return;
             }
 
@@ -334,41 +335,49 @@ public class OhjelmistoGUI extends Application {
             for (Asiakas asiakas : asiakkaat) {
                 List<Lasku> laskut = laskuController.findLaskuByAsiakasId(asiakas.getAsiakasId());
                 if (laskut != null) {
+                    double hinta = 0;
+                    int laskuId = 0;
+                    String maksuStatus = null;
+                    String varausMuoto = null;
+                    String valuutta = null;
+                    String alkuPvmStr = null;
+                    String loppuPvmStr = null;
+                    int paivat = 0;
+
+                    String laskuIdStr = null;
                     for (Lasku lasku : laskut) {
+                        laskuId = lasku.getLaskuId();
+                        laskuIdStr = Integer.toString(laskuId);
+                        maksuStatus = lasku.getMaksuStatus();
+                        varausMuoto = lasku.getVarausMuoto();
+                        valuutta = lasku.getValuutta();
+
                         List<Varaus> varaukset = varausController.findByLaskuId(lasku.getLaskuId());
 
                         for (Varaus varaus : varaukset) {
-                            LocalDate alkuPvm = varaus.getAlkuPvm();
-                            LocalDate loppuPvm = varaus.getLoppuPvm();
-                            int paivat = Period.between(alkuPvm, loppuPvm).getDays();
+                            LocalDate alkuPvm = varaus.getAlkuPvm(); // assuming varaus.getAlkuPvm() returns a LocalDate
+                            alkuPvmStr = alkuPvm.toString();
+                            LocalDate loppuPvm = varaus.getLoppuPvm(); // assuming varaus.getLoppuPvm() returns a LocalDate
+                            loppuPvmStr = loppuPvm.toString();
+                            paivat = Period.between(alkuPvm, loppuPvm).getDays();
 
                             // Check if room number matches the current reservation
                             Huone huone = huoneController.findHuoneByNro(huoneNro);
                             if (huone != null) {
-                                double hinta = huone.getHuone_hinta();
+                                hinta = huone.getHuone_hinta();
                                 double summa = hinta * paivat;
                                 kokonaishinta += summa;
 
-                                populateLaskuTable(laskuTable, new LaskuData(
-                                        lasku.getLaskuId(),
-                                        lasku.getMaksuStatus(),
-                                        lasku.getVarausMuoto(),
-                                        lasku.getValuutta(),
-                                        alkuPvm.toString(),
-                                        loppuPvm.toString(),
-                                        paivat,
-                                        hinta,
-                                        kokonaishinta
-                                ));
-
                             } else {
-                                showAlert("Virhe", "Virheellinen huoneen numero.");
+                                System.out.println("Invalid room number.");
                             }
                         }
                     }
+                    populateLaskuTable(laskuTable, laskuIdStr, maksuStatus, varausMuoto, valuutta, alkuPvmStr, loppuPvmStr, paivat, hinta, kokonaishinta);
                 }
             }
         });
+
 
         // Layout structure
         checkOutInfo.getChildren().addAll(checkOutInfoLabel, etunimiInfo, sukunimiInfo, huoneNroInfo, haeLaskutButton);
@@ -381,65 +390,81 @@ public class OhjelmistoGUI extends Application {
         return checkOut;
     }
 
-    // TableView method to display Lasku data
-    private TableView<LaskuData> createLaskuTable() {
-        TableView<LaskuData> laskuTable = new TableView<>();
+
+    // Corrected TableView method to ensure correct data types
+    private TableView<String> createLaskuTable() {
+        TableView<String> laskuTable = new TableView<>();
         laskuTable.setPrefWidth(650);
 
-        TableColumn<LaskuData, Integer> laskuIdColumn = new TableColumn<>("Lasku ID");
+        TableColumn<String, Integer> laskuIdColumn = new TableColumn<>("Lasku ID");
         laskuIdColumn.setCellValueFactory(new PropertyValueFactory<>("laskuId"));
 
-
-        TableColumn<LaskuData, String> maksuStatusColumn = new TableColumn<>("Maksu Status");
+        TableColumn<String, String> maksuStatusColumn = new TableColumn<>("Maksu Status");
         maksuStatusColumn.setCellValueFactory(new PropertyValueFactory<>("maksuStatus"));
 
-        TableColumn<LaskuData, String> varausMuotoColumn = new TableColumn<>("Varaus Muoto");
+        TableColumn<String, String> varausMuotoColumn = new TableColumn<>("Varaus Muoto");
         varausMuotoColumn.setCellValueFactory(new PropertyValueFactory<>("varausMuoto"));
 
-        TableColumn<LaskuData, String> valuuttaColumn = new TableColumn<>("Valuutta");
+        TableColumn<String, String> valuuttaColumn = new TableColumn<>("Valuutta");
         valuuttaColumn.setCellValueFactory(new PropertyValueFactory<>("valuutta"));
 
-        TableColumn<LaskuData, String> alkuPvmColumn = new TableColumn<>("Alku Pvm");
+        TableColumn<String, String> alkuPvmColumn = new TableColumn<>("Alku Pvm");
         alkuPvmColumn.setCellValueFactory(new PropertyValueFactory<>("alkuPvm"));
 
-        TableColumn<LaskuData, String> loppuPvmColumn = new TableColumn<>("Loppu Pvm");
+        TableColumn<String, String> loppuPvmColumn = new TableColumn<>("Loppu Pvm");
         loppuPvmColumn.setCellValueFactory(new PropertyValueFactory<>("loppuPvm"));
 
-        TableColumn<LaskuData, Integer> paivatColumn = new TableColumn<>("Päivät");
+        TableColumn<String, Integer> paivatColumn = new TableColumn<>("Päivät");
         paivatColumn.setCellValueFactory(new PropertyValueFactory<>("paivat"));
 
-        TableColumn<LaskuData, Double> hintaColumn = new TableColumn<>("Hinta");
+        TableColumn<String, Double> hintaColumn = new TableColumn<>("Hinta");
         hintaColumn.setCellValueFactory(new PropertyValueFactory<>("hinta"));
 
-        TableColumn<LaskuData, Double> kokonaishintaColumn = new TableColumn<>("Kokonaishinta");
+        TableColumn<String, Double> kokonaishintaColumn = new TableColumn<>("Kokonaishinta");
         kokonaishintaColumn.setCellValueFactory(new PropertyValueFactory<>("kokonaishinta"));
 
         laskuTable.getColumns().addAll(
                 laskuIdColumn, maksuStatusColumn, varausMuotoColumn,
                 valuuttaColumn, alkuPvmColumn, loppuPvmColumn,
                 paivatColumn, hintaColumn, kokonaishintaColumn);
-
         return laskuTable;
     }
 
-    // Populates the table with LaskuData
-    private void populateLaskuTable(TableView<LaskuData> laskuTable, LaskuData laskuData) {
-        ObservableList<LaskuData> data = laskuTable.getItems();
-        data.add(laskuData);
-        laskuTable.setItems(data);
+    private void populateLaskuTable(TableView<String> laskuTable, String laskuIdStr, String maksuStatus, String varausMuoto, String valuutta, String alkuPvmStr, String loppuPvmStr, int paivat, double hinta, double kokonaishinta) {
+
+        ProgressIndicator loadingIndicator = new ProgressIndicator();
+        loadingIndicator.setVisible(true);
+
+        laskuTable.getItems().clear();
+        laskuTable.setPlaceholder(loadingIndicator);
+
+        Task<List<String>> fetchLaskutTask = new Task<>() {
+            @Override
+            protected List<String> call() throws Exception {
+                List<String> laskuData = new ArrayList<>();
+                laskuData.add(laskuIdStr);
+                laskuData.add(maksuStatus);
+                laskuData.add(varausMuoto);
+                laskuData.add(valuutta);
+                laskuData.add(alkuPvmStr);
+                laskuData.add(loppuPvmStr);
+                laskuData.add(Integer.toString(paivat));
+                laskuData.add(Double.toString(hinta));
+                laskuData.add(Double.toString(kokonaishinta));
+                return laskuData;
+            }
+        };
+
+        fetchLaskutTask.setOnSucceeded(event -> {
+            List<String> laskut = fetchLaskutTask.getValue();
+            if (laskut != null && !laskut.isEmpty()) {
+                laskuTable.getItems().setAll(laskut);
+            } else {
+                laskuTable.setPlaceholder(new Label("No bills found for the given room number"));
+            }
+            loadingIndicator.setVisible(false);
+        });
     }
-
-
-    // Utility method to show alert dialog
-    private void showAlert(String title, String message) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
-    }
-
-
 
     // Updates the main layout with new content
     private void updateMainLayout(HBox mainLayout, VBox leftBar, VBox info) {
@@ -544,3 +569,6 @@ public class OhjelmistoGUI extends Application {
     }
 
 }
+
+
+ */

@@ -28,13 +28,17 @@ public class LaskuDAO {
         return null;
     }
 
-    public Lasku haeByAsiakasId(int asiakas_id) {
+    public List<Lasku> haeByAsiakasId(int asiakas_id) {
         EntityManager em = MariaDbConnection.getInstance();
-        Lasku lasku = null;
+        List<Lasku> laskut = null;
         try {
-            lasku = em.find(Lasku.class, asiakas_id);
-            if (lasku != null) {
-                return lasku;
+            laskut = em.createQuery("SELECT l FROM Lasku l WHERE l.asiakas_id = :asiakas_id", Lasku.class)
+                    .setParameter("asiakas_id", asiakas_id)
+                    .getResultList();
+            if (!laskut.isEmpty()) {
+                return laskut;
+            } else {
+                System.out.println("Laskua ei löytynyt asiakas id:llä " + asiakas_id);
             }
         } finally {
             if (em != null) {

@@ -17,7 +17,7 @@ public class HuoneHaku {
         while (true) {
             System.out.println("Valitse toiminto:");
             System.out.println("1. Lisää uusi huone");
-            System.out.println("2. Hae huone_ID:llä");
+            System.out.println("2. Hae huoneen numerolla");
             System.out.println("3. Hae huoneen tyypillä");
             System.out.println("4. Hae huoneen tilalla");
             System.out.println("5. Päivitä huoneen tiedot huone_ID:llä");
@@ -49,11 +49,11 @@ public class HuoneHaku {
                     break;
 
                 case 2:
-                    System.out.println("Anna huoneen ID:");
-                    int idHaku = scanner.nextInt();
+                    System.out.println("Anna huoneen numero:");
+                    int nroHaku = scanner.nextInt();
                     scanner.nextLine();
-                    Huone huoneById = controller.findHuoneById(idHaku);
-                    printHuone(huoneById);
+                    Huone huoneByNro = controller.findHuoneByNro(nroHaku);
+                    printHuone(huoneByNro);
 
                     break;
 

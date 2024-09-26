@@ -1,11 +1,12 @@
 package app;
 
 import controller.VarausController;
-
+import model.enteties.Varaus;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Scanner;
+import java.util.List;
 
 public class VarausHaku {
     private VarausController controller = new VarausController();
@@ -68,7 +69,10 @@ public class VarausHaku {
                     System.out.println("Anna laskun ID:");
                     int lasku_id_haku = scanner.nextInt();
                     scanner.nextLine();
-                    controller.findByLaskuId(lasku_id_haku);
+                    List<Varaus> varaukset = controller.findByLaskuId(lasku_id_haku);
+                    for (Varaus varaus : varaukset) {
+                        printVaraus(varaus);
+                    }
                     break;
 
                 case 4:
@@ -114,6 +118,20 @@ public class VarausHaku {
                     System.out.println("Virheellinen valinta. Yritä uudelleen.");
                     break;
             }
+        }
+    }
+
+    private void printVaraus(Varaus varaus) {
+        if (varaus != null) {
+            System.out.println("Varaus ID: " + varaus.getVarausId());
+            System.out.println("Huoneen määrä: " + varaus.getHuoneMaara());
+            System.out.println("Alkupäivämäärä: " + varaus.getAlkuPvm());
+            System.out.println("Loppupäivämäärä: " + varaus.getLoppuPvm());
+            System.out.println("Huone ID: " + varaus.getHuoneId());
+            System.out.println("Lasku ID: " + varaus.getLaskuId());
+            System.out.println(" ");
+        } else {
+            System.out.println("Varausta ei löytynyt.");
         }
     }
 }
