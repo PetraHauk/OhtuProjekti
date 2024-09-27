@@ -31,6 +31,7 @@ public class Lasku {
         this.asiakas_id = asiakas_id;
     }
 
+
     public Lasku() {
     }
 

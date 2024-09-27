@@ -2,6 +2,7 @@ package model.DAO;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
+import jakarta.persistence.TypedQuery;
 import model.datasourse.MariaDbConnection;
 import model.enteties.Kayttaja;
 import org.mindrot.jbcrypt.BCrypt;
@@ -183,5 +184,17 @@ public class KayttajaDAO {
             }
         }
         return null;
+    }
+
+    public boolean onkoEmailOlemassa(String sposti) {
+        EntityManager em = MariaDbConnection.getInstance();
+        try {
+            TypedQuery<Long> query = em.createQuery("SELECT COUNT(k) FROM Kayttaja k WHERE k.sposti = :sposti", Long.class);
+            query.setParameter("sposti", sposti);
+            Long count = query.getSingleResult();
+            return count > 0;
+        } finally {
+            em.close(); // Ensure the EntityManager is closed
+        }
     }
 }

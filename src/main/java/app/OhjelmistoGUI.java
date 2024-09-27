@@ -16,8 +16,8 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.List;
 
-import controller.*;
 import model.enteties.*;
+import controller.*;
 
 public class OhjelmistoGUI extends Application {
 
@@ -41,16 +41,15 @@ public class OhjelmistoGUI extends Application {
         VBox leftBar = createLeftBar(mainLayout, primaryStage);
         mainLayout.getChildren().addAll(leftBar, createEtusivu());
 
-        Scene scene = new Scene(mainLayout, 1200, 600);
+        Scene scene = new Scene(mainLayout, 1250, 600);
         scene.getStylesheets().add("style.css");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
 
-
     // Creates the left bar with buttons and user info
     private VBox createLeftBar(HBox mainLayout, Stage primaryStage) {
-        Label loggedInUsername = new Label("Username");
+        Label loggedInUsername = new Label(UserSession.getUsername());
         Label loggedInImage = new Label("[IMAGE]");
         HBox userBox = new HBox(10);
         userBox.getStyleClass().add("user-box");
@@ -83,6 +82,7 @@ public class OhjelmistoGUI extends Application {
 
         return leftBar;
     }
+
 
     // Creates the content for Etusivu
     private VBox createEtusivu() {
@@ -162,7 +162,6 @@ public class OhjelmistoGUI extends Application {
             System.out.println("Virheellinen syöte. Tarkista numero- ja hintakentät.");
         }
     }
-
 
     // Populate the room table. Runs it in a thread and shows loading indicator.
     private void populateRoomTable(TableView<Huone> roomTable, int hotelliId) {
@@ -260,17 +259,69 @@ public class OhjelmistoGUI extends Application {
         HBox huoneTiedot = new HBox(10);
         huoneTiedot.getChildren().addAll(huoneVarausInfo, availableRooms);
 
+        tuloDatePicker.valueProperty().addListener((observable, oldValue, newValue) -> {
+            if (tuloDatePicker.getValue() != null && poistumisDatePicker.getValue() != null) {
+                paivatValue.setText(String.valueOf(tuloDatePicker.getValue().until(poistumisDatePicker.getValue()).getDays()));
+            }
+        });
+        poistumisDatePicker.valueProperty().addListener((observable, oldValue, newValue) -> {
+            if (tuloDatePicker.getValue() != null && poistumisDatePicker.getValue() != null) {
+                paivatValue.setText(String.valueOf(tuloDatePicker.getValue().until(poistumisDatePicker.getValue()).getDays()));
+            }
+        });
+
+        tuloDatePicker.valueProperty().addListener((observable, oldValue, newValue) -> {
+            populateFreeRoomTable(huoneTable, 1, tuloDatePicker, poistumisDatePicker);  // Assuming hotel ID is 1 for this example
+        });
+        poistumisDatePicker.valueProperty().addListener((observable, oldValue, newValue) -> {
+            populateFreeRoomTable(huoneTable, 1, tuloDatePicker, poistumisDatePicker);  // Assuming hotel ID is 1 for this example
+        });
+
+        huoneTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) {
+                double price = newValue.getHuone_hinta() * Integer.parseInt(paivatValue.getText());
+                hinta.setText(String.format("%.2f €", price));
+            }
+        });
+
         VBox checkIn = new VBox(10);
         checkIn.getChildren().addAll(huoneTiedot);
         return checkIn;
     }
 
+    private void populateFreeRoomTable(TableView<Huone> huoneTable, int hotelliId, DatePicker tuloDatePicker, DatePicker poistumisDatePicker) {
+        ProgressIndicator loadingIndicator = new ProgressIndicator();
+        loadingIndicator.setVisible(true);
+        huoneTable.getItems().clear();
+        huoneTable.setPlaceholder(loadingIndicator);
 
-
-
-
-
-
+        if (tuloDatePicker.getValue() != null && poistumisDatePicker.getValue() != null && tuloDatePicker.getValue().isAfter(poistumisDatePicker.getValue())) {
+            huoneTable.setPlaceholder(new Label("Check-out date must be after check-in date"));
+            loadingIndicator.setVisible(false);
+            return;
+        }
+        Task<List<Huone>> fetchRoomsTask = new Task<>() {
+            @Override
+            protected List<Huone> call() throws Exception {
+                return huoneController.findVapaatHuoneetByHotelliId(hotelliId, tuloDatePicker.getValue(), poistumisDatePicker.getValue());
+            }
+        };
+        fetchRoomsTask.setOnSucceeded(event -> {
+            List<Huone> rooms = fetchRoomsTask.getValue();
+            if (rooms != null && !rooms.isEmpty()) {
+                huoneTable.getItems().setAll(rooms);
+            } else {
+                huoneTable.setPlaceholder(new Label("No free rooms found for the given hotel ID"));
+            }
+            loadingIndicator.setVisible(false);
+        });
+        fetchRoomsTask.setOnFailed(event -> {
+            huoneTable.setPlaceholder(new Label("Failed to load free room data"));
+            System.err.println("Failed to fetch free rooms: " + fetchRoomsTask.getException());
+            loadingIndicator.setVisible(false);
+        });
+        new Thread(fetchRoomsTask).start();
+    }
 
     // Creates the content for Check-out
     private VBox createCheckOut() {
@@ -309,8 +360,6 @@ public class OhjelmistoGUI extends Application {
         haeLaskutButton.setOnAction(e -> {
             laskuTable.getItems().clear();
 
-
-            // Fetch customers by names
             List<Asiakas> asiakkaat = asiakasController.findIdByNimet(asiakasEtunimiInput.getText(), asiakasSukunimiInput.getText());
             if (asiakkaat == null || asiakkaat.isEmpty()) {
                 showAlert("Virhe", "Asiakkaan nimellä ei löytynyt asiakkaita.");
@@ -321,9 +370,16 @@ public class OhjelmistoGUI extends Application {
             String valuutta = ""; // Alustetaan valuutta
 
             for (Asiakas asiakas : asiakkaat) {
-                List<Lasku> laskut = laskuController.findLaskuByAsiakasId(asiakas.getAsiakasId());
+                int asiakasId = asiakas.getAsiakasId();
+
+                System.out.println("Asiakas id: " + asiakasId);
+                List<Lasku> laskut = laskuController.findLaskuByAsiakasId(asiakasId);
+
                 if (laskut != null) {
                     for (Lasku lasku : laskut) {
+                        int laskuId = lasku.getLaskuId();
+                        System.out.println("Lasku id: " + laskuId);
+
                         List<Varaus> varaukset = varausController.findByLaskuId(lasku.getLaskuId());
                         valuutta = lasku.getValuutta(); // Asetetaan valuutta
 
@@ -333,7 +389,7 @@ public class OhjelmistoGUI extends Application {
                             int paivat = Period.between(alkuPvm, loppuPvm).getDays();
 
                             if (loppuPvm.isAfter(LocalDate.now()) || loppuPvm.isEqual(LocalDate.now())) {
-                                 //Check if room number matches the current reservation
+                                //Check if room number matches the current reservation
                                 Huone huone = huoneController.findHuoneById(varaus.getHuoneId());
                                 if (huone != null) {
                                     double hinta = huone.getHuone_hinta();
@@ -349,6 +405,7 @@ public class OhjelmistoGUI extends Application {
                                             lasku.getLaskuId(),
                                             huone.getHotelli_id(),
                                             huone.getHuone_id(),
+                                            huone.getHuone_nro(),
                                             asiakas.getEtunimi(),
                                             asiakas.getSukunimi(),
                                             huone.getHuone_tyyppi(),
@@ -372,10 +429,9 @@ public class OhjelmistoGUI extends Application {
             }
             // Päivitetään loppuhinta label, kun kaikki laskut on käsitelty
             loppuHintaLabel.setText(String.format("Yhdessä: %.2f %s", kokonaishinta, valuutta));
-
         });
 
-// Layout structure
+        // Layout structure
         checkOutInfo.getChildren().addAll(checkOutInfoLabel, etunimiInfo, sukunimiInfo, haeLaskutButton, maksattavaLaskut);
         HBox laskuTiedot = new HBox(2);
         laskuTiedot.getChildren().addAll(checkOutInfo, maksattavaLaskut);
@@ -399,7 +455,6 @@ public class OhjelmistoGUI extends Application {
                 openKuittiWindow(laskuTable);
             }
         });
-
 
         VBox checkOut = new VBox(2);
         checkOut.getChildren().addAll(laskuTiedot);
@@ -475,7 +530,7 @@ public class OhjelmistoGUI extends Application {
 
         kuittiLayout.getChildren().addAll(kuittiTitle, hotelliInfo, asiakasInfo, kuittiTable, loppuHintaLabel, tulostaButton);
 
-        Scene scene = new Scene(kuittiLayout, 700, 500);
+        Scene scene = new Scene(kuittiLayout, 790, 500);
         kuittiStage.setScene(scene);
         kuittiStage.show();
     }
@@ -500,11 +555,14 @@ public class OhjelmistoGUI extends Application {
     // TableView method to display Lasku data
     private TableView<LaskuData> createLaskuTable() {
         TableView<LaskuData> laskuTable = new TableView<>();
-        laskuTable.setPrefWidth(710);
+        laskuTable.setPrefWidth(800);
         laskuTable.setPrefHeight(300);
 
         TableColumn<LaskuData, Integer> laskuIdColumn = new TableColumn<>("Lasku ID");
         laskuIdColumn.setCellValueFactory(new PropertyValueFactory<>("laskuId"));
+
+        TableColumn<LaskuData, Integer> huoneNroColumn = new TableColumn<>("Huone Nro");
+        huoneNroColumn.setCellValueFactory(new PropertyValueFactory<>("huoneNro"));
 
         TableColumn<LaskuData, Integer> huoneTyyppiColumn = new TableColumn<>("Huone tyyppi");
         huoneTyyppiColumn.setCellValueFactory(new PropertyValueFactory<>("huoneTyyppi"));
@@ -534,9 +592,8 @@ public class OhjelmistoGUI extends Application {
         summaColumn.setCellValueFactory(new PropertyValueFactory<>("summa"));
 
         laskuTable.getColumns().addAll(
-                 laskuIdColumn, huoneTyyppiColumn, maksuStatusColumn, varausMuotoColumn, alkuPvmColumn, loppuPvmColumn,
+                laskuIdColumn, huoneNroColumn, huoneTyyppiColumn, maksuStatusColumn, varausMuotoColumn, alkuPvmColumn, loppuPvmColumn,
                 paivatColumn, hintaColumn, summaColumn);
-
         return laskuTable;
     }
 
@@ -555,21 +612,6 @@ public class OhjelmistoGUI extends Application {
         alert.showAndWait();
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // Utility method to show alert dialog
     private void showAlert(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle(title);
@@ -674,10 +716,15 @@ public class OhjelmistoGUI extends Application {
 
     private void handleLogoutButtonAction(Stage primaryStage) {
         primaryStage.close();
-    }
 
+        // Start a new LoginGui
+        try {
+            new LoginGui().start(new Stage());
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
     public static void main(String[] args) {
         launch(args);
     }
-
 }
