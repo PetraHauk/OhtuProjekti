@@ -32,25 +32,26 @@ public class KayttajaDAO {
         EntityManager em = MariaDbConnection.getInstance();
         try {
             em.getTransaction().begin();
-            // Haetaan käyttäjän salasana sähköpostin perusteella
+            // Fetch the password by email
             String salasana = em.createQuery("SELECT k.salasana FROM Kayttaja k WHERE k.sposti = :sposti", String.class)
                     .setParameter("sposti", sposti)
                     .getSingleResult();
             em.getTransaction().commit();
-            // Palautetaan haettu salasana
-            return salasana;
+            return salasana; // Return the password
         } catch (NoResultException e) {
             System.out.println("Käyttäjää ei löytynyt sähköpostilla: " + sposti);
             return null;
         } catch (Exception e) {
             e.printStackTrace();
-            return null; // Jokin muu virhe tapahtui
+            return null;
         } finally {
             if (em != null) {
                 em.close();
             }
         }
     }
+
+
 
     public void updateEmailById(int id, String sposti) {
         EntityManager em = MariaDbConnection.getInstance();

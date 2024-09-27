@@ -425,8 +425,14 @@ public class OhjelmistoGUI extends Application {
 
     private void handleLogoutButtonAction(Stage primaryStage) {
         primaryStage.close();
-    }
 
+        // Start a new LoginGui
+        try {
+            new LoginGui().start(new Stage());
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
     public static void main(String[] args) {
         launch(args);
     }

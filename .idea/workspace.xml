@@ -4,30 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="palauttava käyttäjiä listana">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_18_9_2024_12_54__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_18_9_2024_12_54__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_09_2024_09_03__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_09_2024_09_03__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_09_2024_09_23__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_09_2024_09_23__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/OhjelmistoGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/OhjelmistoGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/VarausController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/VarausController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/app/OhjelmistoGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/app/OhjelmistoGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/VarausController.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/controller/VarausController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/model/enteties/Asiakas.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/enteties/Asiakas.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/model/enteties/Lasku.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/enteties/Lasku.class" afterDir="false" />
-    </list>
+    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="Merge valmis, tyylit lisätty login ja rekisteröinti, häshäys toimii" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="Class" />
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="d71699aa497bd716293854cc4ef24d4a495bb94e" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -47,10 +42,13 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 2
+  &quot;associatedIndex&quot;: 3
 }</component>
-  <component name="ProjectId" id="2mBeOaKBnqoIeJgOkk3YNpKoFbH" />
+  <component name="ProjectId" id="2leYgd5LUOn8ijdYfmOTF1ggQv2" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -58,18 +56,35 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.AnnaMain.executor": "Run",
-    "Application.OhjelmistoGUI.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Application.MainPetra.executor": "Run",
     "Application.WilmaMain.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Kaisla",
+    "jdk.selected.JAVA_MODULE": "21",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/kakek/javafx-sdk-17.0.10/lib",
+    "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.5482759",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mariadb"
+    ]
   }
 }]]></component>
   <component name="RunManager" selected="Application.WilmaMain">
@@ -128,18 +143,17 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.WilmaMain" />
-        <item itemvalue="Application.AnnaMain" />
-        <item itemvalue="Application.MainPetra" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.MainPetra" />
+        <item itemvalue="Application.AnnaMain" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.20224.419" />
-        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-IU-242.20224.419" />
+        <option value="jdk-17.0.10-corretto-17.0.10-f644763e9732-24fca987" />
+        <option value="jdk-21.0.2-openjdk-21.0.2-f644763e9732-c0c073db" />
       </set>
     </attachedChunks>
   </component>
@@ -159,53 +173,51 @@
       <option name="presentableId" value="Default" />
       <updated>1726554373190</updated>
       <workItem from="1726554375584" duration="1777000" />
-      <workItem from="1726857549279" duration="2385000" />
-      <workItem from="1727071264987" duration="2681000" />
+      <workItem from="1726820415355" duration="1396000" />
+      <workItem from="1727023991518" duration="9000" />
+      <workItem from="1727078937225" duration="158000" />
+      <workItem from="1727088746951" duration="605000" />
+      <workItem from="1727338859611" duration="3803000" />
     </task>
-    <task id="LOCAL−00002" summary="Huoneet haetaan tietokannasta taulukkoon. Uuden huoneen lisäys visuaalissa toimii.">
+    <task id="LOCAL-00002" summary="yhdistetty wilman ja kaislan judut">
       <option name="closed" value="true" />
-      <created>1726657655449</created>
-      <option name="number" value="LOCAL−00002" />
-      <option name="presentableId" value="LOCAL−00002" />
-      <updated>1726657655449</updated>
-    </task>
-    <task id="LOCAL−00003" summary="Huoneet haetaan tietokannasta taulukkoon. Uuden huoneen lisäys visuaalissa toimii.">
-      <option name="closed" value="true" />
-      <created>1726820130366</created>
-      <option name="number" value="LOCAL−00003" />
-      <option name="presentableId" value="LOCAL−00003" />
-      <updated>1726820130366</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Vapaat huoneet näkyvät Check In sivulla">
-      <option name="closed" value="true" />
-      <created>1726859369520</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
+      <created>1726820478395</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1726859369520</updated>
+      <updated>1726820478395</updated>
     </task>
-    <task id="LOCAL-00005" summary="palauttava käyttäjiä listana">
+    <task id="LOCAL-00003" summary="Merge valmis, tyylit lisätty login ja rekisteröinti, häshäys toimii">
       <option name="closed" value="true" />
-      <created>1727013774971</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
+      <created>1727342662914</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1727013774971</updated>
+      <updated>1727342662914</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Window opens and shows basic layout when WilmaMain is launched" />
-    <MESSAGE value="Huoneet haetaan tietokannasta taulukkoon. Uuden huoneen lisäys visuaalissa toimii." />
-    <MESSAGE value="Target Commit 2 20.9" />
-    <MESSAGE value="update" />
-    <MESSAGE value="palauttava käyttäjiä listana" />
-    <MESSAGE value="Vapaat huoneet näkyvät Check In sivulla" />
-    <option name="LAST_COMMIT_MESSAGE" value="Vapaat huoneet näkyvät Check In sivulla" />
+    <MESSAGE value="...." />
+    <MESSAGE value="yhdistetty wilman ja kaislan judut" />
+    <MESSAGE value="Merge valmis, tyylit lisätty login ja rekisteröinti, häshäys toimii" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge valmis, tyylit lisätty login ja rekisteröinti, häshäys toimii" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
