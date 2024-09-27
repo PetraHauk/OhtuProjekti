@@ -64,15 +64,18 @@ public class LoginGui extends Application {
         if (savedHashedPassword != null && BCrypt.checkpw(password, savedHashedPassword)) {
             // Login successful
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Kirjautumine onnistui");
+            alert.setTitle("Kirjautuminen onnistui");
             alert.setHeaderText(null);
             alert.setContentText("Tervetuloa!");
             alert.showAndWait();
 
+            // Save the username to UserSession
+            UserSession.setUsername(email); // Store the email or username
+
             // Close the login window
             primaryStage.close();
 
-            // Open next stage
+            // Open next stage and pass the username
             new OhjelmistoGUI().start(new Stage());
         } else {
             // Login failed
@@ -83,6 +86,7 @@ public class LoginGui extends Application {
             alert.showAndWait();
         }
     }
+
 
     public static void main(String[] args) {
         launch(args);

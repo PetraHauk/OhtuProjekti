@@ -41,7 +41,7 @@ public class OhjelmistoGUI extends Application {
 
     // Creates the left bar with buttons and user info
     private VBox createLeftBar(HBox mainLayout, Stage primaryStage) {
-        Label loggedInUsername = new Label("Username");
+        Label loggedInUsername = new Label(UserSession.getUsername());
         Label loggedInImage = new Label("[IMAGE]");
         HBox userBox = new HBox(10);
         userBox.getStyleClass().add("user-box");
