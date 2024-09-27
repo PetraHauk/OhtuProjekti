@@ -83,6 +83,11 @@ public class RegistrationGui extends Application {
             alert.setTitle("Rekisteröinti epäonnistui");
             alert.setContentText("Täytä kaikki kohdat.");
             alert.showAndWait();
+        } else if (kayttajaDAO.onkoEmailOlemassa(sposti)) {  // Check if the email already exists
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Rekisteröinti epäonnistui");
+            alert.setContentText("Sähköpostiosoite on jo rekisteröity.");
+            alert.showAndWait();
         } else {
             // Hash the password using BCrypt
             String hashattuSalasana = BCrypt.hashpw(salasana, BCrypt.gensalt());
@@ -99,7 +104,7 @@ public class RegistrationGui extends Application {
             kayttajaDAO.persist(kayttaja);
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Rekiisteröinti onnistui");
+            alert.setTitle("Rekisteröinti onnistui");
             alert.setContentText("Tervetuloa, " + etunimi + " " + sukunimi + "!");
             alert.showAndWait();
 
@@ -108,6 +113,7 @@ public class RegistrationGui extends Application {
             primaryStage.close(); // Close the registration stage
         }
     }
+
 
     public static void main(String[] args) {
         launch(args);
