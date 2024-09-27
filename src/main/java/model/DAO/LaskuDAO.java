@@ -66,6 +66,22 @@ public class LaskuDAO {
         }
     }
 
+    public void updateStatusById(int id, String tila) {
+        EntityManager em = MariaDbConnection.getInstance();
+        try {
+            em.getTransaction().begin();
+            Lasku lasku = em.find(Lasku.class, id);
+            if (lasku != null) {
+                lasku.setMaksuStatus(tila);
+            }
+            em.getTransaction().commit();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+    }
+
     public void removeById(int id) {
         EntityManager em = MariaDbConnection.getInstance();
         em.getTransaction().begin();

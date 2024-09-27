@@ -36,6 +36,10 @@ public class HuoneController {
         System.out.println("Huone lisätty onnistuneesti hotelliin ID:llä " + hotelli_id);
     }
 
+    public Huone findHuoneById(int id) {
+        return huoneDAO.haeByHuoneId(id);
+    }
+
     public List<Huone> FindHuoneetByHoteliId(int hotelli_id) {
         return huoneDAO.haeHuoneetByHotelliId(hotelli_id);
     }

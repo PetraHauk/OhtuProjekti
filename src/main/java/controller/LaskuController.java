@@ -27,6 +27,10 @@ public class LaskuController {
         laskuDAO.updateLaskuById(id, maksu_status, varaus_muoto, valuutta, asiakas_id);
     }
 
+    public void updateMaksuStatusById(int id, String maksu_status) {
+        laskuDAO.updateStatusById(id, maksu_status);
+    }
+
     public void removeLaskuById(int lasku_id) {
         laskuDAO.removeById(lasku_id);
     }
