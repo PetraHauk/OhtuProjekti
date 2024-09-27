@@ -44,6 +44,22 @@ public class LaskuDAO {
         return null;
     }
 
+    public void updateStatusById(int id, String tila) {
+        EntityManager em = MariaDbConnection.getInstance();
+        try {
+            em.getTransaction().begin();
+            Lasku lasku = em.find(Lasku.class, id);
+            if (lasku != null) {
+                lasku.setMaksuStatus(tila);
+            }
+            em.getTransaction().commit();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+    }
+
     public void updateLaskuById(int id, String maksuStatus, String varausMuoto, String valuutta, int asiakasId) {
         EntityManager em = MariaDbConnection.getInstance();
         try {

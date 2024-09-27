@@ -44,8 +44,8 @@ public class HuoneController {
         return huoneDAO.haeHuoneetByHotelliId(hotelli_id);
     }
 
-    public void findHuoneById(int id) {
-        huoneDAO.findByRoomId(id);
+    public Huone findHuoneById(int id) {
+        return huoneDAO.findByRoomId(id);
     }
 
     public List<Huone> findHuoneByTila(String huone_tila) {

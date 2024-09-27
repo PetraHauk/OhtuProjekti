@@ -26,8 +26,9 @@ public class VarausController {
         varausDAO.haeByVarausId(varaus_id);
     }
 
-    public void findByLaskuId (int lasku_id) {
+    public List<Varaus> findByLaskuId (int lasku_id) {
         varausDAO.haeByLaskuId(lasku_id);
+        return null;
     }
 
     public void updateVarausById(int varaus_id, int huone_maara, LocalDate alkuPvm, LocalDate loppuPvm) {
