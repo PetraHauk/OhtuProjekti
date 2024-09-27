@@ -7,6 +7,7 @@ public class LaskuData {
     private final int laskuId;
     private final int hotelliId;
     private final int huoneId;
+    private final int huoneNro;
     private final String etunimi;
     private final String sukunimi;
     private final String huoneTyyppi;
@@ -19,10 +20,11 @@ public class LaskuData {
     private final double hinta;
     private final double summa;
 
-    public LaskuData(int laskuId, int hotelliId, int huoneId, String etunimi, String sukunimi, String huoneTyyppi, String maksuStatus, String varausMuoto, String valuutta, LocalDate alkuPvm,
+    public LaskuData(int laskuId, int hotelliId, int huoneId, int huoneNro, String etunimi, String sukunimi, String huoneTyyppi, String maksuStatus, String varausMuoto, String valuutta, LocalDate alkuPvm,
                      LocalDate loppuPvm, int paivat, double hinta, double summa) {
         this.laskuId = laskuId;
         this.hotelliId = hotelliId;
+        this.huoneNro = huoneNro;
         this.huoneId = huoneId;
         this.etunimi = etunimi;
         this.sukunimi = sukunimi;
@@ -46,6 +48,9 @@ public class LaskuData {
     }
     public int getHuoneId() {
         return huoneId;
+    }
+    public int getHuoneNro() {
+        return huoneNro;
     }
     public String getEtunimi() {
         return etunimi;

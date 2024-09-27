@@ -41,12 +41,11 @@ public class OhjelmistoGUI extends Application {
         VBox leftBar = createLeftBar(mainLayout, primaryStage);
         mainLayout.getChildren().addAll(leftBar, createEtusivu());
 
-        Scene scene = new Scene(mainLayout, 1200, 600);
+        Scene scene = new Scene(mainLayout, 1250, 600);
         scene.getStylesheets().add("style.css");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
-
 
     // Creates the left bar with buttons and user info
     private VBox createLeftBar(HBox mainLayout, Stage primaryStage) {
@@ -164,7 +163,6 @@ public class OhjelmistoGUI extends Application {
         }
     }
 
-
     // Populate the room table. Runs it in a thread and shows loading indicator.
     private void populateRoomTable(TableView<Huone> roomTable, int hotelliId) {
         ProgressIndicator loadingIndicator = new ProgressIndicator();
@@ -198,8 +196,6 @@ public class OhjelmistoGUI extends Application {
 
         new Thread(fetchRoomsTask).start();
     }
-
-
 
     // Creates the content for Asiakasrekisteri
     private VBox createAsiakkaat() {
@@ -262,9 +258,6 @@ public class OhjelmistoGUI extends Application {
         huoneVarausInfo.getChildren().addAll(checkInInfoLabel, huoneTyyppi, tuloPaiva, poistumisPaiva, paivat, huoneHinta);
         HBox huoneTiedot = new HBox(10);
         huoneTiedot.getChildren().addAll(huoneVarausInfo, availableRooms);
-
-
-
 
         tuloDatePicker.valueProperty().addListener((observable, oldValue, newValue) -> {
             if (tuloDatePicker.getValue() != null && poistumisDatePicker.getValue() != null) {
@@ -367,7 +360,7 @@ public class OhjelmistoGUI extends Application {
         haeLaskutButton.setOnAction(e -> {
             laskuTable.getItems().clear();
 
-            List<Asiakas> asiakkaat = asiakasController.findByNimet(asiakasEtunimiInput.getText(), asiakasEtunimiInput.getText());
+            List<Asiakas> asiakkaat = asiakasController.findByNimet(asiakasEtunimiInput.getText(), asiakasSukunimiInput.getText());
             if (asiakkaat == null || asiakkaat.isEmpty()) {
                 showAlert("Virhe", "Asiakkaan nimellä ei löytynyt asiakkaita.");
                 return;
@@ -377,9 +370,16 @@ public class OhjelmistoGUI extends Application {
             String valuutta = ""; // Alustetaan valuutta
 
             for (Asiakas asiakas : asiakkaat) {
-                List<Lasku> laskut = laskuController.findLaskuByAsiakasId(asiakas.getAsiakasId());
+                int asiakasId = asiakas.getAsiakasId();
+
+                System.out.println("Asiakas id: " + asiakasId);
+                List<Lasku> laskut = laskuController.findLaskuByAsiakasId(asiakasId);
+
                 if (laskut != null) {
                     for (Lasku lasku : laskut) {
+                        int laskuId = lasku.getLaskuId();
+                        System.out.println("Lasku id: " + laskuId);
+
                         List<Varaus> varaukset = varausController.findByLaskuId(lasku.getLaskuId());
                         valuutta = lasku.getValuutta(); // Asetetaan valuutta
 
@@ -405,6 +405,7 @@ public class OhjelmistoGUI extends Application {
                                             lasku.getLaskuId(),
                                             huone.getHotelli_id(),
                                             huone.getHuone_id(),
+                                            huone.getHuone_nro(),
                                             asiakas.getEtunimi(),
                                             asiakas.getSukunimi(),
                                             huone.getHuone_tyyppi(),
@@ -529,7 +530,7 @@ public class OhjelmistoGUI extends Application {
 
         kuittiLayout.getChildren().addAll(kuittiTitle, hotelliInfo, asiakasInfo, kuittiTable, loppuHintaLabel, tulostaButton);
 
-        Scene scene = new Scene(kuittiLayout, 700, 500);
+        Scene scene = new Scene(kuittiLayout, 790, 500);
         kuittiStage.setScene(scene);
         kuittiStage.show();
     }
@@ -554,11 +555,14 @@ public class OhjelmistoGUI extends Application {
     // TableView method to display Lasku data
     private TableView<LaskuData> createLaskuTable() {
         TableView<LaskuData> laskuTable = new TableView<>();
-        laskuTable.setPrefWidth(710);
+        laskuTable.setPrefWidth(800);
         laskuTable.setPrefHeight(300);
 
         TableColumn<LaskuData, Integer> laskuIdColumn = new TableColumn<>("Lasku ID");
         laskuIdColumn.setCellValueFactory(new PropertyValueFactory<>("laskuId"));
+
+        TableColumn<LaskuData, Integer> huoneNroColumn = new TableColumn<>("Huone Nro");
+        huoneNroColumn.setCellValueFactory(new PropertyValueFactory<>("huoneNro"));
 
         TableColumn<LaskuData, Integer> huoneTyyppiColumn = new TableColumn<>("Huone tyyppi");
         huoneTyyppiColumn.setCellValueFactory(new PropertyValueFactory<>("huoneTyyppi"));
@@ -588,7 +592,7 @@ public class OhjelmistoGUI extends Application {
         summaColumn.setCellValueFactory(new PropertyValueFactory<>("summa"));
 
         laskuTable.getColumns().addAll(
-                laskuIdColumn, huoneTyyppiColumn, maksuStatusColumn, varausMuotoColumn, alkuPvmColumn, loppuPvmColumn,
+                laskuIdColumn, huoneNroColumn, huoneTyyppiColumn, maksuStatusColumn, varausMuotoColumn, alkuPvmColumn, loppuPvmColumn,
                 paivatColumn, hintaColumn, summaColumn);
         return laskuTable;
     }
@@ -615,14 +619,6 @@ public class OhjelmistoGUI extends Application {
         alert.setContentText(message);
         alert.showAndWait();
     }
-
-
-
-
-
-
-
-
 
     // Updates the main layout with new content
     private void updateMainLayout(HBox mainLayout, VBox leftBar, VBox info) {
@@ -722,13 +718,11 @@ public class OhjelmistoGUI extends Application {
         primaryStage.close();
 
         // Start a new LoginGui
-        /*try {
+        try {
             new LoginGui().start(new Stage());
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-
-         */
     }
     public static void main(String[] args) {
         launch(args);
