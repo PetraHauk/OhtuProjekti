@@ -90,4 +90,8 @@ public class VarausDAO {
         }
         em.getTransaction().commit();
     }
+
+    public int varausPaivat( LocalDate alkuPvm, LocalDate loppuPvm) {
+        return alkuPvm.compareTo(loppuPvm);
+    }
 }
