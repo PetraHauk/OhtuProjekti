@@ -22,5 +22,4 @@ public class HotelliController {
    public void removeHotelliById(int hotelli_id) {
         hotelliDAO.removeById(hotelli_id);
     }
-
 }
