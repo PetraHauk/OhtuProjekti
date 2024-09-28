@@ -32,9 +32,6 @@ public class KayttajaController {
         return kayttajaDAO.findPasswordByEmail(sposti);
     }
 
-    public void paivitaSpostiById(int id, String sposti) {
-        kayttajaDAO.updateEmailById(id, sposti);
-    }
 
     public void vaihdaSalasanaPostilla(String sposti, String newPassword) {
         kayttajaDAO.changePasswordByEmail(sposti, newPassword);
