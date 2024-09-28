@@ -17,7 +17,6 @@ public class KayttajaHaku {
             System.out.println("Valitse toiminto:");
             System.out.println("1. Lisää uusi käyttäjä");
             System.out.println("2. Hae käyttäjä ID:llä");
-            System.out.println("3. Päivitä sposti käyttäjä ID:llä");
             System.out.println("4. Vaihta salasana sähköpostilla");
             System.out.println("5. Poista käyttäjä ID:llä");
             System.out.println("6. Hae salasana sähköpostilla");
@@ -52,15 +51,6 @@ public class KayttajaHaku {
                     controller.haeKayttajaById(idHaku);
                     break;
 
-                case 3:
-                    System.out.println("Anna käyttäjän ID päivittääksesi sposti:");
-                    int idPaivitys = scanner.nextInt();
-                    scanner.nextLine(); // Clear the newline character from the buffer
-
-                    System.out.println("Anna uusi sähköposti:");
-                    String uusiSposti = scanner.nextLine();
-                    controller.paivitaSpostiById(idPaivitys, uusiSposti);
-                    break;
                 case 4:
                     System.out.println("Anna sähköposti vaihtaaksesi salasana:");
                     String kayttajaSposti = scanner.nextLine();
