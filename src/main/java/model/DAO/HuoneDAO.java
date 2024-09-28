@@ -12,6 +12,22 @@ public class HuoneDAO {
         em.getTransaction().commit();
     }
 
+    public Huone haeByHuoneId(int huone_id) {
+        EntityManager em = MariaDbConnection.getInstance();
+        try {
+            Huone huone = em.find(Huone.class, huone_id);
+            if (huone != null) {
+                return huone;
+            }
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return null;
+    }
+
+
     public List<Huone> haeHuoneetByHotelliId(int hotelli_id) {
         EntityManager em = MariaDbConnection.getInstance();
         List<Huone> huoneet = null;
