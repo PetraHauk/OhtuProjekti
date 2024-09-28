@@ -266,7 +266,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727553726153</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="huoneMaara pois huone_Varauksesta">
+      <option name="closed" value="true" />
+      <created>1727554872094</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1727554872094</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
