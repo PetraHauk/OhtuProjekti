@@ -501,12 +501,15 @@ public class OhjelmistoGUI extends Application {
                                 Huone huone = huoneController.findHuoneById(varaus.getHuoneId());
                                 if (huone != null) {
                                     double hinta = huone.getHuone_hinta();
+                                    String hintaStr = String.format("%.2f %s", hinta, valuutta);
 
                                     if (valuutta.equals("USD")) {
-                                        hinta = CurrencyConverter.convertCurrency("EUR", "USD", hinta);
+                                        hinta= CurrencyConverter.convertCurrency("EUR", "USD", hinta);
 
                                     }
                                     double summa = hinta * paivat;
+                                    String summaStr = String.format("%.2f USD", summa);
+
                                     kokonaishinta += summa;
 
                                     populateLaskuTable(laskuTable, new LaskuData(
@@ -523,9 +526,10 @@ public class OhjelmistoGUI extends Application {
                                             alkuPvm,
                                             loppuPvm,
                                             paivat,
-                                            hinta,
-                                            summa
+                                            hintaStr,  // Muotoile hinta kahdelle desimaalille ja lisää USD
+                                            summaStr      // Muotoile summa kahdelle desimaalille
                                     ));
+
 
                                 } else {
                                     showAlert("Virhe", "Virheellinen huoneen numero.");
@@ -627,7 +631,7 @@ public class OhjelmistoGUI extends Application {
         TableView<LaskuData> kuittiTable = createLaskuTable();
         kuittiTable.getItems().addAll(laskuTable.getItems());
 
-        double loppusumma = 0;
+        String loppusumma = null;
         for (LaskuData laskuData : laskuTable.getItems()) {
             loppusumma += laskuData.getSumma();
             loppuHintaLabel.setText("Yhdessä:   " + loppusumma + " "  + laskuData.getValuutta());
