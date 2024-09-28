@@ -84,14 +84,20 @@ public class LaskuDAO {
 
     public void removeById(int id) {
         EntityManager em = MariaDbConnection.getInstance();
-        em.getTransaction().begin();
-        Lasku lasku = em.find(Lasku.class, id);
-        if (lasku != null) {
-            em.remove(lasku);
-        } else {
-            System.out.println("Laskua ei löytynyt id:llä " + id);
+        try{
+            em.getTransaction().begin();
+            Lasku lasku = em.find(Lasku.class, id);
+            if (lasku != null) {
+                em.remove(lasku);
+            } else {
+                System.out.println("Laskua ei löytynyt id:llä " + id);
+            }
+            em.getTransaction().commit();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
         }
-        em.getTransaction().commit();
     }
 
     public List<Lasku> haeKaikkilaskut() {
