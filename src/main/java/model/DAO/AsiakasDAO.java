@@ -115,5 +115,28 @@ public class AsiakasDAO {
             }
         }
     }
+    public void removeById(int id) {
+        EntityManager em = MariaDbConnection.getInstance();
+        try {
+            em.getTransaction().begin();
+            Asiakas asiakas = em.find(Asiakas.class, id);
+            if (asiakas != null) {
+                em.remove(asiakas);
+                System.out.println("Asiakas poistettu onnistuneesti!");
+                em.getTransaction().commit();
+            } else {
+                System.out.println("Asiakasta ei löytynyt ID:llä: " + id);
+            }
+        } catch (Exception e) {
+            if (em.getTransaction().isActive()) {
+                em.getTransaction().rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+    }
 
 }
