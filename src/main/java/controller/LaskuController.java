@@ -12,7 +12,7 @@ public class LaskuController {
     }
 
     public void addLasku(String maksu_status, String varaus_muoto, String valuutta,int asiakas_id) {
-        Lasku lasku = new Lasku(maksu_status);
+        Lasku lasku = new Lasku(maksu_status, varaus_muoto, valuutta, asiakas_id);
         laskuDAO.persist(lasku);
     }
 

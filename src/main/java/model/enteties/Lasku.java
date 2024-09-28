@@ -23,7 +23,7 @@ public class Lasku {
 
 
     // Parametrillinen konstruktori
-    public Lasku(String maksu_status) {
+    public Lasku(String maksu_status, String varaus_muoto, String valuutta, int asiakas_id) {
         this.lasku_id = lasku_id;
         this.maksu_status = maksu_status;
         this.varaus_muoto = varaus_muoto;
