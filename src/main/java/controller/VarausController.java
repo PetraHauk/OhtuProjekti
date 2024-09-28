@@ -12,8 +12,8 @@ public class VarausController {
         varausDAO = new VarausDAO();
     }
 
-    public void AddVaraus(int huone_maara, LocalDate alkuPvm, LocalDate loppuPvm, int huone_id, int lasku_id) {
-        Varaus varaus = new Varaus(0,huone_maara, alkuPvm, loppuPvm, huone_id, lasku_id);
+    public void AddVaraus(LocalDate alkuPvm, LocalDate loppuPvm, int huone_id, int lasku_id) {
+        Varaus varaus = new Varaus(0,  alkuPvm, loppuPvm, huone_id, lasku_id);
         varausDAO.persist(varaus);
     }
 
@@ -30,8 +30,8 @@ public class VarausController {
         return varausDAO.haeByLaskuId(lasku_id);
     }
 
-    public void updateVarausById(int varaus_id, int huone_maara, LocalDate alkuPvm, LocalDate loppuPvm) {
-        varausDAO.paivitaVarausById(varaus_id, huone_maara, alkuPvm, loppuPvm);
+    public void updateVarausById(int varaus_id, LocalDate alkuPvm, LocalDate loppuPvm) {
+        varausDAO.paivitaVarausById(varaus_id, alkuPvm, loppuPvm);
     }
     public void RemoveVaraus(int id) {
         varausDAO.removeById(id);

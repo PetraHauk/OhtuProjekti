@@ -65,12 +65,11 @@ public class VarausDAO {
         return null;
     }
 
-    public void paivitaVarausById(int varaus_id, int huone_maara, LocalDate alkuPvm, LocalDate loppuPvm) {
+    public void paivitaVarausById(int varaus_id, LocalDate alkuPvm, LocalDate loppuPvm) {
         EntityManager em = MariaDbConnection.getInstance();
         em.getTransaction().begin();
         Varaus varaus = em.find(Varaus.class, varaus_id);
         if (varaus != null) {
-            varaus.setHuoneMaara();
             varaus.setAlkuPvm(LocalDate.now());
             varaus.setLoppuPvm(LocalDate.now());
         } else {
