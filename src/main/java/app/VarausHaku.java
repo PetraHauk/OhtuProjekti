@@ -30,9 +30,6 @@ public class VarausHaku {
             switch (valinta) {
                 case 1:
                     try {
-                        System.out.println("Anna huoneen määrä:");
-                        int huone_maara = scanner.nextInt();
-                        scanner.nextLine();
 
                         System.out.println("Anna alkupäivämäärä (pp.kk.vvvv):");
                         String alkuPvmStr = scanner.nextLine();
@@ -50,7 +47,7 @@ public class VarausHaku {
                         int lasku_id = scanner.nextInt();
                         scanner.nextLine();
 
-                        controller.AddVaraus(huone_maara, alkuPvm, loppuPvm, huone_id, lasku_id);
+                        controller.AddVaraus(alkuPvm, loppuPvm, huone_id, lasku_id);
                         System.out.println("Varaus lisätty onnistuneesti!");
 
                     } catch (DateTimeParseException e) {
@@ -81,10 +78,6 @@ public class VarausHaku {
                         int id = scanner.nextInt();
                         scanner.nextLine(); // Tyhjennä puskuri
 
-                        System.out.println("Anna uusi huoneen määrä:");
-                        int huone_maara_uusi = scanner.nextInt();
-                        scanner.nextLine();
-
                         System.out.println("Anna uusi alkupäivämäärä (pp.kk.vvvv):");
                         String alku_pvm_uusi = scanner.nextLine();
                         LocalDate uusiAlkuPvm = LocalDate.parse(alku_pvm_uusi, formatter); // Muunnetaan LocalDateksi
@@ -94,7 +87,7 @@ public class VarausHaku {
                         LocalDate uusiLoppuPvm = LocalDate.parse(loppu_pvm_uusi, formatter); // Muunnetaan LocalDateksi
 
                         // Päivitä varauksen kesto
-                        controller.updateVarausById(id, huone_maara_uusi, uusiAlkuPvm, uusiLoppuPvm);
+                        controller.updateVarausById(id, uusiAlkuPvm, uusiLoppuPvm);
                         System.out.println("Varauksen kesto päivitetty onnistuneesti!");
 
                     } catch (DateTimeParseException e) {

@@ -11,9 +11,6 @@ public class Varaus {
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Tämä mahdollistaa automaattisen ID:n generoinnin
     private int varaus_id;
 
-    @Column(name = "huone_maara")
-    private int huoneMaara;
-
     @Column(name = "alku_pvm")
     private LocalDate alkuPvm;
 
@@ -28,9 +25,8 @@ public class Varaus {
 
 
     // Parametrillinen konstruktori
-    public Varaus(int varaus_id, int huone_maara, LocalDate alkuPvm, LocalDate loppuPvm, int huoneId, int laskuId) {
+    public Varaus(int varaus_id, LocalDate alkuPvm, LocalDate loppuPvm, int huoneId, int laskuId) {
         this.varaus_id = varaus_id;
-        this.huoneMaara = huone_maara;
         this.alkuPvm = alkuPvm;
         this.loppuPvm = loppuPvm;
         this.huoneId = huoneId;
@@ -43,10 +39,6 @@ public class Varaus {
     // Getterit ja setterit
     public int getVarausId() {
         return varaus_id;
-    }
-
-    public int getHuoneMaara() {
-        return huoneMaara;
     }
 
     public LocalDate getAlkuPvm() {
@@ -63,10 +55,6 @@ public class Varaus {
 
     public int getLaskuId() {
         return laskuId;
-    }
-
-    public void setHuoneMaara() {
-        this.huoneMaara = huoneMaara;
     }
 
     public void setAlkuPvm(LocalDate alkuPvm) {

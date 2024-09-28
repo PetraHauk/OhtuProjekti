@@ -4,25 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="065e434f-b050-4145-bce8-5768651a9a60" name="Changes" comment="KäyttajaController test valmis">
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/HomeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/test/java/controller/LaskuControllerTest.java" afterDir="false" />
+    <list default="true" id="065e434f-b050-4145-bce8-5768651a9a60" name="Changes" comment="update">
       <change afterPath="$PROJECT_DIR$/src/src/test/java/controller/VarausControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/test/java/controller/kayttajaControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui.iml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/KayttajaHaku.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/KayttajaHaku.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/HotelliController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/HotelliController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/KayttajaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/KayttajaDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/enteties/Hotelli.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enteties/Hotelli.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/test/java/controller/AsiakasControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/test/java/controller/AsiakasControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/test/java/controller/HuoneControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/test/java/controller/HuoneControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/app/KayttajaHaku.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/app/KayttajaHaku.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/KayttajaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/controller/KayttajaController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/controller/LoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/KayttajaDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/DAO/KayttajaDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/AnnaMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/AnnaMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/VarausController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/VarausController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,6 +70,7 @@
     "JUnit.AsiakasControllerTest.testAddAsiakas.executor": "Run",
     "JUnit.AsiakasControllerTest.testFindAllAsiakkaat.executor": "Run",
     "JUnit.AsiakasControllerTest.updateAsiakasTiedot.executor": "Run",
+    "JUnit.HotelliControllerTest.executor": "Coverage",
     "JUnit.HotelliControllerTest.testAddHotelli.executor": "Run",
     "JUnit.HotelliControllerTest.testFindHotelliById.executor": "Run",
     "JUnit.HotelliControllerTest.testRemoveHotelliById.executor": "Run",
@@ -95,6 +82,19 @@
     "JUnit.HuoneControllerTest.testFindHuoneById.executor": "Run",
     "JUnit.HuoneControllerTest.testFindHuoneetByHoteliId.executor": "Run",
     "JUnit.HuoneControllerTest.updateHuoneById.executor": "Run",
+    "JUnit.LaskuControllerTest.TestRemoveLaskuById.executor": "Run",
+    "JUnit.LaskuControllerTest.addLasku.executor": "Run",
+    "JUnit.LaskuControllerTest.executor": "Coverage",
+    "JUnit.LaskuControllerTest.findAllLaskut.executor": "Run",
+    "JUnit.LaskuControllerTest.removeLaskuById.executor": "Run",
+    "JUnit.LaskuControllerTest.testAddLasku.executor": "Coverage",
+    "JUnit.LaskuControllerTest.testFindLaskuByAsiakasId.executor": "Run",
+    "JUnit.LaskuControllerTest.testFindLaskuById.executor": "Run",
+    "JUnit.LaskuControllerTest.updateLaskuById.executor": "Run",
+    "JUnit.VarausControllerTest.TestFindByVarausId.executor": "Run",
+    "JUnit.VarausControllerTest.testAddVaraus.executor": "Run",
+    "JUnit.VarausControllerTest.testFindByLaskuId.executor": "Run",
+    "JUnit.VarausControllerTest.testUpdateVarausById.executor": "Run",
     "JUnit.kayttajaControllerTest.executor": "Run",
     "JUnit.kayttajaControllerTest.testAddKayttaja.executor": "Run",
     "JUnit.kayttajaControllerTest.testFindAllKayttajat.executor": "Run",
@@ -155,8 +155,8 @@
       <recent name="app" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.HuoneControllerTest.findHuoneByTila">
-    <configuration name="HuoneControllerTest.findHuoneByTila" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.VarausControllerTest.testUpdateVarausById">
+    <configuration name="HotelliControllerTest.testAddHotelli" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gui" />
       <extension name="coverage">
         <pattern>
@@ -165,14 +165,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="controller" />
-      <option name="MAIN_CLASS_NAME" value="controller.HuoneControllerTest" />
-      <option name="METHOD_NAME" value="findHuoneByTila" />
+      <option name="MAIN_CLASS_NAME" value="controller.HotelliControllerTest" />
+      <option name="METHOD_NAME" value="testAddHotelli" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="kayttajaControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="VarausControllerTest.TestFindByVarausId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gui" />
       <extension name="coverage">
         <pattern>
@@ -181,29 +181,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="controller" />
-      <option name="MAIN_CLASS_NAME" value="controller.kayttajaControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="kayttajaControllerTest.testAddKayttaja" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gui" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="controller" />
-      <option name="MAIN_CLASS_NAME" value="controller.kayttajaControllerTest" />
-      <option name="METHOD_NAME" value="testAddKayttaja" />
+      <option name="MAIN_CLASS_NAME" value="controller.VarausControllerTest" />
+      <option name="METHOD_NAME" value="TestFindByVarausId" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="kayttajaControllerTest.testFindAllKayttajat" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="VarausControllerTest.testAddVaraus" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gui" />
       <extension name="coverage">
         <pattern>
@@ -212,14 +197,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="controller" />
-      <option name="MAIN_CLASS_NAME" value="controller.kayttajaControllerTest" />
-      <option name="METHOD_NAME" value="testFindAllKayttajat" />
+      <option name="MAIN_CLASS_NAME" value="controller.VarausControllerTest" />
+      <option name="METHOD_NAME" value="testAddVaraus" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="kayttajaControllerTest.testFindPasswordByEmail" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="VarausControllerTest.testFindByLaskuId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gui" />
       <extension name="coverage">
         <pattern>
@@ -228,8 +213,24 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="controller" />
-      <option name="MAIN_CLASS_NAME" value="controller.kayttajaControllerTest" />
-      <option name="METHOD_NAME" value="testFindPasswordByEmail" />
+      <option name="MAIN_CLASS_NAME" value="controller.VarausControllerTest" />
+      <option name="METHOD_NAME" value="testFindByLaskuId" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VarausControllerTest.testUpdateVarausById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gui" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="controller" />
+      <option name="MAIN_CLASS_NAME" value="controller.VarausControllerTest" />
+      <option name="METHOD_NAME" value="testUpdateVarausById" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -237,11 +238,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.HuoneControllerTest.findHuoneByTila" />
-        <item itemvalue="JUnit.kayttajaControllerTest.testFindAllKayttajat" />
-        <item itemvalue="JUnit.kayttajaControllerTest" />
-        <item itemvalue="JUnit.kayttajaControllerTest.testFindPasswordByEmail" />
-        <item itemvalue="JUnit.kayttajaControllerTest.testAddKayttaja" />
+        <item itemvalue="JUnit.VarausControllerTest.testUpdateVarausById" />
+        <item itemvalue="JUnit.VarausControllerTest.testAddVaraus" />
+        <item itemvalue="JUnit.VarausControllerTest.testFindByLaskuId" />
+        <item itemvalue="JUnit.VarausControllerTest.TestFindByVarausId" />
+        <item itemvalue="JUnit.HotelliControllerTest.testAddHotelli" />
       </list>
     </recent_temporary>
   </component>
@@ -271,23 +272,7 @@
       <workItem from="1727009300569" duration="46750000" />
       <workItem from="1727162462501" duration="1822000" />
       <workItem from="1727298514353" duration="8000" />
-      <workItem from="1727298960975" duration="81222000" />
-    </task>
-    <task id="LOCAL-00001" summary="päivistys">
-      <option name="closed" value="true" />
-      <created>1725609857977</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1725609857977</updated>
-    </task>
-    <task id="LOCAL-00002" summary="lisää sarakkeita tauluun">
-      <option name="closed" value="true" />
-      <created>1725619749405</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1725619749405</updated>
+      <workItem from="1727298960975" duration="89879000" />
     </task>
     <task id="LOCAL-00003" summary="päivistys">
       <option name="closed" value="true" />
@@ -561,29 +546,137 @@
       <option name="project" value="LOCAL" />
       <updated>1727541396406</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="huoneController test valmis">
+      <option name="closed" value="true" />
+      <created>1727541694822</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1727541694822</updated>
+    </task>
+    <task id="LOCAL-00038" summary="siistiminen">
+      <option name="closed" value="true" />
+      <created>1727541825634</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1727541825634</updated>
+    </task>
+    <task id="LOCAL-00039" summary="pos päivitä sposti by id">
+      <option name="closed" value="true" />
+      <created>1727541886955</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1727541886955</updated>
+    </task>
+    <task id="LOCAL-00040" summary="lisää homeController">
+      <option name="closed" value="true" />
+      <created>1727541921649</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1727541921649</updated>
+    </task>
+    <task id="LOCAL-00041" summary="koodin siistiminen">
+      <option name="closed" value="true" />
+      <created>1727541962511</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1727541962511</updated>
+    </task>
+    <task id="LOCAL-00042" summary="kayttajaComtroller test valmis">
+      <option name="closed" value="true" />
+      <created>1727541995601</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1727541995601</updated>
+    </task>
+    <task id="LOCAL-00043" summary="pois update email by id">
+      <option name="closed" value="true" />
+      <created>1727542157124</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1727542157125</updated>
+    </task>
+    <task id="LOCAL-00044" summary="pois update email by id">
+      <option name="closed" value="true" />
+      <created>1727542183337</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1727542183337</updated>
+    </task>
+    <task id="LOCAL-00045" summary="lisää logInController">
+      <option name="closed" value="true" />
+      <created>1727542261078</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1727542261078</updated>
+    </task>
+    <task id="LOCAL-00046" summary="lisää test">
+      <option name="closed" value="true" />
+      <created>1727542331033</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1727542331033</updated>
+    </task>
+    <task id="LOCAL-00047" summary="update">
+      <option name="closed" value="true" />
+      <created>1727542348506</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1727542348506</updated>
+    </task>
+    <task id="LOCAL-00048" summary="lisaa lasku update">
+      <option name="closed" value="true" />
+      <created>1727547016528</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1727547016528</updated>
+    </task>
+    <task id="LOCAL-00049" summary="laskuController test">
+      <option name="closed" value="true" />
+      <created>1727548726616</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1727548726616</updated>
+    </task>
+    <task id="LOCAL-00050" summary="update">
+      <option name="closed" value="true" />
+      <created>1727548743183</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1727548743183</updated>
+    </task>
+    <task id="LOCAL-00051" summary="update">
+      <option name="closed" value="true" />
+      <created>1727549974411</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1727549974411</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="kayttaja taulukko: lisää, haut, päivitä" />
-    <MESSAGE value="kayttaja taulukko: vaihda salasana toimi" />
-    <MESSAGE value="huone taulu: javat" />
-    <MESSAGE value="huone taulu: haut , poista ja päivitä" />
-    <MESSAGE value="päivistys" />
-    <MESSAGE value="koodin siisti ja  varaus, huone, hoteli valmis" />
-    <MESSAGE value="kaikki valmis" />
-    <MESSAGE value="Kaikki huoneet palautus" />
-    <MESSAGE value="huone palautus korjaus" />
-    <MESSAGE value="lasku palautus korjaus ja lisää hae kaikki laskut" />
     <MESSAGE value="varaus palautus korjaus" />
-    <MESSAGE value="koodin siistiminen" />
     <MESSAGE value="checkout toimi" />
     <MESSAGE value="Exchange Rate API toimi" />
     <MESSAGE value="lisää huoneTyyppi" />
-    <MESSAGE value="update" />
     <MESSAGE value="kirjautuu ja registeriointi" />
     <MESSAGE value="aasiakas välilehti: siakaan taulukko ja lisaa asiakasta" />
     <MESSAGE value="lisää  controller test" />
@@ -593,7 +686,19 @@
     <MESSAGE value="HotelliController test valmis" />
     <MESSAGE value="HuoneController test valmis" />
     <MESSAGE value="KäyttajaController test valmis" />
-    <option name="LAST_COMMIT_MESSAGE" value="KäyttajaController test valmis" />
+    <MESSAGE value="huoneController test valmis" />
+    <MESSAGE value="siistiminen" />
+    <MESSAGE value="pos päivitä sposti by id" />
+    <MESSAGE value="lisää homeController" />
+    <MESSAGE value="koodin siistiminen" />
+    <MESSAGE value="kayttajaComtroller test valmis" />
+    <MESSAGE value="pois update email by id" />
+    <MESSAGE value="lisää logInController" />
+    <MESSAGE value="lisää test" />
+    <MESSAGE value="lisaa lasku update" />
+    <MESSAGE value="laskuController test" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -607,15 +712,19 @@
           <line>37</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/src/test/java/controller/HotelliControllerTest.java</url>
-          <line>18</line>
-          <option name="timeStamp" value="31" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/OhtuProjekti_anna$HotelliControllerTest.ic" NAME="HotelliControllerTest Coverage Results" MODIFIED="1727549110690" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>controller.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/OhtuProjekti_anna$LaskuControllerTest_testAddLasku.ic" NAME="LaskuControllerTest.testAddLasku Coverage Results" MODIFIED="1727548465284" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>controller.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/OhtuProjekti_anna$LaskuControllerTest.ic" NAME="LaskuControllerTest Coverage Results" MODIFIED="1727548652342" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>controller.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/OhtuProjekti_anna$AsiakasControllerTest.ic" NAME="AsiakasControllerTest Coverage Results" MODIFIED="1727534074408" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>controller.*</FILTER>
     </SUITE>

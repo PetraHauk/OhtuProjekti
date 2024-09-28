@@ -30,11 +30,11 @@ public class AnnaMain {
         //VarausHaku varausHaku = new VarausHaku();
        // varausHaku.start();
 
-        //LaskuHaku laskuHaku = new LaskuHaku();
-        //laskuHaku.start();
+        LaskuHaku laskuHaku = new LaskuHaku();
+        laskuHaku.start();
 
-        AsiakasHaku asiakasHaku = new AsiakasHaku();
-        asiakasHaku.start();
+        //AsiakasHaku asiakasHaku = new AsiakasHaku();
+        //asiakasHaku.start();
 
     }
 }
