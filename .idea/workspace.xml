@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="check out välilehti: lasku hake, tulosta ikkuna valmis">
+    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="Aasiakas välilehti: siakaan taulukko ja lisaa asiakasta">
       <change beforePath="$PROJECT_DIR$/src/main/java/app/OhjelmistoGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/OhjelmistoGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/VarausDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/DAO/VarausDAO.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -213,7 +212,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727477926082</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Aasiakas välilehti: siakaan taulukko ja lisaa asiakasta">
+      <option name="closed" value="true" />
+      <created>1727486209887</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1727486209887</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -236,7 +243,8 @@
     <MESSAGE value="yhdistetty wilman ja kaislan judut" />
     <MESSAGE value="Merge valmis, tyylit lisätty login ja rekisteröinti, häshäys toimii" />
     <MESSAGE value="check out välilehti: lasku hake, tulosta ikkuna valmis" />
-    <option name="LAST_COMMIT_MESSAGE" value="check out välilehti: lasku hake, tulosta ikkuna valmis" />
+    <MESSAGE value="Aasiakas välilehti: siakaan taulukko ja lisaa asiakasta" />
+    <option name="LAST_COMMIT_MESSAGE" value="Aasiakas välilehti: siakaan taulukko ja lisaa asiakasta" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
