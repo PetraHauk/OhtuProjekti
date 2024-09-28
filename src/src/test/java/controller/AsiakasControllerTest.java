@@ -9,8 +9,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class AsiakasControllerTest {
     AsiakasController asiakasController = new AsiakasController();
-
-
     @Test
 
     public void testAddAsiakas() {
