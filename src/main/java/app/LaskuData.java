@@ -11,7 +11,7 @@ public class LaskuData {
     private final String etunimi;
     private final String sukunimi;
     private final String huoneTyyppi;
-    private final String maksuStatus;
+    private String maksuStatus;
     private final String varausMuoto;
     private final String valuutta;
     private final LocalDate alkuPvm;
@@ -66,6 +66,10 @@ public class LaskuData {
 
     public String getMaksuStatus() {
         return maksuStatus;
+    }
+
+    public void SetMaksuStatus(String maksuStatus) {
+        this.maksuStatus = maksuStatus;
     }
 
     public String getVarausMuoto() {

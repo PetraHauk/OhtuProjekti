@@ -551,6 +551,9 @@ public class OhjelmistoGUI extends Application {
             }
             for (LaskuData laskuData : laskuTable.getItems()) {
                 laskuController.updateMaksuStatusById(laskuData.getLaskuId(), "Maksettu");
+                laskuData.SetMaksuStatus("Maksettu");
+                //refresh table
+                laskuTable.refresh();
             }
 
             // Maksaa laskut
