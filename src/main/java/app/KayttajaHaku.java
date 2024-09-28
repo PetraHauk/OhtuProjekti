@@ -42,7 +42,7 @@ public class KayttajaHaku {
                     String rooli = scanner.nextLine();
                     System.out.println("Anna salasana:");
                     String salasana = scanner.nextLine();
-                    controller.lisaaKayttaja(etunimi, sukunimi, sposti, puh, rooli, salasana);
+                    //controller.lisaaKayttaja(etunimi, sukunimi, sposti, puh, rooli, salasana);
 
                     break;
 

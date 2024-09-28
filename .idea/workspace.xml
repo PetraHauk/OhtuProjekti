@@ -4,19 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="065e434f-b050-4145-bce8-5768651a9a60" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/LoginGui.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/RegistrationGui.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/UserSession.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/login.css" afterDir="false" />
+    <list default="true" id="065e434f-b050-4145-bce8-5768651a9a60" name="Changes" comment="kirjautuu ja registeriointi">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/CheckOut.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/Gui2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/LaskuData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/LaskuData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/KayttajaHaku.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/KayttajaHaku.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/OhjelmistoGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/OhjelmistoGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/KayttajaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/KayttajaDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/enteties/Lasku.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enteties/Lasku.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/KayttajaDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/DAO/KayttajaDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/KayttajaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/KayttajaController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +67,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "anna-2",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/anna/IdeaProjects/OhtuProjekti-anna/src/main/resources",
+    "last_opened_file_path": "/Users/anna/IdeaProjects/OhtuProjekti-anna/src/main/java",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -99,6 +91,7 @@
       <recent name="model.enteties" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -168,7 +161,7 @@
       <workItem from="1727009300569" duration="46750000" />
       <workItem from="1727162462501" duration="1822000" />
       <workItem from="1727298514353" duration="8000" />
-      <workItem from="1727298960975" duration="55108000" />
+      <workItem from="1727298960975" duration="61090000" />
     </task>
     <task id="LOCAL-00001" summary="päivistys">
       <option name="closed" value="true" />
@@ -386,7 +379,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727466230448</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="kirjautuu ja registeriointi">
+      <option name="closed" value="true" />
+      <created>1727480410886</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1727480410886</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -412,7 +413,8 @@
     <MESSAGE value="Exchange Rate API toimi" />
     <MESSAGE value="lisää huoneTyyppi" />
     <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value="kirjautuu ja registeriointi" />
+    <option name="LAST_COMMIT_MESSAGE" value="kirjautuu ja registeriointi" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -423,7 +425,7 @@
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/app/OhjelmistoGUI.java</url>
-          <line>35</line>
+          <line>37</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>
