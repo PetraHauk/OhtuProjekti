@@ -18,6 +18,7 @@ import java.util.List;
 
 import model.enteties.*;
 import controller.*;
+import org.w3c.dom.css.CSS2Properties;
 
 public class OhjelmistoGUI extends Application {
 
@@ -26,6 +27,7 @@ public class OhjelmistoGUI extends Application {
     private VarausController varausController;
     private LaskuController laskuController;
     private HotelliController hotelliController;
+    private KayttajaController kayttajaController;
 
     @Override
     public void start(Stage primaryStage) {
@@ -203,9 +205,115 @@ public class OhjelmistoGUI extends Application {
         asiakkaatInfo.getStyleClass().add("info");
         Label asiakkaatOtsikkoLabel = new Label("Asiakkaat");
         asiakkaatOtsikkoLabel.getStyleClass().add("otsikko");
+        Button addCustomerButton = new Button("Lisää uusi asiakas");
+
+        addCustomerButton.setOnAction(e -> openAddCustomerWindow());
+
         TableView<Asiakas> customerTable = createCustomerTable();
-        asiakkaatInfo.getChildren().addAll(asiakkaatOtsikkoLabel, customerTable);
+        populateCustomerTable(customerTable);
+        asiakkaatInfo.getChildren().addAll(asiakkaatOtsikkoLabel, customerTable, addCustomerButton);
         return asiakkaatInfo;
+    }
+
+    private void openAddCustomerWindow() {
+        Stage addCustomerStage = new Stage();
+        addCustomerStage.setTitle("Lisää uusi asiakas");
+
+        // Pääasettelu, joka jakaa ikkunan osiin (yläosa, keskiosa, alaosa)
+        BorderPane borderPane = new BorderPane();
+
+        // Lomakkeen kenttien asettelu pystysuoraan (VBox)
+        VBox formLayout = new VBox(10);
+        formLayout.setAlignment(Pos.CENTER_LEFT); // Keskitetään vasemmalle
+        formLayout.setPadding(new Insets(20)); // Asetetaan täyte
+
+        // Kenttien ja tekstikenttien luonti
+        Label firstNameLabel = new Label("Etunimi:");
+        TextField firstNameField = new TextField();
+
+        Label lastNameLabel = new Label("Sukunimi:");
+        TextField lastNameField = new TextField();
+
+        Label emailLabel = new Label("Sähköposti:");
+        TextField emailField = new TextField();
+
+        Label phoneLabel = new Label("Puhelin:");
+        TextField phoneField = new TextField();
+
+        Label henkiloMaaraLabel = new Label("Henkilömäärä:");
+        TextField henkiloMaaraField = new TextField();
+
+        Label huomioLabel = new Label("Huomio:");
+        TextField huomioField = new TextField();
+
+        // Lisätään kentät lomakkeeseen (VBox)
+        formLayout.getChildren().addAll(
+                firstNameLabel, firstNameField,
+                lastNameLabel, lastNameField,
+                emailLabel, emailField,
+                phoneLabel, phoneField,
+                henkiloMaaraLabel, henkiloMaaraField,
+                huomioLabel, huomioField
+        );
+
+        Button saveButton = new Button("Lisää uusi asiakas");
+
+        // Toiminnallisuus napille
+        saveButton.setOnAction(e -> {
+            asiakasController.addAsiakas(
+                    firstNameField.getText(),
+                    lastNameField.getText(),
+                    emailField.getText(),
+                    phoneField.getText(),
+                    Integer.parseInt(henkiloMaaraField.getText()), // Muunnetaan teksti kokonaisluvuksi
+                    huomioField.getText());
+        });
+
+        // Asetetaan lomake BorderPane:n keskelle
+        borderPane.setCenter(formLayout);
+
+        // Asetetaan painike BorderPane:n alaosaan ja lisätään täyte nappulan yläpuolelle
+        BorderPane.setMargin(saveButton, new Insets(10, 10, 20, 10)); // Marginaalit
+        borderPane.setBottom(saveButton);
+        BorderPane.setAlignment(saveButton, Pos.CENTER); // Keskitetään nappi alaosaan
+
+        // Luodaan ja näytetään käyttöliittymän näkymä (Scene)
+        Scene scene = new Scene(borderPane, 400, 460);
+        addCustomerStage.setScene(scene);
+        addCustomerStage.show();
+    }
+
+    // Populate the customer table. Runs it in a thread and shows loading indicator.
+    private void populateCustomerTable(TableView<Asiakas> customerTable) {
+        ProgressIndicator loadingIndicator = new ProgressIndicator();
+        loadingIndicator.setVisible(true);
+        customerTable.getItems().clear();
+        customerTable.setPlaceholder(loadingIndicator);
+
+        Task<List<Asiakas>> fetchCustomersTask = new Task<>() {
+            @Override
+            protected List<Asiakas> call() throws Exception {
+                return asiakasController.findAllAsiakkaat();
+            }
+        };
+
+        fetchCustomersTask.setOnSucceeded(event -> {
+            List<Asiakas> customers = fetchCustomersTask.getValue();
+            if (customers != null && !customers.isEmpty()) {
+                customerTable.getItems().setAll(customers);
+            } else {
+                customerTable.setPlaceholder(new Label("No customers found"));
+            }
+            loadingIndicator.setVisible(false);
+        });
+
+        fetchCustomersTask.setOnFailed(event -> {
+            customerTable.setPlaceholder(new Label("Failed to load customer data"));
+            System.err.println("Failed to fetch customers: " + fetchCustomersTask.getException());
+            loadingIndicator.setVisible(false);
+        });
+
+        new Thread(fetchCustomersTask).start();
     }
 
     // Creates the content for Check-in
@@ -334,14 +442,14 @@ public class OhjelmistoGUI extends Application {
         VBox etunimiInfo = new VBox(5);
         Label asiakasEtunimiLabel = new Label("Asiakkaan etunimi:");
         TextField asiakasEtunimiInput = new TextField();
-        asiakasEtunimiInput.setPromptText("Syötä asiakkaan etunimi");
+        asiakasEtunimiInput.setPromptText("Syötä etunimi");
         etunimiInfo.getChildren().addAll(asiakasEtunimiLabel, asiakasEtunimiInput);
 
         // Customer last name input
         VBox sukunimiInfo = new VBox(5);
         Label asiakasSukunimiLabel = new Label("Asiakkaan sukunimi:");
         TextField asiakasSukunimiInput = new TextField();
-        asiakasSukunimiInput.setPromptText("Syötä asiakkaan sukunimi");
+        asiakasSukunimiInput.setPromptText("Syötä sukunimi");
         sukunimiInfo.getChildren().addAll(asiakasSukunimiLabel, asiakasSukunimiInput);
 
         Button haeLaskutButton = new Button("Hae laskut");
@@ -668,6 +776,9 @@ public class OhjelmistoGUI extends Application {
     // Method to create the Customer table view
     private TableView<Asiakas> createCustomerTable() {
         TableView<Asiakas> customerTable = new TableView<>();
+        // Set the width of the table
+        customerTable.setPrefWidth(800);
+        customerTable.setPrefHeight(400);
 
         TableColumn<Asiakas, Integer> idColumn = new TableColumn<>("Asiakas ID");
         idColumn.setCellValueFactory(new PropertyValueFactory<>("asiakasId"));
@@ -680,15 +791,20 @@ public class OhjelmistoGUI extends Application {
 
         TableColumn<Asiakas, String> emailColumn = new TableColumn<>("Sähköposti");
         emailColumn.setCellValueFactory(new PropertyValueFactory<>("sposti"));
+        emailColumn.setMinWidth(150);
 
         TableColumn<Asiakas, String> phoneColumn = new TableColumn<>("Puhelin");
         phoneColumn.setCellValueFactory(new PropertyValueFactory<>("puh"));
+        phoneColumn.setMinWidth(100);
 
-        customerTable.getColumns().add(idColumn);
-        customerTable.getColumns().add(firstNameColumn);
-        customerTable.getColumns().add(lastNameColumn);
-        customerTable.getColumns().add(emailColumn);
-        customerTable.getColumns().add(phoneColumn);
+        TableColumn<Asiakas, Integer> henkiloMaara = new TableColumn<>("Henkilömäärä");
+        henkiloMaara.setCellValueFactory(new PropertyValueFactory<>("henkiloMaara"));
+
+        TableColumn<Asiakas, String> huomio = new TableColumn<>("Huomio");
+        huomio.setCellValueFactory(new PropertyValueFactory<>("huomio"));
+        huomio.setMinWidth(230);
+
+        customerTable.getColumns().addAll(idColumn, firstNameColumn, lastNameColumn, emailColumn, phoneColumn, henkiloMaara, huomio);
 
         return customerTable;
     }
