@@ -2,9 +2,7 @@ package controller;
 
 import model.enteties.Asiakas;
 import org.junit.Test;
-
 import java.util.List;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -120,6 +118,7 @@ public class AsiakasControllerTest {
     @Test
     public void testFindAllAsiakkaat() {
         List<Asiakas> asiakasLista = asiakasController.findAllAsiakkaat();
+        assertFalse(asiakasLista.isEmpty());
         assertEquals(5, asiakasLista.size());
     }
 
