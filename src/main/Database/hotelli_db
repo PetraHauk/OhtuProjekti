@@ -54,7 +54,6 @@ CREATE TABLE lasku (
 
 CREATE TABLE huone_varaus (
     varaus_id INT PRIMARY KEY AUTO_INCREMENT,
-    huone_maara INT NOT NULL,
     alku_pvm DATE NOT NULL,
     loppu_pvm DATE NOT NULL,
     huone_id INT,
@@ -115,6 +114,6 @@ VALUES ('maksettu', 'all_inslusive', 'USD', 2);
 
 
 //huone_varaus
-INSERT INTO `huone_varaus` (`huone_maara`, `alku_pvm`, `loppu_pvm`, `huone_id`, `lasku_id`)
-VALUES (1, '2024-08-12', '2024-08-15', 1, 1);
+INSERT INTO `huone_varaus` (`alku_pvm`, `loppu_pvm`, `huone_id`, `lasku_id`)
+VALUES ('2024-08-12', '2024-08-15', 1, 1);
 
