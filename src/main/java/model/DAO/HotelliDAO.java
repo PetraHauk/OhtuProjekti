@@ -14,10 +14,9 @@ public class HotelliDAO {
     public Hotelli findById(int id) {
         EntityManager em = MariaDbConnection.getInstance();
         try {
-            em.getTransaction().begin();
-            Hotelli hoteli =  em.find(Hotelli.class, id);
-            if(hoteli != null) {
-                return hoteli;
+            Hotelli hotelli = em.find(Hotelli.class, id);
+            if (hotelli != null) {
+                return hotelli;
             }
         } finally {
             if (em != null) {
