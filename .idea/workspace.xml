@@ -4,11 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="065e434f-b050-4145-bce8-5768651a9a60" name="Changes" comment="kirjautuu ja registeriointi">
+    <list default="true" id="065e434f-b050-4145-bce8-5768651a9a60" name="Changes" comment="aasiakas välilehti: siakaan taulukko ja lisaa asiakasta">
+      <change afterPath="$PROJECT_DIR$/src/src/test/java/controller/AsiakasControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/KayttajaHaku.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/KayttajaHaku.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/AnnaMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/AnnaMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/OhjelmistoGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/OhjelmistoGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/KayttajaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/KayttajaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/AsiakasController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/AsiakasController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/AsiakasDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/AsiakasDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/app/KayttajaHaku.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/app/KayttajaHaku.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/KayttajaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/controller/KayttajaController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/AsiakasDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/DAO/AsiakasDAO.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +26,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -61,10 +68,19 @@
     "Application.Main.executor": "Run",
     "Application.WilmaMain.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.AsiakasControllerTest.findByEmail.executor": "Run",
+    "JUnit.AsiakasControllerTest.findByLaskuId.executor": "Run",
+    "JUnit.AsiakasControllerTest.findByNimet.executor": "Run",
+    "JUnit.AsiakasControllerTest.poistaAsiakasById.executor": "Run",
+    "JUnit.AsiakasControllerTest.testAddAsiakas.executor": "Run",
+    "JUnit.AsiakasControllerTest.testFindAllAsiakkaat.executor": "Run",
+    "JUnit.AsiakasControllerTest.updateAsiakasTiedot.executor": "Run",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "git-widget-placeholder": "anna-2",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/anna/IdeaProjects/OhtuProjekti-anna/src/main/java",
@@ -97,41 +113,104 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="controller" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="app" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.WilmaMain">
-    <configuration name="AnnaMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="app.AnnaMain" />
+  <component name="RunManager" selected="JUnit.AsiakasControllerTest.testFindAllAsiakkaat">
+    <configuration name="AsiakasControllerTest.findByEmail" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gui" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="app.*" />
+          <option name="PATTERN" value="controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="controller" />
+      <option name="MAIN_CLASS_NAME" value="controller.AsiakasControllerTest" />
+      <option name="METHOD_NAME" value="findByEmail" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WilmaMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="app.WilmaMain" />
+    <configuration name="AsiakasControllerTest.findByNimet" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gui" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="app.*" />
+          <option name="PATTERN" value="controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="controller" />
+      <option name="MAIN_CLASS_NAME" value="controller.AsiakasControllerTest" />
+      <option name="METHOD_NAME" value="findByNimet" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AsiakasControllerTest.poistaAsiakasById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gui" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="controller" />
+      <option name="MAIN_CLASS_NAME" value="controller.AsiakasControllerTest" />
+      <option name="METHOD_NAME" value="poistaAsiakasById" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AsiakasControllerTest.testFindAllAsiakkaat" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gui" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="controller" />
+      <option name="MAIN_CLASS_NAME" value="controller.AsiakasControllerTest" />
+      <option name="METHOD_NAME" value="testFindAllAsiakkaat" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AsiakasControllerTest.updateAsiakasTiedot" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gui" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="controller" />
+      <option name="MAIN_CLASS_NAME" value="controller.AsiakasControllerTest" />
+      <option name="METHOD_NAME" value="updateAsiakasTiedot" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.WilmaMain" />
-        <item itemvalue="Application.AnnaMain" />
+        <item itemvalue="JUnit.AsiakasControllerTest.testFindAllAsiakkaat" />
+        <item itemvalue="JUnit.AsiakasControllerTest.poistaAsiakasById" />
+        <item itemvalue="JUnit.AsiakasControllerTest.updateAsiakasTiedot" />
+        <item itemvalue="JUnit.AsiakasControllerTest.findByNimet" />
+        <item itemvalue="JUnit.AsiakasControllerTest.findByEmail" />
       </list>
     </recent_temporary>
   </component>
@@ -161,7 +240,7 @@
       <workItem from="1727009300569" duration="46750000" />
       <workItem from="1727162462501" duration="1822000" />
       <workItem from="1727298514353" duration="8000" />
-      <workItem from="1727298960975" duration="61090000" />
+      <workItem from="1727298960975" duration="68986000" />
     </task>
     <task id="LOCAL-00001" summary="päivistys">
       <option name="closed" value="true" />
@@ -387,7 +466,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727480410886</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="aasiakas välilehti: siakaan taulukko ja lisaa asiakasta">
+      <option name="closed" value="true" />
+      <created>1727486100710</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1727486100710</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -414,7 +501,8 @@
     <MESSAGE value="lisää huoneTyyppi" />
     <MESSAGE value="update" />
     <MESSAGE value="kirjautuu ja registeriointi" />
-    <option name="LAST_COMMIT_MESSAGE" value="kirjautuu ja registeriointi" />
+    <MESSAGE value="aasiakas välilehti: siakaan taulukko ja lisaa asiakasta" />
+    <option name="LAST_COMMIT_MESSAGE" value="aasiakas välilehti: siakaan taulukko ja lisaa asiakasta" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

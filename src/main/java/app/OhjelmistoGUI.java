@@ -777,11 +777,12 @@ public class OhjelmistoGUI extends Application {
     private TableView<Asiakas> createCustomerTable() {
         TableView<Asiakas> customerTable = new TableView<>();
         // Set the width of the table
-        customerTable.setPrefWidth(800);
+        customerTable.setPrefWidth(950);
         customerTable.setPrefHeight(400);
 
         TableColumn<Asiakas, Integer> idColumn = new TableColumn<>("Asiakas ID");
         idColumn.setCellValueFactory(new PropertyValueFactory<>("asiakasId"));
+
 
         TableColumn<Asiakas, String> firstNameColumn = new TableColumn<>("Etunimi");
         firstNameColumn.setCellValueFactory(new PropertyValueFactory<>("etunimi"));
@@ -804,9 +805,139 @@ public class OhjelmistoGUI extends Application {
         huomio.setCellValueFactory(new PropertyValueFactory<>("huomio"));
         huomio.setMinWidth(230);
 
-        customerTable.getColumns().addAll(idColumn, firstNameColumn, lastNameColumn, emailColumn, phoneColumn, henkiloMaara, huomio);
+        // Create the "Actions" column for edit/delete
+        TableColumn<Asiakas, Void> actionColumn = new TableColumn<>("Toiminnot");
+
+        actionColumn.setCellFactory(param -> new TableCell<>() {
+            private final Button editButton = new Button("Muokkaa");
+            private final Button deleteButton = new Button("Poista");
+            private final HBox actionButtons = new HBox(editButton, deleteButton);
+
+            {
+                actionButtons.setSpacing(10);
+                actionButtons.setAlignment(Pos.CENTER);
+
+                // Muokkaa-painikeen toiminnallisuus
+                editButton.setOnAction(event -> {
+                    Asiakas asiakas = getTableView().getItems().get(getIndex());
+                    openMuokkaaAsiakasWindow(asiakas, getTableView()); // Välitetään taulukko muokkausikkunaan
+                });
+
+
+                // Poista-painikeen toiminnallisuus
+                deleteButton.setOnAction(event -> {
+                    Asiakas asiakas = getTableView().getItems().get(getIndex());
+                    poistaAsiakas(asiakas);
+                    getTableView().getItems().remove(asiakas); // Poistetaan asiakas listasta
+                });
+            }
+
+            @Override
+            protected void updateItem(Void item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty) {
+                    setGraphic(null);
+                } else {
+                    setGraphic(actionButtons);
+                }
+            }
+        });
+
+        actionColumn.setMinWidth(150);
+
+        customerTable.getColumns().addAll(idColumn, firstNameColumn, lastNameColumn, emailColumn, phoneColumn, henkiloMaara, huomio, actionColumn);
 
         return customerTable;
+    }
+
+    private void openMuokkaaAsiakasWindow(Asiakas asiakas, TableView<Asiakas> customerTable) {
+        Stage muokkaaAsiakasStage = new Stage();
+        muokkaaAsiakasStage.setTitle("Muokkaa asiakasta");
+
+        // Pääasettelu, joka jakaa ikkunan osiin (yläosa, keskiosa, alaosa)
+        BorderPane borderPane = new BorderPane();
+
+        // Lomakkeen kenttien asettelu pystysuoraan (VBox)
+        VBox formLayout = new VBox(10);
+        formLayout.setAlignment(Pos.CENTER_LEFT); // Keskitetään vasemmalle
+        formLayout.setPadding(new Insets(20)); // Asetetaan täyte
+
+        // Kenttien ja tekstikenttien luonti
+        Label firstNameLabel = new Label("Etunimi:");
+        TextField firstNameField = new TextField();
+        firstNameField.setText(asiakas.getEtunimi());
+
+        Label lastNameLabel = new Label("Sukunimi:");
+        TextField lastNameField = new TextField();
+        lastNameField.setText(asiakas.getSukunimi());
+
+        Label emailLabel = new Label("Sähköposti:");
+        TextField emailField = new TextField();
+        emailField.setText(asiakas.getSposti());
+
+        Label phoneLabel = new Label("Puhelin:");
+        TextField phoneField = new TextField();
+        phoneField.setText(asiakas.getPuh());
+
+        Label henkiloMaaraLabel = new Label("Henkilömäärä:");
+        TextField henkiloMaaraField = new TextField();
+        henkiloMaaraField.setText(String.valueOf(asiakas.getHenkiloMaara()));
+
+        Label huomioLabel = new Label("Huomio:");
+        TextField huomioField = new TextField();
+        huomioField.setText(asiakas.getHuomio());
+
+        // Lisätään kentät lomakkeeseen (VBox)
+        formLayout.getChildren().addAll(
+                firstNameLabel, firstNameField,
+                lastNameLabel, lastNameField,
+                emailLabel, emailField,
+                phoneLabel, phoneField,
+                henkiloMaaraLabel, henkiloMaaraField,
+                huomioLabel, huomioField
+        );
+
+        Button saveButton = new Button("Tallenna muutokset");
+        Button cancelButton = new Button("Peruuta");
+
+        // HBox save and cancel buttons
+        HBox buttonBox = new HBox(10, saveButton, cancelButton);
+        buttonBox.setAlignment(Pos.CENTER);
+
+        // Toiminnallisuus napille
+        saveButton.setOnAction(e -> {
+            // Päivitetään asiakastiedot
+            asiakasController.paivitaAsiakas(
+                    asiakas.getAsiakasId(),
+                    firstNameField.getText(),
+                    lastNameField.getText(),
+                    emailField.getText(),
+                    phoneField.getText(),
+                    Integer.parseInt(henkiloMaaraField.getText()), // Muunnetaan teksti kokonaisluvuksi
+                    huomioField.getText()
+            );
+
+            // Päivitetään taulukko
+            populateCustomerTable(customerTable);
+            muokkaaAsiakasStage.close();
+        });
+
+        cancelButton.setOnAction(e -> muokkaaAsiakasStage.close());
+
+        // Asetetaan lomake ja painikkeet BorderPaneen
+        borderPane.setCenter(formLayout);
+        borderPane.setBottom(buttonBox);
+        BorderPane.setMargin(buttonBox, new Insets(10)); // Marginaali nappeihin
+
+        // Aseta BorderPane kohtaukseksi ja näytä ikkuna
+        Scene scene = new Scene(borderPane, 400, 500);
+        muokkaaAsiakasStage.setScene(scene);
+        muokkaaAsiakasStage.show(); // Tämä avaa muokkausikkunan
+    }
+
+    private void poistaAsiakas(Asiakas asiakas) {
+        asiakasController.poistaAsiakas(asiakas.getAsiakasId());
+
     }
 
     // Button Actions
