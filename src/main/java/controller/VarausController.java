@@ -22,8 +22,8 @@ public class VarausController {
         return varaukset;
     }
 
-    public void findByVarausId(int varaus_id) {
-        varausDAO.haeByVarausId(varaus_id);
+    public Varaus findByVarausId(int varaus_id) {
+        return varausDAO.haeByVarausId(varaus_id);
     }
 
     public List<Varaus> findByLaskuId (int lasku_id) {
