@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="065e434f-b050-4145-bce8-5768651a9a60" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/src/src/test/java/controller/VarausControllerTest.java" afterDir="false" />
+    <list default="true" id="065e434f-b050-4145-bce8-5768651a9a60" name="Changes" comment="huoneMaara pois huonevaraus taulukosta">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/aa989b5b-8fef-408c-b7b9-47f367b75a5e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/aa989b5b-8fef-408c-b7b9-47f367b75a5e.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/AnnaMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/AnnaMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/VarausController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/VarausController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/VarausHaku.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/VarausHaku.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/VarausDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/VarausDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/VarausDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/DAO/VarausDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/enteties/Varaus.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/enteties/Varaus.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,35 +157,16 @@
       <recent name="app" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.VarausControllerTest.testUpdateVarausById">
-    <configuration name="HotelliControllerTest.testAddHotelli" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.VarausControllerTest.testFindAllVaraukset">
+    <configuration name="WilmaMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="app.WilmaMain" />
       <module name="gui" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="controller.*" />
+          <option name="PATTERN" value="app.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="controller" />
-      <option name="MAIN_CLASS_NAME" value="controller.HotelliControllerTest" />
-      <option name="METHOD_NAME" value="testAddHotelli" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="VarausControllerTest.TestFindByVarausId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gui" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="controller" />
-      <option name="MAIN_CLASS_NAME" value="controller.VarausControllerTest" />
-      <option name="METHOD_NAME" value="TestFindByVarausId" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -204,7 +187,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="VarausControllerTest.testFindByLaskuId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="VarausControllerTest.testFindAllVaraukset" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gui" />
       <extension name="coverage">
         <pattern>
@@ -214,7 +197,23 @@
       </extension>
       <option name="PACKAGE_NAME" value="controller" />
       <option name="MAIN_CLASS_NAME" value="controller.VarausControllerTest" />
-      <option name="METHOD_NAME" value="testFindByLaskuId" />
+      <option name="METHOD_NAME" value="testFindAllVaraukset" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VarausControllerTest.testRemoveVarausById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gui" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="controller" />
+      <option name="MAIN_CLASS_NAME" value="controller.VarausControllerTest" />
+      <option name="METHOD_NAME" value="testRemoveVarausById" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -238,11 +237,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.VarausControllerTest.testFindAllVaraukset" />
+        <item itemvalue="JUnit.VarausControllerTest.testRemoveVarausById" />
         <item itemvalue="JUnit.VarausControllerTest.testUpdateVarausById" />
         <item itemvalue="JUnit.VarausControllerTest.testAddVaraus" />
-        <item itemvalue="JUnit.VarausControllerTest.testFindByLaskuId" />
-        <item itemvalue="JUnit.VarausControllerTest.TestFindByVarausId" />
-        <item itemvalue="JUnit.HotelliControllerTest.testAddHotelli" />
+        <item itemvalue="Application.WilmaMain" />
       </list>
     </recent_temporary>
   </component>
@@ -272,15 +271,7 @@
       <workItem from="1727009300569" duration="46750000" />
       <workItem from="1727162462501" duration="1822000" />
       <workItem from="1727298514353" duration="8000" />
-      <workItem from="1727298960975" duration="89879000" />
-    </task>
-    <task id="LOCAL-00003" summary="päivistys">
-      <option name="closed" value="true" />
-      <created>1725619801233</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1725619801233</updated>
+      <workItem from="1727298960975" duration="92467000" />
     </task>
     <task id="LOCAL-00004" summary="kieli virheitä korjaus">
       <option name="closed" value="true" />
@@ -666,14 +657,21 @@
       <option name="project" value="LOCAL" />
       <updated>1727549974411</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="huoneMaara pois huonevaraus taulukosta">
+      <option name="closed" value="true" />
+      <created>1727553374007</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1727553374007</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="varaus palautus korjaus" />
     <MESSAGE value="checkout toimi" />
     <MESSAGE value="Exchange Rate API toimi" />
     <MESSAGE value="lisää huoneTyyppi" />
@@ -698,7 +696,8 @@
     <MESSAGE value="lisaa lasku update" />
     <MESSAGE value="laskuController test" />
     <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value="huoneMaara pois huonevaraus taulukosta" />
+    <option name="LAST_COMMIT_MESSAGE" value="huoneMaara pois huonevaraus taulukosta" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

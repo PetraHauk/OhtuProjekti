@@ -99,7 +99,7 @@ public class VarausHaku {
                     System.out.println("Anna varauksen ID:");
                     int idPoisto = scanner.nextInt();
                     scanner.nextLine();
-                    controller.RemoveVaraus(idPoisto);
+                    controller.removeVarausById(idPoisto);
                     break;
 
                 case 6:
@@ -117,7 +117,6 @@ public class VarausHaku {
     private void printVaraus(Varaus varaus) {
         if (varaus != null) {
             System.out.println("Varaus ID: " + varaus.getVarausId());
-            System.out.println("Huoneen määrä: " + varaus.getHuoneMaara());
             System.out.println("Alkupäivämäärä: " + varaus.getAlkuPvm());
             System.out.println("Loppupäivämäärä: " + varaus.getLoppuPvm());
             System.out.println("Huone ID: " + varaus.getHuoneId());

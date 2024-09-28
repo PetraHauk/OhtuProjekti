@@ -70,7 +70,6 @@ public class VarausDAO {
         em.getTransaction().begin();
         Varaus varaus = em.find(Varaus.class, varaus_id);
         if (varaus != null) {
-            varaus.setHuoneMaara();
             varaus.setAlkuPvm(LocalDate.now());
             varaus.setLoppuPvm(LocalDate.now());
         } else {

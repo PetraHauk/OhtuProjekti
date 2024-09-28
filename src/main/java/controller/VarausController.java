@@ -33,7 +33,7 @@ public class VarausController {
     public void updateVarausById(int varaus_id, LocalDate alkuPvm, LocalDate loppuPvm) {
         varausDAO.paivitaVarausById(varaus_id, alkuPvm, loppuPvm);
     }
-    public void RemoveVaraus(int id) {
+    public void removeVarausById(int id) {
         varausDAO.removeById(id);
 
     }
