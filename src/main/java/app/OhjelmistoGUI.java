@@ -468,7 +468,7 @@ public class OhjelmistoGUI extends Application {
         haeLaskutButton.setOnAction(e -> {
             laskuTable.getItems().clear();
 
-            List<Asiakas> asiakkaat = asiakasController.findIdByNimet(asiakasEtunimiInput.getText(), asiakasSukunimiInput.getText());
+            List<Asiakas> asiakkaat = asiakasController.findByNimet(asiakasEtunimiInput.getText(), asiakasSukunimiInput.getText());
             if (asiakkaat == null || asiakkaat.isEmpty()) {
                 showAlert("Virhe", "Asiakkaan nimellä ei löytynyt asiakkaita.");
                 return;
