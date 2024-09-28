@@ -53,29 +53,6 @@ public class KayttajaDAO {
         }
     }
 
-    public void updateEmailById(int id, String sposti) {
-        EntityManager em = MariaDbConnection.getInstance();
-        try {
-            em.getTransaction().begin();
-            Kayttaja kayttaja = em.find(Kayttaja.class, id);
-            if (kayttaja != null) {
-                kayttaja.setSposti(sposti);
-                System.out.println("Käyttäjän tiedot päivitetty onnistuneesti!");
-                em.getTransaction().commit();
-            } else {
-                System.out.println("Kayttajaa ei löytynyt ID:llä: " + id);
-            }
-        } catch (Exception e) {
-            if (em.getTransaction().isActive()) {
-                em.getTransaction().rollback();
-            }
-            e.printStackTrace();
-        } finally {
-            if (em != null) {
-                em.close();
-            }
-        }
-    }
 
     public Kayttaja changePasswordByEmail(String sposti, String newPassword) {
         EntityManager em = MariaDbConnection.getInstance();
