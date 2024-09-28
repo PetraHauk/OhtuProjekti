@@ -33,6 +33,9 @@ public class LaskuHaku {
                     String varaus_muoto = scanner.nextLine();
                     System.out.println("Anna valuutta:");
                     String valuutta = scanner.nextLine();
+                    System.out.println("Anna asiakas_id:");
+                    String asiakas_id = scanner.nextLine();
+
 
                     controller.addLasku(maksu_status, varaus_muoto, valuutta, 0);
                     System.out.println("lasku lisätty onnistuneesti!");
