@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="Aasiakas välilehti: siakaan taulukko ja lisaa asiakasta">
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/OhjelmistoGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/OhjelmistoGUI.java" afterDir="false" />
+    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="Aasiakas välilehti: asiakkan tietojen muokkaua ja poista asiakasta.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/app/OhjelmistoGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/app/OhjelmistoGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/AsiakasController.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/controller/AsiakasController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/AsiakasDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/DAO/AsiakasDAO.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -220,7 +223,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727486209887</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Aasiakas välilehti: asiakkan tietojen muokkaua ja poista asiakasta.">
+      <option name="closed" value="true" />
+      <created>1727513813911</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1727513813912</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -244,7 +255,8 @@
     <MESSAGE value="Merge valmis, tyylit lisätty login ja rekisteröinti, häshäys toimii" />
     <MESSAGE value="check out välilehti: lasku hake, tulosta ikkuna valmis" />
     <MESSAGE value="Aasiakas välilehti: siakaan taulukko ja lisaa asiakasta" />
-    <option name="LAST_COMMIT_MESSAGE" value="Aasiakas välilehti: siakaan taulukko ja lisaa asiakasta" />
+    <MESSAGE value="Aasiakas välilehti: asiakkan tietojen muokkaua ja poista asiakasta." />
+    <option name="LAST_COMMIT_MESSAGE" value="Aasiakas välilehti: asiakkan tietojen muokkaua ja poista asiakasta." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -468,7 +468,7 @@ public class OhjelmistoGUI extends Application {
         haeLaskutButton.setOnAction(e -> {
             laskuTable.getItems().clear();
 
-            List<Asiakas> asiakkaat = asiakasController.findByNimet(asiakasEtunimiInput.getText(), asiakasSukunimiInput.getText());
+            List<Asiakas> asiakkaat = asiakasController.findIdByNimet(asiakasEtunimiInput.getText(), asiakasSukunimiInput.getText());
             if (asiakkaat == null || asiakkaat.isEmpty()) {
                 showAlert("Virhe", "Asiakkaan nimellä ei löytynyt asiakkaita.");
                 return;
@@ -551,6 +551,9 @@ public class OhjelmistoGUI extends Application {
             }
             for (LaskuData laskuData : laskuTable.getItems()) {
                 laskuController.updateMaksuStatusById(laskuData.getLaskuId(), "Maksettu");
+                laskuData.SetMaksuStatus("Maksettu");
+                //refresh table
+                laskuTable.refresh();
             }
 
             // Maksaa laskut
@@ -937,6 +940,7 @@ public class OhjelmistoGUI extends Application {
 
     private void poistaAsiakas(Asiakas asiakas) {
         asiakasController.poistaAsiakas(asiakas.getAsiakasId());
+
     }
 
     // Button Actions
