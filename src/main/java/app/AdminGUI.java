@@ -73,6 +73,10 @@ public class AdminGUI extends Application {
         PasswordField passwordField = new PasswordField();
         passwordField.setPromptText("Salasana");
 
+        Button addUserButton = new Button("+");
+        addUserButton.setOnAction(e -> openAddUserDialog());
+
+
         Button updateUserButton = new Button("Päivitä käyttäjä");
         updateUserButton.setOnAction(e -> updateUserById(
                 Integer.parseInt(idField.getText()),
@@ -92,7 +96,9 @@ public class AdminGUI extends Application {
         form.setPadding(new Insets(10));
 
         // Layout
-        VBox layout = new VBox(10, userTable, form);
+        HBox topBar = new HBox(10, addUserButton);
+        topBar.setPadding(new Insets(10));
+        VBox layout = new VBox(10, topBar, userTable, form);
         layout.setPadding(new Insets(10));
 
         Scene scene = new Scene(layout, 600, 600);
@@ -121,6 +127,85 @@ public class AdminGUI extends Application {
     }
 
     // Update user information by ID
+    private void openAddUserDialog() {
+        // Create a new dialog or window for adding the user
+        Stage addUserStage = new Stage();
+        addUserStage.setTitle("Lisää uusi käyttäjä");
+
+        // Create input fields for the new user
+        TextField etunimiField = new TextField();
+        etunimiField.setPromptText("Etunimi");
+
+        TextField sukunimiField = new TextField();
+        sukunimiField.setPromptText("Sukunimi");
+
+        TextField spostiField = new TextField();
+        spostiField.setPromptText("Sähköposti");
+
+        TextField puhField = new TextField();
+        puhField.setPromptText("Puhelinnumero");
+
+        PasswordField passwordField = new PasswordField();
+        passwordField.setPromptText("Salasana");
+
+        ComboBox<String> rooliComboBox = new ComboBox<>(FXCollections.observableArrayList("1", "2", "3"));
+        rooliComboBox.setPromptText("Rooli");
+
+        Button addUserSubmitButton = new Button("Lisää käyttäjä");
+        addUserSubmitButton.setOnAction(e -> {
+            handleAddUser(etunimiField.getText(), sukunimiField.getText(), spostiField.getText(), puhField.getText(), passwordField.getText(), rooliComboBox.getValue(), addUserStage);
+        });
+
+        // Layout for the form
+        VBox addUserForm = new VBox(10, new Label("Täytä uuden käyttäjän tiedot"), etunimiField, sukunimiField, spostiField, puhField, passwordField, rooliComboBox, addUserSubmitButton);
+        addUserForm.setPadding(new Insets(20));
+
+        // Create a new scene and set it to the stage
+        Scene addUserScene = new Scene(addUserForm, 400, 400);
+        addUserStage.setScene(addUserScene);
+        addUserStage.show();
+    }
+    private void handleAddUser(String etunimi, String sukunimi, String sposti, String puh, String salasana, String rooli, Stage addUserStage) {
+        if (etunimi.isEmpty() || sukunimi.isEmpty() || sposti.isEmpty() || puh.isEmpty() || salasana.isEmpty() || rooli == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Lisääminen epäonnistui");
+            alert.setContentText("Täytä kaikki kohdat.");
+            alert.showAndWait();
+        } else if (kayttajaDAO.onkoEmailOlemassa(sposti)) {  // Check if the email already exists
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Lisääminen epäonnistui");
+            alert.setContentText("Sähköpostiosoite on jo rekisteröity.");
+            alert.showAndWait();
+        } else {
+            // Hash the password using BCrypt
+            String hashattuSalasana = BCrypt.hashpw(salasana, BCrypt.gensalt());
+
+            // Create a new Kayttaja object and set the hashed password
+            Kayttaja kayttaja = new Kayttaja();
+            kayttaja.setEtunimi(etunimi);
+            kayttaja.setSukunimi(sukunimi);
+            kayttaja.setSposti(sposti);
+            kayttaja.setPuh(puh);
+            kayttaja.setSalasana(hashattuSalasana);  // Store the hashed password
+            kayttaja.setRooli(rooli);  // Set the role
+
+            // Persist the new user to the database
+            kayttajaDAO.persist(kayttaja);
+
+            // Show a success message
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Käyttäjä lisätty");
+            alert.setContentText("Käyttäjä " + etunimi + " " + sukunimi + " on lisätty onnistuneesti!");
+            alert.showAndWait();
+
+            // Close the add user stage
+            addUserStage.close();
+
+            // Reload the user table with the new user added
+            userTable.setItems(FXCollections.observableArrayList(loadUsers()));
+        }
+    }
+
     private void updateUserById(int id, String etunimi, String sukunimi, String sposti, String puh, String rooli, String salasana) {
         kayttajaDAO.updateKayttajaById(id, etunimi, sukunimi, sposti, puh, rooli, salasana); // Use your provided method
 

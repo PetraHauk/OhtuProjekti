@@ -11,7 +11,10 @@
       <user-name>root</user-name>
       <schema-mapping>
         <introspection-scope>
-          <node kind="schema" qname="hotelli_db" />
+          <node kind="schema">
+            <name qname="@" />
+            <name qname="hotelli_db" />
+          </node>
         </introspection-scope>
       </schema-mapping>
     </data-source>

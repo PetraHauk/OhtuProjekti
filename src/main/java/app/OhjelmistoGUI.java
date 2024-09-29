@@ -20,6 +20,7 @@ import model.enteties.*;
 import controller.*;
 import org.w3c.dom.css.CSS2Properties;
 
+// Loppusumma kommentoitu pois koska punasta viivaa
 public class OhjelmistoGUI extends Application {
 
     private HuoneController huoneController;
@@ -49,6 +50,7 @@ public class OhjelmistoGUI extends Application {
         primaryStage.show();
     }
 
+
     // Creates the left bar with buttons and user info
     private VBox createLeftBar(HBox mainLayout, Stage primaryStage) {
         Label loggedInUsername = new Label(UserSession.getUsername());
@@ -75,16 +77,33 @@ public class OhjelmistoGUI extends Application {
         leftBar.getChildren().addAll(userBox, leftButtons, logoutButton);
         leftBar.getStyleClass().add("left-bar");
 
+
+        // Check if user is an admin
+        if (UserSession.getRooli() == 3) {
+            Button adminButton = new Button("Admin Panel");
+            adminButton.setPrefWidth(200);
+            adminButton.getStyleClass().add("button-admin");
+
+            // Open AdminGUI on button click
+            adminButton.setOnAction(e -> openAdminPanel());
+
+            // Add the admin button below the logout button
+            leftBar.getChildren().add(adminButton);
+        }
+
         frontPageButton.setOnAction(e -> handleFrontPageButtonAction(mainLayout, leftBar));
         showRoomsButton.setOnAction(e -> handleShowRoomsButtonAction(mainLayout, leftBar));
         showCustomersButton.setOnAction(e -> handleShowCustomersButtonAction(mainLayout, leftBar));
         checkInButton.setOnAction(e -> handleCheckInButtonAction(mainLayout, leftBar));
-        checkOutButton.setOnAction(e -> handleCheckOutButtonAction(mainLayout, leftBar));
         logoutButton.setOnAction(e -> handleLogoutButtonAction(primaryStage));
+
 
         return leftBar;
     }
 
+    private void openAdminPanel() {
+        new AdminGUI().start(new Stage());
+    }
 
     // Creates the content for Etusivu
     private VBox createEtusivu() {
@@ -633,6 +652,7 @@ public class OhjelmistoGUI extends Application {
 
         double loppusumma = 0;
         for (LaskuData laskuData : laskuTable.getItems()) {
+            //Kommentoitu pois koska punasta!
             //loppusumma += laskuData.getSumma();
             loppuHintaLabel.setText("Yhdessä:   " + loppusumma + " "  + laskuData.getValuutta());
         }
