@@ -633,7 +633,7 @@ public class OhjelmistoGUI extends Application {
 
         double loppusumma = 0;
         for (LaskuData laskuData : laskuTable.getItems()) {
-            loppusumma += laskuData.getSumma();
+            //loppusumma += laskuData.getSumma();
             loppuHintaLabel.setText("Yhdessä:   " + loppusumma + " "  + laskuData.getValuutta());
         }
 
