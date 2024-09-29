@@ -75,15 +75,33 @@ public class OhjelmistoGUI extends Application {
         leftBar.getChildren().addAll(userBox, leftButtons, logoutButton);
         leftBar.getStyleClass().add("left-bar");
 
+        // Check if user is an admin
+        if (UserSession.getRooli() == 3) {
+            Button adminButton = new Button("Admin Panel");
+            adminButton.setPrefWidth(200);
+            adminButton.getStyleClass().add("button-admin");
+
+            // Open AdminGUI on button click
+            adminButton.setOnAction(e -> openAdminPanel());
+
+            // Add the admin button below the logout button
+            leftBar.getChildren().add(adminButton);
+        }
+
         frontPageButton.setOnAction(e -> handleFrontPageButtonAction(mainLayout, leftBar));
         showRoomsButton.setOnAction(e -> handleShowRoomsButtonAction(mainLayout, leftBar));
         showCustomersButton.setOnAction(e -> handleShowCustomersButtonAction(mainLayout, leftBar));
         checkInButton.setOnAction(e -> handleCheckInButtonAction(mainLayout, leftBar));
-        checkOutButton.setOnAction(e -> handleCheckOutButtonAction(mainLayout, leftBar));
         logoutButton.setOnAction(e -> handleLogoutButtonAction(primaryStage));
 
         return leftBar;
     }
+
+    // Open the Admin Panel
+    private void openAdminPanel() {
+        new AdminGUI().start(new Stage());
+    }
+
 
 
     // Creates the content for Etusivu
@@ -432,145 +450,145 @@ public class OhjelmistoGUI extends Application {
     }
 
     // Creates the content for Check-out
-    private VBox createCheckOut() {
-        VBox checkOutInfo = new VBox(15);
-        checkOutInfo.getStyleClass().add("info");
-        Label checkOutInfoLabel = new Label("Check-Out");
-        checkOutInfoLabel.getStyleClass().add("otsikko");
-
-        // Customer first name input
-        VBox etunimiInfo = new VBox(5);
-        Label asiakasEtunimiLabel = new Label("Asiakkaan etunimi:");
-        TextField asiakasEtunimiInput = new TextField();
-        asiakasEtunimiInput.setPromptText("Syötä etunimi");
-        etunimiInfo.getChildren().addAll(asiakasEtunimiLabel, asiakasEtunimiInput);
-
-        // Customer last name input
-        VBox sukunimiInfo = new VBox(5);
-        Label asiakasSukunimiLabel = new Label("Asiakkaan sukunimi:");
-        TextField asiakasSukunimiInput = new TextField();
-        asiakasSukunimiInput.setPromptText("Syötä sukunimi");
-        sukunimiInfo.getChildren().addAll(asiakasSukunimiLabel, asiakasSukunimiInput);
-
-        Button haeLaskutButton = new Button("Hae laskut");
-
-        VBox maksattavaLaskut = new VBox(5);
-        Label maksattavaLaskuOtsikko = new Label("Laskut");
-        maksattavaLaskuOtsikko.getStyleClass().add("otsikko");
-        TableView<LaskuData> laskuTable = createLaskuTable();
-        Label loppuHintaLabel = new Label("Yhdessä: 0.00");
-        String loppuHinta = "";
-        Button maksuButton = new Button("Maksaa");
-        Button printButton = new Button("Tulosta kuitti");
-
-        maksattavaLaskut.getChildren().addAll(maksattavaLaskuOtsikko, laskuTable, loppuHintaLabel, maksuButton, printButton);
-
-        haeLaskutButton.setOnAction(e -> {
-            laskuTable.getItems().clear();
-
-            List<Asiakas> asiakkaat = asiakasController.findIdByNimet(asiakasEtunimiInput.getText(), asiakasSukunimiInput.getText());
-            if (asiakkaat == null || asiakkaat.isEmpty()) {
-                showAlert("Virhe", "Asiakkaan nimellä ei löytynyt asiakkaita.");
-                return;
-            }
-
-            double kokonaishinta = 0.00;
-            String valuutta = ""; // Alustetaan valuutta
-
-            for (Asiakas asiakas : asiakkaat) {
-                int asiakasId = asiakas.getAsiakasId();
-
-                System.out.println("Asiakas id: " + asiakasId);
-                List<Lasku> laskut = laskuController.findLaskuByAsiakasId(asiakasId);
-
-                if (laskut != null) {
-                    for (Lasku lasku : laskut) {
-                        int laskuId = lasku.getLaskuId();
-                        System.out.println("Lasku id: " + laskuId);
-
-                        List<Varaus> varaukset = varausController.findByLaskuId(lasku.getLaskuId());
-                        valuutta = lasku.getValuutta(); // Asetetaan valuutta
-
-                        for (Varaus varaus : varaukset) {
-                            LocalDate alkuPvm = varaus.getAlkuPvm();
-                            LocalDate loppuPvm = varaus.getLoppuPvm();
-                            int paivat = Period.between(alkuPvm, loppuPvm).getDays();
-
-                            if (loppuPvm.isAfter(LocalDate.now()) || loppuPvm.isEqual(LocalDate.now())) {
-                                //Check if room number matches the current reservation
-                                Huone huone = huoneController.findHuoneById(varaus.getHuoneId());
-                                if (huone != null) {
-                                    double hinta = huone.getHuone_hinta();
-
-                                    if (valuutta.equals("USD")) {
-                                        hinta = CurrencyConverter.convertCurrency("EUR", "USD", hinta);
-
-                                    }
-                                    double summa = hinta * paivat;
-                                    kokonaishinta += summa;
-
-                                    populateLaskuTable(laskuTable, new LaskuData(
-                                            lasku.getLaskuId(),
-                                            huone.getHotelli_id(),
-                                            huone.getHuone_id(),
-                                            huone.getHuone_nro(),
-                                            asiakas.getEtunimi(),
-                                            asiakas.getSukunimi(),
-                                            huone.getHuone_tyyppi(),
-                                            lasku.getMaksuStatus(),
-                                            lasku.getVarausMuoto(),
-                                            lasku.getValuutta(),
-                                            alkuPvm,
-                                            loppuPvm,
-                                            paivat,
-                                            hinta,
-                                            summa
-                                    ));
-
-                                } else {
-                                    showAlert("Virhe", "Virheellinen huoneen numero.");
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            // Päivitetään loppuhinta label, kun kaikki laskut on käsitelty
-            loppuHintaLabel.setText(String.format("Yhdessä: %.2f %s", kokonaishinta, valuutta));
-        });
-
-        // Layout structure
-        checkOutInfo.getChildren().addAll(checkOutInfoLabel, etunimiInfo, sukunimiInfo, haeLaskutButton, maksattavaLaskut);
-        HBox laskuTiedot = new HBox(2);
-        laskuTiedot.getChildren().addAll(checkOutInfo, maksattavaLaskut);
-
-        maksuButton.setOnAction(e -> {
-            if (laskuTable.getItems().isEmpty()) {
-                showAlert("Virhe", "Ei laskuja maksettavaksi.");
-                return;
-            }
-            for (LaskuData laskuData : laskuTable.getItems()) {
-                laskuController.updateMaksuStatusById(laskuData.getLaskuId(), "Maksettu");
-                laskuData.SetMaksuStatus("Maksettu");
-                //refresh table
-                laskuTable.refresh();
-            }
-
-            // Maksaa laskut
-            showMessage("Maksu","Laskut on maksettu onnistuneesti.");
-        });
-
-        printButton.setOnAction(e -> openKuittiWindow(laskuTable));
-        printButton.setOnKeyPressed(e -> {
-            if (e.getCode() == KeyCode.ENTER) {
-                openKuittiWindow(laskuTable);
-            }
-        });
-
-        VBox checkOut = new VBox(2);
-        checkOut.getChildren().addAll(laskuTiedot);
-        return checkOut;
-    }
+//    private VBox createCheckOut() {
+//        VBox checkOutInfo = new VBox(15);
+//        checkOutInfo.getStyleClass().add("info");
+//        Label checkOutInfoLabel = new Label("Check-Out");
+//        checkOutInfoLabel.getStyleClass().add("otsikko");
+//
+//        // Customer first name input
+//        VBox etunimiInfo = new VBox(5);
+//        Label asiakasEtunimiLabel = new Label("Asiakkaan etunimi:");
+//        TextField asiakasEtunimiInput = new TextField();
+//        asiakasEtunimiInput.setPromptText("Syötä etunimi");
+//        etunimiInfo.getChildren().addAll(asiakasEtunimiLabel, asiakasEtunimiInput);
+//
+//        // Customer last name input
+//        VBox sukunimiInfo = new VBox(5);
+//        Label asiakasSukunimiLabel = new Label("Asiakkaan sukunimi:");
+//        TextField asiakasSukunimiInput = new TextField();
+//        asiakasSukunimiInput.setPromptText("Syötä sukunimi");
+//        sukunimiInfo.getChildren().addAll(asiakasSukunimiLabel, asiakasSukunimiInput);
+//
+//        Button haeLaskutButton = new Button("Hae laskut");
+//
+//        VBox maksattavaLaskut = new VBox(5);
+//        Label maksattavaLaskuOtsikko = new Label("Laskut");
+//        maksattavaLaskuOtsikko.getStyleClass().add("otsikko");
+//        TableView<LaskuData> laskuTable = createLaskuTable();
+//        Label loppuHintaLabel = new Label("Yhdessä: 0.00");
+//        String loppuHinta = "";
+//        Button maksuButton = new Button("Maksaa");
+//        Button printButton = new Button("Tulosta kuitti");
+//
+//        maksattavaLaskut.getChildren().addAll(maksattavaLaskuOtsikko, laskuTable, loppuHintaLabel, maksuButton, printButton);
+//
+//        haeLaskutButton.setOnAction(e -> {
+//            laskuTable.getItems().clear();
+//
+//            List<Asiakas> asiakkaat = asiakasController.findIdByNimet(asiakasEtunimiInput.getText(), asiakasSukunimiInput.getText());
+//            if (asiakkaat == null || asiakkaat.isEmpty()) {
+//                showAlert("Virhe", "Asiakkaan nimellä ei löytynyt asiakkaita.");
+//                return;
+//            }
+//
+//            double kokonaishinta = 0.00;
+//            String valuutta = ""; // Alustetaan valuutta
+//
+//            for (Asiakas asiakas : asiakkaat) {
+//                int asiakasId = asiakas.getAsiakasId();
+//
+//                System.out.println("Asiakas id: " + asiakasId);
+//                List<Lasku> laskut = laskuController.findLaskuByAsiakasId(asiakasId);
+//
+//                if (laskut != null) {
+//                    for (Lasku lasku : laskut) {
+//                        int laskuId = lasku.getLaskuId();
+//                        System.out.println("Lasku id: " + laskuId);
+//
+//                        List<Varaus> varaukset = varausController.findByLaskuId(lasku.getLaskuId());
+//                        valuutta = lasku.getValuutta(); // Asetetaan valuutta
+//
+//                        for (Varaus varaus : varaukset) {
+//                            LocalDate alkuPvm = varaus.getAlkuPvm();
+//                            LocalDate loppuPvm = varaus.getLoppuPvm();
+//                            int paivat = Period.between(alkuPvm, loppuPvm).getDays();
+//
+//                            if (loppuPvm.isAfter(LocalDate.now()) || loppuPvm.isEqual(LocalDate.now())) {
+//                                //Check if room number matches the current reservation
+//                                Huone huone = huoneController.findHuoneById(varaus.getHuoneId());
+//                                if (huone != null) {
+//                                    double hinta = huone.getHuone_hinta();
+//
+//                                    if (valuutta.equals("USD")) {
+//                                        hinta = CurrencyConverter.convertCurrency("EUR", "USD", hinta);
+//
+//                                    }
+//                                    double summa = hinta * paivat;
+//                                    kokonaishinta += summa;
+//
+//                                    populateLaskuTable(laskuTable, new LaskuData(
+//                                            lasku.getLaskuId(),
+//                                            huone.getHotelli_id(),
+//                                            huone.getHuone_id(),
+//                                            huone.getHuone_nro(),
+//                                            asiakas.getEtunimi(),
+//                                            asiakas.getSukunimi(),
+//                                            huone.getHuone_tyyppi(),
+//                                            lasku.getMaksuStatus(),
+//                                            lasku.getVarausMuoto(),
+//                                            lasku.getValuutta(),
+//                                            alkuPvm,
+//                                            loppuPvm,
+//                                            paivat,
+//                                            hinta,
+//                                            summa
+//                                    ));
+//
+//                                } else {
+//                                    showAlert("Virhe", "Virheellinen huoneen numero.");
+//                                }
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//            // Päivitetään loppuhinta label, kun kaikki laskut on käsitelty
+//            loppuHintaLabel.setText(String.format("Yhdessä: %.2f %s", kokonaishinta, valuutta));
+//        });
+//
+//        // Layout structure
+//        checkOutInfo.getChildren().addAll(checkOutInfoLabel, etunimiInfo, sukunimiInfo, haeLaskutButton, maksattavaLaskut);
+//        HBox laskuTiedot = new HBox(2);
+//        laskuTiedot.getChildren().addAll(checkOutInfo, maksattavaLaskut);
+//
+//        maksuButton.setOnAction(e -> {
+//            if (laskuTable.getItems().isEmpty()) {
+//                showAlert("Virhe", "Ei laskuja maksettavaksi.");
+//                return;
+//            }
+//            for (LaskuData laskuData : laskuTable.getItems()) {
+//                laskuController.updateMaksuStatusById(laskuData.getLaskuId(), "Maksettu");
+//                laskuData.SetMaksuStatus("Maksettu");
+//                //refresh table
+//                laskuTable.refresh();
+//            }
+//
+//            // Maksaa laskut
+//            showMessage("Maksu","Laskut on maksettu onnistuneesti.");
+//        });
+//
+//        printButton.setOnAction(e -> openKuittiWindow(laskuTable));
+//        printButton.setOnKeyPressed(e -> {
+//            if (e.getCode() == KeyCode.ENTER) {
+//                openKuittiWindow(laskuTable);
+//            }
+//        });
+//
+//        VBox checkOut = new VBox(2);
+//        checkOut.getChildren().addAll(laskuTiedot);
+//        return checkOut;
+//    }
 
     private void openKuittiWindow(TableView<LaskuData> laskuTable) {
         Stage kuittiStage = new Stage();
@@ -960,9 +978,9 @@ public class OhjelmistoGUI extends Application {
         updateMainLayout(mainLayout, leftBar, createCheckIn());
     }
 
-    private void handleCheckOutButtonAction(HBox mainLayout, VBox leftBar) {
-        updateMainLayout(mainLayout, leftBar, createCheckOut());
-    }
+//    private void handleCheckOutButtonAction(HBox mainLayout, VBox leftBar) {
+//        updateMainLayout(mainLayout, leftBar, createCheckOut());
+//    }
 
     private void handleLogoutButtonAction(Stage primaryStage) {
         primaryStage.close();
