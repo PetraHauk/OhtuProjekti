@@ -48,7 +48,7 @@ public class LaskuHaku {
                 case 3:
                     System.out.println("Anna asiakas ID:");
                     int asiakas_idHaku = scanner.nextInt();
-                    Lasku laskuByAsiakasId = controller.findLaskuByAsiakasId(asiakas_idHaku);
+                    Lasku laskuByAsiakasId = (Lasku) controller.findLaskuByAsiakasId(asiakas_idHaku);
                     printLasku(laskuByAsiakasId);
                     break;
                 case 4:

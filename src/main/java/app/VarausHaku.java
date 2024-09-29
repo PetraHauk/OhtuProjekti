@@ -1,14 +1,12 @@
 package app;
 
 import controller.VarausController;
-import model.enteties.Kayttaja;
 import model.enteties.Varaus;
-
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
-import java.util.List;
 import java.util.Scanner;
+import java.util.List;
 
 public class VarausHaku {
     private VarausController controller = new VarausController();
@@ -32,9 +30,6 @@ public class VarausHaku {
             switch (valinta) {
                 case 1:
                     try {
-                        System.out.println("Anna huoneen määrä:");
-                        int huone_maara = scanner.nextInt();
-                        scanner.nextLine();
 
                         System.out.println("Anna alkupäivämäärä (pp.kk.vvvv):");
                         String alkuPvmStr = scanner.nextLine();
@@ -52,7 +47,7 @@ public class VarausHaku {
                         int lasku_id = scanner.nextInt();
                         scanner.nextLine();
 
-                        controller.AddVaraus(huone_maara, alkuPvm, loppuPvm, huone_id, lasku_id);
+                        controller.AddVaraus(alkuPvm, loppuPvm, huone_id, lasku_id);
                         System.out.println("Varaus lisätty onnistuneesti!");
 
                     } catch (DateTimeParseException e) {
@@ -71,7 +66,10 @@ public class VarausHaku {
                     System.out.println("Anna laskun ID:");
                     int lasku_id_haku = scanner.nextInt();
                     scanner.nextLine();
-                    controller.findByLaskuId(lasku_id_haku);
+                    List<Varaus> varaukset = controller.findByLaskuId(lasku_id_haku);
+                    for (Varaus varaus : varaukset) {
+                        printVaraus(varaus);
+                    }
                     break;
 
                 case 4:
@@ -79,10 +77,6 @@ public class VarausHaku {
                         System.out.println("Anna varauksen ID:");
                         int id = scanner.nextInt();
                         scanner.nextLine(); // Tyhjennä puskuri
-
-                        System.out.println("Anna uusi huoneen määrä:");
-                        int huone_maara_uusi = scanner.nextInt();
-                        scanner.nextLine();
 
                         System.out.println("Anna uusi alkupäivämäärä (pp.kk.vvvv):");
                         String alku_pvm_uusi = scanner.nextLine();
@@ -93,7 +87,7 @@ public class VarausHaku {
                         LocalDate uusiLoppuPvm = LocalDate.parse(loppu_pvm_uusi, formatter); // Muunnetaan LocalDateksi
 
                         // Päivitä varauksen kesto
-                        controller.updateVarausById(id, huone_maara_uusi, uusiAlkuPvm, uusiLoppuPvm);
+                        controller.updateVarausById(id, uusiAlkuPvm, uusiLoppuPvm);
                         System.out.println("Varauksen kesto päivitetty onnistuneesti!");
 
                     } catch (DateTimeParseException e) {
@@ -109,10 +103,7 @@ public class VarausHaku {
                     break;
 
                 case 6:
-                    List<Varaus> varaukset =  controller.findAllVaraukset();
-                    for (Varaus varaus : varaukset) {
-                        printVaraus(varaus);
-                    }
+                    controller.findAllVaraukset();
                 case 7:
                     return;
 
@@ -123,14 +114,16 @@ public class VarausHaku {
         }
     }
 
-    public void printVaraus(Varaus varaus) {
-        System.out.println("varaus_id: " + varaus.getVarausId());
-        System.out.println("Huonemäärä: " + varaus.getHuoneMaara());
-        System.out.println("AlkuPvm: " + varaus.getAlkuPvm());
-        System.out.println("loppuPvm: " + varaus.getLoppuPvm());
-        System.out.println("Huone id: " + varaus.getHuoneId());
-        System.out.println("lasku id: " + varaus.getLaskuId());
-        System.out.println(" ");
+    private void printVaraus(Varaus varaus) {
+        if (varaus != null) {
+            System.out.println("Varaus ID: " + varaus.getVarausId());
+            System.out.println("Alkupäivämäärä: " + varaus.getAlkuPvm());
+            System.out.println("Loppupäivämäärä: " + varaus.getLoppuPvm());
+            System.out.println("Huone ID: " + varaus.getHuoneId());
+            System.out.println("Lasku ID: " + varaus.getLaskuId());
+            System.out.println(" ");
+        } else {
+            System.out.println("Varausta ei löytynyt.");
+        }
     }
 }
-

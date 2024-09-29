@@ -28,13 +28,17 @@ public class LaskuDAO {
         return null;
     }
 
-    public Lasku haeByAsiakasId(int asiakas_id) {
+    public List<Lasku> haeByAsiakasId(int asiakas_id) {
         EntityManager em = MariaDbConnection.getInstance();
-        Lasku lasku = null;
+        List<Lasku> laskut = null;
         try {
-            lasku = em.find(Lasku.class, asiakas_id);
-            if (lasku != null) {
-                return lasku;
+            laskut = em.createQuery("SELECT l FROM Lasku l WHERE l.asiakas_id = :asiakas_id", Lasku.class)
+                    .setParameter("asiakas_id", asiakas_id)
+                    .getResultList();
+            if (!laskut.isEmpty()) {
+                return laskut;
+            } else {
+                System.out.println("Laskua ei löytynyt asiakas id:llä " + asiakas_id);
             }
         } finally {
             if (em != null) {
@@ -62,16 +66,38 @@ public class LaskuDAO {
         }
     }
 
+    public void updateStatusById(int id, String tila) {
+        EntityManager em = MariaDbConnection.getInstance();
+        try {
+            em.getTransaction().begin();
+            Lasku lasku = em.find(Lasku.class, id);
+            if (lasku != null) {
+                lasku.setMaksuStatus(tila);
+            }
+            em.getTransaction().commit();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+    }
+
     public void removeById(int id) {
         EntityManager em = MariaDbConnection.getInstance();
-        em.getTransaction().begin();
-        Lasku lasku = em.find(Lasku.class, id);
-        if (lasku != null) {
-            em.remove(lasku);
-        } else {
-            System.out.println("Laskua ei löytynyt id:llä " + id);
+        try{
+            em.getTransaction().begin();
+            Lasku lasku = em.find(Lasku.class, id);
+            if (lasku != null) {
+                em.remove(lasku);
+            } else {
+                System.out.println("Laskua ei löytynyt id:llä " + id);
+            }
+            em.getTransaction().commit();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
         }
-        em.getTransaction().commit();
     }
 
     public List<Lasku> haeKaikkilaskut() {
