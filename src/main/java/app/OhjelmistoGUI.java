@@ -138,8 +138,9 @@ public class OhjelmistoGUI extends Application {
         Label huoneetOtsikkoLabel = new Label("Huoneet");
         huoneetOtsikkoLabel.getStyleClass().add("otsikko");
 
-        TableView<Huone> roomTable = createRoomTable();
+        TableView<Huone> roomTable = createHuoneTable();
 
+        // Assuming hotel ID is 1 for this example
         populateRoomTable(roomTable, 1);
 
         Button addRoomButton = new Button("Lisää uusi huone");
@@ -148,6 +149,7 @@ public class OhjelmistoGUI extends Application {
         huoneetInfo.getChildren().addAll(huoneetOtsikkoLabel, roomTable, addRoomButton);
         return huoneetInfo;
     }
+
 
     private void openAddRoomWindow(TableView<Huone> roomTable) {
         Stage addRoomStage = new Stage();
@@ -602,7 +604,7 @@ public class OhjelmistoGUI extends Application {
         VBox availableRooms = new VBox(10);
         Label availableRoomsTitle = new Label("Vapaat huoneet:");
         availableRoomsTitle.getStyleClass().add("otsikko");
-        TableView<Huone> huoneTable = createRoomTable();
+        TableView<Huone> huoneTable = createHuoneTable();
         huoneTable.setPrefWidth(400);
         huoneTable.setPrefHeight(250);
         availableRooms.getChildren().addAll(availableRoomsTitle, huoneTable);
@@ -1056,34 +1058,74 @@ public class OhjelmistoGUI extends Application {
     }
 
     // Method to create the Room table view
-    private TableView<Huone> createRoomTable() {
-        TableView<Huone> roomTable = new TableView<>();
 
-        roomTable.setPrefWidth(500);
+    private TableView<Huone> createHuoneTable() {
+        TableView<Huone> huoneTableView = new TableView<>();
+        // Set the width of the table
+        huoneTableView.setPrefWidth(950);
+        huoneTableView.setPrefHeight(400);
 
-        TableColumn<Huone, Integer> idColumn = new TableColumn<>("Huone ID");
-        idColumn.setCellValueFactory(new PropertyValueFactory<>("huone_id"));
+        TableColumn<Huone, Integer> numeroColumn = new TableColumn<>("Huoneen Numero");
+        numeroColumn.setCellValueFactory(new PropertyValueFactory<>("huone_nro"));
 
-        TableColumn<Huone, Integer> numberColumn = new TableColumn<>("Huoneen Numero");
-        numberColumn.setCellValueFactory(new PropertyValueFactory<>("huone_nro"));
+        TableColumn<Huone, String> tyyppiColumn = new TableColumn<>("Huone Tyyppi");
+        tyyppiColumn.setCellValueFactory(new PropertyValueFactory<>("huone_tyyppi"));
 
-        TableColumn<Huone, String> typeColumn = new TableColumn<>("Tyyppi");
-        typeColumn.setCellValueFactory(new PropertyValueFactory<>("huone_tyyppi"));
+        TableColumn<Huone, Double> hintaColumn = new TableColumn<>("Huone Hinta");
+        hintaColumn.setCellValueFactory(new PropertyValueFactory<>("huone_hinta"));
+        hintaColumn.setMinWidth(150);
 
-        TableColumn<Huone, String> statusColumn = new TableColumn<>("Status");
-        statusColumn.setCellValueFactory(new PropertyValueFactory<>("huone_tila"));
+        TableColumn<Huone, String> phoneColumn = new TableColumn<>("Huone Status");
+        phoneColumn.setCellValueFactory(new PropertyValueFactory<>("huone_tila"));
+        phoneColumn.setMinWidth(100);
 
-        TableColumn<Huone, Double> priceColumn = new TableColumn<>("Hinta/Yö");
-        priceColumn.setCellValueFactory(new PropertyValueFactory<>("huone_hinta"));
+        TableColumn<Huone, Void> actionColumn = new TableColumn<>("Toiminnot");
 
-        roomTable.getColumns().add(idColumn);
-        roomTable.getColumns().add(numberColumn);
-        roomTable.getColumns().add(typeColumn);
-        roomTable.getColumns().add(statusColumn);
-        roomTable.getColumns().add(priceColumn);
+        actionColumn.setCellFactory(param -> new TableCell<>() {
+            private final Button editButton = new Button("Muokkaa");
+            private final Button deleteButton = new Button("Poista");
+            private final HBox actionButtons = new HBox(editButton, deleteButton);
 
-        return roomTable;
+            {
+                actionButtons.setSpacing(10);
+                actionButtons.setAlignment(Pos.CENTER);
+
+                // Muokkaa-painikeen toiminnallisuus
+                editButton.setOnAction(event -> {
+                    Huone huone = getTableView().getItems().get(getIndex());
+                    // openMuokkaaHuoneWindow(huone, getTableView());
+                    System.out.println("Muokkaa-painiketta painettu" + huone.getHuone_id());
+                });
+
+
+                // Poista-painikeen toiminnallisuus
+                deleteButton.setOnAction(event -> {
+                    Huone huone = getTableView().getItems().get(getIndex());
+                    huoneController.deleteHuone(huone.getHuone_id());
+                    getTableView().getItems().remove(huone); // Poistetaan asiakas listasta
+                });
+            }
+
+            @Override
+            protected void updateItem(Void item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty) {
+                    setGraphic(null);
+                } else {
+                    setGraphic(actionButtons);
+                }
+            }
+        });
+
+        actionColumn.setMinWidth(150);
+
+        huoneTableView.getColumns().addAll(numeroColumn, tyyppiColumn, hintaColumn, phoneColumn, actionColumn);
+
+        return huoneTableView;
     }
+
+
+
 
     // Method to create the Customer table view
     private TableView<Asiakas> createCustomerTable() {
