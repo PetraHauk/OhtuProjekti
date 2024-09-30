@@ -9,6 +9,7 @@ import java.util.Scanner;
 import java.util.List;
 
 public class VarausHaku {
+    /*
     private VarausController controller = new VarausController();
     private Scanner scanner = new Scanner(System.in);
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
@@ -126,4 +127,7 @@ public class VarausHaku {
             System.out.println("Varausta ei löytynyt.");
         }
     }
+    */
 }
+
+
