@@ -18,7 +18,7 @@ public class VarausController {
         laskuController = new LaskuController();
     }
 
-    public void AddVaraus(LocalDate alkuPvm, LocalDate loppuPvm, int huone_id, int lasku_id) {
+    public void AddVaraus(LocalDate alkuPvm, LocalDate loppuPvm, Integer huone_id, int lasku_id) {
         Varaus varaus = new Varaus(0,  alkuPvm, loppuPvm, huone_id, lasku_id);
         varausDAO.persist(varaus);
     }

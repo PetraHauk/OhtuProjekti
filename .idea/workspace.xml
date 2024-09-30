@@ -4,35 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="Merge valmis, tyylit lisätty login ja rekisteröinti, häshäys toimii">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_9_2024_12_53__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_9_2024_12_53__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_09_2024_10_00__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_09_2024_10_00__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_09_2024_11_29__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_09_2024_11_29__Changes_.xml" afterDir="false" />
+    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="Check In ja Varaus Luonti">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/OhjelmistoGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/OhjelmistoGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/VarausHaku.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/VarausHaku.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/AsiakasController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/AsiakasController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/HuoneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/HuoneController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/LaskuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/LaskuController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/VarausController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/VarausController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/AsiakasDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/AsiakasDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/HuoneDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/HuoneDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/VarausDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/VarausDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/enteties/Varaus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enteties/Varaus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/app/LaskuHaku.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/app/LaskuHaku.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/app/OhjelmistoGUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/app/OhjelmistoGUI$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/app/OhjelmistoGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/app/OhjelmistoGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/AsiakasController.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/controller/AsiakasController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/HuoneController.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/controller/HuoneController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/LaskuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/controller/LaskuController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/target/classes/controller/VarausController.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/controller/VarausController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/AsiakasDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/DAO/AsiakasDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/HuoneDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/DAO/HuoneDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/VarausDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/DAO/VarausDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/model/enteties/Varaus.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/enteties/Varaus.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +69,7 @@
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Petra",
+    "git-widget-placeholder": "main",
     "jdk.selected.JAVA_MODULE": "21",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/kakek/javafx-sdk-17.0.10/lib",
@@ -237,7 +212,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727342662914</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Check In ja Varaus Luonti">
+      <option name="closed" value="true" />
+      <created>1727679877900</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1727679877900</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -260,7 +243,8 @@
     <MESSAGE value="yhdistetty wilman ja kaislan judut" />
     <MESSAGE value="Merge valmis, tyylit lisätty login ja rekisteröinti, häshäys toimii" />
     <MESSAGE value="Huoneet haetaan tietokannasta taulukkoon. Uuden huoneen lisäys visuaalissa toimii." />
-    <option name="LAST_COMMIT_MESSAGE" value="Huoneet haetaan tietokannasta taulukkoon. Uuden huoneen lisäys visuaalissa toimii." />
+    <MESSAGE value="Check In ja Varaus Luonti" />
+    <option name="LAST_COMMIT_MESSAGE" value="Check In ja Varaus Luonti" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
