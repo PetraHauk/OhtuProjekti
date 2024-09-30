@@ -21,9 +21,7 @@ public class AsiakasController {
         return asiakasDAO.findByLaskuId(id);
     }
 
-    public Asiakas findByEmail(String email) {
-        return asiakasDAO.findByEmail(email);
-    }
+    public Asiakas findByEmail(String email) {return asiakasDAO.findByEmail(email);}
 
     public List<Asiakas> findByNimet(String etunimi, String sukunimi) {
         return asiakasDAO.findByNImet(etunimi, sukunimi);

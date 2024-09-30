@@ -11,9 +11,11 @@ public class LaskuController {
         laskuDAO = new LaskuDAO();
     }
 
-    public void addLasku(String maksu_status, String varaus_muoto, String valuutta,int asiakas_id) {
+    public int addLasku(String maksu_status, String varaus_muoto, String valuutta, int asiakas_id) {
         Lasku lasku = new Lasku( 0, maksu_status, varaus_muoto, valuutta, asiakas_id);
         laskuDAO.persist(lasku);
+        // Return the id of the new lasku
+        return lasku.getLaskuId();
     }
 
     public Lasku findLaskuById(int id) {

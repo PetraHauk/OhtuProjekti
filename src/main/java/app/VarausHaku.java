@@ -52,7 +52,7 @@ public class VarausHaku {
                         int lasku_id = scanner.nextInt();
                         scanner.nextLine();
 
-                        controller.AddVaraus(huone_maara, alkuPvm, loppuPvm, huone_id, lasku_id);
+                        controller.AddVaraus(alkuPvm, loppuPvm, huone_id, lasku_id);
                         System.out.println("Varaus lisätty onnistuneesti!");
 
                     } catch (DateTimeParseException e) {
@@ -93,7 +93,7 @@ public class VarausHaku {
                         LocalDate uusiLoppuPvm = LocalDate.parse(loppu_pvm_uusi, formatter); // Muunnetaan LocalDateksi
 
                         // Päivitä varauksen kesto
-                        controller.updateVarausById(id, huone_maara_uusi, uusiAlkuPvm, uusiLoppuPvm);
+                        controller.updateVarausById(id, uusiAlkuPvm, uusiLoppuPvm);
                         System.out.println("Varauksen kesto päivitetty onnistuneesti!");
 
                     } catch (DateTimeParseException e) {
@@ -125,7 +125,6 @@ public class VarausHaku {
 
     public void printVaraus(Varaus varaus) {
         System.out.println("varaus_id: " + varaus.getVarausId());
-        System.out.println("Huonemäärä: " + varaus.getHuoneMaara());
         System.out.println("AlkuPvm: " + varaus.getAlkuPvm());
         System.out.println("loppuPvm: " + varaus.getLoppuPvm());
         System.out.println("Huone id: " + varaus.getHuoneId());

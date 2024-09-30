@@ -103,6 +103,24 @@ public class HuoneDAO {
         }
     }
 
+    public void updateHuoneTilaById(int id, String huone_tila) {
+        EntityManager em = MariaDbConnection.getInstance();
+        try {
+            em.getTransaction().begin();
+            Huone huone = em.find(Huone.class, id);
+            if (huone != null) {
+                huone.setHuone_tila(huone_tila);
+            } else {
+                System.out.println("Huonetta ei löytynyt id:llä " + id);
+            }
+            em.getTransaction().commit();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+    }
+
     public void removeById(int huone_id) {
         EntityManager em = MariaDbConnection.getInstance();
         try {

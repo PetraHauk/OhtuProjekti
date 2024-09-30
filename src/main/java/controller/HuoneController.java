@@ -60,12 +60,29 @@ public class HuoneController {
         huoneDAO.updateHuoneById(id, huone_nro, huone_tyyppi, huone_tila, huone_hinta);
     }
 
+    public void updateHuoneStatusById(int id, String huone_tila) {
+        huoneDAO.updateHuoneTilaById(id, huone_tila);
+    }
 
     public void deleteHuone(int id) {
         huoneDAO.removeById(id);
     }
 
+    public List<Huone> findVapaatHuoneetByHotelliId(int hotelli_id){
+        List<Huone> huoneet = huoneDAO.haeHuoneetByHotelliId(hotelli_id);
 
+
+        Iterator<Huone> huoneIterator = huoneet.iterator();
+        while (huoneIterator.hasNext()) {
+            Huone huone = huoneIterator.next();
+            if (huone.getHuone_tila().equals("Varattu")) {
+                huoneIterator.remove();
+            }
+        }
+        return huoneet;
+    }
+
+    /*
     public List<Huone> findVapaatHuoneetByHotelliId(int hotelli_id, LocalDate alkuPvm, LocalDate loppuPvm) {
         List<Huone> huoneet = huoneDAO.haeHuoneetByHotelliId(hotelli_id);
         List<Varaus> varaukset = varausController.findAllVaraukset();
@@ -95,4 +112,5 @@ public class HuoneController {
 
         return huoneet;
     }
+     */
 }
