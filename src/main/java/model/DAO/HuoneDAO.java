@@ -12,22 +12,6 @@ public class HuoneDAO {
         em.getTransaction().commit();
     }
 
-    public Huone haeByHuoneId(int huone_id) {
-        EntityManager em = MariaDbConnection.getInstance();
-        try {
-            Huone huone = em.find(Huone.class, huone_id);
-            if (huone != null) {
-                return huone;
-            }
-        } finally {
-            if (em != null) {
-                em.close();
-            }
-        }
-        return null;
-    }
-
-
     public List<Huone> haeHuoneetByHotelliId(int hotelli_id) {
         EntityManager em = MariaDbConnection.getInstance();
         List<Huone> huoneet = null;
@@ -50,6 +34,23 @@ public class HuoneDAO {
         EntityManager em = MariaDbConnection.getInstance();
         try {
             Huone huone = em.find(Huone.class, id);
+            if (huone != null) {
+                return huone;
+            }
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return null;
+    }
+
+    public Huone findByHuoneNro(int huone_nro) {
+        EntityManager em = MariaDbConnection.getInstance();
+        try {
+            Huone huone = em.createQuery("SELECT h FROM Huone h WHERE h.huone_nro = :huone_nro", Huone.class)
+                    .setParameter("huone_nro", huone_nro)
+                    .getSingleResult();
             if (huone != null) {
                 return huone;
             }

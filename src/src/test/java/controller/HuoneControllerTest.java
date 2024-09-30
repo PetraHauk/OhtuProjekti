@@ -2,9 +2,11 @@ package controller;
 
 import model.enteties.Huone;
 import org.junit.jupiter.api.Test;
+import controller.HuoneController;
 
 import java.util.List;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class HuoneControllerTest {
@@ -36,14 +38,14 @@ public class HuoneControllerTest {
     }
 
     @Test
-    public void findHuoneByNro() {
+    public void testFindHuoneByNro() {
         int huoneNro = 101;
         huoneController.findHuoneByNro(huoneNro);
         assertEquals(huoneNro, huoneController.findHuoneByNro(huoneNro).getHuone_nro());
     }
 
     @Test
-    public void findHuoneByTila() {
+    public void testFindHuoneByTila() {
         String huoneTila = "vapaa";
        List<Huone>huoneList = huoneController.findHuoneByTila(huoneTila);
         for (Huone huone : huoneList) {
@@ -52,15 +54,17 @@ public class HuoneControllerTest {
     }
 
     @Test
-    public void findHuoneByTyyppi() {
-        String huoneTyyppi = "perhe";
-        huoneController.findHuoneByTyyppi(huoneTyyppi);
-        assertNotNull(huoneController.findHuoneByTyyppi(huoneTyyppi));
+    public void testFindHuoneByTyyppi() {
+        List<Huone> huoneet = huoneController.findHuoneByTyyppi("perhe");
+        for (Huone huone : huoneet) {
+            assertEquals("perhe", huone.getHuone_tyyppi());
+        }
+
     }
 
     @Test
-    public void updateHuoneById() {
-        int huoneId = 6;
+    public void testUpdateHuoneById() {
+        int huoneId = 4;
         int huoneNro = 303;
         String huoneTyyppi = "sviittihe";
         String huoneTila = "varattu";
@@ -70,10 +74,23 @@ public class HuoneControllerTest {
     }
 
     @Test
-    public void deleteHuone() {
-        int huoneId = 7;
+    public void testDeleteHuone() {
+        int huoneId = 8;
         huoneController.deleteHuone(huoneId);
         assertNull(huoneController.findHuoneById(huoneId));
     }
+
+    @Test
+    public void testeFindVapaatHuoneetByHotelliId() {
+        int hotelliId = 1;
+        // Get rooms by hotel ID and by "vapaa" status
+        List<Huone> huoneet = huoneController.findVapaatHuoneetByHotelliId(hotelliId);
+        for (Huone huone : huoneet) {
+            assertEquals("vapaa", huone.getHuone_tila());
+        }
+
+    }
+
+
 
 }

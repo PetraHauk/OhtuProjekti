@@ -1,5 +1,6 @@
 package controller;
 
+
 import model.enteties.Asiakas;
 import org.junit.Test;
 import java.util.List;
@@ -15,7 +16,7 @@ public class AsiakasControllerTest {
         // Valmistellaan testidata
         String etunimi = "Seppo";
         String sukunimi = "Tapio";
-        String sposti = "seppo@hotelli.com";
+        String sposti = "seppo@gmail.com";
         String puh = "09154267";
         int henkiloMaara = 2;
         String huomio = "Ei ole";
@@ -55,15 +56,12 @@ public class AsiakasControllerTest {
 
     @Test
     public void findByNimet() {
-        List<Asiakas> asiakasLista = asiakasController.findIdByNimet("Seppo", "Tapio");
-        assertFalse(asiakasLista.isEmpty(), "Asiakaslistan pitäisi sisältää Anna Ann");
-
-        // Varmistetaan, että lista sisältää vähintään yhden asiakkaan nimeltä "Anna Ann"
-        boolean asiakasLoytyy = asiakasLista.stream()
-                .anyMatch(asiakas -> asiakas.getEtunimi().equals("Seppo") && asiakas.getSukunimi().equals("Tapio"));
-
-        // Varmistetaan, että asiakas todella löytyy
-        assertTrue(asiakasLoytyy, "Seppo Tapiopitäisi löytyä listasta");
+        List<Asiakas> asiakasLista = asiakasController.findByNimet("Anna", "Ansku");
+        assertFalse(asiakasLista.isEmpty());
+        for (Asiakas asiakas : asiakasLista) {
+            assertEquals("Anna", asiakas.getEtunimi());
+            assertEquals("Ansku", asiakas.getSukunimi());
+        }
     }
 
     @Test
@@ -71,7 +69,7 @@ public class AsiakasControllerTest {
         // 1. Alustetaan asiakas
         String etunimi = "Seppo";
         String sukunimi = "Tapio";
-        String sposti = "seppo@hotelli.com";
+        String sposti = "seppo@sposti.com";
         String puh = "09154267";
         int henkiloMaara = 2;
         String huomio = "Ei ole";
@@ -80,7 +78,7 @@ public class AsiakasControllerTest {
         asiakasController.addAsiakas(etunimi, sukunimi, sposti, puh, henkiloMaara, huomio);
 
         // 2. Päivitetään asiakkaan tiedot
-        List<Asiakas> asiakasLista = asiakasController.findIdByNimet("Seppo", "Tapio");
+        List<Asiakas> asiakasLista = asiakasController.findByNimet("Seppo", "Tapio");
         Asiakas asiakas = asiakasLista.get(0);  // Oletetaan, että asiakas löytyy listasta
 
         // Uudet tiedot
@@ -95,7 +93,7 @@ public class AsiakasControllerTest {
         asiakasController.paivitaAsiakas(asiakas.getAsiakasId(), uusiEtunimi, uusiSukunimi, uusiSposti, uusiPuh, uusiHenkiloMaara, uusiHuomio);
 
         // 3. Haetaan päivitetty asiakas ja varmistetaan, että tiedot on päivitetty
-        List<Asiakas> paivitettyAsiakasLista = asiakasController.findIdByNimet("Pekka", "Tapio");
+        List<Asiakas> paivitettyAsiakasLista = asiakasController.findByNimet("Pekka", "Tapio");
         Asiakas paivitettyAsiakas = paivitettyAsiakasLista.get(0);
 
         // Tarkistetaan, että tiedot ovat oikein

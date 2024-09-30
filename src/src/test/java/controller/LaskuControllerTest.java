@@ -54,7 +54,7 @@ public class LaskuControllerTest {
 
     @Test
     public void TestRemoveLaskuById() {
-        int id = 15;
+        int id = 4;
         laskuController.removeLaskuById(id);
         Lasku lasku = laskuController.findLaskuById(id);
         assertNull(lasku);

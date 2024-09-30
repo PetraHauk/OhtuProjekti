@@ -48,6 +48,10 @@ public class HuoneController {
         return huoneDAO.findByRoomId(id);
     }
 
+    public Huone findHuoneByNro(int huone_nro) {
+        return huoneDAO.findByHuoneNro(huone_nro);
+    }
+
     public List<Huone> findHuoneByTila(String huone_tila) {
         return huoneDAO.findByHuoneTila(huone_tila);
     }
