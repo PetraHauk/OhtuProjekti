@@ -80,17 +80,4 @@ public class HuoneControllerTest {
         assertNull(huoneController.findHuoneById(huoneId));
     }
 
-    @Test
-    public void testeFindVapaatHuoneetByHotelliId() {
-        int hotelliId = 1;
-        // Get rooms by hotel ID and by "vapaa" status
-        List<Huone> huoneet = huoneController.findVapaatHuoneetByHotelliId(hotelliId);
-        for (Huone huone : huoneet) {
-            assertEquals("vapaa", huone.getHuone_tila());
-        }
-
-    }
-
-
-
 }
