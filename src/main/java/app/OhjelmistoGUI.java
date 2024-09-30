@@ -862,6 +862,11 @@ public class OhjelmistoGUI extends Application {
             for (LaskuData laskuData : laskuTable.getItems()) {
                 laskuController.updateMaksuStatusById(laskuData.getLaskuId(), "Maksettu");
                 laskuData.SetMaksuStatus("Maksettu");
+                int huoneId = laskuData.getHuoneId();
+
+                huoneController.updateHuoneTilaById(huoneId, "vapaa" );
+
+
                 //refresh table
                 laskuTable.refresh();
             }

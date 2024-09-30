@@ -155,6 +155,61 @@ public class HuoneDAO {
             }
         }
     }
+
+    public void UpdateHuoneHintaById(int id, double huone_hinta) {
+        EntityManager em = MariaDbConnection.getInstance();
+        try {
+            em.getTransaction().begin();
+            Huone huone = em.find(Huone.class, id);
+            if (huone != null) {
+                huone.setHuone_hinta(huone_hinta);
+            } else {
+                System.out.println("Huonetta ei löytynyt id:llä " + id);
+            }
+            em.getTransaction().commit();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+    }
+
+    public void UpdateHuoneTilaById(int id, String huone_tila) {
+        EntityManager em = MariaDbConnection.getInstance();
+        try {
+            em.getTransaction().begin();
+            Huone huone = em.find(Huone.class, id);
+            if (huone != null) {
+                huone.setHuone_tila(huone_tila);
+            } else {
+                System.out.println("Huonetta ei löytynyt id:llä " + id);
+            }
+            em.getTransaction().commit();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+    }
+
+    public void UpdateHuoneTyyppiById(int id, String huone_tyyppi) {
+        EntityManager em = MariaDbConnection.getInstance();
+        try {
+            em.getTransaction().begin();
+            Huone huone = em.find(Huone.class, id);
+            if (huone != null) {
+                huone.setHuone_tyyppi(huone_tyyppi);
+            } else {
+                System.out.println("Huonetta ei löytynyt id:llä " + id);
+            }
+            em.getTransaction().commit();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+    }
+
 }
 
 
