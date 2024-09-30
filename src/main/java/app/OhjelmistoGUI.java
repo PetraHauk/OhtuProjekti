@@ -957,7 +957,7 @@ public class OhjelmistoGUI extends Application {
 
         kuittiLayout.getChildren().addAll(kuittiTitle, hotelliInfo, asiakasInfo, kuittiTable, loppuHintaLabel, tulostaButton);
 
-        Scene scene = new Scene(kuittiLayout, 790, 500);
+        Scene scene = new Scene(kuittiLayout, 830, 500);
         kuittiStage.setScene(scene);
         kuittiStage.show();
     }
