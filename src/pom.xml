@@ -62,6 +62,12 @@
             <version>20.0.1</version> <!-- Ensure consistency -->
         </dependency>
 
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20230618</version> <!-- Käytä viimeisintä versiota -->
+        </dependency>
+
 
     </dependencies>
 </project>

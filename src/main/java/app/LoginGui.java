@@ -62,15 +62,19 @@ public class LoginGui extends Application {
         String savedHashedPassword = kayttajaDAO.findPasswordByEmail(email);
 
         if (savedHashedPassword != null && BCrypt.checkpw(password, savedHashedPassword)) {
+            // Retrieve the user role (rooli)
+            int rooli = kayttajaDAO.findRooliByEmail(email); // Assuming this method exists in KayttajaDAO
+
+            // Save the username and role to UserSession
+            UserSession.setUsername(email);
+            UserSession.setRooli(rooli);
+
             // Login successful
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Kirjautuminen onnistui");
+            alert.setTitle("Kirjautumine onnistui");
             alert.setHeaderText(null);
             alert.setContentText("Tervetuloa!");
             alert.showAndWait();
-
-            // Save the username to UserSession
-            UserSession.setUsername(email); // Store the email or username
 
             // Close the login window
             primaryStage.close();
