@@ -79,7 +79,7 @@ public class OhjelmistoGUI extends Application {
 
 
         // Check if user is an admin
-        if (UserSession.getRooli() == 3) {
+        if (UserSession.getRooli().equals("Admin")) {
             Button adminButton = new Button("Admin Panel");
             adminButton.setPrefWidth(200);
             adminButton.getStyleClass().add("button-admin");

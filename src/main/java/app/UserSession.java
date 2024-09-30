@@ -2,7 +2,7 @@ package app;
 
 public class UserSession {
     private static String username;
-    private static int rooli;
+    private static String rooli;
 
     public static String getUsername() {
         return username;
@@ -12,11 +12,11 @@ public class UserSession {
         UserSession.username = username;
     }
 
-    public static int getRooli() {
+    public static String getRooli() {
         return rooli;
     }
 
-    public static void setRooli(int rooli) {
+    public static void setRooli(String rooli) {
         UserSession.rooli = rooli;
     }
 }
