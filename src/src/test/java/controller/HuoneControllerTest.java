@@ -1,6 +1,7 @@
 package controller;
 
 import model.enteties.Huone;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import controller.HuoneController;
 
@@ -14,13 +15,14 @@ public class HuoneControllerTest {
 
     @Test
     public void testLisaaHuone() {
-        int huoneNro = 110;
+        int huoneNro = 1110;
         String huoneTyyppi = "perhe";
         String huoneTila = "vapaa";
         double hinta = 100.0;
         int hotelliId = 2;
         huoneController.lisaaHuone(huoneNro, huoneTyyppi, huoneTila, hinta, hotelliId);
-        assertEquals(huoneNro, huoneController.findHuoneByNro(huoneNro).getHuone_nro());
+        Huone huone = huoneController.findHuoneById(20);
+        Assertions.assertEquals(huoneNro, huone.getHuone_nro());
     }
 
     @Test
@@ -38,10 +40,10 @@ public class HuoneControllerTest {
     }
 
     @Test
-    public void testFindHuoneByNro() {
-        int huoneNro = 101;
+    public void findHuoneByNro() {
+        int huoneNro = 1101;
         huoneController.findHuoneByNro(huoneNro);
-        assertEquals(huoneNro, huoneController.findHuoneByNro(huoneNro).getHuone_nro());
+        Assertions.assertEquals(huoneNro, huoneController.findHuoneByNro(huoneNro).getHuone_nro());
     }
 
     @Test
@@ -75,7 +77,7 @@ public class HuoneControllerTest {
 
     @Test
     public void testDeleteHuone() {
-        int huoneId = 8;
+        int huoneId = 20;
         huoneController.deleteHuone(huoneId);
         assertNull(huoneController.findHuoneById(huoneId));
     }

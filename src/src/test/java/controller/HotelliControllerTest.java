@@ -3,6 +3,7 @@ package controller;
 import model.enteties.Hotelli;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class HotelliControllerTest {
     HotelliController hotelliController = new HotelliController();
@@ -14,15 +15,10 @@ public class HotelliControllerTest {
         String kaupunki = "vantaa";
         String maa = "suomi";
         String puh = "123456";
-        int id = 3;
-        hotelliController.addHotelli(nimi, osoite, kaupunki, puh, maa);
-        Hotelli hoteli = hotelliController.findHotelliById(id);
 
-        boolean hotelliLoytyy = hoteli.getNimi().equals(nimi) &&
-                hoteli.getOsoite().equals(osoite) &&
-                hoteli.getKaupunki().equals(kaupunki) &&
-                hoteli.getPuh().equals(puh) &&
-                hoteli.getMaa().equals(maa);
+        hotelliController.addHotelli(nimi, osoite, kaupunki, puh, maa);
+        // Ensure that the hotel was actually added
+        assertEquals(nimi, hotelliController.findHotelliById(15).getNimi());
     }
 
     @Test
@@ -33,8 +29,8 @@ public class HotelliControllerTest {
 
     @Test
     public void testRemoveHotelliById() {
-        hotelliController.removeHotelliById(3);
-        Hotelli hotelli = hotelliController.findHotelliById(3);
+        hotelliController.removeHotelliById(14);
+        Hotelli hotelli = hotelliController.findHotelliById(14);
         assertEquals(null, hotelli);
     }
 }

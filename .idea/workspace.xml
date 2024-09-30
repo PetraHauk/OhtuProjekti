@@ -4,25 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="Admin.gui muutoksia">
-      <change afterPath="$PROJECT_DIR$/src/src/test/java/controller/KayttajaControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_9_2024_11_10_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_9_2024_11_10__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_20_9_2024_11_13_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_20_9_2024_11_13__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_09_2024_09_03__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_09_2024_09_03__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_9_2024_13_21__Changes_.xml" beforeDir="false" />
+    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="siistiminen">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/HotelliController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/HotelliController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/HuoneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/HuoneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/VarausController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/VarausController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/HotelliDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/HotelliDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/HuoneDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/HuoneDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/src/test/java/controller/AsiakasControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/test/java/controller/AsiakasControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/test/java/controller/HotelliControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/test/java/controller/HotelliControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/src/test/java/controller/HuoneControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/test/java/controller/HuoneControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/src/test/java/controller/LaskuControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/test/java/controller/LaskuControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/test/java/controller/kayttajaControllerTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/test/java/controller/VarausControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/test/java/controller/VarausControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/HotelliController.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/controller/HotelliController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/HuoneController.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/controller/HuoneController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/VarausControllerAnna.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/HotelliDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/DAO/HotelliDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/HuoneDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/DAO/HuoneDAO.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +36,7 @@
         <option value="FxmlFile" />
         <option value="CSS File" />
         <option value="Class" />
+        <option value="Dockerfile" />
       </list>
     </option>
   </component>
@@ -82,15 +84,31 @@
     "Application.MainPetra.executor": "Run",
     "Application.WilmaMain.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.AsiakasControllerTest.executor": "Run",
     "JUnit.AsiakasControllerTest.findByLaskuId.executor": "Run",
+    "JUnit.HotelliControllerTest.executor": "Coverage",
+    "JUnit.HotelliControllerTest.testAddHotelli.executor": "Run",
     "JUnit.HotelliControllerTest.testFindHotelliById.executor": "Run",
+    "JUnit.HotelliControllerTest.testRemoveHotelliById.executor": "Run",
+    "JUnit.HuoneControllerTest.executor": "Coverage",
     "JUnit.HuoneControllerTest.findHuoneByNro.executor": "Run",
     "JUnit.HuoneControllerTest.findHuoneByTila.executor": "Run",
     "JUnit.HuoneControllerTest.findHuoneByTyyppi.executor": "Run",
     "JUnit.HuoneControllerTest.testFindHuoneById.executor": "Run",
+    "JUnit.HuoneControllerTest.testFindHuoneByNro.executor": "Run",
     "JUnit.HuoneControllerTest.testFindHuoneetByHoteliId.executor": "Run",
+    "JUnit.HuoneControllerTest.testLisaaHuone.executor": "Run",
     "JUnit.HuoneControllerTest.testeFindVapaatHuoneetByHotelliId.executor": "Run",
     "JUnit.HuoneControllerTest.updateHuoneById.executor": "Run",
+    "JUnit.KayttajaControllerTest.executor": "Coverage",
+    "JUnit.KayttajaControllerTest.testFindKayttajaById.executor": "Run",
+    "JUnit.LaskuControllerTest.executor": "Coverage",
+    "JUnit.LaskuControllerTest.findAllLaskut.executor": "Run",
+    "JUnit.VarausControllerTest.TestFindByVarausId.executor": "Run",
+    "JUnit.VarausControllerTest.executor": "Run",
+    "JUnit.VarausControllerTest.testRemoveVarausById.executor": "Run",
+    "Maven.gui [clean].executor": "Run",
+    "Maven.gui [install].executor": "Run",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "false",
@@ -127,8 +145,14 @@
       <recent name="app" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.KayttajaControllerTest.testFindKayttajaById">
-    <configuration name="HotelliControllerTest.testFindHotelliById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn install" />
+      <command value="mvn clean" />
+    </option>
+  </component>
+  <component name="RunManager" selected="JUnit.VarausControllerTest">
+    <configuration name="LaskuControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gui" />
       <extension name="coverage">
         <pattern>
@@ -137,14 +161,44 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="controller" />
-      <option name="MAIN_CLASS_NAME" value="controller.HotelliControllerTest" />
-      <option name="METHOD_NAME" value="testFindHotelliById" />
+      <option name="MAIN_CLASS_NAME" value="controller.LaskuControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VarausControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gui" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="controller" />
+      <option name="MAIN_CLASS_NAME" value="controller.VarausControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VarausControllerTest.TestFindByVarausId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gui" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="controller" />
+      <option name="MAIN_CLASS_NAME" value="controller.VarausControllerTest" />
+      <option name="METHOD_NAME" value="TestFindByVarausId" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HuoneControllerTest.findHuoneByTyyppi" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="VarausControllerTest.testRemoveVarausById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gui" />
       <extension name="coverage">
         <pattern>
@@ -153,14 +207,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="controller" />
-      <option name="MAIN_CLASS_NAME" value="controller.HuoneControllerTest" />
-      <option name="METHOD_NAME" value="findHuoneByTyyppi" />
+      <option name="MAIN_CLASS_NAME" value="controller.VarausControllerTest" />
+      <option name="METHOD_NAME" value="testRemoveVarausById" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HuoneControllerTest.testeFindVapaatHuoneetByHotelliId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="VarausControllerTest.testUpdateVarausById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gui" />
       <extension name="coverage">
         <pattern>
@@ -169,40 +223,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="controller" />
-      <option name="MAIN_CLASS_NAME" value="controller.HuoneControllerTest" />
-      <option name="METHOD_NAME" value="testeFindVapaatHuoneetByHotelliId" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="HuoneControllerTest.updateHuoneById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gui" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="controller" />
-      <option name="MAIN_CLASS_NAME" value="controller.HuoneControllerTest" />
-      <option name="METHOD_NAME" value="updateHuoneById" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="KayttajaControllerTest.testFindKayttajaById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gui" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="controller" />
-      <option name="MAIN_CLASS_NAME" value="controller.KayttajaControllerTest" />
-      <option name="METHOD_NAME" value="testFindKayttajaById" />
+      <option name="MAIN_CLASS_NAME" value="controller.VarausControllerTest" />
+      <option name="METHOD_NAME" value="testUpdateVarausById" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -210,11 +232,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.KayttajaControllerTest.testFindKayttajaById" />
-        <item itemvalue="JUnit.HuoneControllerTest.testeFindVapaatHuoneetByHotelliId" />
-        <item itemvalue="JUnit.HuoneControllerTest.findHuoneByTyyppi" />
-        <item itemvalue="JUnit.HotelliControllerTest.testFindHotelliById" />
-        <item itemvalue="JUnit.HuoneControllerTest.updateHuoneById" />
+        <item itemvalue="JUnit.VarausControllerTest" />
+        <item itemvalue="JUnit.VarausControllerTest.testUpdateVarausById" />
+        <item itemvalue="JUnit.VarausControllerTest.TestFindByVarausId" />
+        <item itemvalue="JUnit.VarausControllerTest.testRemoveVarausById" />
+        <item itemvalue="JUnit.LaskuControllerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -250,7 +272,7 @@
       <workItem from="1727467050175" duration="6010000" />
       <workItem from="1727617303006" duration="3223000" />
       <workItem from="1727681862663" duration="1674000" />
-      <workItem from="1727718512230" duration="2125000" />
+      <workItem from="1727718512230" duration="9775000" />
     </task>
     <task id="LOCAL-00002" summary="yhdistetty wilman ja kaislan judut">
       <option name="closed" value="true" />
@@ -324,7 +346,23 @@
       <option name="project" value="LOCAL" />
       <updated>1727621366849</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="test">
+      <option name="closed" value="true" />
+      <created>1727721661158</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1727721661158</updated>
+    </task>
+    <task id="LOCAL-00012" summary="siistiminen">
+      <option name="closed" value="true" />
+      <created>1727723908951</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1727723908951</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -351,7 +389,9 @@
     <MESSAGE value="Aasiakas välilehti: asiakkan tietojen muokkaua ja poista asiakasta." />
     <MESSAGE value="Admin screen hommia" />
     <MESSAGE value="Admin.gui muutoksia" />
-    <option name="LAST_COMMIT_MESSAGE" value="Admin.gui muutoksia" />
+    <MESSAGE value="test" />
+    <MESSAGE value="siistiminen" />
+    <option name="LAST_COMMIT_MESSAGE" value="siistiminen" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -360,16 +400,24 @@
           <properties class="java.lang.IllegalStateException" package="java.lang" />
           <option name="timeStamp" value="8" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/src/test/java/controller/HuoneControllerTest.java</url>
-          <line>83</line>
-          <properties class="controller.HuoneControllerTest" method="testeFindVapaatHuoneetByHotelliId">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/OhtuProjekti$LaskuControllerTest.ic" NAME="LaskuControllerTest Coverage Results" MODIFIED="1727728038126" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>controller.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/OhtuProjekti$HotelliControllerTest.ic" NAME="HotelliControllerTest Coverage Results" MODIFIED="1727727805913" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>controller.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/OhtuProjekti$HuoneControllerTest.ic" NAME="HuoneControllerTest Coverage Results" MODIFIED="1727727779715" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>controller.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/OhtuProjekti$KayttajaControllerTest.ic" NAME="KayttajaControllerTest Coverage Results" MODIFIED="1727727818368" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>controller.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/OhtuProjekti$AsiakasControllerTest.ic" NAME="AsiakasControllerTest Coverage Results" MODIFIED="1727725710763" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>controller.*</FILTER>
+    </SUITE>
   </component>
 </project>

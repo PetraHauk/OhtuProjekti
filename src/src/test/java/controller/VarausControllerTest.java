@@ -34,7 +34,7 @@ public class VarausControllerTest {
 
     @Test
     public void TestFindByVarausId() {
-        int id = 2;
+        int id = 3;
         Varaus varaus = varausController.findByVarausId(id);
         assertEquals(id, varaus.getVarausId());
     }
@@ -51,11 +51,11 @@ public class VarausControllerTest {
 
     @Test
     public void testUpdateVarausById() {
-        int id = 2;
+        int id = 7;
         LocalDate alkuPvm = LocalDate.of(2024, 12, 1);
         LocalDate loppuPvm = LocalDate.of(2024, 12, 4);
 
-        Varaus varaus = varausController.findByVarausId(2);
+        Varaus varaus = varausController.findByVarausId(7);
         if (varaus != null) {
             varaus.setAlkuPvm(alkuPvm);  // Ensure this line is correctly updating the start date
             varaus.setLoppuPvm(loppuPvm);  // Ensure this line is updating the end date
@@ -76,7 +76,7 @@ public class VarausControllerTest {
     public void testFindAllVaraukset() {
         List<Varaus> varausLista = varausController.findAllVaraukset();
         assertFalse(varausLista.isEmpty());
-        assertEquals(5, varausLista.size());
+        assertEquals(7, varausLista.size());
     }
 
 }

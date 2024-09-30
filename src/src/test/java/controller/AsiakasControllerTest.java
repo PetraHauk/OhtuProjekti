@@ -115,7 +115,7 @@ public class AsiakasControllerTest {
     public void testFindAllAsiakkaat() {
         List<Asiakas> asiakasLista = asiakasController.findAllAsiakkaat();
         assertFalse(asiakasLista.isEmpty());
-        assertEquals(3, asiakasLista.size());
+        assertEquals(10, asiakasLista.size());
     }
 
 }

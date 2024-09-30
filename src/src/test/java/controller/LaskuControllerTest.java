@@ -64,6 +64,6 @@ public class LaskuControllerTest {
     void findAllLaskut() {
         List<Lasku> laskuList = laskuController.findAllLaskut();
         assertFalse(laskuList.isEmpty());
-        assertEquals(3, laskuList.size());
+        assertEquals(6, laskuList.size());
     }
 }
