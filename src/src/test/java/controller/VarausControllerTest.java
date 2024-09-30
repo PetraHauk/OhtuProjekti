@@ -1,11 +1,11 @@
 package controller;
 
 import model.enteties.Varaus;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import java.time.LocalDate;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
 
 public class VarausControllerTest {
