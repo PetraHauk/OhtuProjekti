@@ -1,8 +1,10 @@
 
 package model.DAO;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
 import model.datasourse.MariaDbConnection;
 import model.enteties.Asiakas;
+import org.checkerframework.checker.units.qual.A;
 
 import java.util.List;
 
@@ -32,22 +34,21 @@ public class AsiakasDAO {
     public Asiakas findByEmail(String email) {
         EntityManager em = MariaDbConnection.getInstance();
         try {
-            em.getTransaction().begin();
-
-            Asiakas asiakas = em.createQuery("SELECT a FROM Asiakas a WHERE a.sposti = :sposti", Asiakas.class)
+            // Execute the query and return the result
+            return em.createQuery("SELECT a FROM Asiakas a WHERE a.sposti = :sposti", Asiakas.class)
                     .setParameter("sposti", email)
                     .getSingleResult();
-            em.getTransaction().commit();
-            if (asiakas != null) {
-                return asiakas;
-            }
+        } catch (NoResultException e) {
+            // Return null if no result is found
+            return null;
         } finally {
+            // Ensure the EntityManager is closed
             if (em != null) {
                 em.close();
             }
         }
-        return null;
     }
+
 
     public List <Asiakas> findByNImet(String etunimi, String sukunimi) {
         EntityManager em = MariaDbConnection.getInstance();
@@ -69,6 +70,24 @@ public class AsiakasDAO {
 
     }
 
+    public List<Asiakas> findAsiakasByKeyword(String keyword) {
+        EntityManager em = MariaDbConnection.getInstance();
+        List<Asiakas> asiakkaat = null;
+        try {
+            asiakkaat = em.createQuery("SELECT a FROM Asiakas a WHERE a.etunimi LIKE :keyword OR a.sukunimi LIKE :keyword OR a.sposti LIKE :keyword", Asiakas.class)
+                    .setParameter("keyword", "%" + keyword + "%")
+                    .getResultList();
+            if (!asiakkaat.isEmpty()) {
+                return asiakkaat;
+            }
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return null;
+    }
+
     public List<Asiakas> findAsukkaat() {
         EntityManager em = MariaDbConnection.getInstance();
         List<Asiakas> asiakkaat = null;
@@ -84,6 +103,31 @@ public class AsiakasDAO {
             }
         }
         return null;
+    }
+
+    public void createAsiakas(String etunimi, String sukunimi, String sposti, String puh, int henkiloMaara, String huomio) {
+        EntityManager em = MariaDbConnection.getInstance();
+        try {
+            em.getTransaction().begin();
+            Asiakas asiakas = new Asiakas();
+            asiakas.setEtunimi(etunimi);
+            asiakas.setSukunimi(sukunimi);
+            asiakas.setSposti(sposti);
+            asiakas.setPuh(puh);
+            asiakas.setHenkiloMaara(henkiloMaara);
+            asiakas.setHuomio(huomio);
+            em.persist(asiakas);
+            em.getTransaction().commit();
+        } catch (Exception e) {
+            if (em.getTransaction().isActive()) {
+                em.getTransaction().rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
     }
 
     public void updateAsiakasById(int id, String etunimi, String sukunimi, String sposti, String puh, int henkiloMaara, String huomio) {

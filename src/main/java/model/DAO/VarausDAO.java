@@ -78,6 +78,18 @@ public class VarausDAO {
         em.getTransaction().commit();
     }
 
+    public void paivitaVarausHuoneId(int varaus_id, Integer huone_id) {
+        EntityManager em = MariaDbConnection.getInstance();
+        em.getTransaction().begin();
+        Varaus varaus = em.find(Varaus.class, varaus_id);
+        if (varaus != null) {
+            varaus.setHuoneId(huone_id);
+        } else {
+            System.out.println("Varausta ei löytynyt id:llä " + varaus_id);
+        }
+        em.getTransaction().commit();
+    }
+
     public void removeById(int id) {
         EntityManager em = MariaDbConnection.getInstance();
         em.getTransaction().begin();

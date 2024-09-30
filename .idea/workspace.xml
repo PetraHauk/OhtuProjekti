@@ -4,18 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="Admin screen hommia">
+    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="Merge valmis, tyylit lisätty login ja rekisteröinti, häshäys toimii">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_9_2024_12_53__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_9_2024_12_53__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_09_2024_10_00__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_09_2024_10_00__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_09_2024_11_29__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_09_2024_11_29__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/AdminGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/AdminGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/OhjelmistoGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/OhjelmistoGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/app/AdminGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/app/AdminGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/VarausHaku.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/VarausHaku.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/AsiakasController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/AsiakasController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/HuoneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/HuoneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/LaskuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/LaskuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/VarausController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/VarausController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/AsiakasDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/AsiakasDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/HuoneDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/HuoneDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/VarausDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/VarausDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/enteties/Varaus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enteties/Varaus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/app/LaskuHaku.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/app/LaskuHaku.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/target/classes/app/OhjelmistoGUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/app/OhjelmistoGUI$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/app/OhjelmistoGUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/app/OhjelmistoGUI$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/app/OhjelmistoGUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/app/OhjelmistoGUI$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/app/OhjelmistoGUI$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/app/OhjelmistoGUI$4.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/target/classes/app/OhjelmistoGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/app/OhjelmistoGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/AsiakasController.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/controller/AsiakasController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/HuoneController.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/controller/HuoneController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/LaskuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/controller/LaskuController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/VarausController.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/controller/VarausController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/AsiakasDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/DAO/AsiakasDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/HuoneDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/DAO/HuoneDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/VarausDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/DAO/VarausDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/enteties/Varaus.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/enteties/Varaus.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +51,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="d71699aa497bd716293854cc4ef24d4a495bb94e" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -51,9 +68,6 @@
     &quot;accountId&quot;: &quot;d12f10a6-d5cf-492d-aceb-5d1198a70491&quot;
   }
 }</component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -69,45 +83,39 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MainPetra.executor&quot;: &quot;Run&quot;,
-    &quot;Application.WilmaMain.executor&quot;: &quot;Run&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;21&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/kakek/javafx-sdk-17.0.10/lib&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.5482759&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Application.MainPetra.executor": "Run",
+    "Application.WilmaMain.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "Petra",
+    "jdk.selected.JAVA_MODULE": "21",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/kakek/javafx-sdk-17.0.10/lib",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.5482759",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mariadb&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mariadb"
     ]
   }
-}</component>
-  <component name="RecentsManager">
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="model.enteties" />
-      <recent name="app" />
-    </key>
-  </component>
+}]]></component>
   <component name="RunManager" selected="Application.WilmaMain">
     <configuration name="AnnaMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="app.AnnaMain" />
@@ -161,6 +169,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="gui" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="gui" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.WilmaMain" />
@@ -199,8 +220,6 @@
       <workItem from="1727078937225" duration="158000" />
       <workItem from="1727088746951" duration="605000" />
       <workItem from="1727338859611" duration="3803000" />
-      <workItem from="1727467050175" duration="6010000" />
-      <workItem from="1727617303006" duration="2777000" />
     </task>
     <task id="LOCAL-00002" summary="yhdistetty wilman ja kaislan judut">
       <option name="closed" value="true" />
@@ -218,55 +237,7 @@
       <option name="project" value="LOCAL" />
       <updated>1727342662914</updated>
     </task>
-    <task id="LOCAL-00004" summary="check out välilehti: lasku hake, tulosta ikkuna valmis">
-      <option name="closed" value="true" />
-      <created>1727477926082</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1727477926082</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Aasiakas välilehti: siakaan taulukko ja lisaa asiakasta">
-      <option name="closed" value="true" />
-      <created>1727486209887</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1727486209887</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Aasiakas välilehti: asiakkan tietojen muokkaua ja poista asiakasta.">
-      <option name="closed" value="true" />
-      <created>1727513813911</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1727513813912</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Admin screen hommia">
-      <option name="closed" value="true" />
-      <created>1727617397344</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1727617397344</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Admin screen hommia">
-      <option name="closed" value="true" />
-      <created>1727617530695</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1727617530695</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Admin screen hommia">
-      <option name="closed" value="true" />
-      <created>1727617716342</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1727617716342</updated>
-    </task>
-    <option name="localTasksCounter" value="10" />
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -288,11 +259,8 @@
     <MESSAGE value="...." />
     <MESSAGE value="yhdistetty wilman ja kaislan judut" />
     <MESSAGE value="Merge valmis, tyylit lisätty login ja rekisteröinti, häshäys toimii" />
-    <MESSAGE value="check out välilehti: lasku hake, tulosta ikkuna valmis" />
-    <MESSAGE value="Aasiakas välilehti: siakaan taulukko ja lisaa asiakasta" />
-    <MESSAGE value="Aasiakas välilehti: asiakkan tietojen muokkaua ja poista asiakasta." />
-    <MESSAGE value="Admin screen hommia" />
-    <option name="LAST_COMMIT_MESSAGE" value="Admin screen hommia" />
+    <MESSAGE value="Huoneet haetaan tietokannasta taulukkoon. Uuden huoneen lisäys visuaalissa toimii." />
+    <option name="LAST_COMMIT_MESSAGE" value="Huoneet haetaan tietokannasta taulukkoon. Uuden huoneen lisäys visuaalissa toimii." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
