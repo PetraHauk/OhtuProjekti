@@ -13,8 +13,8 @@ public class AnnaMain {
         //HuoneHaku huoneHaku = new HuoneHaku();
         //huoneHaku.start();
 
-        VarausHaku varausHaku = new VarausHaku();
-        varausHaku.start();
+        //VarausHaku varausHaku = new VarausHaku();
+        //varausHaku.start();
 
         //LaskuHaku laskuHaku = new LaskuHaku();
         //laskuHaku.start();
