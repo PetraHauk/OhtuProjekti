@@ -23,6 +23,7 @@ public class HotelliDAO {
         }
     }
 
+
     public void removeById(int hotelli_id) {
         EntityManager em = MariaDbConnection.getInstance();
         try {

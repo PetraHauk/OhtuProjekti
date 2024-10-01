@@ -1,7 +1,7 @@
 <h2>Hotellin Varausjärjestelmä</h2>
 
 <h3>Ongelman kuvaus</h3>
-Kohderyhmämme käyttäjillä on vaikeuksia löytää edullisin hotelli, joka vastaa heidän vaatimuksiaan. Nykyiset ratkaisut eivät pysty riittävästi vastaamaan heidän tarpeisiinsa, mikä johtaa turhautumiseen ja tehottomuuteen.
+Tarjoamme käyttäjille, pääsääntöisesti hotellin työntekijöille, viisaan ratkaisun hotellin huoneiden ja varauksien tarkasteluun. Ohjelma pitää kirjaa asiakkaista, varauksista ja huoneista hotelliketjun eri hotelleissa. 
 <h3>Kohderyhmä</h3>
 Tuotteemme on suunnattu perheille ja aikuisille, jotka etsivät parasta hotellia yöpymiseen matkan tai loman aikana.
 <h3>Arvolupaus</h3>

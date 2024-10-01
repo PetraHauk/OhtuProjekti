@@ -57,8 +57,8 @@ public class VarausController {
     }
 
     public Varaus findByVarausId(int varaus_id) {
-        varausDAO.haeByVarausId(varaus_id);
-        return null;
+        return varausDAO.haeByVarausId(varaus_id);
+
     }
 
     public List<Varaus> findByLaskuId (int lasku_id) {
