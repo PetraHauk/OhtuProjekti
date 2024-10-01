@@ -5,12 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="Admin.gui muutoksia">
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jenkinsfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/src/test/java/app/RegistrationGuiTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/AdminGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/AdminGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/LoginGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/LoginGui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/OhjelmistoGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/OhjelmistoGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/UserSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/UserSession.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/KayttajaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/KayttajaDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/RegistrationGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/RegistrationGui.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/test/java/controller/AsiakasControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/test/java/controller/AsiakasControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/test/java/controller/HotelliControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/test/java/controller/HotelliControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/test/java/controller/HuoneControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/test/java/controller/HuoneControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/test/java/controller/LaskuControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/test/java/controller/LaskuControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/test/java/controller/VarausControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/test/java/controller/VarausControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/test/java/controller/kayttajaControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/test/java/controller/kayttajaControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/app/OhjelmistoGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/app/OhjelmistoGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/app/RegistrationGui.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/app/RegistrationGui.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +34,8 @@
       <list>
         <option value="FxmlFile" />
         <option value="CSS File" />
+        <option value="JUnit4 Test Class" />
+        <option value="Dockerfile" />
         <option value="Class" />
       </list>
     </option>
@@ -64,48 +78,69 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MainPetra.executor&quot;: &quot;Run&quot;,
-    &quot;Application.WilmaMain.executor&quot;: &quot;Run&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;21&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/kakek/javafx-sdk-17.0.10/lib&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.5482759&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Application.MainPetra.executor": "Run",
+    "Application.WilmaMain.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.RegistrationGuiTest.executor": "Run",
+    "JUnit.RegistrationGuiTest.testHandleRegister_Success.executor": "Run",
+    "JUnit.RegistrationGuiTest.testRegisterWithEmptyFields.executor": "Run",
+    "JUnit.RegistrationGuiTest.testRegisterWithExistingEmail.executor": "Run",
+    "JUnit.RegistrationGuiTest.testSuccessfulAlertDisplay.executor": "Run",
+    "JUnit.RegistrationGuiTest.testSuccessfulRegistration.executor": "Run",
+    "Maven.gui [clean].executor": "Run",
+    "Maven.gui [install].executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
+    "git-widget-placeholder": "main",
+    "jdk.selected.JAVA_MODULE": "21",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/kakek/javafx-sdk-17.0.10/lib",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.5482759",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mariadb&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mariadb"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="app" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="model.enteties" />
       <recent name="app" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.WilmaMain">
-    <configuration name="AnnaMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="app.AnnaMain" />
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean" />
+      <command value="mvn install" />
+    </option>
+  </component>
+  <component name="RunManager" selected="JUnit.RegistrationGuiTest">
+    <configuration name="RegistrationGuiTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gui" />
       <extension name="coverage">
         <pattern>
@@ -113,12 +148,14 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="app" />
+      <option name="MAIN_CLASS_NAME" value="app.RegistrationGuiTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="app.Main" />
+    <configuration name="RegistrationGuiTest.testHandleRegister_Success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gui" />
       <extension name="coverage">
         <pattern>
@@ -126,12 +163,15 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="app" />
+      <option name="MAIN_CLASS_NAME" value="app.RegistrationGuiTest" />
+      <option name="METHOD_NAME" value="testHandleRegister_Success" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MainPetra" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="app.MainPetra" />
+    <configuration name="RegistrationGuiTest.testRegisterWithExistingEmail" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gui" />
       <extension name="coverage">
         <pattern>
@@ -139,12 +179,15 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="app" />
+      <option name="MAIN_CLASS_NAME" value="app.RegistrationGuiTest" />
+      <option name="METHOD_NAME" value="testRegisterWithExistingEmail" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WilmaMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="app.WilmaMain" />
+    <configuration name="RegistrationGuiTest.testSuccessfulAlertDisplay" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gui" />
       <extension name="coverage">
         <pattern>
@@ -152,16 +195,37 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="app" />
+      <option name="MAIN_CLASS_NAME" value="app.RegistrationGuiTest" />
+      <option name="METHOD_NAME" value="testSuccessfulAlertDisplay" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RegistrationGuiTest.testSuccessfulRegistration" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gui" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="app.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="app" />
+      <option name="MAIN_CLASS_NAME" value="app.RegistrationGuiTest" />
+      <option name="METHOD_NAME" value="testSuccessfulRegistration" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.WilmaMain" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Application.MainPetra" />
-        <item itemvalue="Application.AnnaMain" />
+        <item itemvalue="JUnit.RegistrationGuiTest" />
+        <item itemvalue="JUnit.RegistrationGuiTest.testHandleRegister_Success" />
+        <item itemvalue="JUnit.RegistrationGuiTest.testRegisterWithExistingEmail" />
+        <item itemvalue="JUnit.RegistrationGuiTest.testSuccessfulAlertDisplay" />
+        <item itemvalue="JUnit.RegistrationGuiTest.testSuccessfulRegistration" />
       </list>
     </recent_temporary>
   </component>
@@ -197,6 +261,9 @@
       <workItem from="1727467050175" duration="6010000" />
       <workItem from="1727617303006" duration="3223000" />
       <workItem from="1727681862663" duration="1674000" />
+      <workItem from="1727692025966" duration="270000" />
+      <workItem from="1727722802128" duration="1301000" />
+      <workItem from="1727762601158" duration="6227000" />
     </task>
     <task id="LOCAL-00002" summary="yhdistetty wilman ja kaislan judut">
       <option name="closed" value="true" />
@@ -270,7 +337,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727621366849</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Admin.gui muutoksia">
+      <option name="closed" value="true" />
+      <created>1727692094936</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1727692094936</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

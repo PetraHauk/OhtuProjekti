@@ -14,6 +14,7 @@ import model.enteties.Kayttaja;
 import model.DAO.KayttajaDAO;
 import org.mindrot.jbcrypt.BCrypt;
 
+
 public class RegistrationGui extends Application {
 
     private KayttajaDAO kayttajaDAO = new KayttajaDAO();
@@ -77,7 +78,7 @@ public class RegistrationGui extends Application {
         primaryStage.show();
     }
 
-    private void handleRegister(String etunimi, String sukunimi, String sposti, String puh, String salasana, Stage primaryStage) {
+    void handleRegister(String etunimi, String sukunimi, String sposti, String puh, String salasana, Stage primaryStage) {
         if (etunimi.isEmpty() || sukunimi.isEmpty() || sposti.isEmpty() || puh.isEmpty() || salasana.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Rekisteröinti epäonnistui");
@@ -101,7 +102,9 @@ public class RegistrationGui extends Application {
             kayttaja.setSalasana(hashattuSalasana); // Store the hashed password
             kayttaja.setRooli("1");
 
+
             kayttajaDAO.persist(kayttaja);
+
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Rekisteröinti onnistui");
@@ -114,6 +117,10 @@ public class RegistrationGui extends Application {
         }
     }
 
+    // Add this setter method
+    public void setKayttajaDAO(KayttajaDAO kayttajaDAO) {
+        this.kayttajaDAO = kayttajaDAO;
+    }
 
     public static void main(String[] args) { launch(args);}
 }
