@@ -4,25 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="Admin.gui muutoksia">
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Jenkinsfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/test/java/app/RegistrationGuiTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="Rekisteröinti testi jenkinsiä varten, muut testit kommentoitu pois, muuttaa pom.xml jossa">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_09_2024_09_03__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_09_2024_09_03__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/RegistrationGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/RegistrationGui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/test/java/controller/AsiakasControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/test/java/controller/AsiakasControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/test/java/controller/HotelliControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/test/java/controller/HotelliControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/test/java/controller/HuoneControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/test/java/controller/HuoneControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/test/java/controller/LaskuControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/test/java/controller/LaskuControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/test/java/controller/VarausControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/test/java/controller/VarausControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/test/java/controller/kayttajaControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/test/java/controller/kayttajaControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/app/OhjelmistoGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/app/OhjelmistoGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/app/RegistrationGui.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/app/RegistrationGui.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/test/java/controller/KayttajaControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/test/java/controller/KayttajaControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +69,7 @@
     "Application.MainPetra.executor": "Run",
     "Application.WilmaMain.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
-    "JUnit.RegistrationGuiTest.executor": "Run",
+    "JUnit.RegistrationGuiTest.executor": "Profiler#1",
     "JUnit.RegistrationGuiTest.testHandleRegister_Success.executor": "Run",
     "JUnit.RegistrationGuiTest.testRegisterWithEmptyFields.executor": "Run",
     "JUnit.RegistrationGuiTest.testRegisterWithExistingEmail.executor": "Run",
@@ -263,7 +248,7 @@
       <workItem from="1727681862663" duration="1674000" />
       <workItem from="1727692025966" duration="270000" />
       <workItem from="1727722802128" duration="1301000" />
-      <workItem from="1727762601158" duration="6227000" />
+      <workItem from="1727762601158" duration="7387000" />
     </task>
     <task id="LOCAL-00002" summary="yhdistetty wilman ja kaislan judut">
       <option name="closed" value="true" />
@@ -345,7 +330,23 @@
       <option name="project" value="LOCAL" />
       <updated>1727692094936</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Rekisteröinti testi jenkinsiä varten, muut testit kommentoitu pois, muuttaa pom.xml jossa">
+      <option name="closed" value="true" />
+      <created>1727771053253</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1727771053253</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Rekisteröinti testi jenkinsiä varten, muut testit kommentoitu pois, muuttaa pom.xml jossa">
+      <option name="closed" value="true" />
+      <created>1727771089479</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1727771089479</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -372,7 +373,8 @@
     <MESSAGE value="Aasiakas välilehti: asiakkan tietojen muokkaua ja poista asiakasta." />
     <MESSAGE value="Admin screen hommia" />
     <MESSAGE value="Admin.gui muutoksia" />
-    <option name="LAST_COMMIT_MESSAGE" value="Admin.gui muutoksia" />
+    <MESSAGE value="Rekisteröinti testi jenkinsiä varten, muut testit kommentoitu pois, muuttaa pom.xml jossa" />
+    <option name="LAST_COMMIT_MESSAGE" value="Rekisteröinti testi jenkinsiä varten, muut testit kommentoitu pois, muuttaa pom.xml jossa" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
