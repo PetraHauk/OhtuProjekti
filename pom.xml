@@ -201,7 +201,7 @@
                 <version>3.0.0-M5</version> <!-- Use the latest stable version -->
                 <configuration>
                     <includes>
-                        <include>**/RegistrationGuiTest.java</include> <!-- Add test file name under here  -->
+                        <include>**/*Test.java</include> <!-- Add test file name under here  -->
                     </includes>
                 </configuration>
             </plugin>
