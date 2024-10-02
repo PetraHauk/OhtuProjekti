@@ -1,4 +1,4 @@
-package app;
+package view;
 
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
@@ -15,7 +15,8 @@ import java.util.concurrent.CountDownLatch;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
-public class RegistrationGuiTest {
+public class
+RegistrationGuiTest {
 
     private RegistrationGui registrationGui;
     private KayttajaDAO mockKayttajaDAO;
