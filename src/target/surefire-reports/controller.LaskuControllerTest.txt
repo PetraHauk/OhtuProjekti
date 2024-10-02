@@ -1,0 +1,28 @@
+-------------------------------------------------------------------------------
+Test set: controller.LaskuControllerTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 0, Errors: 5, Skipped: 0, Time elapsed: 0.17 s <<< FAILURE! - in controller.LaskuControllerTest
+controller.LaskuControllerTest.updateLaskuById  Time elapsed: 0.009 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "model.enteties.Lasku.getMaksuStatus()" because the return value of "controller.LaskuController.findLaskuById(int)" is null
+	at controller.LaskuControllerTest.updateLaskuById(LaskuControllerTest.java:52)
+
+controller.LaskuControllerTest.testAddLasku  Time elapsed: 0.12 s  <<< ERROR!
+jakarta.persistence.PersistenceException: Converting `org.hibernate.exception.ConstraintViolationException` to JPA `PersistenceException` : could not execute statement
+	at controller.LaskuControllerTest.testAddLasku(LaskuControllerTest.java:21)
+Caused by: org.hibernate.exception.ConstraintViolationException: could not execute statement
+	at controller.LaskuControllerTest.testAddLasku(LaskuControllerTest.java:21)
+Caused by: java.sql.SQLIntegrityConstraintViolationException: (conn=101) Cannot add or update a child row: a foreign key constraint fails (`hotelli_db`.`lasku`, CONSTRAINT `lasku_ibfk_1` FOREIGN KEY (`asiakas_id`) REFERENCES `asiakas` (`asiakas_id`))
+	at controller.LaskuControllerTest.testAddLasku(LaskuControllerTest.java:21)
+
+controller.LaskuControllerTest.findAllLaskut  Time elapsed: 0.013 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "java.util.List.isEmpty()" because "laskuList" is null
+	at controller.LaskuControllerTest.findAllLaskut(LaskuControllerTest.java:66)
+
+controller.LaskuControllerTest.testFindLaskuById  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "model.enteties.Lasku.getLaskuId()" because "lasku" is null
+	at controller.LaskuControllerTest.testFindLaskuById(LaskuControllerTest.java:31)
+
+controller.LaskuControllerTest.testFindLaskuByAsiakasId  Time elapsed: 0.006 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "java.util.List.isEmpty()" because "laskuList" is null
+	at controller.LaskuControllerTest.testFindLaskuByAsiakasId(LaskuControllerTest.java:37)
+

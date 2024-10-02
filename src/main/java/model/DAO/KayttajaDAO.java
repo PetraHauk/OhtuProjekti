@@ -206,7 +206,7 @@ public class KayttajaDAO {
         }
     }
 
-    public int findRooliByEmail(String email) {
+    public String findRooliByEmail(String email) {
         EntityManager em = MariaDbConnection.getInstance();
         try {
             em.getTransaction().begin();
@@ -216,15 +216,16 @@ public class KayttajaDAO {
             em.getTransaction().commit();
 
             // Convert rooli from String to int
-            int rooli = Integer.parseInt(rooliString);
-            return rooli;
+            //int rooli = Integer.parseInt(rooliString);
+
+            return rooliString;
 
         } catch (NoResultException e) {
             System.out.println("Käyttäjää ei löytynyt sähköpostilla: " + email);
-            return 0;
+            return null;
         } catch (Exception e) {
             e.printStackTrace();
-            return 0;
+            return null;
         } finally {
             em.close();
         }

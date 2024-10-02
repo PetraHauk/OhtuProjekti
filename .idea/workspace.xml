@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="Check In ja Varaus Luonti">
+    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="Rekisteröinti testi jenkinsiä varten, muut testit kommentoitu pois, muuttaa pom.xml jossa">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_09_2024_09_03__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_09_2024_09_03__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/VarausController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/VarausController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/VarausController.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/controller/VarausController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/test/java/controller/KayttajaControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/test/java/controller/KayttajaControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +19,8 @@
       <list>
         <option value="FxmlFile" />
         <option value="CSS File" />
+        <option value="JUnit4 Test Class" />
+        <option value="Dockerfile" />
         <option value="Class" />
       </list>
     </option>
@@ -26,7 +28,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="d71699aa497bd716293854cc4ef24d4a495bb94e" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -42,6 +44,9 @@
     &quot;url&quot;: &quot;https://github.com/PetraHauk/OhtuProjekti.git&quot;,
     &quot;accountId&quot;: &quot;d12f10a6-d5cf-492d-aceb-5d1198a70491&quot;
   }
+}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
 }</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -64,11 +69,21 @@
     "Application.MainPetra.executor": "Run",
     "Application.WilmaMain.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.RegistrationGuiTest.executor": "Profiler#1",
+    "JUnit.RegistrationGuiTest.testHandleRegister_Success.executor": "Run",
+    "JUnit.RegistrationGuiTest.testRegisterWithEmptyFields.executor": "Run",
+    "JUnit.RegistrationGuiTest.testRegisterWithExistingEmail.executor": "Run",
+    "JUnit.RegistrationGuiTest.testSuccessfulAlertDisplay.executor": "Run",
+    "JUnit.RegistrationGuiTest.testSuccessfulRegistration.executor": "Run",
+    "Maven.gui [clean].executor": "Run",
+    "Maven.gui [install].executor": "Run",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
     "git-widget-placeholder": "main",
     "jdk.selected.JAVA_MODULE": "21",
     "kotlin-language-version-configured": "true",
@@ -91,9 +106,26 @@
     ]
   }
 }]]></component>
-  <component name="RunManager" selected="Application.WilmaMain">
-    <configuration name="AnnaMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="app.AnnaMain" />
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="app" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="model.enteties" />
+      <recent name="app" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean" />
+      <command value="mvn install" />
+    </option>
+  </component>
+  <component name="RunManager" selected="JUnit.RegistrationGuiTest">
+    <configuration name="RegistrationGuiTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gui" />
       <extension name="coverage">
         <pattern>
@@ -101,12 +133,14 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="app" />
+      <option name="MAIN_CLASS_NAME" value="app.RegistrationGuiTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="app.Main" />
+    <configuration name="RegistrationGuiTest.testHandleRegister_Success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gui" />
       <extension name="coverage">
         <pattern>
@@ -114,12 +148,15 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="app" />
+      <option name="MAIN_CLASS_NAME" value="app.RegistrationGuiTest" />
+      <option name="METHOD_NAME" value="testHandleRegister_Success" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MainPetra" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="app.MainPetra" />
+    <configuration name="RegistrationGuiTest.testRegisterWithExistingEmail" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gui" />
       <extension name="coverage">
         <pattern>
@@ -127,12 +164,15 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="app" />
+      <option name="MAIN_CLASS_NAME" value="app.RegistrationGuiTest" />
+      <option name="METHOD_NAME" value="testRegisterWithExistingEmail" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WilmaMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="app.WilmaMain" />
+    <configuration name="RegistrationGuiTest.testSuccessfulAlertDisplay" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gui" />
       <extension name="coverage">
         <pattern>
@@ -140,29 +180,37 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="app" />
+      <option name="MAIN_CLASS_NAME" value="app.RegistrationGuiTest" />
+      <option name="METHOD_NAME" value="testSuccessfulAlertDisplay" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
+    <configuration name="RegistrationGuiTest.testSuccessfulRegistration" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gui" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="gui" />
-      <option name="filePath" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="app.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="app" />
+      <option name="MAIN_CLASS_NAME" value="app.RegistrationGuiTest" />
+      <option name="METHOD_NAME" value="testSuccessfulRegistration" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.WilmaMain" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Application.MainPetra" />
-        <item itemvalue="Application.AnnaMain" />
+        <item itemvalue="JUnit.RegistrationGuiTest" />
+        <item itemvalue="JUnit.RegistrationGuiTest.testHandleRegister_Success" />
+        <item itemvalue="JUnit.RegistrationGuiTest.testRegisterWithExistingEmail" />
+        <item itemvalue="JUnit.RegistrationGuiTest.testSuccessfulAlertDisplay" />
+        <item itemvalue="JUnit.RegistrationGuiTest.testSuccessfulRegistration" />
       </list>
     </recent_temporary>
   </component>
@@ -195,6 +243,12 @@
       <workItem from="1727078937225" duration="158000" />
       <workItem from="1727088746951" duration="605000" />
       <workItem from="1727338859611" duration="3803000" />
+      <workItem from="1727467050175" duration="6010000" />
+      <workItem from="1727617303006" duration="3223000" />
+      <workItem from="1727681862663" duration="1674000" />
+      <workItem from="1727692025966" duration="270000" />
+      <workItem from="1727722802128" duration="1301000" />
+      <workItem from="1727762601158" duration="7387000" />
     </task>
     <task id="LOCAL-00002" summary="yhdistetty wilman ja kaislan judut">
       <option name="closed" value="true" />
@@ -212,15 +266,87 @@
       <option name="project" value="LOCAL" />
       <updated>1727342662914</updated>
     </task>
-    <task id="LOCAL-00004" summary="Check In ja Varaus Luonti">
+    <task id="LOCAL-00004" summary="check out välilehti: lasku hake, tulosta ikkuna valmis">
       <option name="closed" value="true" />
-      <created>1727679877900</created>
+      <created>1727477926082</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1727679877900</updated>
+      <updated>1727477926082</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Aasiakas välilehti: siakaan taulukko ja lisaa asiakasta">
+      <option name="closed" value="true" />
+      <created>1727486209887</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1727486209887</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Aasiakas välilehti: asiakkan tietojen muokkaua ja poista asiakasta.">
+      <option name="closed" value="true" />
+      <created>1727513813911</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1727513813912</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Admin screen hommia">
+      <option name="closed" value="true" />
+      <created>1727617397344</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1727617397344</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Admin screen hommia">
+      <option name="closed" value="true" />
+      <created>1727617530695</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1727617530695</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Admin screen hommia">
+      <option name="closed" value="true" />
+      <created>1727617716342</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1727617716342</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Admin.gui muutoksia">
+      <option name="closed" value="true" />
+      <created>1727621366849</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1727621366849</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Admin.gui muutoksia">
+      <option name="closed" value="true" />
+      <created>1727692094936</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1727692094936</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Rekisteröinti testi jenkinsiä varten, muut testit kommentoitu pois, muuttaa pom.xml jossa">
+      <option name="closed" value="true" />
+      <created>1727771053253</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1727771053253</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Rekisteröinti testi jenkinsiä varten, muut testit kommentoitu pois, muuttaa pom.xml jossa">
+      <option name="closed" value="true" />
+      <created>1727771089479</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1727771089479</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -242,9 +368,13 @@
     <MESSAGE value="...." />
     <MESSAGE value="yhdistetty wilman ja kaislan judut" />
     <MESSAGE value="Merge valmis, tyylit lisätty login ja rekisteröinti, häshäys toimii" />
-    <MESSAGE value="Huoneet haetaan tietokannasta taulukkoon. Uuden huoneen lisäys visuaalissa toimii." />
-    <MESSAGE value="Check In ja Varaus Luonti" />
-    <option name="LAST_COMMIT_MESSAGE" value="Check In ja Varaus Luonti" />
+    <MESSAGE value="check out välilehti: lasku hake, tulosta ikkuna valmis" />
+    <MESSAGE value="Aasiakas välilehti: siakaan taulukko ja lisaa asiakasta" />
+    <MESSAGE value="Aasiakas välilehti: asiakkan tietojen muokkaua ja poista asiakasta." />
+    <MESSAGE value="Admin screen hommia" />
+    <MESSAGE value="Admin.gui muutoksia" />
+    <MESSAGE value="Rekisteröinti testi jenkinsiä varten, muut testit kommentoitu pois, muuttaa pom.xml jossa" />
+    <option name="LAST_COMMIT_MESSAGE" value="Rekisteröinti testi jenkinsiä varten, muut testit kommentoitu pois, muuttaa pom.xml jossa" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

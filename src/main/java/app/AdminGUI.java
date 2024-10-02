@@ -67,7 +67,7 @@ public class AdminGUI extends Application {
         TextField puhField = new TextField();
         puhField.setPromptText("Puh");
 
-        ComboBox<String> rooliComboBox = new ComboBox<>(FXCollections.observableArrayList("1", "2", "3"));
+        ComboBox<String> rooliComboBox = new ComboBox<>(FXCollections.observableArrayList("Siivoja", "Hotellityöntekijä", "Admin"));
         rooliComboBox.setPromptText("Rooli");
 
         PasswordField passwordField = new PasswordField();
@@ -148,7 +148,7 @@ public class AdminGUI extends Application {
         PasswordField passwordField = new PasswordField();
         passwordField.setPromptText("Salasana");
 
-        ComboBox<String> rooliComboBox = new ComboBox<>(FXCollections.observableArrayList("1", "2", "3"));
+        ComboBox<String> rooliComboBox = new ComboBox<>(FXCollections.observableArrayList("Siivooja", "Hotellityöntekijä", "Admin"));
         rooliComboBox.setPromptText("Rooli");
 
         Button addUserSubmitButton = new Button("Lisää käyttäjä");
@@ -207,7 +207,11 @@ public class AdminGUI extends Application {
     }
 
     private void updateUserById(int id, String etunimi, String sukunimi, String sposti, String puh, String rooli, String salasana) {
-        kayttajaDAO.updateKayttajaById(id, etunimi, sukunimi, sposti, puh, rooli, salasana); // Use your provided method
+        // Hash the password if it's not empty
+        String hashattuSalasana = salasana.isEmpty() ? null : BCrypt.hashpw(salasana, BCrypt.gensalt());
+
+        // Update the user information in the database
+        kayttajaDAO.updateKayttajaById(id, etunimi, sukunimi, sposti, puh, rooli, hashattuSalasana); // Use your provided method
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Käyttäjän tietojen päivitys");
@@ -228,8 +232,8 @@ public class AdminGUI extends Application {
         }
 
         // Check if the selected user is an admin (role 3)
-        if ("3".equals(selectedUser.getRooli())) {
-            showWarning("Poisto estetty", "Admin käyttäjää (rooli 3) ei voi poistaa.");
+        if ("Admin".equals(selectedUser.getRooli())) {
+            showWarning("Poisto estetty", "Admin käyttäjää ei voi poistaa.");
             return;
         }
 

@@ -58,12 +58,12 @@ public class LoginGui extends Application {
         primaryStage.show();
     }
 
-    private void handleLogin(String email, String password, Stage primaryStage) {
+       private void handleLogin(String email, String password, Stage primaryStage) {
         String savedHashedPassword = kayttajaDAO.findPasswordByEmail(email);
 
-        if (savedHashedPassword != null && BCrypt.checkpw(password, savedHashedPassword)) {
+        if (savedHashedPassword != null && !savedHashedPassword.isEmpty() && BCrypt.checkpw(password, savedHashedPassword)) {
             // Retrieve the user role (rooli)
-            int rooli = kayttajaDAO.findRooliByEmail(email); // Assuming this method exists in KayttajaDAO
+            String rooli = kayttajaDAO.findRooliByEmail(email); // Assuming this method exists in KayttajaDAO
 
             // Save the username and role to UserSession
             UserSession.setUsername(email);
@@ -71,7 +71,7 @@ public class LoginGui extends Application {
 
             // Login successful
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Kirjautumine onnistui");
+            alert.setTitle("Kirjautuminen onnistui");
             alert.setHeaderText(null);
             alert.setContentText("Tervetuloa!");
             alert.showAndWait();
