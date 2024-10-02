@@ -36,6 +36,7 @@ public class VarausDAO {
         try {
             Varaus varaus = em.find(Varaus.class, varaus_id);
             if (varaus != null) {
+                System.out.println("Varaus löytyi id:llä " + varaus_id);
                 return varaus;
             }
         } finally {
