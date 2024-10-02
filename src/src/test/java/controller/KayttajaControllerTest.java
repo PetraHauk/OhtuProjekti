@@ -1,18 +1,16 @@
 package controller;
 
+import org.testng.annotations.Test;
 
-import model.enteties.Kayttaja;
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.Assert.*;
 
 public class KayttajaControllerTest {
+
     KayttajaController kayttajaController = new KayttajaController();
 
     @Test
-    public void testFindKayttajaById() {
-        Kayttaja kayttaja = kayttajaController.haeKayttajaById(1);
-        Assert.assertEquals(1, kayttaja.getKayttajaId());
+    public void testFindKayttajaByI() {
+        int id = 2;
+        assertEquals(2, kayttajaController.haeKayttajaById(2).getKayttajaId());
     }
-
-
 }
