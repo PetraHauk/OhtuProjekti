@@ -1,4 +1,4 @@
-package app;
+package model.service;
 
 public class UserSession {
     private static String username;

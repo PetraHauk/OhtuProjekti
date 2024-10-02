@@ -1,5 +1,6 @@
-package app;
+package view;
 
+import model.service.UserSession;
 import controller.HuoneController;
 import controller.VarausController;
 import javafx.application.Application;
@@ -22,13 +23,12 @@ import model.enteties.Varaus;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.time.LocalDate;
 import java.time.Period;
 import java.util.List;
 
 import model.enteties.*;
 import controller.*;
-import org.w3c.dom.css.CSS2Properties;
+import model.service.CurrencyConverter;
 
 // Loppusumma kommentoitu pois koska punasta viivaa
 public class OhjelmistoGUI extends Application {
@@ -588,7 +588,6 @@ public class OhjelmistoGUI extends Application {
         VBox poistumisPaiva = new VBox(0);
         Label poistumisLabel = new Label("Lähtöpäivä:");
         DatePicker poistumisDatePicker = new DatePicker();
-        poistumisDatePicker.setValue(LocalDate.now().plusDays(1));
         poistumisPaiva.getChildren().addAll(poistumisLabel, poistumisDatePicker);
 
         VBox paivat = new VBox(0);
@@ -605,13 +604,26 @@ public class OhjelmistoGUI extends Application {
         Label availableRoomsTitle = new Label("Vapaat huoneet:");
         availableRoomsTitle.getStyleClass().add("otsikko");
         TableView<Huone> huoneTable = createHuoneTable();
-        huoneTable.setPrefWidth(400);
+        huoneTable.setPrefWidth(500);
         huoneTable.setPrefHeight(250);
         availableRooms.getChildren().addAll(availableRoomsTitle, huoneTable);
 
         huoneVarausInfo.getChildren().addAll(checkInInfoLabel, huoneTyyppi, tuloPaiva, poistumisPaiva, paivat, huoneHinta);
         HBox huoneTiedot = new HBox(10);
         huoneTiedot.getChildren().addAll(huoneVarausInfo, availableRooms);
+
+        VBox varausInfo = new VBox(5);
+        Label varausInfoLabel = new Label("Varaus");
+        varausInfoLabel.getStyleClass().add("otsikko");
+
+        TableView<Varaus> varausTable = createVarausTable();
+        varausTable.setPrefWidth(500);
+        varausTable.setPrefHeight(200);
+        populateVarausTable(varausTable, tuloDatePicker.getValue(), poistumisDatePicker.getValue());
+
+        varausInfo.getChildren().addAll(varausInfoLabel, varausTable);
+
+        Button checkInButton = new Button("Check-In");
 
         tuloDatePicker.valueProperty().addListener((observable, oldValue, newValue) -> {
             if (tuloDatePicker.getValue() != null && poistumisDatePicker.getValue() != null) {
@@ -631,18 +643,11 @@ public class OhjelmistoGUI extends Application {
             }
         });
 
-        VBox varausInfo = new VBox(5);
-        Label varausInfoLabel = new Label("Varaus");
-        varausInfoLabel.getStyleClass().add("otsikko");
-
-        TableView<Varaus> varausTable = createVarausTable();
-        varausTable.setPrefWidth(400);
-        varausTable.setPrefHeight(200);
-        populateVarausTable(varausTable, tuloDatePicker.getValue(), poistumisDatePicker.getValue());
-
-        varausInfo.getChildren().addAll(varausInfoLabel, varausTable);
-
-        Button checkInButton = new Button("Check-In");
+        varausTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) {
+                poistumisDatePicker.setValue(newValue.getLoppuPvm());
+            }
+        });
 
         tuloDatePicker.valueProperty().addListener((observable, oldValue, newValue) -> {
             populateFreeRoomTable(huoneTable, 1, tuloDatePicker, poistumisDatePicker);
@@ -864,7 +869,7 @@ public class OhjelmistoGUI extends Application {
                 laskuData.SetMaksuStatus("Maksettu");
                 int huoneId = laskuData.getHuoneId();
 
-                huoneController.updateHuoneTilaById(huoneId, "vapaa" );
+                huoneController.updateHuoneTilaById(huoneId, "Vapaa" );
 
 
                 //refresh table
@@ -1305,11 +1310,11 @@ public class OhjelmistoGUI extends Application {
         TableColumn<Varaus, Integer> idColumn = new TableColumn<>("Varaus ID");
         idColumn.setCellValueFactory(new PropertyValueFactory<>("varausId"));
 
-        TableColumn<Varaus, Integer> roomColumn = new TableColumn<>("Huone ID");
-        roomColumn.setCellValueFactory(new PropertyValueFactory<>("huoneId"));
+        TableColumn<Varaus, Integer> roomColumn = new TableColumn<>("Huone nro");
+        roomColumn.setCellValueFactory(new PropertyValueFactory<>("huoneNro"));
 
-        TableColumn<Varaus, Integer> invoiceColumn = new TableColumn<>("Lasku ID");
-        invoiceColumn.setCellValueFactory(new PropertyValueFactory<>("laskuId"));
+        TableColumn<Varaus, Integer> invoiceColumn = new TableColumn<>("Asiakas Nimi");
+        invoiceColumn.setCellValueFactory(new PropertyValueFactory<>("asiakasNimi"));
 
         TableColumn<Varaus, String> startDateColumn = new TableColumn<>("Alkupäivämäärä");
         startDateColumn.setCellValueFactory(new PropertyValueFactory<>("alkuPvm"));

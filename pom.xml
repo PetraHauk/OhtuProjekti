@@ -166,7 +166,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>app.WilmaMain</mainClass> <!-- Replace with your actual main class -->
+                            <mainClass>app.Main</mainClass> <!-- Replace with your actual main class -->
                         </manifest>
                     </archive>
                 </configuration>

@@ -12,7 +12,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="gui" options="--enable-preview" />
+      <module name="gui" options="" />
     </option>
   </component>
 </project>

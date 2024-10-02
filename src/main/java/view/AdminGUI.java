@@ -1,5 +1,6 @@
-package app;
+package view;
 
+import model.service.UserSession;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.geometry.Insets;

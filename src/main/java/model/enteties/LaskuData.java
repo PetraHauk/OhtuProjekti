@@ -1,4 +1,4 @@
-package app;
+package model.enteties;
 
 import java.time.LocalDate;
 
