@@ -21,10 +21,14 @@ import model.enteties.Huone;
 import model.enteties.Asiakas;
 import model.enteties.Varaus;
 
+import java.text.NumberFormat;
+import java.text.ParseException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.time.Period;
 import java.util.List;
+import java.util.Locale;
+import java.util.function.ToDoubleFunction;
 
 import model.enteties.*;
 import controller.*;
@@ -811,17 +815,21 @@ public class OhjelmistoGUI extends Application {
                                 //Check if room number matches the current reservation
                                 Huone huone = huoneController.findHuoneById(varaus.getHuoneId());
                                 if (huone != null) {
-                                    double hinta = huone.getHuone_hinta();
-                                    String hintaStr = String.format("%.2f %s", hinta, valuutta);
 
+                                    double hinta = huone.getHuone_hinta();
                                     if (valuutta.equals("USD")) {
                                         hinta= CurrencyConverter.convertCurrency("EUR", "USD", hinta);
 
                                     }
-                                    double summa = hinta * paivat;
-                                    String summaStr = String.format("%.2f USD", summa);
 
+                                    double summa = hinta * paivat;
+                                    String hintaStr = String.format("%.2f %s", hinta, valuutta);
+                                    String summaStr = String.format("%.2f %s", summa, valuutta);
                                     kokonaishinta += summa;
+                                    String kokonaishintaStr = String.format("%.2f %s", kokonaishinta, valuutta);
+
+
+                                    //String summaStr = String.format("EUR", "%.2f USD", summa);
 
                                     populateLaskuTable(laskuTable, new LaskuData(
                                             lasku.getLaskuId(),
@@ -838,7 +846,9 @@ public class OhjelmistoGUI extends Application {
                                             loppuPvm,
                                             paivat,
                                             hintaStr,  // Muotoile hinta kahdelle desimaalille ja lisää USD
-                                            summaStr      // Muotoile summa kahdelle desimaalille
+                                            summaStr,
+                                            kokonaishintaStr
+                                            // Muotoile summa kahdelle desimaalille
                                     ));
 
 
@@ -947,12 +957,18 @@ public class OhjelmistoGUI extends Application {
         TableView<LaskuData> kuittiTable = createLaskuTable();
         kuittiTable.getItems().addAll(laskuTable.getItems());
 
-        double loppusumma = 0;
+
+        double loppusumma = 0.00;
         for (LaskuData laskuData : laskuTable.getItems()) {
-            //Kommentoitu pois koska punasta!
-            //loppusumma += laskuData.getSumma();
-            loppuHintaLabel.setText("Yhdessä:   " + loppusumma + " "  + laskuData.getValuutta());
+            try {
+                String kokonaisHinta = laskuData.getKokonaisHinta().split(" ")[0];
+                Number number = NumberFormat.getInstance().parse(kokonaisHinta);
+                loppusumma += number.doubleValue();
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
         }
+        loppuHintaLabel.setText(String.format("Yhdessä: %.2f %s", loppusumma, laskuTable.getItems().get(0).getValuutta()));
 
         Button tulostaButton = new Button("Tulosta");
         tulostaButton.setOnAction(e -> {
