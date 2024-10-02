@@ -18,7 +18,7 @@ public class VarausController {
         laskuController = new LaskuController();
     }
 
-    public void AddVaraus(LocalDate alkuPvm, LocalDate loppuPvm, int huone_id, int lasku_id) {
+    public void AddVaraus(LocalDate alkuPvm, LocalDate loppuPvm, Integer huone_id, int lasku_id) {
         Varaus varaus = new Varaus(0,  alkuPvm, loppuPvm, huone_id, lasku_id);
         varausDAO.persist(varaus);
     }
@@ -57,8 +57,8 @@ public class VarausController {
     }
 
     public Varaus findByVarausId(int varaus_id) {
-        varausDAO.haeByVarausId(varaus_id);
-        return null;
+        return varausDAO.haeByVarausId(varaus_id);
+
     }
 
     public List<Varaus> findByLaskuId (int lasku_id) {

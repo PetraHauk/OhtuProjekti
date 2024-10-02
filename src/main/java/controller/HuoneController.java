@@ -48,6 +48,9 @@ public class HuoneController {
         return huoneDAO.findByRoomId(id);
     }
 
+    public Huone findHuoneByNro(int nro) {
+        return huoneDAO.findByRoomNro(nro);
+    }
     public List<Huone> findHuoneByTila(String huone_tila) {
         return huoneDAO.findByHuoneTila(huone_tila);
     }
@@ -61,6 +64,9 @@ public class HuoneController {
     }
 
     public void updateHuoneStatusById(int id, String huone_tila) {
+        huoneDAO.updateHuoneTilaById(id, huone_tila);
+    }
+    public void updateHuoneTilaById(int id, String huone_tila) {
         huoneDAO.updateHuoneTilaById(id, huone_tila);
     }
 

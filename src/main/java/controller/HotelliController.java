@@ -2,6 +2,7 @@ package controller;
 
 import model.DAO.HotelliDAO;
 import model.enteties.Hotelli;
+import model.enteties.Huone;
 
 public class HotelliController {
     private HotelliDAO hotelliDAO;
@@ -18,6 +19,7 @@ public class HotelliController {
     public Hotelli findHotelliById(int id) {
         return hotelliDAO.findById(id);
     }
+
 
     public void removeHotelliById(int hotelli_id) {
         hotelliDAO.removeById(hotelli_id);
