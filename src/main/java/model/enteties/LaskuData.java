@@ -19,12 +19,13 @@ public class LaskuData {
     private final int paivat;
     private final String hinta;
     private final String summa;
+    private final String kokonaisHinta;
 
     public LaskuData(int laskuId, int hotelliId, int huoneId, int huoneNro,
                      String etunimi, String sukunimi, String huoneTyyppi,
                      String maksuStatus, String varausMuoto, String valuutta,
                      LocalDate alkuPvm, LocalDate loppuPvm, int paivat,
-                     String hinta, String summa) {
+                     String hinta, String summa, String kokonaisHinta) {
         this.laskuId = laskuId;
         this.hotelliId = hotelliId;
         this.huoneNro = huoneNro;
@@ -40,6 +41,7 @@ public class LaskuData {
         this.paivat = paivat;
         this.hinta = hinta;
         this.summa = summa;
+        this.kokonaisHinta = kokonaisHinta;
     }
 
     // Getter methods
@@ -101,6 +103,10 @@ public class LaskuData {
 
     public String getSumma() {
         return summa;
+    }
+
+    public String getKokonaisHinta() {
+        return kokonaisHinta;
     }
 }
 
