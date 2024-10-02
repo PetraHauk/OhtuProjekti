@@ -3,8 +3,8 @@ pipeline {
 
     environment {
         // Define Docker Hub repository name and image tag
-        DOCKERHUB_CREDENTIALS_ID = 'dockerhub_credential'
-        DOCKERHUB_REPO = 'islake/ohtuprojekti'
+        DOCKERHUB_CREDENTIALS_ID = 'docker_credentials'
+        DOCKERHUB_REPO = ''annagaom/ohtuprojekti'
         DOCKER_IMAGE_TAG = 'ver1'
     }
 

@@ -4,24 +4,103 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="summa ja loppusummalle oikea valutta">
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_09_2024_09_03__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_09_2024_09_03__Changes_.xml" afterDir="false" />
+    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Database/hotelli_db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Database/hotelli_db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/HuoneDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/HuoneDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/VarausDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/VarausDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/test/java/app/RegistrationGuiTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/test/java/view/RegistrationGuiTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/test/java/controller/AsiakasControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/test/java/controller/AsiakasControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/test/java/controller/HotelliControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/test/java/controller/HotelliControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/test/java/controller/HuoneControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/test/java/controller/HuoneControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/test/java/controller/KayttajaControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/test/java/controller/KayttajaControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/test/java/controller/LaskuControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/test/java/controller/LaskuControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/test/java/controller/VarausControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/test/java/controller/VarausControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/test/java/controller/kayttajaControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jenkinsfile" beforeDir="false" afterPath="$PROJECT_DIR$/Jenkinsfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/app/OhjelmistoGUI$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/jacoco.exec" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/ohtutest.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/app/AdminGUI.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/app/AnnaMain.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/app/AsiakasHaku.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/app/CurrencyConverter.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/app/HotelliHaku.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/app/KayttajaHaku.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/app/LaskuData.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/app/LaskuHaku.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/app/LoginGui.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/app/OhjelmistoGUI$1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/app/OhjelmistoGUI$2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/app/OhjelmistoGUI$3.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/app/OhjelmistoGUI$4.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/app/OhjelmistoGUI$5.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/app/OhjelmistoGUI$6.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/app/OhjelmistoGUI.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/app/RegistrationGui.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/app/UserSession.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/app/VarausHaku.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/app/WilmaMain.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/app/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/app/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/controller/AsiakasController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/controller/HomeController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/controller/HotelliController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/controller/HuoneController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/controller/KayttajaController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/controller/LaskuController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/controller/LoginController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/controller/VarausController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/controller/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/controller/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/jacoco-resources/branchfc.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/jacoco-resources/branchnc.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/jacoco-resources/branchpc.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/jacoco-resources/bundle.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/jacoco-resources/class.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/jacoco-resources/down.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/jacoco-resources/greenbar.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/jacoco-resources/group.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/jacoco-resources/method.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/jacoco-resources/package.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/jacoco-resources/prettify.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/jacoco-resources/prettify.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/jacoco-resources/redbar.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/jacoco-resources/report.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/jacoco-resources/report.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/jacoco-resources/session.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/jacoco-resources/sort.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/jacoco-resources/sort.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/jacoco-resources/source.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/jacoco-resources/up.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/jacoco-sessions.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/jacoco.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/jacoco.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/model.DAO/AsiakasDAO.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/model.DAO/HotelliDAO.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/model.DAO/HuoneDAO.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/model.DAO/KayttajaDAO.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/model.DAO/LaskuDAO.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/model.DAO/VarausDAO.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/model.DAO/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/model.DAO/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/model.datasourse/MariaDbConnection.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/model.datasourse/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/model.datasourse/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/model.enteties/Asiakas.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/model.enteties/Hotelli.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/model.enteties/Huone.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/model.enteties/Kayttaja.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/model.enteties/Lasku.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/model.enteties/Varaus.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/model.enteties/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/model.enteties/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/model.service/Kirjautuminen.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/model.service/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/model.service/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/utils/PasswordUtils.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/utils/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/site/jacoco/utils/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/surefire-reports/TEST-app.RegistrationGuiTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/surefire-reports/TEST-controller.HuoneControllerTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/surefire-reports/TEST-controller.LaskuControllerTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/surefire-reports/app.RegistrationGuiTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/surefire-reports/controller.HuoneControllerTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/surefire-reports/controller.LaskuControllerTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/test-classes/app/RegistrationGuiTest.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,12 +132,22 @@
     &quot;assignee&quot;: &quot;annagaom&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/PetraHauk/OhtuProjekti.git&quot;,
-    &quot;accountId&quot;: &quot;d12f10a6-d5cf-492d-aceb-5d1198a70491&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/PetraHauk/OhtuProjekti.git",
+    "accountId": "d12f10a6-d5cf-492d-aceb-5d1198a70491"
+  },
+  "recentNewPullRequestHead": {
+    "server": {
+      "useHttp": false,
+      "host": "github.com",
+      "port": null,
+      "suffix": null
+    },
+    "owner": "PetraHauk",
+    "repository": "OhtuProjekti"
   }
-}</component>
+}]]></component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
 }</component>
@@ -83,11 +172,13 @@
     "Application.MainPetra.executor": "Run",
     "Application.WilmaMain.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.AsiakasControllerTest and 4 more.executor": "Coverage",
     "JUnit.AsiakasControllerTest.executor": "Run",
     "JUnit.AsiakasControllerTest.findByLaskuId.executor": "Run",
     "JUnit.AsiakasControllerTest.findByNimet.executor": "Run",
     "JUnit.AsiakasControllerTest.poistaAsiakasById.executor": "Run",
     "JUnit.AsiakasControllerTest.testFindAllAsiakkaat.executor": "Run",
+    "JUnit.HotelliControllerTest.executor": "Run",
     "JUnit.HotelliControllerTest.testAddHotelli.executor": "Run",
     "JUnit.HotelliControllerTest.testFindHotelliById.executor": "Run",
     "JUnit.HotelliControllerTest.testRemoveHotelliById.executor": "Run",
@@ -128,10 +219,11 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "TestNG.KayttajaControllerTest.executor": "Run",
     "TestNG.KayttajaControllerTest.testFindKayttajaByI.executor": "Run",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
-    "git-widget-placeholder": "anna",
+    "git-widget-placeholder": "#27 on anna",
     "jdk.selected.JAVA_MODULE": "21",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/kakek/javafx-sdk-17.0.10/lib",
@@ -180,7 +272,21 @@
       <command value="mvn install" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.AsiakasControllerTest">
+  <component name="RunManager" selected="JUnit.AsiakasControllerTest and 4 more">
+    <configuration name="AsiakasControllerTest and 4 more" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gui" />
+      <option name="TEST_OBJECT" value="pattern" />
+      <patterns>
+        <pattern testClass="controller.AsiakasControllerTest" />
+        <pattern testClass="controller.HotelliControllerTest" />
+        <pattern testClass="controller.HuoneControllerTest" />
+        <pattern testClass="controller.LaskuControllerTest" />
+        <pattern testClass="controller.VarausControllerTest" />
+      </patterns>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AsiakasControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gui" />
       <extension name="coverage">
@@ -226,21 +332,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LaskuControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gui" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="controller" />
-      <option name="MAIN_CLASS_NAME" value="controller.LaskuControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="KayttajaControllerTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="gui" />
       <extension name="coverage">
@@ -260,11 +351,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AsiakasControllerTest and 4 more" />
         <item itemvalue="JUnit.AsiakasControllerTest" />
         <item itemvalue="JUnit.HotelliControllerTest" />
         <item itemvalue="JUnit.HuoneControllerTest" />
         <item itemvalue="TestNG.KayttajaControllerTest" />
-        <item itemvalue="JUnit.LaskuControllerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -305,7 +396,7 @@
       <workItem from="1727762601158" duration="7387000" />
       <workItem from="1727865313265" duration="2929000" />
       <workItem from="1727883642345" duration="4227000" />
-      <workItem from="1727888289340" duration="4823000" />
+      <workItem from="1727888289340" duration="6380000" />
     </task>
     <task id="LOCAL-00002" summary="yhdistetty wilman ja kaislan judut">
       <option name="closed" value="true" />
@@ -411,7 +502,23 @@
       <option name="project" value="LOCAL" />
       <updated>1727887220022</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="testit päivitetty">
+      <option name="closed" value="true" />
+      <created>1727893299571</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1727893299571</updated>
+    </task>
+    <task id="LOCAL-00016" summary="update">
+      <option name="closed" value="true" />
+      <created>1727893319397</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1727893319397</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -440,7 +547,9 @@
     <MESSAGE value="Admin.gui muutoksia" />
     <MESSAGE value="Rekisteröinti testi jenkinsiä varten, muut testit kommentoitu pois, muuttaa pom.xml jossa" />
     <MESSAGE value="summa ja loppusummalle oikea valutta" />
-    <option name="LAST_COMMIT_MESSAGE" value="summa ja loppusummalle oikea valutta" />
+    <MESSAGE value="testit päivitetty" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -494,5 +603,8 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/OhtuProjekti$AsiakasControllerTest_and_4_more.ic" NAME="AsiakasControllerTest and 4 more Coverage Results" MODIFIED="1727893888798" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
   </component>
 </project>
