@@ -19,11 +19,24 @@ Tarjota järjestelmä, joka auttaa asiakkaita löytämään heidän tarpeisiinsa
 <h3>Visio</h3>
 Tarjoamme käyttäjillemme parhaan alustan, joka tekee hotellien löytämisestä ja varaamisesta helppoa ja tehokasta. Tavoitteemme on, että käyttäjämme tekevät parhaita mahdollisia majoitusvalintoja ja edistävät positiivisesti matkakokemustaan.
 
+# SuunnitteluKaavat
+**ER-kaavio**
+![ER-kaavio](kaavat/EER-kaavio.png)
+
+**Relational_Schema kaavio**
+![Relational_Schema kaava](kaavat/relationalschema.png)
+
+**Käyttötapauskaavio**
+![Käyttötapauskaavio](kaavat/kayttotapauskaavio.png)
+
+**Activity Diagram**
+![Activity Diagram](kaavat/activitydiagram.png)
+
 # Tietokanta
 1. **Asenta database management application, esim. Sequel Pro**
 1. **Luoda database hotelli_db ja sisältö, koodit löyty: src/main/database/hotelli_db**
 2. **Set up the database connection:**
-    *in the file: src/main/resources/META-INF/perisistence.xml*
+    *lisää xml-file: src/main/resources/META-INF/perisistence.xml*
     ```
     <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <persistence xmlns="https://jakarta.ee/xml/ns/persistence"
@@ -44,7 +57,7 @@ Tarjoamme käyttäjillemme parhaan alustan, joka tekee hotellien löytämisestä
         </persistence-unit>
     </persistence>
     ```
-   *Set connection: model/datasourse/MariaDbConnection.java*
+   *Lisää luokka: model/datasourse/MariaDbConnection.java*
 
     ```
     import jakarta.persistence.EntityManager;
@@ -60,6 +73,23 @@ Tarjoamme käyttäjillemme parhaan alustan, joka tekee hotellien löytämisestä
         }
     }
     ```
+   
+3. **Lisää tietokantaan dataa**
+    *Lisää luokka: src/main/java/model/dao/InsertData.java*
+    ```
+    public class InsertData {
+        public static void main(String[] args) {
+            EntityManager em = MariaDbConnection.getInstance();
+            em.getTransaction().begin();
+            // Lisää tietokantaan dataa
+            em.getTransaction().commit();
+            em.close();
+        }
+    }
+    ```
+
+   
+
 
 
 
