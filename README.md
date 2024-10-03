@@ -1,23 +1,31 @@
 <h2>Hotellin Varausjärjestelmä</h2>
 
-<h3>Ongelman kuvaus</h3>
-Tarjoamme käyttäjille, pääsääntöisesti hotellin työntekijöille, viisaan ratkaisun hotellin huoneiden ja varauksien tarkasteluun. Ohjelma pitää kirjaa asiakkaista, varauksista ja huoneista hotelliketjun eri hotelleissa. 
+<h3>Visio</h3>
+Tarjoamme käyttäjille, pääsääntöisesti hotellin työntekijöille, viisaan ja tehokkaan ratkaisun hotellin huoneiden ja varauksien hallintaan. Ohjelma pitää tarkkaa kirjaa asiakkaista, varauksista ja huoneiden saatavuudesta hotelliketjun eri yksiköissä, mahdollistaen sujuvan ja luotettavan hotellitoiminnan ylläpidon.
+
+<h3>Tavoitteet ja päämäärät</h3>
+<ul>
+  <li>Tehokkuus ja selkeys: Ohjelma yksinkertaistaa huoneiden ja varauksien hallintaa, tarjoten selkeän kokonaiskuvan hotellin tilasta ja parantaen työntekijöiden tehokkuutta.</li>
+  <li>Asiakastietojen hallinta: Tavoitteenamme on varmistaa, että asiakastiedot ovat helposti saatavilla, tarkkoja ja ajantasaisia, jotta hotellin henkilökunta voi tarjota erinomaista palvelua asiakkailleen.</li>
+  <li>Huoneiden saatavuuden optimointi: Pyrimme maksimoimaan huoneiden käyttöasteen ja varauskapasiteetin reaaliaikaisen tiedon avulla, mikä auttaa hotelleja tehostamaan liiketoimintaansa.</li>
+  <li>Helppokäyttöisyys: Tuotteen käyttöliittymä on suunniteltu helppokäyttöiseksi, jotta hotellin henkilökunta voi nopeasti ja helposti hallita huoneita ja varauksia.</li>
+</ul>
+
 <h3>Kohderyhmä</h3>
-Tuotteemme on suunnattu perheille ja aikuisille, jotka etsivät parasta hotellia yöpymiseen matkan tai loman aikana.
-<h3>Arvolupaus</h3>
-Tuotteemme tarjoaa käyttäjille helpon ja miellyttävän kokemuksen, tarjoten merkittäviä etuja, kuten ajan säästöä, kohdennettuja suosituksia ja helppoa hintavertailua, ylittäen nykyiset ratkaisut.
+<ul>
+  <li>Hotellin työntekijät: Vastaanoton henkilökunta, jotka tarvitsevat reaaliaikaista tietoa varauksista ja huoneiden saatavuudesta.</li>
+  <li>HHotelliketjut: Useita hotelleja hallinnoivat yritykset, jotka haluavat keskitetyn ratkaisun useiden hotellien hallintaan samassa järjestelmässä.</li>
+
+</ul>
+
 <h3>Keskeiset ominaisuudet ja toiminnot</h3>
 <ul>
   <li>Käyttäjän kirjautuminen ja todennus</li>
   <li>Huoneiden saatavuus ja varaus</li>
+  <li>Asiakastietojen hallinta</li>
   <li>Maksujen käsittely</li>
-  <li>Varaushistoria ja käyttäjien hallinta</li>
+
 </ul>
-<h3>Tavoitteet ja päämäärät</h3>
-Nopea ja helppo tapa nähdä saatavilla olevat hotellihuoneet tietyllä alueella.
-Tarjota järjestelmä, joka auttaa asiakkaita löytämään heidän tarpeisiinsa sopivia hotelleja ja auttaa samalla hotelleja löytämään lisää asiakkaita.
-<h3>Visio</h3>
-Tarjoamme käyttäjillemme parhaan alustan, joka tekee hotellien löytämisestä ja varaamisesta helppoa ja tehokasta. Tavoitteemme on, että käyttäjämme tekevät parhaita mahdollisia majoitusvalintoja ja edistävät positiivisesti matkakokemustaan.
 
 # SuunnitteluKaavat
 **ER-kaavio**
