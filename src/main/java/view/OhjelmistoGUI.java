@@ -823,13 +823,11 @@ public class OhjelmistoGUI extends Application {
                                     }
 
                                     double summa = hinta * paivat;
+                                    kokonaishinta += summa;
+
                                     String hintaStr = String.format("%.2f %s", hinta, valuutta);
                                     String summaStr = String.format("%.2f %s", summa, valuutta);
-                                    kokonaishinta += summa;
                                     String kokonaishintaStr = String.format("%.2f %s", kokonaishinta, valuutta);
-
-
-                                    //String summaStr = String.format("EUR", "%.2f USD", summa);
 
                                     populateLaskuTable(laskuTable, new LaskuData(
                                             lasku.getLaskuId(),
@@ -947,7 +945,7 @@ public class OhjelmistoGUI extends Application {
         asiakasInfo.setPadding(new Insets(10));
         Label asiakasNimetLabel = new Label("Asiakkaan nimi: ");
         Label maksuPvmLabel = new Label("Maksupäivämäärä: ");
-        Label loppuHintaLabel = new Label("Yhdessä:  ");
+        Label loppuHintaLabel = new Label("Yhdessä: ");
         LocalDate maksuPvm = LocalDate.now();
         maksuPvmLabel.setText("Maksupäivämäärä: " + maksuPvm.toString());
 
@@ -957,18 +955,21 @@ public class OhjelmistoGUI extends Application {
         TableView<LaskuData> kuittiTable = createLaskuTable();
         kuittiTable.getItems().addAll(laskuTable.getItems());
 
+        if (!laskuTable.getItems().isEmpty()) {
+            // Get the last item from the list
+            LaskuData lastLaskuData = laskuTable.getItems().get(laskuTable.getItems().size() - 1);
 
-        double loppusumma = 0.00;
-        for (LaskuData laskuData : laskuTable.getItems()) {
+            String kokonaihinta = lastLaskuData.getKokonaisHinta();
+            String valuutta = lastLaskuData.getValuutta();
+
+            // Try to parse kokonaihinta as a double and use it in the format
             try {
-                String kokonaisHinta = laskuData.getKokonaisHinta().split(" ")[0];
-                Number number = NumberFormat.getInstance().parse(kokonaisHinta);
-                loppusumma += number.doubleValue();
-            } catch (ParseException e) {
-                e.printStackTrace();
+                double hintaDouble = Double.parseDouble(kokonaihinta);
+                loppuHintaLabel.setText(String.format("Yhdessä: %.2f %s", hintaDouble, valuutta));
+            } catch (NumberFormatException e) {
+                loppuHintaLabel.setText("Yhdessä: " + kokonaihinta + " " + valuutta);
             }
         }
-        loppuHintaLabel.setText(String.format("Yhdessä: %.2f %s", loppusumma, laskuTable.getItems().get(0).getValuutta()));
 
         Button tulostaButton = new Button("Tulosta");
         tulostaButton.setOnAction(e -> {
@@ -982,6 +983,7 @@ public class OhjelmistoGUI extends Application {
         kuittiStage.setScene(scene);
         kuittiStage.show();
     }
+
 
     private void tulostaKuitti(TableView<LaskuData> laskuTable) {
         System.out.println("Kuitti");
