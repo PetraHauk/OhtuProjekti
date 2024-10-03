@@ -21,10 +21,10 @@ Tarjoamme käyttäjillemme parhaan alustan, joka tekee hotellien löytämisestä
 
 # SuunnitteluKaavat
 **ER-kaavio**
-![img.png](src/main/kaavat/ER-kaavio.png)
+![img.png](src/main/kaaavat/ER.png)
 
 **Relational_Schema kaavio**
-![img.png](kaavat/relationalschema.png)
+![img.png](src/main/kaaavat/relational_schema.png)
 
 **Käyttötapauskaavio**
 ![img.png](kaavat/kayttotapauskaavio.png)
