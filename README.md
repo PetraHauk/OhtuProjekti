@@ -73,24 +73,3 @@ Tarjoamme käyttäjillemme parhaan alustan, joka tekee hotellien löytämisestä
         }
     }
     ```
-   
-3. **Lisää tietokantaan dataa**
-    *Lisää luokka: src/main/java/model/dao/InsertData.java*
-    ```
-    public class InsertData {
-        public static void main(String[] args) {
-            EntityManager em = MariaDbConnection.getInstance();
-            em.getTransaction().begin();
-            // Lisää tietokantaan dataa
-            em.getTransaction().commit();
-            em.close();
-        }
-    }
-    ```
-
-   
-
-
-
-
-   -
