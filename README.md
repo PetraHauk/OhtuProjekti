@@ -31,6 +31,9 @@ Tarjoamme käyttäjille, pääsääntöisesti hotellin työntekijöille, viisaan
 <ul>
     <li>
     ER-kaavio</br>
+    <img src="src/main/kaavat/ER.png">
+    </li>
+    <li>
     ![img.png](src/main/kaavat/ER.png)
     </li>
     <li>'
