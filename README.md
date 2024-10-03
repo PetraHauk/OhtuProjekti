@@ -52,7 +52,7 @@ Tarjoamme käyttäjille, pääsääntöisesti hotellin työntekijöille, viisaan
 - **Asenta database management application, esim. Sequel Pro**
 - **Luoda database hotelli_db ja sisältö, koodit löyty: src/main/database/hotelli_db**
 - **Set up the database connection:**
-  --  *lisää xml-file: src/main/resources/META-INF/perisistence.xml*
+  - *lisää xml-file: src/main/resources/META-INF/perisistence.xml*
     ```
     <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <persistence xmlns="https://jakarta.ee/xml/ns/persistence"
@@ -73,7 +73,7 @@ Tarjoamme käyttäjille, pääsääntöisesti hotellin työntekijöille, viisaan
         </persistence-unit>
     </persistence>
     ```
-  -- *Lisää luokka: model/datasourse/MariaDbConnection.java*
+  - *Lisää luokka: model/datasourse/MariaDbConnection.java*
 
     ```
     import jakarta.persistence.EntityManager;
