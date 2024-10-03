@@ -33,9 +33,6 @@ Tarjoamme käyttäjille, pääsääntöisesti hotellin työntekijöille, viisaan
     ER-kaavio</br>
     <img src="src/main/kaavat/ER.png">
     </li>
-    <li>
-    <img src="src/main/kaavat/ER.png">
-    </li>
     <li>'
     Relational Schema</br>
     <img src="src/main/kaavat/relational_schema.png">
