@@ -967,7 +967,7 @@ public class OhjelmistoGUI extends Application {
                 double hintaDouble = Double.parseDouble(kokonaihinta);
                 loppuHintaLabel.setText(String.format("Yhdessä: %.2f %s", hintaDouble, valuutta));
             } catch (NumberFormatException e) {
-                loppuHintaLabel.setText("Yhdessä: " + kokonaihinta + " " + valuutta);
+                loppuHintaLabel.setText("Yhdessä: " + kokonaihinta + " ");
             }
         }
 
