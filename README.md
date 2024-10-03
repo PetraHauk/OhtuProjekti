@@ -27,9 +27,26 @@ Tarjoamme käyttäjille, pääsääntöisesti hotellin työntekijöille, viisaan
 
 </ul>
 
-# SuunnitteluKaavat
-**ER-kaavio**
-![img.png](src/main/kaavat/ER.png)
+<h3>SuunnitteluKaavat</h3>
+<ul>
+    <li>
+    ER-kaavio</br>
+    ![img.png](src/main/kaavat/ER.png)
+    </li>
+    <li>'
+    Relational Schema</br>
+    ![img.png](src/main/kaavat/relational_schema.png)
+    </li>
+    <li>
+    Käyttötapauskaavio</br>
+    ![img.png](src/main/kaavat/Kayttotapauskaavio.png)
+    </li>
+    <li>
+    Activity Diagram</br>
+    ![img.png](src/main/kaavat/activityDiagram.png)
+    </li>
+</ul>
+
 
 **Relational_Schema kaavio**
 ![img.png](src/main/kaavat/relational_schema.png)
