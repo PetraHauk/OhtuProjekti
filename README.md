@@ -50,9 +50,9 @@ Tarjoamme käyttäjille, pääsääntöisesti hotellin työntekijöille, viisaan
     </li>
 </ul>
 
-<h3>>Tietokanta</h3>
+<h3>Tietokanta</h3>
 
-1. **Asenta database management application, esim. Sequel Pro**
+*Asenta database management application, esim. Sequel Pro*
 1. **Luoda database hotelli_db ja sisältö, koodit löyty: src/main/database/hotelli_db**
 2. **Set up the database connection:**
     *lisää xml-file: src/main/resources/META-INF/perisistence.xml*
