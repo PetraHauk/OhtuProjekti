@@ -34,33 +34,24 @@ Tarjoamme käyttäjille, pääsääntöisesti hotellin työntekijöille, viisaan
     <img src="src/main/kaavat/ER.png">
     </li>
     <li>
-    ![img.png](src/main/kaavat/ER.png)
+    <img src="src/main/kaavat/ER.png">
     </li>
     <li>'
     Relational Schema</br>
-    ![img.png](src/main/kaavat/relational_schema.png)
+    <img src="src/main/kaavat/relational_schema.png">
     </li>
     <li>
     Käyttötapauskaavio</br>
-    ![img.png](src/main/kaavat/Kayttotapauskaavio.png)
+    <img src="src/main/kaavat/Kayttotapauskaavio.png">
     </li>
     <li>
     Activity Diagram</br>
-    ![img.png](src/main/kaavat/activityDiagram.png)
+    <img src="src/main/kaavat/activityDiagram.png">
     </li>
 </ul>
 
+<h3>>Tietokanta</h3>
 
-**Relational_Schema kaavio**
-![img.png](src/main/kaavat/relational_schema.png)
-
-**Käyttötapauskaavio**
-![img.png](src/main/kaavat/Kayttotapauskaavio.png)
-
-**Activity Diagram**
-![img.png](src/main/kaavat/activityDiagram.png)
-
-# Tietokanta
 1. **Asenta database management application, esim. Sequel Pro**
 1. **Luoda database hotelli_db ja sisältö, koodit löyty: src/main/database/hotelli_db**
 2. **Set up the database connection:**
