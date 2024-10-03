@@ -30,7 +30,7 @@ Tarjoamme käyttäjillemme parhaan alustan, joka tekee hotellien löytämisestä
 ![img.png](src/main/kaaavat/Kayttotapauskaavio.png)
 
 **Activity Diagram**
-![imag.png](src/main/kaaavat/activityDiagram.png)
+![imag.png](src/main/kaaavat/activityDiagram .png)
 
 # Tietokanta
 1. **Asenta database management application, esim. Sequel Pro**
