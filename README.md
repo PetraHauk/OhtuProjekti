@@ -92,17 +92,3 @@ Tarjoamme käyttäjille, pääsääntöisesti hotellin työntekijöille, viisaan
         }
     }
     ```
-   
-- **Lisää tietokantaan dataa**
-    *Lisää luokka: src/main/java/model/dao/InsertData.java*
-    ```
-    public class InsertData {
-        public static void main(String[] args) {
-            EntityManager em = MariaDbConnection.getInstance();
-            em.getTransaction().begin();
-            // Lisää tietokantaan dataa
-            em.getTransaction().commit();
-            em.close();
-        }
-    }
-    ```
