@@ -52,9 +52,9 @@ Tarjoamme käyttäjille, pääsääntöisesti hotellin työntekijöille, viisaan
 
 <h3>Tietokanta</h3>
 
-1. **Asenta database management application, esim. Sequel Pro**
-2**Luoda database hotelli_db ja sisältö, koodit löyty: src/main/database/hotelli_db**
-3**Set up the database connection:**
+- **Asenta database management application, esim. Sequel Pro**
+- **Luoda database hotelli_db ja sisältö, koodit löyty: src/main/database/hotelli_db**
+- **Set up the database connection:**
     *lisää xml-file: src/main/resources/META-INF/perisistence.xml*
     ```
     <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -93,7 +93,7 @@ Tarjoamme käyttäjille, pääsääntöisesti hotellin työntekijöille, viisaan
     }
     ```
    
-4**Lisää tietokantaan dataa**
+- **Lisää tietokantaan dataa**
     *Lisää luokka: src/main/java/model/dao/InsertData.java*
     ```
     public class InsertData {
@@ -106,10 +106,3 @@ Tarjoamme käyttäjille, pääsääntöisesti hotellin työntekijöille, viisaan
         }
     }
     ```
-
-   
-
-
-
-
-   -
