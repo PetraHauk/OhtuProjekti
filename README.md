@@ -21,16 +21,16 @@ Tarjoamme käyttäjillemme parhaan alustan, joka tekee hotellien löytämisestä
 
 # SuunnitteluKaavat
 **ER-kaavio**
-![img.png](src/main/kaaavat/ER.png)
+![img.png](src/main/kaavat/ER.png)
 
 **Relational_Schema kaavio**
-![img.png](src/main/kaaavat/relational_schema.png)
+![img.png](src/main/kaavat/relational_schema.png)
 
 **Käyttötapauskaavio**
-![img.png](src/main/kaaavat/Kayttotapauskaavio.png)
+![img.png](src/main/kaavat/Kayttotapauskaavio.png)
 
 **Activity Diagram**
-![imag.png](src/main/kaaavat/activityDiagram .png)
+![img.png](src/main/kaavat/activityDiagram.png)
 
 # Tietokanta
 1. **Asenta database management application, esim. Sequel Pro**
