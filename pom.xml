@@ -25,7 +25,7 @@
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-base</artifactId>
-            <version>17.0.6</version> <!-- Use the latest version -->
+            <version>20.0.2</version> <!-- Use the latest version -->
         </dependency>
 
         <dependency>
