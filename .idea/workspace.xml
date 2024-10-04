@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="update dockerfile, korjattu jar:n name,">
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Main.java" afterDir="false" />
+    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="update">
+      <change beforePath="$PROJECT_DIR$/Jenkinsfile" beforeDir="false" afterPath="$PROJECT_DIR$/Jenkinsfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,10 +139,10 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
+    "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.5482759",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.User-Defined File Types",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -173,8 +174,8 @@
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
-      <command value="mvn install" />
       <command value="mvn clean" />
+      <command value="mvn install" />
     </option>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -478,7 +479,71 @@
       <option name="project" value="LOCAL" />
       <updated>1728049816729</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="pom update">
+      <option name="closed" value="true" />
+      <created>1728051301939</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1728051301939</updated>
+    </task>
+    <task id="LOCAL-00024" summary="pom update">
+      <option name="closed" value="true" />
+      <created>1728051627580</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1728051627580</updated>
+    </task>
+    <task id="LOCAL-00025" summary="pom update">
+      <option name="closed" value="true" />
+      <created>1728051837820</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1728051837820</updated>
+    </task>
+    <task id="LOCAL-00026" summary="pom update">
+      <option name="closed" value="true" />
+      <created>1728051979845</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1728051979845</updated>
+    </task>
+    <task id="LOCAL-00027" summary="pom update">
+      <option name="closed" value="true" />
+      <created>1728052898697</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1728052898697</updated>
+    </task>
+    <task id="LOCAL-00028" summary="pom update">
+      <option name="closed" value="true" />
+      <created>1728053829247</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1728053829247</updated>
+    </task>
+    <task id="LOCAL-00029" summary="update">
+      <option name="closed" value="true" />
+      <created>1728054034696</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1728054034696</updated>
+    </task>
+    <task id="LOCAL-00030" summary="update">
+      <option name="closed" value="true" />
+      <created>1728054150333</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1728054150333</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -508,10 +573,11 @@
     <MESSAGE value="Rekisteröinti testi jenkinsiä varten, muut testit kommentoitu pois, muuttaa pom.xml jossa" />
     <MESSAGE value="summa ja loppusummalle oikea valutta" />
     <MESSAGE value="testit päivitetty" />
-    <MESSAGE value="update" />
     <MESSAGE value="update pom.xml" />
     <MESSAGE value="update dockerfile, korjattu jar:n name," />
-    <option name="LAST_COMMIT_MESSAGE" value="update dockerfile, korjattu jar:n name," />
+    <MESSAGE value="pom update" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -536,6 +602,10 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/OhtuProjekti$AsiakasControllerTest_and_4_more.ic" NAME="AsiakasControllerTest and 4 more Coverage Results" MODIFIED="1727893888798" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />

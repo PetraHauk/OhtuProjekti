@@ -6,5 +6,8 @@
     </CLASSES>
     <JAVADOC />
     <SOURCES />
+    <excluded>
+      <root url="file://$USER_HOME$/Downloads/javafx-sdk-21.0.4" />
+    </excluded>
   </library>
 </component>
