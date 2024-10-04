@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="update">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/OhjelmistoGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/OhjelmistoGUI.java" afterDir="false" />
-    </list>
+    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="update" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,7 +24,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="anna" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -79,7 +76,7 @@
     "Application.WilmaMain.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
     "JUnit.AsiakasControllerTest and 4 more.executor": "Run",
-    "JUnit.AsiakasControllerTest.executor": "Run",
+    "JUnit.AsiakasControllerTest.executor": "Profiler#1",
     "JUnit.AsiakasControllerTest.findByLaskuId.executor": "Run",
     "JUnit.AsiakasControllerTest.findByNimet.executor": "Run",
     "JUnit.AsiakasControllerTest.poistaAsiakasById.executor": "Run",
@@ -129,7 +126,7 @@
     "TestNG.KayttajaControllerTest.testFindKayttajaByI.executor": "Run",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
-    "git-widget-placeholder": "anna",
+    "git-widget-placeholder": "main",
     "jdk.selected.JAVA_MODULE": "21",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/kakek/javafx-sdk-17.0.10/lib",
@@ -178,7 +175,7 @@
       <command value="mvn install" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.AsiakasControllerTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="app.Main" />
       <module name="gui" />
@@ -251,24 +248,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="gui" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="gui" />
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AsiakasControllerTest" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.AsiakasControllerTest and 4 more" />
-        <item itemvalue="JUnit.AsiakasControllerTest" />
         <item itemvalue="JUnit.HotelliControllerTest" />
         <item itemvalue="JUnit.HuoneControllerTest" />
       </list>
@@ -434,7 +418,23 @@
       <option name="project" value="LOCAL" />
       <updated>1727893319397</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="update">
+      <option name="closed" value="true" />
+      <created>1728037571014</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1728037571015</updated>
+    </task>
+    <task id="LOCAL-00018" summary="update">
+      <option name="closed" value="true" />
+      <created>1728037852662</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1728037852662</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -475,15 +475,6 @@
           <option name="timeStamp" value="8" />
         </breakpoint>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/view/OhjelmistoGUI.java</url>
-          <line>749</line>
-          <properties class="view.OhjelmistoGUI" method="createCheckOut">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/src/test/java/controller/HuoneControllerTest.java</url>
           <line>35</line>
           <properties class="controller.HuoneControllerTest" method="testFindHuoneByTyyppi">
@@ -491,26 +482,6 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/view/OhjelmistoGUI.java</url>
-          <line>750</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/view/OhjelmistoGUI.java</url>
-          <line>824</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/view/OhjelmistoGUI.java</url>
-          <line>827</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/view/OhjelmistoGUI.java</url>
-          <line>828</line>
-          <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/src/test/java/controller/HuoneControllerTest.java</url>
