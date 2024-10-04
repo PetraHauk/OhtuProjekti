@@ -63,13 +63,21 @@ CREATE TABLE huone_varaus (
 );
 
 
+//hotelli
+INSERT INTO `hotelli` (`kaupunki`, `nimi`, `osoite`, `puh`, `maa`)
+VALUES ('Helsinki', 'EkaHoteli', 'parastie 29', '09576345', 'Suomi');
 
-//kayttaja, tällä tavalla ei voi lisää hashed salasana, ohjelman kautta (ajja ohjelma) voi.
+INSERT INTO `hotelli` (`kaupunki`, `nimi`, `osoite`, `puh`, `maa`)
+VALUES ('Espoo', 'TokaHoteli', 'toisentie 89', '0265662', 'Suomi');
+
+
+//kayttaja, tällä tavalla ei voi lisää hashed salasana, ohjelman kautta voi.
 INSERT INTO `kayttaja` (`etunimi`, `sukunimi`, `sposti`, `puh`, `rooli`, `salasana`)
 VALUES ('Milla','Koskiainen', 'milla.koskiainen@hotelli.com', '03762387168', 'admin', 'milla');
 
 INSERT INTO `kayttaja` (`etunimi`, `sukunimi`, `sposti`, `puh`, `rooli`, `salasana`)
 VALUES ('Lisa','Paranen', 'lisa.paranen@hotelli.com', '03762387168', 'normaali', 'lisa');
+
 
 //asiakas
 INSERT INTO `asiakas` (`etunimi`, `sukunimi`, `sposti`, `puh`, `henkilo_maara`, `huomio`)
@@ -81,12 +89,6 @@ VALUES ('Mia', 'Makki', 'mia@sposti.fi', '0923456', 2, 'Rauhallinen huone');
 INSERT INTO `asiakas` (`etunimi`, `sukunimi`, `sposti`, `puh`, `henkilo_maara`, `huomio`)
 VALUES ('Anna', 'Ansku', 'anna@sposti.fi', '06872398', 3, 'ei erikoista');
 
-//hotelli
-INSERT INTO `hotelli` (`kaupunki`, `nimi`, `osoite`, `puh`, `maa`)
-VALUES ('Helsinki', 'EkaHoteli', 'parastie 29', '09576345', 'Suomi');
-
-INSERT INTO `hotelli` (`kaupunki`, `nimi`, `osoite`, `puh`, `maa`)
-VALUES ('Espoo', 'TokaHoteli', 'toisentie 89', '0265662', 'Suomi');
 
 //huone
 INSERT INTO `huone` (`huone_nro`, `huone_tyyppi`, `huone_tila`, `huone_hinta`, `hotelli_id`)
@@ -105,7 +107,7 @@ INSERT INTO `huone` (`huone_nro`, `huone_tyyppi`, `huone_tila`, `huone_hinta`, `
 VALUES ('204', 'sviitti', 'varattu', '300.00', 1);
 
 
-//Lasku
+//lasku
 INSERT INTO `lasku` (`maksu_status`, `varaus_muoto`, `valuutta`, `asiakas_id`)
 VALUES ('maksamatta', 'all_inslusive', 'EUR', 1);
 
@@ -116,7 +118,7 @@ INSERT INTO `lasku` (`maksu_status`, `varaus_muoto`, `valuutta`, `asiakas_id`)
 VALUES ('maksamatta', 'all_inslusive', 'EUR', 3);
 
 
-//huone_varaus
+//varaus
 INSERT INTO `huone_varaus` (`alku_pvm`, `loppu_pvm`, `huone_id`, `lasku_id`)
 VALUES ('2024-11-12', '2024-11-15', 1, 1);
 

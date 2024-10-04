@@ -21,10 +21,14 @@ import model.enteties.Huone;
 import model.enteties.Asiakas;
 import model.enteties.Varaus;
 
+import java.text.NumberFormat;
+import java.text.ParseException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.time.Period;
 import java.util.List;
+import java.util.Locale;
+import java.util.function.ToDoubleFunction;
 
 import model.enteties.*;
 import controller.*;
@@ -112,6 +116,7 @@ public class OhjelmistoGUI extends Application {
         checkInButton.setOnAction(e -> handleCheckInButtonAction(mainLayout, leftBar));
         checkOutButton.setOnAction(e -> handleCheckOutButtonAction(mainLayout, leftBar));
         logoutButton.setOnAction(e -> handleLogoutButtonAction(primaryStage));
+
 
         return leftBar;
     }
