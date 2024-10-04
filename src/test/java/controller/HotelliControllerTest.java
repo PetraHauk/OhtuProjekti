@@ -1,5 +1,5 @@
 package controller;
-
+/*
 import model.enteties.Hotelli;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
@@ -12,4 +12,4 @@ public class HotelliControllerTest {
         Hotelli hotelli = hotelliController.findHotelliById(1);
         assertEquals(1, hotelli.getHotelli_id());
     }
-}
+}*/

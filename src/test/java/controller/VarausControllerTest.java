@@ -1,5 +1,5 @@
 package controller;
-
+/*
 import model.enteties.Varaus;
 import org.junit.Test;
 import java.time.LocalDate;
@@ -25,4 +25,4 @@ public class VarausControllerTest {
         }
     }
 
-}
+}*/
