@@ -156,28 +156,11 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>app.main</mainClass> <!-- Replace with your actual main class -->
+                            <mainClass>app.Main</mainClass> <!-- Replace with your actual main class -->
                         </manifest>
                     </archive>
                 </configuration>
             </plugin>
-
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>3.0.0</version>
-                <configuration>
-                    <mainClass>app.Main</mainClass>
-                    <arguments>
-                        <argument>--module-path</argument>
-                        <argument>/path/to/javafx-sdk-20/lib</argument>
-                        <argument>--add-modules</argument>
-                        <argument>javafx.controls,javafx.fxml</argument>
-                    </arguments>
-                </configuration>
-            </plugin>
-
-
 
             <!-- JaCoCo Plugin for code coverage -->
             <plugin>
