@@ -4,7 +4,61 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="update" />
+    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="muuttaa pomin ja dockerfilen docker pull ja buildia varten">
+      <change afterPath="$PROJECT_DIR$/src/src/test/java/controller/kayttajaControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/app/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/controller/AsiakasController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/controller/HomeController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/controller/HotelliController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/controller/HuoneController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/controller/KayttajaController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/controller/LaskuController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/controller/LoginController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/controller/VarausController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/logback.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/login.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/model/DAO/AsiakasDAO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/model/DAO/HotelliDAO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/model/DAO/HuoneDAO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/model/DAO/KayttajaDAO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/model/DAO/LaskuDAO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/model/DAO/VarausDAO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/model/datasourse/MariaDbConnection.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/model/enteties/Asiakas.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/model/enteties/Hotelli.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/model/enteties/Huone.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/model/enteties/Kayttaja.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/model/enteties/Lasku.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/model/enteties/LaskuData.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/model/enteties/Varaus.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/model/service/CurrencyConverter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/model/service/Kirjautuminen.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/model/service/UserSession.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/utils/PasswordUtils.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/view/AdminGUI.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/view/LoginGui.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/view/OhjelmistoGUI$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/view/OhjelmistoGUI$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/view/OhjelmistoGUI$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/view/OhjelmistoGUI$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/view/OhjelmistoGUI$5.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/view/OhjelmistoGUI$6.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/view/OhjelmistoGUI$7.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/view/OhjelmistoGUI.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/view/RegistrationGui.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/view/home.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/view/login.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/view/register.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ohtutest.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitIgnore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitIgnore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,19 +69,20 @@
       <list>
         <option value="FxmlFile" />
         <option value="CSS File" />
+        <option value="JUnit4 Test Class" />
         <option value="Dockerfile" />
         <option value="Class" />
-        <option value="JUnit4 Test Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="anna" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="SOFT" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -35,20 +90,13 @@
     &quot;assignee&quot;: &quot;annagaom&quot;
   }
 }</component>
+  <component name="GitRewordedCommitMessages">
+    <option name="onto" value="83bee81bf495a0e12f8b366fef7362451a11c740" />
+  </component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/PetraHauk/OhtuProjekti.git&quot;,
     &quot;accountId&quot;: &quot;d12f10a6-d5cf-492d-aceb-5d1198a70491&quot;
-  },
-  &quot;recentNewPullRequestHead&quot;: {
-    &quot;server&quot;: {
-      &quot;useHttp&quot;: false,
-      &quot;host&quot;: &quot;github.com&quot;,
-      &quot;port&quot;: null,
-      &quot;suffix&quot;: null
-    },
-    &quot;owner&quot;: &quot;PetraHauk&quot;,
-    &quot;repository&quot;: &quot;OhtuProjekti&quot;
   }
 }</component>
   <component name="KubernetesApiProvider">{
@@ -64,104 +112,69 @@
   &quot;associatedIndex&quot;: 3
 }</component>
   <component name="ProjectId" id="2leYgd5LUOn8ijdYfmOTF1ggQv2" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "Application.MainPetra.executor": "Run",
-    "Application.WilmaMain.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "false",
-    "JUnit.AsiakasControllerTest and 4 more.executor": "Run",
-    "JUnit.AsiakasControllerTest.executor": "Profiler#1",
-    "JUnit.AsiakasControllerTest.findByLaskuId.executor": "Run",
-    "JUnit.AsiakasControllerTest.findByNimet.executor": "Run",
-    "JUnit.AsiakasControllerTest.poistaAsiakasById.executor": "Run",
-    "JUnit.AsiakasControllerTest.testFindAllAsiakkaat.executor": "Run",
-    "JUnit.HotelliControllerTest.executor": "Run",
-    "JUnit.HotelliControllerTest.testAddHotelli.executor": "Run",
-    "JUnit.HotelliControllerTest.testFindHotelliById.executor": "Run",
-    "JUnit.HotelliControllerTest.testRemoveHotelliById.executor": "Run",
-    "JUnit.HuoneControllerTest.deleteHuone.executor": "Run",
-    "JUnit.HuoneControllerTest.executor": "Run",
-    "JUnit.HuoneControllerTest.findHuoneByNro.executor": "Run",
-    "JUnit.HuoneControllerTest.findHuoneByTila.executor": "Run",
-    "JUnit.HuoneControllerTest.findHuoneByTyyppi.executor": "Run",
-    "JUnit.HuoneControllerTest.testFindHuoneById.executor": "Run",
-    "JUnit.HuoneControllerTest.testFindHuoneByNro.executor": "Run",
-    "JUnit.HuoneControllerTest.testFindHuoneByTyyppi.executor": "Run",
-    "JUnit.HuoneControllerTest.testFindHuoneetByHoteliId.executor": "Run",
-    "JUnit.HuoneControllerTest.updateHuoneById.executor": "Run",
-    "JUnit.LaskuControllerTest.TestRemoveLaskuById.executor": "Run",
-    "JUnit.LaskuControllerTest.executor": "Run",
-    "JUnit.LaskuControllerTest.findAllLaskut.executor": "Run",
-    "JUnit.LaskuControllerTest.testAddLasku.executor": "Run",
-    "JUnit.LaskuControllerTest.testFindLaskuByAsiakasId.executor": "Run",
-    "JUnit.LaskuControllerTest.testFindLaskuById.executor": "Run",
-    "JUnit.LaskuControllerTest.updateLaskuById.executor": "Run",
-    "JUnit.RegistrationGuiTest.executor": "Run",
-    "JUnit.RegistrationGuiTest.testHandleRegister_Success.executor": "Run",
-    "JUnit.RegistrationGuiTest.testRegisterWithEmptyFields.executor": "Run",
-    "JUnit.RegistrationGuiTest.testRegisterWithExistingEmail.executor": "Run",
-    "JUnit.RegistrationGuiTest.testSuccessfulAlertDisplay.executor": "Run",
-    "JUnit.RegistrationGuiTest.testSuccessfulRegistration.executor": "Run",
-    "JUnit.VarausControllerTest.TestFindByVarausId.executor": "Run",
-    "JUnit.VarausControllerTest.executor": "Run",
-    "JUnit.VarausControllerTest.testRemoveVarausById.executor": "Run",
-    "JUnit.VarausControllerTest.testUpdateVarausById.executor": "Run",
-    "JUnit.kayttajaControllerTest.testFindByKayttajaId.executor": "Run",
-    "JUnit.kayttajaControllerTest.testFindPasswordByEmail.executor": "Run",
-    "Maven.gui [clean].executor": "Run",
-    "Maven.gui [install].executor": "Run",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "TestNG.KayttajaControllerTest.executor": "Run",
-    "TestNG.KayttajaControllerTest.testFindKayttajaByI.executor": "Run",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
-    "git-widget-placeholder": "main",
-    "jdk.selected.JAVA_MODULE": "21",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/kakek/javafx-sdk-17.0.10/lib",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.5482759",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MainPetra.executor&quot;: &quot;Run&quot;,
+    &quot;Application.WilmaMain.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.Dockerfile.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;JUnit.RegistrationGuiTest.executor&quot;: &quot;Profiler#1&quot;,
+    &quot;JUnit.RegistrationGuiTest.testHandleRegister_Success.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RegistrationGuiTest.testRegisterWithEmptyFields.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RegistrationGuiTest.testRegisterWithExistingEmail.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RegistrationGuiTest.testSuccessfulAlertDisplay.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RegistrationGuiTest.testSuccessfulRegistration.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.gui [clean,javafx:run].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.gui [clean,package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.gui [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.gui [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.gui [package].executor&quot;: &quot;Run&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit4&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;21&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/kakek/javafx-sdk-17.0.10/lib&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Global Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.5482759&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mariadb"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mariadb&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/test/java" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="view" />
+      <recent name="C:\Users\kakek\IdeaProjects\OhtuProjekti2\src\src" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
-      <recent name="controller" />
-      <recent name="view" />
-      <recent name="model.DAO" />
       <recent name="app" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -171,14 +184,18 @@
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
-      <command value="mvn clean" />
       <command value="mvn install" />
+      <command value="mvn clean package" />
+      <command value="mvn clean javafx:run" />
+      <command value="mvn package" />
+      <command value="mvn clean" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.AsiakasControllerTest">
+  <component name="RunManager" selected="Docker.Dockerfile">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="app.Main" />
       <module name="gui" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\tools\javafx-sdk-21.0.4&quot; --add-modules javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="app.*" />
@@ -189,80 +206,96 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AsiakasControllerTest and 4 more" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <module name="gui" />
-      <option name="TEST_OBJECT" value="pattern" />
-      <patterns>
-        <pattern testClass="controller.AsiakasControllerTest" />
-        <pattern testClass="controller.HotelliControllerTest" />
-        <pattern testClass="controller.HuoneControllerTest" />
-        <pattern testClass="controller.LaskuControllerTest" />
-        <pattern testClass="controller.VarausControllerTest" />
-      </patterns>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AsiakasControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RegistrationGuiTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gui" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="controller.*" />
+          <option name="PATTERN" value="app.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="controller" />
-      <option name="MAIN_CLASS_NAME" value="controller.AsiakasControllerTest" />
+      <option name="PACKAGE_NAME" value="app" />
+      <option name="MAIN_CLASS_NAME" value="app.RegistrationGuiTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HotelliControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RegistrationGuiTest.testHandleRegister_Success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gui" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="controller.*" />
+          <option name="PATTERN" value="app.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="controller" />
-      <option name="MAIN_CLASS_NAME" value="controller.HotelliControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="app" />
+      <option name="MAIN_CLASS_NAME" value="app.RegistrationGuiTest" />
+      <option name="METHOD_NAME" value="testHandleRegister_Success" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HuoneControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RegistrationGuiTest.testRegisterWithExistingEmail" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gui" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="controller.*" />
+          <option name="PATTERN" value="app.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="controller" />
-      <option name="MAIN_CLASS_NAME" value="controller.HuoneControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="app" />
+      <option name="MAIN_CLASS_NAME" value="app.RegistrationGuiTest" />
+      <option name="METHOD_NAME" value="testRegisterWithExistingEmail" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Dockerfile" type="docker-deploy" factoryName="dockerfile" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="containerName" value="" />
+          <option name="sourceFilePath" value="Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
+      <deployment type="dockerfile">
+        <settings />
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.Unnamed" />
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Docker.Dockerfile" />
+      <item itemvalue="JUnit.RegistrationGuiTest" />
+      <item itemvalue="JUnit.RegistrationGuiTest.testHandleRegister_Success" />
+      <item itemvalue="JUnit.RegistrationGuiTest.testRegisterWithExistingEmail" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.AsiakasControllerTest" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.AsiakasControllerTest and 4 more" />
-        <item itemvalue="JUnit.HotelliControllerTest" />
-        <item itemvalue="JUnit.HuoneControllerTest" />
+        <item itemvalue="JUnit.RegistrationGuiTest" />
+        <item itemvalue="JUnit.RegistrationGuiTest.testHandleRegister_Success" />
+        <item itemvalue="JUnit.RegistrationGuiTest.testRegisterWithExistingEmail" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.20224.419" />
-        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-IU-242.20224.419" />
+        <option value="jdk-17.0.10-corretto-17.0.10-f644763e9732-24fca987" />
+        <option value="jdk-21.0.2-openjdk-21.0.2-f644763e9732-c0c073db" />
       </set>
     </attachedChunks>
   </component>
@@ -293,10 +326,7 @@
       <workItem from="1727692025966" duration="270000" />
       <workItem from="1727722802128" duration="1301000" />
       <workItem from="1727762601158" duration="7387000" />
-      <workItem from="1727865313265" duration="2929000" />
-      <workItem from="1727883642345" duration="4227000" />
-      <workItem from="1727888289340" duration="6380000" />
-      <workItem from="1727952678839" duration="2016000" />
+      <workItem from="1728065113527" duration="3995000" />
     </task>
     <task id="LOCAL-00002" summary="yhdistetty wilman ja kaislan judut">
       <option name="closed" value="true" />
@@ -394,47 +424,31 @@
       <option name="project" value="LOCAL" />
       <updated>1727771089479</updated>
     </task>
-    <task id="LOCAL-00014" summary="summa ja loppusummalle oikea valutta">
+    <task id="LOCAL-00014" summary="muuttaa pomin ja dockerfilen docker pull ja buildia varten">
       <option name="closed" value="true" />
-      <created>1727887220022</created>
+      <created>1728069026466</created>
       <option name="number" value="00014" />
       <option name="presentableId" value="LOCAL-00014" />
       <option name="project" value="LOCAL" />
-      <updated>1727887220022</updated>
+      <updated>1728069026466</updated>
     </task>
-    <task id="LOCAL-00015" summary="testit päivitetty">
+    <task id="LOCAL-00015" summary="muuttaa pomin ja dockerfilen docker pull ja buildia varten">
       <option name="closed" value="true" />
-      <created>1727893299571</created>
+      <created>1728069069699</created>
       <option name="number" value="00015" />
       <option name="presentableId" value="LOCAL-00015" />
       <option name="project" value="LOCAL" />
-      <updated>1727893299571</updated>
+      <updated>1728069069699</updated>
     </task>
-    <task id="LOCAL-00016" summary="update">
+    <task id="LOCAL-00016" summary="muuttaa pomin ja dockerfilen docker pull ja buildia varten">
       <option name="closed" value="true" />
-      <created>1727893319397</created>
+      <created>1728070405336</created>
       <option name="number" value="00016" />
       <option name="presentableId" value="LOCAL-00016" />
       <option name="project" value="LOCAL" />
-      <updated>1727893319397</updated>
+      <updated>1728070405336</updated>
     </task>
-    <task id="LOCAL-00017" summary="update">
-      <option name="closed" value="true" />
-      <created>1728037571014</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1728037571015</updated>
-    </task>
-    <task id="LOCAL-00018" summary="update">
-      <option name="closed" value="true" />
-      <created>1728037852662</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1728037852662</updated>
-    </task>
-    <option name="localTasksCounter" value="19" />
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -452,6 +466,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Window opens and shows basic layout when WilmaMain is launched" />
     <MESSAGE value="...." />
     <MESSAGE value="yhdistetty wilman ja kaislan judut" />
@@ -462,10 +477,9 @@
     <MESSAGE value="Admin screen hommia" />
     <MESSAGE value="Admin.gui muutoksia" />
     <MESSAGE value="Rekisteröinti testi jenkinsiä varten, muut testit kommentoitu pois, muuttaa pom.xml jossa" />
-    <MESSAGE value="summa ja loppusummalle oikea valutta" />
-    <MESSAGE value="testit päivitetty" />
-    <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value="Revert &quot;muuttaa pomin ja dockerfilen docker pull ja buildia varten&quot;&#10;&#10;This reverts commit c0ffdab7" />
+    <MESSAGE value="muuttaa pomin ja dockerfilen docker pull ja buildia varten" />
+    <option name="LAST_COMMIT_MESSAGE" value="muuttaa pomin ja dockerfilen docker pull ja buildia varten" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -474,24 +488,7 @@
           <properties class="java.lang.IllegalStateException" package="java.lang" />
           <option name="timeStamp" value="8" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/src/test/java/controller/HuoneControllerTest.java</url>
-          <line>35</line>
-          <properties class="controller.HuoneControllerTest" method="testFindHuoneByTyyppi">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/src/test/java/controller/HuoneControllerTest.java</url>
-          <line>8</line>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/OhtuProjekti$AsiakasControllerTest_and_4_more.ic" NAME="AsiakasControllerTest and 4 more Coverage Results" MODIFIED="1727893888798" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
   </component>
 </project>
