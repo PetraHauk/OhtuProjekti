@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomeController">
+    <Label text="Welcome to the Home Page!" layoutX="50" layoutY="50" />
+
+    <!-- Username label positioned in the top right -->
+    <Label fx:id="usernameLabel" layoutX="450" layoutY="10" />
+
+    <!-- Logout button positioned next to username label -->
+    <Button fx:id="logoutButton" layoutX="550" layoutY="10" text="Logout" onAction="#handleLogout" />
+</AnchorPane>
