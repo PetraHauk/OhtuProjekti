@@ -4,22 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="App folderin siivousta">
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/sivut/AsiakasSivu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/sivut/CheckIn.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/sivut/CheckOut.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/sivut/Etusivu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/sivut/HuoneSivu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/sivut/VarausSivu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/HotelliController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/HotelliController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/HuoneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/HuoneController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/VarausController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/VarausController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/HotelliDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/HotelliDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/enteties/Varaus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enteties/Varaus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/OhjelmistoGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/OhjelmistoGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/test/java/controller/KayttajaControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/test/java/controller/KayttajaControllerTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="käyttäjäController test" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -259,7 +244,7 @@
       <workItem from="1727692025966" duration="270000" />
       <workItem from="1727722802128" duration="1301000" />
       <workItem from="1727762601158" duration="7387000" />
-      <workItem from="1727865313265" duration="9994000" />
+      <workItem from="1727865313265" duration="10313000" />
     </task>
     <task id="LOCAL-00002" summary="yhdistetty wilman ja kaislan judut">
       <option name="closed" value="true" />
@@ -365,7 +350,23 @@
       <option name="project" value="LOCAL" />
       <updated>1727868289446</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="OhjelmistoGui purettu sivuihin">
+      <option name="closed" value="true" />
+      <created>1728064489148</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1728064489148</updated>
+    </task>
+    <task id="LOCAL-00016" summary="käyttäjäController test">
+      <option name="closed" value="true" />
+      <created>1728064589230</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1728064589230</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -394,7 +395,9 @@
     <MESSAGE value="Admin.gui muutoksia" />
     <MESSAGE value="Rekisteröinti testi jenkinsiä varten, muut testit kommentoitu pois, muuttaa pom.xml jossa" />
     <MESSAGE value="App folderin siivousta" />
-    <option name="LAST_COMMIT_MESSAGE" value="App folderin siivousta" />
+    <MESSAGE value="OhjelmistoGui purettu sivuihin" />
+    <MESSAGE value="käyttäjäController test" />
+    <option name="LAST_COMMIT_MESSAGE" value="käyttäjäController test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
