@@ -130,7 +130,8 @@ public class CheckOut {
                                             loppuPvm,
                                             paivat,
                                             hintaStr,  // Muotoile hinta kahdelle desimaalille ja lisää USD
-                                            summaStr      // Muotoile summa kahdelle desimaalille
+                                            summaStr,      // Muotoile summa kahdelle desimaalille
+                                            kokonaishinta
                                     ));
 
 
