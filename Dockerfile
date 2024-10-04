@@ -1,27 +1,22 @@
-# Use Maven image for building the project
-FROM maven:latest AS build
+# Base image for ARM64 (Mac M1/M2)
+FROM arm64v8/openjdk:21-jdk-slim
 
+# Copy the JavaFX SDK for macOS ARM64 from the host to the container
+COPY /Users/anna/openjfx-20.0.2_macos-aarch64_bin-sdk /opt/javafx-sdk
+
+# Set environment variables
+ENV PATH="/opt/javafx-sdk/bin:${PATH}"
+ENV JAVA_HOME="/usr/local/openjdk-21"
+ENV JAVAFX_HOME="/opt/javafx-sdk"
+
+# Install necessary tools
+RUN apt-get update && apt-get install -y unzip
+
+# Set working directory
 WORKDIR /app
 
-COPY pom.xml /app/
-COPY . /app/
+# Copy the application files
+COPY . /app
 
-# Build the project
-RUN mvn package
-
-# Use OpenJDK for running the Java application
-FROM openjdk:21-jdk
-
-# Download and install JavaFX SDK
-RUN apt-get update && apt-get install -y wget unzip \
-    && wget https://download2.gluonhq.com/openjfx/20.0.2/openjfx-20.0.2_linux-x64_bin-sdk.zip -O /tmp/openjfx.zip \
-    && unzip /tmp/openjfx.zip -d /opt/ && rm /tmp/openjfx.zip
-
-# Copy the built JAR from the Maven image
-COPY --from=build /app/target/ohtutest.jar /app/ohtutest.jar
-
-# Set the path to JavaFX SDK
-ENV PATH_TO_FX=/opt/javafx-sdk-20.0.2/lib
-
-# Command to run the Java application with JavaFX
-CMD ["java", "--module-path", "/opt/javafx-sdk-20.0.2/lib", "--add-modules", "javafx.controls,javafx.fxml", "-jar", "/app/ohtutest.jar"]
+# Build and run the application with the JavaFX SDK
+CMD ["java", "--module-path", "/opt/javafx-sdk/lib", "--add-modules", "javafx.controls,javafx.fxml", "-jar", "target/ohtutest.jar"]
