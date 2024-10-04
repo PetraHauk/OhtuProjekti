@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="muuttaa pomin ja dockerfilen docker pull ja buildia varten!">
+    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="pikku muutoksia">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/enteties/LaskuData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enteties/LaskuData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/src/test/java/controller/KayttajaControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/test/java/controller/KayttajaControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -432,7 +431,23 @@
       <option name="project" value="LOCAL" />
       <updated>1728070694143</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="pikku muutoksia">
+      <option name="closed" value="true" />
+      <created>1728071328950</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1728071328950</updated>
+    </task>
+    <task id="LOCAL-00020" summary="pikku muutoksia">
+      <option name="closed" value="true" />
+      <created>1728071359744</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1728071359744</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -464,7 +479,8 @@
     <MESSAGE value="Revert &quot;muuttaa pomin ja dockerfilen docker pull ja buildia varten&quot;&#10;&#10;This reverts commit c0ffdab7" />
     <MESSAGE value="muuttaa pomin ja dockerfilen docker pull ja buildia varten" />
     <MESSAGE value="muuttaa pomin ja dockerfilen docker pull ja buildia varten!" />
-    <option name="LAST_COMMIT_MESSAGE" value="muuttaa pomin ja dockerfilen docker pull ja buildia varten!" />
+    <MESSAGE value="pikku muutoksia" />
+    <option name="LAST_COMMIT_MESSAGE" value="pikku muutoksia" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
