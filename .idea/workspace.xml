@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="update" />
+    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="update dockerfile, korjattu jar:n name,">
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Main.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,7 +26,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="anna" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -126,7 +128,7 @@
     "TestNG.KayttajaControllerTest.testFindKayttajaByI.executor": "Run",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "anna",
     "jdk.selected.JAVA_MODULE": "21",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/kakek/javafx-sdk-17.0.10/lib",
@@ -171,11 +173,11 @@
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
-      <command value="mvn clean" />
       <command value="mvn install" />
+      <command value="mvn clean" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.AsiakasControllerTest">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="app.Main" />
       <module name="gui" />
@@ -211,8 +213,11 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-21 (2)" />
       <option name="PACKAGE_NAME" value="controller" />
       <option name="MAIN_CLASS_NAME" value="controller.AsiakasControllerTest" />
+      <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -248,10 +253,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="JUnit.AsiakasControllerTest" />
+      <item itemvalue="JUnit.AsiakasControllerTest and 4 more" />
+      <item itemvalue="JUnit.HotelliControllerTest" />
+      <item itemvalue="JUnit.HuoneControllerTest" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.AsiakasControllerTest" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.AsiakasControllerTest" />
         <item itemvalue="JUnit.AsiakasControllerTest and 4 more" />
         <item itemvalue="JUnit.HotelliControllerTest" />
         <item itemvalue="JUnit.HuoneControllerTest" />
@@ -434,7 +446,39 @@
       <option name="project" value="LOCAL" />
       <updated>1728037852662</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="update pom.xml">
+      <option name="closed" value="true" />
+      <created>1728046485783</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1728046485783</updated>
+    </task>
+    <task id="LOCAL-00020" summary="update pom.xml">
+      <option name="closed" value="true" />
+      <created>1728047182578</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1728047182578</updated>
+    </task>
+    <task id="LOCAL-00021" summary="update dockerfile, korjattu jar:n name,">
+      <option name="closed" value="true" />
+      <created>1728048692061</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1728048692061</updated>
+    </task>
+    <task id="LOCAL-00022" summary="update dockerfile, korjattu jar:n name,">
+      <option name="closed" value="true" />
+      <created>1728049816729</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1728049816729</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -465,7 +509,9 @@
     <MESSAGE value="summa ja loppusummalle oikea valutta" />
     <MESSAGE value="testit päivitetty" />
     <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value="update pom.xml" />
+    <MESSAGE value="update dockerfile, korjattu jar:n name," />
+    <option name="LAST_COMMIT_MESSAGE" value="update dockerfile, korjattu jar:n name," />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

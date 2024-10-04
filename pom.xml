@@ -149,18 +149,24 @@
 
 
             <!-- JAR Plugin for configuring the manifest file -->
+
+
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.4.1</version>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.0.0</version>
                 <configuration>
-                    <archive>
-                        <manifest>
-                            <mainClass>view.LoginGui</mainClass> <!-- Replace with your actual main class -->
-                        </manifest>
-                    </archive>
+                    <mainClass>app.Main</mainClass>
+                    <arguments>
+                        <argument>--module-path</argument>
+                        <argument>/path/to/javafx-sdk-20/lib</argument>
+                        <argument>--add-modules</argument>
+                        <argument>javafx.controls,javafx.fxml</argument>
+                    </arguments>
                 </configuration>
             </plugin>
+
+
 
             <!-- JaCoCo Plugin for code coverage -->
             <plugin>
