@@ -4,81 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="Target 02-10">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="App folderin siivousta">
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/sivut/AsiakasSivu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/sivut/CheckIn.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/sivut/CheckOut.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/sivut/Etusivu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/sivut/HuoneSivu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/sivut/VarausSivu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/AdminGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/AdminGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/AnnaMain.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/AsiakasHaku.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/CurrencyConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/service/CurrencyConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/HotelliHaku.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/KayttajaHaku.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/LaskuData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enteties/LaskuData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/LaskuHaku.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/LoginGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/LoginGui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/OhjelmistoGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/OhjelmistoGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/RegistrationGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/RegistrationGui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/UserSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/service/UserSession.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/VarausHaku.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/WilmaMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/HotelliController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/HotelliController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/HuoneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/HuoneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/VarausController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/VarausController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/HotelliDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/HotelliDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/enteties/Varaus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enteties/Varaus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/OhjelmistoGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/OhjelmistoGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/src/test/java/controller/KayttajaControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/test/java/controller/KayttajaControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/META-INF/persistence.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/app/AdminGUI.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/app/AnnaMain.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/app/AsiakasHaku.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/app/CurrencyConverter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/app/HotelliHaku.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/app/KayttajaHaku.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/app/LaskuData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/app/LaskuHaku.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/app/LoginGui.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/app/OhjelmistoGUI$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/app/OhjelmistoGUI$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/app/OhjelmistoGUI$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/app/OhjelmistoGUI$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/app/OhjelmistoGUI$5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/app/OhjelmistoGUI$6.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/app/OhjelmistoGUI.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/app/RegistrationGui.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/app/UserSession.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/app/VarausHaku.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/app/WilmaMain.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/AsiakasController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/HomeController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/HotelliController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/HuoneController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/KayttajaController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/LaskuController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/LoginController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/VarausController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/logback.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/login.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/AsiakasDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/HotelliDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/HuoneDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/KayttajaDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/LaskuDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/VarausDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/model/datasourse/MariaDbConnection.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/model/enteties/Asiakas.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/model/enteties/Hotelli.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/model/enteties/Huone.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/model/enteties/Kayttaja.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/model/enteties/Lasku.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/model/enteties/Varaus.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/model/service/Kirjautuminen.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/utils/PasswordUtils.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/view/home.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/view/login.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/view/register.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -319,7 +259,7 @@
       <workItem from="1727692025966" duration="270000" />
       <workItem from="1727722802128" duration="1301000" />
       <workItem from="1727762601158" duration="7387000" />
-      <workItem from="1727865313265" duration="2929000" />
+      <workItem from="1727865313265" duration="9994000" />
     </task>
     <task id="LOCAL-00002" summary="yhdistetty wilman ja kaislan judut">
       <option name="closed" value="true" />
@@ -417,7 +357,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727771089479</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="App folderin siivousta">
+      <option name="closed" value="true" />
+      <created>1727868289446</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1727868289446</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -445,7 +393,8 @@
     <MESSAGE value="Admin screen hommia" />
     <MESSAGE value="Admin.gui muutoksia" />
     <MESSAGE value="Rekisteröinti testi jenkinsiä varten, muut testit kommentoitu pois, muuttaa pom.xml jossa" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rekisteröinti testi jenkinsiä varten, muut testit kommentoitu pois, muuttaa pom.xml jossa" />
+    <MESSAGE value="App folderin siivousta" />
+    <option name="LAST_COMMIT_MESSAGE" value="App folderin siivousta" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -453,6 +402,10 @@
         <breakpoint type="java-exception">
           <properties class="java.lang.IllegalStateException" package="java.lang" />
           <option name="timeStamp" value="8" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.StackOverflowError" package="java.lang" />
+          <option name="timeStamp" value="12" />
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>

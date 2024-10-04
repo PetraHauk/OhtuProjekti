@@ -12,10 +12,13 @@ public class VarausController {
     private AsiakasController asiakasController;
     private LaskuController laskuController;
 
+    private HuoneController huoneController;
+
     public VarausController() {
         varausDAO = new VarausDAO();
         asiakasController = new AsiakasController();
         laskuController = new LaskuController();
+        huoneController = new HuoneController();
     }
 
     public void AddVaraus(LocalDate alkuPvm, LocalDate loppuPvm, Integer huone_id, int lasku_id) {
@@ -47,6 +50,7 @@ public class VarausController {
         List<Varaus> varaukset = varausDAO.haeVaraukset();
         List<Varaus> varauksetByDate = new ArrayList<>();
 
+
         for (Varaus varaus : varaukset) {
             if ((varaus.getAlkuPvm().isEqual(alkuPvm) || varaus.getAlkuPvm().isAfter(alkuPvm)) &&
                     (varaus.getLoppuPvm().isEqual(loppuPvm) || varaus.getLoppuPvm().isBefore(loppuPvm))) {
@@ -54,6 +58,19 @@ public class VarausController {
             }
         }
         return varauksetByDate;
+    }
+
+    public int getOverlappingReservationsCount(LocalDate saapumisPvm, LocalDate lahtoPvm) {
+        List<Varaus> varaukset = varausDAO.haeVaraukset();
+        int overlappingReservationsCount = 0;
+
+        for (Varaus varaus : varaukset) {
+            if ((varaus.getAlkuPvm().isEqual(saapumisPvm) || varaus.getAlkuPvm().isAfter(saapumisPvm)) &&
+                    (varaus.getLoppuPvm().isEqual(lahtoPvm) || varaus.getLoppuPvm().isBefore(lahtoPvm))) {
+                overlappingReservationsCount++;
+            }
+        }
+        return overlappingReservationsCount;
     }
 
     public Varaus findByVarausId(int varaus_id) {
@@ -86,4 +103,6 @@ public class VarausController {
     public int varausPaivat (LocalDate alkuPvm, LocalDate loppuPvm) {
         return varausDAO.varausPaivat(alkuPvm, loppuPvm);
     }
+
+
 }
