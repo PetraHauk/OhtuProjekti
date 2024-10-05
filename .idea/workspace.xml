@@ -4,32 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="ylimääränen src kansio poistettu">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_9_2024_12_53__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_9_2024_12_53__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_09_2024_10_00__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_09_2024_10_00__Changes_.xml" afterDir="false" />
+    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="update">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_09_2024_09_03__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_09_2024_09_03__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_09_2024_11_29__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_09_2024_11_29__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Database/hotelli_db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Database/hotelli_db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/HuoneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/HuoneController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/LaskuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/LaskuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/HuoneDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/HuoneDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/VarausDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/VarausDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/OhjelmistoGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/OhjelmistoGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/sivut/Etusivu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/sivut/Etusivu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/sivut/HuoneSivu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/sivut/HuoneSivu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/HuoneController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/HuoneController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/LaskuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/LaskuController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/DAO/HuoneDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/DAO/HuoneDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/DAO/VarausDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/DAO/VarausDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/OhjelmistoGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/OhjelmistoGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/Etusivu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/sivut/Etusivu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/HuoneSivu$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/sivut/HuoneSivu$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/HuoneSivu$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/sivut/HuoneSivu$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/HuoneSivu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/sivut/HuoneSivu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/sivut/CheckOut.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/sivut/CheckOut.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/enteties/LaskuData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/enteties/LaskuData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/CheckOut.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/sivut/CheckOut.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,8 +147,15 @@
       <command value="mvn install" />
     </option>
   </component>
-  <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="app.Main" />
+      <module name="gui" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main2" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="app.Main" />
       <module name="gui" />
       <option name="VM_PARAMETERS" value="--module-path &quot;C:\tools\javafx-sdk-21.0.4&quot; --add-modules javafx.controls,javafx.fxml" />
@@ -266,6 +254,7 @@
     <list>
       <item itemvalue="Application.Unnamed" />
       <item itemvalue="Application.Main" />
+      <item itemvalue="Application.Main2" />
       <item itemvalue="Docker.Dockerfile" />
       <item itemvalue="JUnit.LaskuControllerTest" />
       <item itemvalue="JUnit.RegistrationGuiTest (1)" />
@@ -274,9 +263,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main2" />
         <item itemvalue="JUnit.RegistrationGuiTest (1)" />
         <item itemvalue="JUnit.LaskuControllerTest" />
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.RegistrationGuiTest" />
         <item itemvalue="JUnit.RegistrationGuiTest.testHandleRegister_Success" />
       </list>
@@ -285,7 +274,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-21.0.2-openjdk-21.0.2-f644763e9732-c0c073db" />
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.20224.419" />
+        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-IU-242.20224.419" />
       </set>
     </attachedChunks>
   </component>
@@ -318,6 +308,7 @@
       <workItem from="1727762601158" duration="7387000" />
       <workItem from="1728065113527" duration="3995000" />
       <workItem from="1728127490530" duration="9648000" />
+      <workItem from="1728138584100" duration="1905000" />
     </task>
     <task id="LOCAL-00002" summary="yhdistetty wilman ja kaislan judut">
       <option name="closed" value="true" />
@@ -503,7 +494,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728072746459</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="update">
+      <option name="closed" value="true" />
+      <created>1728138649521</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1728138649521</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -537,7 +536,8 @@
     <MESSAGE value="muuttaa pomin ja dockerfilen docker pull ja buildia varten!" />
     <MESSAGE value="pikku muutoksia" />
     <MESSAGE value="ylimääränen src kansio poistettu" />
-    <option name="LAST_COMMIT_MESSAGE" value="ylimääränen src kansio poistettu" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -270,6 +270,8 @@ public class CheckOut {
         System.out.println("Lasku ID | Status | Muoto | Valuutta | Alku Pvm | Loppu Pvm | Päivät | Hinta | Summa");
         for (LaskuData laskuData : laskuTable.getItems()) {
             System.out.println(laskuData.getLaskuId() + " | " +
+                    laskuData.getHuoneNro() + " | " +
+                    laskuData.getHuoneTyyppi() + " | " +
                     laskuData.getMaksuStatus() + " | " +
                     laskuData.getVarausMuoto() + " | " +
                     laskuData.getValuutta() + " | " +
