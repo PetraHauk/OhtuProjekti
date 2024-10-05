@@ -1,0 +1,35 @@
+.root {
+    -fx-background-color: #0a3f63; /* Background color */
+}
+
+.text-field, .password-field {
+    -fx-alignment: center; /* Center the text */
+    -fx-background-radius: 10; /* Rounded corners */
+    -fx-padding: 10; /* Padding inside the text fields */
+    -fx-font-size: 14px; /* Font size */
+    -fx-text-fill: #232323; /* Text color */
+}
+
+.button-two {
+    -fx-background-color: #9cc7e2; /* Normal background color */
+    -fx-text-fill: #232323;
+    -fx-font-size: 16px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 5, 0.0, 0, 1);
+    -fx-background-radius: 10; /* Rounded corners */
+}
+
+.button-two:hover {
+    -fx-background-color: #d6e6f3; /* Background color on hover */
+}
+
+.button-selected {
+    -fx-background-color: #ffffff; /* Background color on hover */
+}
+
+.button-one {
+    -fx-background-color: #d4af37; /* Background color */
+    -fx-text-fill: #000000; /* Text color */
+    -fx-font-size: 16px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 5, 0.0, 0, 1);
+    -fx-background-radius: 10; /* Rounded corners */
+}
