@@ -4,13 +4,50 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="065e434f-b050-4145-bce8-5768651a9a60" name="Changes" comment="huoneMaara pois huonevaraus taulukosta">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/aa989b5b-8fef-408c-b7b9-47f367b75a5e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/aa989b5b-8fef-408c-b7b9-47f367b75a5e.xml" afterDir="false" />
+    <list default="true" id="065e434f-b050-4145-bce8-5768651a9a60" name="Changes" comment="varausControlli test valmis">
+      <change afterPath="$PROJECT_DIR$/src/main/Database/hotelli_db" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/controller/AsiakasControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/controller/HotelliControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/controller/HuoneControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/controller/KayttajaControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/controller/LaskuControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/controller/VarausControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/AdminGUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/src/test/java/model/DAO/AsiakasDAOTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/AnnaMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/AnnaMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/LaskuData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/LaskuData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/OhjelmistoGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/OhjelmistoGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/UserSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/UserSession.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/VarausHaku.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/VarausHaku.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/AsiakasController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/AsiakasController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/HotelliController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/HotelliController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/HuoneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/HuoneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/LaskuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/LaskuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/VarausController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/VarausController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/AsiakasDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/AsiakasDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/HuoneDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/HuoneDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/VarausDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/VarausDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/VarausDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/DAO/VarausDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/model/enteties/Varaus.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/enteties/Varaus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/test/java/controller/AsiakasControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/test/java/controller/AsiakasControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/test/java/controller/HuoneControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/test/java/controller/HuoneControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/test/java/controller/LaskuControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/test/java/controller/LaskuControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/test/java/controller/VarausControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/test/java/controller/VarausControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/test/java/controller/kayttajaControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/test/java/controller/kayttajaControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/META-INF/persistence.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/app/KayttajaHaku.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/KayttajaController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/LoginController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/logback.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/AsiakasDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/KayttajaDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/VarausDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/datasourse/MariaDbConnection.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/enteties/Asiakas.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/enteties/Huone.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/enteties/Kayttaja.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/enteties/Varaus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/service/HuoneVaraus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/service/Kirjautuminen.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,84 +95,89 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.AnnaMain.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.WilmaMain.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "false",
-    "JUnit.AsiakasControllerTest.executor": "Run",
-    "JUnit.AsiakasControllerTest.findByEmail.executor": "Run",
-    "JUnit.AsiakasControllerTest.findByLaskuId.executor": "Run",
-    "JUnit.AsiakasControllerTest.findByNimet.executor": "Run",
-    "JUnit.AsiakasControllerTest.poistaAsiakasById.executor": "Run",
-    "JUnit.AsiakasControllerTest.testAddAsiakas.executor": "Run",
-    "JUnit.AsiakasControllerTest.testFindAllAsiakkaat.executor": "Run",
-    "JUnit.AsiakasControllerTest.updateAsiakasTiedot.executor": "Run",
-    "JUnit.HotelliControllerTest.executor": "Coverage",
-    "JUnit.HotelliControllerTest.testAddHotelli.executor": "Run",
-    "JUnit.HotelliControllerTest.testFindHotelliById.executor": "Run",
-    "JUnit.HotelliControllerTest.testRemoveHotelliById.executor": "Run",
-    "JUnit.HuoneControllerTest.deleteHuone.executor": "Run",
-    "JUnit.HuoneControllerTest.findHuoneByNro.executor": "Run",
-    "JUnit.HuoneControllerTest.findHuoneByTila.executor": "Run",
-    "JUnit.HuoneControllerTest.findHuoneByTyyppi.executor": "Run",
-    "JUnit.HuoneControllerTest.lisaaHuone.executor": "Run",
-    "JUnit.HuoneControllerTest.testFindHuoneById.executor": "Run",
-    "JUnit.HuoneControllerTest.testFindHuoneetByHoteliId.executor": "Run",
-    "JUnit.HuoneControllerTest.updateHuoneById.executor": "Run",
-    "JUnit.LaskuControllerTest.TestRemoveLaskuById.executor": "Run",
-    "JUnit.LaskuControllerTest.addLasku.executor": "Run",
-    "JUnit.LaskuControllerTest.executor": "Coverage",
-    "JUnit.LaskuControllerTest.findAllLaskut.executor": "Run",
-    "JUnit.LaskuControllerTest.removeLaskuById.executor": "Run",
-    "JUnit.LaskuControllerTest.testAddLasku.executor": "Coverage",
-    "JUnit.LaskuControllerTest.testFindLaskuByAsiakasId.executor": "Run",
-    "JUnit.LaskuControllerTest.testFindLaskuById.executor": "Run",
-    "JUnit.LaskuControllerTest.updateLaskuById.executor": "Run",
-    "JUnit.VarausControllerTest.TestFindByVarausId.executor": "Run",
-    "JUnit.VarausControllerTest.testAddVaraus.executor": "Run",
-    "JUnit.VarausControllerTest.testFindByLaskuId.executor": "Run",
-    "JUnit.VarausControllerTest.testUpdateVarausById.executor": "Run",
-    "JUnit.kayttajaControllerTest.executor": "Run",
-    "JUnit.kayttajaControllerTest.testAddKayttaja.executor": "Run",
-    "JUnit.kayttajaControllerTest.testFindAllKayttajat.executor": "Run",
-    "JUnit.kayttajaControllerTest.testFindByEmail.executor": "Run",
-    "JUnit.kayttajaControllerTest.testFindByKayttajaId.executor": "Run",
-    "JUnit.kayttajaControllerTest.testFindPasswordByEmail.executor": "Run",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "anna-2",
-    "kotlin-language-version-configured": "true",
-    "last_directory_selection": "/Users/anna/IdeaProjects/OhtuProjekti-anna/src/src/test/java/controller",
-    "last_opened_file_path": "/Users/anna/IdeaProjects/OhtuProjekti-anna/src/main/java",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.5482759",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.AnnaMain.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.WilmaMain.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;JUnit.AsiakasControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AsiakasControllerTest.findByEmail.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AsiakasControllerTest.findByLaskuId.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AsiakasControllerTest.findByNimet.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AsiakasControllerTest.poistaAsiakasById.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AsiakasControllerTest.testAddAsiakas.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AsiakasControllerTest.testFindAllAsiakkaat.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AsiakasControllerTest.updateAsiakasTiedot.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HotelliControllerTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.HotelliControllerTest.testAddHotelli.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HotelliControllerTest.testFindHotelliById.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HotelliControllerTest.testRemoveHotelliById.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HuoneControllerTest.deleteHuone.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HuoneControllerTest.findHuoneByNro.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HuoneControllerTest.findHuoneByTila.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HuoneControllerTest.findHuoneByTyyppi.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HuoneControllerTest.lisaaHuone.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HuoneControllerTest.testFindHuoneById.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HuoneControllerTest.testFindHuoneetByHoteliId.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HuoneControllerTest.updateHuoneById.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LaskuControllerTest.TestRemoveLaskuById.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LaskuControllerTest.addLasku.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LaskuControllerTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.LaskuControllerTest.findAllLaskut.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LaskuControllerTest.removeLaskuById.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LaskuControllerTest.testAddLasku.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.LaskuControllerTest.testFindLaskuByAsiakasId.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LaskuControllerTest.testFindLaskuById.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LaskuControllerTest.updateLaskuById.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VarausControllerTest.TestFindByVarausId.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VarausControllerTest.testAddVaraus.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VarausControllerTest.testFindAllVaraukset.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VarausControllerTest.testFindByLaskuId.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VarausControllerTest.testRemoveVarausById.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VarausControllerTest.testUpdateVarausById.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.kayttajaControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.kayttajaControllerTest.testAddKayttaja.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.kayttajaControllerTest.testFindAllKayttajat.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.kayttajaControllerTest.testFindByEmail.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.kayttajaControllerTest.testFindByKayttajaId.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.kayttajaControllerTest.testFindPasswordByEmail.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.gui [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.gui [install].executor&quot;: &quot;Run&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;anna-2&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_directory_selection&quot;: &quot;/Users/anna/IdeaProjects/OhtuProjekti-anna/src/src/test/java/controller&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/anna/IdeaProjects/OhtuProjekti-anna&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.5482759&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mariadb"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mariadb&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="app" />
       <recent name="model.enteties" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main" />
       <recent name="$PROJECT_DIR$/src/main/java" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
@@ -150,14 +192,34 @@
       <recent name="controller" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="model.DAO" />
       <recent name="controller" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="controller" />
       <recent name="app" />
+      <recent name="controller" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.VarausControllerTest.testFindAllVaraukset">
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean" />
+      <command value="mvn install" />
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.WilmaMain">
+    <configuration name="AnnaMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="app.AnnaMain" />
+      <module name="gui" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="app.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="WilmaMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="app.WilmaMain" />
       <module name="gui" />
@@ -171,7 +233,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="VarausControllerTest.testAddVaraus" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="HotelliControllerTest.testAddHotelli" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gui" />
       <extension name="coverage">
         <pattern>
@@ -180,8 +242,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="controller" />
-      <option name="MAIN_CLASS_NAME" value="controller.VarausControllerTest" />
-      <option name="METHOD_NAME" value="testAddVaraus" />
+      <option name="MAIN_CLASS_NAME" value="controller.HotelliControllerTest" />
+      <option name="METHOD_NAME" value="testAddHotelli" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -203,7 +265,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="VarausControllerTest.testRemoveVarausById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="kayttajaControllerTest.testFindByKayttajaId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gui" />
       <extension name="coverage">
         <pattern>
@@ -212,24 +274,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="controller" />
-      <option name="MAIN_CLASS_NAME" value="controller.VarausControllerTest" />
-      <option name="METHOD_NAME" value="testRemoveVarausById" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="VarausControllerTest.testUpdateVarausById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gui" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="controller" />
-      <option name="MAIN_CLASS_NAME" value="controller.VarausControllerTest" />
-      <option name="METHOD_NAME" value="testUpdateVarausById" />
+      <option name="MAIN_CLASS_NAME" value="controller.kayttajaControllerTest" />
+      <option name="METHOD_NAME" value="testFindByKayttajaId" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -237,11 +283,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.VarausControllerTest.testFindAllVaraukset" />
-        <item itemvalue="JUnit.VarausControllerTest.testRemoveVarausById" />
-        <item itemvalue="JUnit.VarausControllerTest.testUpdateVarausById" />
-        <item itemvalue="JUnit.VarausControllerTest.testAddVaraus" />
         <item itemvalue="Application.WilmaMain" />
+        <item itemvalue="JUnit.HotelliControllerTest.testAddHotelli" />
+        <item itemvalue="JUnit.kayttajaControllerTest.testFindByKayttajaId" />
+        <item itemvalue="Application.AnnaMain" />
+        <item itemvalue="JUnit.VarausControllerTest.testFindAllVaraukset" />
       </list>
     </recent_temporary>
   </component>
@@ -271,15 +317,13 @@
       <workItem from="1727009300569" duration="46750000" />
       <workItem from="1727162462501" duration="1822000" />
       <workItem from="1727298514353" duration="8000" />
-      <workItem from="1727298960975" duration="92467000" />
-    </task>
-    <task id="LOCAL-00004" summary="kieli virheitä korjaus">
-      <option name="closed" value="true" />
-      <created>1725620152801</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1725620152801</updated>
+      <workItem from="1727298960975" duration="101892000" />
+      <workItem from="1727693290920" duration="6126000" />
+      <workItem from="1727733488342" duration="5135000" />
+      <workItem from="1727888292554" duration="2777000" />
+      <workItem from="1727952576069" duration="261000" />
+      <workItem from="1727972490999" duration="1414000" />
+      <workItem from="1728041807782" duration="602000" />
     </task>
     <task id="LOCAL-00005" summary="korjaa kaikki hoteli -&gt; hotelli">
       <option name="closed" value="true" />
@@ -665,14 +709,21 @@
       <option name="project" value="LOCAL" />
       <updated>1727553374007</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="varausControlli test valmis">
+      <option name="closed" value="true" />
+      <created>1727555729028</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1727555729028</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="checkout toimi" />
     <MESSAGE value="Exchange Rate API toimi" />
     <MESSAGE value="lisää huoneTyyppi" />
     <MESSAGE value="kirjautuu ja registeriointi" />
@@ -697,7 +748,8 @@
     <MESSAGE value="laskuController test" />
     <MESSAGE value="update" />
     <MESSAGE value="huoneMaara pois huonevaraus taulukosta" />
-    <option name="LAST_COMMIT_MESSAGE" value="huoneMaara pois huonevaraus taulukosta" />
+    <MESSAGE value="varausControlli test valmis" />
+    <option name="LAST_COMMIT_MESSAGE" value="varausControlli test valmis" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -708,7 +760,7 @@
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/app/OhjelmistoGUI.java</url>
-          <line>37</line>
+          <line>48</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>
