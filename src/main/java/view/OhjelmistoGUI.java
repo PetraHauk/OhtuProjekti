@@ -59,7 +59,7 @@ public class OhjelmistoGUI extends Application {
 
         HBox mainLayout = new HBox(10);
         VBox leftBar = createLeftBar(mainLayout, primaryStage);
-        mainLayout.getChildren().addAll(leftBar, etusivu.createEtusivu());
+        mainLayout.getChildren().addAll(leftBar, etusivu.createEtusivu(1));
 
         Scene scene = new Scene(mainLayout, 1250, 600);
         scene.getStylesheets().add("style.css");
@@ -143,7 +143,7 @@ public class OhjelmistoGUI extends Application {
     // Button Actions
     private void handleFrontPageButtonAction(HBox mainLayout, VBox leftBar) {
         Etusivu etusivu = new Etusivu();
-        updateMainLayout(mainLayout, leftBar, etusivu.createEtusivu());
+        updateMainLayout(mainLayout, leftBar, etusivu.createEtusivu(1));
     }
 
     private void handleShowRoomsButtonAction(HBox mainLayout, VBox leftBar) {

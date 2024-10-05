@@ -2,13 +2,16 @@ package view.sivut;
 
 import controller.HuoneController;
 import javafx.concurrent.Task;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import model.enteties.Asiakas;
 import model.enteties.Huone;
 
 import java.util.List;
@@ -154,7 +157,7 @@ public class HuoneSivu {
                 // Muokkaa-painikeen toiminnallisuus
                 editButton.setOnAction(event -> {
                     Huone huone = getTableView().getItems().get(getIndex());
-                    // openMuokkaaHuoneWindow(huone, getTableView());
+                    openMuokkaaHuoneWindow(huone, getTableView());
                     System.out.println("Muokkaa-painiketta painettu" + huone.getHuone_id());
                 });
 
@@ -162,8 +165,8 @@ public class HuoneSivu {
                 // Poista-painikeen toiminnallisuus
                 deleteButton.setOnAction(event -> {
                     Huone huone = getTableView().getItems().get(getIndex());
-                    huoneController.deleteHuone(huone.getHuone_id());
                     getTableView().getItems().remove(huone); // Poistetaan asiakas listasta
+                    huoneController.deleteHuone(huone.getHuone_id());
                 });
             }
             @Override
@@ -182,5 +185,80 @@ public class HuoneSivu {
         huoneTableView.getColumns().addAll(numeroColumn, tyyppiColumn, hintaColumn, phoneColumn, actionColumn);
 
         return huoneTableView;
+    }
+
+    private void openMuokkaaHuoneWindow(Huone huone, TableView<Huone> huoneTableView) {
+        Stage muokkaaHuoneStage = new Stage();
+        muokkaaHuoneStage.setTitle("Muokkaa huonetta");
+
+        // Pääasettelu, joka jakaa ikkunan osiin (yläosa, keskiosa, alaosa)
+        BorderPane borderPane = new BorderPane();
+
+        // Lomakkeen kenttien asettelu pystysuoraan (VBox)
+        VBox formLayout = new VBox(10);
+        formLayout.setAlignment(Pos.CENTER_LEFT); // Keskitetään vasemmalle
+        formLayout.setPadding(new Insets(20)); // Asetetaan täyte
+
+        // Kenttien ja tekstikenttien luonti
+        Label huoneNroLabel = new Label("Huoneen numero:");
+        TextField huoneNro = new TextField();
+        huoneNro.setText(String.valueOf(huone.getHuone_nro())); // Convert huone_nro to string
+
+        Label huoneTypeLabel = new Label("Huone tyyppi:");
+        ComboBox<String> huoneType = new ComboBox<>();
+        huoneType.getItems().addAll("Yhden hengen huone", "Kahden hengen huone", "Kolmen hengen huone", "Perhehuone", "Sviitti");
+        huoneType.setValue(huone.getHuone_tyyppi());
+
+        Label huoneTilaLabel = new Label("Huoneen tila:");
+        ComboBox<String> huoneTila = new ComboBox<>();
+        huoneTila.getItems().addAll("Vapaa", "Varattu", "Siivous");
+        huoneTila.setValue(huone.getHuone_tila());
+
+        Label huonePriceLabel = new Label("Huoneen hinta per yö:");
+        TextField huonePrice = new TextField();
+        huonePrice.setText(String.valueOf(huone.getHuone_hinta()));
+
+        // Lisätään kentät lomakkeeseen (VBox)
+        formLayout.getChildren().addAll(
+                huoneNroLabel, huoneNro,
+                huoneTypeLabel, huoneType,
+                huoneTilaLabel, huoneTila,
+                huonePriceLabel, huonePrice
+        );
+
+        Button saveButton = new Button("Tallenna muutokset");
+        Button cancelButton = new Button("Peruuta");
+
+        // HBox save and cancel buttons
+        HBox buttonBox = new HBox(10, saveButton, cancelButton);
+        buttonBox.setAlignment(Pos.CENTER);
+
+        // Toiminnallisuus napille
+        saveButton.setOnAction(e -> {
+            // Päivitetään asiakastiedot
+            huoneController.updateHuoneById(
+                    huone.getHuone_id(),
+                    Integer.parseInt(huoneNro.getText()),
+                    huoneType.getValue(),
+                    huoneTila.getValue(),
+                    Double.parseDouble(huonePrice.getText())
+            );
+
+            // Päivitetään taulukko
+            populateRoomTable(huoneTableView, 1); // Assuming hotel ID is 1 for this example
+            muokkaaHuoneStage.close();
+        });
+
+        cancelButton.setOnAction(e -> muokkaaHuoneStage.close());
+
+        // Asetetaan lomake ja painikkeet BorderPaneen
+        borderPane.setCenter(formLayout);
+        borderPane.setBottom(buttonBox);
+        BorderPane.setMargin(buttonBox, new Insets(10)); // Marginaali nappeihin
+
+        // Aseta BorderPane kohtaukseksi ja näytä ikkuna
+        Scene scene = new Scene(borderPane, 400, 500);
+        muokkaaHuoneStage.setScene(scene);
+        muokkaaHuoneStage.show(); // Tämä avaa muokkausikkunan
     }
 }

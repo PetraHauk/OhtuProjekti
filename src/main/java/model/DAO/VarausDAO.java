@@ -106,4 +106,30 @@ public class VarausDAO {
     public int varausPaivat( LocalDate alkuPvm, LocalDate loppuPvm) {
         return alkuPvm.compareTo(loppuPvm);
     }
+
+
+    public void removeByHuoneId(int huoneId) {
+        EntityManager em = MariaDbConnection.getInstance();
+        try {
+            em.getTransaction().begin();
+            List<Varaus> varaukset = em.createQuery("SELECT v FROM Varaus v WHERE v.huoneId = :huoneId", Varaus.class)
+                    .setParameter("huoneId", huoneId)
+                    .getResultList();
+            for (Varaus varaus : varaukset) {
+                em.remove(varaus);
+            }
+            em.getTransaction().commit();
+            System.out.println("All reservations for huone ID: " + huoneId + " have been removed.");
+        } catch (Exception e) {
+            if (em.getTransaction().isActive()) {
+                em.getTransaction().rollback();
+            }
+            System.out.println("Failed to remove reservations for huone ID: " + huoneId);
+            e.printStackTrace();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+    }
 }

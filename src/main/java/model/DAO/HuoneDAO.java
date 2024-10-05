@@ -137,16 +137,30 @@ public class HuoneDAO {
     }
 
     public void removeById(int huone_id) {
+        VarausDAO varausDAO = new VarausDAO(); // Create an instance of VarausDAO
+
         EntityManager em = MariaDbConnection.getInstance();
         try {
             em.getTransaction().begin();
+
+            // First, remove all related reservations
+            varausDAO.removeByHuoneId(huone_id);
+
             Huone huone = em.find(Huone.class, huone_id);
             if (huone != null) {
                 em.remove(huone);
+                System.out.println("Huone poistettu id:llä " + huone_id);
             } else {
                 System.out.println("Huonetta ei löytynyt id:llä " + huone_id);
             }
+
             em.getTransaction().commit();
+        } catch (Exception e) {
+            if (em.getTransaction().isActive()) {
+                em.getTransaction().rollback(); // Rollback in case of an error
+            }
+            System.out.println("Failed to remove huone ID: " + huone_id);
+            e.printStackTrace();
         } finally {
             if (em != null) {
                 em.close();
