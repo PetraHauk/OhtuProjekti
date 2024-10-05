@@ -5,5 +5,8 @@
     </CLASSES>
     <JAVADOC />
     <SOURCES />
+    <excluded>
+      <root url="jar://$MAVEN_REPOSITORY$/de/svenkubiak/jBCrypt/0.4.3/jBCrypt-0.4.3.jar!/" />
+    </excluded>
   </library>
 </component>

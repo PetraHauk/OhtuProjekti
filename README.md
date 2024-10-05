@@ -31,19 +31,19 @@ Tarjoamme käyttäjille, pääsääntöisesti hotellin työntekijöille, viisaan
 <ul>
     <li>
     ER-kaavio</br>
-    <img src="src/main/kaavat/ER.png">
+    <img src="src/main/kuvat/Kaavat/ER.png">
     </li>
     <li>'
     Relational Schema</br>
-    <img src="src/main/kaavat/relational_schema.png">
+    <img src="src/main/kuvat/Kaavat/relational_schema.png">
     </li>
     <li>
     Käyttötapauskaavio</br>
-    <img src="src/main/kaavat/Kayttotapauskaavio.png">
+    <img src="src/main/kuvat/Kaavat/Kayttotapauskaavio.png">
     </li>
     <li>
     Activity Diagram</br>
-    <img src="src/main/kaavat/activityDiagram.png">
+    <img src="src/main/kuvat/Kaavat/activityDiagram.png">
     </li>
 </ul>
 

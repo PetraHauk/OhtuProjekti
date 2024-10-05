@@ -4,7 +4,83 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="update" />
+    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="update">
+      <change afterPath="$PROJECT_DIR$/gui.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/sivut/AsiakasSivu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/sivut/CheckIn.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/sivut/CheckOut.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/sivut/Etusivu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/sivut/HuoneSivu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/sivut/VarausSivu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/de_svenkubiak_jBCrypt.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/de_svenkubiak_jBCrypt.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/javafx_web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/javafx_web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/HotelliController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/HotelliController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/HuoneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/HuoneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/VarausController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/VarausController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/HotelliDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/HotelliDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/enteties/Huone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enteties/Huone.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/enteties/LaskuData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enteties/LaskuData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/enteties/Varaus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enteties/Varaus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/AdminGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/AdminGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/OhjelmistoGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/OhjelmistoGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/RegistrationGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/RegistrationGui.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/test/java/controller/AsiakasControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/controller/AsiakasControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/test/java/controller/HotelliControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/controller/HotelliControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/test/java/controller/HuoneControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/controller/HuoneControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/test/java/controller/KayttajaControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/controller/KayttajaControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/test/java/controller/LaskuControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/controller/LaskuControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/test/java/controller/VarausControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/controller/VarausControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/test/java/view/RegistrationGuiTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/view/RegistrationGuiTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/app/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/AsiakasController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/AsiakasController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/HomeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/HotelliController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/HotelliController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/HuoneController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/HuoneController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/KayttajaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/KayttajaController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/LaskuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/LaskuController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/LoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/VarausController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/VarausController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/DAO/AsiakasDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/DAO/AsiakasDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/DAO/HotelliDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/DAO/HotelliDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/DAO/HuoneDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/DAO/HuoneDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/DAO/KayttajaDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/DAO/KayttajaDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/DAO/LaskuDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/DAO/LaskuDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/DAO/VarausDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/DAO/VarausDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/datasourse/MariaDbConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/datasourse/MariaDbConnection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/enteties/Asiakas.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/enteties/Asiakas.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/enteties/Hotelli.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/enteties/Hotelli.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/enteties/Huone.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/enteties/Huone.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/enteties/Kayttaja.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/enteties/Kayttaja.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/enteties/Lasku.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/enteties/Lasku.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/enteties/LaskuData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/enteties/LaskuData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/enteties/Varaus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/enteties/Varaus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/service/CurrencyConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/service/CurrencyConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/service/Kirjautuminen.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/service/Kirjautuminen.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/service/UserSession.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/service/UserSession.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/utils/PasswordUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utils/PasswordUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/AdminGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/AdminGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/LoginGui.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/LoginGui.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/OhjelmistoGUI$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/OhjelmistoGUI$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/OhjelmistoGUI$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/OhjelmistoGUI$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/OhjelmistoGUI$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/OhjelmistoGUI$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/OhjelmistoGUI$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/OhjelmistoGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/OhjelmistoGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/RegistrationGui.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/RegistrationGui.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ohtutest.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/ohtutest.jar" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -114,6 +190,8 @@
     "JUnit.VarausControllerTest.testUpdateVarausById.executor": "Run",
     "JUnit.kayttajaControllerTest.testFindByKayttajaId.executor": "Run",
     "JUnit.kayttajaControllerTest.testFindPasswordByEmail.executor": "Run",
+    "Maven.OhtuProjekti [clean].executor": "Run",
+    "Maven.OhtuProjekti [install].executor": "Run",
     "Maven.gui [clean].executor": "Run",
     "Maven.gui [install].executor": "Run",
     "Repository.Attach.Annotations": "false",
@@ -129,7 +207,7 @@
     "git-widget-placeholder": "anna",
     "jdk.selected.JAVA_MODULE": "21",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/kakek/javafx-sdk-17.0.10/lib",
+    "last_opened_file_path": "/Users/anna/IdeaProjects/OhtuProjekt_5.10.2024i/src/main",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -138,7 +216,7 @@
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.5482759",
+    "project.structure.side.proportion": "0.16878612",
     "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.User-Defined File Types",
     "vue.rearranger.settings.migration": "true"
   },
@@ -149,10 +227,15 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main" />
+      <recent name="$PROJECT_DIR$/src/main/java" />
+    </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/test/java" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -307,6 +390,8 @@
       <workItem from="1727883642345" duration="4227000" />
       <workItem from="1727888289340" duration="6380000" />
       <workItem from="1727952678839" duration="2016000" />
+      <workItem from="1728123607557" duration="14000" />
+      <workItem from="1728124889074" duration="4278000" />
     </task>
     <task id="LOCAL-00002" summary="yhdistetty wilman ja kaislan judut">
       <option name="closed" value="true" />
@@ -548,7 +633,55 @@
       <option name="project" value="LOCAL" />
       <updated>1728056012125</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="update">
+      <option name="closed" value="true" />
+      <created>1728059686678</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1728059686678</updated>
+    </task>
+    <task id="LOCAL-00033" summary="update">
+      <option name="closed" value="true" />
+      <created>1728060119959</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1728060119959</updated>
+    </task>
+    <task id="LOCAL-00034" summary="update">
+      <option name="closed" value="true" />
+      <created>1728060280205</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1728060280205</updated>
+    </task>
+    <task id="LOCAL-00035" summary="update">
+      <option name="closed" value="true" />
+      <created>1728060322660</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1728060322660</updated>
+    </task>
+    <task id="LOCAL-00036" summary="update">
+      <option name="closed" value="true" />
+      <created>1728060413370</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1728060413370</updated>
+    </task>
+    <task id="LOCAL-00037" summary="update">
+      <option name="closed" value="true" />
+      <created>1728063575280</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1728063575280</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -592,7 +725,7 @@
           <option name="timeStamp" value="8" />
         </breakpoint>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/src/test/java/controller/HuoneControllerTest.java</url>
+          <url>file://$PROJECT_DIR$/src/test/java/controller/HuoneControllerTest.java</url>
           <line>35</line>
           <properties class="controller.HuoneControllerTest" method="testFindHuoneByTyyppi">
             <option name="EMULATED" value="true" />
@@ -601,9 +734,19 @@
           <option name="timeStamp" value="23" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/src/test/java/controller/HuoneControllerTest.java</url>
+          <url>file://$PROJECT_DIR$/src/test/java/controller/HuoneControllerTest.java</url>
           <line>8</line>
           <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java2/view/OhjelmistoGUI.java</url>
+          <line>974</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java2/view/OhjelmistoGUI.java</url>
+          <line>1139</line>
+          <option name="timeStamp" value="25" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

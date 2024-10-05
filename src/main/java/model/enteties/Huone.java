@@ -1,6 +1,7 @@
 
 package model.enteties;
 import jakarta.persistence.*;
+import org.hibernate.type.descriptor.java.UUIDJavaType;
 
 @Entity
 @Table(name = "huone")
@@ -77,4 +78,6 @@ public class Huone {
     public void setHuone_hinta(double huone_hinta) {
         this.huone_hinta = huone_hinta;
     }
+
 }
+

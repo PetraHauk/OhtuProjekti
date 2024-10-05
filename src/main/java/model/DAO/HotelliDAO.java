@@ -23,6 +23,16 @@ public class HotelliDAO {
         }
     }
 
+    public int getRowCount() {
+        EntityManager em = MariaDbConnection.getInstance();
+        try {
+            return em.createQuery("SELECT COUNT(h) FROM Hotelli h", Long.class).getSingleResult().intValue();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+    }
 
     public void removeById(int hotelli_id) {
         EntityManager em = MariaDbConnection.getInstance();

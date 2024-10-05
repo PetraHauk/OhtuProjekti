@@ -21,8 +21,6 @@ public class AdminGUI extends Application {
     private TableView<Kayttaja> userTable;  // Declare the userTable at class level
     private String adminEmail; // Store admin email for validation
 
-
-
     @Override
     public void start(Stage primaryStage) {
         primaryStage.setTitle("Admin Panel - User Management");

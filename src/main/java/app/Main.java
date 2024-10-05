@@ -1,4 +1,5 @@
 package app;
+
 import view.LoginGui;
 
 public class Main {

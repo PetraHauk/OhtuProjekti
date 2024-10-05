@@ -79,16 +79,22 @@ public class RegistrationGui extends Application {
     }
 
     void handleRegister(String etunimi, String sukunimi, String sposti, String puh, String salasana, Stage primaryStage) {
+    boolean isTestMode = Boolean.getBoolean("test.mode");
+
         if (etunimi.isEmpty() || sukunimi.isEmpty() || sposti.isEmpty() || puh.isEmpty() || salasana.isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Rekisteröinti epäonnistui");
-            alert.setContentText("Täytä kaikki kohdat.");
-            alert.showAndWait();
+            if (!isTestMode) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Rekisteröinti epäonnistui");
+                alert.setContentText("Täytä kaikki kohdat.");
+                alert.showAndWait();
+            }
         } else if (kayttajaDAO.onkoEmailOlemassa(sposti)) {  // Check if the email already exists
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Rekisteröinti epäonnistui");
-            alert.setContentText("Sähköpostiosoite on jo rekisteröity.");
-            alert.showAndWait();
+            if (!isTestMode) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Rekisteröinti epäonnistui");
+                alert.setContentText("Sähköpostiosoite on jo rekisteröity.");
+                alert.showAndWait();
+            }
         } else {
             // Hash the password using BCrypt
             String hashattuSalasana = BCrypt.hashpw(salasana, BCrypt.gensalt());
@@ -102,14 +108,14 @@ public class RegistrationGui extends Application {
             kayttaja.setSalasana(hashattuSalasana); // Store the hashed password
             kayttaja.setRooli("1");
 
-
             kayttajaDAO.persist(kayttaja);
 
-
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Rekisteröinti onnistui");
-            alert.setContentText("Tervetuloa, " + etunimi + " " + sukunimi + "!");
-            alert.showAndWait();
+            if (!isTestMode) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Rekisteröinti onnistui");
+                alert.setContentText("Tervetuloa, " + etunimi + " " + sukunimi + "!");
+                alert.showAndWait();
+            }
 
             // Open login page and close the current stage
             new LoginGui().start(new Stage());

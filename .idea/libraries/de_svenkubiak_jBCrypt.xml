@@ -8,6 +8,7 @@
     <SOURCES />
     <excluded>
       <root url="file://$USER_HOME$/Downloads/javafx-sdk-21.0.4" />
+      <root url="jar://$MAVEN_REPOSITORY$/de/svenkubiak/jBCrypt/0.4.3/jBCrypt-0.4.3.jar!/" />
     </excluded>
   </library>
 </component>

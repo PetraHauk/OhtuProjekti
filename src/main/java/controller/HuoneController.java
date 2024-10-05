@@ -17,12 +17,10 @@ public class HuoneController {
     private HuoneDAO huoneDAO;
     private HotelliDAO hotelliDAO;
 
-    private VarausController varausController;
 
     public HuoneController() {
         huoneDAO = new HuoneDAO();
         hotelliDAO = new HotelliDAO();
-        varausController = new VarausController();
     }
 
     public void lisaaHuone(int huone_nro, String huone_tyyppi, String huone_tila, double huone_hinta, int hotelli_id) {
@@ -47,6 +45,13 @@ public class HuoneController {
     public Huone findHuoneById(int id) {
         return huoneDAO.findByRoomId(id);
     }
+
+    public int getHuoneNroById(int huoneId) {
+        // Assume that this method interacts with a DAO or repository to get the room number
+        Huone huone = huoneDAO.findByRoomId(huoneId);
+        return (huone != null) ? huone.getHuone_nro() : Integer.parseInt("Unknown");
+    }
+
 
     public Huone findHuoneByNro(int nro) {
         return huoneDAO.findByRoomNro(nro);

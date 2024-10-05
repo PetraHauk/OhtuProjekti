@@ -41,7 +41,7 @@ public class LaskuData {
         this.paivat = paivat;
         this.hinta = hinta;
         this.summa = summa;
-        this.kokonaisHinta = kokonaisHinta;
+        this.kokonaisHinta = String.valueOf(kokonaisHinta);
     }
 
     // Getter methods
@@ -109,4 +109,3 @@ public class LaskuData {
         return kokonaisHinta;
     }
 }
-

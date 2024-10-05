@@ -23,7 +23,6 @@ public class Varaus {
     @Column(name = "lasku_id")
     private int laskuId;
 
-
     // Parametrillinen konstruktori
     public Varaus(int varaus_id, LocalDate alkuPvm, LocalDate loppuPvm, Integer huoneId, int laskuId) {
         this.varaus_id = varaus_id;
@@ -68,5 +67,4 @@ public class Varaus {
     public void setHuoneId(Integer huoneId) {
         this.huoneId = huoneId;
     }
-
 }
