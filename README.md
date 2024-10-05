@@ -89,3 +89,38 @@ Tarjoamme käyttäjille, pääsääntöisesti hotellin työntekijöille, viisaan
         }
     }
     ```
+
+<h3>Sovelluksen käyttöönotto</h3>
+<p>
+  Käyttääksesi sovellusta, seuraa näitä ohjeita:
+</p>
+<ol>
+  <li>Cloonaa tämä repository omalle koneellesi.</li>
+  <li>Aja <code>database</code>-kansiossa oleva tietokannan luontiskripti tietokannan luomiseksi sovellusta varten.</li>
+  <li>Käynnistä sovellus painamalla "Run" tiedostosta <code>Main</code>.</li>
+</ol>
+
+<h3>Sovelluksen käyttö</h3>
+<p>
+  Kun sovellus käynnistyy, käyttäjällä on mahdollisuus kirjautua sisään. Jos käyttäjällä ei ole tunnuksia, hän voi siirtyä rekisteröintiin.
+  Rekisteröinnin jälkeen käyttäjä voi kirjautua sisään ja aloittaa sovelluksen käytön.
+</p>
+
+<h4>Sivut ja niiden toiminnot</h4>
+<ul>
+  <li><strong>Etusivu:</strong> Näyttää yleiskatsauksen hotellista ja saatavilla olevista toiminnoista.</li>
+  <li><strong>Asiakassivu:</strong> Näyttää ja hallinnoi asiakkaiden tietoja.</li>
+  <li><strong>Check-in:</strong> Sisäänkirjautuminen hotelliin.</li>
+  <li><strong>Check-out:</strong> Uloskirjautuminen hotellista.</li>
+  <li><strong>Huonesivu:</strong> Näyttää hotellihuoneiden tiedot ja tilan.</li>
+  <li><strong>Varaussivu:</strong> Hallinnoi asiakkaiden varauksia.</li>
+  <li><strong>Admin-sivu:</strong> Saatavilla vain admin-käyttäjille, joiden rooli on määritelty tietokannassa.</li>
+</ul>
+
+<h4>Admin-oikeudet</h4>
+<p>
+  Admin-nappi ja -ikkuna näkyvät vain käyttäjille, joilla on admin-oikeudet tietokannassa. Ensimmäinen admin-käyttäjä täytyy asettaa manuaalisesti.
+  Admin-käyttäjä voi lisätä uusia admineja, muokata käyttäjätietoja ja poistaa käyttäjiä.
+</p>
+
+

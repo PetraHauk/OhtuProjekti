@@ -25,6 +25,8 @@ RegistrationGuiTest {
     public static void initJavaFX() {
         // Initialize JavaFX environment
         new JFXPanel();
+        // Set the system property to indicate test mode
+        System.setProperty("test.mode", "true");
     }
 
     @BeforeEach
