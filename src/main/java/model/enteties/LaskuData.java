@@ -25,7 +25,7 @@ public class LaskuData {
                      String etunimi, String sukunimi, String huoneTyyppi,
                      String maksuStatus, String varausMuoto, String valuutta,
                      LocalDate alkuPvm, LocalDate loppuPvm, int paivat,
-                     String hinta, String summa, double kokonaisHinta) {
+                     String hinta, String summa, String kokonaisHinta) {
         this.laskuId = laskuId;
         this.hotelliId = hotelliId;
         this.huoneNro = huoneNro;
