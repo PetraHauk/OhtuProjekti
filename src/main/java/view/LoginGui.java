@@ -56,7 +56,7 @@ public class LoginGui extends Application {
         });
 
         // Set Scene
-        Scene scene = new Scene(vbox, 300, 300);
+        Scene scene = new Scene(vbox, 300, 350);
         scene.getStylesheets().add(getClass().getResource("/login.css").toExternalForm());
         primaryStage.setScene(scene);
         primaryStage.show();

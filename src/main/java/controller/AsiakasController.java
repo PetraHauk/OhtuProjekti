@@ -27,6 +27,9 @@ public class AsiakasController {
         return asiakasDAO.findByNImet(etunimi, sukunimi);
     }
 
+    public List<Asiakas> findByKeyword(String keyword) {
+        return asiakasDAO.findAsiakasByKeyword(keyword);
+    }
     public List<Asiakas> findAllAsiakkaat() {
         return asiakasDAO.findAsukkaat();
     }

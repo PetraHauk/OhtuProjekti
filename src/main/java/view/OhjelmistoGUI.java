@@ -61,7 +61,7 @@ public class OhjelmistoGUI extends Application {
         VBox leftBar = createLeftBar(mainLayout, primaryStage);
         mainLayout.getChildren().addAll(leftBar, etusivu.createEtusivu(1));
 
-        Scene scene = new Scene(mainLayout, 1250, 600);
+        Scene scene = new Scene(mainLayout, 1250, 630);
         scene.getStylesheets().add("style.css");
         primaryStage.setScene(scene);
         primaryStage.show();
