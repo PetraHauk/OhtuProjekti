@@ -69,14 +69,14 @@ import java.util.List;
 <span class="fc" id="L69">                    .setParameter(&quot;huone_tila&quot;, huone_tila)</span>
 <span class="fc" id="L70">                    .getResultList();</span>
 <span class="pc bpc" id="L71" title="1 of 2 branches missed.">            if(!huoneet.isEmpty()) {</span>
-<span class="nc" id="L72">                return huoneet;</span>
+<span class="fc" id="L72">                return huoneet;</span>
             }
         } finally {
 <span class="pc bpc" id="L75" title="1 of 2 branches missed.">            if (em != null) {</span>
 <span class="fc" id="L76">                em.close();</span>
             }
         }
-<span class="fc" id="L79">        return null;</span>
+<span class="nc" id="L79">        return null;</span>
     }
 
     public List&lt;Huone&gt; findByTyyppi(String huone_tyyppi) {
