@@ -2,6 +2,16 @@
     -fx-background-color: #0a3f63; /* Background color */
 }
 
+.label {
+    -fx-text-fill: #ffffff; /* Text color */
+    -fx-font-size: 16px; /* Font size */
+}
+
+.otsikko {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
 .text-field, .password-field {
     -fx-alignment: center; /* Center the text */
     -fx-background-radius: 10; /* Rounded corners */

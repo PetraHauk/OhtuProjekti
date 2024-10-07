@@ -17,6 +17,9 @@ import model.service.CurrencyConverter;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.List;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class CheckOut {
 
@@ -56,6 +59,7 @@ public class CheckOut {
         sukunimiInfo.getChildren().addAll(asiakasSukunimiLabel, asiakasSukunimiInput);
 
         Button haeLaskutButton = new Button("Hae laskut");
+        haeLaskutButton.getStyleClass().add("yellow-btn");
 
         VBox maksattavaLaskut = new VBox(5);
         Label maksattavaLaskuOtsikko = new Label("Laskut");
@@ -64,7 +68,9 @@ public class CheckOut {
         Label loppuHintaLabel = new Label("Yhdessä: 0.00");
         String loppuHinta = "";
         Button maksuButton = new Button("Maksaa");
+        maksuButton.getStyleClass().add("yellow-btn");
         Button printButton = new Button("Tulosta kuitti");
+        printButton.getStyleClass().add("yellow-btn");
 
         maksattavaLaskut.getChildren().addAll(maksattavaLaskuOtsikko, laskuTable, loppuHintaLabel, maksuButton, printButton);
 
@@ -104,16 +110,16 @@ public class CheckOut {
                                 Huone huone = huoneController.findHuoneById(varaus.getHuoneId());
                                 if (huone != null) {
                                     double hinta = huone.getHuone_hinta();
-                                    String hintaStr = String.format("%.2f %s", hinta, valuutta);
-
                                     if (valuutta.equals("USD")) {
                                         hinta= CurrencyConverter.convertCurrency("EUR", "USD", hinta);
-
                                     }
-                                    double summa = hinta * paivat;
-                                    String summaStr = String.format("%.2f USD", summa);
 
+                                    double summa = hinta * paivat;
                                     kokonaishinta += summa;
+
+                                    String hintaStr = String.format("%.2f %s", hinta, valuutta);
+                                    String summaStr = String.format("%.2f %s", summa, valuutta);
+                                    String kokonaishintaStr = String.format("%.2f %s", kokonaishinta, valuutta);
 
                                     populateLaskuTable(laskuTable, new LaskuData(
                                             lasku.getLaskuId(),
@@ -131,10 +137,8 @@ public class CheckOut {
                                             paivat,
                                             hintaStr,  // Muotoile hinta kahdelle desimaalille ja lisää USD
                                             summaStr,      // Muotoile summa kahdelle desimaalille
-                                            kokonaishinta
+                                            kokonaishintaStr
                                     ));
-
-
                                 } else {
                                     showAlert("Virhe", "Virheellinen huoneen numero.");
                                 }
@@ -162,8 +166,16 @@ public class CheckOut {
                 laskuData.SetMaksuStatus("Maksettu");
                 int huoneId = laskuData.getHuoneId();
 
-                huoneController.updateHuoneTilaById(huoneId, "Vapaa" );
+                // Aseta huoneen tila siivoukselle
+                huoneController.updateHuoneTilaById(huoneId, "Siivous");
 
+                // Luodaan ScheduledExecutorService
+                ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+
+                // Asetetaan tehtävä, joka suoritetaan 30 minuutin kuluttua
+                scheduler.schedule(() -> {
+                    huoneController.updateHuoneTilaById(huoneId, "Vapaa");
+                }, 30, TimeUnit.MINUTES);
 
                 //refresh table
                 laskuTable.refresh();
@@ -240,11 +252,20 @@ public class CheckOut {
         TableView<LaskuData> kuittiTable = createLaskuTable();
         kuittiTable.getItems().addAll(laskuTable.getItems());
 
-        double loppusumma = 0;
-        for (LaskuData laskuData : laskuTable.getItems()) {
-            //Kommentoitu pois koska punasta!
-            //loppusumma += laskuData.getSumma();
-            loppuHintaLabel.setText("Yhdessä:   " + loppusumma + " "  + laskuData.getValuutta());
+        if (!laskuTable.getItems().isEmpty()) {
+            // Get the last item from the list
+            LaskuData lastLaskuData = laskuTable.getItems().get(laskuTable.getItems().size() - 1);
+
+            String kokonaihinta = lastLaskuData.getKokonaisHinta();
+            String valuutta = lastLaskuData.getValuutta();
+
+            // Try to parse kokonaihinta as a double and use it in the format
+            try {
+                double hintaDouble = Double.parseDouble(kokonaihinta);
+                loppuHintaLabel.setText(String.format("Yhdessä: %.2f %s", hintaDouble, valuutta));
+            } catch (NumberFormatException e) {
+                loppuHintaLabel.setText("Yhdessä: " + kokonaihinta + " ");
+            }
         }
 
         Button tulostaButton = new Button("Tulosta");
@@ -265,6 +286,8 @@ public class CheckOut {
         System.out.println("Lasku ID | Status | Muoto | Valuutta | Alku Pvm | Loppu Pvm | Päivät | Hinta | Summa");
         for (LaskuData laskuData : laskuTable.getItems()) {
             System.out.println(laskuData.getLaskuId() + " | " +
+                    laskuData.getHuoneNro() + " | " +
+                    laskuData.getHuoneTyyppi() + " | " +
                     laskuData.getMaksuStatus() + " | " +
                     laskuData.getVarausMuoto() + " | " +
                     laskuData.getValuutta() + " | " +
@@ -344,6 +367,4 @@ public class CheckOut {
                 paivatColumn, hintaColumn, summaColumn);
         return laskuTable;
     }
-
-
 }

@@ -2,22 +2,27 @@ package view.sivut;
 
 import controller.HuoneController;
 import controller.VarausController;
+import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import model.DAO.AsiakasDAO;
+import model.enteties.Asiakas;
 import model.enteties.Huone;
 import model.enteties.Varaus;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class CheckIn {
 
-    private HuoneController huoneController;
-    private VarausController varausController;
+    private final HuoneController huoneController;
+    private final VarausController varausController;
 
     public CheckIn() {
         varausController = new VarausController();
@@ -101,6 +106,7 @@ public class CheckIn {
             }
         });
 
+        // Event listener for the room table. Calculate the price of the selected room
         huoneTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
                 double price = newValue.getHuone_hinta() * Integer.parseInt(paivatValue.getText());
@@ -108,12 +114,7 @@ public class CheckIn {
             }
         });
 
-        varausTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue != null) {
-                poistumisDatePicker.setValue(newValue.getLoppuPvm());
-            }
-        });
-
+        // Event listeners for the date pickers. Populate the free room table and the reservation table
         tuloDatePicker.valueProperty().addListener((observable, oldValue, newValue) -> {
             populateFreeRoomTable(huoneTable, 1, tuloDatePicker, poistumisDatePicker);
             populateVarausTable(varausTable, tuloDatePicker.getValue(), poistumisDatePicker.getValue());
@@ -123,13 +124,17 @@ public class CheckIn {
             populateVarausTable(varausTable, tuloDatePicker.getValue(), poistumisDatePicker.getValue());
         });
 
-        checkInButton.setOnAction(e -> {
-            Huone selectedRoom = huoneTable.getSelectionModel().getSelectedItem();
-            Varaus selectedVaraus = varausTable.getSelectionModel().getSelectedItem();
-            if (selectedRoom != null && selectedVaraus != null) {
-                huoneController.updateHuoneStatusById(selectedRoom.getHuone_id(), "Varattu");
-                varausController.updateVarausHuoneById(selectedVaraus.getVarausId(), selectedRoom.getHuone_id());
+        // Event listener for the reservation table. Set the check-out date to the selected reservation
+        /*varausTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) {
+                poistumisDatePicker.setValue(newValue.getLoppuPvm());
             }
+        });
+
+         */
+
+        checkInButton.setOnAction(e -> {
+            CheckInButtonAction(huoneTable, varausTable);
         });
         VBox checkIn = new VBox(20);
         checkIn.getChildren().addAll(huoneTiedot, varausInfo, checkInButton);
@@ -190,13 +195,17 @@ public class CheckIn {
 
         fetchVarauksetTask.setOnSucceeded(event -> {
             List<Varaus> varaukset = fetchVarauksetTask.getValue();
-            loadingIndicator.setVisible(false);
 
-            if (varaukset != null && !varaukset.isEmpty()) {
-                varausTable.getItems().setAll(varaukset);
-            } else {
-                varausTable.setPlaceholder(new Label("No reservations found for the given dates"));
-            }
+            Platform.runLater(() -> {
+                loadingIndicator.setVisible(false);
+                varausTable.getSelectionModel().clearSelection(); // Clear selection before updating items
+
+                if (varaukset != null && !varaukset.isEmpty()) {
+                    varausTable.getItems().setAll(varaukset); // Update table with new data
+                } else {
+                    varausTable.setPlaceholder(new Label("No reservations found for the given dates"));
+                }
+            });
         });
 
         fetchVarauksetTask.setOnFailed(event -> {
@@ -208,6 +217,23 @@ public class CheckIn {
         new Thread(fetchVarauksetTask).start();
     }
 
+
+    private void CheckInButtonAction(TableView<Huone> huoneTable, TableView<Varaus> varausTable) {
+        Huone selectedRoom = huoneTable.getSelectionModel().getSelectedItem();
+        Varaus selectedVaraus = varausTable.getSelectionModel().getSelectedItem();
+        if (selectedRoom != null && selectedVaraus != null) {
+            Integer previousRoom = selectedRoom.getHuone_id();
+
+            if (selectedVaraus.getHuoneId() != null) {
+                huoneController.updateHuoneStatusById(selectedVaraus.getHuoneId(), "Vapaa");
+            }
+
+            huoneController.updateHuoneStatusById(selectedRoom.getHuone_id(), "Varattu");
+            varausController.updateVarausHuoneById(selectedVaraus.getVarausId(), selectedRoom.getHuone_id());
+        }
+
+    }
+
     private TableView<Huone> createHuoneTable() {
         TableView<Huone> huoneTableView = new TableView<>();
         // Set the width of the table
@@ -216,9 +242,11 @@ public class CheckIn {
 
         TableColumn<Huone, Integer> numeroColumn = new TableColumn<>("Huoneen Numero");
         numeroColumn.setCellValueFactory(new PropertyValueFactory<>("huone_nro"));
+        numeroColumn.setMinWidth(94);
 
         TableColumn<Huone, String> tyyppiColumn = new TableColumn<>("Huone Tyyppi");
         tyyppiColumn.setCellValueFactory(new PropertyValueFactory<>("huone_tyyppi"));
+        tyyppiColumn.setMinWidth(150);
 
         TableColumn<Huone, Double> hintaColumn = new TableColumn<>("Huone Hinta");
         hintaColumn.setCellValueFactory(new PropertyValueFactory<>("huone_hinta"));
@@ -239,25 +267,34 @@ public class CheckIn {
 
     private TableView<Varaus> createVarausTable(){
         TableView<Varaus> varausTable = new TableView<>();
+        varausTable.setPrefWidth(950);
 
         TableColumn<Varaus, Integer> idColumn = new TableColumn<>("Varaus ID");
         idColumn.setCellValueFactory(new PropertyValueFactory<>("varausId"));
+        idColumn.setMinWidth(140);
 
-        TableColumn<Varaus, Integer> roomColumn = new TableColumn<>("Huone ID");
+        TableColumn<Varaus, String> asiakasColumn = new TableColumn<>("Lasku ID");
+        asiakasColumn.setCellValueFactory(new PropertyValueFactory<>("laskuId"));
+
+        TableColumn<Varaus, Integer> roomColumn = new TableColumn<>("Huone Id");
         roomColumn.setCellValueFactory(new PropertyValueFactory<>("huoneId"));
+        roomColumn.setMinWidth(140);
 
         TableColumn<Varaus, Integer> invoiceColumn = new TableColumn<>("Lasku ID");
         invoiceColumn.setCellValueFactory(new PropertyValueFactory<>("laskuId"));
+        invoiceColumn.setMinWidth(140);
 
         TableColumn<Varaus, String> startDateColumn = new TableColumn<>("Alkupäivämäärä");
         startDateColumn.setCellValueFactory(new PropertyValueFactory<>("alkuPvm"));
+        startDateColumn.setMinWidth(150);
 
         TableColumn<Varaus, String> endDateColumn = new TableColumn<>("Loppupäivämäärä");
         endDateColumn.setCellValueFactory(new PropertyValueFactory<>("loppuPvm"));
+        endDateColumn.setMinWidth(150);
 
         varausTable.getColumns().add(idColumn);
         varausTable.getColumns().add(roomColumn);
-        varausTable.getColumns().add(invoiceColumn);
+        varausTable.getColumns().add(asiakasColumn);
         varausTable.getColumns().add(startDateColumn);
         varausTable.getColumns().add(endDateColumn);
 
