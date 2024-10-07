@@ -1,5 +1,5 @@
 package controller;
-/*
+
 import model.enteties.Huone;
 import org.junit.jupiter.api.Test;
 import java.util.List;
@@ -26,7 +26,7 @@ public class HuoneControllerTest {
     @Test
     public void findHuoneByTila() {
         String huoneTila = "varattu";
-       List<Huone>huoneList = huoneController.findHuoneByTila(huoneTila);
+        List<Huone>huoneList = huoneController.findHuoneByTila(huoneTila);
         for (Huone huone : huoneList) {
             assertEquals(huoneTila, huone.getHuone_tila());
         }
@@ -41,4 +41,4 @@ public class HuoneControllerTest {
         }
     }
 
-}*/
+}

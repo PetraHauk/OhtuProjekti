@@ -4,10 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="ylimääränen src kansio poistettu">
+    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="muut testit kommentoitu pois koska virheitä jenkinsissä">
+      <change afterPath="$PROJECT_DIR$/dependency-reduced-pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui.iml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/RegistrationGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/RegistrationGui.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/controller/AsiakasControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/controller/AsiakasControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/controller/HotelliControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/controller/HotelliControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/controller/HuoneControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/controller/HuoneControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/controller/KayttajaControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/controller/KayttajaControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/controller/LaskuControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/controller/LaskuControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/controller/VarausControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/controller/VarausControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ohtutest.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/ohtutest.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/controller/VarausControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/controller/VarausControllerTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,56 +79,60 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Application.Main.executor": "Run",
-    "Application.MainPetra.executor": "Run",
-    "Application.WilmaMain.executor": "Run",
-    "Docker.Dockerfile.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "false",
-    "JUnit.LaskuControllerTest.executor": "Run",
-    "JUnit.RegistrationGuiTest (1).executor": "Run",
-    "JUnit.RegistrationGuiTest.executor": "Profiler#1",
-    "JUnit.RegistrationGuiTest.testHandleRegister_Success.executor": "Run",
-    "JUnit.RegistrationGuiTest.testRegisterWithEmptyFields.executor": "Run",
-    "JUnit.RegistrationGuiTest.testRegisterWithExistingEmail.executor": "Run",
-    "JUnit.RegistrationGuiTest.testSuccessfulAlertDisplay.executor": "Run",
-    "JUnit.RegistrationGuiTest.testSuccessfulRegistration.executor": "Run",
-    "Maven.gui [clean,javafx:run].executor": "Run",
-    "Maven.gui [clean,package].executor": "Run",
-    "Maven.gui [clean].executor": "Run",
-    "Maven.gui [install].executor": "Run",
-    "Maven.gui [package].executor": "Run",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
-    "git-widget-placeholder": "main",
-    "jdk.selected.JAVA_MODULE": "21",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/kakek/javafx-sdk-17.0.10/lib",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Global Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.5482759",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MainPetra.executor&quot;: &quot;Run&quot;,
+    &quot;Application.WilmaMain.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.Dockerfile.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;JUnit.LaskuControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RegistrationGuiTest (1).executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RegistrationGuiTest.executor&quot;: &quot;Profiler#1&quot;,
+    &quot;JUnit.RegistrationGuiTest.testHandleRegister_Success (1).executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RegistrationGuiTest.testHandleRegister_Success.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RegistrationGuiTest.testRegisterWithEmptyFields.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RegistrationGuiTest.testRegisterWithExistingEmail.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RegistrationGuiTest.testSuccessfulAlertDisplay.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RegistrationGuiTest.testSuccessfulRegistration.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VarausControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.controller in gui.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.gui [clean,javafx:run].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.gui [clean,package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.gui [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.gui [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.gui [package].executor&quot;: &quot;Run&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;TestNG.KayttajaControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit4&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;21&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/kakek/javafx-sdk-17.0.10/lib&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Global Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.5482759&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mariadb"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mariadb&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -144,11 +158,10 @@
       <command value="mvn install" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.RegistrationGuiTest (1)">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="app.Main" />
       <module name="gui" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;C:\tools\javafx-sdk-21.0.4&quot; --add-modules javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="app.*" />
@@ -161,21 +174,6 @@
     </configuration>
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <module name="gui" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LaskuControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gui" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="controller" />
-      <option name="MAIN_CLASS_NAME" value="controller.LaskuControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -195,33 +193,42 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegistrationGuiTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="VarausControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gui" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="app.*" />
+          <option name="PATTERN" value="controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="app" />
-      <option name="MAIN_CLASS_NAME" value="app.RegistrationGuiTest" />
+      <option name="PACKAGE_NAME" value="controller" />
+      <option name="MAIN_CLASS_NAME" value="controller.VarausControllerTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegistrationGuiTest.testHandleRegister_Success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="controller in gui" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gui" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/src/test/java/controller" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="KayttajaControllerTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="gui" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="app.*" />
+          <option name="PATTERN" value="controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="app" />
-      <option name="MAIN_CLASS_NAME" value="app.RegistrationGuiTest" />
-      <option name="METHOD_NAME" value="testHandleRegister_Success" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="controller" />
+      <option name="MAIN_CLASS_NAME" value="controller.KayttajaControllerTest" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -245,18 +252,18 @@
       <item itemvalue="Application.Unnamed" />
       <item itemvalue="Application.Main" />
       <item itemvalue="Docker.Dockerfile" />
-      <item itemvalue="JUnit.LaskuControllerTest" />
+      <item itemvalue="JUnit.VarausControllerTest" />
+      <item itemvalue="JUnit.controller in gui" />
       <item itemvalue="JUnit.RegistrationGuiTest (1)" />
-      <item itemvalue="JUnit.RegistrationGuiTest" />
-      <item itemvalue="JUnit.RegistrationGuiTest.testHandleRegister_Success" />
+      <item itemvalue="TestNG.KayttajaControllerTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.RegistrationGuiTest (1)" />
-        <item itemvalue="JUnit.LaskuControllerTest" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.RegistrationGuiTest" />
-        <item itemvalue="JUnit.RegistrationGuiTest.testHandleRegister_Success" />
+        <item itemvalue="JUnit.RegistrationGuiTest (1)" />
+        <item itemvalue="JUnit.controller in gui" />
+        <item itemvalue="JUnit.VarausControllerTest" />
+        <item itemvalue="TestNG.KayttajaControllerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -296,6 +303,8 @@
       <workItem from="1727722802128" duration="1301000" />
       <workItem from="1727762601158" duration="7387000" />
       <workItem from="1728065113527" duration="3995000" />
+      <workItem from="1728112777104" duration="20866000" />
+      <workItem from="1728284414792" duration="1100000" />
     </task>
     <task id="LOCAL-00002" summary="yhdistetty wilman ja kaislan judut">
       <option name="closed" value="true" />
@@ -481,7 +490,23 @@
       <option name="project" value="LOCAL" />
       <updated>1728072746459</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="ylimääränen src kansio poistettu">
+      <option name="closed" value="true" />
+      <created>1728073148078</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1728073148078</updated>
+    </task>
+    <task id="LOCAL-00026" summary="muut testit kommentoitu pois koska virheitä jenkinsissä">
+      <option name="closed" value="true" />
+      <created>1728073337116</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1728073337116</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -515,7 +540,8 @@
     <MESSAGE value="muuttaa pomin ja dockerfilen docker pull ja buildia varten!" />
     <MESSAGE value="pikku muutoksia" />
     <MESSAGE value="ylimääränen src kansio poistettu" />
-    <option name="LAST_COMMIT_MESSAGE" value="ylimääränen src kansio poistettu" />
+    <MESSAGE value="muut testit kommentoitu pois koska virheitä jenkinsissä" />
+    <option name="LAST_COMMIT_MESSAGE" value="muut testit kommentoitu pois koska virheitä jenkinsissä" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -528,8 +554,9 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/OhtuProjekti2$RegistrationGuiTest__1_.ic" NAME="RegistrationGuiTest (1) Coverage Results" MODIFIED="1728072445616" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/OhtuProjekti2$RegistrationGuiTest__1_.ic" NAME="RegistrationGuiTest (1) Coverage Results" MODIFIED="1728126544540" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>view.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/OhtuProjekti2$controller_in_gui.ic" NAME="controller in gui Coverage Results" MODIFIED="1728129736984" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

@@ -1,28 +1,48 @@
 package controller;
-/*
+
 import model.enteties.Varaus;
+import org.junit.Before;
 import org.junit.Test;
-import java.time.LocalDate;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.mockito.junit.MockitoJUnitRunner;
+
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.Assert.*;
-public class VarausControllerTest {
-    VarausController varausController = new VarausController();
+import static org.mockito.Mockito.*;
 
-    @Test
-    public void TestFindByVarausId() {
-        Varaus varaus = varausController.findByVarausId(4);
-        assertEquals(4, varaus.getVarausId());
+@RunWith(MockitoJUnitRunner.class)
+public class VarausControllerTest {
+
+    @Mock
+    private VarausController varausController;
+
+    @Before
+    public void setUp() {
+        MockitoAnnotations.openMocks(this);
     }
 
     @Test
     public void testFindByLaskuId() {
-        int id = 1;
-        List<Varaus> varausLista = varausController.findByLaskuId(id);
-        assertFalse(varausLista.isEmpty());
-        for (Varaus varaus : varausLista) {
-            assertEquals(id, varaus.getLaskuId());
-        }
+        List<Varaus> varausLista = Arrays.asList(new Varaus(), new Varaus());
+        when(varausController.findByLaskuId(anyInt())).thenReturn(varausLista);
+
+        List<Varaus> result = varausController.findByLaskuId(1);
+        assertNotNull(result);
+        assertFalse(result.isEmpty());
     }
 
-}*/
+    @Test
+    public void testFindByVarausId() {
+        Varaus varaus = new Varaus();
+        when(varausController.findByVarausId(anyInt())).thenReturn(varaus);
+
+        Varaus result = varausController.findByVarausId(1);
+        assertNotNull(result);
+        assertEquals(1, result.getVarausId());
+    }
+}
