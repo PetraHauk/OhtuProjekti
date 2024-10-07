@@ -1,14 +1,12 @@
 -------------------------------------------------------------------------------
 Test set: controller.LaskuControllerTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.01 s <<< FAILURE! - in controller.LaskuControllerTest
-controller.LaskuControllerTest.testFindLaskuById  Time elapsed: 0.001 s  <<< ERROR!
-java.lang.NoClassDefFoundError: Could not initialize class model.datasourse.MariaDbConnection
-	at controller.LaskuControllerTest.testFindLaskuById(LaskuControllerTest.java:12)
-Caused by: java.lang.ExceptionInInitializerError: Exception org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] [in thread "main"]
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.027 s <<< FAILURE! - in controller.LaskuControllerTest
+controller.LaskuControllerTest.testFindLaskuById  Time elapsed: 0.007 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "model.enteties.Lasku.getLaskuId()" because "lasku" is null
+	at controller.LaskuControllerTest.testFindLaskuById(LaskuControllerTest.java:13)
 
-controller.LaskuControllerTest.testFindLaskuByAsiakasId  Time elapsed: 0.002 s  <<< ERROR!
-java.lang.NoClassDefFoundError: Could not initialize class model.datasourse.MariaDbConnection
-	at controller.LaskuControllerTest.testFindLaskuByAsiakasId(LaskuControllerTest.java:18)
-Caused by: java.lang.ExceptionInInitializerError: Exception org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] [in thread "main"]
+controller.LaskuControllerTest.testFindLaskuByAsiakasId  Time elapsed: 0.01 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "java.util.List.isEmpty()" because "laskuList" is null
+	at controller.LaskuControllerTest.testFindLaskuByAsiakasId(LaskuControllerTest.java:19)
 

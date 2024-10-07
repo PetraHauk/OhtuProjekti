@@ -43,7 +43,7 @@ public class HuoneController {
     }
 
     public Huone findHuoneById(int id) {
-<span class="nc" id="L46">        return huoneDAO.findByRoomId(id);</span>
+<span class="fc" id="L46">        return huoneDAO.findByRoomId(id);</span>
     }
 
     public int getHuoneNroById(int huoneId) {
@@ -57,11 +57,11 @@ public class HuoneController {
 <span class="nc" id="L57">        return huoneDAO.findByRoomNro(nro);</span>
     }
     public List&lt;Huone&gt; findHuoneByTila(String huone_tila) {
-<span class="nc" id="L60">        return huoneDAO.findByHuoneTila(huone_tila);</span>
+<span class="fc" id="L60">        return huoneDAO.findByHuoneTila(huone_tila);</span>
     }
 
     public List&lt;Huone&gt; findHuoneByTyyppi(String huone_tyyppi) {
-<span class="nc" id="L64">        return huoneDAO.findByTyyppi(huone_tyyppi);</span>
+<span class="fc" id="L64">        return huoneDAO.findByTyyppi(huone_tyyppi);</span>
     }
 
     public void updateHuoneById(int id, int huone_nro, String huone_tyyppi, String huone_tila, double huone_hinta) {

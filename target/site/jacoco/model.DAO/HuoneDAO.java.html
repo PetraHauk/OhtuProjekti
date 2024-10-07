@@ -31,15 +31,15 @@ import java.util.List;
     }
 
     public Huone findByRoomId(int id) {
-<span class="nc" id="L34">        EntityManager em = MariaDbConnection.getInstance();</span>
+<span class="fc" id="L34">        EntityManager em = MariaDbConnection.getInstance();</span>
         try {
-<span class="nc" id="L36">            Huone huone = em.find(Huone.class, id);</span>
-<span class="nc bnc" id="L37" title="All 2 branches missed.">            if (huone != null) {</span>
-<span class="nc" id="L38">                return huone;</span>
+<span class="fc" id="L36">            Huone huone = em.find(Huone.class, id);</span>
+<span class="pc bpc" id="L37" title="1 of 2 branches missed.">            if (huone != null) {</span>
+<span class="fc" id="L38">                return huone;</span>
             }
         } finally {
-<span class="nc bnc" id="L41" title="All 2 branches missed.">            if (em != null) {</span>
-<span class="nc" id="L42">                em.close();</span>
+<span class="pc bpc" id="L41" title="1 of 2 branches missed.">            if (em != null) {</span>
+<span class="fc" id="L42">                em.close();</span>
             }
         }
 <span class="nc" id="L45">        return null;</span>
@@ -62,36 +62,36 @@ import java.util.List;
 
 
     public List&lt;Huone&gt; findByHuoneTila(String huone_tila) {
-<span class="nc" id="L65">        EntityManager em = MariaDbConnection.getInstance();</span>
-<span class="nc" id="L66">        List&lt;Huone&gt; huoneet = null;</span>
+<span class="fc" id="L65">        EntityManager em = MariaDbConnection.getInstance();</span>
+<span class="fc" id="L66">        List&lt;Huone&gt; huoneet = null;</span>
         try {
-<span class="nc" id="L68">            huoneet = em.createQuery(&quot;SELECT h FROM Huone h WHERE h.huone_tila = :huone_tila&quot;, Huone.class)</span>
-<span class="nc" id="L69">                    .setParameter(&quot;huone_tila&quot;, huone_tila)</span>
-<span class="nc" id="L70">                    .getResultList();</span>
-<span class="nc bnc" id="L71" title="All 2 branches missed.">            if(!huoneet.isEmpty()) {</span>
-<span class="nc" id="L72">                return huoneet;</span>
+<span class="fc" id="L68">            huoneet = em.createQuery(&quot;SELECT h FROM Huone h WHERE h.huone_tila = :huone_tila&quot;, Huone.class)</span>
+<span class="fc" id="L69">                    .setParameter(&quot;huone_tila&quot;, huone_tila)</span>
+<span class="fc" id="L70">                    .getResultList();</span>
+<span class="pc bpc" id="L71" title="1 of 2 branches missed.">            if(!huoneet.isEmpty()) {</span>
+<span class="fc" id="L72">                return huoneet;</span>
             }
         } finally {
-<span class="nc bnc" id="L75" title="All 2 branches missed.">            if (em != null) {</span>
-<span class="nc" id="L76">                em.close();</span>
+<span class="pc bpc" id="L75" title="1 of 2 branches missed.">            if (em != null) {</span>
+<span class="fc" id="L76">                em.close();</span>
             }
         }
 <span class="nc" id="L79">        return null;</span>
     }
 
     public List&lt;Huone&gt; findByTyyppi(String huone_tyyppi) {
-<span class="nc" id="L83">        EntityManager em = MariaDbConnection.getInstance();</span>
-<span class="nc" id="L84">        List&lt;Huone&gt; huoneet = null;</span>
+<span class="fc" id="L83">        EntityManager em = MariaDbConnection.getInstance();</span>
+<span class="fc" id="L84">        List&lt;Huone&gt; huoneet = null;</span>
         try {
-<span class="nc" id="L86">            huoneet = em.createQuery(&quot;SELECT h FROM Huone h WHERE h.huone_tyyppi = :huone_tyyppi&quot;, Huone.class)</span>
-<span class="nc" id="L87">                    .setParameter(&quot;huone_tyyppi&quot;, huone_tyyppi)</span>
-<span class="nc" id="L88">                    .getResultList();</span>
-<span class="nc bnc" id="L89" title="All 2 branches missed.">            if (!huoneet.isEmpty()) {</span>
-<span class="nc" id="L90">                return huoneet;</span>
+<span class="fc" id="L86">            huoneet = em.createQuery(&quot;SELECT h FROM Huone h WHERE h.huone_tyyppi = :huone_tyyppi&quot;, Huone.class)</span>
+<span class="fc" id="L87">                    .setParameter(&quot;huone_tyyppi&quot;, huone_tyyppi)</span>
+<span class="fc" id="L88">                    .getResultList();</span>
+<span class="pc bpc" id="L89" title="1 of 2 branches missed.">            if (!huoneet.isEmpty()) {</span>
+<span class="fc" id="L90">                return huoneet;</span>
             }
         } finally {
-<span class="nc bnc" id="L93" title="All 2 branches missed.">            if (em != null) {</span>
-<span class="nc" id="L94">                em.close();</span>
+<span class="pc bpc" id="L93" title="1 of 2 branches missed.">            if (em != null) {</span>
+<span class="fc" id="L94">                em.close();</span>
             }
         }
 <span class="nc" id="L97">        return null;</span>

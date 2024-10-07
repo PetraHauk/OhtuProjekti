@@ -5,71 +5,205 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="pomi muutokset">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/LaskuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/LaskuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/jacoco.exec" beforeDir="false" afterPath="$PROJECT_DIR$/target/jacoco.exec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ohtutest.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/ohtutest.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/original-ohtutest.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/original-ohtutest.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/controller/HuoneController.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/controller/HuoneController.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/controller/HuoneController.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/controller/HuoneController.java.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/controller/LaskuController.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/controller/LaskuController.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/controller/LaskuController.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/controller/LaskuController.java.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/controller/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/controller/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/controller/index.source.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/controller/index.source.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-sessions.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/jacoco-sessions.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco.csv" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/jacoco.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/jacoco.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/model.DAO/HuoneDAO.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/model.DAO/HuoneDAO.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/model.DAO/HuoneDAO.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/model.DAO/HuoneDAO.java.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/model.DAO/VarausDAO.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/model.DAO/VarausDAO.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/model.DAO/VarausDAO.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/model.DAO/VarausDAO.java.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/model.DAO/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/model.DAO/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/model.DAO/index.source.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/model.DAO/index.source.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/model.enteties/LaskuData.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/model.enteties/LaskuData.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/model.enteties/LaskuData.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/model.enteties/LaskuData.java.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/model.enteties/Varaus.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/model.enteties/Varaus.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/model.enteties/Varaus.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/model.enteties/Varaus.java.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/model.enteties/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/model.enteties/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/model.enteties/index.source.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/model.enteties/index.source.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view.sivut/AsiakasSivu$1.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/view.sivut/AsiakasSivu$1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view.sivut/AsiakasSivu$2.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/view.sivut/AsiakasSivu$2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view.sivut/AsiakasSivu.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/view.sivut/AsiakasSivu.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view.sivut/AsiakasSivu.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/view.sivut/AsiakasSivu.java.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view.sivut/CheckIn$1.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/view.sivut/CheckIn$1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view.sivut/CheckIn$2.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/view.sivut/CheckIn$2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view.sivut/CheckIn.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/view.sivut/CheckIn.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view.sivut/CheckIn.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/view.sivut/CheckIn.java.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view.sivut/CheckOut.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/view.sivut/CheckOut.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view.sivut/CheckOut.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/view.sivut/CheckOut.java.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view.sivut/Etusivu.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/view.sivut/Etusivu.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view.sivut/Etusivu.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/view.sivut/Etusivu.java.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view.sivut/HuoneSivu$1.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/view.sivut/HuoneSivu$1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view.sivut/HuoneSivu$2.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/view.sivut/HuoneSivu$2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view.sivut/HuoneSivu.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/view.sivut/HuoneSivu.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view.sivut/HuoneSivu.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/view.sivut/HuoneSivu.java.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view.sivut/VarausSivu$1.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/view.sivut/VarausSivu$1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view.sivut/VarausSivu$2.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/view.sivut/VarausSivu$2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view.sivut/VarausSivu.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/view.sivut/VarausSivu.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view.sivut/VarausSivu.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/view.sivut/VarausSivu.java.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view.sivut/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/view.sivut/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view.sivut/index.source.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/view.sivut/index.source.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view/LoginGui.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/view/LoginGui.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view/LoginGui.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/view/LoginGui.java.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view/OhjelmistoGUI.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/view/OhjelmistoGUI.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view/OhjelmistoGUI.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/view/OhjelmistoGUI.java.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/view/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view/index.source.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/view/index.source.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-controller.HuoneControllerTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-controller.HuoneControllerTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-controller.LaskuControllerTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-controller.LaskuControllerTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-view.RegistrationGuiTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-view.RegistrationGuiTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/controller.HuoneControllerTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/controller.HuoneControllerTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/controller.LaskuControllerTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/controller.LaskuControllerTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/view.RegistrationGuiTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/view.RegistrationGuiTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/app/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/AsiakasController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/HomeController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/HotelliController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/HuoneController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/KayttajaController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/LaskuController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/LoginController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/VarausController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/logback.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/login.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/DAO/AsiakasDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/DAO/HotelliDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/DAO/HuoneDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/DAO/KayttajaDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/DAO/LaskuDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/DAO/VarausDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/datasourse/MariaDbConnection.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/enteties/Asiakas.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/enteties/Hotelli.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/enteties/Huone.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/enteties/Kayttaja.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/enteties/Lasku.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/enteties/LaskuData.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/enteties/Varaus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/service/CurrencyConverter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/service/Kirjautuminen.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/service/UserSession.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/utils/PasswordUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/AdminGUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/LoginGui.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/OhjelmistoGUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/RegistrationGui.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/home.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/login.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/register.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/AsiakasSivu$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/AsiakasSivu$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/AsiakasSivu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/CheckIn$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/CheckIn$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/CheckIn.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/CheckOut.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/Etusivu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/HuoneSivu$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/HuoneSivu$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/HuoneSivu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/VarausSivu$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/VarausSivu$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/VarausSivu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/jacoco.exec" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ohtutest.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/original-ohtutest.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/app/Main.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/app/Main.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/app/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/app/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/controller/AsiakasController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/controller/AsiakasController.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/controller/HomeController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/controller/HomeController.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/controller/HotelliController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/controller/HotelliController.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/controller/HuoneController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/controller/HuoneController.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/controller/KayttajaController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/controller/KayttajaController.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/controller/LaskuController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/controller/LaskuController.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/controller/LoginController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/controller/LoginController.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/controller/VarausController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/controller/VarausController.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/controller/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/controller/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/branchfc.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/branchnc.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/branchpc.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/bundle.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/class.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/down.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/greenbar.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/group.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/method.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/package.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/prettify.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/prettify.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/redbar.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/report.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/report.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/session.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/sort.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/sort.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/source.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/up.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-sessions.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/model.DAO/AsiakasDAO.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/model.DAO/AsiakasDAO.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/model.DAO/HotelliDAO.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/model.DAO/HotelliDAO.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/model.DAO/HuoneDAO.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/model.DAO/HuoneDAO.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/model.DAO/KayttajaDAO.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/model.DAO/KayttajaDAO.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/model.DAO/LaskuDAO.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/model.DAO/LaskuDAO.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/model.DAO/VarausDAO.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/model.DAO/VarausDAO.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/model.DAO/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/model.DAO/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/model.datasourse/MariaDbConnection.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/model.datasourse/MariaDbConnection.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/model.datasourse/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/model.datasourse/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/model.enteties/Asiakas.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/model.enteties/Asiakas.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/model.enteties/Hotelli.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/model.enteties/Hotelli.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/model.enteties/Huone.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/model.enteties/Huone.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/model.enteties/Kayttaja.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/model.enteties/Kayttaja.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/model.enteties/Lasku.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/model.enteties/Lasku.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/model.enteties/LaskuData.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/model.enteties/LaskuData.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/model.enteties/Varaus.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/model.enteties/Varaus.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/model.enteties/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/model.enteties/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/model.service/CurrencyConverter.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/model.service/CurrencyConverter.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/model.service/Kirjautuminen.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/model.service/Kirjautuminen.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/model.service/UserSession.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/model.service/UserSession.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/model.service/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/model.service/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/utils/PasswordUtils.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/utils/PasswordUtils.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/utils/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/utils/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view.sivut/AsiakasSivu$1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view.sivut/AsiakasSivu$2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view.sivut/AsiakasSivu.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view.sivut/AsiakasSivu.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view.sivut/CheckIn$1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view.sivut/CheckIn$2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view.sivut/CheckIn.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view.sivut/CheckIn.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view.sivut/CheckOut.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view.sivut/CheckOut.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view.sivut/Etusivu.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view.sivut/Etusivu.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view.sivut/HuoneSivu$1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view.sivut/HuoneSivu$2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view.sivut/HuoneSivu.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view.sivut/HuoneSivu.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view.sivut/VarausSivu$1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view.sivut/VarausSivu$2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view.sivut/VarausSivu.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view.sivut/VarausSivu.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view.sivut/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view.sivut/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view/AdminGUI.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view/AdminGUI.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view/LoginGui.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view/LoginGui.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view/OhjelmistoGUI.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view/OhjelmistoGUI.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view/RegistrationGui.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view/RegistrationGui.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/view/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-controller.HuoneControllerTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-controller.LaskuControllerTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-view.RegistrationGuiTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/controller.HuoneControllerTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/controller.LaskuControllerTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/view.RegistrationGuiTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/controller/AsiakasControllerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/controller/HotelliControllerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/controller/HuoneControllerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/controller/KayttajaControllerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/controller/LaskuControllerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/controller/VarausControllerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/view/RegistrationGuiTest.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -356,7 +490,7 @@
       <workItem from="1727762601158" duration="7387000" />
       <workItem from="1728065113527" duration="3995000" />
       <workItem from="1728112777104" duration="20866000" />
-      <workItem from="1728284414792" duration="3810000" />
+      <workItem from="1728284414792" duration="4584000" />
     </task>
     <task id="LOCAL-00002" summary="yhdistetty wilman ja kaislan judut">
       <option name="closed" value="true" />
@@ -574,7 +708,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728285694382</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="pomi muutokset">
+      <option name="closed" value="true" />
+      <created>1728288290188</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1728288290188</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

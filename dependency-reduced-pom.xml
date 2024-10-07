@@ -5,6 +5,12 @@
   <artifactId>gui</artifactId>
   <version>1.0-SNAPSHOT</version>
   <build>
+    <resources>
+      <resource>
+        <filtering>true</filtering>
+        <directory>src/main/resources</directory>
+      </resource>
+    </resources>
     <finalName>ohtutest</finalName>
     <plugins>
       <plugin>
@@ -13,6 +19,13 @@
         <configuration>
           <source>21</source>
           <target>21</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>3.3.1</version>
+        <configuration>
+          <useDefaultDelimiters>true</useDefaultDelimiters>
         </configuration>
       </plugin>
       <plugin>

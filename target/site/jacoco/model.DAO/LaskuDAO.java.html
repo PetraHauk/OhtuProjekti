@@ -14,38 +14,38 @@ import java.util.List;
 <span class="nc" id="L14">    }</span>
 
     public Lasku haeByLaskuId(int lasku_id) {
-<span class="nc" id="L17">        EntityManager em = MariaDbConnection.getInstance();</span>
+<span class="fc" id="L17">        EntityManager em = MariaDbConnection.getInstance();</span>
         try {
-<span class="nc" id="L19">            Lasku lasku = em.find(Lasku.class, lasku_id);</span>
-<span class="nc bnc" id="L20" title="All 2 branches missed.">            if (lasku != null) {</span>
+<span class="fc" id="L19">            Lasku lasku = em.find(Lasku.class, lasku_id);</span>
+<span class="pc bpc" id="L20" title="1 of 2 branches missed.">            if (lasku != null) {</span>
 <span class="nc" id="L21">                return lasku;</span>
             }
         } finally {
-<span class="nc bnc" id="L24" title="All 2 branches missed.">            if (em != null) {</span>
-<span class="nc" id="L25">                em.close();</span>
+<span class="pc bpc" id="L24" title="1 of 2 branches missed.">            if (em != null) {</span>
+<span class="fc" id="L25">                em.close();</span>
             }
         }
-<span class="nc" id="L28">        return null;</span>
+<span class="fc" id="L28">        return null;</span>
     }
 
     public List&lt;Lasku&gt; haeByAsiakasId(int asiakas_id) {
-<span class="nc" id="L32">        EntityManager em = MariaDbConnection.getInstance();</span>
-<span class="nc" id="L33">        List&lt;Lasku&gt; laskut = null;</span>
+<span class="fc" id="L32">        EntityManager em = MariaDbConnection.getInstance();</span>
+<span class="fc" id="L33">        List&lt;Lasku&gt; laskut = null;</span>
         try {
-<span class="nc" id="L35">            laskut = em.createQuery(&quot;SELECT l FROM Lasku l WHERE l.asiakas_id = :asiakas_id&quot;, Lasku.class)</span>
-<span class="nc" id="L36">                    .setParameter(&quot;asiakas_id&quot;, asiakas_id)</span>
-<span class="nc" id="L37">                    .getResultList();</span>
-<span class="nc bnc" id="L38" title="All 2 branches missed.">            if (!laskut.isEmpty()) {</span>
+<span class="fc" id="L35">            laskut = em.createQuery(&quot;SELECT l FROM Lasku l WHERE l.asiakas_id = :asiakas_id&quot;, Lasku.class)</span>
+<span class="fc" id="L36">                    .setParameter(&quot;asiakas_id&quot;, asiakas_id)</span>
+<span class="fc" id="L37">                    .getResultList();</span>
+<span class="pc bpc" id="L38" title="1 of 2 branches missed.">            if (!laskut.isEmpty()) {</span>
 <span class="nc" id="L39">                return laskut;</span>
             } else {
-<span class="nc" id="L41">                System.out.println(&quot;Laskua ei löytynyt asiakas id:llä &quot; + asiakas_id);</span>
+<span class="fc" id="L41">                System.out.println(&quot;Laskua ei löytynyt asiakas id:llä &quot; + asiakas_id);</span>
             }
         } finally {
-<span class="nc bnc" id="L44" title="All 2 branches missed.">            if (em != null) {</span>
-<span class="nc" id="L45">                em.close();</span>
+<span class="pc bpc" id="L44" title="1 of 2 branches missed.">            if (em != null) {</span>
+<span class="fc" id="L45">                em.close();</span>
             }
         }
-<span class="nc" id="L48">        return null;</span>
+<span class="fc" id="L48">        return null;</span>
     }
 
     public void updateLaskuById(int id, String maksuStatus, String varausMuoto, String valuutta, int asiakasId) {
