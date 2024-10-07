@@ -26,19 +26,23 @@ public class LoginGui extends Application {
         Label emailLabel = new Label("Email:");
 
         TextField emailField = new TextField();
+        emailField.setId("emailField"); // Set ID
         emailField.setPromptText("Email");
         emailField.getStyleClass().add("text-field");
 
         Label passwordLabel = new Label("Password:");
 
         PasswordField passwordField = new PasswordField();
+        passwordField.setId("passwordField"); // Set ID
         passwordField.setPromptText("Salasana");
         passwordField.getStyleClass().add("password-field");
 
         Button loginButton = new Button("Kirjaudu");
+        loginButton.setId("loginButton"); // Set ID
         loginButton.getStyleClass().add("button-one");
 
         Button registerButton = new Button("Rekisteröidy");
+        registerButton.setId("registerButton"); // Set ID
         registerButton.getStyleClass().add("button-two");
 
         // Layout
@@ -62,7 +66,7 @@ public class LoginGui extends Application {
         primaryStage.show();
     }
 
-       private void handleLogin(String email, String password, Stage primaryStage) {
+    private void handleLogin(String email, String password, Stage primaryStage) {
         String savedHashedPassword = kayttajaDAO.findPasswordByEmail(email);
 
         if (savedHashedPassword != null && !savedHashedPassword.isEmpty() && BCrypt.checkpw(password, savedHashedPassword)) {
@@ -91,10 +95,13 @@ public class LoginGui extends Application {
             alert.setTitle("Kirjautuminen epäonnistui");
             alert.setHeaderText(null);
             alert.setContentText("Tarkista sähköposti ja salasana.");
+
+            Stage alertStage = (Stage) alert.getDialogPane().getScene().getWindow();
+            alertStage.setUserData(alert);
+
             alert.showAndWait();
         }
     }
-
 
     public static void main(String[] args) {
         launch(args);

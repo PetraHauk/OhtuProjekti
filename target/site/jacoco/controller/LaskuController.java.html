@@ -49,34 +49,37 @@ public class LaskuController {
 <span class="nc" id="L49">        huoneController = new HuoneController(); // Only create it when needed</span>
 <span class="nc" id="L50">        varausController = new VarausController(); // Only create it when needed</span>
 <span class="nc" id="L51">        List&lt;Lasku&gt; allLaskut = laskuDAO.haeKaikkilaskut(); // Get all invoices</span>
-<span class="nc" id="L52">        double totalAmount = 0;</span>
+<span class="nc bnc" id="L52" title="All 4 branches missed.">        if (allLaskut == null || allLaskut.isEmpty()) {</span>
+<span class="nc" id="L53">            return 0; // Return 0 if there are no invoices</span>
+        }
+<span class="nc" id="L55">        double totalAmount = 0;</span>
 
-<span class="nc bnc" id="L54" title="All 4 branches missed.">        if (allLaskut == null || allLaskut.isEmpty()) {</span>
-<span class="nc" id="L55">            return totalAmount; // Return 0 if there are no invoices</span>
+<span class="nc bnc" id="L57" title="All 4 branches missed.">        if (allLaskut == null || allLaskut.isEmpty()) {</span>
+<span class="nc" id="L58">            return totalAmount; // Return 0 if there are no invoices</span>
         } else {
-<span class="nc bnc" id="L57" title="All 2 branches missed.">            for (Lasku lasku : allLaskut) {</span>
-<span class="nc bnc" id="L58" title="All 2 branches missed.">                if (lasku.getMaksuStatus().equalsIgnoreCase(&quot;Maksettu&quot;)) {</span>
-<span class="nc" id="L59">                    List&lt;Varaus&gt; varaukset = varausController.findByLaskuId(lasku.getLaskuId());</span>
+<span class="nc bnc" id="L60" title="All 2 branches missed.">            for (Lasku lasku : allLaskut) {</span>
+<span class="nc bnc" id="L61" title="All 2 branches missed.">                if (lasku.getMaksuStatus().equalsIgnoreCase(&quot;Maksettu&quot;)) {</span>
+<span class="nc" id="L62">                    List&lt;Varaus&gt; varaukset = varausController.findByLaskuId(lasku.getLaskuId());</span>
 
                     // if varaukset is empty, continue to the next lasku
-<span class="nc bnc" id="L62" title="All 4 branches missed.">                    if (varaukset == null || varaukset.isEmpty()) {</span>
-<span class="nc" id="L63">                        continue;</span>
+<span class="nc bnc" id="L65" title="All 4 branches missed.">                    if (varaukset == null || varaukset.isEmpty()) {</span>
+<span class="nc" id="L66">                        continue;</span>
                     }
 
-<span class="nc bnc" id="L66" title="All 2 branches missed.">                    for (Varaus varaus : varaukset) {</span>
-<span class="nc" id="L67">                        Huone huone = huoneController.findHuoneById(varaus.getHuoneId());</span>
+<span class="nc bnc" id="L69" title="All 2 branches missed.">                    for (Varaus varaus : varaukset) {</span>
+<span class="nc" id="L70">                        Huone huone = huoneController.findHuoneById(varaus.getHuoneId());</span>
 
                         // Calculate the number of days for the reservation
-<span class="nc" id="L70">                        long days = java.time.temporal.ChronoUnit.DAYS.between(varaus.getAlkuPvm(), varaus.getLoppuPvm());</span>
+<span class="nc" id="L73">                        long days = java.time.temporal.ChronoUnit.DAYS.between(varaus.getAlkuPvm(), varaus.getLoppuPvm());</span>
 
                         // Multiply the number of days by the room price and add to total
-<span class="nc" id="L73">                        totalAmount += days * huone.getHuone_hinta();</span>
-<span class="nc" id="L74">                    }</span>
+<span class="nc" id="L76">                        totalAmount += days * huone.getHuone_hinta();</span>
+<span class="nc" id="L77">                    }</span>
                 }
-<span class="nc" id="L76">            }</span>
+<span class="nc" id="L79">            }</span>
 
         }
-<span class="nc" id="L79">        return totalAmount; // Return the total amount for paid invoices</span>
+<span class="nc" id="L82">        return totalAmount; // Return the total amount for paid invoices</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

@@ -27,62 +27,72 @@ public class Varaus {
     private int laskuId;
 
     @Transient
-    private Asiakas asiakas;
+    private String nimi;
 
     @Transient
     private Huone huone;
 
-    // Parametrillinen konstruktori
-<span class="nc" id="L36">    public Varaus(int varaus_id, LocalDate alkuPvm, LocalDate loppuPvm, Integer huoneId, int laskuId) {</span>
-<span class="nc" id="L37">        this.varaus_id = varaus_id;</span>
-<span class="nc" id="L38">        this.alkuPvm = alkuPvm;</span>
-<span class="nc" id="L39">        this.loppuPvm = loppuPvm;</span>
-<span class="nc" id="L40">        this.huoneId = huoneId;</span>
-<span class="nc" id="L41">        this.laskuId = laskuId;</span>
-<span class="nc" id="L42">    }</span>
 
-<span class="fc" id="L44">    public Varaus() {</span>
-<span class="fc" id="L45">    }</span>
+
+    // Parametrillinen konstruktori
+<span class="nc" id="L38">    public Varaus(int varaus_id, LocalDate alkuPvm, LocalDate loppuPvm, Integer huoneId, int laskuId) {</span>
+<span class="nc" id="L39">        this.varaus_id = varaus_id;</span>
+<span class="nc" id="L40">        this.alkuPvm = alkuPvm;</span>
+<span class="nc" id="L41">        this.loppuPvm = loppuPvm;</span>
+<span class="nc" id="L42">        this.huoneId = huoneId;</span>
+<span class="nc" id="L43">        this.laskuId = laskuId;</span>
+<span class="nc" id="L44">    }</span>
+
+<span class="fc" id="L46">    public Varaus() {</span>
+<span class="fc" id="L47">    }</span>
 
     // Getterit ja setterit
     public int getVarausId() {
-<span class="nc" id="L49">        return varaus_id;</span>
+<span class="nc" id="L51">        return varaus_id;</span>
     }
 
     public LocalDate getAlkuPvm() {
-<span class="nc" id="L53">        return alkuPvm;</span>
+<span class="nc" id="L55">        return alkuPvm;</span>
     }
 
     public LocalDate getLoppuPvm() {
-<span class="nc" id="L57">        return loppuPvm;</span>
+<span class="nc" id="L59">        return loppuPvm;</span>
     }
 
     public Integer getHuoneId() {
-<span class="nc" id="L61">        return huoneId;</span>
+<span class="nc" id="L63">        return huoneId;</span>
     }
 
     public int getLaskuId() {
-<span class="nc" id="L65">        return laskuId;</span>
+<span class="nc" id="L67">        return laskuId;</span>
     }
 
     public void setAlkuPvm(LocalDate alkuPvm) {
-<span class="nc" id="L69">        this.alkuPvm = alkuPvm;</span>
-<span class="nc" id="L70">    }</span>
+<span class="nc" id="L71">        this.alkuPvm = alkuPvm;</span>
+<span class="nc" id="L72">    }</span>
 
     public void setLoppuPvm(LocalDate loppuPvm) {
-<span class="nc" id="L73">        this.loppuPvm = loppuPvm;</span>
-<span class="nc" id="L74">    }</span>
+<span class="nc" id="L75">        this.loppuPvm = loppuPvm;</span>
+<span class="nc" id="L76">    }</span>
 
     public void setHuoneId(Integer huoneId) {
-<span class="nc" id="L77">        this.huoneId = huoneId;</span>
-<span class="nc" id="L78">    }</span>
+<span class="nc" id="L79">        this.huoneId = huoneId;</span>
+<span class="nc" id="L80">    }</span>
 
     public void setHuone(Huone huone) {
-<span class="nc" id="L81">        this.huone = huone;</span>
-<span class="nc" id="L82">    }</span>
+<span class="nc" id="L83">        this.huone = huone;</span>
+<span class="nc" id="L84">    }</span>
+
+    public void setNimi(String nimi) {
+<span class="nc" id="L87">        this.nimi = nimi;</span>
+<span class="nc" id="L88">    }</span>
 
     public int getHuoneNro() {
-<span class="nc" id="L85">        return huone.getHuone_nro();</span>
+<span class="nc bnc" id="L91" title="All 2 branches missed.">        return huone != null ? huone.getHuone_nro() : 0;</span>
+    }
+
+    public String getNimi() {
+<span class="nc" id="L95">        return nimi;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

@@ -43,54 +43,58 @@ public class HuoneController {
     }
 
     public Huone findHuoneById(int id) {
-<span class="fc" id="L46">        return huoneDAO.findByRoomId(id);</span>
+<span class="fc" id="L46">        Huone huone = huoneDAO.findByRoomId(id);</span>
+<span class="pc bpc" id="L47" title="1 of 2 branches missed.">        if (huone == null) {</span>
+<span class="nc" id="L48">            return null;</span>
+        }
+<span class="fc" id="L50">        return huone;</span>
     }
 
     public int getHuoneNroById(int huoneId) {
         // Assume that this method interacts with a DAO or repository to get the room number
-<span class="nc" id="L51">        Huone huone = huoneDAO.findByRoomId(huoneId);</span>
-<span class="nc" id="L52">        return huone.getHuone_nro();</span>
+<span class="nc" id="L55">        Huone huone = huoneDAO.findByRoomId(huoneId);</span>
+<span class="nc" id="L56">        return huone.getHuone_nro();</span>
     }
 
 
     public Huone findHuoneByNro(int nro) {
-<span class="nc" id="L57">        return huoneDAO.findByRoomNro(nro);</span>
+<span class="nc" id="L61">        return huoneDAO.findByRoomNro(nro);</span>
     }
     public List&lt;Huone&gt; findHuoneByTila(String huone_tila) {
-<span class="fc" id="L60">        return huoneDAO.findByHuoneTila(huone_tila);</span>
+<span class="fc" id="L64">        return huoneDAO.findByHuoneTila(huone_tila);</span>
     }
 
     public List&lt;Huone&gt; findHuoneByTyyppi(String huone_tyyppi) {
-<span class="fc" id="L64">        return huoneDAO.findByTyyppi(huone_tyyppi);</span>
+<span class="fc" id="L68">        return huoneDAO.findByTyyppi(huone_tyyppi);</span>
     }
 
     public void updateHuoneById(int id, int huone_nro, String huone_tyyppi, String huone_tila, double huone_hinta) {
-<span class="nc" id="L68">        huoneDAO.updateHuoneById(id, huone_nro, huone_tyyppi, huone_tila, huone_hinta);</span>
-<span class="nc" id="L69">    }</span>
+<span class="nc" id="L72">        huoneDAO.updateHuoneById(id, huone_nro, huone_tyyppi, huone_tila, huone_hinta);</span>
+<span class="nc" id="L73">    }</span>
 
     public void updateHuoneStatusById(int id, String huone_tila) {
-<span class="nc" id="L72">        huoneDAO.updateHuoneTilaById(id, huone_tila);</span>
-<span class="nc" id="L73">    }</span>
+<span class="nc" id="L76">        huoneDAO.updateHuoneTilaById(id, huone_tila);</span>
+<span class="nc" id="L77">    }</span>
     public void updateHuoneTilaById(int id, String huone_tila) {
-<span class="nc" id="L75">        huoneDAO.updateHuoneTilaById(id, huone_tila);</span>
-<span class="nc" id="L76">    }</span>
-
-    public void deleteHuone(int id) {
-<span class="nc" id="L79">        huoneDAO.removeById(id);</span>
+<span class="nc" id="L79">        huoneDAO.updateHuoneTilaById(id, huone_tila);</span>
 <span class="nc" id="L80">    }</span>
 
+    public void deleteHuone(int id) {
+<span class="nc" id="L83">        huoneDAO.removeById(id);</span>
+<span class="nc" id="L84">    }</span>
+
     public List&lt;Huone&gt; findVapaatHuoneetByHotelliId(int hotelli_id){
-<span class="nc" id="L83">        List&lt;Huone&gt; huoneet = huoneDAO.haeHuoneetByHotelliId(hotelli_id);</span>
+<span class="nc" id="L87">        List&lt;Huone&gt; huoneet = huoneDAO.haeHuoneetByHotelliId(hotelli_id);</span>
 
 
-<span class="nc" id="L86">        Iterator&lt;Huone&gt; huoneIterator = huoneet.iterator();</span>
-<span class="nc bnc" id="L87" title="All 2 branches missed.">        while (huoneIterator.hasNext()) {</span>
-<span class="nc" id="L88">            Huone huone = huoneIterator.next();</span>
-<span class="nc bnc" id="L89" title="All 2 branches missed.">            if (huone.getHuone_tila().equals(&quot;Varattu&quot;)) {</span>
-<span class="nc" id="L90">                huoneIterator.remove();</span>
+<span class="nc" id="L90">        Iterator&lt;Huone&gt; huoneIterator = huoneet.iterator();</span>
+<span class="nc bnc" id="L91" title="All 2 branches missed.">        while (huoneIterator.hasNext()) {</span>
+<span class="nc" id="L92">            Huone huone = huoneIterator.next();</span>
+<span class="nc bnc" id="L93" title="All 2 branches missed.">            if (huone.getHuone_tila().equals(&quot;Varattu&quot;)) {</span>
+<span class="nc" id="L94">                huoneIterator.remove();</span>
             }
-<span class="nc" id="L92">        }</span>
-<span class="nc" id="L93">        return huoneet;</span>
+<span class="nc" id="L96">        }</span>
+<span class="nc" id="L97">        return huoneet;</span>
     }
 
     /*

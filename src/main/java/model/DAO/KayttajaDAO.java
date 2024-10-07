@@ -147,7 +147,7 @@ public class KayttajaDAO {
         return kayttaja;  // Return the removed Kayttaja (or null if not found)
     }
 
-    public void updateKayttajaById(int id, String etunimi, String sukunimi, String sposti, String puh, String rooli, String salasana) {
+    public void updateKayttajaById(int id, String etunimi, String sukunimi, String puh, String rooli) {
         EntityManager em = MariaDbConnection.getInstance();
         try {
             em.getTransaction().begin();
@@ -155,14 +155,12 @@ public class KayttajaDAO {
             if (kayttaja != null) {
                 kayttaja.setEtunimi(etunimi);
                 kayttaja.setSukunimi(sukunimi);
-                kayttaja.setSposti(sposti);
                 kayttaja.setPuh(puh);
                 kayttaja.setRooli(rooli);
-                kayttaja.setSalasana(salasana);
                 System.out.println("Käyttäjän tiedot päivitetty onnistuneesti!");
                 em.getTransaction().commit();
             } else {
-                System.out.println("Kayttäjä ei löytynyt ID:llä: " + id);
+                System.out.println("Kayttajaa ei löytynyt ID:llä: " + id);
             }
         } catch (Exception e) {
             if (em.getTransaction().isActive()) {

@@ -27,15 +27,18 @@ public class AsiakasController {
 <span class="nc" id="L27">        return asiakasDAO.findByNImet(etunimi, sukunimi);</span>
     }
 
+    public List&lt;Asiakas&gt; findByKeyword(String keyword) {
+<span class="nc" id="L31">        return asiakasDAO.findAsiakasByKeyword(keyword);</span>
+    }
     public List&lt;Asiakas&gt; findAllAsiakkaat() {
-<span class="nc" id="L31">        return asiakasDAO.findAsukkaat();</span>
+<span class="nc" id="L34">        return asiakasDAO.findAsukkaat();</span>
     }
     public void paivitaAsiakas(int id, String etunimi, String sukunimi, String sposti, String puh, int henkiloMaara, String huomio) {
-<span class="nc" id="L34">        asiakasDAO.updateAsiakasById(id, etunimi, sukunimi, sposti, puh, henkiloMaara, huomio);</span>
-<span class="nc" id="L35">    }</span>
+<span class="nc" id="L37">        asiakasDAO.updateAsiakasById(id, etunimi, sukunimi, sposti, puh, henkiloMaara, huomio);</span>
+<span class="nc" id="L38">    }</span>
 
     public void poistaAsiakas(int id) {
-<span class="nc" id="L38">        asiakasDAO.removeById(id);</span>
-<span class="nc" id="L39">    }</span>
+<span class="nc" id="L41">        asiakasDAO.removeById(id);</span>
+<span class="nc" id="L42">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
