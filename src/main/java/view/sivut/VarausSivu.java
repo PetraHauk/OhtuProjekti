@@ -172,9 +172,9 @@ public class VarausSivu {
         Label searchLabel = new Label("Etsi asiakas");
         TextField searchField = new TextField();
         Button searchButton = new Button("Etsi");
+        searchButton.getStyleClass().add("yellow-btn");
 
         TableView<Asiakas> searchResults = createCustomerTable();
-        searchResults.setPrefWidth(500);
 
         HBox pageButtons = new HBox(10);
         Button previousButton = new Button("Edellinen");
@@ -182,6 +182,7 @@ public class VarausSivu {
         pageButtons.getChildren().addAll(previousButton, nextButton);
 
         Button selectButton = new Button("Valitse");
+        selectButton.getStyleClass().add("yellow-btn");
 
         searchLayout.getChildren().addAll(searchLabel, searchField, searchButton, searchResults, pageButtons, selectButton);
 
@@ -222,7 +223,8 @@ public class VarausSivu {
             }
         });
 
-        Scene scene = new Scene(searchLayout, 500, 400);
+        Scene scene = new Scene(searchLayout, 730, 460);
+        scene.getStylesheets().add("style.css");
         searchCustomerStage.setScene(scene);
         searchCustomerStage.show();
     }
@@ -369,20 +371,29 @@ public class VarausSivu {
 
         TableColumn<Asiakas, Integer> idColumn = new TableColumn<>("Asiakas ID");
         idColumn.setCellValueFactory(new PropertyValueFactory<>("asiakasId"));
+        idColumn.setMinWidth(80);
 
         TableColumn<Asiakas, String> firstNameColumn = new TableColumn<>("Etunimi");
         firstNameColumn.setCellValueFactory(new PropertyValueFactory<>("etunimi"));
+        firstNameColumn.setMinWidth(120);
 
         TableColumn<Asiakas, String> lastNameColumn = new TableColumn<>("Sukunimi");
         lastNameColumn.setCellValueFactory(new PropertyValueFactory<>("sukunimi"));
+        lastNameColumn.setMinWidth(120);
 
         TableColumn<Asiakas, String> emailColumn = new TableColumn<>("Sähköposti");
         emailColumn.setCellValueFactory(new PropertyValueFactory<>("sposti"));
+        emailColumn.setMinWidth(150);
 
         TableColumn<Asiakas, String> phoneColumn = new TableColumn<>("Puhelin");
         phoneColumn.setCellValueFactory(new PropertyValueFactory<>("puh"));
+        phoneColumn.setMinWidth(90);
 
-        customerTable.getColumns().addAll(idColumn, firstNameColumn, lastNameColumn, emailColumn, phoneColumn);
+        TableColumn<Asiakas, String> huomioColumn = new TableColumn<>("Lisätiedot");
+        huomioColumn.setCellValueFactory(new PropertyValueFactory<>("huomio"));
+        huomioColumn.setMinWidth(165);
+
+        customerTable.getColumns().addAll(idColumn, firstNameColumn, lastNameColumn, emailColumn, phoneColumn, huomioColumn);
 
         return customerTable;
     }
