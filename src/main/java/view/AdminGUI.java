@@ -48,7 +48,7 @@ public class AdminGUI extends Application {
 
         // Add all columns to the userTable
         userTable.getColumns().addAll(idColumn, etunimiColumn, sukunimiColumn, emailColumn, puhColumn, roleColumn);
-        userTable.setItems(FXCollections.observableArrayList(loadUsers())); // Set the items
+        loadAndDisplayUsers(); // Set the items
 
         // Form to update user information
         TextField idField = new TextField();
@@ -99,7 +99,7 @@ public class AdminGUI extends Application {
             }
 
             // Refresh the user table
-            userTable.setItems(FXCollections.observableArrayList(loadUsers()));
+            loadAndDisplayUsers();
         });
                 // Delete Button
         Button deleteUserButton = new Button("Poista käyttäjä");
@@ -233,7 +233,7 @@ public class AdminGUI extends Application {
             addUserStage.close();
 
             // Reload the user table with the new user added
-            userTable.setItems(FXCollections.observableArrayList(loadUsers()));
+            loadAndDisplayUsers();
         }
     }
 
@@ -251,7 +251,7 @@ public class AdminGUI extends Application {
         alert.showAndWait();
 
         // Reload the user table with updated information
-        userTable.setItems(FXCollections.observableArrayList(loadUsers()));  // Now we use the class-level userTable
+        loadAndDisplayUsers(); // Now we use the class-level userTable
     }
 
 
@@ -302,7 +302,7 @@ public class AdminGUI extends Application {
                 if (validatePassword(password)) {
                     kayttajaDAO.removeById(selectedUser.getKayttajaId());
                     showInfo("Käyttäjä poistettu", "Käyttäjä poistettu onnistuneesti!");
-                    userTable.setItems(FXCollections.observableArrayList(loadUsers()));
+                    loadAndDisplayUsers();
                 } else {
                     showError("Virhe", "Väärä salasana! Poisto peruttu.");
                 }
@@ -350,6 +350,9 @@ public class AdminGUI extends Application {
         confirmationAlert.setContentText("Tätä toimintoa ei voida peruuttaa!");
         confirmationAlert.setHeaderText(null);
         return confirmationAlert.showAndWait().orElse(ButtonType.CANCEL) == ButtonType.OK;
+    }
+    private void loadAndDisplayUsers() {
+        userTable.setItems(FXCollections.observableArrayList(loadUsers())); // Load users here
     }
 
     public static void main(String[] args) {
