@@ -3,6 +3,7 @@ package view.sivut;
 import controller.HuoneController;
 import controller.VarausController;
 import javafx.concurrent.Task;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -89,6 +90,7 @@ public class CheckIn {
         varausInfo.getChildren().addAll(varausInfoLabel, varausTable);
 
         Button checkInButton = new Button("Check-In");
+        checkInButton.getStyleClass().add("yellow-btn");
 
         tuloDatePicker.valueProperty().addListener((observable, oldValue, newValue) -> {
             if (tuloDatePicker.getValue() != null && poistumisDatePicker.getValue() != null) {
@@ -216,9 +218,11 @@ public class CheckIn {
 
         TableColumn<Huone, Integer> numeroColumn = new TableColumn<>("Huoneen Numero");
         numeroColumn.setCellValueFactory(new PropertyValueFactory<>("huone_nro"));
+        numeroColumn.setMinWidth(94);
 
         TableColumn<Huone, String> tyyppiColumn = new TableColumn<>("Huone Tyyppi");
         tyyppiColumn.setCellValueFactory(new PropertyValueFactory<>("huone_tyyppi"));
+        tyyppiColumn.setMinWidth(150);
 
         TableColumn<Huone, Double> hintaColumn = new TableColumn<>("Huone Hinta");
         hintaColumn.setCellValueFactory(new PropertyValueFactory<>("huone_hinta"));
@@ -239,21 +243,27 @@ public class CheckIn {
 
     private TableView<Varaus> createVarausTable(){
         TableView<Varaus> varausTable = new TableView<>();
+        varausTable.setPrefWidth(950);
 
         TableColumn<Varaus, Integer> idColumn = new TableColumn<>("Varaus ID");
         idColumn.setCellValueFactory(new PropertyValueFactory<>("varausId"));
+        idColumn.setMinWidth(140);
 
         TableColumn<Varaus, Integer> roomColumn = new TableColumn<>("Huone ID");
         roomColumn.setCellValueFactory(new PropertyValueFactory<>("huoneId"));
+        roomColumn.setMinWidth(140);
 
         TableColumn<Varaus, Integer> invoiceColumn = new TableColumn<>("Lasku ID");
         invoiceColumn.setCellValueFactory(new PropertyValueFactory<>("laskuId"));
+        invoiceColumn.setMinWidth(140);
 
         TableColumn<Varaus, String> startDateColumn = new TableColumn<>("Alkupäivämäärä");
         startDateColumn.setCellValueFactory(new PropertyValueFactory<>("alkuPvm"));
+        startDateColumn.setMinWidth(150);
 
         TableColumn<Varaus, String> endDateColumn = new TableColumn<>("Loppupäivämäärä");
         endDateColumn.setCellValueFactory(new PropertyValueFactory<>("loppuPvm"));
+        endDateColumn.setMinWidth(150);
 
         varausTable.getColumns().add(idColumn);
         varausTable.getColumns().add(roomColumn);

@@ -17,6 +17,9 @@ import model.service.CurrencyConverter;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.List;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class CheckOut {
 
@@ -56,6 +59,7 @@ public class CheckOut {
         sukunimiInfo.getChildren().addAll(asiakasSukunimiLabel, asiakasSukunimiInput);
 
         Button haeLaskutButton = new Button("Hae laskut");
+        haeLaskutButton.getStyleClass().add("yellow-btn");
 
         VBox maksattavaLaskut = new VBox(5);
         Label maksattavaLaskuOtsikko = new Label("Laskut");
@@ -64,7 +68,9 @@ public class CheckOut {
         Label loppuHintaLabel = new Label("Yhdessä: 0.00");
         String loppuHinta = "";
         Button maksuButton = new Button("Maksaa");
+        maksuButton.getStyleClass().add("yellow-btn");
         Button printButton = new Button("Tulosta kuitti");
+        printButton.getStyleClass().add("yellow-btn");
 
         maksattavaLaskut.getChildren().addAll(maksattavaLaskuOtsikko, laskuTable, loppuHintaLabel, maksuButton, printButton);
 
@@ -160,7 +166,17 @@ public class CheckOut {
                 laskuData.SetMaksuStatus("Maksettu");
                 int huoneId = laskuData.getHuoneId();
 
-                huoneController.updateHuoneTilaById(huoneId, "Vapaa" );
+                // Aseta huoneen tila siivoukselle
+                huoneController.updateHuoneTilaById(huoneId, "Siivous");
+
+                // Luodaan ScheduledExecutorService
+                ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+
+                // Asetetaan tehtävä, joka suoritetaan 30 minuutin kuluttua
+                scheduler.schedule(() -> {
+                    huoneController.updateHuoneTilaById(huoneId, "Vapaa");
+                }, 30, TimeUnit.MINUTES);
+
                 //refresh table
                 laskuTable.refresh();
             }
@@ -270,6 +286,8 @@ public class CheckOut {
         System.out.println("Lasku ID | Status | Muoto | Valuutta | Alku Pvm | Loppu Pvm | Päivät | Hinta | Summa");
         for (LaskuData laskuData : laskuTable.getItems()) {
             System.out.println(laskuData.getLaskuId() + " | " +
+                    laskuData.getHuoneNro() + " | " +
+                    laskuData.getHuoneTyyppi() + " | " +
                     laskuData.getMaksuStatus() + " | " +
                     laskuData.getVarausMuoto() + " | " +
                     laskuData.getValuutta() + " | " +

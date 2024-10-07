@@ -29,6 +29,7 @@ public class AsiakasSivu {
         Label asiakkaatOtsikkoLabel = new Label("Asiakkaat");
         asiakkaatOtsikkoLabel.getStyleClass().add("otsikko");
         Button addCustomerButton = new Button("Lisää uusi asiakas");
+        addCustomerButton.getStyleClass().add("yellow-btn");
 
         addCustomerButton.setOnAction(e -> openAddCustomerWindow());
 
@@ -157,7 +158,7 @@ public class AsiakasSivu {
 
         TableColumn<Asiakas, String> emailColumn = new TableColumn<>("Sähköposti");
         emailColumn.setCellValueFactory(new PropertyValueFactory<>("sposti"));
-        emailColumn.setMinWidth(150);
+        emailColumn.setMinWidth(143);
 
         TableColumn<Asiakas, String> phoneColumn = new TableColumn<>("Puhelin");
         phoneColumn.setCellValueFactory(new PropertyValueFactory<>("puh"));
