@@ -59,7 +59,7 @@ import view.sivut.*;
 
 <span class="nc" id="L60">        HBox mainLayout = new HBox(10);</span>
 <span class="nc" id="L61">        VBox leftBar = createLeftBar(mainLayout, primaryStage);</span>
-<span class="nc" id="L62">        mainLayout.getChildren().addAll(leftBar, etusivu.createEtusivu());</span>
+<span class="nc" id="L62">        mainLayout.getChildren().addAll(leftBar, etusivu.createEtusivu(1));</span>
 
 <span class="nc" id="L64">        Scene scene = new Scene(mainLayout, 1250, 600);</span>
 <span class="nc" id="L65">        scene.getStylesheets().add(&quot;style.css&quot;);</span>
@@ -143,7 +143,7 @@ import view.sivut.*;
     // Button Actions
     private void handleFrontPageButtonAction(HBox mainLayout, VBox leftBar) {
 <span class="nc" id="L145">        Etusivu etusivu = new Etusivu();</span>
-<span class="nc" id="L146">        updateMainLayout(mainLayout, leftBar, etusivu.createEtusivu());</span>
+<span class="nc" id="L146">        updateMainLayout(mainLayout, leftBar, etusivu.createEtusivu(1));</span>
 <span class="nc" id="L147">    }</span>
 
     private void handleShowRoomsButtonAction(HBox mainLayout, VBox leftBar) {

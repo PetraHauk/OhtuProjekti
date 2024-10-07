@@ -49,7 +49,7 @@ public class HuoneController {
     public int getHuoneNroById(int huoneId) {
         // Assume that this method interacts with a DAO or repository to get the room number
 <span class="nc" id="L51">        Huone huone = huoneDAO.findByRoomId(huoneId);</span>
-<span class="nc bnc" id="L52" title="All 2 branches missed.">        return (huone != null) ? huone.getHuone_nro() : Integer.parseInt(&quot;Unknown&quot;);</span>
+<span class="nc" id="L52">        return huone.getHuone_nro();</span>
     }
 
 
