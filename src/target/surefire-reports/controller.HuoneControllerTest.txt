@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: controller.HuoneControllerTest
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 1.395 s <<< FAILURE! - in controller.HuoneControllerTest
-controller.HuoneControllerTest.findHuoneByTila  Time elapsed: 0.215 s  <<< FAILURE!
+Tests run: 4, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 1.319 s <<< FAILURE! - in controller.HuoneControllerTest
+controller.HuoneControllerTest.findHuoneByTila  Time elapsed: 0.193 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <vapaa> but was: <Vapaa>
 	at controller.HuoneControllerTest.findHuoneByTila(HuoneControllerTest.java:34)
 
