@@ -8,30 +8,17 @@
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_09_2024_09_03__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_09_2024_09_03__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/LoginGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/LoginGui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/sivut/AsiakasSivu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/sivut/AsiakasSivu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/enteties/Varaus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enteties/Varaus.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/sivut/CheckIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/sivut/CheckIn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/sivut/CheckOut.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/sivut/CheckOut.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/sivut/HuoneSivu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/sivut/HuoneSivu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/sivut/VarausSivu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/sivut/VarausSivu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/LoginGui.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/LoginGui.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/AsiakasSivu$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/sivut/AsiakasSivu$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/AsiakasSivu$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/sivut/AsiakasSivu$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/AsiakasSivu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/sivut/AsiakasSivu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/CheckIn$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/sivut/CheckIn$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/CheckIn$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/sivut/CheckIn$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/enteties/Varaus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/enteties/Varaus.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/CheckIn.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/sivut/CheckIn.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/CheckOut.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/sivut/CheckOut.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/HuoneSivu$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/sivut/HuoneSivu$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/HuoneSivu$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/sivut/HuoneSivu$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/HuoneSivu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/sivut/HuoneSivu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/VarausSivu$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/sivut/VarausSivu$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/VarausSivu$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/sivut/VarausSivu$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/VarausSivu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/sivut/VarausSivu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/controller/AsiakasControllerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/controller/HotelliControllerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/controller/HuoneControllerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/controller/LaskuControllerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/controller/VarausControllerTest.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,58 +76,11 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showLibraryContents" value="true" />
-  </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MainPetra.executor&quot;: &quot;Run&quot;,
-    &quot;Application.WilmaMain.executor&quot;: &quot;Run&quot;,
-    &quot;Docker.Dockerfile.executor&quot;: &quot;Run&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;JUnit.LaskuControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RegistrationGuiTest (1).executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RegistrationGuiTest.executor&quot;: &quot;Profiler#1&quot;,
-    &quot;JUnit.RegistrationGuiTest.testHandleRegister_Success.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RegistrationGuiTest.testRegisterWithEmptyFields.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RegistrationGuiTest.testRegisterWithExistingEmail.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RegistrationGuiTest.testSuccessfulAlertDisplay.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RegistrationGuiTest.testSuccessfulRegistration.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.gui [clean,javafx:run].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.gui [clean,package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.gui [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.gui [install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.gui [package].executor&quot;: &quot;Run&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit4&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4&quot;: &quot;&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;21&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/kakek/javafx-sdk-17.0.10/lib&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Global Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.5482759&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-  },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mariadb&quot;
-    ]
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -179,7 +119,7 @@
     <configuration name="Main2" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="app.Main" />
       <module name="gui" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;C:\tools\javafx-sdk-21.0.4&quot; --add-modules javafx.controls,javafx.fxml" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\tools\javafx-sdk-21.0.4\lib&quot; --add-modules javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="app.*" />
@@ -284,7 +224,7 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main2" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.RegistrationGuiTest (1)" />
         <item itemvalue="JUnit.LaskuControllerTest" />
         <item itemvalue="JUnit.RegistrationGuiTest" />
