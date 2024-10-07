@@ -1,7 +1,7 @@
-controller/KayttajaControllerTest.class
-view/RegistrationGuiTest.class
-controller/AsiakasControllerTest.class
-controller/VarausControllerTest.class
-controller/HuoneControllerTest.class
-controller/HotelliControllerTest.class
-controller/LaskuControllerTest.class
+controller\AsiakasControllerTest.class
+controller\LaskuControllerTest.class
+controller\KayttajaControllerTest.class
+controller\VarausControllerTest.class
+controller\HotelliControllerTest.class
+controller\HuoneControllerTest.class
+view\RegistrationGuiTest.class

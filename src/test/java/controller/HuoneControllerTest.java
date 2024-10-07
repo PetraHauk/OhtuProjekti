@@ -25,13 +25,12 @@ public class HuoneControllerTest {
 
     @Test
     public void findHuoneByTila() {
-        String huoneTila = "Varattu";
-        List<Huone> huoneList = huoneController.findHuoneByTila(huoneTila);
+        String huoneTila = "varattu";
+        List<Huone>huoneList = huoneController.findHuoneByTila(huoneTila);
         for (Huone huone : huoneList) {
-            assertTrue(huoneTila.equalsIgnoreCase(huone.getHuone_tila()));
+            assertEquals(huoneTila, huone.getHuone_tila());
         }
     }
-
 
     @Test
     public void testFindHuoneByTyyppi() {

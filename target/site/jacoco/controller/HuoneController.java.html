@@ -43,13 +43,13 @@ public class HuoneController {
     }
 
     public Huone findHuoneById(int id) {
-<span class="fc" id="L46">        return huoneDAO.findByRoomId(id);</span>
+<span class="nc" id="L46">        return huoneDAO.findByRoomId(id);</span>
     }
 
     public int getHuoneNroById(int huoneId) {
         // Assume that this method interacts with a DAO or repository to get the room number
 <span class="nc" id="L51">        Huone huone = huoneDAO.findByRoomId(huoneId);</span>
-<span class="nc" id="L52">        return huone.getHuone_nro();</span>
+<span class="nc bnc" id="L52" title="All 2 branches missed.">        return (huone != null) ? huone.getHuone_nro() : Integer.parseInt(&quot;Unknown&quot;);</span>
     }
 
 
@@ -57,11 +57,11 @@ public class HuoneController {
 <span class="nc" id="L57">        return huoneDAO.findByRoomNro(nro);</span>
     }
     public List&lt;Huone&gt; findHuoneByTila(String huone_tila) {
-<span class="fc" id="L60">        return huoneDAO.findByHuoneTila(huone_tila);</span>
+<span class="nc" id="L60">        return huoneDAO.findByHuoneTila(huone_tila);</span>
     }
 
     public List&lt;Huone&gt; findHuoneByTyyppi(String huone_tyyppi) {
-<span class="fc" id="L64">        return huoneDAO.findByTyyppi(huone_tyyppi);</span>
+<span class="nc" id="L64">        return huoneDAO.findByTyyppi(huone_tyyppi);</span>
     }
 
     public void updateHuoneById(int id, int huone_nro, String huone_tyyppi, String huone_tila, double huone_hinta) {

@@ -1,8 +1,11 @@
 package controller;
-import org.junit.Test;
+
+import org.testng.annotations.Test;
+
 import static org.junit.Assert.*;
 
 public class KayttajaControllerTest {
+
     KayttajaController kayttajaController = new KayttajaController();
 
     @Test

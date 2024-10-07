@@ -106,31 +106,5 @@ import java.util.List;
     public int varausPaivat( LocalDate alkuPvm, LocalDate loppuPvm) {
 <span class="nc" id="L107">        return alkuPvm.compareTo(loppuPvm);</span>
     }
-
-
-    public void removeByHuoneId(int huoneId) {
-<span class="nc" id="L112">        EntityManager em = MariaDbConnection.getInstance();</span>
-        try {
-<span class="nc" id="L114">            em.getTransaction().begin();</span>
-<span class="nc" id="L115">            List&lt;Varaus&gt; varaukset = em.createQuery(&quot;SELECT v FROM Varaus v WHERE v.huoneId = :huoneId&quot;, Varaus.class)</span>
-<span class="nc" id="L116">                    .setParameter(&quot;huoneId&quot;, huoneId)</span>
-<span class="nc" id="L117">                    .getResultList();</span>
-<span class="nc bnc" id="L118" title="All 2 branches missed.">            for (Varaus varaus : varaukset) {</span>
-<span class="nc" id="L119">                em.remove(varaus);</span>
-<span class="nc" id="L120">            }</span>
-<span class="nc" id="L121">            em.getTransaction().commit();</span>
-<span class="nc" id="L122">            System.out.println(&quot;All reservations for huone ID: &quot; + huoneId + &quot; have been removed.&quot;);</span>
-<span class="nc" id="L123">        } catch (Exception e) {</span>
-<span class="nc bnc" id="L124" title="All 2 branches missed.">            if (em.getTransaction().isActive()) {</span>
-<span class="nc" id="L125">                em.getTransaction().rollback();</span>
-            }
-<span class="nc" id="L127">            System.out.println(&quot;Failed to remove reservations for huone ID: &quot; + huoneId);</span>
-<span class="nc" id="L128">            e.printStackTrace();</span>
-        } finally {
-<span class="nc bnc" id="L130" title="All 2 branches missed.">            if (em != null) {</span>
-<span class="nc" id="L131">                em.close();</span>
-            }
-        }
-<span class="nc" id="L134">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
