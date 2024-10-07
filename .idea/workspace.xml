@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="065e434f-b050-4145-bce8-5768651a9a60" name="Changes" comment="muokasi main mukaan">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="065e434f-b050-4145-bce8-5768651a9a60" name="Changes" comment="test">
       <change beforePath="$PROJECT_DIR$/src/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/test/java/controller/HuoneControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/test/java/controller/HuoneControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/view/sivut/AsiakasSivu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/view/sivut/AsiakasSivu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +172,7 @@
       <command value="mvn install" />
     </option>
   </component>
-  <component name="RunManager" selected="JAR Application.ohtutest.jar">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="ALTERNATIVE_JRE_PATH" value="openjdk-21 (2)" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -258,8 +257,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JAR Application.ohtutest.jar" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JAR Application.ohtutest.jar" />
         <item itemvalue="JUnit.view in gui" />
         <item itemvalue="JUnit.controller in gui" />
         <item itemvalue="JUnit.HuoneControllerTest.findHuoneByTila" />
@@ -302,15 +301,7 @@
       <workItem from="1728144913459" duration="584000" />
       <workItem from="1728148090402" duration="1112000" />
       <workItem from="1728283247505" duration="52000" />
-      <workItem from="1728321962201" duration="1859000" />
-    </task>
-    <task id="LOCAL-00006" summary="kayttaja taulukko: lisää, haut, päivitä">
-      <option name="closed" value="true" />
-      <created>1725633440958</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1725633440958</updated>
+      <workItem from="1728321962201" duration="7009000" />
     </task>
     <task id="LOCAL-00007" summary="kayttaja taulukko: vaihda salasana toimi">
       <option name="closed" value="true" />
@@ -696,14 +687,21 @@
       <option name="project" value="LOCAL" />
       <updated>1728145206937</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="test">
+      <option name="closed" value="true" />
+      <created>1728323865500</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1728323865501</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="lisää huoneTyyppi" />
     <MESSAGE value="kirjautuu ja registeriointi" />
     <MESSAGE value="aasiakas välilehti: siakaan taulukko ja lisaa asiakasta" />
     <MESSAGE value="lisää  controller test" />
@@ -728,7 +726,8 @@
     <MESSAGE value="huoneMaara pois huonevaraus taulukosta" />
     <MESSAGE value="varausControlli test valmis" />
     <MESSAGE value="muokasi main mukaan" />
-    <option name="LAST_COMMIT_MESSAGE" value="muokasi main mukaan" />
+    <MESSAGE value="test" />
+    <option name="LAST_COMMIT_MESSAGE" value="test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

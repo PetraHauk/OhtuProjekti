@@ -59,11 +59,6 @@
             <artifactId>hibernate-core</artifactId>
             <version>6.0.0.Final</version>
         </dependency>
-        <dependency>
-            <groupId>org.mariadb.jdbc</groupId>
-            <artifactId>mariadb-java-client</artifactId>
-            <version>3.1.2</version>
-        </dependency>
 
         <!-- Logging -->
         <dependency>

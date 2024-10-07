@@ -30,46 +30,36 @@ public class AsiakasSivu {
         asiakkaatOtsikkoLabel.getStyleClass().add("otsikko");
         Button addCustomerButton = new Button("Lisää uusi asiakas");
 
-        addCustomerButton.setOnAction(e -> openAddCustomerWindow());
-
         TableView<Asiakas> customerTable = createCustomerTable();
+
+        addCustomerButton.setOnAction(e -> openAddCustomerWindow(customerTable));
         populateCustomerTable(customerTable);
         asiakkaatInfo.getChildren().addAll(asiakkaatOtsikkoLabel, customerTable, addCustomerButton);
         return asiakkaatInfo;
     }
 
-    private void openAddCustomerWindow() {
+    private void openAddCustomerWindow(TableView<Asiakas> customerTable) {
         Stage addCustomerStage = new Stage();
         addCustomerStage.setTitle("Lisää uusi asiakas");
 
-        // Pääasettelu, joka jakaa ikkunan osiin (yläosa, keskiosa, alaosa)
         BorderPane borderPane = new BorderPane();
-
-        // Lomakkeen kenttien asettelu pystysuoraan (VBox)
         VBox formLayout = new VBox(10);
-        formLayout.setAlignment(Pos.CENTER_LEFT); // Keskitetään vasemmalle
-        formLayout.setPadding(new Insets(20)); // Asetetaan täyte
+        formLayout.setAlignment(Pos.CENTER_LEFT);
+        formLayout.setPadding(new Insets(20));
 
-        // Kenttien ja tekstikenttien luonti
         Label firstNameLabel = new Label("Etunimi:");
         TextField firstNameField = new TextField();
-
         Label lastNameLabel = new Label("Sukunimi:");
         TextField lastNameField = new TextField();
-
         Label emailLabel = new Label("Sähköposti:");
         TextField emailField = new TextField();
-
         Label phoneLabel = new Label("Puhelin:");
         TextField phoneField = new TextField();
-
         Label henkiloMaaraLabel = new Label("Henkilömäärä:");
         TextField henkiloMaaraField = new TextField();
-
         Label huomioLabel = new Label("Huomio:");
         TextField huomioField = new TextField();
 
-        // Lisätään kentät lomakkeeseen (VBox)
         formLayout.getChildren().addAll(
                 firstNameLabel, firstNameField,
                 lastNameLabel, lastNameField,
@@ -80,31 +70,40 @@ public class AsiakasSivu {
         );
 
         Button saveButton = new Button("Lisää uusi asiakas");
+        Button cancelButton = new Button("Peruuta");
 
-        // Toiminnallisuus napille
+        HBox buttonBox = new HBox(10, saveButton, cancelButton);
+        buttonBox.setAlignment(Pos.CENTER);
+
         saveButton.setOnAction(e -> {
-            asiakasController.addAsiakas(
-                    firstNameField.getText(),
-                    lastNameField.getText(),
-                    emailField.getText(),
-                    phoneField.getText(),
-                    Integer.parseInt(henkiloMaaraField.getText()), // Muunnetaan teksti kokonaisluvuksi
-                    huomioField.getText());
+            try {
+                asiakasController.addAsiakas(
+                        firstNameField.getText(),
+                        lastNameField.getText(),
+                        emailField.getText(),
+                        phoneField.getText(),
+                        Integer.parseInt(henkiloMaaraField.getText()),
+                        huomioField.getText()
+                );
+                addCustomerStage.close();
+                populateCustomerTable(customerTable);  // Päivitä asiakastaulukko
+            } catch (Exception ex) {
+                System.err.println("Asiakkaan lisääminen epäonnistui: " + ex.getMessage());
+            }
         });
 
-        // Asetetaan lomake BorderPane:n keskelle
+        cancelButton.setOnAction(e -> addCustomerStage.close());
+
         borderPane.setCenter(formLayout);
+        borderPane.setBottom(buttonBox);
+        BorderPane.setMargin(buttonBox, new Insets(10));
 
-        // Asetetaan painike BorderPane:n alaosaan ja lisätään täyte nappulan yläpuolelle
-        BorderPane.setMargin(saveButton, new Insets(10, 10, 20, 10)); // Marginaalit
-        borderPane.setBottom(saveButton);
-        BorderPane.setAlignment(saveButton, Pos.CENTER); // Keskitetään nappi alaosaan
-
-        // Luodaan ja näytetään käyttöliittymän näkymä (Scene)
         Scene scene = new Scene(borderPane, 400, 460);
         addCustomerStage.setScene(scene);
         addCustomerStage.show();
     }
+
+
 
     // Populate the customer table. Runs it in a thread and shows loading indicator.
     private void populateCustomerTable(TableView<Asiakas> customerTable) {
