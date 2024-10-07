@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LaskuDAO.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">gui</a> &gt; <a href="index.source.html" class="el_package">model.DAO</a> &gt; <span class="el_source">LaskuDAO.java</span></div><h1>LaskuDAO.java</h1><pre class="source lang-java linenums">package model.DAO;
+
+import jakarta.persistence.EntityManager;
+import model.datasourse.MariaDbConnection;
+import model.enteties.Lasku;
+import java.util.List;
+
+<span class="fc" id="L8">public class LaskuDAO {</span>
+    public void persist(Lasku lasku) {
+<span class="nc" id="L10">        EntityManager em = MariaDbConnection.getInstance();</span>
+<span class="nc" id="L11">        em.getTransaction().begin();</span>
+<span class="nc" id="L12">        em.persist(lasku);</span>
+<span class="nc" id="L13">        em.getTransaction().commit();</span>
+<span class="nc" id="L14">    }</span>
+
+    public Lasku haeByLaskuId(int lasku_id) {
+<span class="fc" id="L17">        EntityManager em = MariaDbConnection.getInstance();</span>
+        try {
+<span class="fc" id="L19">            Lasku lasku = em.find(Lasku.class, lasku_id);</span>
+<span class="pc bpc" id="L20" title="1 of 2 branches missed.">            if (lasku != null) {</span>
+<span class="fc" id="L21">                return lasku;</span>
+            }
+        } finally {
+<span class="pc bpc" id="L24" title="1 of 2 branches missed.">            if (em != null) {</span>
+<span class="fc" id="L25">                em.close();</span>
+            }
+        }
+<span class="nc" id="L28">        return null;</span>
+    }
+
+    public List&lt;Lasku&gt; haeByAsiakasId(int asiakas_id) {
+<span class="fc" id="L32">        EntityManager em = MariaDbConnection.getInstance();</span>
+<span class="fc" id="L33">        List&lt;Lasku&gt; laskut = null;</span>
+        try {
+<span class="fc" id="L35">            laskut = em.createQuery(&quot;SELECT l FROM Lasku l WHERE l.asiakas_id = :asiakas_id&quot;, Lasku.class)</span>
+<span class="fc" id="L36">                    .setParameter(&quot;asiakas_id&quot;, asiakas_id)</span>
+<span class="fc" id="L37">                    .getResultList();</span>
+<span class="pc bpc" id="L38" title="1 of 2 branches missed.">            if (!laskut.isEmpty()) {</span>
+<span class="fc" id="L39">                return laskut;</span>
+            } else {
+<span class="nc" id="L41">                System.out.println(&quot;Laskua ei löytynyt asiakas id:llä &quot; + asiakas_id);</span>
+            }
+        } finally {
+<span class="pc bpc" id="L44" title="1 of 2 branches missed.">            if (em != null) {</span>
+<span class="fc" id="L45">                em.close();</span>
+            }
+        }
+<span class="nc" id="L48">        return null;</span>
+    }
+
+    public void updateLaskuById(int id, String maksuStatus, String varausMuoto, String valuutta, int asiakasId) {
+<span class="nc" id="L52">        EntityManager em = MariaDbConnection.getInstance();</span>
+        try {
+<span class="nc" id="L54">            em.getTransaction().begin();</span>
+<span class="nc" id="L55">            Lasku lasku = em.find(Lasku.class, id);</span>
+<span class="nc bnc" id="L56" title="All 2 branches missed.">            if (lasku != null) {</span>
+<span class="nc" id="L57">                lasku.setMaksuStatus(maksuStatus);</span>
+<span class="nc" id="L58">                lasku.setVarausMuoto(varausMuoto);</span>
+<span class="nc" id="L59">                lasku.setValuutta(valuutta);</span>
+            }
+<span class="nc" id="L61">            em.getTransaction().commit();</span>
+        } finally {
+<span class="nc bnc" id="L63" title="All 2 branches missed.">            if (em != null) {</span>
+<span class="nc" id="L64">                em.close();</span>
+            }
+        }
+<span class="nc" id="L67">    }</span>
+
+    public void updateStatusById(int id, String tila) {
+<span class="nc" id="L70">        EntityManager em = MariaDbConnection.getInstance();</span>
+        try {
+<span class="nc" id="L72">            em.getTransaction().begin();</span>
+<span class="nc" id="L73">            Lasku lasku = em.find(Lasku.class, id);</span>
+<span class="nc bnc" id="L74" title="All 2 branches missed.">            if (lasku != null) {</span>
+<span class="nc" id="L75">                lasku.setMaksuStatus(tila);</span>
+            }
+<span class="nc" id="L77">            em.getTransaction().commit();</span>
+        } finally {
+<span class="nc bnc" id="L79" title="All 2 branches missed.">            if (em != null) {</span>
+<span class="nc" id="L80">                em.close();</span>
+            }
+        }
+<span class="nc" id="L83">    }</span>
+
+    public void removeById(int id) {
+<span class="nc" id="L86">        EntityManager em = MariaDbConnection.getInstance();</span>
+        try{
+<span class="nc" id="L88">            em.getTransaction().begin();</span>
+<span class="nc" id="L89">            Lasku lasku = em.find(Lasku.class, id);</span>
+<span class="nc bnc" id="L90" title="All 2 branches missed.">            if (lasku != null) {</span>
+<span class="nc" id="L91">                em.remove(lasku);</span>
+            } else {
+<span class="nc" id="L93">                System.out.println(&quot;Laskua ei löytynyt id:llä &quot; + id);</span>
+            }
+<span class="nc" id="L95">            em.getTransaction().commit();</span>
+        } finally {
+<span class="nc bnc" id="L97" title="All 2 branches missed.">            if (em != null) {</span>
+<span class="nc" id="L98">                em.close();</span>
+            }
+        }
+<span class="nc" id="L101">    }</span>
+
+    public List&lt;Lasku&gt; haeKaikkilaskut() {
+<span class="nc" id="L104">        EntityManager em = MariaDbConnection.getInstance();</span>
+<span class="nc" id="L105">        List&lt;Lasku&gt; laskut = null;</span>
+        try {
+<span class="nc" id="L107">            laskut = em.createQuery(&quot;SELECT l FROM Lasku l&quot;, Lasku.class).getResultList();</span>
+<span class="nc bnc" id="L108" title="All 2 branches missed.">            if (!laskut.isEmpty()) {</span>
+<span class="nc" id="L109">                return laskut;</span>
+            } else {
+<span class="nc" id="L111">                System.out.println(&quot;Lasku lista on tyhje.&quot;);</span>
+            }
+        } finally {
+<span class="nc bnc" id="L114" title="All 2 branches missed.">            if (em != null) {</span>
+<span class="nc" id="L115">                em.close();</span>
+            }
+        }
+<span class="nc" id="L118">        return null;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

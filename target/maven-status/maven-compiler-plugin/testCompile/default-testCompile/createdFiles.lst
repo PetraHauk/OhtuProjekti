@@ -1,0 +1,7 @@
+controller/KayttajaControllerTest.class
+view/RegistrationGuiTest.class
+controller/AsiakasControllerTest.class
+controller/VarausControllerTest.class
+controller/HuoneControllerTest.class
+controller/HotelliControllerTest.class
+controller/LaskuControllerTest.class

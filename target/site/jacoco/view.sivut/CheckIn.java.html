@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CheckIn.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">gui</a> &gt; <a href="index.source.html" class="el_package">view.sivut</a> &gt; <span class="el_source">CheckIn.java</span></div><h1>CheckIn.java</h1><pre class="source lang-java linenums">package view.sivut;
+
+import controller.HuoneController;
+import controller.VarausController;
+import javafx.application.Platform;
+import javafx.concurrent.Task;
+import javafx.geometry.Pos;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import model.DAO.AsiakasDAO;
+import model.enteties.Asiakas;
+import model.enteties.Huone;
+import model.enteties.Varaus;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class CheckIn {
+
+    private final HuoneController huoneController;
+    private final VarausController varausController;
+
+<span class="nc" id="L27">    public CheckIn() {</span>
+<span class="nc" id="L28">        varausController = new VarausController();</span>
+<span class="nc" id="L29">        huoneController = new HuoneController();</span>
+<span class="nc" id="L30">    }</span>
+
+    public VBox createCheckIn() {
+<span class="nc" id="L33">        VBox huoneVarausInfo = new VBox(5);</span>
+<span class="nc" id="L34">        huoneVarausInfo.getStyleClass().add(&quot;info&quot;);</span>
+
+<span class="nc" id="L36">        Label checkInInfoLabel = new Label(&quot;Check-In&quot;);</span>
+<span class="nc" id="L37">        checkInInfoLabel.getStyleClass().add(&quot;otsikko&quot;);</span>
+
+<span class="nc" id="L39">        VBox huoneTyyppi = new VBox(0);</span>
+<span class="nc" id="L40">        Label huoneLabel = new Label(&quot;Huoneen tyyppi:&quot;);</span>
+<span class="nc" id="L41">        ComboBox&lt;String&gt; huoneField = new ComboBox&lt;&gt;();</span>
+<span class="nc" id="L42">        huoneField.getItems().addAll(</span>
+                &quot;Yhden hengen huone&quot;,
+                &quot;Kahden hengen huone&quot;,
+                &quot;Kolmen hengen huone&quot;,
+                &quot;Perhehuone&quot;,
+                &quot;Sviitti&quot;
+        );
+<span class="nc" id="L49">        huoneField.setPromptText(&quot;Valitse huonetyyppi...&quot;);</span>
+<span class="nc" id="L50">        huoneTyyppi.getChildren().addAll(huoneLabel, huoneField);</span>
+
+<span class="nc" id="L52">        VBox tuloPaiva = new VBox(0);</span>
+<span class="nc" id="L53">        Label tuloLabel = new Label(&quot;Saapumispäivä:&quot;);</span>
+<span class="nc" id="L54">        DatePicker tuloDatePicker = new DatePicker();</span>
+<span class="nc" id="L55">        tuloDatePicker.setValue(LocalDate.now());</span>
+<span class="nc" id="L56">        tuloPaiva.getChildren().addAll(tuloLabel, tuloDatePicker);</span>
+
+<span class="nc" id="L58">        VBox poistumisPaiva = new VBox(0);</span>
+<span class="nc" id="L59">        Label poistumisLabel = new Label(&quot;Lähtöpäivä:&quot;);</span>
+<span class="nc" id="L60">        DatePicker poistumisDatePicker = new DatePicker();</span>
+<span class="nc" id="L61">        poistumisPaiva.getChildren().addAll(poistumisLabel, poistumisDatePicker);</span>
+
+<span class="nc" id="L63">        VBox paivat = new VBox(0);</span>
+<span class="nc" id="L64">        Label paivatLabel = new Label(&quot;Päivät:&quot;);</span>
+<span class="nc" id="L65">        Label paivatValue = new Label(&quot;0&quot;);</span>
+<span class="nc" id="L66">        paivat.getChildren().addAll(paivatLabel, paivatValue);</span>
+
+<span class="nc" id="L68">        VBox huoneHinta = new VBox(0);</span>
+<span class="nc" id="L69">        Label hintaLabel = new Label(&quot;Huoneen hinta:&quot;);</span>
+<span class="nc" id="L70">        Label hinta = new Label(&quot;0.00 €&quot;);</span>
+<span class="nc" id="L71">        huoneHinta.getChildren().addAll(hintaLabel, hinta);</span>
+
+<span class="nc" id="L73">        VBox availableRooms = new VBox(10);</span>
+<span class="nc" id="L74">        Label availableRoomsTitle = new Label(&quot;Vapaat huoneet:&quot;);</span>
+<span class="nc" id="L75">        availableRoomsTitle.getStyleClass().add(&quot;otsikko&quot;);</span>
+<span class="nc" id="L76">        TableView&lt;Huone&gt; huoneTable = createHuoneTable();</span>
+<span class="nc" id="L77">        huoneTable.setPrefWidth(500);</span>
+<span class="nc" id="L78">        huoneTable.setPrefHeight(250);</span>
+<span class="nc" id="L79">        availableRooms.getChildren().addAll(availableRoomsTitle, huoneTable);</span>
+
+<span class="nc" id="L81">        huoneVarausInfo.getChildren().addAll(checkInInfoLabel, huoneTyyppi, tuloPaiva, poistumisPaiva, paivat, huoneHinta);</span>
+<span class="nc" id="L82">        HBox huoneTiedot = new HBox(10);</span>
+<span class="nc" id="L83">        huoneTiedot.getChildren().addAll(huoneVarausInfo, availableRooms);</span>
+
+<span class="nc" id="L85">        VBox varausInfo = new VBox(5);</span>
+<span class="nc" id="L86">        Label varausInfoLabel = new Label(&quot;Varaus&quot;);</span>
+<span class="nc" id="L87">        varausInfoLabel.getStyleClass().add(&quot;otsikko&quot;);</span>
+
+<span class="nc" id="L89">        TableView&lt;Varaus&gt; varausTable = createVarausTable();</span>
+<span class="nc" id="L90">        varausTable.setPrefWidth(500);</span>
+<span class="nc" id="L91">        varausTable.setPrefHeight(200);</span>
+<span class="nc" id="L92">        populateVarausTable(varausTable, tuloDatePicker.getValue(), poistumisDatePicker.getValue());</span>
+
+<span class="nc" id="L94">        varausInfo.getChildren().addAll(varausInfoLabel, varausTable);</span>
+
+<span class="nc" id="L96">        Button checkInButton = new Button(&quot;Check-In&quot;);</span>
+
+<span class="nc" id="L98">        tuloDatePicker.valueProperty().addListener((observable, oldValue, newValue) -&gt; {</span>
+<span class="nc bnc" id="L99" title="All 4 branches missed.">            if (tuloDatePicker.getValue() != null &amp;&amp; poistumisDatePicker.getValue() != null) {</span>
+<span class="nc" id="L100">                paivatValue.setText(String.valueOf(tuloDatePicker.getValue().until(poistumisDatePicker.getValue()).getDays()));</span>
+            }
+<span class="nc" id="L102">        });</span>
+<span class="nc" id="L103">        poistumisDatePicker.valueProperty().addListener((observable, oldValue, newValue) -&gt; {</span>
+<span class="nc bnc" id="L104" title="All 4 branches missed.">            if (tuloDatePicker.getValue() != null &amp;&amp; poistumisDatePicker.getValue() != null) {</span>
+<span class="nc" id="L105">                paivatValue.setText(String.valueOf(tuloDatePicker.getValue().until(poistumisDatePicker.getValue()).getDays()));</span>
+            }
+<span class="nc" id="L107">        });</span>
+
+        // Event listener for the room table. Calculate the price of the selected room
+<span class="nc" id="L110">        huoneTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -&gt; {</span>
+<span class="nc bnc" id="L111" title="All 2 branches missed.">            if (newValue != null) {</span>
+<span class="nc" id="L112">                double price = newValue.getHuone_hinta() * Integer.parseInt(paivatValue.getText());</span>
+<span class="nc" id="L113">                hinta.setText(String.format(&quot;%.2f €&quot;, price));</span>
+            }
+<span class="nc" id="L115">        });</span>
+
+        // Event listeners for the date pickers. Populate the free room table and the reservation table
+<span class="nc" id="L118">        tuloDatePicker.valueProperty().addListener((observable, oldValue, newValue) -&gt; {</span>
+<span class="nc" id="L119">            populateFreeRoomTable(huoneTable, 1, tuloDatePicker, poistumisDatePicker);</span>
+<span class="nc" id="L120">            populateVarausTable(varausTable, tuloDatePicker.getValue(), poistumisDatePicker.getValue());</span>
+<span class="nc" id="L121">        });</span>
+<span class="nc" id="L122">        poistumisDatePicker.valueProperty().addListener((observable, oldValue, newValue) -&gt; {</span>
+<span class="nc" id="L123">            populateFreeRoomTable(huoneTable, 1, tuloDatePicker, poistumisDatePicker);</span>
+<span class="nc" id="L124">            populateVarausTable(varausTable, tuloDatePicker.getValue(), poistumisDatePicker.getValue());</span>
+<span class="nc" id="L125">        });</span>
+
+        // Event listener for the reservation table. Set the check-out date to the selected reservation
+        /*varausTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -&gt; {
+            if (newValue != null) {
+                poistumisDatePicker.setValue(newValue.getLoppuPvm());
+            }
+        });
+
+         */
+
+<span class="nc" id="L136">        checkInButton.setOnAction(e -&gt; {</span>
+<span class="nc" id="L137">            CheckInButtonAction(huoneTable, varausTable);</span>
+<span class="nc" id="L138">        });</span>
+<span class="nc" id="L139">        VBox checkIn = new VBox(20);</span>
+<span class="nc" id="L140">        checkIn.getChildren().addAll(huoneTiedot, varausInfo, checkInButton);</span>
+<span class="nc" id="L141">        return checkIn;</span>
+    }
+
+    private void populateFreeRoomTable(TableView&lt;Huone&gt; huoneTable, int hotelliId, DatePicker tuloDatePicker, DatePicker poistumisDatePicker) {
+<span class="nc" id="L145">        ProgressIndicator loadingIndicator = new ProgressIndicator();</span>
+<span class="nc" id="L146">        loadingIndicator.setVisible(true);</span>
+<span class="nc" id="L147">        huoneTable.getItems().clear();</span>
+<span class="nc" id="L148">        huoneTable.setPlaceholder(loadingIndicator);</span>
+
+<span class="nc bnc" id="L150" title="All 6 branches missed.">        if (tuloDatePicker.getValue() != null &amp;&amp; poistumisDatePicker.getValue() != null &amp;&amp; tuloDatePicker.getValue().isAfter(poistumisDatePicker.getValue())) {</span>
+<span class="nc" id="L151">            huoneTable.setPlaceholder(new Label(&quot;Check-out date must be after check-in date&quot;));</span>
+<span class="nc" id="L152">            loadingIndicator.setVisible(false);</span>
+<span class="nc" id="L153">            return;</span>
+        }
+<span class="nc" id="L155">        Task&lt;List&lt;Huone&gt;&gt; fetchRoomsTask = new Task&lt;&gt;() {</span>
+            @Override
+            protected List&lt;Huone&gt; call() throws Exception {
+<span class="nc" id="L158">                return huoneController.findVapaatHuoneetByHotelliId(hotelliId);</span>
+            }
+        };
+<span class="nc" id="L161">        fetchRoomsTask.setOnSucceeded(event -&gt; {</span>
+<span class="nc" id="L162">            List&lt;Huone&gt; rooms = fetchRoomsTask.getValue();</span>
+<span class="nc bnc" id="L163" title="All 4 branches missed.">            if (rooms != null &amp;&amp; !rooms.isEmpty()) {</span>
+<span class="nc" id="L164">                huoneTable.getItems().setAll(rooms);</span>
+            } else {
+<span class="nc" id="L166">                huoneTable.setPlaceholder(new Label(&quot;No free rooms found for the given hotel ID&quot;));</span>
+            }
+<span class="nc" id="L168">            loadingIndicator.setVisible(false);</span>
+<span class="nc" id="L169">        });</span>
+<span class="nc" id="L170">        fetchRoomsTask.setOnFailed(event -&gt; {</span>
+<span class="nc" id="L171">            huoneTable.setPlaceholder(new Label(&quot;Failed to load free room data&quot;));</span>
+<span class="nc" id="L172">            System.err.println(&quot;Failed to fetch free rooms: &quot; + fetchRoomsTask.getException());</span>
+<span class="nc" id="L173">            loadingIndicator.setVisible(false);</span>
+<span class="nc" id="L174">        });</span>
+<span class="nc" id="L175">        new Thread(fetchRoomsTask).start();</span>
+<span class="nc" id="L176">    }</span>
+
+    private void populateVarausTable(TableView&lt;Varaus&gt; varausTable, LocalDate alkuPvm, LocalDate loppuPvm) {
+<span class="nc" id="L179">        ProgressIndicator loadingIndicator = new ProgressIndicator();</span>
+<span class="nc" id="L180">        loadingIndicator.setVisible(true);</span>
+<span class="nc" id="L181">        loadingIndicator.setPrefSize(50, 50);</span>
+
+<span class="nc" id="L183">        varausTable.getItems().clear();</span>
+<span class="nc" id="L184">        varausTable.setPlaceholder(loadingIndicator);</span>
+
+<span class="nc bnc" id="L186" title="All 2 branches missed.">        LocalDate startDate = (alkuPvm != null) ? alkuPvm : LocalDate.of(1970, 1, 1);</span>
+<span class="nc bnc" id="L187" title="All 2 branches missed.">        LocalDate endDate = (loppuPvm != null) ? loppuPvm : LocalDate.of(2100, 1, 1);</span>
+
+<span class="nc" id="L189">        Task&lt;List&lt;Varaus&gt;&gt; fetchVarauksetTask = new Task&lt;&gt;() {</span>
+            @Override
+            protected List&lt;Varaus&gt; call() throws Exception {
+<span class="nc" id="L192">                return varausController.findVarauksetByDate(startDate, endDate);</span>
+            }
+        };
+
+<span class="nc" id="L196">        fetchVarauksetTask.setOnSucceeded(event -&gt; {</span>
+<span class="nc" id="L197">            List&lt;Varaus&gt; varaukset = fetchVarauksetTask.getValue();</span>
+
+<span class="nc" id="L199">            Platform.runLater(() -&gt; {</span>
+<span class="nc" id="L200">                loadingIndicator.setVisible(false);</span>
+<span class="nc" id="L201">                varausTable.getSelectionModel().clearSelection(); // Clear selection before updating items</span>
+
+<span class="nc bnc" id="L203" title="All 4 branches missed.">                if (varaukset != null &amp;&amp; !varaukset.isEmpty()) {</span>
+<span class="nc" id="L204">                    varausTable.getItems().setAll(varaukset); // Update table with new data</span>
+                } else {
+<span class="nc" id="L206">                    varausTable.setPlaceholder(new Label(&quot;No reservations found for the given dates&quot;));</span>
+                }
+<span class="nc" id="L208">            });</span>
+<span class="nc" id="L209">        });</span>
+
+<span class="nc" id="L211">        fetchVarauksetTask.setOnFailed(event -&gt; {</span>
+<span class="nc" id="L212">            varausTable.setPlaceholder(new Label(&quot;Failed to load reservation data&quot;));</span>
+<span class="nc" id="L213">            System.err.println(&quot;Failed to fetch reservations: &quot; + fetchVarauksetTask.getException());</span>
+<span class="nc" id="L214">            loadingIndicator.setVisible(false);</span>
+<span class="nc" id="L215">        });</span>
+
+<span class="nc" id="L217">        new Thread(fetchVarauksetTask).start();</span>
+<span class="nc" id="L218">    }</span>
+
+
+    private void CheckInButtonAction(TableView&lt;Huone&gt; huoneTable, TableView&lt;Varaus&gt; varausTable) {
+<span class="nc" id="L222">        Huone selectedRoom = huoneTable.getSelectionModel().getSelectedItem();</span>
+<span class="nc" id="L223">        Varaus selectedVaraus = varausTable.getSelectionModel().getSelectedItem();</span>
+<span class="nc bnc" id="L224" title="All 4 branches missed.">        if (selectedRoom != null &amp;&amp; selectedVaraus != null) {</span>
+<span class="nc" id="L225">            Integer previousRoom = selectedRoom.getHuone_id();</span>
+
+<span class="nc bnc" id="L227" title="All 2 branches missed.">            if (selectedVaraus.getHuoneId() != null) {</span>
+<span class="nc" id="L228">                huoneController.updateHuoneStatusById(selectedVaraus.getHuoneId(), &quot;Vapaa&quot;);</span>
+            }
+
+<span class="nc" id="L231">            huoneController.updateHuoneStatusById(selectedRoom.getHuone_id(), &quot;Varattu&quot;);</span>
+<span class="nc" id="L232">            varausController.updateVarausHuoneById(selectedVaraus.getVarausId(), selectedRoom.getHuone_id());</span>
+        }
+
+<span class="nc" id="L235">    }</span>
+
+    private TableView&lt;Huone&gt; createHuoneTable() {
+<span class="nc" id="L238">        TableView&lt;Huone&gt; huoneTableView = new TableView&lt;&gt;();</span>
+        // Set the width of the table
+<span class="nc" id="L240">        huoneTableView.setPrefWidth(950);</span>
+<span class="nc" id="L241">        huoneTableView.setPrefHeight(400);</span>
+
+<span class="nc" id="L243">        TableColumn&lt;Huone, Integer&gt; numeroColumn = new TableColumn&lt;&gt;(&quot;Huoneen Numero&quot;);</span>
+<span class="nc" id="L244">        numeroColumn.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;huone_nro&quot;));</span>
+<span class="nc" id="L245">        numeroColumn.setMinWidth(94);</span>
+
+<span class="nc" id="L247">        TableColumn&lt;Huone, String&gt; tyyppiColumn = new TableColumn&lt;&gt;(&quot;Huone Tyyppi&quot;);</span>
+<span class="nc" id="L248">        tyyppiColumn.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;huone_tyyppi&quot;));</span>
+<span class="nc" id="L249">        tyyppiColumn.setMinWidth(150);</span>
+
+<span class="nc" id="L251">        TableColumn&lt;Huone, Double&gt; hintaColumn = new TableColumn&lt;&gt;(&quot;Huone Hinta&quot;);</span>
+<span class="nc" id="L252">        hintaColumn.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;huone_hinta&quot;));</span>
+<span class="nc" id="L253">        hintaColumn.setMinWidth(150);</span>
+
+<span class="nc" id="L255">        TableColumn&lt;Huone, String&gt; statusColumn = new TableColumn&lt;&gt;(&quot;Huone Status&quot;);</span>
+<span class="nc" id="L256">        statusColumn.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;huone_tila&quot;));</span>
+<span class="nc" id="L257">        statusColumn.setMinWidth(100);</span>
+
+<span class="nc" id="L259">        huoneTableView.getColumns().add(numeroColumn);</span>
+<span class="nc" id="L260">        huoneTableView.getColumns().add(tyyppiColumn);</span>
+<span class="nc" id="L261">        huoneTableView.getColumns().add(hintaColumn);</span>
+<span class="nc" id="L262">        huoneTableView.getColumns().add(statusColumn);</span>
+
+<span class="nc" id="L264">        return huoneTableView;</span>
+    }
+
+
+    private TableView&lt;Varaus&gt; createVarausTable(){
+<span class="nc" id="L269">        TableView&lt;Varaus&gt; varausTable = new TableView&lt;&gt;();</span>
+<span class="nc" id="L270">        varausTable.setPrefWidth(950);</span>
+
+<span class="nc" id="L272">        TableColumn&lt;Varaus, Integer&gt; idColumn = new TableColumn&lt;&gt;(&quot;Varaus ID&quot;);</span>
+<span class="nc" id="L273">        idColumn.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;varausId&quot;));</span>
+<span class="nc" id="L274">        idColumn.setMinWidth(140);</span>
+
+<span class="nc" id="L276">        TableColumn&lt;Varaus, String&gt; asiakasColumn = new TableColumn&lt;&gt;(&quot;Lasku ID&quot;);</span>
+<span class="nc" id="L277">        asiakasColumn.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;laskuId&quot;));</span>
+
+<span class="nc" id="L279">        TableColumn&lt;Varaus, Integer&gt; roomColumn = new TableColumn&lt;&gt;(&quot;Huone Id&quot;);</span>
+<span class="nc" id="L280">        roomColumn.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;huoneId&quot;));</span>
+<span class="nc" id="L281">        roomColumn.setMinWidth(140);</span>
+
+<span class="nc" id="L283">        TableColumn&lt;Varaus, Integer&gt; invoiceColumn = new TableColumn&lt;&gt;(&quot;Lasku ID&quot;);</span>
+<span class="nc" id="L284">        invoiceColumn.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;laskuId&quot;));</span>
+<span class="nc" id="L285">        invoiceColumn.setMinWidth(140);</span>
+
+<span class="nc" id="L287">        TableColumn&lt;Varaus, String&gt; startDateColumn = new TableColumn&lt;&gt;(&quot;Alkupäivämäärä&quot;);</span>
+<span class="nc" id="L288">        startDateColumn.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;alkuPvm&quot;));</span>
+<span class="nc" id="L289">        startDateColumn.setMinWidth(150);</span>
+
+<span class="nc" id="L291">        TableColumn&lt;Varaus, String&gt; endDateColumn = new TableColumn&lt;&gt;(&quot;Loppupäivämäärä&quot;);</span>
+<span class="nc" id="L292">        endDateColumn.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;loppuPvm&quot;));</span>
+<span class="nc" id="L293">        endDateColumn.setMinWidth(150);</span>
+
+<span class="nc" id="L295">        varausTable.getColumns().add(idColumn);</span>
+<span class="nc" id="L296">        varausTable.getColumns().add(roomColumn);</span>
+<span class="nc" id="L297">        varausTable.getColumns().add(asiakasColumn);</span>
+<span class="nc" id="L298">        varausTable.getColumns().add(startDateColumn);</span>
+<span class="nc" id="L299">        varausTable.getColumns().add(endDateColumn);</span>
+
+<span class="nc" id="L301">        return varausTable;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

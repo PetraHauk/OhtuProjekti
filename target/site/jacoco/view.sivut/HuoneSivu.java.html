@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>HuoneSivu.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">gui</a> &gt; <a href="index.source.html" class="el_package">view.sivut</a> &gt; <span class="el_source">HuoneSivu.java</span></div><h1>HuoneSivu.java</h1><pre class="source lang-java linenums">package view.sivut;
+
+import controller.HuoneController;
+import javafx.concurrent.Task;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import model.enteties.Asiakas;
+import model.enteties.Huone;
+
+import java.util.List;
+
+public class HuoneSivu {
+
+    private HuoneController huoneController;
+
+<span class="nc" id="L23">    public HuoneSivu() {</span>
+<span class="nc" id="L24">        this.huoneController = new HuoneController();</span>
+<span class="nc" id="L25">    }</span>
+
+    public VBox createHuoneet() {
+<span class="nc" id="L28">        VBox huoneetInfo = new VBox(10);</span>
+<span class="nc" id="L29">        huoneetInfo.getStyleClass().add(&quot;info&quot;);</span>
+<span class="nc" id="L30">        Label huoneetOtsikkoLabel = new Label(&quot;Huoneet&quot;);</span>
+<span class="nc" id="L31">        huoneetOtsikkoLabel.getStyleClass().add(&quot;otsikko&quot;);</span>
+
+        // Create the search bar
+<span class="nc" id="L34">        TextField searchField = new TextField();</span>
+<span class="nc" id="L35">        searchField.setPromptText(&quot;Etsi huoneita...&quot;);</span>
+<span class="nc" id="L36">        searchField.setMinWidth(200);</span>
+
+        // Create ComboBox for room type
+<span class="nc" id="L39">        ComboBox&lt;String&gt; roomTypeComboBox = new ComboBox&lt;&gt;();</span>
+<span class="nc" id="L40">        roomTypeComboBox.getItems().addAll(&quot;Kaikki tyypit&quot;, &quot;Yhden hengen huone&quot;, &quot;Kahden hengen huone&quot;, &quot;Kolmen hengen huone&quot;, &quot;Perhehuone&quot;, &quot;Sviitti&quot;);</span>
+<span class="nc" id="L41">        roomTypeComboBox.setValue(&quot;Kaikki tyypit&quot;); // Default value</span>
+<span class="nc" id="L42">        roomTypeComboBox.setPromptText(&quot;Valitse huonetyyppi...&quot;);</span>
+
+        // Create ComboBox for room status
+<span class="nc" id="L45">        ComboBox&lt;String&gt; roomStatusComboBox = new ComboBox&lt;&gt;();</span>
+<span class="nc" id="L46">        roomStatusComboBox.getItems().addAll(&quot;Kaikki tilat&quot;, &quot;Vapaa&quot;, &quot;Varattu&quot;, &quot;Siivous&quot;);</span>
+<span class="nc" id="L47">        roomStatusComboBox.setValue(&quot;Kaikki tilat&quot;); // Default value</span>
+<span class="nc" id="L48">        roomStatusComboBox.setPromptText(&quot;Valitse huoneen tila...&quot;);</span>
+
+        // Create a horizontal box to hold searchField, roomTypeComboBox, and roomStatusComboBox
+<span class="nc" id="L51">        HBox filterBox = new HBox(10, searchField, roomTypeComboBox, roomStatusComboBox);</span>
+<span class="nc" id="L52">        filterBox.setAlignment(Pos.CENTER_LEFT);</span>
+<span class="nc" id="L53">        filterBox.setPadding(new Insets(10, 0, 10, 0));</span>
+
+<span class="nc" id="L55">        TableView&lt;Huone&gt; roomTable = createHuoneTable();</span>
+
+        // Assuming hotel ID is 1 for this example
+<span class="nc" id="L58">        populateRoomTable(roomTable, 1);</span>
+
+        // Add listeners to filter the table when user interacts with search field or ComboBoxes
+<span class="nc" id="L61">        searchField.textProperty().addListener((observable, oldValue, newValue) -&gt; {</span>
+<span class="nc" id="L62">            filterTable(roomTable, searchField.getText(), roomTypeComboBox.getValue(), roomStatusComboBox.getValue());</span>
+<span class="nc" id="L63">        });</span>
+
+<span class="nc" id="L65">        roomTypeComboBox.valueProperty().addListener((observable, oldValue, newValue) -&gt; {</span>
+<span class="nc" id="L66">            filterTable(roomTable, searchField.getText(), roomTypeComboBox.getValue(), roomStatusComboBox.getValue());</span>
+<span class="nc" id="L67">        });</span>
+
+<span class="nc" id="L69">        roomStatusComboBox.valueProperty().addListener((observable, oldValue, newValue) -&gt; {</span>
+<span class="nc" id="L70">            filterTable(roomTable, searchField.getText(), roomTypeComboBox.getValue(), roomStatusComboBox.getValue());</span>
+<span class="nc" id="L71">        });</span>
+
+<span class="nc" id="L73">        Button addRoomButton = new Button(&quot;Lisää uusi huone&quot;);</span>
+<span class="nc" id="L74">        addRoomButton.setOnAction(e -&gt; openAddRoomWindow(roomTable));</span>
+<span class="nc" id="L75">        addRoomButton.getStyleClass().add(&quot;yellow-btn&quot;);</span>
+
+<span class="nc" id="L77">        huoneetInfo.getChildren().addAll(huoneetOtsikkoLabel, filterBox, roomTable, addRoomButton);</span>
+<span class="nc" id="L78">        return huoneetInfo;</span>
+    }
+
+
+    private void filterTable(TableView&lt;Huone&gt; roomTable, String searchText, String selectedRoomType, String selectedRoomStatus) {
+        // If no searchText or filters, populate the full table
+<span class="nc bnc" id="L84" title="All 4 branches missed.">        if ((searchText == null || searchText.isEmpty()) &amp;&amp;</span>
+<span class="nc bnc" id="L85" title="All 2 branches missed.">                (&quot;Kaikki tyypit&quot;.equals(selectedRoomType)) &amp;&amp;</span>
+<span class="nc bnc" id="L86" title="All 2 branches missed.">                (&quot;Kaikki tilat&quot;.equals(selectedRoomStatus))) {</span>
+<span class="nc" id="L87">            populateRoomTable(roomTable, 1); // Assuming hotel ID is 1 for this example</span>
+<span class="nc" id="L88">            return;</span>
+        }
+
+        // Always filter from the full list of rooms
+<span class="nc" id="L92">        List&lt;Huone&gt; allRooms = roomTable.getItems();  // You may want to keep the full list in a separate variable for better filtering</span>
+<span class="nc" id="L93">        List&lt;Huone&gt; filteredRooms = allRooms.stream()</span>
+<span class="nc" id="L94">                .filter(huone -&gt; {</span>
+<span class="nc bnc" id="L95" title="All 4 branches missed.">                    boolean matchesSearchText = searchText == null || searchText.isEmpty() ||</span>
+<span class="nc bnc" id="L96" title="All 2 branches missed.">                            String.valueOf(huone.getHuone_nro()).contains(searchText) ||</span>
+<span class="nc bnc" id="L97" title="All 2 branches missed.">                            huone.getHuone_tyyppi().toLowerCase().contains(searchText.toLowerCase()) ||</span>
+<span class="nc bnc" id="L98" title="All 2 branches missed.">                            String.valueOf(huone.getHuone_hinta()).contains(searchText) ||</span>
+<span class="nc bnc" id="L99" title="All 2 branches missed.">                            huone.getHuone_tila().toLowerCase().contains(searchText.toLowerCase());</span>
+
+<span class="nc bnc" id="L101" title="All 2 branches missed.">                    boolean matchesRoomType = &quot;Kaikki tyypit&quot;.equals(selectedRoomType) ||</span>
+<span class="nc bnc" id="L102" title="All 2 branches missed.">                            huone.getHuone_tyyppi().equalsIgnoreCase(selectedRoomType);</span>
+
+<span class="nc bnc" id="L104" title="All 2 branches missed.">                    boolean matchesRoomStatus = &quot;Kaikki tilat&quot;.equals(selectedRoomStatus) ||</span>
+<span class="nc bnc" id="L105" title="All 2 branches missed.">                            huone.getHuone_tila().equalsIgnoreCase(selectedRoomStatus);</span>
+
+                    // Return true only if all conditions match
+<span class="nc bnc" id="L108" title="All 6 branches missed.">                    return matchesSearchText &amp;&amp; matchesRoomType &amp;&amp; matchesRoomStatus;</span>
+                })
+<span class="nc" id="L110">                .toList();</span>
+
+        // Update the table with the filtered rooms
+<span class="nc" id="L113">        roomTable.getItems().setAll(filteredRooms);</span>
+<span class="nc" id="L114">    }</span>
+
+
+
+    private void openAddRoomWindow(TableView&lt;Huone&gt; roomTable) {
+<span class="nc" id="L119">        Stage addRoomStage = new Stage();</span>
+<span class="nc" id="L120">        addRoomStage.setTitle(&quot;Lisää uusi huone&quot;);</span>
+
+<span class="nc" id="L122">        VBox formLayout = new VBox(10);</span>
+<span class="nc" id="L123">        formLayout.setAlignment(Pos.CENTER);</span>
+
+<span class="nc" id="L125">        Label numberLabel = new Label(&quot;Huoneen Numero:&quot;);</span>
+<span class="nc" id="L126">        TextField numberField = new TextField();</span>
+
+<span class="nc" id="L128">        Label typeLabel = new Label(&quot;Tyyppi:&quot;);</span>
+<span class="nc" id="L129">        ComboBox&lt;String&gt; typeField = new ComboBox&lt;&gt;();</span>
+<span class="nc" id="L130">        typeField.getItems().addAll(&quot;Yhden hengen huone&quot;, &quot;Kahden hengen huone&quot;, &quot;Kolmen hengen huone&quot;, &quot;Perhehuone&quot;, &quot;Sviitti&quot;);</span>
+<span class="nc" id="L131">        typeField.setPromptText(&quot;Valitse huonetyyppi...&quot;);</span>
+
+<span class="nc" id="L133">        Label priceLabel = new Label(&quot;Hinta/Yö (€):&quot;);</span>
+<span class="nc" id="L134">        TextField priceField = new TextField();</span>
+
+<span class="nc" id="L136">        Button saveButton = new Button(&quot;Lisää huone&quot;);</span>
+<span class="nc" id="L137">        saveButton.setOnAction(e -&gt; {</span>
+<span class="nc" id="L138">            saveNewRoom(numberField, typeField, priceField, roomTable, addRoomStage);</span>
+<span class="nc" id="L139">        });</span>
+
+<span class="nc" id="L141">        formLayout.getChildren().addAll(numberLabel, numberField, typeLabel, typeField, priceLabel, priceField, saveButton);</span>
+
+<span class="nc" id="L143">        Scene scene = new Scene(formLayout, 400, 400);</span>
+<span class="nc" id="L144">        addRoomStage.setScene(scene);</span>
+<span class="nc" id="L145">        addRoomStage.show();</span>
+<span class="nc" id="L146">    }</span>
+
+    private void saveNewRoom(TextField numberField, ComboBox&lt;String&gt; typeField, TextField priceField, TableView&lt;Huone&gt; roomTable, Stage addRoomStage) {
+        try {
+<span class="nc" id="L150">            int roomNumber = Integer.parseInt(numberField.getText());</span>
+<span class="nc" id="L151">            String roomType = typeField.getValue();</span>
+<span class="nc" id="L152">            String roomStatus = &quot;Vapaa&quot;;</span>
+<span class="nc" id="L153">            double roomPrice = Double.parseDouble(priceField.getText());</span>
+
+<span class="nc" id="L155">            huoneController.lisaaHuone(roomNumber, roomType, roomStatus, roomPrice, 1);</span>
+
+<span class="nc" id="L157">            populateRoomTable(roomTable, 1);  // Assuming hotel ID is 1 for this example</span>
+
+<span class="nc" id="L159">            addRoomStage.close();</span>
+
+<span class="nc" id="L161">        } catch (NumberFormatException e) {</span>
+<span class="nc" id="L162">            System.out.println(&quot;Virheellinen syöte. Tarkista numero- ja hintakentät.&quot;);</span>
+<span class="nc" id="L163">        }</span>
+<span class="nc" id="L164">    }</span>
+
+    private void populateRoomTable(TableView&lt;Huone&gt; roomTable, int hotelliId) {
+<span class="nc" id="L167">        ProgressIndicator loadingIndicator = new ProgressIndicator();</span>
+<span class="nc" id="L168">        loadingIndicator.setVisible(true);</span>
+
+<span class="nc" id="L170">        roomTable.getItems().clear();</span>
+<span class="nc" id="L171">        roomTable.setPlaceholder(loadingIndicator);</span>
+
+<span class="nc" id="L173">        Task&lt;List&lt;Huone&gt;&gt; fetchRoomsTask = new Task&lt;&gt;() {</span>
+            @Override
+            protected List&lt;Huone&gt; call() throws Exception {
+<span class="nc" id="L176">                return huoneController.FindHuoneetByHoteliId(hotelliId);</span>
+            }
+        };
+
+<span class="nc" id="L180">        fetchRoomsTask.setOnSucceeded(event -&gt; {</span>
+<span class="nc" id="L181">            List&lt;Huone&gt; rooms = fetchRoomsTask.getValue();</span>
+<span class="nc bnc" id="L182" title="All 4 branches missed.">            if (rooms != null &amp;&amp; !rooms.isEmpty()) {</span>
+<span class="nc" id="L183">                roomTable.getItems().setAll(rooms);</span>
+            } else {
+<span class="nc" id="L185">                roomTable.setPlaceholder(new Label(&quot;No rooms found for the given hotel ID&quot;));</span>
+            }
+<span class="nc" id="L187">            loadingIndicator.setVisible(false);</span>
+<span class="nc" id="L188">        });</span>
+
+<span class="nc" id="L190">        fetchRoomsTask.setOnFailed(event -&gt; {</span>
+<span class="nc" id="L191">            roomTable.setPlaceholder(new Label(&quot;Failed to load room data&quot;));</span>
+<span class="nc" id="L192">            System.err.println(&quot;Failed to fetch rooms: &quot; + fetchRoomsTask.getException());</span>
+<span class="nc" id="L193">            loadingIndicator.setVisible(false);</span>
+<span class="nc" id="L194">        });</span>
+
+<span class="nc" id="L196">        new Thread(fetchRoomsTask).start();</span>
+<span class="nc" id="L197">    }</span>
+
+    private TableView&lt;Huone&gt; createHuoneTable() {
+<span class="nc" id="L200">        TableView&lt;Huone&gt; huoneTableView = new TableView&lt;&gt;();</span>
+        // Set the width of the table
+<span class="nc" id="L202">        huoneTableView.setPrefWidth(950);</span>
+<span class="nc" id="L203">        huoneTableView.setPrefHeight(400);</span>
+
+<span class="nc" id="L205">        TableColumn&lt;Huone, Integer&gt; numeroColumn = new TableColumn&lt;&gt;(&quot;Huoneen Numero&quot;);</span>
+<span class="nc" id="L206">        numeroColumn.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;huone_nro&quot;));</span>
+<span class="nc" id="L207">        numeroColumn.setMinWidth(100);</span>
+
+<span class="nc" id="L209">        TableColumn&lt;Huone, String&gt; tyyppiColumn = new TableColumn&lt;&gt;(&quot;Huone Tyyppi&quot;);</span>
+<span class="nc" id="L210">        tyyppiColumn.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;huone_tyyppi&quot;));</span>
+<span class="nc" id="L211">        tyyppiColumn.setMinWidth(293);</span>
+
+<span class="nc" id="L213">        TableColumn&lt;Huone, Double&gt; hintaColumn = new TableColumn&lt;&gt;(&quot;Huone Hinta&quot;);</span>
+<span class="nc" id="L214">        hintaColumn.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;huone_hinta&quot;));</span>
+<span class="nc" id="L215">        hintaColumn.setMinWidth(200);</span>
+
+<span class="nc" id="L217">        TableColumn&lt;Huone, String&gt; phoneColumn = new TableColumn&lt;&gt;(&quot;Huone Status&quot;);</span>
+<span class="nc" id="L218">        phoneColumn.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;huone_tila&quot;));</span>
+<span class="nc" id="L219">        phoneColumn.setMinWidth(200);</span>
+
+<span class="nc" id="L221">        TableColumn&lt;Huone, Void&gt; actionColumn = new TableColumn&lt;&gt;(&quot;Toiminnot&quot;);</span>
+<span class="nc" id="L222">        actionColumn.setMinWidth(140);</span>
+
+<span class="nc" id="L224">        actionColumn.setCellFactory(param -&gt; new TableCell&lt;&gt;() {</span>
+<span class="nc" id="L225">            private final Button editButton = new Button(&quot;Muokkaa&quot;);</span>
+<span class="nc" id="L226">            private final Button deleteButton = new Button(&quot;Poista&quot;);</span>
+<span class="nc" id="L227">            private final HBox actionButtons = new HBox(editButton, deleteButton);</span>
+
+            {
+<span class="nc" id="L230">                actionButtons.setSpacing(10);</span>
+<span class="nc" id="L231">                actionButtons.setAlignment(Pos.CENTER);</span>
+
+                // Muokkaa-painikeen toiminnallisuus
+<span class="nc" id="L234">                editButton.setOnAction(event -&gt; {</span>
+<span class="nc" id="L235">                    Huone huone = getTableView().getItems().get(getIndex());</span>
+<span class="nc" id="L236">                    openMuokkaaHuoneWindow(huone, getTableView());</span>
+<span class="nc" id="L237">                    System.out.println(&quot;Muokkaa-painiketta painettu&quot; + huone.getHuone_id());</span>
+<span class="nc" id="L238">                });</span>
+
+
+                // Poista-painikeen toiminnallisuus
+<span class="nc" id="L242">                deleteButton.setOnAction(event -&gt; {</span>
+<span class="nc" id="L243">                    Huone huone = getTableView().getItems().get(getIndex());</span>
+<span class="nc" id="L244">                    getTableView().getItems().remove(huone); // Poistetaan asiakas listasta</span>
+<span class="nc" id="L245">                    huoneController.deleteHuone(huone.getHuone_id());</span>
+<span class="nc" id="L246">                });</span>
+<span class="nc" id="L247">            }</span>
+            @Override
+            protected void updateItem(Void item, boolean empty) {
+<span class="nc" id="L250">                super.updateItem(item, empty);</span>
+<span class="nc bnc" id="L251" title="All 2 branches missed.">                if (empty) {</span>
+<span class="nc" id="L252">                    setGraphic(null);</span>
+                } else {
+<span class="nc" id="L254">                    setGraphic(actionButtons);</span>
+                }
+<span class="nc" id="L256">            }</span>
+        });
+
+<span class="nc" id="L259">        actionColumn.setMinWidth(150);</span>
+
+<span class="nc" id="L261">        huoneTableView.getColumns().addAll(numeroColumn, tyyppiColumn, hintaColumn, phoneColumn, actionColumn);</span>
+
+<span class="nc" id="L263">        return huoneTableView;</span>
+    }
+
+    private void openMuokkaaHuoneWindow(Huone huone, TableView&lt;Huone&gt; huoneTableView) {
+<span class="nc" id="L267">        Stage muokkaaHuoneStage = new Stage();</span>
+<span class="nc" id="L268">        muokkaaHuoneStage.setTitle(&quot;Muokkaa huonetta&quot;);</span>
+
+        // Pääasettelu, joka jakaa ikkunan osiin (yläosa, keskiosa, alaosa)
+<span class="nc" id="L271">        BorderPane borderPane = new BorderPane();</span>
+
+        // Lomakkeen kenttien asettelu pystysuoraan (VBox)
+<span class="nc" id="L274">        VBox formLayout = new VBox(10);</span>
+<span class="nc" id="L275">        formLayout.setAlignment(Pos.CENTER_LEFT); // Keskitetään vasemmalle</span>
+<span class="nc" id="L276">        formLayout.setPadding(new Insets(20)); // Asetetaan täyte</span>
+
+        // Kenttien ja tekstikenttien luonti
+<span class="nc" id="L279">        Label huoneNroLabel = new Label(&quot;Huoneen numero:&quot;);</span>
+<span class="nc" id="L280">        TextField huoneNro = new TextField();</span>
+<span class="nc" id="L281">        huoneNro.setText(String.valueOf(huone.getHuone_nro())); // Convert huone_nro to string</span>
+
+<span class="nc" id="L283">        Label huoneTypeLabel = new Label(&quot;Huone tyyppi:&quot;);</span>
+<span class="nc" id="L284">        ComboBox&lt;String&gt; huoneType = new ComboBox&lt;&gt;();</span>
+<span class="nc" id="L285">        huoneType.getItems().addAll(&quot;Yhden hengen huone&quot;, &quot;Kahden hengen huone&quot;, &quot;Kolmen hengen huone&quot;, &quot;Perhehuone&quot;, &quot;Sviitti&quot;);</span>
+<span class="nc" id="L286">        huoneType.setValue(huone.getHuone_tyyppi());</span>
+
+<span class="nc" id="L288">        Label huoneTilaLabel = new Label(&quot;Huoneen tila:&quot;);</span>
+<span class="nc" id="L289">        ComboBox&lt;String&gt; huoneTila = new ComboBox&lt;&gt;();</span>
+<span class="nc" id="L290">        huoneTila.getItems().addAll(&quot;Vapaa&quot;, &quot;Varattu&quot;, &quot;Siivous&quot;);</span>
+<span class="nc" id="L291">        huoneTila.setValue(huone.getHuone_tila());</span>
+
+<span class="nc" id="L293">        Label huonePriceLabel = new Label(&quot;Huoneen hinta per yö:&quot;);</span>
+<span class="nc" id="L294">        TextField huonePrice = new TextField();</span>
+<span class="nc" id="L295">        huonePrice.setText(String.valueOf(huone.getHuone_hinta()));</span>
+
+        // Lisätään kentät lomakkeeseen (VBox)
+<span class="nc" id="L298">        formLayout.getChildren().addAll(</span>
+                huoneNroLabel, huoneNro,
+                huoneTypeLabel, huoneType,
+                huoneTilaLabel, huoneTila,
+                huonePriceLabel, huonePrice
+        );
+
+<span class="nc" id="L305">        Button saveButton = new Button(&quot;Tallenna muutokset&quot;);</span>
+<span class="nc" id="L306">        Button cancelButton = new Button(&quot;Peruuta&quot;);</span>
+
+        // HBox save and cancel buttons
+<span class="nc" id="L309">        HBox buttonBox = new HBox(10, saveButton, cancelButton);</span>
+<span class="nc" id="L310">        buttonBox.setAlignment(Pos.CENTER);</span>
+
+        // Toiminnallisuus napille
+<span class="nc" id="L313">        saveButton.setOnAction(e -&gt; {</span>
+            // Päivitetään asiakastiedot
+<span class="nc" id="L315">            huoneController.updateHuoneById(</span>
+<span class="nc" id="L316">                    huone.getHuone_id(),</span>
+<span class="nc" id="L317">                    Integer.parseInt(huoneNro.getText()),</span>
+<span class="nc" id="L318">                    huoneType.getValue(),</span>
+<span class="nc" id="L319">                    huoneTila.getValue(),</span>
+<span class="nc" id="L320">                    Double.parseDouble(huonePrice.getText())</span>
+            );
+
+            // Päivitetään taulukko
+<span class="nc" id="L324">            populateRoomTable(huoneTableView, 1); // Assuming hotel ID is 1 for this example</span>
+<span class="nc" id="L325">            muokkaaHuoneStage.close();</span>
+<span class="nc" id="L326">        });</span>
+
+<span class="nc" id="L328">        cancelButton.setOnAction(e -&gt; muokkaaHuoneStage.close());</span>
+
+        // Asetetaan lomake ja painikkeet BorderPaneen
+<span class="nc" id="L331">        borderPane.setCenter(formLayout);</span>
+<span class="nc" id="L332">        borderPane.setBottom(buttonBox);</span>
+<span class="nc" id="L333">        BorderPane.setMargin(buttonBox, new Insets(10)); // Marginaali nappeihin</span>
+
+        // Aseta BorderPane kohtaukseksi ja näytä ikkuna
+<span class="nc" id="L336">        Scene scene = new Scene(borderPane, 400, 500);</span>
+<span class="nc" id="L337">        muokkaaHuoneStage.setScene(scene);</span>
+<span class="nc" id="L338">        muokkaaHuoneStage.show(); // Tämä avaa muokkausikkunan</span>
+<span class="nc" id="L339">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
