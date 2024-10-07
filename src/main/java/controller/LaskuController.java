@@ -49,6 +49,9 @@ public class LaskuController {
         huoneController = new HuoneController(); // Only create it when needed
         varausController = new VarausController(); // Only create it when needed
         List<Lasku> allLaskut = laskuDAO.haeKaikkilaskut(); // Get all invoices
+        if (allLaskut == null || allLaskut.isEmpty()) {
+            return 0; // Return 0 if there are no invoices
+        }
         double totalAmount = 0;
 
         if (allLaskut == null || allLaskut.isEmpty()) {

@@ -27,10 +27,12 @@ public class Varaus {
     private int laskuId;
 
     @Transient
-    private Asiakas asiakas;
+    private String nimi;
 
     @Transient
     private Huone huone;
+
+
 
     // Parametrillinen konstruktori
     public Varaus(int varaus_id, LocalDate alkuPvm, LocalDate loppuPvm, Integer huoneId, int laskuId) {
@@ -81,7 +83,15 @@ public class Varaus {
         this.huone = huone;
     }
 
+    public void setNimi(String nimi) {
+        this.nimi = nimi;
+    }
+
     public int getHuoneNro() {
-        return huone.getHuone_nro();
+        return huone != null ? huone.getHuone_nro() : 0;
+    }
+
+    public String getNimi() {
+        return nimi;
     }
 }

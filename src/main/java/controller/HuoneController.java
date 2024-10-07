@@ -43,7 +43,11 @@ public class HuoneController {
     }
 
     public Huone findHuoneById(int id) {
-        return huoneDAO.findByRoomId(id);
+        Huone huone = huoneDAO.findByRoomId(id);
+        if (huone == null) {
+            return null;
+        }
+        return huone;
     }
 
     public int getHuoneNroById(int huoneId) {

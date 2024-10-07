@@ -1,7 +1,7 @@
 package view.sivut;
 
-import controller.HotelliController;
-import controller.VarausController;
+import controller.*;
+import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -13,6 +13,8 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.DAO.AsiakasDAO;
 import model.enteties.Asiakas;
+import model.enteties.Huone;
+import model.enteties.Lasku;
 import model.enteties.Varaus;
 
 import java.time.LocalDate;
@@ -23,10 +25,17 @@ public class VarausSivu {
 
     private VarausController varausController;
     private HotelliController hotelliController;
+    private AsiakasController asiakasController;
+
+    private LaskuController laskuController;
+    private HuoneController huoneController;
 
     public VarausSivu() {
         varausController = new VarausController();
         hotelliController = new HotelliController();
+        asiakasController = new AsiakasController();
+        laskuController = new LaskuController();
+        huoneController = new HuoneController();
     }
 
     public VBox createVaraukset() {
@@ -163,9 +172,9 @@ public class VarausSivu {
         Label searchLabel = new Label("Etsi asiakas");
         TextField searchField = new TextField();
         Button searchButton = new Button("Etsi");
+        searchButton.getStyleClass().add("yellow-btn");
 
         TableView<Asiakas> searchResults = createCustomerTable();
-        searchResults.setPrefWidth(500);
 
         HBox pageButtons = new HBox(10);
         Button previousButton = new Button("Edellinen");
@@ -173,6 +182,7 @@ public class VarausSivu {
         pageButtons.getChildren().addAll(previousButton, nextButton);
 
         Button selectButton = new Button("Valitse");
+        selectButton.getStyleClass().add("yellow-btn");
 
         searchLayout.getChildren().addAll(searchLabel, searchField, searchButton, searchResults, pageButtons, selectButton);
 
@@ -213,7 +223,8 @@ public class VarausSivu {
             }
         });
 
-        Scene scene = new Scene(searchLayout, 500, 400);
+        Scene scene = new Scene(searchLayout, 730, 460);
+        scene.getStylesheets().add("style.css");
         searchCustomerStage.setScene(scene);
         searchCustomerStage.show();
     }
@@ -228,8 +239,7 @@ public class VarausSivu {
             @Override
             protected List<Asiakas> call() throws Exception {
                 // Create DAO object for database access
-                AsiakasDAO asiakasDAO = new AsiakasDAO();
-                return asiakasDAO.findAsiakasByKeyword(searchQuery);
+                return asiakasController.findByKeyword(searchQuery);
             }
         };
 
@@ -288,13 +298,31 @@ public class VarausSivu {
 
         fetchVarauksetTask.setOnSucceeded(event -> {
             List<Varaus> varaukset = fetchVarauksetTask.getValue();
-            loadingIndicator.setVisible(false);
 
-            if (varaukset != null && !varaukset.isEmpty()) {
-                varausTable.getItems().setAll(varaukset);
-            } else {
-                varausTable.setPlaceholder(new Label("No reservations found for the given dates"));
-            }
+            Platform.runLater(() -> {
+                loadingIndicator.setVisible(false);
+                varausTable.getSelectionModel().clearSelection(); // Clear selection before updating items
+
+                if (varaukset != null && !varaukset.isEmpty()) {
+                    for (Varaus varaus : varaukset) {
+                        if (varaus.getHuoneId() != null) {
+                            Huone huone = huoneController.findHuoneById(varaus.getHuoneId());
+                            varaus.setHuone(huone);
+                        }
+
+                        Lasku lasku = laskuController.findLaskuById(varaus.getLaskuId());
+                        if (lasku != null) {
+                            Asiakas asiakas = asiakasController.findByLaskuId(lasku.getAsiakasId());
+                            varaus.setNimi(asiakas.getEtunimi() + " " + asiakas.getSukunimi());
+                        }
+
+
+                    }
+                    varausTable.getItems().setAll(varaukset); // Update table with new data
+                } else {
+                    varausTable.setPlaceholder(new Label("No reservations found for the given dates"));
+                }
+            });
         });
 
         fetchVarauksetTask.setOnFailed(event -> {
@@ -313,13 +341,13 @@ public class VarausSivu {
         idColumn.setCellValueFactory(new PropertyValueFactory<>("varausId"));
         idColumn.setMinWidth(135);
 
-        TableColumn<Varaus, Integer> roomColumn = new TableColumn<>("Huone I1");
-        roomColumn.setCellValueFactory(new PropertyValueFactory<>("huoneId"));
-        roomColumn.setMinWidth(150);
+        TableColumn<Varaus, String> asiakasColumn = new TableColumn<>("Nimi");
+        asiakasColumn.setCellValueFactory(new PropertyValueFactory<>("nimi"));
+        asiakasColumn.setMinWidth(150);
 
-        TableColumn<Varaus, Integer> invoiceColumn = new TableColumn<>("Lasku ID");
-        invoiceColumn.setCellValueFactory(new PropertyValueFactory<>("laskuId"));
-        invoiceColumn.setMinWidth(150);
+        TableColumn<Varaus, Integer> roomColumn = new TableColumn<>("Huone Nro");
+        roomColumn.setCellValueFactory(new PropertyValueFactory<>("huoneNro"));
+        roomColumn.setMinWidth(150);
 
         TableColumn<Varaus, String> startDateColumn = new TableColumn<>("Alkupäivämäärä");
         startDateColumn.setCellValueFactory(new PropertyValueFactory<>("alkuPvm"));
@@ -331,7 +359,7 @@ public class VarausSivu {
 
         varausTable.getColumns().add(idColumn);
         varausTable.getColumns().add(roomColumn);
-        varausTable.getColumns().add(invoiceColumn);
+        varausTable.getColumns().add(asiakasColumn);
         varausTable.getColumns().add(startDateColumn);
         varausTable.getColumns().add(endDateColumn);
 
@@ -343,20 +371,29 @@ public class VarausSivu {
 
         TableColumn<Asiakas, Integer> idColumn = new TableColumn<>("Asiakas ID");
         idColumn.setCellValueFactory(new PropertyValueFactory<>("asiakasId"));
+        idColumn.setMinWidth(80);
 
         TableColumn<Asiakas, String> firstNameColumn = new TableColumn<>("Etunimi");
         firstNameColumn.setCellValueFactory(new PropertyValueFactory<>("etunimi"));
+        firstNameColumn.setMinWidth(120);
 
         TableColumn<Asiakas, String> lastNameColumn = new TableColumn<>("Sukunimi");
         lastNameColumn.setCellValueFactory(new PropertyValueFactory<>("sukunimi"));
+        lastNameColumn.setMinWidth(120);
 
         TableColumn<Asiakas, String> emailColumn = new TableColumn<>("Sähköposti");
         emailColumn.setCellValueFactory(new PropertyValueFactory<>("sposti"));
+        emailColumn.setMinWidth(150);
 
         TableColumn<Asiakas, String> phoneColumn = new TableColumn<>("Puhelin");
         phoneColumn.setCellValueFactory(new PropertyValueFactory<>("puh"));
+        phoneColumn.setMinWidth(90);
 
-        customerTable.getColumns().addAll(idColumn, firstNameColumn, lastNameColumn, emailColumn, phoneColumn);
+        TableColumn<Asiakas, String> huomioColumn = new TableColumn<>("Lisätiedot");
+        huomioColumn.setCellValueFactory(new PropertyValueFactory<>("huomio"));
+        huomioColumn.setMinWidth(165);
+
+        customerTable.getColumns().addAll(idColumn, firstNameColumn, lastNameColumn, emailColumn, phoneColumn, huomioColumn);
 
         return customerTable;
     }

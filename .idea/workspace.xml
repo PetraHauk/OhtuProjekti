@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="pomi muutokset jar toimii" />
+    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="Varaus Taulussa Asiakaan nimi">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/sivut/CheckOut.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/sivut/CheckOut.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/sivut/VarausSivu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/sivut/VarausSivu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/LaskuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/LaskuController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/CheckOut.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/sivut/CheckOut.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/VarausSivu$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/sivut/VarausSivu$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/VarausSivu$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/sivut/VarausSivu$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/VarausSivu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/sivut/VarausSivu.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -144,7 +156,7 @@
       <command value="mvn install" />
     </option>
   </component>
-  <component name="RunManager" selected="Docker.Dockerfile">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="app.Main" />
       <module name="gui" />
@@ -290,8 +302,7 @@
       <workItem from="1727762601158" duration="7387000" />
       <workItem from="1728065113527" duration="3995000" />
       <workItem from="1728112777104" duration="20866000" />
-      <workItem from="1728284414792" duration="5730000" />
-      <workItem from="1728293755804" duration="1298000" />
+      <workItem from="1728284414792" duration="4584000" />
     </task>
     <task id="LOCAL-00002" summary="yhdistetty wilman ja kaislan judut">
       <option name="closed" value="true" />
@@ -517,23 +528,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728288290188</updated>
     </task>
-    <task id="LOCAL-00030" summary="pomi muutokset jar toimii">
+    <task id="LOCAL-00030" summary="Varaus Taulussa Asiakaan nimi">
       <option name="closed" value="true" />
-      <created>1728289160825</created>
+      <created>1728290740215</created>
       <option name="number" value="00030" />
       <option name="presentableId" value="LOCAL-00030" />
       <option name="project" value="LOCAL" />
-      <updated>1728289160825</updated>
+      <updated>1728290740215</updated>
     </task>
-    <task id="LOCAL-00031" summary="pomi muutokset jar toimii">
-      <option name="closed" value="true" />
-      <created>1728295304943</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1728295304943</updated>
-    </task>
-    <option name="localTasksCounter" value="32" />
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -569,8 +572,8 @@
     <MESSAGE value="ylimääränen src kansio poistettu" />
     <MESSAGE value="muut testit kommentoitu pois koska virheitä jenkinsissä" />
     <MESSAGE value="pomi muutokset" />
-    <MESSAGE value="pomi muutokset jar toimii" />
-    <option name="LAST_COMMIT_MESSAGE" value="pomi muutokset jar toimii" />
+    <MESSAGE value="Varaus Taulussa Asiakaan nimi" />
+    <option name="LAST_COMMIT_MESSAGE" value="Varaus Taulussa Asiakaan nimi" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
