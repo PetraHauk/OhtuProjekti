@@ -16,7 +16,6 @@ import model.enteties.Asiakas;
 import java.util.List;
 
 public class AsiakasSivu {
-
     private AsiakasController asiakasController;
 
     public AsiakasSivu() {
@@ -102,8 +101,6 @@ public class AsiakasSivu {
         addCustomerStage.setScene(scene);
         addCustomerStage.show();
     }
-
-
 
     // Populate the customer table. Runs it in a thread and shows loading indicator.
     private void populateCustomerTable(TableView<Asiakas> customerTable) {
