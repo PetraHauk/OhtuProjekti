@@ -138,7 +138,7 @@ public class AsiakasSivu {
     private TableView<Asiakas> createCustomerTable() {
         TableView<Asiakas> customerTable = new TableView<>();
         // Set the width of the table
-        customerTable.setPrefWidth(950);
+        customerTable.setPrefWidth(940);
         customerTable.setPrefHeight(400);
 
         TableColumn<Asiakas, Integer> idColumn = new TableColumn<>("Asiakas ID");
@@ -164,7 +164,7 @@ public class AsiakasSivu {
 
         TableColumn<Asiakas, String> huomio = new TableColumn<>("Huomio");
         huomio.setCellValueFactory(new PropertyValueFactory<>("huomio"));
-        huomio.setMinWidth(230);
+        huomio.setMinWidth(200);
 
         // Create the "Actions" column for edit/delete
         TableColumn<Asiakas, Void> actionColumn = new TableColumn<>("Toiminnot");

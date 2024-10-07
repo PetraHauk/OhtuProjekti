@@ -7,7 +7,6 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.KeyCode;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -17,6 +16,9 @@ import model.service.CurrencyConverter;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.List;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class CheckOut {
 
@@ -36,7 +38,7 @@ public class CheckOut {
 
     // Creates the content for Check-out
     public VBox createCheckOut() {
-        VBox checkOutInfo = new VBox(15);
+        VBox checkOutInfo = new VBox(15);  // Main layout for the Check-Out section
         checkOutInfo.getStyleClass().add("info");
         Label checkOutInfoLabel = new Label("Check-Out");
         checkOutInfoLabel.getStyleClass().add("otsikko");
@@ -55,22 +57,39 @@ public class CheckOut {
         asiakasSukunimiInput.setPromptText("Syötä sukunimi");
         sukunimiInfo.getChildren().addAll(asiakasSukunimiLabel, asiakasSukunimiInput);
 
+        // Button for fetching invoices
         Button haeLaskutButton = new Button("Hae laskut");
+        haeLaskutButton.getStyleClass().add("yellow-btn");
 
+        // Layout for customer search (on a single row)
+        HBox customerSearchRow = new HBox(10);  // Horizontal layout for name inputs and the button
+        customerSearchRow.setAlignment(Pos.CENTER_LEFT);
+        HBox.setMargin(haeLaskutButton, new Insets(0, 0, -20, 10));  // Set margin for the button to the left
+        customerSearchRow.getChildren().addAll(etunimiInfo, sukunimiInfo, haeLaskutButton);
+
+        // Invoice section
         VBox maksattavaLaskut = new VBox(5);
         Label maksattavaLaskuOtsikko = new Label("Laskut");
         maksattavaLaskuOtsikko.getStyleClass().add("otsikko");
         TableView<LaskuData> laskuTable = createLaskuTable();
         Label loppuHintaLabel = new Label("Yhdessä: 0.00");
-        String loppuHinta = "";
         Button maksuButton = new Button("Maksaa");
+        maksuButton.getStyleClass().add("yellow-btn");
         Button printButton = new Button("Tulosta kuitti");
+        printButton.getStyleClass().add("yellow-btn");
 
+        // Adding all invoice-related components to one VBox
         maksattavaLaskut.getChildren().addAll(maksattavaLaskuOtsikko, laskuTable, loppuHintaLabel, maksuButton, printButton);
 
+        // Main layout structure
+        VBox checkOutLayout = new VBox(20);  // Main vertical layout with spacing between components
+        checkOutLayout.getChildren().addAll(checkOutInfoLabel, customerSearchRow, maksattavaLaskut);
+
+        // Button logic for fetching and displaying invoices
         haeLaskutButton.setOnAction(e -> {
             laskuTable.getItems().clear();
 
+            // Retrieve customers by first and last name
             List<Asiakas> asiakkaat = asiakasController.findByNimet(asiakasEtunimiInput.getText(), asiakasSukunimiInput.getText());
             if (asiakkaat == null || asiakkaat.isEmpty()) {
                 showAlert("Virhe", "Asiakkaan nimellä ei löytynyt asiakkaita.");
@@ -78,34 +97,31 @@ public class CheckOut {
             }
 
             double kokonaishinta = 0.00;
-            String valuutta = ""; // Alustetaan valuutta
+            String valuutta = "";  // Initialize currency
 
+            // Loop through the customers and their invoices
             for (Asiakas asiakas : asiakkaat) {
                 int asiakasId = asiakas.getAsiakasId();
-
-                System.out.println("Asiakas id: " + asiakasId);
                 List<Lasku> laskut = laskuController.findLaskuByAsiakasId(asiakasId);
 
                 if (laskut != null) {
                     for (Lasku lasku : laskut) {
                         int laskuId = lasku.getLaskuId();
-                        System.out.println("Lasku id: " + laskuId);
+                        List<Varaus> varaukset = varausController.findByLaskuId(laskuId);
+                        valuutta = lasku.getValuutta();  // Set currency
 
-                        List<Varaus> varaukset = varausController.findByLaskuId(lasku.getLaskuId());
-                        valuutta = lasku.getValuutta(); // Asetetaan valuutta
-
+                        // Process reservations and calculate invoice details
                         for (Varaus varaus : varaukset) {
                             LocalDate alkuPvm = varaus.getAlkuPvm();
                             LocalDate loppuPvm = varaus.getLoppuPvm();
                             int paivat = Period.between(alkuPvm, loppuPvm).getDays();
 
                             if (loppuPvm.isAfter(LocalDate.now()) || loppuPvm.isEqual(LocalDate.now())) {
-                                //Check if room number matches the current reservation
                                 Huone huone = huoneController.findHuoneById(varaus.getHuoneId());
                                 if (huone != null) {
                                     double hinta = huone.getHuone_hinta();
                                     if (valuutta.equals("USD")) {
-                                        hinta= CurrencyConverter.convertCurrency("EUR", "USD", hinta);
+                                        hinta = CurrencyConverter.convertCurrency("EUR", "USD", hinta);
                                     }
 
                                     double summa = hinta * paivat;
@@ -115,6 +131,7 @@ public class CheckOut {
                                     String summaStr = String.format("%.2f %s", summa, valuutta);
                                     String kokonaishintaStr = String.format("%.2f %s", kokonaishinta, valuutta);
 
+                                    // Populate the table with the invoice data
                                     populateLaskuTable(laskuTable, new LaskuData(
                                             lasku.getLaskuId(),
                                             huone.getHotelli_id(),
@@ -129,8 +146,8 @@ public class CheckOut {
                                             alkuPvm,
                                             loppuPvm,
                                             paivat,
-                                            hintaStr,  // Muotoile hinta kahdelle desimaalille ja lisää USD
-                                            summaStr,      // Muotoile summa kahdelle desimaalille
+                                            hintaStr,
+                                            summaStr,
                                             kokonaishintaStr
                                     ));
                                 } else {
@@ -141,15 +158,12 @@ public class CheckOut {
                     }
                 }
             }
-            // Päivitetään loppuhinta label, kun kaikki laskut on käsitelty
+
+            // Update total price label after all invoices are processed
             loppuHintaLabel.setText(String.format("Yhdessä: %.2f %s", kokonaishinta, valuutta));
         });
 
-        // Layout structure
-        checkOutInfo.getChildren().addAll(checkOutInfoLabel, etunimiInfo, sukunimiInfo, haeLaskutButton, maksattavaLaskut);
-        HBox laskuTiedot = new HBox(2);
-        laskuTiedot.getChildren().addAll(checkOutInfo, maksattavaLaskut);
-
+        // Handle payment button logic
         maksuButton.setOnAction(e -> {
             if (laskuTable.getItems().isEmpty()) {
                 showAlert("Virhe", "Ei laskuja maksettavaksi.");
@@ -160,25 +174,28 @@ public class CheckOut {
                 laskuData.SetMaksuStatus("Maksettu");
                 int huoneId = laskuData.getHuoneId();
 
-                huoneController.updateHuoneTilaById(huoneId, "Vapaa" );
+                // Aseta huoneen tila siivoukselle
+                huoneController.updateHuoneTilaById(huoneId, "Siivous");
+
+                // Luodaan ScheduledExecutorService
+                ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+
+                // Asetetaan tehtävä, joka suoritetaan 30 minuutin kuluttua
+                scheduler.schedule(() -> {
+                    huoneController.updateHuoneTilaById(huoneId, "Vapaa");
+                }, 30, TimeUnit.MINUTES);
+
                 //refresh table
                 laskuTable.refresh();
             }
 
-            // Maksaa laskut
-            showMessage("Maksu","Laskut on maksettu onnistuneesti.");
+            showMessage("Maksu", "Laskut on maksettu onnistuneesti.");
         });
 
+        // Handle print button logic
         printButton.setOnAction(e -> openKuittiWindow(laskuTable));
-        printButton.setOnKeyPressed(e -> {
-            if (e.getCode() == KeyCode.ENTER) {
-                openKuittiWindow(laskuTable);
-            }
-        });
 
-        VBox checkOut = new VBox(2);
-        checkOut.getChildren().addAll(laskuTiedot);
-        return checkOut;
+        return checkOutLayout;
     }
 
     private void openKuittiWindow(TableView<LaskuData> laskuTable) {
@@ -260,7 +277,7 @@ public class CheckOut {
 
         kuittiLayout.getChildren().addAll(kuittiTitle, hotelliInfo, asiakasInfo, kuittiTable, loppuHintaLabel, tulostaButton);
 
-        Scene scene = new Scene(kuittiLayout, 830, 500);
+        Scene scene = new Scene(kuittiLayout, 1010, 500);
         kuittiStage.setScene(scene);
         kuittiStage.show();
     }
@@ -310,41 +327,52 @@ public class CheckOut {
     // TableView method to display Lasku data
     private TableView<LaskuData> createLaskuTable() {
         TableView<LaskuData> laskuTable = new TableView<>();
-        laskuTable.setPrefWidth(800);
+        laskuTable.setPrefWidth(970);
         laskuTable.setPrefHeight(300);
 
         TableColumn<LaskuData, Integer> laskuIdColumn = new TableColumn<>("Lasku ID");
         laskuIdColumn.setCellValueFactory(new PropertyValueFactory<>("laskuId"));
+        laskuIdColumn.setPrefWidth(70);
 
         TableColumn<LaskuData, Integer> huoneNroColumn = new TableColumn<>("Huone Nro");
         huoneNroColumn.setCellValueFactory(new PropertyValueFactory<>("huoneNro"));
+        huoneNroColumn.setPrefWidth(80);
 
         TableColumn<LaskuData, Integer> huoneTyyppiColumn = new TableColumn<>("Huone tyyppi");
         huoneTyyppiColumn.setCellValueFactory(new PropertyValueFactory<>("huoneTyyppi"));
+        huoneTyyppiColumn.setPrefWidth(150);
 
         TableColumn<LaskuData, String> maksuStatusColumn = new TableColumn<>("Status ");
         maksuStatusColumn.setCellValueFactory(new PropertyValueFactory<>("maksuStatus"));
+        maksuStatusColumn.setPrefWidth(100);
 
         TableColumn<LaskuData, String> varausMuotoColumn = new TableColumn<>("Muoto");
         varausMuotoColumn.setCellValueFactory(new PropertyValueFactory<>("varausMuoto"));
+        varausMuotoColumn.setPrefWidth(120);
 
         TableColumn<LaskuData, String> valuuttaColumn = new TableColumn<>("Valuutta");
         valuuttaColumn.setCellValueFactory(new PropertyValueFactory<>("valuutta"));
+        valuuttaColumn.setPrefWidth(30);
 
         TableColumn<LaskuData, String> alkuPvmColumn = new TableColumn<>("Alku Pvm");
         alkuPvmColumn.setCellValueFactory(new PropertyValueFactory<>("alkuPvm"));
+        alkuPvmColumn.setPrefWidth(100);
 
         TableColumn<LaskuData, String> loppuPvmColumn = new TableColumn<>("Loppu Pvm");
         loppuPvmColumn.setCellValueFactory(new PropertyValueFactory<>("loppuPvm"));
+        loppuPvmColumn.setPrefWidth(100);
 
         TableColumn<LaskuData, Integer> paivatColumn = new TableColumn<>("Päivät");
         paivatColumn.setCellValueFactory(new PropertyValueFactory<>("paivat"));
+        paivatColumn.setPrefWidth(50);
 
         TableColumn<LaskuData, Double> hintaColumn = new TableColumn<>("Hinta");
         hintaColumn.setCellValueFactory(new PropertyValueFactory<>("hinta"));
+        hintaColumn.setPrefWidth(100);
 
         TableColumn<LaskuData, Double> summaColumn = new TableColumn<>("Summa");
         summaColumn.setCellValueFactory(new PropertyValueFactory<>("summa"));
+        summaColumn.setPrefWidth(100);
 
         laskuTable.getColumns().addAll(
                 laskuIdColumn, huoneNroColumn, huoneTyyppiColumn, maksuStatusColumn, varausMuotoColumn, alkuPvmColumn, loppuPvmColumn,
