@@ -1,0 +1,32 @@
+-------------------------------------------------------------------------------
+Test set: controller.HuoneControllerTest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 2.297 s <<< FAILURE! - in controller.HuoneControllerTest
+controller.HuoneControllerTest.testFindHuoneetByHoteliId  Time elapsed: 2.211 s  <<< ERROR!
+java.lang.ExceptionInInitializerError
+	at controller.HuoneControllerTest.testFindHuoneetByHoteliId(HuoneControllerTest.java:22)
+Caused by: org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+	at controller.HuoneControllerTest.testFindHuoneetByHoteliId(HuoneControllerTest.java:22)
+Caused by: org.hibernate.exception.JDBCConnectionException: Error calling Driver#connect
+	at controller.HuoneControllerTest.testFindHuoneetByHoteliId(HuoneControllerTest.java:22)
+Caused by: java.sql.SQLInvalidAuthorizationSpecException: (conn=128) Access denied for user 'root'@'localhost' (using password: YES)
+	at controller.HuoneControllerTest.testFindHuoneetByHoteliId(HuoneControllerTest.java:22)
+
+controller.HuoneControllerTest.findHuoneByTila  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class model.datasourse.MariaDbConnection
+	at controller.HuoneControllerTest.findHuoneByTila(HuoneControllerTest.java:29)
+Caused by: java.lang.ExceptionInInitializerError: Exception org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] [in thread "main"]
+	at controller.HuoneControllerTest.testFindHuoneetByHoteliId(HuoneControllerTest.java:22)
+
+controller.HuoneControllerTest.testFindHuoneById  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class model.datasourse.MariaDbConnection
+	at controller.HuoneControllerTest.testFindHuoneById(HuoneControllerTest.java:15)
+Caused by: java.lang.ExceptionInInitializerError: Exception org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] [in thread "main"]
+	at controller.HuoneControllerTest.testFindHuoneetByHoteliId(HuoneControllerTest.java:22)
+
+controller.HuoneControllerTest.testFindHuoneByTyyppi  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class model.datasourse.MariaDbConnection
+	at controller.HuoneControllerTest.testFindHuoneByTyyppi(HuoneControllerTest.java:38)
+Caused by: java.lang.ExceptionInInitializerError: Exception org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] [in thread "main"]
+	at controller.HuoneControllerTest.testFindHuoneetByHoteliId(HuoneControllerTest.java:22)
+
