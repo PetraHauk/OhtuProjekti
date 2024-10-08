@@ -92,22 +92,22 @@ VALUES ('Anna', 'Ansku', 'anna@sposti.fi', '06872398', 3, 'ei erikoista');
 
 -- huone
 INSERT INTO `huone` (`huone_nro`, `huone_tyyppi`, `huone_tila`, `huone_hinta`, `hotelli_id`)
-VALUES ('101', 'yhden hengen', 'vapaa', '100.00', 1);
+VALUES ('101', 'Yhden hengen huone', 'vapaa', '100.00', 1);
 
 INSERT INTO `huone` (`huone_nro`, `huone_tyyppi`, `huone_tila`, `huone_hinta`, `hotelli_id`)
-VALUES ('102', 'kahden hengen', 'varattu', '150.00', 1);
+VALUES ('102', 'Kahden hengen huone', 'varattu', '150.00', 1);
 
 INSERT INTO `huone` (`huone_nro`, `huone_tyyppi`, `huone_tila`, `huone_hinta`, `hotelli_id`)
-VALUES ('202', 'kolmen hengen', 'varattu', '160.00', 1);
+VALUES ('202', 'Kolmen hengen huone', 'varattu', '160.00', 1);
 
 INSERT INTO `huone` (`huone_nro`, `huone_tyyppi`, `huone_tila`, `huone_hinta`, `hotelli_id`)
-VALUES ('203', 'perhe', 'varattu', '260.00', 1);
+VALUES ('203', 'Perhehuone', 'varattu', '260.00', 1);
 
 INSERT INTO `huone` (`huone_nro`, `huone_tyyppi`, `huone_tila`, `huone_hinta`, `hotelli_id`)
-VALUES ('204', 'sviitti', 'varattu', '300.00', 1);
+VALUES ('204', 'Sviitti', 'varattu', '300.00', 1);
 
 INSERT INTO `huone` (`huone_nro`, `huone_tyyppi`, `huone_tila`, `huone_hinta`, `hotelli_id`)
-VALUES ('205', 'sviitti', 'siivous', '200.00', 1);
+VALUES ('205', 'Sviitti', 'siivous', '200.00', 1);
 
 
 -- lasku
