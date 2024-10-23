@@ -106,7 +106,7 @@ public class RegistrationGui extends Application {
             kayttaja.setSposti(sposti);
             kayttaja.setPuh(puh);
             kayttaja.setSalasana(hashattuSalasana); // Store the hashed password
-            kayttaja.setRooli("Käyttäjä");
+            kayttaja.setRooli("normaali");
 
             kayttajaDAO.persist(kayttaja);
 
