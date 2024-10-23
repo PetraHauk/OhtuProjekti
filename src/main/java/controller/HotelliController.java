@@ -2,7 +2,6 @@ package controller;
 
 import model.DAO.HotelliDAO;
 import model.enteties.Hotelli;
-import model.enteties.Huone;
 
 public class HotelliController {
     private HotelliDAO hotelliDAO;
