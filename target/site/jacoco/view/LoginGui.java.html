@@ -26,52 +26,56 @@ import org.mindrot.jbcrypt.BCrypt;
 <span class="fc" id="L26">        Label emailLabel = new Label(&quot;Email:&quot;);</span>
 
 <span class="fc" id="L28">        TextField emailField = new TextField();</span>
-<span class="fc" id="L29">        emailField.setPromptText(&quot;Email&quot;);</span>
-<span class="fc" id="L30">        emailField.getStyleClass().add(&quot;text-field&quot;);</span>
+<span class="fc" id="L29">        emailField.setId(&quot;emailField&quot;); // Set ID</span>
+<span class="fc" id="L30">        emailField.setPromptText(&quot;Email&quot;);</span>
+<span class="fc" id="L31">        emailField.getStyleClass().add(&quot;text-field&quot;);</span>
 
-<span class="fc" id="L32">        Label passwordLabel = new Label(&quot;Password:&quot;);</span>
+<span class="fc" id="L33">        Label passwordLabel = new Label(&quot;Password:&quot;);</span>
 
-<span class="fc" id="L34">        PasswordField passwordField = new PasswordField();</span>
-<span class="fc" id="L35">        passwordField.setPromptText(&quot;Salasana&quot;);</span>
-<span class="fc" id="L36">        passwordField.getStyleClass().add(&quot;password-field&quot;);</span>
+<span class="fc" id="L35">        PasswordField passwordField = new PasswordField();</span>
+<span class="fc" id="L36">        passwordField.setId(&quot;passwordField&quot;); // Set ID</span>
+<span class="fc" id="L37">        passwordField.setPromptText(&quot;Salasana&quot;);</span>
+<span class="fc" id="L38">        passwordField.getStyleClass().add(&quot;password-field&quot;);</span>
 
-<span class="fc" id="L38">        Button loginButton = new Button(&quot;Kirjaudu&quot;);</span>
-<span class="fc" id="L39">        loginButton.getStyleClass().add(&quot;button-one&quot;);</span>
+<span class="fc" id="L40">        Button loginButton = new Button(&quot;Kirjaudu&quot;);</span>
+<span class="fc" id="L41">        loginButton.setId(&quot;loginButton&quot;); // Set ID</span>
+<span class="fc" id="L42">        loginButton.getStyleClass().add(&quot;button-one&quot;);</span>
 
-<span class="fc" id="L41">        Button registerButton = new Button(&quot;Rekisteröidy&quot;);</span>
-<span class="fc" id="L42">        registerButton.getStyleClass().add(&quot;button-two&quot;);</span>
+<span class="fc" id="L44">        Button registerButton = new Button(&quot;Rekisteröidy&quot;);</span>
+<span class="fc" id="L45">        registerButton.setId(&quot;registerButton&quot;); // Set ID</span>
+<span class="fc" id="L46">        registerButton.getStyleClass().add(&quot;button-two&quot;);</span>
 
         // Layout
-<span class="fc" id="L45">        VBox vbox = new VBox(10);</span>
-<span class="fc" id="L46">        vbox.setAlignment(Pos.CENTER);</span>
-<span class="fc" id="L47">        vbox.setPadding(new Insets(20));</span>
-<span class="fc" id="L48">        vbox.getChildren().addAll(loginLabel, emailLabel, emailField, passwordLabel, passwordField, loginButton, registerButton);</span>
+<span class="fc" id="L49">        VBox vbox = new VBox(10);</span>
+<span class="fc" id="L50">        vbox.setAlignment(Pos.CENTER);</span>
+<span class="fc" id="L51">        vbox.setPadding(new Insets(20));</span>
+<span class="fc" id="L52">        vbox.getChildren().addAll(loginLabel, emailLabel, emailField, passwordLabel, passwordField, loginButton, registerButton);</span>
 
         // Event Handlers
-<span class="pc" id="L51">        loginButton.setOnAction(e -&gt; handleLogin(emailField.getText(), passwordField.getText(), primaryStage));</span>
+<span class="fc" id="L55">        loginButton.setOnAction(e -&gt; handleLogin(emailField.getText(), passwordField.getText(), primaryStage));</span>
 
-<span class="fc" id="L53">        registerButton.setOnAction(e -&gt; {</span>
-<span class="nc" id="L54">            primaryStage.close();</span>
-<span class="nc" id="L55">            new RegistrationGui().start(new Stage()); // Open registration page</span>
-<span class="nc" id="L56">        });</span>
+<span class="fc" id="L57">        registerButton.setOnAction(e -&gt; {</span>
+<span class="fc" id="L58">            primaryStage.close();</span>
+<span class="fc" id="L59">            new RegistrationGui().start(new Stage()); // Open registration page</span>
+<span class="fc" id="L60">        });</span>
 
         // Set Scene
-<span class="fc" id="L59">        Scene scene = new Scene(vbox, 300, 350);</span>
-<span class="fc" id="L60">        scene.getStylesheets().add(getClass().getResource(&quot;/login.css&quot;).toExternalForm());</span>
-<span class="fc" id="L61">        primaryStage.setScene(scene);</span>
-<span class="fc" id="L62">        primaryStage.show();</span>
-<span class="fc" id="L63">    }</span>
+<span class="fc" id="L63">        Scene scene = new Scene(vbox, 300, 350);</span>
+<span class="fc" id="L64">        scene.getStylesheets().add(getClass().getResource(&quot;/login.css&quot;).toExternalForm());</span>
+<span class="fc" id="L65">        primaryStage.setScene(scene);</span>
+<span class="fc" id="L66">        primaryStage.show();</span>
+<span class="fc" id="L67">    }</span>
 
-       private void handleLogin(String email, String password, Stage primaryStage) {
-<span class="nc" id="L66">        String savedHashedPassword = kayttajaDAO.findPasswordByEmail(email);</span>
+    private void handleLogin(String email, String password, Stage primaryStage) {
+<span class="fc" id="L70">        String savedHashedPassword = kayttajaDAO.findPasswordByEmail(email);</span>
 
-<span class="nc bnc" id="L68" title="All 6 branches missed.">        if (savedHashedPassword != null &amp;&amp; !savedHashedPassword.isEmpty() &amp;&amp; BCrypt.checkpw(password, savedHashedPassword)) {</span>
+<span class="pc bpc" id="L72" title="2 of 6 branches missed.">        if (savedHashedPassword != null &amp;&amp; !savedHashedPassword.isEmpty() &amp;&amp; BCrypt.checkpw(password, savedHashedPassword)) {</span>
             // Retrieve the user role (rooli)
-<span class="nc" id="L70">            String rooli = kayttajaDAO.findRooliByEmail(email); // Assuming this method exists in KayttajaDAO</span>
+<span class="fc" id="L74">            String rooli = kayttajaDAO.findRooliByEmail(email); // Assuming this method exists in KayttajaDAO</span>
 
             // Save the username and role to UserSession
-<span class="nc" id="L73">            UserSession.setUsername(email);</span>
-<span class="nc" id="L74">            UserSession.setRooli(rooli);</span>
+<span class="fc" id="L77">            UserSession.setUsername(email);</span>
+<span class="fc" id="L78">            UserSession.setRooli(rooli);</span>
 
             // Login successful
             //Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -81,23 +85,26 @@ import org.mindrot.jbcrypt.BCrypt;
             //alert.showAndWait();
 
             // Close the login window
-<span class="nc" id="L84">            primaryStage.close();</span>
+<span class="fc" id="L88">            primaryStage.close();</span>
 
             // Open next stage and pass the username
-<span class="nc" id="L87">            new OhjelmistoGUI().start(new Stage());</span>
-<span class="nc" id="L88">        } else {</span>
+<span class="fc" id="L91">            new OhjelmistoGUI().start(new Stage());</span>
+<span class="fc" id="L92">        } else {</span>
             // Login failed
-<span class="nc" id="L90">            Alert alert = new Alert(Alert.AlertType.ERROR);</span>
-<span class="nc" id="L91">            alert.setTitle(&quot;Kirjautuminen epäonnistui&quot;);</span>
-<span class="nc" id="L92">            alert.setHeaderText(null);</span>
-<span class="nc" id="L93">            alert.setContentText(&quot;Tarkista sähköposti ja salasana.&quot;);</span>
-<span class="nc" id="L94">            alert.showAndWait();</span>
-        }
-<span class="nc" id="L96">    }</span>
+<span class="fc" id="L94">            Alert alert = new Alert(Alert.AlertType.ERROR);</span>
+<span class="fc" id="L95">            alert.setTitle(&quot;Kirjautuminen epäonnistui&quot;);</span>
+<span class="fc" id="L96">            alert.setHeaderText(null);</span>
+<span class="fc" id="L97">            alert.setContentText(&quot;Tarkista sähköposti ja salasana.&quot;);</span>
 
+<span class="fc" id="L99">            Stage alertStage = (Stage) alert.getDialogPane().getScene().getWindow();</span>
+<span class="fc" id="L100">            alertStage.setUserData(alert);</span>
+
+<span class="fc" id="L102">            alert.showAndWait();</span>
+        }
+<span class="fc" id="L104">    }</span>
 
     public static void main(String[] args) {
-<span class="nc" id="L100">        launch(args);</span>
-<span class="nc" id="L101">    }</span>
+<span class="nc" id="L107">        launch(args);</span>
+<span class="nc" id="L108">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

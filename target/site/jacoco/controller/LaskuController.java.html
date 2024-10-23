@@ -46,11 +46,11 @@ public class LaskuController {
     }
 
     public double calculateTotalForPaidLaskut() {
-<span class="nc" id="L49">        huoneController = new HuoneController(); // Only create it when needed</span>
-<span class="nc" id="L50">        varausController = new VarausController(); // Only create it when needed</span>
-<span class="nc" id="L51">        List&lt;Lasku&gt; allLaskut = laskuDAO.haeKaikkilaskut(); // Get all invoices</span>
-<span class="nc bnc" id="L52" title="All 4 branches missed.">        if (allLaskut == null || allLaskut.isEmpty()) {</span>
-<span class="nc" id="L53">            return 0; // Return 0 if there are no invoices</span>
+<span class="fc" id="L49">        huoneController = new HuoneController(); // Only create it when needed</span>
+<span class="fc" id="L50">        varausController = new VarausController(); // Only create it when needed</span>
+<span class="fc" id="L51">        List&lt;Lasku&gt; allLaskut = laskuDAO.haeKaikkilaskut(); // Get all invoices</span>
+<span class="pc bpc" id="L52" title="3 of 4 branches missed.">        if (allLaskut == null || allLaskut.isEmpty()) {</span>
+<span class="fc" id="L53">            return 0; // Return 0 if there are no invoices</span>
         }
 <span class="nc" id="L55">        double totalAmount = 0;</span>
 

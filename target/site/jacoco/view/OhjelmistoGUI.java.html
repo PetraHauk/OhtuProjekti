@@ -36,7 +36,7 @@ import model.service.CurrencyConverter;
 import view.sivut.*;
 
 // Loppusumma kommentoitu pois koska punasta viivaa
-<span class="nc" id="L39">public class OhjelmistoGUI extends Application {</span>
+<span class="fc" id="L39">public class OhjelmistoGUI extends Application {</span>
 
     private HuoneController huoneController;
     private VarausController varausController;
@@ -47,78 +47,78 @@ import view.sivut.*;
 
     @Override
     public void start(Stage primaryStage) {
-<span class="nc" id="L50">        primaryStage.setTitle(&quot;Hotel Management System&quot;);</span>
+<span class="fc" id="L50">        primaryStage.setTitle(&quot;Hotel Management System&quot;);</span>
 
-<span class="nc" id="L52">        asiakasController = new AsiakasController();</span>
-<span class="nc" id="L53">        varausController = new VarausController();</span>
-<span class="nc" id="L54">        huoneController = new HuoneController();</span>
-<span class="nc" id="L55">        laskuController = new LaskuController();</span>
-<span class="nc" id="L56">        hotelliController = new HotelliController();</span>
+<span class="fc" id="L52">        asiakasController = new AsiakasController();</span>
+<span class="fc" id="L53">        varausController = new VarausController();</span>
+<span class="fc" id="L54">        huoneController = new HuoneController();</span>
+<span class="fc" id="L55">        laskuController = new LaskuController();</span>
+<span class="fc" id="L56">        hotelliController = new HotelliController();</span>
 
-<span class="nc" id="L58">        Etusivu etusivu = new Etusivu();</span>
+<span class="fc" id="L58">        Etusivu etusivu = new Etusivu();</span>
 
-<span class="nc" id="L60">        HBox mainLayout = new HBox(10);</span>
-<span class="nc" id="L61">        VBox leftBar = createLeftBar(mainLayout, primaryStage);</span>
-<span class="nc" id="L62">        mainLayout.getChildren().addAll(leftBar, etusivu.createEtusivu(1));</span>
+<span class="fc" id="L60">        HBox mainLayout = new HBox(10);</span>
+<span class="fc" id="L61">        VBox leftBar = createLeftBar(mainLayout, primaryStage);</span>
+<span class="fc" id="L62">        mainLayout.getChildren().addAll(leftBar, etusivu.createEtusivu(1));</span>
 
-<span class="nc" id="L64">        Scene scene = new Scene(mainLayout, 1250, 630);</span>
-<span class="nc" id="L65">        scene.getStylesheets().add(&quot;style.css&quot;);</span>
-<span class="nc" id="L66">        primaryStage.setScene(scene);</span>
-<span class="nc" id="L67">        primaryStage.show();</span>
-<span class="nc" id="L68">    }</span>
+<span class="fc" id="L64">        Scene scene = new Scene(mainLayout, 1250, 630);</span>
+<span class="fc" id="L65">        scene.getStylesheets().add(&quot;style.css&quot;);</span>
+<span class="fc" id="L66">        primaryStage.setScene(scene);</span>
+<span class="fc" id="L67">        primaryStage.show();</span>
+<span class="fc" id="L68">    }</span>
 
 
     // Creates the left bar with buttons and user info
     private VBox createLeftBar(HBox mainLayout, Stage primaryStage) {
-<span class="nc" id="L73">        Label loggedInUsername = new Label(UserSession.getUsername());</span>
-<span class="nc" id="L74">        Label loggedInImage = new Label(&quot;[IMAGE]&quot;);</span>
-<span class="nc" id="L75">        HBox userBox = new HBox(10);</span>
-<span class="nc" id="L76">        userBox.getStyleClass().add(&quot;user-box&quot;);</span>
-<span class="nc" id="L77">        userBox.getChildren().addAll(loggedInImage, loggedInUsername);</span>
+<span class="fc" id="L73">        Label loggedInUsername = new Label(UserSession.getUsername());</span>
+<span class="fc" id="L74">        Label loggedInImage = new Label(&quot;[IMAGE]&quot;);</span>
+<span class="fc" id="L75">        HBox userBox = new HBox(10);</span>
+<span class="fc" id="L76">        userBox.getStyleClass().add(&quot;user-box&quot;);</span>
+<span class="fc" id="L77">        userBox.getChildren().addAll(loggedInImage, loggedInUsername);</span>
 
-<span class="nc" id="L79">        Button frontPageButton = createStyledButton(&quot;Etusivu&quot;);</span>
-<span class="nc" id="L80">        Button showRoomsButton = createStyledButton(&quot;Huoneiden hallinta&quot;);</span>
-<span class="nc" id="L81">        Button showCustomersButton = createStyledButton(&quot;Asiakasrekisteri&quot;);</span>
-<span class="nc" id="L82">        Button showVarauksetButton = createStyledButton(&quot;Varaukset&quot;);</span>
-<span class="nc" id="L83">        Button checkInButton = createStyledButton(&quot;Check-In&quot;);</span>
-<span class="nc" id="L84">        Button checkOutButton = createStyledButton(&quot;Check-Out&quot;);</span>
+<span class="fc" id="L79">        Button frontPageButton = createStyledButton(&quot;Etusivu&quot;);</span>
+<span class="fc" id="L80">        Button showRoomsButton = createStyledButton(&quot;Huoneiden hallinta&quot;);</span>
+<span class="fc" id="L81">        Button showCustomersButton = createStyledButton(&quot;Asiakasrekisteri&quot;);</span>
+<span class="fc" id="L82">        Button showVarauksetButton = createStyledButton(&quot;Varaukset&quot;);</span>
+<span class="fc" id="L83">        Button checkInButton = createStyledButton(&quot;Check-In&quot;);</span>
+<span class="fc" id="L84">        Button checkOutButton = createStyledButton(&quot;Check-Out&quot;);</span>
 
-<span class="nc" id="L86">        VBox leftButtons = new VBox(10);</span>
-<span class="nc" id="L87">        leftButtons.getChildren().addAll(frontPageButton, showRoomsButton, showCustomersButton, showVarauksetButton, checkInButton, checkOutButton);</span>
-<span class="nc" id="L88">        leftButtons.getStyleClass().add(&quot;left-buttons&quot;);</span>
+<span class="fc" id="L86">        VBox leftButtons = new VBox(10);</span>
+<span class="fc" id="L87">        leftButtons.getChildren().addAll(frontPageButton, showRoomsButton, showCustomersButton, showVarauksetButton, checkInButton, checkOutButton);</span>
+<span class="fc" id="L88">        leftButtons.getStyleClass().add(&quot;left-buttons&quot;);</span>
 
-<span class="nc" id="L90">        Button logoutButton = new Button(&quot;Kirjaudu ulos&quot;);</span>
-<span class="nc" id="L91">        logoutButton.setPrefWidth(200);</span>
-<span class="nc" id="L92">        logoutButton.getStyleClass().add(&quot;button-log-out&quot;);</span>
+<span class="fc" id="L90">        Button logoutButton = new Button(&quot;Kirjaudu ulos&quot;);</span>
+<span class="fc" id="L91">        logoutButton.setPrefWidth(200);</span>
+<span class="fc" id="L92">        logoutButton.getStyleClass().add(&quot;button-log-out&quot;);</span>
 
-<span class="nc" id="L94">        VBox leftBar = new VBox(30);</span>
-<span class="nc" id="L95">        leftBar.getChildren().addAll(userBox, leftButtons, logoutButton);</span>
-<span class="nc" id="L96">        leftBar.getStyleClass().add(&quot;left-bar&quot;);</span>
+<span class="fc" id="L94">        VBox leftBar = new VBox(30);</span>
+<span class="fc" id="L95">        leftBar.getChildren().addAll(userBox, leftButtons, logoutButton);</span>
+<span class="fc" id="L96">        leftBar.getStyleClass().add(&quot;left-bar&quot;);</span>
 
 
         // Check if user is an admin
-<span class="nc bnc" id="L100" title="All 2 branches missed.">        if (UserSession.getRooli().equals(&quot;Admin&quot;)) {</span>
-<span class="nc" id="L101">            Button adminButton = new Button(&quot;Admin Panel&quot;);</span>
-<span class="nc" id="L102">            adminButton.setPrefWidth(200);</span>
-<span class="nc" id="L103">            adminButton.getStyleClass().add(&quot;button-admin&quot;);</span>
+<span class="pc bpc" id="L100" title="1 of 2 branches missed.">        if (UserSession.getRooli().equals(&quot;Admin&quot;)) {</span>
+<span class="fc" id="L101">            Button adminButton = new Button(&quot;Admin Panel&quot;);</span>
+<span class="fc" id="L102">            adminButton.setPrefWidth(200);</span>
+<span class="fc" id="L103">            adminButton.getStyleClass().add(&quot;button-admin&quot;);</span>
 
             // Open AdminGUI on button click
-<span class="nc" id="L106">            adminButton.setOnAction(e -&gt; openAdminPanel());</span>
+<span class="pc" id="L106">            adminButton.setOnAction(e -&gt; openAdminPanel());</span>
 
             // Add the admin button below the logout button
-<span class="nc" id="L109">            leftBar.getChildren().add(adminButton);</span>
+<span class="fc" id="L109">            leftBar.getChildren().add(adminButton);</span>
         }
 
-<span class="nc" id="L112">        frontPageButton.setOnAction(e -&gt; handleFrontPageButtonAction(mainLayout, leftBar));</span>
-<span class="nc" id="L113">        showRoomsButton.setOnAction(e -&gt; handleShowRoomsButtonAction(mainLayout, leftBar));</span>
-<span class="nc" id="L114">        showCustomersButton.setOnAction(e -&gt; handleShowCustomersButtonAction(mainLayout, leftBar));</span>
-<span class="nc" id="L115">        showVarauksetButton.setOnAction(e -&gt; handleShowVarauksetButtonAction(mainLayout, leftBar));</span>
-<span class="nc" id="L116">        checkInButton.setOnAction(e -&gt; handleCheckInButtonAction(mainLayout, leftBar));</span>
-<span class="nc" id="L117">        checkOutButton.setOnAction(e -&gt; handleCheckOutButtonAction(mainLayout, leftBar));</span>
-<span class="nc" id="L118">        logoutButton.setOnAction(e -&gt; handleLogoutButtonAction(primaryStage));</span>
+<span class="pc" id="L112">        frontPageButton.setOnAction(e -&gt; handleFrontPageButtonAction(mainLayout, leftBar));</span>
+<span class="pc" id="L113">        showRoomsButton.setOnAction(e -&gt; handleShowRoomsButtonAction(mainLayout, leftBar));</span>
+<span class="pc" id="L114">        showCustomersButton.setOnAction(e -&gt; handleShowCustomersButtonAction(mainLayout, leftBar));</span>
+<span class="pc" id="L115">        showVarauksetButton.setOnAction(e -&gt; handleShowVarauksetButtonAction(mainLayout, leftBar));</span>
+<span class="pc" id="L116">        checkInButton.setOnAction(e -&gt; handleCheckInButtonAction(mainLayout, leftBar));</span>
+<span class="pc" id="L117">        checkOutButton.setOnAction(e -&gt; handleCheckOutButtonAction(mainLayout, leftBar));</span>
+<span class="pc" id="L118">        logoutButton.setOnAction(e -&gt; handleLogoutButtonAction(primaryStage));</span>
 
 
-<span class="nc" id="L121">        return leftBar;</span>
+<span class="fc" id="L121">        return leftBar;</span>
     }
 
     private void openAdminPanel() {
@@ -133,11 +133,11 @@ import view.sivut.*;
 
     // Creates a button with custom styling
     private Button createStyledButton(String text) {
-<span class="nc" id="L136">        Button button = new Button(text);</span>
-<span class="nc" id="L137">        button.setPrefWidth(200);</span>
-<span class="nc" id="L138">        button.setAlignment(Pos.CENTER_LEFT);</span>
-<span class="nc" id="L139">        button.getStyleClass().add(&quot;button-front-page&quot;);</span>
-<span class="nc" id="L140">        return button;</span>
+<span class="fc" id="L136">        Button button = new Button(text);</span>
+<span class="fc" id="L137">        button.setPrefWidth(200);</span>
+<span class="fc" id="L138">        button.setAlignment(Pos.CENTER_LEFT);</span>
+<span class="fc" id="L139">        button.getStyleClass().add(&quot;button-front-page&quot;);</span>
+<span class="fc" id="L140">        return button;</span>
     }
 
     // Button Actions

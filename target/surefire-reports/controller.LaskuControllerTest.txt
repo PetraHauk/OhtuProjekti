@@ -1,12 +1,12 @@
 -------------------------------------------------------------------------------
 Test set: controller.LaskuControllerTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.059 s <<< FAILURE! - in controller.LaskuControllerTest
-controller.LaskuControllerTest.testFindLaskuById  Time elapsed: 0.028 s  <<< ERROR!
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.024 s <<< FAILURE! - in controller.LaskuControllerTest
+controller.LaskuControllerTest.testFindLaskuById  Time elapsed: 0.003 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "model.enteties.Lasku.getLaskuId()" because "lasku" is null
 	at controller.LaskuControllerTest.testFindLaskuById(LaskuControllerTest.java:13)
 
-controller.LaskuControllerTest.testFindLaskuByAsiakasId  Time elapsed: 0.015 s  <<< ERROR!
+controller.LaskuControllerTest.testFindLaskuByAsiakasId  Time elapsed: 0.014 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "java.util.List.isEmpty()" because "laskuList" is null
 	at controller.LaskuControllerTest.testFindLaskuByAsiakasId(LaskuControllerTest.java:19)
 

@@ -13,18 +13,18 @@ import java.util.List;
 <span class="nc" id="L13">    }</span>
 
     public List&lt;Huone&gt; haeHuoneetByHotelliId(int hotelli_id) {
-<span class="nc" id="L16">        EntityManager em = MariaDbConnection.getInstance();</span>
-<span class="nc" id="L17">        List&lt;Huone&gt; huoneet = null;</span>
+<span class="fc" id="L16">        EntityManager em = MariaDbConnection.getInstance();</span>
+<span class="fc" id="L17">        List&lt;Huone&gt; huoneet = null;</span>
         try {
-<span class="nc" id="L19">            huoneet = em.createQuery(&quot;SELECT h FROM Huone h WHERE h.hotelli_id = :hotelli_id&quot;, Huone.class)</span>
-<span class="nc" id="L20">                    .setParameter(&quot;hotelli_id&quot;, hotelli_id)</span>
-<span class="nc" id="L21">                    .getResultList();</span>
-<span class="nc bnc" id="L22" title="All 2 branches missed.">            if (!huoneet.isEmpty()) {</span>
-<span class="nc" id="L23">                return huoneet;</span>
+<span class="fc" id="L19">            huoneet = em.createQuery(&quot;SELECT h FROM Huone h WHERE h.hotelli_id = :hotelli_id&quot;, Huone.class)</span>
+<span class="fc" id="L20">                    .setParameter(&quot;hotelli_id&quot;, hotelli_id)</span>
+<span class="fc" id="L21">                    .getResultList();</span>
+<span class="pc bpc" id="L22" title="1 of 2 branches missed.">            if (!huoneet.isEmpty()) {</span>
+<span class="fc" id="L23">                return huoneet;</span>
             }
         } finally {
-<span class="nc bnc" id="L26" title="All 2 branches missed.">            if (em != null) {</span>
-<span class="nc" id="L27">                em.close();</span>
+<span class="pc bpc" id="L26" title="1 of 2 branches missed.">            if (em != null) {</span>
+<span class="fc" id="L27">                em.close();</span>
             }
         }
 <span class="nc" id="L30">        return null;</span>
@@ -87,14 +87,14 @@ import java.util.List;
 <span class="fc" id="L87">                    .setParameter(&quot;huone_tyyppi&quot;, huone_tyyppi)</span>
 <span class="fc" id="L88">                    .getResultList();</span>
 <span class="pc bpc" id="L89" title="1 of 2 branches missed.">            if (!huoneet.isEmpty()) {</span>
-<span class="fc" id="L90">                return huoneet;</span>
+<span class="nc" id="L90">                return huoneet;</span>
             }
         } finally {
 <span class="pc bpc" id="L93" title="1 of 2 branches missed.">            if (em != null) {</span>
 <span class="fc" id="L94">                em.close();</span>
             }
         }
-<span class="nc" id="L97">        return null;</span>
+<span class="fc" id="L97">        return null;</span>
     }
 
     public void updateHuoneById(int id, int huone_nro, String huone_tyyppi, String huone_tila, double huone_hinta) {

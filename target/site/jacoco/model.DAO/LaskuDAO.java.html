@@ -101,21 +101,21 @@ import java.util.List;
 <span class="nc" id="L101">    }</span>
 
     public List&lt;Lasku&gt; haeKaikkilaskut() {
-<span class="nc" id="L104">        EntityManager em = MariaDbConnection.getInstance();</span>
-<span class="nc" id="L105">        List&lt;Lasku&gt; laskut = null;</span>
+<span class="fc" id="L104">        EntityManager em = MariaDbConnection.getInstance();</span>
+<span class="fc" id="L105">        List&lt;Lasku&gt; laskut = null;</span>
         try {
-<span class="nc" id="L107">            laskut = em.createQuery(&quot;SELECT l FROM Lasku l&quot;, Lasku.class).getResultList();</span>
-<span class="nc bnc" id="L108" title="All 2 branches missed.">            if (!laskut.isEmpty()) {</span>
+<span class="fc" id="L107">            laskut = em.createQuery(&quot;SELECT l FROM Lasku l&quot;, Lasku.class).getResultList();</span>
+<span class="pc bpc" id="L108" title="1 of 2 branches missed.">            if (!laskut.isEmpty()) {</span>
 <span class="nc" id="L109">                return laskut;</span>
             } else {
-<span class="nc" id="L111">                System.out.println(&quot;Lasku lista on tyhje.&quot;);</span>
+<span class="fc" id="L111">                System.out.println(&quot;Lasku lista on tyhje.&quot;);</span>
             }
         } finally {
-<span class="nc bnc" id="L114" title="All 2 branches missed.">            if (em != null) {</span>
-<span class="nc" id="L115">                em.close();</span>
+<span class="pc bpc" id="L114" title="1 of 2 branches missed.">            if (em != null) {</span>
+<span class="fc" id="L115">                em.close();</span>
             }
         }
-<span class="nc" id="L118">        return null;</span>
+<span class="fc" id="L118">        return null;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

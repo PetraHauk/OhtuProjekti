@@ -147,7 +147,7 @@ import java.util.List;
 <span class="nc" id="L147">        return kayttaja;  // Return the removed Kayttaja (or null if not found)</span>
     }
 
-    public void updateKayttajaById(int id, String etunimi, String sukunimi, String sposti, String puh, String rooli, String salasana) {
+    public void updateKayttajaById(int id, String etunimi, String sukunimi, String puh, String rooli) {
 <span class="nc" id="L151">        EntityManager em = MariaDbConnection.getInstance();</span>
         try {
 <span class="nc" id="L153">            em.getTransaction().begin();</span>
@@ -155,79 +155,77 @@ import java.util.List;
 <span class="nc bnc" id="L155" title="All 2 branches missed.">            if (kayttaja != null) {</span>
 <span class="nc" id="L156">                kayttaja.setEtunimi(etunimi);</span>
 <span class="nc" id="L157">                kayttaja.setSukunimi(sukunimi);</span>
-<span class="nc" id="L158">                kayttaja.setSposti(sposti);</span>
-<span class="nc" id="L159">                kayttaja.setPuh(puh);</span>
-<span class="nc" id="L160">                kayttaja.setRooli(rooli);</span>
-<span class="nc" id="L161">                kayttaja.setSalasana(salasana);</span>
-<span class="nc" id="L162">                System.out.println(&quot;Käyttäjän tiedot päivitetty onnistuneesti!&quot;);</span>
-<span class="nc" id="L163">                em.getTransaction().commit();</span>
+<span class="nc" id="L158">                kayttaja.setPuh(puh);</span>
+<span class="nc" id="L159">                kayttaja.setRooli(rooli);</span>
+<span class="nc" id="L160">                System.out.println(&quot;Käyttäjän tiedot päivitetty onnistuneesti!&quot;);</span>
+<span class="nc" id="L161">                em.getTransaction().commit();</span>
             } else {
-<span class="nc" id="L165">                System.out.println(&quot;Kayttäjä ei löytynyt ID:llä: &quot; + id);</span>
+<span class="nc" id="L163">                System.out.println(&quot;Kayttajaa ei löytynyt ID:llä: &quot; + id);</span>
             }
-<span class="nc" id="L167">        } catch (Exception e) {</span>
-<span class="nc bnc" id="L168" title="All 2 branches missed.">            if (em.getTransaction().isActive()) {</span>
-<span class="nc" id="L169">                em.getTransaction().rollback();</span>
+<span class="nc" id="L165">        } catch (Exception e) {</span>
+<span class="nc bnc" id="L166" title="All 2 branches missed.">            if (em.getTransaction().isActive()) {</span>
+<span class="nc" id="L167">                em.getTransaction().rollback();</span>
             }
-<span class="nc" id="L171">            e.printStackTrace();</span>
+<span class="nc" id="L169">            e.printStackTrace();</span>
         } finally {
-<span class="nc bnc" id="L173" title="All 2 branches missed.">            if (em != null) {</span>
-<span class="nc" id="L174">                em.close();</span>
+<span class="nc bnc" id="L171" title="All 2 branches missed.">            if (em != null) {</span>
+<span class="nc" id="L172">                em.close();</span>
             }
         }
-<span class="nc" id="L177">    }</span>
+<span class="nc" id="L175">    }</span>
 
 
 
     public List&lt;Kayttaja&gt; findAllKayttaja() {
-<span class="nc" id="L182">        EntityManager em = MariaDbConnection.getInstance();</span>
-<span class="nc" id="L183">        List&lt;Kayttaja&gt; kayttajat = null;</span>
+<span class="nc" id="L180">        EntityManager em = MariaDbConnection.getInstance();</span>
+<span class="nc" id="L181">        List&lt;Kayttaja&gt; kayttajat = null;</span>
         try {
-<span class="nc" id="L185">            kayttajat = em.createQuery(&quot;SELECT k FROM Kayttaja k&quot;, Kayttaja.class).getResultList();</span>
+<span class="nc" id="L183">            kayttajat = em.createQuery(&quot;SELECT k FROM Kayttaja k&quot;, Kayttaja.class).getResultList();</span>
         } finally {
-<span class="nc bnc" id="L187" title="All 2 branches missed.">            if (em != null) {</span>
-<span class="nc" id="L188">                em.close(); // Ensure the EntityManager is closed</span>
+<span class="nc bnc" id="L185" title="All 2 branches missed.">            if (em != null) {</span>
+<span class="nc" id="L186">                em.close(); // Ensure the EntityManager is closed</span>
             }
         }
-<span class="nc" id="L191">        return kayttajat; // Return the list of users</span>
+<span class="nc" id="L189">        return kayttajat; // Return the list of users</span>
     }
 
 
 
 
     public boolean onkoEmailOlemassa(String sposti) {
-<span class="nc" id="L198">        EntityManager em = MariaDbConnection.getInstance();</span>
+<span class="nc" id="L196">        EntityManager em = MariaDbConnection.getInstance();</span>
         try {
-<span class="nc" id="L200">            TypedQuery&lt;Long&gt; query = em.createQuery(&quot;SELECT COUNT(k) FROM Kayttaja k WHERE k.sposti = :sposti&quot;, Long.class);</span>
-<span class="nc" id="L201">            query.setParameter(&quot;sposti&quot;, sposti);</span>
-<span class="nc" id="L202">            Long count = query.getSingleResult();</span>
-<span class="nc bnc" id="L203" title="All 2 branches missed.">            return count &gt; 0;</span>
+<span class="nc" id="L198">            TypedQuery&lt;Long&gt; query = em.createQuery(&quot;SELECT COUNT(k) FROM Kayttaja k WHERE k.sposti = :sposti&quot;, Long.class);</span>
+<span class="nc" id="L199">            query.setParameter(&quot;sposti&quot;, sposti);</span>
+<span class="nc" id="L200">            Long count = query.getSingleResult();</span>
+<span class="nc bnc" id="L201" title="All 2 branches missed.">            return count &gt; 0;</span>
         } finally {
-<span class="nc" id="L205">            em.close(); // Ensure the EntityManager is closed</span>
+<span class="nc" id="L203">            em.close(); // Ensure the EntityManager is closed</span>
         }
     }
 
     public String findRooliByEmail(String email) {
-<span class="nc" id="L210">        EntityManager em = MariaDbConnection.getInstance();</span>
+<span class="nc" id="L208">        EntityManager em = MariaDbConnection.getInstance();</span>
         try {
-<span class="nc" id="L212">            em.getTransaction().begin();</span>
-<span class="nc" id="L213">            String rooliString = em.createQuery(&quot;SELECT k.rooli FROM Kayttaja k WHERE k.sposti = :email&quot;, String.class)</span>
-<span class="nc" id="L214">                    .setParameter(&quot;email&quot;, email)</span>
-<span class="nc" id="L215">                    .getSingleResult();</span>
-<span class="nc" id="L216">            em.getTransaction().commit();</span>
+<span class="nc" id="L210">            em.getTransaction().begin();</span>
+<span class="nc" id="L211">            String rooliString = em.createQuery(&quot;SELECT k.rooli FROM Kayttaja k WHERE k.sposti = :email&quot;, String.class)</span>
+<span class="nc" id="L212">                    .setParameter(&quot;email&quot;, email)</span>
+<span class="nc" id="L213">                    .getSingleResult();</span>
+<span class="nc" id="L214">            em.getTransaction().commit();</span>
 
             // Convert rooli from String to int
             //int rooli = Integer.parseInt(rooliString);
 
-<span class="nc" id="L221">            return rooliString;</span>
+<span class="nc" id="L219">            return rooliString;</span>
 
-<span class="nc" id="L223">        } catch (NoResultException e) {</span>
-<span class="nc" id="L224">            System.out.println(&quot;Käyttäjää ei löytynyt sähköpostilla: &quot; + email);</span>
-<span class="nc" id="L225">            return null;</span>
-<span class="nc" id="L226">        } catch (Exception e) {</span>
-<span class="nc" id="L227">            e.printStackTrace();</span>
-<span class="nc" id="L228">            return null;</span>
+<span class="nc" id="L221">        } catch (NoResultException e) {</span>
+<span class="nc" id="L222">            System.out.println(&quot;Käyttäjää ei löytynyt sähköpostilla: &quot; + email);</span>
+<span class="nc" id="L223">            return null;</span>
+<span class="nc" id="L224">        } catch (Exception e) {</span>
+<span class="nc" id="L225">            e.printStackTrace();</span>
+<span class="nc" id="L226">            return null;</span>
         } finally {
-<span class="nc" id="L230">            em.close();</span>
+<span class="nc" id="L228">            em.close();</span>
         }
     }
 
