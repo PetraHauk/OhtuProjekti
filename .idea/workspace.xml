@@ -5,8 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="update">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/view/LoginGuiTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/view/LoginGuiTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dependency-reduced-pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dependency-reduced-pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/jacoco.exec" beforeDir="false" afterPath="$PROJECT_DIR$/target/jacoco.exec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ohtutest.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/ohtutest.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/original-ohtutest.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-sessions.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/jacoco-sessions.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/jacoco.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-controller.HuoneControllerTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-controller.HuoneControllerTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-controller.LaskuControllerTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-controller.LaskuControllerTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/controller.LaskuControllerTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/controller.LaskuControllerTest.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,6 +87,8 @@
     "Application.WilmaMain.executor": "Run",
     "Docker.Dockerfile.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
+    "JAR Application.ohtutest.jar.executor": "Run",
+    "JAR Application.original-ohtutest.jar.executor": "Run",
     "JUnit.AdminGUITest.executor": "Run",
     "JUnit.AsiakasControllerTest and 4 more.executor": "Run",
     "JUnit.AsiakasControllerTest.executor": "Run",
@@ -152,11 +165,11 @@
       <command value="mvn clean package" />
       <command value="mvn clean javafx:run" />
       <command value="mvn package" />
-      <command value="mvn install" />
       <command value="mvn clean" />
+      <command value="mvn install" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.LoginGuiTest.testFailedLogin">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="app.Main" />
       <module name="gui" />
@@ -207,36 +220,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginGuiTest.testSuccessfulLogin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gui" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="view.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="view" />
-      <option name="MAIN_CLASS_NAME" value="view.LoginGuiTest" />
-      <option name="METHOD_NAME" value="testSuccessfulLogin" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="ohtutest.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/target/ohtutest.jar" />
+      <method v="2" />
     </configuration>
-    <configuration name="RegistrationGuiTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gui" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="view.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="view" />
-      <option name="MAIN_CLASS_NAME" value="view.RegistrationGuiTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="original-ohtutest.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/target/original-ohtutest.jar" />
+      <method v="2" />
     </configuration>
     <configuration name="Dockerfile" type="docker-deploy" factoryName="dockerfile" server-name="Docker">
       <deployment type="dockerfile">
@@ -257,18 +247,18 @@
       <item itemvalue="Application.Unnamed" />
       <item itemvalue="Application.Main" />
       <item itemvalue="Docker.Dockerfile" />
+      <item itemvalue="JAR Application.ohtutest.jar" />
+      <item itemvalue="JAR Application.original-ohtutest.jar" />
       <item itemvalue="JUnit.LoginGuiTest" />
       <item itemvalue="JUnit.LoginGuiTest.testFailedLogin" />
-      <item itemvalue="JUnit.LoginGuiTest.testSuccessfulLogin" />
-      <item itemvalue="JUnit.RegistrationGuiTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JAR Application.ohtutest.jar" />
+        <item itemvalue="JAR Application.original-ohtutest.jar" />
         <item itemvalue="JUnit.LoginGuiTest.testFailedLogin" />
         <item itemvalue="JUnit.LoginGuiTest" />
-        <item itemvalue="JUnit.LoginGuiTest.testSuccessfulLogin" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.RegistrationGuiTest" />
       </list>
     </recent_temporary>
   </component>
@@ -519,7 +509,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729879437983</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="update">
+      <option name="closed" value="true" />
+      <created>1729883634697</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1729883634697</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

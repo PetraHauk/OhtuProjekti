@@ -18,12 +18,18 @@
         <!-- JavaFX Dependencies -->
         <dependency>
             <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>21.0.4</version>
+            <classifier>win</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
             <version>21.0.4</version>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
-            <artifactId>javafx-fxml</artifactId>
+            <artifactId>javafx-swing</artifactId>
             <version>21.0.4</version>
         </dependency>
         <dependency>
@@ -33,7 +39,7 @@
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
-            <artifactId>javafx-swing</artifactId>
+            <artifactId>javafx-base</artifactId>
             <version>21.0.4</version>
         </dependency>
 
@@ -80,13 +86,6 @@
             <version>4.0.16-alpha</version>
             <scope>test</scope>
         </dependency>
-
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.13.2</version>
-            <scope>test</scope>
-        </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
@@ -111,7 +110,22 @@
             <version>4.0.16-alpha</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.1</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
+
+    <repositories>
+        <repository>
+            <id>openjfx-repo</id>
+            <url>https://openjfx.io</url>
+        </repository>
+    </repositories>
+
 
     <build>
         <finalName>ohtutest</finalName>
@@ -126,10 +140,10 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.13.0</version>
+                <version>3.10.1</version> <!-- Updated to the latest stable version -->
                 <configuration>
-                    <source>21</source>
-                    <target>21</target>
+                    <source>${maven.compiler.source}</source> <!-- Use property for source version -->
+                    <target>${maven.compiler.target}</target> <!-- Use property for target version -->
                 </configuration>
             </plugin>
 
@@ -141,35 +155,6 @@
                 <configuration>
                     <useDefaultDelimiters>true</useDefaultDelimiters>
                 </configuration>
-            </plugin>
-
-            <!-- Shade Plugin with Filters -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <version>3.6.0</version>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>shade</goal>
-                        </goals>
-                        <configuration>
-                            <filters>
-                                <filter>
-                                    <artifact>*:*</artifact>
-                                    <excludes>
-                                        <exclude>META-INF/*.SF</exclude>
-                                        <exclude>META-INF/*.DSA</exclude>
-                                        <exclude>META-INF/*.RSA</exclude>
-                                        <exclude>META-INF/LICENSE*</exclude>
-                                        <exclude>META-INF/NOTICE*</exclude>
-                                    </excludes>
-                                </filter>
-                            </filters>
-                        </configuration>
-                    </execution>
-                </executions>
             </plugin>
 
             <!-- JAR Plugin -->
