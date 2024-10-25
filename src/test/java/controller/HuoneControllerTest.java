@@ -25,7 +25,7 @@ public class HuoneControllerTest {
 
     @Test
     public void findHuoneByTila() {
-        String huoneTila = "varattu";
+        String huoneTila = "Varattu";
         List<Huone>huoneList = huoneController.findHuoneByTila(huoneTila);
         for (Huone huone : huoneList) {
             assertEquals(huoneTila, huone.getHuone_tila());
@@ -34,7 +34,7 @@ public class HuoneControllerTest {
 
     @Test
     public void testFindHuoneByTyyppi() {
-        String huoneTyyppi = "perhe";
+        String huoneTyyppi = "Perhehuone";
         List<Huone> huoneet = huoneController.findHuoneByTyyppi(huoneTyyppi);
         for (Huone huone : huoneet) {
             assertEquals(huoneTyyppi, huone.getHuone_tyyppi());
