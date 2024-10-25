@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CurrencyConverter.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">gui</a> &gt; <a href="index.source.html" class="el_package">model.service</a> &gt; <span class="el_source">CurrencyConverter.java</span></div><h1>CurrencyConverter.java</h1><pre class="source lang-java linenums">package model.service;
+
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
+<span class="nc" id="L10">public class CurrencyConverter {</span>
+
+    // API-avain ja perus-URL
+    private static final String API_KEY = &quot;65a9b705032dba05af37375f&quot;;
+    private static final String BASE_URL = &quot;https://v6.exchangerate-api.com/v6/&quot;;
+
+    // Static-metodi, jonka voit kutsua toisesta luokasta ilman olion luontia
+    public static double convertCurrency(String base, String target, double amount) {
+<span class="nc" id="L18">        double result = 0.0;</span>
+        try {
+            // Rakennetaan API-kutsu
+<span class="nc" id="L21">            String urlStr = BASE_URL + API_KEY + &quot;/latest/&quot; + base;</span>
+<span class="nc" id="L22">            URL url = new URL(urlStr);</span>
+<span class="nc" id="L23">            HttpURLConnection conn = (HttpURLConnection) url.openConnection();</span>
+<span class="nc" id="L24">            conn.setRequestMethod(&quot;GET&quot;);</span>
+
+            // Luetaan API-vastaus
+<span class="nc" id="L27">            BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));</span>
+            String inputLine;
+<span class="nc" id="L29">            StringBuilder content = new StringBuilder();</span>
+<span class="nc bnc" id="L30" title="All 2 branches missed.">            while ((inputLine = in.readLine()) != null) {</span>
+<span class="nc" id="L31">                content.append(inputLine);</span>
+            }
+<span class="nc" id="L33">            in.close();</span>
+<span class="nc" id="L34">            conn.disconnect();</span>
+
+            // Käsitellään JSON-vastaus
+<span class="nc" id="L37">            JSONObject json = new JSONObject(content.toString());</span>
+<span class="nc" id="L38">            JSONObject rates = json.getJSONObject(&quot;conversion_rates&quot;);</span>
+
+            // Haetaan kohdevaluutan kurssi
+<span class="nc" id="L41">            double exchangeRate = rates.getDouble(target);</span>
+
+            // Lasketaan muunnettu arvo
+<span class="nc" id="L44">            result = amount * exchangeRate;</span>
+
+<span class="nc" id="L46">        } catch (Exception e) {</span>
+<span class="nc" id="L47">            e.printStackTrace();</span>
+<span class="nc" id="L48">        }</span>
+<span class="nc" id="L49">        return result;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

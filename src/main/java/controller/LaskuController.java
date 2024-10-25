@@ -42,37 +42,43 @@ public class LaskuController {
         laskuDAO.removeById(lasku_id);
     }
 
-    public List<Lasku> findAllLaskut() {
-        return laskuDAO.haeKaikkilaskut();
+    public List<Lasku> findAllLaskut() {return laskuDAO.haeKaikkilaskut();
     }
 
     public double calculateTotalForPaidLaskut() {
         huoneController = new HuoneController(); // Only create it when needed
         varausController = new VarausController(); // Only create it when needed
         List<Lasku> allLaskut = laskuDAO.haeKaikkilaskut(); // Get all invoices
+        if (allLaskut == null || allLaskut.isEmpty()) {
+            return 0; // Return 0 if there are no invoices
+        }
         double totalAmount = 0;
 
-        for (Lasku lasku : allLaskut) {
-            if (lasku.getMaksuStatus().equalsIgnoreCase("Maksettu")) {
-                List<Varaus> varaukset = varausController.findByLaskuId(lasku.getLaskuId());
+        if (allLaskut == null || allLaskut.isEmpty()) {
+            return totalAmount; // Return 0 if there are no invoices
+        } else {
+            for (Lasku lasku : allLaskut) {
+                if (lasku.getMaksuStatus().equalsIgnoreCase("Maksettu")) {
+                    List<Varaus> varaukset = varausController.findByLaskuId(lasku.getLaskuId());
 
-                // if varaukset is empty, continue to the next lasku
-                if (varaukset == null || varaukset.isEmpty()) {
-                    continue;
-                }
+                    // if varaukset is empty, continue to the next lasku
+                    if (varaukset == null || varaukset.isEmpty()) {
+                        continue;
+                    }
 
-                for (Varaus varaus : varaukset) {
-                    Huone huone = huoneController.findHuoneById(varaus.getHuoneId());
+                    for (Varaus varaus : varaukset) {
+                        Huone huone = huoneController.findHuoneById(varaus.getHuoneId());
 
-                    // Calculate the number of days for the reservation
-                    long days = java.time.temporal.ChronoUnit.DAYS.between(varaus.getAlkuPvm(), varaus.getLoppuPvm());
+                        // Calculate the number of days for the reservation
+                        long days = java.time.temporal.ChronoUnit.DAYS.between(varaus.getAlkuPvm(), varaus.getLoppuPvm());
 
-                    // Multiply the number of days by the room price and add to total
-                    totalAmount += days * huone.getHuone_hinta();
+                        // Multiply the number of days by the room price and add to total
+                        totalAmount += days * huone.getHuone_hinta();
+                    }
                 }
             }
-        }
 
+        }
         return totalAmount; // Return the total amount for paid invoices
     }
 }

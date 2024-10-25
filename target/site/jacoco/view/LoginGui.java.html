@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LoginGui.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">gui</a> &gt; <a href="index.source.html" class="el_package">view</a> &gt; <span class="el_source">LoginGui.java</span></div><h1>LoginGui.java</h1><pre class="source lang-java linenums">package view;
+
+import javafx.scene.control.*;
+import model.service.UserSession;
+import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import model.DAO.KayttajaDAO;
+import org.mindrot.jbcrypt.BCrypt;
+
+<span class="fc" id="L14">public class LoginGui extends Application {</span>
+
+<span class="fc" id="L16">    private KayttajaDAO kayttajaDAO = new KayttajaDAO();</span>
+
+    @Override
+    public void start(Stage primaryStage) {
+<span class="fc" id="L20">        primaryStage.setTitle(&quot;Kirjautuminen&quot;);</span>
+
+<span class="fc" id="L22">        Label loginLabel = new Label(&quot;Kirjaudu sisään&quot;);</span>
+<span class="fc" id="L23">        loginLabel.getStyleClass().add(&quot;otsikko&quot;);</span>
+
+        // Create UI elements
+<span class="fc" id="L26">        Label emailLabel = new Label(&quot;Email:&quot;);</span>
+
+<span class="fc" id="L28">        TextField emailField = new TextField();</span>
+<span class="fc" id="L29">        emailField.setPromptText(&quot;Email&quot;);</span>
+<span class="fc" id="L30">        emailField.getStyleClass().add(&quot;text-field&quot;);</span>
+
+<span class="fc" id="L32">        Label passwordLabel = new Label(&quot;Password:&quot;);</span>
+
+<span class="fc" id="L34">        PasswordField passwordField = new PasswordField();</span>
+<span class="fc" id="L35">        passwordField.setPromptText(&quot;Salasana&quot;);</span>
+<span class="fc" id="L36">        passwordField.getStyleClass().add(&quot;password-field&quot;);</span>
+
+<span class="fc" id="L38">        Button loginButton = new Button(&quot;Kirjaudu&quot;);</span>
+<span class="fc" id="L39">        loginButton.getStyleClass().add(&quot;button-one&quot;);</span>
+
+<span class="fc" id="L41">        Button registerButton = new Button(&quot;Rekisteröidy&quot;);</span>
+<span class="fc" id="L42">        registerButton.getStyleClass().add(&quot;button-two&quot;);</span>
+
+        // Layout
+<span class="fc" id="L45">        VBox vbox = new VBox(10);</span>
+<span class="fc" id="L46">        vbox.setAlignment(Pos.CENTER);</span>
+<span class="fc" id="L47">        vbox.setPadding(new Insets(20));</span>
+<span class="fc" id="L48">        vbox.getChildren().addAll(loginLabel, emailLabel, emailField, passwordLabel, passwordField, loginButton, registerButton);</span>
+
+        // Event Handlers
+<span class="pc" id="L51">        loginButton.setOnAction(e -&gt; handleLogin(emailField.getText(), passwordField.getText(), primaryStage));</span>
+
+<span class="fc" id="L53">        registerButton.setOnAction(e -&gt; {</span>
+<span class="nc" id="L54">            primaryStage.close();</span>
+<span class="nc" id="L55">            new RegistrationGui().start(new Stage()); // Open registration page</span>
+<span class="nc" id="L56">        });</span>
+
+        // Set Scene
+<span class="fc" id="L59">        Scene scene = new Scene(vbox, 300, 350);</span>
+<span class="fc" id="L60">        scene.getStylesheets().add(getClass().getResource(&quot;/login.css&quot;).toExternalForm());</span>
+<span class="fc" id="L61">        primaryStage.setScene(scene);</span>
+<span class="fc" id="L62">        primaryStage.show();</span>
+<span class="fc" id="L63">    }</span>
+
+       private void handleLogin(String email, String password, Stage primaryStage) {
+<span class="nc" id="L66">        String savedHashedPassword = kayttajaDAO.findPasswordByEmail(email);</span>
+
+<span class="nc bnc" id="L68" title="All 6 branches missed.">        if (savedHashedPassword != null &amp;&amp; !savedHashedPassword.isEmpty() &amp;&amp; BCrypt.checkpw(password, savedHashedPassword)) {</span>
+            // Retrieve the user role (rooli)
+<span class="nc" id="L70">            String rooli = kayttajaDAO.findRooliByEmail(email); // Assuming this method exists in KayttajaDAO</span>
+
+            // Save the username and role to UserSession
+<span class="nc" id="L73">            UserSession.setUsername(email);</span>
+<span class="nc" id="L74">            UserSession.setRooli(rooli);</span>
+
+            // Login successful
+            //Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            //alert.setTitle(&quot;Kirjautuminen onnistui&quot;);
+            //alert.setHeaderText(null);
+            //alert.setContentText(&quot;Tervetuloa!&quot;);
+            //alert.showAndWait();
+
+            // Close the login window
+<span class="nc" id="L84">            primaryStage.close();</span>
+
+            // Open next stage and pass the username
+<span class="nc" id="L87">            new OhjelmistoGUI().start(new Stage());</span>
+<span class="nc" id="L88">        } else {</span>
+            // Login failed
+<span class="nc" id="L90">            Alert alert = new Alert(Alert.AlertType.ERROR);</span>
+<span class="nc" id="L91">            alert.setTitle(&quot;Kirjautuminen epäonnistui&quot;);</span>
+<span class="nc" id="L92">            alert.setHeaderText(null);</span>
+<span class="nc" id="L93">            alert.setContentText(&quot;Tarkista sähköposti ja salasana.&quot;);</span>
+<span class="nc" id="L94">            alert.showAndWait();</span>
+        }
+<span class="nc" id="L96">    }</span>
+
+
+    public static void main(String[] args) {
+<span class="nc" id="L100">        launch(args);</span>
+<span class="nc" id="L101">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

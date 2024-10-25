@@ -26,7 +26,7 @@ public class HuoneControllerTest {
     @Test
     public void findHuoneByTila() {
         String huoneTila = "varattu";
-       List<Huone>huoneList = huoneController.findHuoneByTila(huoneTila);
+        List<Huone>huoneList = huoneController.findHuoneByTila(huoneTila);
         for (Huone huone : huoneList) {
             assertEquals(huoneTila, huone.getHuone_tila());
         }

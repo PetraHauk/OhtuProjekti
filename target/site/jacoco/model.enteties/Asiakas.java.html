@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Asiakas.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">gui</a> &gt; <a href="index.source.html" class="el_package">model.enteties</a> &gt; <span class="el_source">Asiakas.java</span></div><h1>Asiakas.java</h1><pre class="source lang-java linenums">package model.enteties;
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = &quot;asiakas&quot;)
+public class Asiakas {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Tämä mahdollistaa automaattisen ID:n generoinnin
+    @Column(name = &quot;asiakas_id&quot;)
+    private int asiakasId;
+
+    @Column(name = &quot;etunimi&quot;)
+    private String etunimi;
+
+    @Column(name = &quot;sukunimi&quot;)
+    private String sukunimi;
+
+    @Column(name = &quot;sposti&quot;)
+    private String sposti;
+
+    @Column(name = &quot;puh&quot;)
+    private String puh;
+
+    @Column(name = &quot;henkilo_maara&quot;)
+    private int henkiloMaara;
+
+    @Column(name = &quot;huomio&quot;)
+    private String huomio;
+
+<span class="nc" id="L31">    public Asiakas(int asiakasId, String etunimi, String sukunimi, String sposti, String puh, int henkiloMaara, String huomio) {</span>
+<span class="nc" id="L32">        this.etunimi = etunimi;</span>
+<span class="nc" id="L33">        this.sukunimi = sukunimi;</span>
+<span class="nc" id="L34">        this.sposti = sposti;</span>
+<span class="nc" id="L35">        this.puh = puh;</span>
+<span class="nc" id="L36">        this.henkiloMaara = henkiloMaara;</span>
+<span class="nc" id="L37">        this.huomio = huomio;</span>
+<span class="nc" id="L38">    }</span>
+
+<span class="fc" id="L40">    public Asiakas() {</span>
+<span class="fc" id="L41">    }</span>
+
+    public int getAsiakasId() {
+<span class="nc" id="L44">        return asiakasId;</span>
+    }
+
+    public void setAsiakasId(int asiakasId) {
+<span class="nc" id="L48">        this.asiakasId = asiakasId;</span>
+<span class="nc" id="L49">    }</span>
+
+    public String getEtunimi() {
+<span class="nc" id="L52">        return etunimi;</span>
+    }
+
+    public void setEtunimi(String etunimi) {
+<span class="nc" id="L56">        this.etunimi = etunimi;</span>
+<span class="nc" id="L57">    }</span>
+
+    public String getSukunimi() {
+<span class="nc" id="L60">        return sukunimi;</span>
+    }
+
+    public void setSukunimi(String sukunimi) {
+<span class="nc" id="L64">        this.sukunimi = sukunimi;</span>
+<span class="nc" id="L65">    }</span>
+
+    public String getSposti() {
+<span class="nc" id="L68">        return sposti;</span>
+    }
+
+    public void setSposti(String sposti) {
+<span class="nc" id="L72">        this.sposti = sposti;</span>
+<span class="nc" id="L73">    }</span>
+
+    public String getPuh() {
+<span class="nc" id="L76">        return puh;</span>
+    }
+
+    public void setPuh(String puh) {
+<span class="nc" id="L80">        this.puh = puh;</span>
+<span class="nc" id="L81">    }</span>
+
+    public int getHenkiloMaara() {
+<span class="nc" id="L84">        return henkiloMaara;</span>
+    }
+
+    public void setHenkiloMaara(int henkiloMaara) {
+<span class="nc" id="L88">        this.henkiloMaara = henkiloMaara;</span>
+<span class="nc" id="L89">    }</span>
+
+    public String getHuomio() {
+<span class="nc" id="L92">        return huomio;</span>
+    }
+
+    public void setHuomio(String huomio) {
+<span class="nc" id="L96">        this.huomio = huomio;</span>
+<span class="nc" id="L97">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

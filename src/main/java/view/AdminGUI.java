@@ -17,11 +17,9 @@ import java.util.List;
 
 public class AdminGUI extends Application {
 
-    private KayttajaDAO kayttajaDAO = new KayttajaDAO(); // Assuming this DAO exists
-    private TableView<Kayttaja> userTable;  // Declare the userTable at class level
+    KayttajaDAO kayttajaDAO = new KayttajaDAO();
+    TableView<Kayttaja> userTable;
     private String adminEmail; // Store admin email for validation
-
-
 
     @Override
     public void start(Stage primaryStage) {
@@ -50,7 +48,7 @@ public class AdminGUI extends Application {
 
         // Add all columns to the userTable
         userTable.getColumns().addAll(idColumn, etunimiColumn, sukunimiColumn, emailColumn, puhColumn, roleColumn);
-        userTable.setItems(FXCollections.observableArrayList(loadUsers())); // Set the items
+        loadAndDisplayUsers(); // Set the items
 
         // Form to update user information
         TextField idField = new TextField();
@@ -77,23 +75,47 @@ public class AdminGUI extends Application {
         Button addUserButton = new Button("+");
         addUserButton.setOnAction(e -> openAddUserDialog());
 
-
         Button updateUserButton = new Button("Päivitä käyttäjä");
-        updateUserButton.setOnAction(e -> updateUserById(
-                Integer.parseInt(idField.getText()),
-                etunimiField.getText(),
-                sukunimiField.getText(),
-                spostiField.getText(),
-                puhField.getText(),
-                rooliComboBox.getValue(),
-                passwordField.getText())
-        );
+        updateUserButton.setOnAction(e -> {
+            int id = Integer.parseInt(idField.getText());
+            String etunimi = etunimiField.getText();
+            String sukunimi = sukunimiField.getText();
+            String puh = puhField.getText();
+            String rooli = rooliComboBox.getValue();
+            String sposti = spostiField.getText();
+            String salasana = passwordField.getText();
 
-        // Delete Button
+            // Update user details except email and password
+            kayttajaDAO.updateKayttajaById(id, etunimi, sukunimi, puh, rooli);
+
+            // Update email if provided
+            if (!sposti.isEmpty()) {
+                kayttajaDAO.updateEmailById(id, sposti);
+            }
+
+            // Update password if provided
+            if (!salasana.isEmpty()) {
+                kayttajaDAO.changePasswordByEmail(sposti, salasana);
+            }
+
+            // Refresh the user table
+            loadAndDisplayUsers();
+        });
+                // Delete Button
         Button deleteUserButton = new Button("Poista käyttäjä");
         deleteUserButton.setOnAction(e -> deleteUser());
 
-        VBox form = new VBox(10, new Label("Muokkaa käyttäjä tietoja"), idField, etunimiField, sukunimiField, spostiField, puhField, rooliComboBox, passwordField, updateUserButton, deleteUserButton);
+        // Form layout with labels
+        VBox form = new VBox(10,
+                new Label("Muokkaa käyttäjä tietoja"),
+                new Label("Käyttäjän ID"), idField,
+                new Label("Etunimi"), etunimiField,
+                new Label("Sukunimi"), sukunimiField,
+                new Label("Sähköposti"), spostiField,
+                new Label("Puhelinnumero"), puhField,
+                new Label("Rooli"), rooliComboBox,
+                new Label("Salasana (jätä tyhjäksi, jos ei muuta)"), passwordField,
+                updateUserButton, deleteUserButton);
         form.setPadding(new Insets(10));
 
         // Layout
@@ -102,7 +124,7 @@ public class AdminGUI extends Application {
         VBox layout = new VBox(10, topBar, userTable, form);
         layout.setPadding(new Insets(10));
 
-        Scene scene = new Scene(layout, 600, 600);
+        Scene scene = new Scene(layout, 800, 800);
         primaryStage.setScene(scene);
         primaryStage.show();
 
@@ -123,7 +145,7 @@ public class AdminGUI extends Application {
     }
 
     // Load users from the database
-    private List<Kayttaja> loadUsers() {
+    List<Kayttaja> loadUsers() {
         return kayttajaDAO.findAllKayttaja(); // This should retrieve all users
     }
 
@@ -158,7 +180,15 @@ public class AdminGUI extends Application {
         });
 
         // Layout for the form
-        VBox addUserForm = new VBox(10, new Label("Täytä uuden käyttäjän tiedot"), etunimiField, sukunimiField, spostiField, puhField, passwordField, rooliComboBox, addUserSubmitButton);
+        VBox addUserForm = new VBox(10,
+                new Label("Täytä uuden käyttäjän tiedot"),
+                new Label("Etunimi"), etunimiField,
+                new Label("Sukunimi"), sukunimiField,
+                new Label("Sähköposti"), spostiField,
+                new Label("Puhelinnumero"), puhField,
+                new Label("Salasana"), passwordField,
+                new Label("Rooli"), rooliComboBox,
+                addUserSubmitButton);
         addUserForm.setPadding(new Insets(20));
 
         // Create a new scene and set it to the stage
@@ -166,7 +196,7 @@ public class AdminGUI extends Application {
         addUserStage.setScene(addUserScene);
         addUserStage.show();
     }
-    private void handleAddUser(String etunimi, String sukunimi, String sposti, String puh, String salasana, String rooli, Stage addUserStage) {
+    void handleAddUser(String etunimi, String sukunimi, String sposti, String puh, String salasana, String rooli, Stage addUserStage) {
         if (etunimi.isEmpty() || sukunimi.isEmpty() || sposti.isEmpty() || puh.isEmpty() || salasana.isEmpty() || rooli == null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Lisääminen epäonnistui");
@@ -203,16 +233,16 @@ public class AdminGUI extends Application {
             addUserStage.close();
 
             // Reload the user table with the new user added
-            userTable.setItems(FXCollections.observableArrayList(loadUsers()));
+            loadAndDisplayUsers();
         }
     }
 
-    private void updateUserById(int id, String etunimi, String sukunimi, String sposti, String puh, String rooli, String salasana) {
+    void updateUserById(int id, String etunimi, String sukunimi, String sposti, String puh, String rooli, String salasana) {
         // Hash the password if it's not empty
         String hashattuSalasana = salasana.isEmpty() ? null : BCrypt.hashpw(salasana, BCrypt.gensalt());
 
         // Update the user information in the database
-        kayttajaDAO.updateKayttajaById(id, etunimi, sukunimi, sposti, puh, rooli, hashattuSalasana); // Use your provided method
+        kayttajaDAO.updateKayttajaById(id, etunimi, sukunimi, puh, rooli); // Use your provided method
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Käyttäjän tietojen päivitys");
@@ -221,11 +251,11 @@ public class AdminGUI extends Application {
         alert.showAndWait();
 
         // Reload the user table with updated information
-        userTable.setItems(FXCollections.observableArrayList(loadUsers()));  // Now we use the class-level userTable
+        loadAndDisplayUsers(); // Now we use the class-level userTable
     }
 
 
-    private void deleteUser() {
+    void deleteUser() {
         Kayttaja selectedUser = userTable.getSelectionModel().getSelectedItem();
         if (selectedUser == null) {
             showWarning("Valinta puuttuu", "Valitse poistettavaksi käyttäjä.");
@@ -272,7 +302,7 @@ public class AdminGUI extends Application {
                 if (validatePassword(password)) {
                     kayttajaDAO.removeById(selectedUser.getKayttajaId());
                     showInfo("Käyttäjä poistettu", "Käyttäjä poistettu onnistuneesti!");
-                    userTable.setItems(FXCollections.observableArrayList(loadUsers()));
+                    loadAndDisplayUsers();
                 } else {
                     showError("Virhe", "Väärä salasana! Poisto peruttu.");
                 }
@@ -283,7 +313,7 @@ public class AdminGUI extends Application {
 
 
     // Validate admin password
-    private boolean validatePassword(String password) {
+    boolean validatePassword(String password) {
         String savedHashedPassword = kayttajaDAO.findPasswordByEmail(adminEmail);
         return savedHashedPassword != null && BCrypt.checkpw(password, savedHashedPassword);
     }
@@ -320,6 +350,9 @@ public class AdminGUI extends Application {
         confirmationAlert.setContentText("Tätä toimintoa ei voida peruuttaa!");
         confirmationAlert.setHeaderText(null);
         return confirmationAlert.showAndWait().orElse(ButtonType.CANCEL) == ButtonType.OK;
+    }
+    private void loadAndDisplayUsers() {
+        userTable.setItems(FXCollections.observableArrayList(loadUsers())); // Load users here
     }
 
     public static void main(String[] args) {

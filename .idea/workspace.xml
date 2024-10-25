@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="update">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_09_2024_09_03__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_09_2024_09_03__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/sivut/CheckOut.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/sivut/CheckOut.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/enteties/LaskuData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/enteties/LaskuData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/CheckOut.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/sivut/CheckOut.class" afterDir="false" />
+    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="Fiksaa testit ja vähän refactorointia">
+      <change beforePath="$PROJECT_DIR$/target/classes/view/AdminGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/AdminGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/view/AdminGUITest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/view/AdminGUITest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/view/LoginGuiTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/view/LoginGuiTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,9 +19,9 @@
       <list>
         <option value="FxmlFile" />
         <option value="CSS File" />
-        <option value="JUnit4 Test Class" />
         <option value="Dockerfile" />
         <option value="Class" />
+        <option value="JUnit4 Test Class" />
       </list>
     </option>
   </component>
@@ -75,19 +72,34 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Application.LoginGui.executor&quot;: &quot;Run&quot;,
     &quot;Application.Main.executor&quot;: &quot;Run&quot;,
     &quot;Application.MainPetra.executor&quot;: &quot;Run&quot;,
     &quot;Application.WilmaMain.executor&quot;: &quot;Run&quot;,
     &quot;Docker.Dockerfile.executor&quot;: &quot;Run&quot;,
     &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;JUnit.AdminGUITest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AdminGUITest.testDeleteUser.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AdminGUITest.testHandleAddUser.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AdminGUITest.testLoadUsers.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AdminGUITest.testUpdateUserById.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AdminGUITest.testValidatePassword.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.LaskuControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LoginGuiTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LoginGuiTest.testEmptyFields.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LoginGuiTest.testFailedLogin.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LoginGuiTest.testOpenRegistrationPage.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LoginGuiTest.testSuccessfulLogin.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.RegistrationGuiTest (1).executor&quot;: &quot;Run&quot;,
     &quot;JUnit.RegistrationGuiTest.executor&quot;: &quot;Profiler#1&quot;,
+    &quot;JUnit.RegistrationGuiTest.testHandleRegister_Success (1).executor&quot;: &quot;Run&quot;,
     &quot;JUnit.RegistrationGuiTest.testHandleRegister_Success.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.RegistrationGuiTest.testRegisterWithEmptyFields.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.RegistrationGuiTest.testRegisterWithExistingEmail.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.RegistrationGuiTest.testSuccessfulAlertDisplay.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.RegistrationGuiTest.testSuccessfulRegistration.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VarausControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.controller in gui.executor&quot;: &quot;Run&quot;,
     &quot;Maven.gui [clean,javafx:run].executor&quot;: &quot;Run&quot;,
     &quot;Maven.gui [clean,package].executor&quot;: &quot;Run&quot;,
     &quot;Maven.gui [clean].executor&quot;: &quot;Run&quot;,
@@ -98,11 +110,13 @@
     &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;TestNG.KayttajaControllerTest.executor&quot;: &quot;Run&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit4&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4&quot;: &quot;&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;21&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_directory_selection&quot;: &quot;C:/Users/kakek/IdeaProjects/OhtuProjekti2/src/test/java/view&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/kakek/javafx-sdk-17.0.10/lib&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -131,6 +145,7 @@
       <recent name="C:\Users\kakek\IdeaProjects\OhtuProjekti2\src\src" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="view" />
       <recent name="app" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -147,18 +162,10 @@
       <command value="mvn install" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="Main" type="Application" factoryName="Application">
+  <component name="RunManager" selected="JUnit.LoginGuiTest">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="app.Main" />
       <module name="gui" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Main2" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="app.Main" />
-      <module name="gui" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;C:\tools\javafx-sdk-21.0.4&quot; --add-modules javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="app.*" />
@@ -175,22 +182,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LaskuControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gui" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="controller" />
-      <option name="MAIN_CLASS_NAME" value="controller.LaskuControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RegistrationGuiTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AdminGUITest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gui" />
       <extension name="coverage">
         <pattern>
@@ -199,38 +191,54 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="view" />
-      <option name="MAIN_CLASS_NAME" value="view.RegistrationGuiTest" />
+      <option name="MAIN_CLASS_NAME" value="view.AdminGUITest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegistrationGuiTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AdminGUITest.testLoadUsers" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gui" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="app.*" />
+          <option name="PATTERN" value="view.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="app" />
-      <option name="MAIN_CLASS_NAME" value="app.RegistrationGuiTest" />
+      <option name="PACKAGE_NAME" value="view" />
+      <option name="MAIN_CLASS_NAME" value="view.AdminGUITest" />
+      <option name="METHOD_NAME" value="testLoadUsers" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoginGuiTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gui" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="view.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="view" />
+      <option name="MAIN_CLASS_NAME" value="view.LoginGuiTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegistrationGuiTest.testHandleRegister_Success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LoginGuiTest.testEmptyFields" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gui" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="app.*" />
+          <option name="PATTERN" value="view.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="app" />
-      <option name="MAIN_CLASS_NAME" value="app.RegistrationGuiTest" />
-      <option name="METHOD_NAME" value="testHandleRegister_Success" />
+      <option name="PACKAGE_NAME" value="view" />
+      <option name="MAIN_CLASS_NAME" value="view.LoginGuiTest" />
+      <option name="METHOD_NAME" value="testEmptyFields" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -254,28 +262,27 @@
     <list>
       <item itemvalue="Application.Unnamed" />
       <item itemvalue="Application.Main" />
-      <item itemvalue="Application.Main2" />
       <item itemvalue="Docker.Dockerfile" />
-      <item itemvalue="JUnit.LaskuControllerTest" />
-      <item itemvalue="JUnit.RegistrationGuiTest (1)" />
-      <item itemvalue="JUnit.RegistrationGuiTest" />
-      <item itemvalue="JUnit.RegistrationGuiTest.testHandleRegister_Success" />
+      <item itemvalue="JUnit.AdminGUITest" />
+      <item itemvalue="JUnit.AdminGUITest.testLoadUsers" />
+      <item itemvalue="JUnit.LoginGuiTest" />
+      <item itemvalue="JUnit.LoginGuiTest.testEmptyFields" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main2" />
-        <item itemvalue="JUnit.RegistrationGuiTest (1)" />
-        <item itemvalue="JUnit.LaskuControllerTest" />
-        <item itemvalue="JUnit.RegistrationGuiTest" />
-        <item itemvalue="JUnit.RegistrationGuiTest.testHandleRegister_Success" />
+        <item itemvalue="JUnit.LoginGuiTest" />
+        <item itemvalue="JUnit.AdminGUITest.testLoadUsers" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.AdminGUITest" />
+        <item itemvalue="JUnit.LoginGuiTest.testEmptyFields" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.20224.419" />
-        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-IU-242.20224.419" />
+        <option value="jdk-17.0.10-corretto-17.0.10-f644763e9732-24fca987" />
+        <option value="jdk-21.0.2-openjdk-21.0.2-f644763e9732-c0c073db" />
       </set>
     </attachedChunks>
   </component>
@@ -307,8 +314,10 @@
       <workItem from="1727722802128" duration="1301000" />
       <workItem from="1727762601158" duration="7387000" />
       <workItem from="1728065113527" duration="3995000" />
-      <workItem from="1728127490530" duration="9648000" />
-      <workItem from="1728138584100" duration="1905000" />
+      <workItem from="1728112777104" duration="20866000" />
+      <workItem from="1728284414792" duration="4584000" />
+      <workItem from="1728318854390" duration="4828000" />
+      <workItem from="1728325623733" duration="1304000" />
     </task>
     <task id="LOCAL-00002" summary="yhdistetty wilman ja kaislan judut">
       <option name="closed" value="true" />
@@ -494,15 +503,79 @@
       <option name="project" value="LOCAL" />
       <updated>1728072746459</updated>
     </task>
-    <task id="LOCAL-00025" summary="update">
+    <task id="LOCAL-00025" summary="ylimääränen src kansio poistettu">
       <option name="closed" value="true" />
-      <created>1728138649521</created>
+      <created>1728073148078</created>
       <option name="number" value="00025" />
       <option name="presentableId" value="LOCAL-00025" />
       <option name="project" value="LOCAL" />
-      <updated>1728138649521</updated>
+      <updated>1728073148078</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="muut testit kommentoitu pois koska virheitä jenkinsissä">
+      <option name="closed" value="true" />
+      <created>1728073337116</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1728073337116</updated>
+    </task>
+    <task id="LOCAL-00027" summary="pomi muutokset">
+      <option name="closed" value="true" />
+      <created>1728285611958</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1728285611958</updated>
+    </task>
+    <task id="LOCAL-00028" summary="pomi muutokset">
+      <option name="closed" value="true" />
+      <created>1728285694382</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1728285694382</updated>
+    </task>
+    <task id="LOCAL-00029" summary="pomi muutokset">
+      <option name="closed" value="true" />
+      <created>1728288290188</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1728288290188</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Varaus Taulussa Asiakaan nimi">
+      <option name="closed" value="true" />
+      <created>1728290740215</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1728290740215</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Lisää testejä ja muuttaa AdminGUIn fiksummaksi">
+      <option name="closed" value="true" />
+      <created>1728323643467</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1728323643467</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Lisää testejä ja muuttaa AdminGUIn fiksummaksi">
+      <option name="closed" value="true" />
+      <created>1728323668919</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1728323668919</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Fiksaa testit ja vähän refactorointia">
+      <option name="closed" value="true" />
+      <created>1728326318368</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1728326318368</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -536,8 +609,12 @@
     <MESSAGE value="muuttaa pomin ja dockerfilen docker pull ja buildia varten!" />
     <MESSAGE value="pikku muutoksia" />
     <MESSAGE value="ylimääränen src kansio poistettu" />
-    <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value="muut testit kommentoitu pois koska virheitä jenkinsissä" />
+    <MESSAGE value="pomi muutokset" />
+    <MESSAGE value="Varaus Taulussa Asiakaan nimi" />
+    <MESSAGE value="Lisää testejä ja muuttaa AdminGUIn fiksummaksi" />
+    <MESSAGE value="Fiksaa testit ja vähän refactorointia" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fiksaa testit ja vähän refactorointia" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -550,8 +627,9 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/OhtuProjekti2$RegistrationGuiTest__1_.ic" NAME="RegistrationGuiTest (1) Coverage Results" MODIFIED="1728072445616" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/OhtuProjekti2$RegistrationGuiTest__1_.ic" NAME="RegistrationGuiTest (1) Coverage Results" MODIFIED="1728126544540" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>view.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/OhtuProjekti2$controller_in_gui.ic" NAME="controller in gui Coverage Results" MODIFIED="1728129736984" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
