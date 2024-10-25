@@ -17,7 +17,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout code from Git repository
-                git url: 'https://github.com/PetraHauk/OhtuProjekti.git', branch: 'main'
+                git url: 'https://github.com/PetraHauk/OhtuProjekti.git', branch: 'anna'
             }
         }
          stage('Run Tests') {
