@@ -18,11 +18,11 @@ pipeline {
                 script {
                     // Adding Docker's path to the environment
                     withEnv(["PATH=/usr/local/bin:/usr/bin:/bin"]) {
-                       // docker.build("${DOCKERHUB_REPO}:${DOCKER_IMAGE_TAG}")
+                       docker.build("${DOCKERHUB_REPO}:${DOCKER_IMAGE_TAG}")
                         //docker buildx build --platform linux/amd64 -t ${DOCKERHUB_REPO}:${DOCKER_IMAGE_TAG}")
-                           sh """
-                                docker buildx build --platform linux/amd64 -t ${DOCKERHUB_REPO}:${DOCKER_IMAGE_TAG} .
-                           """
+                           //sh """
+                                //docker buildx build --platform linux/amd64 -t ${DOCKERHUB_REPO}:${DOCKER_IMAGE_TAG} .
+                           //"""
                     }
                 }
             }
