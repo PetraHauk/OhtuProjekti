@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AdminGUI.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">gui</a> &gt; <a href="index.source.html" class="el_package">view</a> &gt; <span class="el_source">AdminGUI.java</span></div><h1>AdminGUI.java</h1><pre class="source lang-java linenums">package view;
+
+import model.service.UserSession;
+import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.geometry.Insets;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.*;
+import javafx.stage.Stage;
+import model.enteties.Kayttaja;
+import model.DAO.KayttajaDAO;
+import org.mindrot.jbcrypt.BCrypt;
+
+import java.util.List;
+
+<span class="nc" id="L18">public class AdminGUI extends Application {</span>
+
+<span class="nc" id="L20">    KayttajaDAO kayttajaDAO = new KayttajaDAO();</span>
+    TableView&lt;Kayttaja&gt; userTable;
+    private String adminEmail; // Store admin email for validation
+
+    @Override
+    public void start(Stage primaryStage) {
+<span class="nc" id="L26">        primaryStage.setTitle(&quot;Admin Panel - User Management&quot;);</span>
+
+        // Initialize Table to Display Users
+<span class="nc" id="L29">        userTable = new TableView&lt;&gt;();  // Initialize the userTable here</span>
+<span class="nc" id="L30">        TableColumn&lt;Kayttaja, Integer&gt; idColumn = new TableColumn&lt;&gt;(&quot;Kayttaja ID&quot;);</span>
+<span class="nc" id="L31">        idColumn.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;kayttajaId&quot;)); // Use &quot;kayttajaId&quot;</span>
+
+        // Create columns for etunimi, sukunimi, and puh
+<span class="nc" id="L34">        TableColumn&lt;Kayttaja, String&gt; etunimiColumn = new TableColumn&lt;&gt;(&quot;Etunimi&quot;);</span>
+<span class="nc" id="L35">        etunimiColumn.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;etunimi&quot;));</span>
+
+<span class="nc" id="L37">        TableColumn&lt;Kayttaja, String&gt; sukunimiColumn = new TableColumn&lt;&gt;(&quot;Sukunimi&quot;);</span>
+<span class="nc" id="L38">        sukunimiColumn.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;sukunimi&quot;));</span>
+
+<span class="nc" id="L40">        TableColumn&lt;Kayttaja, String&gt; emailColumn = new TableColumn&lt;&gt;(&quot;Email&quot;);</span>
+<span class="nc" id="L41">        emailColumn.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;sposti&quot;));</span>
+
+<span class="nc" id="L43">        TableColumn&lt;Kayttaja, String&gt; puhColumn = new TableColumn&lt;&gt;(&quot;Puh&quot;);</span>
+<span class="nc" id="L44">        puhColumn.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;puh&quot;)); // Add the phone number column</span>
+
+<span class="nc" id="L46">        TableColumn&lt;Kayttaja, String&gt; roleColumn = new TableColumn&lt;&gt;(&quot;Rooli&quot;);</span>
+<span class="nc" id="L47">        roleColumn.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;rooli&quot;));</span>
+
+        // Add all columns to the userTable
+<span class="nc" id="L50">        userTable.getColumns().addAll(idColumn, etunimiColumn, sukunimiColumn, emailColumn, puhColumn, roleColumn);</span>
+<span class="nc" id="L51">        loadAndDisplayUsers(); // Set the items</span>
+
+        // Form to update user information
+<span class="nc" id="L54">        TextField idField = new TextField();</span>
+<span class="nc" id="L55">        idField.setPromptText(&quot;Käyttäjän ID&quot;);</span>
+
+<span class="nc" id="L57">        TextField etunimiField = new TextField();</span>
+<span class="nc" id="L58">        etunimiField.setPromptText(&quot;Etunimi&quot;);</span>
+
+<span class="nc" id="L60">        TextField sukunimiField = new TextField();</span>
+<span class="nc" id="L61">        sukunimiField.setPromptText(&quot;Sukunimi&quot;);</span>
+
+<span class="nc" id="L63">        TextField spostiField = new TextField();</span>
+<span class="nc" id="L64">        spostiField.setPromptText(&quot;Sposti&quot;);</span>
+
+<span class="nc" id="L66">        TextField puhField = new TextField();</span>
+<span class="nc" id="L67">        puhField.setPromptText(&quot;Puh&quot;);</span>
+
+<span class="nc" id="L69">        ComboBox&lt;String&gt; rooliComboBox = new ComboBox&lt;&gt;(FXCollections.observableArrayList(&quot;Siivoja&quot;, &quot;Hotellityöntekijä&quot;, &quot;Admin&quot;));</span>
+<span class="nc" id="L70">        rooliComboBox.setPromptText(&quot;Rooli&quot;);</span>
+
+<span class="nc" id="L72">        PasswordField passwordField = new PasswordField();</span>
+<span class="nc" id="L73">        passwordField.setPromptText(&quot;Salasana&quot;);</span>
+
+<span class="nc" id="L75">        Button addUserButton = new Button(&quot;+&quot;);</span>
+<span class="nc" id="L76">        addUserButton.setOnAction(e -&gt; openAddUserDialog());</span>
+
+<span class="nc" id="L78">        Button updateUserButton = new Button(&quot;Päivitä käyttäjä&quot;);</span>
+<span class="nc" id="L79">        updateUserButton.setOnAction(e -&gt; {</span>
+<span class="nc" id="L80">            int id = Integer.parseInt(idField.getText());</span>
+<span class="nc" id="L81">            String etunimi = etunimiField.getText();</span>
+<span class="nc" id="L82">            String sukunimi = sukunimiField.getText();</span>
+<span class="nc" id="L83">            String puh = puhField.getText();</span>
+<span class="nc" id="L84">            String rooli = rooliComboBox.getValue();</span>
+<span class="nc" id="L85">            String sposti = spostiField.getText();</span>
+<span class="nc" id="L86">            String salasana = passwordField.getText();</span>
+
+            // Update user details except email and password
+<span class="nc" id="L89">            kayttajaDAO.updateKayttajaById(id, etunimi, sukunimi, puh, rooli);</span>
+
+            // Update email if provided
+<span class="nc bnc" id="L92" title="All 2 branches missed.">            if (!sposti.isEmpty()) {</span>
+<span class="nc" id="L93">                kayttajaDAO.updateEmailById(id, sposti);</span>
+            }
+
+            // Update password if provided
+<span class="nc bnc" id="L97" title="All 2 branches missed.">            if (!salasana.isEmpty()) {</span>
+<span class="nc" id="L98">                kayttajaDAO.changePasswordByEmail(sposti, salasana);</span>
+            }
+
+            // Refresh the user table
+<span class="nc" id="L102">            loadAndDisplayUsers();</span>
+<span class="nc" id="L103">        });</span>
+                // Delete Button
+<span class="nc" id="L105">        Button deleteUserButton = new Button(&quot;Poista käyttäjä&quot;);</span>
+<span class="nc" id="L106">        deleteUserButton.setOnAction(e -&gt; deleteUser());</span>
+
+        // Form layout with labels
+<span class="nc" id="L109">        VBox form = new VBox(10,</span>
+                new Label(&quot;Muokkaa käyttäjä tietoja&quot;),
+                new Label(&quot;Käyttäjän ID&quot;), idField,
+                new Label(&quot;Etunimi&quot;), etunimiField,
+                new Label(&quot;Sukunimi&quot;), sukunimiField,
+                new Label(&quot;Sähköposti&quot;), spostiField,
+                new Label(&quot;Puhelinnumero&quot;), puhField,
+                new Label(&quot;Rooli&quot;), rooliComboBox,
+                new Label(&quot;Salasana (jätä tyhjäksi, jos ei muuta)&quot;), passwordField,
+                updateUserButton, deleteUserButton);
+<span class="nc" id="L119">        form.setPadding(new Insets(10));</span>
+
+        // Layout
+<span class="nc" id="L122">        HBox topBar = new HBox(10, addUserButton);</span>
+<span class="nc" id="L123">        topBar.setPadding(new Insets(10));</span>
+<span class="nc" id="L124">        VBox layout = new VBox(10, topBar, userTable, form);</span>
+<span class="nc" id="L125">        layout.setPadding(new Insets(10));</span>
+
+<span class="nc" id="L127">        Scene scene = new Scene(layout, 800, 800);</span>
+<span class="nc" id="L128">        primaryStage.setScene(scene);</span>
+<span class="nc" id="L129">        primaryStage.show();</span>
+
+        // Add event handler for row selection
+<span class="nc" id="L132">        userTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -&gt; {</span>
+<span class="nc bnc" id="L133" title="All 2 branches missed.">            if (newSelection != null) {</span>
+<span class="nc" id="L134">                Kayttaja selectedUser = newSelection;</span>
+<span class="nc" id="L135">                idField.setText(String.valueOf(selectedUser.getKayttajaId()));</span>
+<span class="nc" id="L136">                etunimiField.setText(selectedUser.getEtunimi());</span>
+<span class="nc" id="L137">                sukunimiField.setText(selectedUser.getSukunimi());</span>
+<span class="nc" id="L138">                spostiField.setText(selectedUser.getSposti());</span>
+<span class="nc" id="L139">                puhField.setText(selectedUser.getPuh());</span>
+<span class="nc" id="L140">                rooliComboBox.setValue(selectedUser.getRooli());</span>
+                // Password should not be shown for security reasons
+            }
+<span class="nc" id="L143">        });</span>
+<span class="nc" id="L144">        this.adminEmail = UserSession.getUsername();</span>
+<span class="nc" id="L145">    }</span>
+
+    // Load users from the database
+    List&lt;Kayttaja&gt; loadUsers() {
+<span class="nc" id="L149">        return kayttajaDAO.findAllKayttaja(); // This should retrieve all users</span>
+    }
+
+    // Update user information by ID
+    private void openAddUserDialog() {
+        // Create a new dialog or window for adding the user
+<span class="nc" id="L155">        Stage addUserStage = new Stage();</span>
+<span class="nc" id="L156">        addUserStage.setTitle(&quot;Lisää uusi käyttäjä&quot;);</span>
+
+        // Create input fields for the new user
+<span class="nc" id="L159">        TextField etunimiField = new TextField();</span>
+<span class="nc" id="L160">        etunimiField.setPromptText(&quot;Etunimi&quot;);</span>
+
+<span class="nc" id="L162">        TextField sukunimiField = new TextField();</span>
+<span class="nc" id="L163">        sukunimiField.setPromptText(&quot;Sukunimi&quot;);</span>
+
+<span class="nc" id="L165">        TextField spostiField = new TextField();</span>
+<span class="nc" id="L166">        spostiField.setPromptText(&quot;Sähköposti&quot;);</span>
+
+<span class="nc" id="L168">        TextField puhField = new TextField();</span>
+<span class="nc" id="L169">        puhField.setPromptText(&quot;Puhelinnumero&quot;);</span>
+
+<span class="nc" id="L171">        PasswordField passwordField = new PasswordField();</span>
+<span class="nc" id="L172">        passwordField.setPromptText(&quot;Salasana&quot;);</span>
+
+<span class="nc" id="L174">        ComboBox&lt;String&gt; rooliComboBox = new ComboBox&lt;&gt;(FXCollections.observableArrayList(&quot;Siivooja&quot;, &quot;Hotellityöntekijä&quot;, &quot;Admin&quot;));</span>
+<span class="nc" id="L175">        rooliComboBox.setPromptText(&quot;Rooli&quot;);</span>
+
+<span class="nc" id="L177">        Button addUserSubmitButton = new Button(&quot;Lisää käyttäjä&quot;);</span>
+<span class="nc" id="L178">        addUserSubmitButton.setOnAction(e -&gt; {</span>
+<span class="nc" id="L179">            handleAddUser(etunimiField.getText(), sukunimiField.getText(), spostiField.getText(), puhField.getText(), passwordField.getText(), rooliComboBox.getValue(), addUserStage);</span>
+<span class="nc" id="L180">        });</span>
+
+        // Layout for the form
+<span class="nc" id="L183">        VBox addUserForm = new VBox(10,</span>
+                new Label(&quot;Täytä uuden käyttäjän tiedot&quot;),
+                new Label(&quot;Etunimi&quot;), etunimiField,
+                new Label(&quot;Sukunimi&quot;), sukunimiField,
+                new Label(&quot;Sähköposti&quot;), spostiField,
+                new Label(&quot;Puhelinnumero&quot;), puhField,
+                new Label(&quot;Salasana&quot;), passwordField,
+                new Label(&quot;Rooli&quot;), rooliComboBox,
+                addUserSubmitButton);
+<span class="nc" id="L192">        addUserForm.setPadding(new Insets(20));</span>
+
+        // Create a new scene and set it to the stage
+<span class="nc" id="L195">        Scene addUserScene = new Scene(addUserForm, 400, 400);</span>
+<span class="nc" id="L196">        addUserStage.setScene(addUserScene);</span>
+<span class="nc" id="L197">        addUserStage.show();</span>
+<span class="nc" id="L198">    }</span>
+    void handleAddUser(String etunimi, String sukunimi, String sposti, String puh, String salasana, String rooli, Stage addUserStage) {
+<span class="nc bnc" id="L200" title="All 12 branches missed.">        if (etunimi.isEmpty() || sukunimi.isEmpty() || sposti.isEmpty() || puh.isEmpty() || salasana.isEmpty() || rooli == null) {</span>
+<span class="nc" id="L201">            Alert alert = new Alert(Alert.AlertType.ERROR);</span>
+<span class="nc" id="L202">            alert.setTitle(&quot;Lisääminen epäonnistui&quot;);</span>
+<span class="nc" id="L203">            alert.setContentText(&quot;Täytä kaikki kohdat.&quot;);</span>
+<span class="nc" id="L204">            alert.showAndWait();</span>
+<span class="nc bnc" id="L205" title="All 2 branches missed.">        } else if (kayttajaDAO.onkoEmailOlemassa(sposti)) {  // Check if the email already exists</span>
+<span class="nc" id="L206">            Alert alert = new Alert(Alert.AlertType.ERROR);</span>
+<span class="nc" id="L207">            alert.setTitle(&quot;Lisääminen epäonnistui&quot;);</span>
+<span class="nc" id="L208">            alert.setContentText(&quot;Sähköpostiosoite on jo rekisteröity.&quot;);</span>
+<span class="nc" id="L209">            alert.showAndWait();</span>
+<span class="nc" id="L210">        } else {</span>
+            // Hash the password using BCrypt
+<span class="nc" id="L212">            String hashattuSalasana = BCrypt.hashpw(salasana, BCrypt.gensalt());</span>
+
+            // Create a new Kayttaja object and set the hashed password
+<span class="nc" id="L215">            Kayttaja kayttaja = new Kayttaja();</span>
+<span class="nc" id="L216">            kayttaja.setEtunimi(etunimi);</span>
+<span class="nc" id="L217">            kayttaja.setSukunimi(sukunimi);</span>
+<span class="nc" id="L218">            kayttaja.setSposti(sposti);</span>
+<span class="nc" id="L219">            kayttaja.setPuh(puh);</span>
+<span class="nc" id="L220">            kayttaja.setSalasana(hashattuSalasana);  // Store the hashed password</span>
+<span class="nc" id="L221">            kayttaja.setRooli(rooli);  // Set the role</span>
+
+            // Persist the new user to the database
+<span class="nc" id="L224">            kayttajaDAO.persist(kayttaja);</span>
+
+            // Show a success message
+<span class="nc" id="L227">            Alert alert = new Alert(Alert.AlertType.INFORMATION);</span>
+<span class="nc" id="L228">            alert.setTitle(&quot;Käyttäjä lisätty&quot;);</span>
+<span class="nc" id="L229">            alert.setContentText(&quot;Käyttäjä &quot; + etunimi + &quot; &quot; + sukunimi + &quot; on lisätty onnistuneesti!&quot;);</span>
+<span class="nc" id="L230">            alert.showAndWait();</span>
+
+            // Close the add user stage
+<span class="nc" id="L233">            addUserStage.close();</span>
+
+            // Reload the user table with the new user added
+<span class="nc" id="L236">            loadAndDisplayUsers();</span>
+        }
+<span class="nc" id="L238">    }</span>
+
+    void updateUserById(int id, String etunimi, String sukunimi, String sposti, String puh, String rooli, String salasana) {
+        // Hash the password if it's not empty
+<span class="nc bnc" id="L242" title="All 2 branches missed.">        String hashattuSalasana = salasana.isEmpty() ? null : BCrypt.hashpw(salasana, BCrypt.gensalt());</span>
+
+        // Update the user information in the database
+<span class="nc" id="L245">        kayttajaDAO.updateKayttajaById(id, etunimi, sukunimi, puh, rooli); // Use your provided method</span>
+
+<span class="nc" id="L247">        Alert alert = new Alert(Alert.AlertType.INFORMATION);</span>
+<span class="nc" id="L248">        alert.setTitle(&quot;Käyttäjän tietojen päivitys&quot;);</span>
+<span class="nc" id="L249">        alert.setHeaderText(null);</span>
+<span class="nc" id="L250">        alert.setContentText(&quot;Käyttäjän tiedot päivitetty onnistuneesti!&quot;);</span>
+<span class="nc" id="L251">        alert.showAndWait();</span>
+
+        // Reload the user table with updated information
+<span class="nc" id="L254">        loadAndDisplayUsers(); // Now we use the class-level userTable</span>
+<span class="nc" id="L255">    }</span>
+
+
+    void deleteUser() {
+<span class="nc" id="L259">        Kayttaja selectedUser = userTable.getSelectionModel().getSelectedItem();</span>
+<span class="nc bnc" id="L260" title="All 2 branches missed.">        if (selectedUser == null) {</span>
+<span class="nc" id="L261">            showWarning(&quot;Valinta puuttuu&quot;, &quot;Valitse poistettavaksi käyttäjä.&quot;);</span>
+<span class="nc" id="L262">            return;</span>
+        }
+
+        // Check if the selected user is an admin (role 3)
+<span class="nc bnc" id="L266" title="All 2 branches missed.">        if (&quot;Admin&quot;.equals(selectedUser.getRooli())) {</span>
+<span class="nc" id="L267">            showWarning(&quot;Poisto estetty&quot;, &quot;Admin käyttäjää ei voi poistaa.&quot;);</span>
+<span class="nc" id="L268">            return;</span>
+        }
+
+        // Confirm deletion
+<span class="nc bnc" id="L272" title="All 2 branches missed.">        if (showConfirmation(&quot;Vahvista poisto&quot;, &quot;Oletko varma, että haluat poistaa käyttäjän &quot; + selectedUser.getEtunimi() + &quot; &quot; + selectedUser.getSukunimi() + &quot;?&quot;)) {</span>
+            // Create a custom dialog for password input
+<span class="nc" id="L274">            Dialog&lt;String&gt; passwordDialog = new Dialog&lt;&gt;();</span>
+<span class="nc" id="L275">            passwordDialog.setTitle(&quot;Syötä salasana&quot;);</span>
+<span class="nc" id="L276">            passwordDialog.setHeaderText(&quot;Syötä adminin salasana vahvistaaksesi käyttäjän poistamisen.&quot;);</span>
+
+            // Create PasswordField
+<span class="nc" id="L279">            PasswordField passwordField = new PasswordField();</span>
+<span class="nc" id="L280">            passwordField.setPromptText(&quot;Salasana&quot;);</span>
+
+            // Add the PasswordField to the dialog
+<span class="nc" id="L283">            VBox dialogPaneContent = new VBox();</span>
+<span class="nc" id="L284">            dialogPaneContent.getChildren().add(passwordField);</span>
+<span class="nc" id="L285">            passwordDialog.getDialogPane().setContent(dialogPaneContent);</span>
+
+            // Add OK and Cancel buttons
+<span class="nc" id="L288">            ButtonType okButton = new ButtonType(&quot;OK&quot;, ButtonBar.ButtonData.OK_DONE);</span>
+<span class="nc" id="L289">            ButtonType cancelButton = new ButtonType(&quot;Cancel&quot;, ButtonBar.ButtonData.CANCEL_CLOSE);</span>
+<span class="nc" id="L290">            passwordDialog.getDialogPane().getButtonTypes().addAll(okButton, cancelButton);</span>
+
+            // Handle the response from the dialog
+<span class="nc" id="L293">            passwordDialog.setResultConverter(dialogButton -&gt; {</span>
+<span class="nc bnc" id="L294" title="All 2 branches missed.">                if (dialogButton == okButton) {</span>
+<span class="nc" id="L295">                    return passwordField.getText(); // Return the entered password</span>
+                }
+<span class="nc" id="L297">                return null; // Cancel button was pressed</span>
+            });
+
+            // Show the dialog and handle the password
+<span class="nc" id="L301">            passwordDialog.showAndWait().ifPresent(password -&gt; {</span>
+<span class="nc bnc" id="L302" title="All 2 branches missed.">                if (validatePassword(password)) {</span>
+<span class="nc" id="L303">                    kayttajaDAO.removeById(selectedUser.getKayttajaId());</span>
+<span class="nc" id="L304">                    showInfo(&quot;Käyttäjä poistettu&quot;, &quot;Käyttäjä poistettu onnistuneesti!&quot;);</span>
+<span class="nc" id="L305">                    loadAndDisplayUsers();</span>
+                } else {
+<span class="nc" id="L307">                    showError(&quot;Virhe&quot;, &quot;Väärä salasana! Poisto peruttu.&quot;);</span>
+                }
+<span class="nc" id="L309">            });</span>
+        }
+<span class="nc" id="L311">    }</span>
+
+
+
+    // Validate admin password
+    boolean validatePassword(String password) {
+<span class="nc" id="L317">        String savedHashedPassword = kayttajaDAO.findPasswordByEmail(adminEmail);</span>
+<span class="nc bnc" id="L318" title="All 4 branches missed.">        return savedHashedPassword != null &amp;&amp; BCrypt.checkpw(password, savedHashedPassword);</span>
+    }
+
+
+    // Utility methods for alerts
+    private void showWarning(String title, String message) {
+<span class="nc" id="L324">        Alert alert = new Alert(Alert.AlertType.WARNING);</span>
+<span class="nc" id="L325">        alert.setTitle(title);</span>
+<span class="nc" id="L326">        alert.setHeaderText(null);</span>
+<span class="nc" id="L327">        alert.setContentText(message);</span>
+<span class="nc" id="L328">        alert.showAndWait();</span>
+<span class="nc" id="L329">    }</span>
+    private void showInfo(String title, String message) {
+<span class="nc" id="L331">        Alert alert = new Alert(Alert.AlertType.INFORMATION);</span>
+<span class="nc" id="L332">        alert.setTitle(title);</span>
+<span class="nc" id="L333">        alert.setHeaderText(null);</span>
+<span class="nc" id="L334">        alert.setContentText(message);</span>
+<span class="nc" id="L335">        alert.showAndWait();</span>
+<span class="nc" id="L336">    }</span>
+
+    private void showError(String title, String message) {
+<span class="nc" id="L339">        Alert alert = new Alert(Alert.AlertType.ERROR);</span>
+<span class="nc" id="L340">        alert.setTitle(title);</span>
+<span class="nc" id="L341">        alert.setHeaderText(null);</span>
+<span class="nc" id="L342">        alert.setContentText(message);</span>
+<span class="nc" id="L343">        alert.showAndWait();</span>
+<span class="nc" id="L344">    }</span>
+
+    private boolean showConfirmation(String title, String message) {
+<span class="nc" id="L347">        Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);</span>
+<span class="nc" id="L348">        confirmationAlert.setTitle(title);</span>
+<span class="nc" id="L349">        confirmationAlert.setHeaderText(message);</span>
+<span class="nc" id="L350">        confirmationAlert.setContentText(&quot;Tätä toimintoa ei voida peruuttaa!&quot;);</span>
+<span class="nc" id="L351">        confirmationAlert.setHeaderText(null);</span>
+<span class="nc bnc" id="L352" title="All 2 branches missed.">        return confirmationAlert.showAndWait().orElse(ButtonType.CANCEL) == ButtonType.OK;</span>
+    }
+    private void loadAndDisplayUsers() {
+<span class="nc" id="L355">        userTable.setItems(FXCollections.observableArrayList(loadUsers())); // Load users here</span>
+<span class="nc" id="L356">    }</span>
+
+    public static void main(String[] args) {
+<span class="nc" id="L359">        launch(args);</span>
+<span class="nc" id="L360">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
