@@ -11,6 +11,7 @@ COPY src ./src
 # Download dependencies
 RUN mvn dependency:go-offline
 
+
 # Package the application
 RUN mvn package
 
