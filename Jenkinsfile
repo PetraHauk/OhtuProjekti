@@ -56,17 +56,22 @@ pipeline {
         }
 
         stage('Push Docker Image to Docker Hub') {
-            steps {
-                script {
-                    // Switch to the 'default' Docker context
-                    bat 'docker context use default'
-
-                    // Push the Docker image to Docker Hub using Jenkins credentials
-                    docker.withRegistry('https://index.docker.io/v1/', 'dockerhub_credential') {
-                        docker.image("${DOCKERHUB_REPO}:${DOCKER_IMAGE_TAG}").push()
+                    steps {
+                        script {
+                            withEnv(["PATH=/usr/local/bin:/usr/bin:/bin"]) { // Ensure correct PATH is used
+                                withCredentials([usernamePassword(credentialsId: 'docker_credentials', // Change to your credential ID
+                                                                 usernameVariable: 'DOCKER_USER',
+                                                                 passwordVariable: 'DOCKER_PASS')]) {
+                                    sh """
+                                        docker login -u ${DOCKER_USER} -p ${DOCKER_PASS}
+                                        docker build -t ${DOCKER_USER}/ohtuprojekti:ver1 .
+                                        docker push ${DOCKER_USER}/ohtuprojekti:ver1
+                                        docker logout
+                                    """
+                                }
+                            }
+                        }
                     }
                 }
-            }
-        }
     }
 }
