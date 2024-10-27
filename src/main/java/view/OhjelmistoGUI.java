@@ -17,7 +17,7 @@ import view.sivut.*;
 // Loppusumma kommentoitu pois koska punasta viivaa
 public class OhjelmistoGUI extends Application {
 
-    private String selectedLanguage;// Default language// Default language
+    private String selectedLanguage = "Suomi";
     private HuoneController huoneController;
     private VarausController varausController;
     private AsiakasController asiakasController;
