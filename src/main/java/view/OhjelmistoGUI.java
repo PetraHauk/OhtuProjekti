@@ -4,35 +4,14 @@ import model.service.UserSession;
 import controller.HuoneController;
 import controller.VarausController;
 import javafx.application.Application;
-import javafx.collections.ObservableList;
-import javafx.concurrent.Task;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.KeyCode;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import javafx.scene.control.ComboBox;
 
-import model.DAO.AsiakasDAO;
-import model.enteties.Huone;
-import model.enteties.Asiakas;
-import model.enteties.Varaus;
-
-import java.text.NumberFormat;
-import java.text.ParseException;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.time.Period;
-import java.util.List;
-import java.util.Locale;
-import java.util.function.ToDoubleFunction;
-
-import model.enteties.*;
 import controller.*;
-import model.service.CurrencyConverter;
 import view.sivut.*;
 
 // Loppusumma kommentoitu pois koska punasta viivaa
@@ -111,7 +90,7 @@ public class OhjelmistoGUI extends Application {
             adminButton = null;
         }
 
-        OutputGenerator outputGenerator = new OutputGenerator();
+        LeftBar outputGenerator = new LeftBar();
         languageComboBox.setOnAction(e -> {
             String selectedLanguage = languageComboBox.getValue();
             outputGenerator.generateOutput(selectedLanguage, languageLabel, frontPageButton, showRoomsButton, showCustomersButton, showVarauksetButton, checkInButton, checkOutButton, logoutButton, adminButton);

@@ -7,26 +7,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.text.Font;
 
-public class OutputGenerator {
+public class LeftBar {
     public void generateOutput(String selectedLanguage, Label languageLabel, Button frontPageButton, Button showRoomsButton, Button showCustomersButton, Button showVarauksetButton, Button checkInButton, Button checkOutButton, Button logoutButton, Button adminButton) {
-        Locale locale;
-
-        // Create locale based on language code
-        switch (selectedLanguage) {
-            case "English":
-                locale = new Locale("en", "US");
-                break;
-            case "Suomi":
-                locale = new Locale("fi", "FI");
-                break;
-            case "中文":
-                locale = new Locale("zh", "CN");
-                break;
-            default:
-                System.out.println("Error: Unsupported language code.");
-                return;
-        }
-
+        LanguageGenerator languageGenerator = new LanguageGenerator();
+        Locale locale = languageGenerator.generateLanguage(selectedLanguage);
         ResourceBundle resourceBundle;
 
         // Load resource bundle
