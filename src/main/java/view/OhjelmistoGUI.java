@@ -1,7 +1,5 @@
 package view;
 
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ObservableValue;
 import model.service.UserSession;
 import controller.HuoneController;
 import controller.VarausController;
@@ -122,6 +120,7 @@ public class OhjelmistoGUI extends Application {
         return leftBar;
     }
 
+
     private void openAdminPanel() {
         new AdminGUI().start(new Stage());
     }
@@ -153,7 +152,7 @@ public class OhjelmistoGUI extends Application {
     }
 
     private void handleShowCustomersButtonAction(HBox mainLayout, VBox leftBar) {
-        AsiakasSivu asiakasSivu = new AsiakasSivu();
+        AsiakasSivu asiakasSivu = new AsiakasSivu(selectedLanguage);
         updateMainLayout(mainLayout, leftBar, asiakasSivu.createAsiakkaat());
     }
 
