@@ -4,10 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="location näyttöliitymän left-bar">
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/sivut/LanguageGenerator.java" afterDir="false" />
+    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="update">
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/sivut/AsiakasOutput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/OhjelmistoGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/OhjelmistoGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/sivut/OutputGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/sivut/OutputLeftBar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/sivut/AsiakasSivu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/sivut/AsiakasSivu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/sivut/LeftBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/sivut/LeftBarOutPut.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/messages_en_US.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages_en_US.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/messages_fi_FI.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages_fi_FI.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/messages_en_US.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages_en_US.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/messages_fi_FI.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages_fi_FI.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/OhjelmistoGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/OhjelmistoGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/AsiakasSivu$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/sivut/AsiakasSivu$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/AsiakasSivu$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/sivut/AsiakasSivu$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/AsiakasSivu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/sivut/AsiakasSivu.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -550,7 +560,23 @@
       <option name="project" value="LOCAL" />
       <updated>1730039050176</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="sana muokkaus">
+      <option name="closed" value="true" />
+      <created>1730039636577</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1730039636577</updated>
+    </task>
+    <task id="LOCAL-00035" summary="update">
+      <option name="closed" value="true" />
+      <created>1730039878480</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1730039878480</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -585,9 +611,10 @@
     <MESSAGE value="pikku muutoksia" />
     <MESSAGE value="ylimääränen src kansio poistettu" />
     <MESSAGE value="dockerfile update" />
-    <MESSAGE value="update" />
     <MESSAGE value="location näyttöliitymän left-bar" />
-    <option name="LAST_COMMIT_MESSAGE" value="location näyttöliitymän left-bar" />
+    <MESSAGE value="sana muokkaus" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

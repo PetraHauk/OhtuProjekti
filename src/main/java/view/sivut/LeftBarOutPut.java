@@ -7,7 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.text.Font;
 
-public class LeftBar {
+public class LeftBarOutPut {
     public void generateOutput(String selectedLanguage, Label languageLabel, Button frontPageButton, Button showRoomsButton, Button showCustomersButton, Button showVarauksetButton, Button checkInButton, Button checkOutButton, Button logoutButton, Button adminButton) {
         LanguageGenerator languageGenerator = new LanguageGenerator();
         Locale locale = languageGenerator.generateLanguage(selectedLanguage);

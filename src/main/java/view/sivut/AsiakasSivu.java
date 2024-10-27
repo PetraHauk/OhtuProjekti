@@ -12,14 +12,22 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.enteties.Asiakas;
+import view.OhjelmistoGUI;
 
 import java.util.List;
 
 public class AsiakasSivu {
     private AsiakasController asiakasController;
+    private OhjelmistoGUI ohjelmistoGUI;
+    private AsiakasOutput asiakasOutput;
+    private String selectedLanguage;
 
+    // Constructor to initialize dependencies
     public AsiakasSivu() {
-        this.asiakasController = new AsiakasController();
+        asiakasController = new AsiakasController();
+        ohjelmistoGUI = new OhjelmistoGUI();
+        asiakasOutput = new AsiakasOutput();
+        selectedLanguage = ohjelmistoGUI.getSelectedLanguage();
     }
 
     public VBox createAsiakkaat() {
@@ -59,6 +67,9 @@ public class AsiakasSivu {
         Label huomioLabel = new Label("Huomio:");
         TextField huomioField = new TextField();
 
+        Button saveButton = new Button();
+        Button cancelButton = new Button();
+        asiakasOutput.generateOutput(selectedLanguage, firstNameLabel, lastNameLabel, emailLabel, phoneLabel, henkiloMaaraLabel, huomioLabel, saveButton, cancelButton);
         formLayout.getChildren().addAll(
                 firstNameLabel, firstNameField,
                 lastNameLabel, lastNameField,
@@ -68,8 +79,8 @@ public class AsiakasSivu {
                 huomioLabel, huomioField
         );
 
-        Button saveButton = new Button("Lisää uusi asiakas");
-        Button cancelButton = new Button("Peruuta");
+        //saveButton = new Button("Lisää uusi asiakas");
+        //cancelButton = new Button("Peruuta");
 
         HBox buttonBox = new HBox(10, saveButton, cancelButton);
         buttonBox.setAlignment(Pos.CENTER);

@@ -1,5 +1,7 @@
 package view;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
 import model.service.UserSession;
 import controller.HuoneController;
 import controller.VarausController;
@@ -17,6 +19,7 @@ import view.sivut.*;
 // Loppusumma kommentoitu pois koska punasta viivaa
 public class OhjelmistoGUI extends Application {
 
+    private String selectedLanguage;// Default language// Default language
     private HuoneController huoneController;
     private VarausController varausController;
     private AsiakasController asiakasController;
@@ -34,9 +37,7 @@ public class OhjelmistoGUI extends Application {
         laskuController = new LaskuController();
         hotelliController = new HotelliController();
 
-
         Etusivu etusivu = new Etusivu();
-
         HBox mainLayout = new HBox(10);
         VBox leftBar = createLeftBar(mainLayout, primaryStage);
         mainLayout.getChildren().addAll(leftBar, etusivu.createEtusivu(1));
@@ -46,7 +47,6 @@ public class OhjelmistoGUI extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
-
 
     // Creates the left bar with buttons and user info
     private VBox createLeftBar(HBox mainLayout, Stage primaryStage) {
@@ -90,16 +90,19 @@ public class OhjelmistoGUI extends Application {
             adminButton = null;
         }
 
-        LeftBar outputGenerator = new LeftBar();
+        LeftBarOutPut outputGenerator = new LeftBarOutPut();
         languageComboBox.setOnAction(e -> {
             String selectedLanguage = languageComboBox.getValue();
+            setSelectedLanguage(selectedLanguage);
             outputGenerator.generateOutput(selectedLanguage, languageLabel, frontPageButton, showRoomsButton, showCustomersButton, showVarauksetButton, checkInButton, checkOutButton, logoutButton, adminButton);
+
         });
 
         languageBox = new HBox(20);
         languageBox.getChildren().addAll(languageLabel, languageComboBox);
 
         VBox leftButtons = new VBox(10);
+
         leftButtons.getChildren().addAll(languageBox, frontPageButton, showCustomersButton, showVarauksetButton, checkInButton, checkOutButton);
         if (adminButton != null) {
             leftButtons.getChildren().add(adminButton);
@@ -179,7 +182,33 @@ public class OhjelmistoGUI extends Application {
             ex.printStackTrace();
         }
     }
+
+    public String getSelectedLanguage() {
+        return selectedLanguage;
+    }
+
+    public void setSelectedLanguage(String selectedLanguage) {
+        this.selectedLanguage = selectedLanguage;
+        updateUIForSelectedLanguage(selectedLanguage);
+    }
+
+    private void updateUIForSelectedLanguage(String selectedLanguage) {
+       if ("English".equals(selectedLanguage)) {
+            selectedLanguage = "en";
+        } else if ("Suomi".equals(selectedLanguage)) {
+            selectedLanguage = "fi";
+        } else if ("中文".equals(selectedLanguage)) {
+            selectedLanguage = "zh";
+        }
+    }
+
+
     public static void main(String[] args) {
         launch(args);
     }
+
+
+
+
 }
+
