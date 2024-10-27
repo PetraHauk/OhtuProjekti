@@ -119,8 +119,18 @@ public class OhjelmistoGUI extends Application {
         OutputGenerator outputGenerator = new OutputGenerator();
         languageComboBox.setOnAction(e -> {
             String selectedLanguage = languageComboBox.getValue();
-            outputGenerator.generateOutput(selectedLanguage, languageLabel, frontPageButton, showCustomersButton, showVarauksetButton, checkInButton, checkOutButton, logoutButton, adminButton);
+            outputGenerator.generateOutput(selectedLanguage, languageLabel, frontPageButton, showRoomsButton, showCustomersButton, showVarauksetButton, checkInButton, checkOutButton, logoutButton, adminButton);
             System.out.println("Selected language: " + selectedLanguage);
+            System.out.println("Language label: " + languageLabel.getText());
+            System.out.println("frontPage button: " + frontPageButton.getText());
+            System.out.println("showRooms button: " + showRoomsButton.getText());
+            System.out.println("showCustomers button: " + showCustomersButton.getText());
+            System.out.println("showVaraukset button: " + showVarauksetButton.getText());
+            System.out.println("checkIn button: " + checkInButton.getText());
+            System.out.println("checkOut button: " + checkOutButton.getText());
+            System.out.println("logout button: " + logoutButton.getText());
+
+
         });
 
         languageBox = new HBox(20);

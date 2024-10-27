@@ -5,14 +5,14 @@ import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.Labeled;
+import javafx.scene.text.Font;
 
 public class OutputGenerator {
-    public void generateOutput(String languageCode, Label languageLabel, Button frontPageButton, Button showCustomersButton, Button showVarauksetButton, Button checkInButton, Button checkOutButton, Button logoutButton, Button adminButton) {
+    public void generateOutput(String selectedLanguage, Label languageLabel, Button frontPageButton, Button showRoomsButton, Button showCustomersButton, Button showVarauksetButton, Button checkInButton, Button checkOutButton, Button logoutButton, Button adminButton) {
         Locale locale;
 
         // Create locale based on language code
-        switch (languageCode) {
+        switch (selectedLanguage) {
             case "English":
                 locale = new Locale("en", "US");
                 break;
@@ -40,8 +40,9 @@ public class OutputGenerator {
         // Get language-specific messages from resource bundle
         try {
             languageLabel.setText(resourceBundle.getString("kieliLabelText"));
+            languageLabel.setFont(new Font("Arial Unicode MS", 14)); // Ensure font supports special characters
             frontPageButton.setText(resourceBundle.getString("frontPageButtonText"));
-            showCustomersButton.setText(resourceBundle.getString("showRoomsButtonText"));
+            showRoomsButton.setText(resourceBundle.getString("showRoomsButtonText"));
             showCustomersButton.setText(resourceBundle.getString("showCustomersButtonText"));
             showVarauksetButton.setText(resourceBundle.getString("showVarauksetButtonText"));
             checkInButton.setText(resourceBundle.getString("checkInButtonText"));
@@ -55,4 +56,5 @@ public class OutputGenerator {
             System.out.println("Error: One or more keys not found in the resource bundle.");
         }
     }
+
 }
