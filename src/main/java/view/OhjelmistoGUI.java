@@ -120,7 +120,6 @@ public class OhjelmistoGUI extends Application {
         return leftBar;
     }
 
-
     private void openAdminPanel() {
         new AdminGUI().start(new Stage());
     }
@@ -192,7 +191,7 @@ public class OhjelmistoGUI extends Application {
     }
 
     private void updateUIForSelectedLanguage(String selectedLanguage) {
-       if ("English".equals(selectedLanguage)) {
+        if ("English".equals(selectedLanguage)) {
             selectedLanguage = "en";
         } else if ("Suomi".equals(selectedLanguage)) {
             selectedLanguage = "fi";
@@ -201,13 +200,7 @@ public class OhjelmistoGUI extends Application {
         }
     }
 
-
     public static void main(String[] args) {
         launch(args);
     }
-
-
-
-
 }
-

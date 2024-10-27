@@ -40,5 +40,4 @@ public class LeftBarOutPut {
             System.out.println("Error: One or more keys not found in the resource bundle.");
         }
     }
-
 }
