@@ -87,7 +87,6 @@ public class OhjelmistoGUI extends Application {
         HBox languageBox = new HBox(20); // Set spacing between Label and ComboBox
         languageBox.getChildren().addAll(languageLabel, languageComboBox);
 
-
         Button frontPageButton = createStyledButton("Etusivu");
         Button showRoomsButton = createStyledButton("Huoneiden hallinta");
         Button showCustomersButton = createStyledButton("Asiakasrekisteri");
@@ -99,9 +98,7 @@ public class OhjelmistoGUI extends Application {
         logoutButton.setPrefWidth(200);
         logoutButton.getStyleClass().add("button-log-out");
 
-
         // Check if user is an admin
-
         Button adminButton;
         if (UserSession.getRooli().equals("Admin")) {
             adminButton = new Button("Admin Panel");
@@ -110,8 +107,6 @@ public class OhjelmistoGUI extends Application {
 
             // Open AdminGUI on button click
             adminButton.setOnAction(e -> openAdminPanel());
-            // Add the admin button below the logout button
-            //leftBar.getChildren().add(adminButton);
         } else {
             adminButton = null;
         }
