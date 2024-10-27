@@ -70,7 +70,9 @@ public class AsiakasSivu {
         Button saveButton = new Button();
         Button cancelButton = new Button();
 
-        asiakasOutput.openAddCustomerWindowOutput(selectedLanguage, addCustomerStage, firstNameLabel, lastNameLabel, emailLabel, phoneLabel, henkiloMaaraLabel, huomioLabel, saveButton, cancelButton);
+        asiakasOutput.openAddCustomerWindowOutput(selectedLanguage, addCustomerStage,
+                firstNameLabel, lastNameLabel, emailLabel, phoneLabel,
+                henkiloMaaraLabel, huomioLabel, saveButton, cancelButton);
         formLayout.getChildren().addAll(
                 firstNameLabel, firstNameField,
                 lastNameLabel, lastNameField,
@@ -262,6 +264,12 @@ public class AsiakasSivu {
         TextField huomioField = new TextField();
         huomioField.setText(asiakas.getHuomio());
 
+        Button saveButton = new Button();
+        Button cancelButton = new Button();
+
+        asiakasOutput.muokkaaasukasta(selectedLanguage, muokkaaAsiakasStage,
+                firstNameLabel, lastNameLabel, emailLabel,
+                phoneLabel, henkiloMaaraLabel, huomioLabel, saveButton, cancelButton);
         // Lisätään kentät lomakkeeseen (VBox)
         formLayout.getChildren().addAll(
                 firstNameLabel, firstNameField,
@@ -271,9 +279,6 @@ public class AsiakasSivu {
                 henkiloMaaraLabel, henkiloMaaraField,
                 huomioLabel, huomioField
         );
-
-        Button saveButton = new Button("Tallenna muutokset");
-        Button cancelButton = new Button("Peruuta");
 
         // HBox save and cancel buttons
         HBox buttonBox = new HBox(10, saveButton, cancelButton);

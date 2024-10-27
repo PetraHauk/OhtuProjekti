@@ -135,4 +135,43 @@ public class AsiakasOutput {
         }
     }
 
+    public void muokkaaasukasta(String selectedLanguage,
+                                Stage muokkaaAsiakasStage,
+                                Label firstNameLabel,
+                                Label lastNameLabel,
+                                Label emailLabel,
+                                Label phoneLabel,
+                                Label henkiloMaaraLabel,
+                                Label huomioLabel,
+                                Button saveButton,
+                                Button cancelButton) {
+
+        Locale locale = languageGenerator.generateLanguage(selectedLanguage);
+        ResourceBundle resourceBundle;
+
+        try {
+            resourceBundle = ResourceBundle.getBundle("messages", locale);
+        } catch (MissingResourceException e) {
+            System.out.println("Error: Resource bundle not found for locale: " + locale);
+            return;
+        }
+
+        // Get language-specific messages from resource bundle
+        try {
+            muokkaaAsiakasStage.setTitle(resourceBundle.getString("muokkaaAsiakasStageTitle"));
+            firstNameLabel.setText(resourceBundle.getString("firstNameLabelText"));
+            lastNameLabel.setText(resourceBundle.getString("lastNameLabelText"));
+            emailLabel.setText(resourceBundle.getString("emailLabelText"));
+            phoneLabel.setText(resourceBundle.getString("phoneLabelText"));
+            henkiloMaaraLabel.setText(resourceBundle.getString("henkiloMaaraLabelText"));
+            huomioLabel.setText(resourceBundle.getString("huomioLabelText"));
+
+            saveButton.setText(resourceBundle.getString("MuokkaaAddButtonText"));
+            cancelButton.setText(resourceBundle.getString("cancelButtonText"));
+
+        } catch (MissingResourceException e) {
+            System.out.println("Error: Resource bundle not found for locale: " + locale);
+        }
+    }
+
 }
