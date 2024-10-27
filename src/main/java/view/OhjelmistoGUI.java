@@ -55,6 +55,7 @@ public class OhjelmistoGUI extends Application {
         laskuController = new LaskuController();
         hotelliController = new HotelliController();
 
+
         Etusivu etusivu = new Etusivu();
 
         HBox mainLayout = new HBox(10);
@@ -76,6 +77,17 @@ public class OhjelmistoGUI extends Application {
         userBox.getStyleClass().add("user-box");
         userBox.getChildren().addAll(loggedInImage, loggedInUsername);
 
+        // Language selection ComboBox
+        Label languageLabel = new Label("Kieli:");
+        languageLabel.getStyleClass().add("languageLabel");
+        ComboBox<String> languageComboBox = new ComboBox<>();
+        languageComboBox.getItems().addAll("Suomi", "English", "中文"); // Add language options
+        languageComboBox.setValue("Suomi"); // Default language
+
+        HBox languageBox = new HBox(20); // Set spacing between Label and ComboBox
+        languageBox.getChildren().addAll(languageLabel, languageComboBox);
+
+
         Button frontPageButton = createStyledButton("Etusivu");
         Button showRoomsButton = createStyledButton("Huoneiden hallinta");
         Button showCustomersButton = createStyledButton("Asiakasrekisteri");
@@ -83,31 +95,46 @@ public class OhjelmistoGUI extends Application {
         Button checkInButton = createStyledButton("Check-In");
         Button checkOutButton = createStyledButton("Check-Out");
 
-        VBox leftButtons = new VBox(10);
-        leftButtons.getChildren().addAll(frontPageButton, showRoomsButton, showCustomersButton, showVarauksetButton, checkInButton, checkOutButton);
-        leftButtons.getStyleClass().add("left-buttons");
-
         Button logoutButton = new Button("Kirjaudu ulos");
         logoutButton.setPrefWidth(200);
         logoutButton.getStyleClass().add("button-log-out");
 
-        VBox leftBar = new VBox(30);
-        leftBar.getChildren().addAll(userBox, leftButtons, logoutButton);
-        leftBar.getStyleClass().add("left-bar");
-
 
         // Check if user is an admin
+
+        Button adminButton;
         if (UserSession.getRooli().equals("Admin")) {
-            Button adminButton = new Button("Admin Panel");
+            adminButton = new Button("Admin Panel");
             adminButton.setPrefWidth(200);
             adminButton.getStyleClass().add("button-admin");
 
             // Open AdminGUI on button click
             adminButton.setOnAction(e -> openAdminPanel());
-
             // Add the admin button below the logout button
-            leftBar.getChildren().add(adminButton);
+            //leftBar.getChildren().add(adminButton);
+        } else {
+            adminButton = null;
         }
+
+        OutputGenerator outputGenerator = new OutputGenerator();
+        languageComboBox.setOnAction(e -> {
+            String selectedLanguage = languageComboBox.getValue();
+            outputGenerator.generateOutput(selectedLanguage, languageLabel, frontPageButton, showCustomersButton, showVarauksetButton, checkInButton, checkOutButton, logoutButton, adminButton);
+            System.out.println("Selected language: " + selectedLanguage);
+        });
+
+        languageBox = new HBox(20);
+        languageBox.getChildren().addAll(languageLabel, languageComboBox);
+
+        VBox leftButtons = new VBox(10);
+        leftButtons.getChildren().addAll(languageBox, frontPageButton, showCustomersButton, showVarauksetButton, checkInButton, checkOutButton);
+        if (adminButton != null) {
+            leftButtons.getChildren().add(adminButton);
+        }
+
+        VBox leftBar = new VBox(30);
+        leftBar.getChildren().addAll(userBox, leftButtons, logoutButton);
+        leftBar.getStyleClass().add("left-bar");
 
         frontPageButton.setOnAction(e -> handleFrontPageButtonAction(mainLayout, leftBar));
         showRoomsButton.setOnAction(e -> handleShowRoomsButtonAction(mainLayout, leftBar));
@@ -116,8 +143,6 @@ public class OhjelmistoGUI extends Application {
         checkInButton.setOnAction(e -> handleCheckInButtonAction(mainLayout, leftBar));
         checkOutButton.setOnAction(e -> handleCheckOutButtonAction(mainLayout, leftBar));
         logoutButton.setOnAction(e -> handleLogoutButtonAction(primaryStage));
-
-
         return leftBar;
     }
 

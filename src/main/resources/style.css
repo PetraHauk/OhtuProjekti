@@ -123,5 +123,11 @@
     -fx-background-color: transparent; /* Background color of rows */
 }
 
+.languageLabel {
+    -fx-font-size: 16px;
+    -fx-text-fill: #ffffff;
+    -fx-padding: 0 0 0 10px;
+}
+
 
 
