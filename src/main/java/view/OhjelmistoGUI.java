@@ -58,7 +58,7 @@ public class OhjelmistoGUI extends Application {
         Label languageLabel = new Label("Kieli:");
         languageLabel.getStyleClass().add("languageLabel");
         ComboBox<String> languageComboBox = new ComboBox<>();
-        languageComboBox.getItems().addAll("Suomi", "English", "中文"); // Add language options
+        languageComboBox.getItems().addAll("Suomi", "English", "中文", "Svenska");// Add language options
         languageComboBox.setValue("Suomi"); // Default language
 
         HBox languageBox = new HBox(20); // Set spacing between Label and ComboBox

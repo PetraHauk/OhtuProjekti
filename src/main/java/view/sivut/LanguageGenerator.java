@@ -17,6 +17,9 @@ public class LanguageGenerator {
             case "中文":
                 locale = new Locale("zh", "CN");
                 break;
+            case "Svenska":
+                locale = new Locale("sv", "SE");
+                break;
             default:
                 System.out.println("Error: Unsupported language code.");
                 return null;
