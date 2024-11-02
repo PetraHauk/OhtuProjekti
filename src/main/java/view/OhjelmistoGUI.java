@@ -28,6 +28,7 @@ import java.util.ArrayList;
 import java.time.Period;
 import java.util.List;
 import java.util.Locale;
+import java.util.ResourceBundle;
 import java.util.function.ToDoubleFunction;
 
 import model.enteties.*;
@@ -44,6 +45,13 @@ public class OhjelmistoGUI extends Application {
     private LaskuController laskuController;
     private HotelliController hotelliController;
     private KayttajaController kayttajaController;
+
+    private ResourceBundle bundle;
+
+    private void setLocale(String languageCode) {
+        Locale locale = new Locale(languageCode);
+        bundle = ResourceBundle.getBundle("messages", locale);
+    }
 
     @Override
     public void start(Stage primaryStage) {
@@ -101,6 +109,7 @@ public class OhjelmistoGUI extends Application {
             Button adminButton = new Button("Admin Panel");
             adminButton.setPrefWidth(200);
             adminButton.getStyleClass().add("button-admin");
+
 
             // Open AdminGUI on button click
             adminButton.setOnAction(e -> openAdminPanel());

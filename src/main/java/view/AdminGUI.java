@@ -14,12 +14,17 @@ import model.DAO.KayttajaDAO;
 import org.mindrot.jbcrypt.BCrypt;
 
 import java.util.List;
+import java.util.Locale;
+import java.util.ResourceBundle;
+
 
 public class AdminGUI extends Application {
 
     KayttajaDAO kayttajaDAO = new KayttajaDAO();
     TableView<Kayttaja> userTable;
     private String adminEmail; // Store admin email for validation
+
+
 
     @Override
     public void start(Stage primaryStage) {
@@ -354,6 +359,8 @@ public class AdminGUI extends Application {
     private void loadAndDisplayUsers() {
         userTable.setItems(FXCollections.observableArrayList(loadUsers())); // Load users here
     }
+
+
 
     public static void main(String[] args) {
         launch(args);

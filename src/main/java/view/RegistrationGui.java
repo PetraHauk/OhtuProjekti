@@ -14,40 +14,49 @@ import model.enteties.Kayttaja;
 import model.DAO.KayttajaDAO;
 import org.mindrot.jbcrypt.BCrypt;
 
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 public class RegistrationGui extends Application {
 
     private KayttajaDAO kayttajaDAO = new KayttajaDAO();
+    private Locale currentLocale;
+    private ResourceBundle bundle;
+
 
     @Override
     public void start(Stage primaryStage) {
-        primaryStage.setTitle("Rekisteröinti");
+        // Use the current locale from LoginGui
+        Locale currentLocale = LoginGui.getCurrentLocale();
+        bundle = ResourceBundle.getBundle("messages", currentLocale);
 
-        // Create UI elements
+        primaryStage.setTitle(bundle.getString("title.registration"));
+
+        // Create UI elements with localized text
         TextField etunimiField = new TextField();
-        etunimiField.setPromptText("Etunimi");
+        etunimiField.setPromptText(bundle.getString("label.firstname"));
         etunimiField.getStyleClass().add("text-field");
 
         TextField sukunimiField = new TextField();
-        sukunimiField.setPromptText("Sukunimi");
+        sukunimiField.setPromptText(bundle.getString("label.lastname"));
         sukunimiField.getStyleClass().add("text-field");
 
         TextField spostiField = new TextField();
-        spostiField.setPromptText("Email");
+        spostiField.setPromptText(bundle.getString("label.email"));
         spostiField.getStyleClass().add("text-field");
 
         TextField puhField = new TextField();
-        puhField.setPromptText("Puh");
+        puhField.setPromptText(bundle.getString("label.phone"));
         puhField.getStyleClass().add("text-field");
 
         PasswordField salasanaField = new PasswordField();
-        salasanaField.setPromptText("Salasana");
+        salasanaField.setPromptText(bundle.getString("label.password"));
         salasanaField.getStyleClass().add("password-field");
 
-        Button registerButton = new Button("Rekisteröidy");
+        Button registerButton = new Button(bundle.getString("button.register"));
         registerButton.getStyleClass().add("button-one");
 
-        Button backButton = new Button("Kirjautumiseen");
+        Button backButton = new Button(bundle.getString("button.back"));
         backButton.getStyleClass().add("button-two");
 
         // Layout
@@ -79,20 +88,20 @@ public class RegistrationGui extends Application {
     }
 
     void handleRegister(String etunimi, String sukunimi, String sposti, String puh, String salasana, Stage primaryStage) {
-    boolean isTestMode = Boolean.getBoolean("test.mode");
+        boolean isTestMode = Boolean.getBoolean("test.mode");
 
         if (etunimi.isEmpty() || sukunimi.isEmpty() || sposti.isEmpty() || puh.isEmpty() || salasana.isEmpty()) {
             if (!isTestMode) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Rekisteröinti epäonnistui");
-                alert.setContentText("Täytä kaikki kohdat.");
+                alert.setTitle(bundle.getString("alert.registration.failed.title"));
+                alert.setContentText(bundle.getString("alert.registration.failed.empty_fields"));
                 alert.showAndWait();
             }
         } else if (kayttajaDAO.onkoEmailOlemassa(sposti)) {  // Check if the email already exists
             if (!isTestMode) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Rekisteröinti epäonnistui");
-                alert.setContentText("Sähköpostiosoite on jo rekisteröity.");
+                alert.setTitle(bundle.getString("alert.registration.failed.title"));
+                alert.setContentText(bundle.getString("alert.registration.failed.email_exists"));
                 alert.showAndWait();
             }
         } else {
@@ -112,8 +121,8 @@ public class RegistrationGui extends Application {
 
             if (!isTestMode) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Rekisteröinti onnistui");
-                alert.setContentText("Tervetuloa, " + etunimi + " " + sukunimi + "!");
+                alert.setTitle(bundle.getString("alert.registration.success.title"));
+                alert.setContentText(bundle.getString("alert.registration.success.message").replace("{0}", etunimi).replace("{1}", sukunimi));
                 alert.showAndWait();
             }
 
@@ -128,5 +137,5 @@ public class RegistrationGui extends Application {
         this.kayttajaDAO = kayttajaDAO;
     }
 
-    public static void main(String[] args) { launch(args);}
+    public static void main(String[] args) { launch(args); }
 }
