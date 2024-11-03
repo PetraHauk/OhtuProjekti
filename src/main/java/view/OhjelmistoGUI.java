@@ -11,6 +11,9 @@ import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import javafx.scene.control.ComboBox;
 
+import java.util.Locale;
+import java.util.ResourceBundle;
+
 import controller.*;
 import view.sivut.*;
 
@@ -24,6 +27,12 @@ public class OhjelmistoGUI extends Application {
     private LaskuController laskuController;
     private HotelliController hotelliController;
     private KayttajaController kayttajaController;
+
+    private ResourceBundle bundle;
+    private void setLocale(String languageCode) {
+        Locale locale = new Locale(languageCode);
+        bundle = ResourceBundle.getBundle("messages", locale);
+    }
 
     @Override
     public void start(Stage primaryStage) {

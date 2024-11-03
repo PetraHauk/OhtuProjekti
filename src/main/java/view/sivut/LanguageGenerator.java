@@ -9,7 +9,7 @@ public class LanguageGenerator {
         // Create locale based on language code
         switch (selectedLanguage) {
             case "English":
-                locale = new Locale("en", "US");
+                locale = new Locale("en", "GB");
                 break;
             case "Suomi":
                 locale = new Locale("fi", "FI");
