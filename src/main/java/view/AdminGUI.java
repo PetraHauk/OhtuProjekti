@@ -23,64 +23,72 @@ public class AdminGUI extends Application {
     KayttajaDAO kayttajaDAO = new KayttajaDAO();
     TableView<Kayttaja> userTable;
     private String adminEmail; // Store admin email for validation
-
+    private ResourceBundle bundle;
 
 
     @Override
     public void start(Stage primaryStage) {
-        primaryStage.setTitle("Admin Panel - User Management");
+        //Locale locale = Locale.getDefault();  // Change to preferred locale, e.g., new Locale("fi")
+        Locale locale = new Locale("sv", "SE");
+        bundle = ResourceBundle.getBundle("messages", locale);
+
+        primaryStage.setTitle(bundle.getString("admin_panel_title"));
 
         // Initialize Table to Display Users
         userTable = new TableView<>();  // Initialize the userTable here
-        TableColumn<Kayttaja, Integer> idColumn = new TableColumn<>("Kayttaja ID");
-        idColumn.setCellValueFactory(new PropertyValueFactory<>("kayttajaId")); // Use "kayttajaId"
+        TableColumn<Kayttaja, Integer> idColumn = new TableColumn<>(bundle.getString("user_id"));
+        idColumn.setCellValueFactory(new PropertyValueFactory<>("kayttajaId"));
 
-        // Create columns for etunimi, sukunimi, and puh
-        TableColumn<Kayttaja, String> etunimiColumn = new TableColumn<>("Etunimi");
+        TableColumn<Kayttaja, String> etunimiColumn = new TableColumn<>(bundle.getString("first_name"));
         etunimiColumn.setCellValueFactory(new PropertyValueFactory<>("etunimi"));
 
-        TableColumn<Kayttaja, String> sukunimiColumn = new TableColumn<>("Sukunimi");
+        TableColumn<Kayttaja, String> sukunimiColumn = new TableColumn<>(bundle.getString("last_name"));
         sukunimiColumn.setCellValueFactory(new PropertyValueFactory<>("sukunimi"));
 
-        TableColumn<Kayttaja, String> emailColumn = new TableColumn<>("Email");
+        TableColumn<Kayttaja, String> emailColumn = new TableColumn<>(bundle.getString("email"));
         emailColumn.setCellValueFactory(new PropertyValueFactory<>("sposti"));
 
-        TableColumn<Kayttaja, String> puhColumn = new TableColumn<>("Puh");
-        puhColumn.setCellValueFactory(new PropertyValueFactory<>("puh")); // Add the phone number column
+        TableColumn<Kayttaja, String> puhColumn = new TableColumn<>(bundle.getString("phone"));
+        puhColumn.setCellValueFactory(new PropertyValueFactory<>("puh"));
 
-        TableColumn<Kayttaja, String> roleColumn = new TableColumn<>("Rooli");
+        TableColumn<Kayttaja, String> roleColumn = new TableColumn<>(bundle.getString("role"));
         roleColumn.setCellValueFactory(new PropertyValueFactory<>("rooli"));
 
-        // Add all columns to the userTable
         userTable.getColumns().addAll(idColumn, etunimiColumn, sukunimiColumn, emailColumn, puhColumn, roleColumn);
-        loadAndDisplayUsers(); // Set the items
+        loadAndDisplayUsers();
+
 
         // Form to update user information
         TextField idField = new TextField();
-        idField.setPromptText("Käyttäjän ID");
+        idField.setPromptText(bundle.getString("label.user.id"));
 
         TextField etunimiField = new TextField();
-        etunimiField.setPromptText("Etunimi");
+        etunimiField.setPromptText(bundle.getString("label.firstname"));
 
         TextField sukunimiField = new TextField();
-        sukunimiField.setPromptText("Sukunimi");
+        sukunimiField.setPromptText(bundle.getString("label.lastname"));
 
         TextField spostiField = new TextField();
-        spostiField.setPromptText("Sposti");
+        spostiField.setPromptText(bundle.getString("label.email"));
 
         TextField puhField = new TextField();
-        puhField.setPromptText("Puh");
+        puhField.setPromptText(bundle.getString("label.phone"));
 
-        ComboBox<String> rooliComboBox = new ComboBox<>(FXCollections.observableArrayList("Siivoja", "Hotellityöntekijä", "Admin"));
-        rooliComboBox.setPromptText("Rooli");
+        ComboBox<String> rooliComboBox = new ComboBox<>(FXCollections.observableArrayList(
+                bundle.getString("role.cleaner"),
+                bundle.getString("role.worker"),
+                bundle.getString("role.admin")
+        ));
+        rooliComboBox.setPromptText(bundle.getString("label.role"));
 
         PasswordField passwordField = new PasswordField();
-        passwordField.setPromptText("Salasana");
+        passwordField.setPromptText(bundle.getString("label.password"));
 
-        Button addUserButton = new Button("+");
+        Button addUserButton = new Button(bundle.getString("button.add.user"));
         addUserButton.setOnAction(e -> openAddUserDialog());
 
-        Button updateUserButton = new Button("Päivitä käyttäjä");
+
+        Button updateUserButton = new Button(bundle.getString("button.update.user"));
         updateUserButton.setOnAction(e -> {
             int id = Integer.parseInt(idField.getText());
             String etunimi = etunimiField.getText();
@@ -107,19 +115,19 @@ public class AdminGUI extends Application {
             loadAndDisplayUsers();
         });
                 // Delete Button
-        Button deleteUserButton = new Button("Poista käyttäjä");
+        Button deleteUserButton = new Button(bundle.getString("button.delete.user"));
         deleteUserButton.setOnAction(e -> deleteUser());
 
         // Form layout with labels
         VBox form = new VBox(10,
-                new Label("Muokkaa käyttäjä tietoja"),
-                new Label("Käyttäjän ID"), idField,
-                new Label("Etunimi"), etunimiField,
-                new Label("Sukunimi"), sukunimiField,
-                new Label("Sähköposti"), spostiField,
-                new Label("Puhelinnumero"), puhField,
-                new Label("Rooli"), rooliComboBox,
-                new Label("Salasana (jätä tyhjäksi, jos ei muuta)"), passwordField,
+                new Label(bundle.getString("label.edit.user")),
+                new Label(bundle.getString("label.user.id")), idField,
+                new Label(bundle.getString("label.firstname")), etunimiField,
+                new Label(bundle.getString("label.lastname")), sukunimiField,
+                new Label(bundle.getString("label.email")), spostiField,
+                new Label(bundle.getString("label.phone")), puhField,
+                new Label(bundle.getString("label.role")), rooliComboBox,
+                new Label(bundle.getString("label.password")), passwordField,
                 updateUserButton, deleteUserButton);
         form.setPadding(new Insets(10));
 
@@ -156,61 +164,72 @@ public class AdminGUI extends Application {
 
     // Update user information by ID
     private void openAddUserDialog() {
-        // Create a new dialog or window for adding the user
         Stage addUserStage = new Stage();
-        addUserStage.setTitle("Lisää uusi käyttäjä");
+        addUserStage.setTitle(bundle.getString("addUser.title"));
 
-        // Create input fields for the new user
         TextField etunimiField = new TextField();
-        etunimiField.setPromptText("Etunimi");
+        etunimiField.setPromptText(bundle.getString("addUser.firstName"));
 
         TextField sukunimiField = new TextField();
-        sukunimiField.setPromptText("Sukunimi");
+        sukunimiField.setPromptText(bundle.getString("addUser.lastName"));
 
         TextField spostiField = new TextField();
-        spostiField.setPromptText("Sähköposti");
+        spostiField.setPromptText(bundle.getString("addUser.email"));
 
         TextField puhField = new TextField();
-        puhField.setPromptText("Puhelinnumero");
+        puhField.setPromptText(bundle.getString("addUser.phone"));
 
         PasswordField passwordField = new PasswordField();
-        passwordField.setPromptText("Salasana");
+        passwordField.setPromptText(bundle.getString("addUser.password"));
 
-        ComboBox<String> rooliComboBox = new ComboBox<>(FXCollections.observableArrayList("Siivooja", "Hotellityöntekijä", "Admin"));
-        rooliComboBox.setPromptText("Rooli");
+        ComboBox<String> rooliComboBox = new ComboBox<>(FXCollections.observableArrayList(
+                bundle.getString("role.cleaner"),
+                bundle.getString("role.worker"),
+                bundle.getString("role.admin")
+        ));
+        rooliComboBox.setPromptText(bundle.getString("addUser.role"));
 
-        Button addUserSubmitButton = new Button("Lisää käyttäjä");
+        Button addUserSubmitButton = new Button(bundle.getString("addUser.submitButton"));
         addUserSubmitButton.setOnAction(e -> {
-            handleAddUser(etunimiField.getText(), sukunimiField.getText(), spostiField.getText(), puhField.getText(), passwordField.getText(), rooliComboBox.getValue(), addUserStage);
+            handleAddUser(
+                    etunimiField.getText(),
+                    sukunimiField.getText(),
+                    spostiField.getText(),
+                    puhField.getText(),
+                    passwordField.getText(),
+                    rooliComboBox.getValue(),
+                    addUserStage
+            );
         });
 
-        // Layout for the form
         VBox addUserForm = new VBox(10,
-                new Label("Täytä uuden käyttäjän tiedot"),
-                new Label("Etunimi"), etunimiField,
-                new Label("Sukunimi"), sukunimiField,
-                new Label("Sähköposti"), spostiField,
-                new Label("Puhelinnumero"), puhField,
-                new Label("Salasana"), passwordField,
-                new Label("Rooli"), rooliComboBox,
-                addUserSubmitButton);
+                new Label(bundle.getString("addUser.formTitle")),
+                new Label(bundle.getString("addUser.firstNameLabel")), etunimiField,
+                new Label(bundle.getString("addUser.lastNameLabel")), sukunimiField,
+                new Label(bundle.getString("addUser.emailLabel")), spostiField,
+                new Label(bundle.getString("addUser.phoneLabel")), puhField,
+                new Label(bundle.getString("addUser.passwordLabel")), passwordField,
+                new Label(bundle.getString("addUser.roleLabel")), rooliComboBox,
+                addUserSubmitButton
+        );
         addUserForm.setPadding(new Insets(20));
 
-        // Create a new scene and set it to the stage
         Scene addUserScene = new Scene(addUserForm, 400, 400);
         addUserStage.setScene(addUserScene);
         addUserStage.show();
     }
-    void handleAddUser(String etunimi, String sukunimi, String sposti, String puh, String salasana, String rooli, Stage addUserStage) {
+    private void handleAddUser(String etunimi, String sukunimi, String sposti, String puh, String salasana, String rooli, Stage addUserStage) {
+
+
         if (etunimi.isEmpty() || sukunimi.isEmpty() || sposti.isEmpty() || puh.isEmpty() || salasana.isEmpty() || rooli == null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Lisääminen epäonnistui");
-            alert.setContentText("Täytä kaikki kohdat.");
+            alert.setTitle(bundle.getString("addUser.errorTitle"));
+            alert.setContentText(bundle.getString("addUser.fillAllFields"));
             alert.showAndWait();
         } else if (kayttajaDAO.onkoEmailOlemassa(sposti)) {  // Check if the email already exists
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Lisääminen epäonnistui");
-            alert.setContentText("Sähköpostiosoite on jo rekisteröity.");
+            alert.setTitle(bundle.getString("addUser.errorTitle"));
+            alert.setContentText(bundle.getString("addUser.emailExists"));
             alert.showAndWait();
         } else {
             // Hash the password using BCrypt
@@ -230,8 +249,8 @@ public class AdminGUI extends Application {
 
             // Show a success message
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Käyttäjä lisätty");
-            alert.setContentText("Käyttäjä " + etunimi + " " + sukunimi + " on lisätty onnistuneesti!");
+            alert.setTitle(bundle.getString("addUser.successTitle"));
+            alert.setContentText(String.format(bundle.getString("addUser.successMessage"), etunimi, sukunimi));
             alert.showAndWait();
 
             // Close the add user stage
@@ -242,59 +261,65 @@ public class AdminGUI extends Application {
         }
     }
 
+
     void updateUserById(int id, String etunimi, String sukunimi, String sposti, String puh, String rooli, String salasana) {
+
+
         // Hash the password if it's not empty
         String hashattuSalasana = salasana.isEmpty() ? null : BCrypt.hashpw(salasana, BCrypt.gensalt());
 
         // Update the user information in the database
-        kayttajaDAO.updateKayttajaById(id, etunimi, sukunimi, puh, rooli); // Use your provided method
+        kayttajaDAO.updateKayttajaById(id, etunimi, sukunimi, puh, rooli);
 
+        // Show an information alert after successful update
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Käyttäjän tietojen päivitys");
+        alert.setTitle(bundle.getString("updateUser.title"));
         alert.setHeaderText(null);
-        alert.setContentText("Käyttäjän tiedot päivitetty onnistuneesti!");
+        alert.setContentText(bundle.getString("updateUser.successMessage"));
         alert.showAndWait();
 
         // Reload the user table with updated information
-        loadAndDisplayUsers(); // Now we use the class-level userTable
+        loadAndDisplayUsers();
     }
 
 
+
     void deleteUser() {
+        //ResourceBundle bundle = ResourceBundle.getBundle("AdminGUI", Locale.getDefault());
+
         Kayttaja selectedUser = userTable.getSelectionModel().getSelectedItem();
         if (selectedUser == null) {
-            showWarning("Valinta puuttuu", "Valitse poistettavaksi käyttäjä.");
+            showWarning(bundle.getString("deleteUser.noSelectionTitle"), bundle.getString("deleteUser.noSelectionMessage"));
             return;
         }
 
-        // Check if the selected user is an admin (role 3)
+        // Check if the selected user is an admin
         if ("Admin".equals(selectedUser.getRooli())) {
-            showWarning("Poisto estetty", "Admin käyttäjää ei voi poistaa.");
+            showWarning(bundle.getString("deleteUser.adminDeletionBlockedTitle"), bundle.getString("deleteUser.adminDeletionBlockedMessage"));
             return;
         }
 
         // Confirm deletion
-        if (showConfirmation("Vahvista poisto", "Oletko varma, että haluat poistaa käyttäjän " + selectedUser.getEtunimi() + " " + selectedUser.getSukunimi() + "?")) {
-            // Create a custom dialog for password input
+        String confirmMessage = String.format(bundle.getString("deleteUser.confirmMessage"), selectedUser.getEtunimi(), selectedUser.getSukunimi());
+        if (showConfirmation(bundle.getString("deleteUser.confirmTitle"), confirmMessage)) {
             Dialog<String> passwordDialog = new Dialog<>();
-            passwordDialog.setTitle("Syötä salasana");
-            passwordDialog.setHeaderText("Syötä adminin salasana vahvistaaksesi käyttäjän poistamisen.");
+            passwordDialog.setTitle(bundle.getString("deleteUser.passwordDialogTitle"));
+            passwordDialog.setHeaderText(bundle.getString("deleteUser.passwordDialogHeader"));
 
             // Create PasswordField
             PasswordField passwordField = new PasswordField();
-            passwordField.setPromptText("Salasana");
+            passwordField.setPromptText(bundle.getString("deleteUser.passwordPrompt"));
 
-            // Add the PasswordField to the dialog
+            // Add PasswordField to dialog
             VBox dialogPaneContent = new VBox();
             dialogPaneContent.getChildren().add(passwordField);
             passwordDialog.getDialogPane().setContent(dialogPaneContent);
 
             // Add OK and Cancel buttons
-            ButtonType okButton = new ButtonType("OK", ButtonBar.ButtonData.OK_DONE);
-            ButtonType cancelButton = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
+            ButtonType okButton = new ButtonType(bundle.getString("okButton"), ButtonBar.ButtonData.OK_DONE);
+            ButtonType cancelButton = new ButtonType(bundle.getString("cancelButton"), ButtonBar.ButtonData.CANCEL_CLOSE);
             passwordDialog.getDialogPane().getButtonTypes().addAll(okButton, cancelButton);
 
-            // Handle the response from the dialog
             passwordDialog.setResultConverter(dialogButton -> {
                 if (dialogButton == okButton) {
                     return passwordField.getText(); // Return the entered password
@@ -306,10 +331,10 @@ public class AdminGUI extends Application {
             passwordDialog.showAndWait().ifPresent(password -> {
                 if (validatePassword(password)) {
                     kayttajaDAO.removeById(selectedUser.getKayttajaId());
-                    showInfo("Käyttäjä poistettu", "Käyttäjä poistettu onnistuneesti!");
+                    showInfo(bundle.getString("deleteUser.successTitle"), bundle.getString("deleteUser.successMessage"));
                     loadAndDisplayUsers();
                 } else {
-                    showError("Virhe", "Väärä salasana! Poisto peruttu.");
+                    showError(bundle.getString("deleteUser.errorTitle"), bundle.getString("deleteUser.errorMessage"));
                 }
             });
         }
@@ -325,35 +350,36 @@ public class AdminGUI extends Application {
 
 
     // Utility methods for alerts
-    private void showWarning(String title, String message) {
+    private void showWarning(String titleKey, String messageKey) {
         Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle(title);
+        alert.setTitle(bundle.getString(titleKey));
         alert.setHeaderText(null);
-        alert.setContentText(message);
+        alert.setContentText(bundle.getString(messageKey));
         alert.showAndWait();
     }
-    private void showInfo(String title, String message) {
+
+    private void showInfo(String titleKey, String messageKey) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle(title);
+        alert.setTitle(bundle.getString(titleKey));
         alert.setHeaderText(null);
-        alert.setContentText(message);
+        alert.setContentText(bundle.getString(messageKey));
         alert.showAndWait();
     }
 
-    private void showError(String title, String message) {
+
+    private void showError(String titleKey, String messageKey) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle(title);
+        alert.setTitle(bundle.getString(titleKey));
         alert.setHeaderText(null);
-        alert.setContentText(message);
+        alert.setContentText(bundle.getString(messageKey));
         alert.showAndWait();
     }
 
-    private boolean showConfirmation(String title, String message) {
+    private boolean showConfirmation(String titleKey, String messageKey) {
         Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
-        confirmationAlert.setTitle(title);
-        confirmationAlert.setHeaderText(message);
-        confirmationAlert.setContentText("Tätä toimintoa ei voida peruuttaa!");
-        confirmationAlert.setHeaderText(null);
+        confirmationAlert.setTitle(bundle.getString(titleKey));
+        confirmationAlert.setHeaderText(bundle.getString(messageKey));
+        confirmationAlert.setContentText(bundle.getString("alert_confirm_delete_warning"));
         return confirmationAlert.showAndWait().orElse(ButtonType.CANCEL) == ButtonType.OK;
     }
     private void loadAndDisplayUsers() {
