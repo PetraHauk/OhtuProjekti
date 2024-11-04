@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="poista ylimäärästä">
-      <change beforePath="$PROJECT_DIR$/src/main/resources/messages_en_GB.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages_en_GB.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/messages_ru_Ru.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages_ru_Ru.properties" afterDir="false" />
+    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="update">
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/AdminGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/AdminGUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -288,13 +287,6 @@
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task id="LOCAL−00001" summary="Window opens and shows basic layout when WilmaMain is launched">
-      <option name="closed" value="true" />
-      <created>1726038545983</created>
-      <option name="number" value="LOCAL−00001" />
-      <option name="presentableId" value="LOCAL−00001" />
-      <updated>1726038545983</updated>
-    </task>
     <task active="true" id="Default" summary="Default task">
       <changelist id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="Window opens and shows basic layout when WilmaMain is launched" />
       <created>1726554373190</created>
@@ -333,7 +325,7 @@
       <workItem from="1730708701361" duration="722000" />
       <workItem from="1730717989820" duration="2112000" />
       <workItem from="1730724291170" duration="300000" />
-      <workItem from="1730737802323" duration="16000000" />
+      <workItem from="1730737802323" duration="16386000" />
     </task>
     <task id="LOCAL-00002" summary="yhdistetty wilman ja kaislan judut">
       <option name="closed" value="true" />
@@ -703,7 +695,31 @@
       <option name="project" value="LOCAL" />
       <updated>1730752373980</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="lisää venäjä kieli, leftbar ja asiakas sivu">
+      <option name="closed" value="true" />
+      <created>1730753889792</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1730753889792</updated>
+    </task>
+    <task id="LOCAL-00049" summary="update">
+      <option name="closed" value="true" />
+      <created>1730754029894</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1730754029894</updated>
+    </task>
+    <task id="LOCAL-00050" summary="update">
+      <option name="closed" value="true" />
+      <created>1730754044822</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1730754044824</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -722,8 +738,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="check out välilehti: lasku hake, tulosta ikkuna valmis" />
-    <MESSAGE value="Aasiakas välilehti: siakaan taulukko ja lisaa asiakasta" />
     <MESSAGE value="Aasiakas välilehti: asiakkan tietojen muokkaua ja poista asiakasta." />
     <MESSAGE value="Admin screen hommia" />
     <MESSAGE value="Admin.gui muutoksia" />
@@ -747,7 +761,9 @@
     <MESSAGE value="asiakas välilehti kielivaihto" />
     <MESSAGE value="Login, registeri, logIn, leftBar localisointi yhdistetty" />
     <MESSAGE value="poista ylimäärästä" />
-    <option name="LAST_COMMIT_MESSAGE" value="poista ylimäärästä" />
+    <MESSAGE value="lisää venäjä kieli, leftbar ja asiakas sivu" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
