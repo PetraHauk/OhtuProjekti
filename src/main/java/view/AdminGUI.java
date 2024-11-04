@@ -29,7 +29,7 @@ public class AdminGUI extends Application {
     @Override
     public void start(Stage primaryStage) {
         //Locale locale = Locale.getDefault();  // Change to preferred locale, e.g., new Locale("fi")
-        Locale locale = new Locale("sv", "SE");
+        Locale locale = new Locale("ru", "RU");
         bundle = ResourceBundle.getBundle("messages", locale);
 
         primaryStage.setTitle(bundle.getString("admin_panel_title"));

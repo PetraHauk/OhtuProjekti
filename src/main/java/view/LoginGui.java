@@ -33,7 +33,7 @@ public class LoginGui extends Application {
 
         // Language Selection ComboBox
         ComboBox<String> languageSelector = new ComboBox<>();
-        languageSelector.getItems().addAll("English", "Svenska", "中文", "Suomi");
+        languageSelector.getItems().addAll("English", "Svenska", "中文", "Suomi", "россия");
         languageSelector.setValue(getLanguageName(currentLocale)); // Default selection based on currentLocale
         languageSelector.setOnAction(e -> updateLanguage(languageSelector.getValue(), primaryStage));
 
@@ -106,6 +106,9 @@ public class LoginGui extends Application {
             case "Suomi":
                 currentLocale = new Locale("fi", "FI");
                 break;
+            case "россия":
+                currentLocale = new Locale("ru", "RU");
+                break;
         }
 
         // Reload the ResourceBundle
@@ -133,6 +136,8 @@ public class LoginGui extends Application {
             return "中文";
         } else if (locale.equals(new Locale("fi", "FI"))) {
             return "Suomi";
+        } else if (locale.equals(new Locale("ru", "RU"))) {
+            return "россия";
         }
         return "English"; // Default fallback
     }
