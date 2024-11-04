@@ -17,7 +17,7 @@ import java.util.ResourceBundle;
 public class LoginGui extends Application {
 
     private KayttajaDAO kayttajaDAO = new KayttajaDAO();
-    private static Locale currentLocale = Locale.getDefault(); // Shared locale for both Login and Registration
+    private static Locale currentLocale = new Locale("fi", "FI"); // Shared locale for both Login and Registration
     private ResourceBundle bundle;
     private Label loginLabel, emailLabel, passwordLabel;
     private Button loginButton, registerButton;
