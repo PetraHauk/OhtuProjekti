@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="Adminpanel kieli vaihtaa local mukaan">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/sivut/AsiakasSivu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/sivut/AsiakasSivu.java" afterDir="false" />
-    </list>
+    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="asiakas/henkilömäärä esillä" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -326,15 +323,7 @@
       <workItem from="1730708701361" duration="722000" />
       <workItem from="1730717989820" duration="2112000" />
       <workItem from="1730724291170" duration="300000" />
-      <workItem from="1730737802323" duration="17622000" />
-    </task>
-    <task id="LOCAL-00003" summary="Merge valmis, tyylit lisätty login ja rekisteröinti, häshäys toimii">
-      <option name="closed" value="true" />
-      <created>1727342662914</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1727342662914</updated>
+      <workItem from="1730737802323" duration="18120000" />
     </task>
     <task id="LOCAL-00004" summary="check out välilehti: lasku hake, tulosta ikkuna valmis">
       <option name="closed" value="true" />
@@ -720,7 +709,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730754294148</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="asiakas/henkilömäärä esillä">
+      <option name="closed" value="true" />
+      <created>1730756576934</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1730756576934</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -739,7 +736,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Admin screen hommia" />
     <MESSAGE value="Admin.gui muutoksia" />
     <MESSAGE value="Rekisteröinti testi jenkinsiä varten, muut testit kommentoitu pois, muuttaa pom.xml jossa" />
     <MESSAGE value="Revert &quot;muuttaa pomin ja dockerfilen docker pull ja buildia varten&quot;&#10;&#10;This reverts commit c0ffdab7" />
@@ -764,7 +760,8 @@
     <MESSAGE value="lisää venäjä kieli, leftbar ja asiakas sivu" />
     <MESSAGE value="update" />
     <MESSAGE value="Adminpanel kieli vaihtaa local mukaan" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adminpanel kieli vaihtaa local mukaan" />
+    <MESSAGE value="asiakas/henkilömäärä esillä" />
+    <option name="LAST_COMMIT_MESSAGE" value="asiakas/henkilömäärä esillä" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

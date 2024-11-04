@@ -102,15 +102,11 @@ public class OhjelmistoGUI extends Application {
         );
         leftButtons.getStyleClass().add("left-buttons");
 
-
-
         if (UserSession.getRooli().equalsIgnoreCase("Admin")) {
             // Only show admin panel button for admin users
             adminButton.setOnAction(e -> openAdminPanel());
             leftButtons.getChildren().add(adminButton);
         }
-
-
 
         // Create the left sidebar layout
         VBox leftBar = new VBox(30);
@@ -127,7 +123,6 @@ public class OhjelmistoGUI extends Application {
 
         return leftBar;
     }
-
 
     private void openAdminPanel() {
         new AdminGUI().start(new Stage());
