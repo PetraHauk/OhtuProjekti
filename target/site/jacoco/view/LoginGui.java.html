@@ -1,110 +1,109 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LoginGui.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">gui</a> &gt; <a href="index.source.html" class="el_package">view</a> &gt; <span class="el_source">LoginGui.java</span></div><h1>LoginGui.java</h1><pre class="source lang-java linenums">package view;
 
-import javafx.scene.control.*;
-import model.service.UserSession;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import model.service.LocaleManager;
+import model.service.UserSession;
 import model.DAO.KayttajaDAO;
 import org.mindrot.jbcrypt.BCrypt;
 
-<span class="fc" id="L14">public class LoginGui extends Application {</span>
+import java.util.ResourceBundle;
 
-<span class="fc" id="L16">    private KayttajaDAO kayttajaDAO = new KayttajaDAO();</span>
+<span class="fc" id="L17">public class LoginGui extends Application {</span>
+
+<span class="fc" id="L19">    private KayttajaDAO kayttajaDAO = new KayttajaDAO();</span>
+    private ResourceBundle bundle;
+    private Label loginLabel, emailLabel, passwordLabel;
+    private Button loginButton, registerButton;
+    private TextField emailField;
+    private PasswordField passwordField;
 
     @Override
     public void start(Stage primaryStage) {
-<span class="fc" id="L20">        primaryStage.setTitle(&quot;Kirjautuminen&quot;);</span>
+        // Load the ResourceBundle from LocaleManager
+<span class="fc" id="L29">        bundle = LocaleManager.getBundle();</span>
+<span class="fc" id="L30">        primaryStage.setTitle(bundle.getString(&quot;title.login&quot;));</span>
 
-<span class="fc" id="L22">        Label loginLabel = new Label(&quot;Kirjaudu sisään&quot;);</span>
-<span class="fc" id="L23">        loginLabel.getStyleClass().add(&quot;otsikko&quot;);</span>
+        // Language Selection ComboBox
+<span class="fc" id="L33">        ComboBox&lt;String&gt; languageSelector = new ComboBox&lt;&gt;();</span>
+<span class="fc" id="L34">        languageSelector.getItems().addAll(&quot;English&quot;, &quot;Svenska&quot;, &quot;中文&quot;, &quot;Suomi&quot;, &quot;россия&quot;);</span>
+<span class="fc" id="L35">        languageSelector.setValue(LocaleManager.getLanguageName()); // Default selection</span>
+<span class="pc" id="L36">        languageSelector.setOnAction(e -&gt; updateLanguage(languageSelector.getValue(), primaryStage));</span>
 
-        // Create UI elements
-<span class="fc" id="L26">        Label emailLabel = new Label(&quot;Email:&quot;);</span>
+        // Labels and Buttons
+<span class="fc" id="L39">        loginLabel = new Label(bundle.getString(&quot;label.login&quot;));</span>
+<span class="fc" id="L40">        emailLabel = new Label(bundle.getString(&quot;label.email&quot;));</span>
+<span class="fc" id="L41">        emailField = new TextField();</span>
+<span class="fc" id="L42">        emailField.setPromptText(bundle.getString(&quot;label.email&quot;));</span>
 
-<span class="fc" id="L28">        TextField emailField = new TextField();</span>
-<span class="fc" id="L29">        emailField.setId(&quot;emailField&quot;); // Set ID</span>
-<span class="fc" id="L30">        emailField.setPromptText(&quot;Email&quot;);</span>
-<span class="fc" id="L31">        emailField.getStyleClass().add(&quot;text-field&quot;);</span>
+<span class="fc" id="L44">        passwordLabel = new Label(bundle.getString(&quot;label.password&quot;));</span>
+<span class="fc" id="L45">        passwordField = new PasswordField();</span>
+<span class="fc" id="L46">        passwordField.setPromptText(bundle.getString(&quot;label.password&quot;));</span>
 
-<span class="fc" id="L33">        Label passwordLabel = new Label(&quot;Password:&quot;);</span>
-
-<span class="fc" id="L35">        PasswordField passwordField = new PasswordField();</span>
-<span class="fc" id="L36">        passwordField.setId(&quot;passwordField&quot;); // Set ID</span>
-<span class="fc" id="L37">        passwordField.setPromptText(&quot;Salasana&quot;);</span>
-<span class="fc" id="L38">        passwordField.getStyleClass().add(&quot;password-field&quot;);</span>
-
-<span class="fc" id="L40">        Button loginButton = new Button(&quot;Kirjaudu&quot;);</span>
-<span class="fc" id="L41">        loginButton.setId(&quot;loginButton&quot;); // Set ID</span>
-<span class="fc" id="L42">        loginButton.getStyleClass().add(&quot;button-one&quot;);</span>
-
-<span class="fc" id="L44">        Button registerButton = new Button(&quot;Rekisteröidy&quot;);</span>
-<span class="fc" id="L45">        registerButton.setId(&quot;registerButton&quot;); // Set ID</span>
-<span class="fc" id="L46">        registerButton.getStyleClass().add(&quot;button-two&quot;);</span>
+<span class="fc" id="L48">        loginButton = new Button(bundle.getString(&quot;button.login&quot;));</span>
+<span class="fc" id="L49">        registerButton = new Button(bundle.getString(&quot;button.register&quot;));</span>
 
         // Layout
-<span class="fc" id="L49">        VBox vbox = new VBox(10);</span>
-<span class="fc" id="L50">        vbox.setAlignment(Pos.CENTER);</span>
-<span class="fc" id="L51">        vbox.setPadding(new Insets(20));</span>
-<span class="fc" id="L52">        vbox.getChildren().addAll(loginLabel, emailLabel, emailField, passwordLabel, passwordField, loginButton, registerButton);</span>
+<span class="fc" id="L52">        VBox vbox = new VBox(10);</span>
+<span class="fc" id="L53">        vbox.setAlignment(Pos.CENTER);</span>
+<span class="fc" id="L54">        vbox.setPadding(new Insets(20));</span>
+<span class="fc" id="L55">        vbox.getChildren().addAll(languageSelector, loginLabel, emailLabel, emailField, passwordLabel, passwordField, loginButton, registerButton);</span>
 
         // Event Handlers
-<span class="fc" id="L55">        loginButton.setOnAction(e -&gt; handleLogin(emailField.getText(), passwordField.getText(), primaryStage));</span>
+<span class="pc" id="L58">        loginButton.setOnAction(e -&gt; handleLogin(emailField.getText(), passwordField.getText(), primaryStage));</span>
+<span class="fc" id="L59">        registerButton.setOnAction(e -&gt; {</span>
+<span class="nc" id="L60">            primaryStage.close();</span>
+<span class="nc" id="L61">            new RegistrationGui().start(new Stage());</span>
+<span class="nc" id="L62">        });</span>
 
-<span class="fc" id="L57">        registerButton.setOnAction(e -&gt; {</span>
-<span class="fc" id="L58">            primaryStage.close();</span>
-<span class="fc" id="L59">            new RegistrationGui().start(new Stage()); // Open registration page</span>
-<span class="fc" id="L60">        });</span>
-
-        // Set Scene
-<span class="fc" id="L63">        Scene scene = new Scene(vbox, 300, 350);</span>
-<span class="fc" id="L64">        scene.getStylesheets().add(getClass().getResource(&quot;/login.css&quot;).toExternalForm());</span>
-<span class="fc" id="L65">        primaryStage.setScene(scene);</span>
-<span class="fc" id="L66">        primaryStage.show();</span>
-<span class="fc" id="L67">    }</span>
+<span class="fc" id="L64">        Scene scene = new Scene(vbox, 300, 350);</span>
+<span class="fc" id="L65">        scene.getStylesheets().add(getClass().getResource(&quot;/login.css&quot;).toExternalForm());</span>
+<span class="fc" id="L66">        primaryStage.setScene(scene);</span>
+<span class="fc" id="L67">        primaryStage.show();</span>
+<span class="fc" id="L68">    }</span>
 
     private void handleLogin(String email, String password, Stage primaryStage) {
-<span class="fc" id="L70">        String savedHashedPassword = kayttajaDAO.findPasswordByEmail(email);</span>
+<span class="nc" id="L71">        String savedHashedPassword = kayttajaDAO.findPasswordByEmail(email);</span>
 
-<span class="pc bpc" id="L72" title="2 of 6 branches missed.">        if (savedHashedPassword != null &amp;&amp; !savedHashedPassword.isEmpty() &amp;&amp; BCrypt.checkpw(password, savedHashedPassword)) {</span>
-            // Retrieve the user role (rooli)
-<span class="fc" id="L74">            String rooli = kayttajaDAO.findRooliByEmail(email); // Assuming this method exists in KayttajaDAO</span>
+<span class="nc bnc" id="L73" title="All 4 branches missed.">        if (savedHashedPassword != null &amp;&amp; BCrypt.checkpw(password, savedHashedPassword)) {</span>
+<span class="nc" id="L74">            String rooli = kayttajaDAO.findRooliByEmail(email);</span>
+<span class="nc" id="L75">            UserSession.setUsername(email);</span>
+<span class="nc" id="L76">            UserSession.setRooli(rooli);</span>
 
-            // Save the username and role to UserSession
-<span class="fc" id="L77">            UserSession.setUsername(email);</span>
-<span class="fc" id="L78">            UserSession.setRooli(rooli);</span>
-
-            // Login successful
-            //Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            //alert.setTitle(&quot;Kirjautuminen onnistui&quot;);
-            //alert.setHeaderText(null);
-            //alert.setContentText(&quot;Tervetuloa!&quot;);
-            //alert.showAndWait();
-
-            // Close the login window
-<span class="fc" id="L88">            primaryStage.close();</span>
-
-            // Open next stage and pass the username
-<span class="fc" id="L91">            new OhjelmistoGUI().start(new Stage());</span>
-<span class="fc" id="L92">        } else {</span>
-            // Login failed
-<span class="fc" id="L94">            Alert alert = new Alert(Alert.AlertType.ERROR);</span>
-<span class="fc" id="L95">            alert.setTitle(&quot;Kirjautuminen epäonnistui&quot;);</span>
-<span class="fc" id="L96">            alert.setHeaderText(null);</span>
-<span class="fc" id="L97">            alert.setContentText(&quot;Tarkista sähköposti ja salasana.&quot;);</span>
-
-<span class="fc" id="L99">            Stage alertStage = (Stage) alert.getDialogPane().getScene().getWindow();</span>
-<span class="fc" id="L100">            alertStage.setUserData(alert);</span>
-
-<span class="fc" id="L102">            alert.showAndWait();</span>
+<span class="nc" id="L78">            primaryStage.close();</span>
+<span class="nc" id="L79">            new OhjelmistoGUI().start(new Stage());</span>
+<span class="nc" id="L80">        } else {</span>
+<span class="nc" id="L81">            Alert alert = new Alert(Alert.AlertType.ERROR);</span>
+<span class="nc" id="L82">            alert.setTitle(bundle.getString(&quot;alert.login.failed.title&quot;));</span>
+<span class="nc" id="L83">            alert.setContentText(bundle.getString(&quot;alert.login.failed.message&quot;));</span>
+<span class="nc" id="L84">            alert.showAndWait();</span>
         }
-<span class="fc" id="L104">    }</span>
+<span class="nc" id="L86">    }</span>
+
+    private void updateLanguage(String selectedLanguage, Stage primaryStage) {
+<span class="nc" id="L89">        LocaleManager.setLocale(selectedLanguage);</span>
+<span class="nc" id="L90">        bundle = LocaleManager.getBundle();</span>
+<span class="nc" id="L91">        refreshUI(primaryStage);</span>
+<span class="nc" id="L92">    }</span>
+
+    private void refreshUI(Stage primaryStage) {
+<span class="nc" id="L95">        primaryStage.setTitle(bundle.getString(&quot;title.login&quot;));</span>
+<span class="nc" id="L96">        loginLabel.setText(bundle.getString(&quot;label.login&quot;));</span>
+<span class="nc" id="L97">        emailLabel.setText(bundle.getString(&quot;label.email&quot;));</span>
+<span class="nc" id="L98">        passwordLabel.setText(bundle.getString(&quot;label.password&quot;));</span>
+<span class="nc" id="L99">        loginButton.setText(bundle.getString(&quot;button.login&quot;));</span>
+<span class="nc" id="L100">        registerButton.setText(bundle.getString(&quot;button.register&quot;));</span>
+<span class="nc" id="L101">        emailField.setPromptText(bundle.getString(&quot;label.email&quot;));</span>
+<span class="nc" id="L102">        passwordField.setPromptText(bundle.getString(&quot;label.password&quot;));</span>
+<span class="nc" id="L103">    }</span>
 
     public static void main(String[] args) {
-<span class="nc" id="L107">        launch(args);</span>
-<span class="nc" id="L108">    }</span>
+<span class="nc" id="L106">        launch(args);</span>
+<span class="nc" id="L107">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
