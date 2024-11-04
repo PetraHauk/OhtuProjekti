@@ -16,10 +16,16 @@ import model.enteties.Asiakas;
 import java.util.List;
 
 public class AsiakasSivu {
+    private final String selectedLanguage;
     private AsiakasController asiakasController;
+    private AsiakasOutput asiakasOutput;
 
-    public AsiakasSivu() {
-        this.asiakasController = new AsiakasController();
+    // Constructor to initialize dependencies
+    public AsiakasSivu(String selectedLanguage) {
+        asiakasController = new AsiakasController();
+        asiakasOutput = new AsiakasOutput();
+        this.selectedLanguage = selectedLanguage;
+        System.out.println("Selected language: " + selectedLanguage);
     }
 
     public VBox createAsiakkaat() {
@@ -33,6 +39,8 @@ public class AsiakasSivu {
 
         addCustomerButton.setOnAction(e -> openAddCustomerWindow(customerTable));
         populateCustomerTable(customerTable);
+
+        asiakasOutput.creatAsiakkaatOutPut(selectedLanguage, asiakkaatOtsikkoLabel, addCustomerButton);
         asiakkaatInfo.getChildren().addAll(asiakkaatOtsikkoLabel, customerTable, addCustomerButton);
         return asiakkaatInfo;
     }
@@ -59,6 +67,12 @@ public class AsiakasSivu {
         Label huomioLabel = new Label("Huomio:");
         TextField huomioField = new TextField();
 
+        Button saveButton = new Button();
+        Button cancelButton = new Button();
+
+        asiakasOutput.openAddCustomerWindowOutput(selectedLanguage, addCustomerStage,
+                firstNameLabel, lastNameLabel, emailLabel, phoneLabel,
+                henkiloMaaraLabel, huomioLabel, saveButton, cancelButton);
         formLayout.getChildren().addAll(
                 firstNameLabel, firstNameField,
                 lastNameLabel, lastNameField,
@@ -67,9 +81,6 @@ public class AsiakasSivu {
                 henkiloMaaraLabel, henkiloMaaraField,
                 huomioLabel, huomioField
         );
-
-        Button saveButton = new Button("Lisää uusi asiakas");
-        Button cancelButton = new Button("Peruuta");
 
         HBox buttonBox = new HBox(10, saveButton, cancelButton);
         buttonBox.setAlignment(Pos.CENTER);
@@ -159,12 +170,12 @@ public class AsiakasSivu {
         phoneColumn.setCellValueFactory(new PropertyValueFactory<>("puh"));
         phoneColumn.setMinWidth(100);
 
-        TableColumn<Asiakas, Integer> henkiloMaara = new TableColumn<>("Henkilömäärä");
-        henkiloMaara.setCellValueFactory(new PropertyValueFactory<>("henkiloMaara"));
+        TableColumn<Asiakas, Integer> henkiloMaaraColumn = new TableColumn<>("Henkilömäärä");
+        henkiloMaaraColumn.setCellValueFactory(new PropertyValueFactory<>("henkiloMäärä"));
 
-        TableColumn<Asiakas, String> huomio = new TableColumn<>("Huomio");
-        huomio.setCellValueFactory(new PropertyValueFactory<>("huomio"));
-        huomio.setMinWidth(200);
+        TableColumn<Asiakas, String> huomioColumn = new TableColumn<>("Huomio");
+        huomioColumn.setCellValueFactory(new PropertyValueFactory<>("huomio"));
+        huomioColumn.setMinWidth(200);
 
         // Create the "Actions" column for edit/delete
         TableColumn<Asiakas, Void> actionColumn = new TableColumn<>("Toiminnot");
@@ -199,6 +210,8 @@ public class AsiakasSivu {
                 if (empty) {
                     setGraphic(null);
                 } else {
+                    // Get localized button text
+                    asiakasOutput.actionBututtons(selectedLanguage, editButton, deleteButton);
                     setGraphic(actionButtons);
                 }
             }
@@ -206,7 +219,10 @@ public class AsiakasSivu {
 
         actionColumn.setMinWidth(150);
 
-        customerTable.getColumns().addAll(idColumn, firstNameColumn, lastNameColumn, emailColumn, phoneColumn, henkiloMaara, huomio, actionColumn);
+        System.out.println("selectedLanguage: " + selectedLanguage);
+        asiakasOutput.createCustomerTable(selectedLanguage, idColumn, firstNameColumn, lastNameColumn,
+                emailColumn, phoneColumn, henkiloMaaraColumn, huomioColumn, actionColumn);
+        customerTable.getColumns().addAll(idColumn, firstNameColumn, lastNameColumn, emailColumn, phoneColumn, henkiloMaaraColumn, huomioColumn, actionColumn);
 
         return customerTable;
     }
@@ -248,6 +264,12 @@ public class AsiakasSivu {
         TextField huomioField = new TextField();
         huomioField.setText(asiakas.getHuomio());
 
+        Button saveButton = new Button();
+        Button cancelButton = new Button();
+
+        asiakasOutput.muokkaaasukasta(selectedLanguage, muokkaaAsiakasStage,
+                firstNameLabel, lastNameLabel, emailLabel,
+                phoneLabel, henkiloMaaraLabel, huomioLabel, saveButton, cancelButton);
         // Lisätään kentät lomakkeeseen (VBox)
         formLayout.getChildren().addAll(
                 firstNameLabel, firstNameField,
@@ -257,9 +279,6 @@ public class AsiakasSivu {
                 henkiloMaaraLabel, henkiloMaaraField,
                 huomioLabel, huomioField
         );
-
-        Button saveButton = new Button("Tallenna muutokset");
-        Button cancelButton = new Button("Peruuta");
 
         // HBox save and cancel buttons
         HBox buttonBox = new HBox(10, saveButton, cancelButton);
