@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="Login, registeri, logIn, leftBar localisointi yhdistetty">
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/sivut/LanguageGenerator.java" beforeDir="false" />
+    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="poista ylimäärästä">
+      <change beforePath="$PROJECT_DIR$/src/main/resources/messages_en_GB.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages_en_GB.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/messages_ru_Ru.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages_ru_Ru.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -332,7 +333,7 @@
       <workItem from="1730708701361" duration="722000" />
       <workItem from="1730717989820" duration="2112000" />
       <workItem from="1730724291170" duration="300000" />
-      <workItem from="1730737802323" duration="14499000" />
+      <workItem from="1730737802323" duration="16000000" />
     </task>
     <task id="LOCAL-00002" summary="yhdistetty wilman ja kaislan judut">
       <option name="closed" value="true" />
@@ -694,7 +695,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730751723554</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="poista ylimäärästä">
+      <option name="closed" value="true" />
+      <created>1730752373980</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1730752373980</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -713,7 +722,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Merge valmis, tyylit lisätty login ja rekisteröinti, häshäys toimii" />
     <MESSAGE value="check out välilehti: lasku hake, tulosta ikkuna valmis" />
     <MESSAGE value="Aasiakas välilehti: siakaan taulukko ja lisaa asiakasta" />
     <MESSAGE value="Aasiakas välilehti: asiakkan tietojen muokkaua ja poista asiakasta." />
@@ -738,7 +746,8 @@
     <MESSAGE value="lisää javafx-base" />
     <MESSAGE value="asiakas välilehti kielivaihto" />
     <MESSAGE value="Login, registeri, logIn, leftBar localisointi yhdistetty" />
-    <option name="LAST_COMMIT_MESSAGE" value="Login, registeri, logIn, leftBar localisointi yhdistetty" />
+    <MESSAGE value="poista ylimäärästä" />
+    <option name="LAST_COMMIT_MESSAGE" value="poista ylimäärästä" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
