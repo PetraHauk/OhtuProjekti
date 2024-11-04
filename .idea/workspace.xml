@@ -4,26 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="Fiksaa testit ja vähän refactorointia">
+    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/AdminGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/AdminGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/LoginGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/LoginGui.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/OhjelmistoGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/OhjelmistoGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/RegistrationGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/RegistrationGui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/sivut/LanguageGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/sivut/LanguageGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/messages_en_US.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages_en_GB.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/messages_fi_FI.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages_fi_FI.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/messages_sv_SE.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages_sv_SE.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/messages_zh_CN.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages_zh_CN.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/messages_en_US.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/messages_fi_FI.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages_fi_FI.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/messages_sv_SE.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages_sv_SE.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/messages_zh_CN.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages_zh_CN.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/AdminGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/AdminGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/LoginGui.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/LoginGui.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/view/OhjelmistoGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/OhjelmistoGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/RegistrationGui.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/RegistrationGui.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/LanguageGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/sivut/LanguageGenerator.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -588,7 +572,23 @@
       <option name="project" value="LOCAL" />
       <updated>1728326318368</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Localisointi yhdistetty">
+      <option name="closed" value="true" />
+      <created>1730668419903</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1730668419903</updated>
+    </task>
+    <task id="LOCAL-00035" summary="update">
+      <option name="closed" value="true" />
+      <created>1730669080913</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1730669080913</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -627,7 +627,9 @@
     <MESSAGE value="Varaus Taulussa Asiakaan nimi" />
     <MESSAGE value="Lisää testejä ja muuttaa AdminGUIn fiksummaksi" />
     <MESSAGE value="Fiksaa testit ja vähän refactorointia" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fiksaa testit ja vähän refactorointia" />
+    <MESSAGE value="Localisointi yhdistetty" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

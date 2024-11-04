@@ -29,10 +29,10 @@ public class OhjelmistoGUI extends Application {
     private KayttajaController kayttajaController;
 
     private ResourceBundle bundle;
-    private void setLocale(String languageCode) {
-        Locale locale = new Locale(languageCode);
-        bundle = ResourceBundle.getBundle("messages", locale);
-    }
+//    private void setLocale(String languageCode) {
+//        Locale locale = new Locale(languageCode);
+//        bundle = ResourceBundle.getBundle("messages", locale);
+//    }
 
     @Override
     public void start(Stage primaryStage) {
