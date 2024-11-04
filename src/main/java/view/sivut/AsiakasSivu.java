@@ -12,6 +12,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.enteties.Asiakas;
+import view.sivut.outPut.AsiakasOutput;
 
 import java.util.List;
 

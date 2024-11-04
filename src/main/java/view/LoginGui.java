@@ -1,23 +1,22 @@
 package view;
 
-import javafx.scene.control.*;
-import model.service.UserSession;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import model.service.LocaleManager;
+import model.service.UserSession;
 import model.DAO.KayttajaDAO;
 import org.mindrot.jbcrypt.BCrypt;
 
-import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class LoginGui extends Application {
 
     private KayttajaDAO kayttajaDAO = new KayttajaDAO();
-    private static Locale currentLocale = new Locale("fi", "FI"); // Shared locale for both Login and Registration
     private ResourceBundle bundle;
     private Label loginLabel, emailLabel, passwordLabel;
     private Button loginButton, registerButton;
@@ -26,29 +25,24 @@ public class LoginGui extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        // Load the ResourceBundle with the current locale
-        bundle = ResourceBundle.getBundle("messages", currentLocale);
-
+        // Load the ResourceBundle from LocaleManager
+        bundle = LocaleManager.getBundle();
         primaryStage.setTitle(bundle.getString("title.login"));
 
         // Language Selection ComboBox
         ComboBox<String> languageSelector = new ComboBox<>();
         languageSelector.getItems().addAll("English", "Svenska", "中文", "Suomi", "россия");
-        languageSelector.setValue(getLanguageName(currentLocale)); // Default selection based on currentLocale
+        languageSelector.setValue(LocaleManager.getLanguageName()); // Default selection
         languageSelector.setOnAction(e -> updateLanguage(languageSelector.getValue(), primaryStage));
 
+        // Labels and Buttons
         loginLabel = new Label(bundle.getString("label.login"));
-        loginLabel.getStyleClass().add("otsikko");
-
-        // Create UI elements with localized text
         emailLabel = new Label(bundle.getString("label.email"));
-        emailField = new TextField(); // Use instance variable
-        emailField.setId("emailField");
+        emailField = new TextField();
         emailField.setPromptText(bundle.getString("label.email"));
 
         passwordLabel = new Label(bundle.getString("label.password"));
-        passwordField = new PasswordField(); // Use instance variable
-        passwordField.setId("passwordField");
+        passwordField = new PasswordField();
         passwordField.setPromptText(bundle.getString("label.password"));
 
         loginButton = new Button(bundle.getString("button.login"));
@@ -67,7 +61,6 @@ public class LoginGui extends Application {
             new RegistrationGui().start(new Stage());
         });
 
-        // Set Scene
         Scene scene = new Scene(vbox, 300, 350);
         scene.getStylesheets().add(getClass().getResource("/login.css").toExternalForm());
         primaryStage.setScene(scene);
@@ -93,57 +86,20 @@ public class LoginGui extends Application {
     }
 
     private void updateLanguage(String selectedLanguage, Stage primaryStage) {
-        switch (selectedLanguage) {
-            case "English":
-                currentLocale = new Locale("en", "GB");
-                break;
-            case "Svenska":
-                currentLocale = new Locale("sv", "SE");
-                break;
-            case "中文":
-                currentLocale = new Locale("zh", "CN");
-                break;
-            case "Suomi":
-                currentLocale = new Locale("fi", "FI");
-                break;
-            case "россия":
-                currentLocale = new Locale("ru", "RU");
-                break;
-        }
+        LocaleManager.setLocale(selectedLanguage);
+        bundle = LocaleManager.getBundle();
+        refreshUI(primaryStage);
+    }
 
-        // Reload the ResourceBundle
-        bundle = ResourceBundle.getBundle("messages", currentLocale);
-
-        // Update text for UI elements
+    private void refreshUI(Stage primaryStage) {
         primaryStage.setTitle(bundle.getString("title.login"));
         loginLabel.setText(bundle.getString("label.login"));
         emailLabel.setText(bundle.getString("label.email"));
         passwordLabel.setText(bundle.getString("label.password"));
         loginButton.setText(bundle.getString("button.login"));
         registerButton.setText(bundle.getString("button.register"));
-
-        // Update prompt text for input fields
         emailField.setPromptText(bundle.getString("label.email"));
         passwordField.setPromptText(bundle.getString("label.password"));
-    }
-
-    private String getLanguageName(Locale locale) {
-        if (locale.equals(new Locale("en", "GB"))) {
-            return "English";
-        } else if (locale.equals(new Locale("sv", "SE"))) {
-            return "Svenska";
-        } else if (locale.equals(new Locale("zh", "CN"))) {
-            return "中文";
-        } else if (locale.equals(new Locale("fi", "FI"))) {
-            return "Suomi";
-        } else if (locale.equals(new Locale("ru", "RU"))) {
-            return "россия";
-        }
-        return "English"; // Default fallback
-    }
-
-    public static Locale getCurrentLocale() {
-        return currentLocale;
     }
 
     public static void main(String[] args) {

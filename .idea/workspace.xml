@@ -4,11 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="Kirjaitumisessa nyt input kohdalla oikeat käännökset">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/messages_ru_Ru.properties" afterDir="false" />
+    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="asiakas välilehti kielivaihto">
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/service/LocaleManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/sivut/LanguageGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/sivut/outPut/AsiakasOutput.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/sivut/outPut/LeftBarOutPut.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_09_2024_09_03__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_09_2024_09_03__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/LoginGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/LoginGui.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/OhjelmistoGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/OhjelmistoGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/RegistrationGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/RegistrationGui.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/sivut/AsiakasSivu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/sivut/AsiakasSivu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/AdminGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/AdminGUI.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/view/LoginGui.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/LoginGui.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/OhjelmistoGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/OhjelmistoGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/RegistrationGui.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/RegistrationGui.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/AsiakasSivu$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/sivut/AsiakasSivu$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/AsiakasSivu$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/sivut/AsiakasSivu$2.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +36,8 @@
         <option value="FxmlFile" />
         <option value="CSS File" />
         <option value="Dockerfile" />
-        <option value="Class" />
         <option value="JUnit4 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -150,6 +165,7 @@
       <recent name="app" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="view.sivut" />
       <recent name="model.enteties" />
       <recent name="app" />
     </key>
@@ -282,8 +298,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-17.0.10-corretto-17.0.10-f644763e9732-24fca987" />
-        <option value="jdk-21.0.2-openjdk-21.0.2-f644763e9732-c0c073db" />
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.20224.419" />
+        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-IU-242.20224.419" />
       </set>
     </attachedChunks>
   </component>
@@ -334,6 +350,7 @@
       <workItem from="1730708701361" duration="722000" />
       <workItem from="1730717989820" duration="2112000" />
       <workItem from="1730724291170" duration="300000" />
+      <workItem from="1730737802323" duration="13835000" />
     </task>
     <task id="LOCAL-00002" summary="yhdistetty wilman ja kaislan judut">
       <option name="closed" value="true" />
@@ -647,7 +664,47 @@
       <option name="project" value="LOCAL" />
       <updated>1730723704372</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="defaultlocal  (fi, FI)">
+      <option name="closed" value="true" />
+      <created>1730738797226</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1730738797226</updated>
+    </task>
+    <task id="LOCAL-00042" summary="defaultlocal  (fi, FI)">
+      <option name="closed" value="true" />
+      <created>1730738813218</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1730738813218</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Bundles update">
+      <option name="closed" value="true" />
+      <created>1730739278876</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1730739278876</updated>
+    </task>
+    <task id="LOCAL-00044" summary="lisää javafx-base">
+      <option name="closed" value="true" />
+      <created>1730739985602</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1730739985602</updated>
+    </task>
+    <task id="LOCAL-00045" summary="asiakas välilehti kielivaihto">
+      <option name="closed" value="true" />
+      <created>1730745167100</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1730745167100</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -666,8 +723,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Window opens and shows basic layout when WilmaMain is launched" />
-    <MESSAGE value="...." />
     <MESSAGE value="yhdistetty wilman ja kaislan judut" />
     <MESSAGE value="Merge valmis, tyylit lisätty login ja rekisteröinti, häshäys toimii" />
     <MESSAGE value="check out välilehti: lasku hake, tulosta ikkuna valmis" />
@@ -689,7 +744,11 @@
     <MESSAGE value="Lisää kirjautumisen ja rekisteröinnin lokaalisaation" />
     <MESSAGE value="Lisää Admin näkymän lokaalisaation" />
     <MESSAGE value="Kirjaitumisessa nyt input kohdalla oikeat käännökset" />
-    <option name="LAST_COMMIT_MESSAGE" value="Kirjaitumisessa nyt input kohdalla oikeat käännökset" />
+    <MESSAGE value="defaultlocal  (fi, FI)" />
+    <MESSAGE value="Bundles update" />
+    <MESSAGE value="lisää javafx-base" />
+    <MESSAGE value="asiakas välilehti kielivaihto" />
+    <option name="LAST_COMMIT_MESSAGE" value="asiakas välilehti kielivaihto" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -697,6 +756,10 @@
         <breakpoint type="java-exception">
           <properties class="java.lang.IllegalStateException" package="java.lang" />
           <option name="timeStamp" value="8" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="11" />
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
