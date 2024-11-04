@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="update">
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/AdminGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/AdminGUI.java" afterDir="false" />
+    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="Adminpanel kieli vaihtaa local mukaan">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/sivut/AsiakasSivu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/sivut/AsiakasSivu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,73 +68,73 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Application.LoginGui.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MainPetra.executor&quot;: &quot;Run&quot;,
-    &quot;Application.WilmaMain.executor&quot;: &quot;Run&quot;,
-    &quot;Docker.Dockerfile.executor&quot;: &quot;Run&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;JUnit.AdminGUITest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AdminGUITest.testDeleteUser.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AdminGUITest.testHandleAddUser.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AdminGUITest.testLoadUsers.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AdminGUITest.testUpdateUserById.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AdminGUITest.testValidatePassword.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.LaskuControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.LoginGuiTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.LoginGuiTest.testEmptyFields.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.LoginGuiTest.testFailedLogin.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.LoginGuiTest.testOpenRegistrationPage.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.LoginGuiTest.testSuccessfulLogin.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RegistrationGuiTest (1).executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RegistrationGuiTest.executor&quot;: &quot;Profiler#1&quot;,
-    &quot;JUnit.RegistrationGuiTest.testHandleRegister_Success (1).executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RegistrationGuiTest.testHandleRegister_Success.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RegistrationGuiTest.testRegisterWithEmptyFields.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RegistrationGuiTest.testRegisterWithExistingEmail.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RegistrationGuiTest.testSuccessfulAlertDisplay.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RegistrationGuiTest.testSuccessfulRegistration.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.VarausControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.controller in gui.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.gui [clean,javafx:run].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.gui [clean,package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.gui [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.gui [install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.gui [package].executor&quot;: &quot;Run&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;TestNG.KayttajaControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit4&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;21&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_directory_selection&quot;: &quot;C:/Users/kakek/IdeaProjects/OhtuProjekti2/src/test/java/view&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/kakek/javafx-sdk-17.0.10/lib&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Global Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.5482759&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;File.Encoding&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Application.LoginGui.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Application.MainPetra.executor": "Run",
+    "Application.WilmaMain.executor": "Run",
+    "Docker.Dockerfile.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.AdminGUITest.executor": "Run",
+    "JUnit.AdminGUITest.testDeleteUser.executor": "Run",
+    "JUnit.AdminGUITest.testHandleAddUser.executor": "Run",
+    "JUnit.AdminGUITest.testLoadUsers.executor": "Run",
+    "JUnit.AdminGUITest.testUpdateUserById.executor": "Run",
+    "JUnit.AdminGUITest.testValidatePassword.executor": "Run",
+    "JUnit.LaskuControllerTest.executor": "Run",
+    "JUnit.LoginGuiTest.executor": "Run",
+    "JUnit.LoginGuiTest.testEmptyFields.executor": "Run",
+    "JUnit.LoginGuiTest.testFailedLogin.executor": "Run",
+    "JUnit.LoginGuiTest.testOpenRegistrationPage.executor": "Run",
+    "JUnit.LoginGuiTest.testSuccessfulLogin.executor": "Run",
+    "JUnit.RegistrationGuiTest (1).executor": "Run",
+    "JUnit.RegistrationGuiTest.executor": "Profiler#1",
+    "JUnit.RegistrationGuiTest.testHandleRegister_Success (1).executor": "Run",
+    "JUnit.RegistrationGuiTest.testHandleRegister_Success.executor": "Run",
+    "JUnit.RegistrationGuiTest.testRegisterWithEmptyFields.executor": "Run",
+    "JUnit.RegistrationGuiTest.testRegisterWithExistingEmail.executor": "Run",
+    "JUnit.RegistrationGuiTest.testSuccessfulAlertDisplay.executor": "Run",
+    "JUnit.RegistrationGuiTest.testSuccessfulRegistration.executor": "Run",
+    "JUnit.VarausControllerTest.executor": "Run",
+    "JUnit.controller in gui.executor": "Run",
+    "Maven.gui [clean,javafx:run].executor": "Run",
+    "Maven.gui [clean,package].executor": "Run",
+    "Maven.gui [clean].executor": "Run",
+    "Maven.gui [install].executor": "Run",
+    "Maven.gui [package].executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "TestNG.KayttajaControllerTest.executor": "Run",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
+    "git-widget-placeholder": "anna-3",
+    "jdk.selected.JAVA_MODULE": "21",
+    "kotlin-language-version-configured": "true",
+    "last_directory_selection": "C:/Users/kakek/IdeaProjects/OhtuProjekti2/src/test/java/view",
+    "last_opened_file_path": "C:/Users/kakek/javafx-sdk-17.0.10/lib",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Global Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.5482759",
+    "settings.editor.selected.configurable": "File.Encoding",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mariadb&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mariadb"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -325,15 +326,7 @@
       <workItem from="1730708701361" duration="722000" />
       <workItem from="1730717989820" duration="2112000" />
       <workItem from="1730724291170" duration="300000" />
-      <workItem from="1730737802323" duration="16386000" />
-    </task>
-    <task id="LOCAL-00002" summary="yhdistetty wilman ja kaislan judut">
-      <option name="closed" value="true" />
-      <created>1726820478395</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1726820478395</updated>
+      <workItem from="1730737802323" duration="17622000" />
     </task>
     <task id="LOCAL-00003" summary="Merge valmis, tyylit lisätty login ja rekisteröinti, häshäys toimii">
       <option name="closed" value="true" />
@@ -719,7 +712,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730754044824</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="Adminpanel kieli vaihtaa local mukaan">
+      <option name="closed" value="true" />
+      <created>1730754294148</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1730754294148</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -738,7 +739,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Aasiakas välilehti: asiakkan tietojen muokkaua ja poista asiakasta." />
     <MESSAGE value="Admin screen hommia" />
     <MESSAGE value="Admin.gui muutoksia" />
     <MESSAGE value="Rekisteröinti testi jenkinsiä varten, muut testit kommentoitu pois, muuttaa pom.xml jossa" />
@@ -763,7 +763,8 @@
     <MESSAGE value="poista ylimäärästä" />
     <MESSAGE value="lisää venäjä kieli, leftbar ja asiakas sivu" />
     <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value="Adminpanel kieli vaihtaa local mukaan" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adminpanel kieli vaihtaa local mukaan" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

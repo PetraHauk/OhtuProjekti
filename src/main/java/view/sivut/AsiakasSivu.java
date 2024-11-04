@@ -172,7 +172,7 @@ public class AsiakasSivu {
         phoneColumn.setMinWidth(100);
 
         TableColumn<Asiakas, Integer> henkiloMaaraColumn = new TableColumn<>("Henkilömäärä");
-        henkiloMaaraColumn.setCellValueFactory(new PropertyValueFactory<>("henkiloMäärä"));
+        henkiloMaaraColumn.setCellValueFactory(new PropertyValueFactory<>("henkiloMaara"));
 
         TableColumn<Asiakas, String> huomioColumn = new TableColumn<>("Huomio");
         huomioColumn.setCellValueFactory(new PropertyValueFactory<>("huomio"));
