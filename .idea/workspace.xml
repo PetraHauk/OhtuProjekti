@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="Lisää kirjautumisen ja rekisteröinnin lokaalisaation">
+    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="Lisää Admin näkymän lokaalisaation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/AdminGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/AdminGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/messages_en_GB.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages_en_GB.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/messages_fi_FI.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages_fi_FI.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/messages_sv_SE.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages_sv_SE.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/messages_zh_CN.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages_zh_CN.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/LoginGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/LoginGui.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/AdminGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/AdminGUI.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -331,7 +328,10 @@
       <workItem from="1730460337207" duration="101000" />
       <workItem from="1730460578716" duration="150000" />
       <workItem from="1730540268223" duration="2588000" />
-      <workItem from="1730622906119" duration="2567000" />
+      <workItem from="1730622906119" duration="3511000" />
+      <workItem from="1730631767746" duration="1306000" />
+      <workItem from="1730708701361" duration="722000" />
+      <workItem from="1730717989820" duration="1920000" />
     </task>
     <task id="LOCAL-00002" summary="yhdistetty wilman ja kaislan judut">
       <option name="closed" value="true" />
@@ -629,7 +629,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730542597614</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Lisää Admin näkymän lokaalisaation">
+      <option name="closed" value="true" />
+      <created>1730629993970</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1730629993970</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -669,7 +677,8 @@
     <MESSAGE value="Lisää testejä ja muuttaa AdminGUIn fiksummaksi" />
     <MESSAGE value="Fiksaa testit ja vähän refactorointia" />
     <MESSAGE value="Lisää kirjautumisen ja rekisteröinnin lokaalisaation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Lisää kirjautumisen ja rekisteröinnin lokaalisaation" />
+    <MESSAGE value="Lisää Admin näkymän lokaalisaation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Lisää Admin näkymän lokaalisaation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

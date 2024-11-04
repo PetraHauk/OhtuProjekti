@@ -21,6 +21,8 @@ public class LoginGui extends Application {
     private ResourceBundle bundle;
     private Label loginLabel, emailLabel, passwordLabel;
     private Button loginButton, registerButton;
+    private TextField emailField;
+    private PasswordField passwordField;
 
     @Override
     public void start(Stage primaryStage) {
@@ -40,12 +42,12 @@ public class LoginGui extends Application {
 
         // Create UI elements with localized text
         emailLabel = new Label(bundle.getString("label.email"));
-        TextField emailField = new TextField();
+        emailField = new TextField(); // Use instance variable
         emailField.setId("emailField");
         emailField.setPromptText(bundle.getString("label.email"));
 
         passwordLabel = new Label(bundle.getString("label.password"));
-        PasswordField passwordField = new PasswordField();
+        passwordField = new PasswordField(); // Use instance variable
         passwordField.setId("passwordField");
         passwordField.setPromptText(bundle.getString("label.password"));
 
@@ -116,6 +118,10 @@ public class LoginGui extends Application {
         passwordLabel.setText(bundle.getString("label.password"));
         loginButton.setText(bundle.getString("button.login"));
         registerButton.setText(bundle.getString("button.register"));
+
+        // Update prompt text for input fields
+        emailField.setPromptText(bundle.getString("label.email"));
+        passwordField.setPromptText(bundle.getString("label.password"));
     }
 
     private String getLanguageName(Locale locale) {
