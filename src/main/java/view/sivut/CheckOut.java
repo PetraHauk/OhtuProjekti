@@ -19,6 +19,8 @@ import java.util.List;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
+import view.sivut.outPut.CheckOutOutPut;
+
 
 public class CheckOut {
 
@@ -27,13 +29,19 @@ public class CheckOut {
     private AsiakasController asiakasController;
     private VarausController varausController;
     private HotelliController hotelliController;
+    private String selectedLanguage;
+    private CheckOutOutPut checkOutOutPut;
 
-    public CheckOut() {
+
+    public CheckOut(String selectedLanguage) {
         laskuController = new LaskuController();
         huoneController = new HuoneController();
         asiakasController = new AsiakasController();
         varausController = new VarausController();
         hotelliController = new HotelliController();
+        checkOutOutPut = new CheckOutOutPut();
+        this.selectedLanguage = selectedLanguage;
+
     }
 
     // Creates the content for Check-out
@@ -48,6 +56,7 @@ public class CheckOut {
         Label asiakasEtunimiLabel = new Label("Asiakkaan etunimi:");
         TextField asiakasEtunimiInput = new TextField();
         asiakasEtunimiInput.setPromptText("Syötä etunimi");
+        checkOutOutPut.creatAsiakanEtunimi(selectedLanguage, asiakasEtunimiLabel);
         etunimiInfo.getChildren().addAll(asiakasEtunimiLabel, asiakasEtunimiInput);
 
         // Customer last name input
@@ -55,6 +64,7 @@ public class CheckOut {
         Label asiakasSukunimiLabel = new Label("Asiakkaan sukunimi:");
         TextField asiakasSukunimiInput = new TextField();
         asiakasSukunimiInput.setPromptText("Syötä sukunimi");
+        checkOutOutPut.asiakasSukunimi(selectedLanguage, asiakasSukunimiLabel);
         sukunimiInfo.getChildren().addAll(asiakasSukunimiLabel, asiakasSukunimiInput);
 
         // Button for fetching invoices
@@ -65,6 +75,7 @@ public class CheckOut {
         HBox customerSearchRow = new HBox(10);  // Horizontal layout for name inputs and the button
         customerSearchRow.setAlignment(Pos.CENTER_LEFT);
         HBox.setMargin(haeLaskutButton, new Insets(0, 0, -20, 10));  // Set margin for the button to the left
+        checkOutOutPut.haeTulostaButtos(selectedLanguage, null, haeLaskutButton);
         customerSearchRow.getChildren().addAll(etunimiInfo, sukunimiInfo, haeLaskutButton);
 
         // Invoice section
@@ -79,6 +90,7 @@ public class CheckOut {
         printButton.getStyleClass().add("yellow-btn");
 
         // Adding all invoice-related components to one VBox
+        checkOutOutPut.maksattavaLaskuOtsikko(selectedLanguage, maksattavaLaskuOtsikko, loppuHintaLabel, maksuButton, printButton);
         maksattavaLaskut.getChildren().addAll(maksattavaLaskuOtsikko, laskuTable, loppuHintaLabel, maksuButton, printButton);
 
         // Main layout structure
@@ -236,6 +248,7 @@ public class CheckOut {
         hotelliMaaLabel.setText("Maa: " + hotelli.getMaa());
         hotelliPuhLabel.setText("Puhelin: " + hotelli.getPuh());
 
+        checkOutOutPut.hotelliInfo(selectedLanguage, hotelliNimiLabel, hotelliosoiteLabel, hotelliKaupunkiLabel, hotelliMaaLabel, hotelliPuhLabel);
         hotelliInfo.getChildren().addAll(hotelliNimiLabel, hotelliosoiteLabel,
                 hotelliKaupunkiLabel, hotelliMaaLabel, hotelliPuhLabel);
 
@@ -248,6 +261,8 @@ public class CheckOut {
         maksuPvmLabel.setText("Maksupäivämäärä: " + maksuPvm.toString());
 
         asiakasNimetLabel.setText("Asiakkaan nimi: " + asiakasNimet);
+
+        checkOutOutPut.kuitissaAsiakasInfo(selectedLanguage, asiakasNimetLabel, maksuPvmLabel);
         asiakasInfo.getChildren().addAll(asiakasNimetLabel, maksuPvmLabel);
 
         TableView<LaskuData> kuittiTable = createLaskuTable();
@@ -263,9 +278,10 @@ public class CheckOut {
             // Try to parse kokonaihinta as a double and use it in the format
             try {
                 double hintaDouble = Double.parseDouble(kokonaihinta);
-                loppuHintaLabel.setText(String.format("Yhdessä: %.2f %s", hintaDouble, valuutta));
+                checkOutOutPut.maksattavaLaskuOtsikko(selectedLanguage, null,  loppuHintaLabel, null, null);
+                loppuHintaLabel.setText(String.format(loppuHintaLabel +" %.2f %s", hintaDouble, valuutta));
             } catch (NumberFormatException e) {
-                loppuHintaLabel.setText("Yhdessä: " + kokonaihinta + " ");
+                loppuHintaLabel.setText(loppuHintaLabel + kokonaihinta + " ");
             }
         }
 
@@ -274,7 +290,7 @@ public class CheckOut {
             tulostaKuitti(kuittiTable);
             kuittiStage.close();
         });
-
+        checkOutOutPut.haeTulostaButtos(selectedLanguage, tulostaButton, null);
         kuittiLayout.getChildren().addAll(kuittiTitle, hotelliInfo, asiakasInfo, kuittiTable, loppuHintaLabel, tulostaButton);
 
         Scene scene = new Scene(kuittiLayout, 1010, 500);
@@ -373,6 +389,7 @@ public class CheckOut {
         TableColumn<LaskuData, Double> summaColumn = new TableColumn<>("Summa");
         summaColumn.setCellValueFactory(new PropertyValueFactory<>("summa"));
         summaColumn.setPrefWidth(100);
+
 
         laskuTable.getColumns().addAll(
                 laskuIdColumn, huoneNroColumn, huoneTyyppiColumn, maksuStatusColumn, varausMuotoColumn, alkuPvmColumn, loppuPvmColumn,

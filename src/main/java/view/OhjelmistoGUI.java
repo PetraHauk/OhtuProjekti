@@ -170,7 +170,7 @@ public class OhjelmistoGUI extends Application {
     }
 
     private void handleCheckOutButtonAction(HBox mainLayout, VBox leftBar) {
-        CheckOut checkOut = new CheckOut();
+        CheckOut checkOut = new CheckOut(selectedlanguage);
         updateMainLayout(mainLayout, leftBar, checkOut.createCheckOut());
     }
 

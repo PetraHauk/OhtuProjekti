@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="asiakas/henkilömäärä esillä" />
+    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="kooodin siisti">
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/sivut/outPut/CheckOutOutPut.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/OhjelmistoGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/OhjelmistoGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/sivut/CheckOut.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/sivut/CheckOut.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/messages_en_GB.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages_en_GB.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/messages_fi_FI.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages_fi_FI.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/messages_ru_Ru.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages_ru_Ru.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/messages_zh_CN.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages_zh_CN.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/OhjelmistoGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/OhjelmistoGUI.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -323,15 +333,7 @@
       <workItem from="1730708701361" duration="722000" />
       <workItem from="1730717989820" duration="2112000" />
       <workItem from="1730724291170" duration="300000" />
-      <workItem from="1730737802323" duration="18120000" />
-    </task>
-    <task id="LOCAL-00004" summary="check out välilehti: lasku hake, tulosta ikkuna valmis">
-      <option name="closed" value="true" />
-      <created>1727477926082</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1727477926082</updated>
+      <workItem from="1730737802323" duration="32763000" />
     </task>
     <task id="LOCAL-00005" summary="Aasiakas välilehti: siakaan taulukko ja lisaa asiakasta">
       <option name="closed" value="true" />
@@ -717,7 +719,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730756576934</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="kooodin siisti">
+      <option name="closed" value="true" />
+      <created>1730757025384</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1730757025384</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -736,7 +746,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Admin.gui muutoksia" />
     <MESSAGE value="Rekisteröinti testi jenkinsiä varten, muut testit kommentoitu pois, muuttaa pom.xml jossa" />
     <MESSAGE value="Revert &quot;muuttaa pomin ja dockerfilen docker pull ja buildia varten&quot;&#10;&#10;This reverts commit c0ffdab7" />
     <MESSAGE value="muuttaa pomin ja dockerfilen docker pull ja buildia varten" />
@@ -761,7 +770,8 @@
     <MESSAGE value="update" />
     <MESSAGE value="Adminpanel kieli vaihtaa local mukaan" />
     <MESSAGE value="asiakas/henkilömäärä esillä" />
-    <option name="LAST_COMMIT_MESSAGE" value="asiakas/henkilömäärä esillä" />
+    <MESSAGE value="kooodin siisti" />
+    <option name="LAST_COMMIT_MESSAGE" value="kooodin siisti" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
