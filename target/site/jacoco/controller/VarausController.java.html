@@ -14,12 +14,12 @@ public class VarausController {
 
     private HuoneController huoneController;
 
-<span class="fc" id="L17">    public VarausController() {</span>
-<span class="fc" id="L18">        varausDAO = new VarausDAO();</span>
-<span class="fc" id="L19">        asiakasController = new AsiakasController();</span>
-<span class="fc" id="L20">        laskuController = new LaskuController();</span>
-<span class="fc" id="L21">        huoneController = new HuoneController();</span>
-<span class="fc" id="L22">    }</span>
+<span class="nc" id="L17">    public VarausController() {</span>
+<span class="nc" id="L18">        varausDAO = new VarausDAO();</span>
+<span class="nc" id="L19">        asiakasController = new AsiakasController();</span>
+<span class="nc" id="L20">        laskuController = new LaskuController();</span>
+<span class="nc" id="L21">        huoneController = new HuoneController();</span>
+<span class="nc" id="L22">    }</span>
 
     public void AddVaraus(LocalDate alkuPvm, LocalDate loppuPvm, Integer huone_id, int lasku_id) {
 <span class="nc" id="L25">        Varaus varaus = new Varaus(0,  alkuPvm, loppuPvm, huone_id, lasku_id);</span>

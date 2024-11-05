@@ -2,31 +2,30 @@
 
 import model.DAO.HotelliDAO;
 import model.enteties.Hotelli;
-import model.enteties.Huone;
 
 public class HotelliController {
     private HotelliDAO hotelliDAO;
 
-<span class="fc" id="L10">    public HotelliController() {</span>
-<span class="fc" id="L11">        hotelliDAO = new HotelliDAO();</span>
-<span class="fc" id="L12">    }</span>
+<span class="nc" id="L9">    public HotelliController() {</span>
+<span class="nc" id="L10">        hotelliDAO = new HotelliDAO();</span>
+<span class="nc" id="L11">    }</span>
 
     public void addHotelli(String nimi, String osoite, String kaupunki, String puh, String maa) {
-<span class="nc" id="L15">        Hotelli hotelli = new Hotelli(0, nimi, osoite, kaupunki, puh, maa);</span>
-<span class="nc" id="L16">        hotelliDAO.persist(hotelli);</span>
-<span class="nc" id="L17">    }</span>
+<span class="nc" id="L14">        Hotelli hotelli = new Hotelli(0, nimi, osoite, kaupunki, puh, maa);</span>
+<span class="nc" id="L15">        hotelliDAO.persist(hotelli);</span>
+<span class="nc" id="L16">    }</span>
 
     public Hotelli findHotelliById(int id) {
-<span class="nc" id="L20">        return hotelliDAO.findById(id);</span>
+<span class="nc" id="L19">        return hotelliDAO.findById(id);</span>
     }
 
     public int getRoomCount() {
-<span class="nc" id="L24">        return hotelliDAO.getRowCount();</span>
+<span class="nc" id="L23">        return hotelliDAO.getRowCount();</span>
     }
 
     public void removeHotelliById(int hotelli_id) {
-<span class="nc" id="L28">        hotelliDAO.removeById(hotelli_id);</span>
-<span class="nc" id="L29">    }</span>
+<span class="nc" id="L27">        hotelliDAO.removeById(hotelli_id);</span>
+<span class="nc" id="L28">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
