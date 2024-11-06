@@ -20,7 +20,6 @@ import java.util.ResourceBundle;
 
 public class AsiakasSivu {
     private AsiakasController asiakasController;
-    private Locale currentLocale;
     private ResourceBundle bundle;
 
     // Constructor to initialize dependencies
@@ -270,7 +269,7 @@ public class AsiakasSivu {
         TextField huomioField = new TextField();
         huomioField.setText(asiakas.getHuomio());
 
-        Button saveButton = new Button(bundle.getString("saveButtonText"));
+        Button saveButton = new Button(bundle.getString("MuokkaaAddButtonText"));
         Button cancelButton = new Button(bundle.getString("cancelButtonText"));
 
         // Lisätään kentät lomakkeeseen (VBox)

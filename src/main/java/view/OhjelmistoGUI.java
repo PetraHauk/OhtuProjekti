@@ -16,7 +16,6 @@ import java.util.ResourceBundle;
 import controller.*;
 import view.sivut.*;
 import model.service.LocaleManager;
-import view.sivut.outPut.LeftBarOutPut;
 
 // Loppusumma kommentoitu pois koska punasta viivaa
 public class OhjelmistoGUI extends Application {
@@ -29,28 +28,21 @@ public class OhjelmistoGUI extends Application {
     private HotelliController hotelliController;
     private KayttajaController kayttajaController;
     private ResourceBundle bundle;
-    private String selectedlanguage;
-    private LeftBarOutPut leftBarOutPut;
     private LocaleManager localeManager;
-
-    private void setLocale(String languageCode) {
-        Locale locale = new Locale(languageCode);
-        bundle = ResourceBundle.getBundle("messages", locale);
-    }
 
     @Override
     public void start(Stage primaryStage) {
-        primaryStage.setTitle("Hotel Management System");
+        Locale currentLocale = LocaleManager.getCurrentLocale();
+        bundle = ResourceBundle.getBundle("messages", currentLocale);
+
+        primaryStage.setTitle(bundle.getString("primaryStageTitleText"));
 
         asiakasController = new AsiakasController();
         varausController = new VarausController();
         huoneController = new HuoneController();
         laskuController = new LaskuController();
         hotelliController = new HotelliController();
-        leftBarOutPut = new LeftBarOutPut();
         localeManager = new LocaleManager();
-
-        selectedlanguage = localeManager.getLanguageName();
 
         Etusivu etusivu = new Etusivu();
         HBox mainLayout = new HBox(10);
@@ -72,26 +64,25 @@ public class OhjelmistoGUI extends Application {
         userBox.getChildren().addAll(loggedInImage, loggedInUsername);
 
         // Create the buttons for the left sidebar
-        Button frontPageButton = createStyledButton("Etusivu");
-        Button showRoomsButton = createStyledButton("Huoneiden hallinta");
-        Button showCustomersButton = createStyledButton("Asiakasrekisteri");
-        Button showVarauksetButton = createStyledButton("Varaukset");
-        Button checkInButton = createStyledButton("Check-In");
-        Button checkOutButton = createStyledButton("Check-Out");
+        Button frontPageButton = createStyledButton(bundle.getString("frontPageButtonText"));
+        Button showRoomsButton = createStyledButton(bundle.getString("showRoomsButtonText"));
+        Button showCustomersButton = createStyledButton(bundle.getString("showCustomersButtonText"));
+        Button showVarauksetButton = createStyledButton(bundle.getString("showVarauksetButtonText"));
+        Button checkInButton = createStyledButton(bundle.getString("checkInButtonText"));
+        Button checkOutButton = createStyledButton(bundle.getString("checkOutButtonText"));
 
         // Add the Admin Panel button only if the user is an admin
-        Button adminButton = new Button("Admin Panel");
+        Button adminButton = new Button(bundle.getString("adminButtonText"));
         adminButton.setPrefWidth(200);
         adminButton.getStyleClass().add("button-admin");
 
         // Log out button
-        Button logOutButton = new Button("Kirjaudu ulos");
+        Button logOutButton = new Button(bundle.getString("logOutButtonText"));
         logOutButton.setPrefWidth(200);
         logOutButton.getStyleClass().add("button-log-out");
         logOutButton.setOnAction(e -> handleLogoutButtonAction(primaryStage));
 
         VBox leftButtons = new VBox(10);
-        leftBarOutPut.generateOutput(selectedlanguage, frontPageButton, showRoomsButton, showCustomersButton, showVarauksetButton, checkInButton, checkOutButton, logOutButton, adminButton);
         leftButtons.getChildren().addAll(
                 frontPageButton,
                 showRoomsButton,
@@ -155,7 +146,7 @@ public class OhjelmistoGUI extends Application {
     }
 
     private void handleShowCustomersButtonAction(HBox mainLayout, VBox leftBar) {
-        AsiakasSivu asiakasSivu = new AsiakasSivu(selectedlanguage);
+        AsiakasSivu asiakasSivu = new AsiakasSivu();
         updateMainLayout(mainLayout, leftBar, asiakasSivu.createAsiakkaat());
     }
 
@@ -170,7 +161,7 @@ public class OhjelmistoGUI extends Application {
     }
 
     private void handleCheckOutButtonAction(HBox mainLayout, VBox leftBar) {
-        CheckOut checkOut = new CheckOut(selectedlanguage);
+        CheckOut checkOut = new CheckOut();
         updateMainLayout(mainLayout, leftBar, checkOut.createCheckOut());
     }
 
