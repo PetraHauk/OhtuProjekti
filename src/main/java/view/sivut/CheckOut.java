@@ -12,10 +12,13 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.enteties.*;
 import model.service.CurrencyConverter;
+import model.service.LocaleManager;
 
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.List;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -27,6 +30,7 @@ public class CheckOut {
     private AsiakasController asiakasController;
     private VarausController varausController;
     private HotelliController hotelliController;
+    private ResourceBundle bundle;
 
     public CheckOut() {
         laskuController = new LaskuController();
@@ -34,31 +38,36 @@ public class CheckOut {
         asiakasController = new AsiakasController();
         varausController = new VarausController();
         hotelliController = new HotelliController();
+
+        Locale currentLocale = LocaleManager.getCurrentLocale();
+        bundle = ResourceBundle.getBundle("messages", currentLocale);
+
     }
 
     // Creates the content for Check-out
     public VBox createCheckOut() {
         VBox checkOutInfo = new VBox(15);  // Main layout for the Check-Out section
         checkOutInfo.getStyleClass().add("info");
-        Label checkOutInfoLabel = new Label("Check-Out");
+        Label checkOutInfoLabel = new Label(bundle.getString("checkOutInfoLabel.text"));
         checkOutInfoLabel.getStyleClass().add("otsikko");
 
         // Customer first name input
         VBox etunimiInfo = new VBox(5);
-        Label asiakasEtunimiLabel = new Label("Asiakkaan etunimi:");
+        Label asiakasEtunimiLabel = new Label(bundle.getString("firstNameLabelText"));
         TextField asiakasEtunimiInput = new TextField();
-        asiakasEtunimiInput.setPromptText("Syötä etunimi");
+        asiakasEtunimiInput.setPromptText(bundle.getString("firstNameLabelText"));
+
         etunimiInfo.getChildren().addAll(asiakasEtunimiLabel, asiakasEtunimiInput);
 
         // Customer last name input
         VBox sukunimiInfo = new VBox(5);
-        Label asiakasSukunimiLabel = new Label("Asiakkaan sukunimi:");
+        Label asiakasSukunimiLabel = new Label(bundle.getString("lastNameLabelText"));
         TextField asiakasSukunimiInput = new TextField();
-        asiakasSukunimiInput.setPromptText("Syötä sukunimi");
+        asiakasSukunimiInput.setPromptText(bundle.getString("lastNameLabelText"));
         sukunimiInfo.getChildren().addAll(asiakasSukunimiLabel, asiakasSukunimiInput);
 
         // Button for fetching invoices
-        Button haeLaskutButton = new Button("Hae laskut");
+        Button haeLaskutButton = new Button(bundle.getString("haeLaskutButton.text"));
         haeLaskutButton.getStyleClass().add("yellow-btn");
 
         // Layout for customer search (on a single row)
@@ -69,13 +78,13 @@ public class CheckOut {
 
         // Invoice section
         VBox maksattavaLaskut = new VBox(5);
-        Label maksattavaLaskuOtsikko = new Label("Laskut");
+        Label maksattavaLaskuOtsikko = new Label(bundle.getString("maksattavaLaskuOtsikko.text"));
         maksattavaLaskuOtsikko.getStyleClass().add("otsikko");
         TableView<LaskuData> laskuTable = createLaskuTable();
-        Label loppuHintaLabel = new Label("Yhdessä: 0.00");
-        Button maksuButton = new Button("Maksaa");
+        Label loppuHintaLabel = new Label(bundle.getString("loppuHintaLabel.text"));
+        Button maksuButton = new Button(bundle.getString("button.maksaa"));
         maksuButton.getStyleClass().add("yellow-btn");
-        Button printButton = new Button("Tulosta kuitti");
+        Button printButton = new Button(bundle.getString("printButton.kuitti"));
         printButton.getStyleClass().add("yellow-btn");
 
         // Adding all invoice-related components to one VBox
@@ -92,7 +101,7 @@ public class CheckOut {
             // Retrieve customers by first and last name
             List<Asiakas> asiakkaat = asiakasController.findByNimet(asiakasEtunimiInput.getText(), asiakasSukunimiInput.getText());
             if (asiakkaat == null || asiakkaat.isEmpty()) {
-                showAlert("Virhe", "Asiakkaan nimellä ei löytynyt asiakkaita.");
+                showAlert(bundle.getString("alert.error"), bundle.getString("alert.asiakasNotFound"));
                 return;
             }
 
@@ -151,7 +160,7 @@ public class CheckOut {
                                             kokonaishintaStr
                                     ));
                                 } else {
-                                    showAlert("Virhe", "Virheellinen huoneen numero.");
+                                    showAlert(bundle.getString("alert.error"), bundle.getString("alert.huoneNroError"));
                                 }
                             }
                         }
@@ -160,13 +169,13 @@ public class CheckOut {
             }
 
             // Update total price label after all invoices are processed
-            loppuHintaLabel.setText(String.format("Yhdessä: %.2f %s", kokonaishinta, valuutta));
-        });
+            loppuHintaLabel.setText(String.format(bundle.getString("loppuHintaLabel.text"), kokonaishinta, valuutta));
 
+        });
         // Handle payment button logic
         maksuButton.setOnAction(e -> {
             if (laskuTable.getItems().isEmpty()) {
-                showAlert("Virhe", "Ei laskuja maksettavaksi.");
+                showAlert(bundle.getString("alert.error"), bundle.getString("alert.laskuEiValittu "));
                 return;
             }
             for (LaskuData laskuData : laskuTable.getItems()) {
@@ -189,7 +198,7 @@ public class CheckOut {
                 laskuTable.refresh();
             }
 
-            showMessage("Maksu", "Laskut on maksettu onnistuneesti.");
+            showMessage(bundle.getString("alert.maksu"), bundle.getString("alert.maksuOnnistui"));
         });
 
         // Handle print button logic
@@ -200,26 +209,20 @@ public class CheckOut {
 
     private void openKuittiWindow(TableView<LaskuData> laskuTable) {
         Stage kuittiStage = new Stage();
-        kuittiStage.setTitle("Kuitti");
+        kuittiStage.setTitle(bundle.getString("kuitti.title"));
 
         VBox kuittiLayout = new VBox(10);
         kuittiLayout.setAlignment(Pos.TOP_CENTER); // Kuitin otsikko keskellä
         kuittiLayout.setPadding(new Insets(20)); // Lisää padding koko asetteluun
 
-        Label kuittiTitle = new Label("Kuitti");
-        kuittiTitle.getStyleClass().add("otsikko");
-
-        // Asetetaan suurempi fonttikoko ja paksu fontti (Bold)
-        kuittiTitle.setStyle("-fx-font-size: 24px; -fx-font-weight: bold;");
-
         // Hotellin tiedot vasemmalle (VBox, jossa lisätään padding)
         VBox hotelliInfo = new VBox(5);
         hotelliInfo.setPadding(new Insets(10));
-        Label hotelliNimiLabel = new Label("Hotelli nimi: ");
-        Label hotelliosoiteLabel = new Label("Osoite: ");
-        Label hotelliKaupunkiLabel = new Label("Kaupunki: ");
-        Label hotelliMaaLabel = new Label("Maa: ");
-        Label hotelliPuhLabel = new Label("Puhelin: ");
+        Label hotelliNimiLabel = new Label(bundle.getString("hotelliNimiLabel.text") + "  ");
+        Label hotelliosoiteLabel = new Label(bundle.getString("hotelliOsoiteLabel.text") + "  ");
+        Label hotelliKaupunkiLabel = new Label(bundle.getString("hotelliKaupunkiLabel.text")  + "  ");
+        Label hotelliMaaLabel = new Label(bundle.getString("hotelliMaaLabel.text") + "  ");
+        Label hotelliPuhLabel = new Label(bundle.getString("hotelliPuhLabel.text")  + "  ");
 
         String asiakasNimet = "";
         int hotelliId = 0;
@@ -230,24 +233,24 @@ public class CheckOut {
 
         Hotelli hotelli = hotelliController.findHotelliById(hotelliId);
 
-        hotelliNimiLabel.setText("Hotelli nimi: " + hotelli.getNimi());
-        hotelliosoiteLabel.setText("Osoite: " + hotelli.getOsoite());
-        hotelliKaupunkiLabel.setText("Kaupunki: " + hotelli.getKaupunki());
-        hotelliMaaLabel.setText("Maa: " + hotelli.getMaa());
-        hotelliPuhLabel.setText("Puhelin: " + hotelli.getPuh());
+        hotelliNimiLabel.setText(bundle.getString("hotelliNimiLabel.text") + "  " + hotelli.getNimi());
+        hotelliosoiteLabel.setText(bundle.getString("hotelliOsoiteLabel.text") + "  " + hotelli.getOsoite());
+        hotelliKaupunkiLabel.setText(bundle.getString("hotelliKaupunkiLabel.text") + "  " + hotelli.getKaupunki());
+        hotelliMaaLabel.setText(bundle.getString("hotelliMaaLabel.text") + "  " + hotelli.getMaa());
+        hotelliPuhLabel.setText(bundle.getString("hotelliPuhLabel.text") + "  " + hotelli.getPuh());
 
         hotelliInfo.getChildren().addAll(hotelliNimiLabel, hotelliosoiteLabel,
                 hotelliKaupunkiLabel, hotelliMaaLabel, hotelliPuhLabel);
 
         VBox asiakasInfo = new VBox(5);
         asiakasInfo.setPadding(new Insets(10));
-        Label asiakasNimetLabel = new Label("Asiakkaan nimi: ");
-        Label maksuPvmLabel = new Label("Maksupäivämäärä: ");
-        Label loppuHintaLabel = new Label("Yhdessä:  ");
+        Label asiakasNimetLabel = new Label(bundle.getString("asiakasNimetLabel.text") + "  ");
+        Label maksuPvmLabel = new Label(bundle.getString("maksuPvmLabel.text")  + "  ");
+        Label loppuHintaLabel = new Label(bundle.getString("loppuHintaLabel.text")  + "  ");
         LocalDate maksuPvm = LocalDate.now();
-        maksuPvmLabel.setText("Maksupäivämäärä: " + maksuPvm.toString());
+        maksuPvmLabel.setText(bundle.getString("maksuPVMText") + "  "+  maksuPvm.toString());
 
-        asiakasNimetLabel.setText("Asiakkaan nimi: " + asiakasNimet);
+        asiakasNimetLabel.setText(bundle.getString("asiakasNimetText")  + "  " + asiakasNimet);
         asiakasInfo.getChildren().addAll(asiakasNimetLabel, maksuPvmLabel);
 
         TableView<LaskuData> kuittiTable = createLaskuTable();
@@ -260,22 +263,30 @@ public class CheckOut {
             String kokonaihinta = lastLaskuData.getKokonaisHinta();
             String valuutta = lastLaskuData.getValuutta();
 
-            // Try to parse kokonaihinta as a double and use it in the format
             try {
+                // Parse kokonaihinta to double
                 double hintaDouble = Double.parseDouble(kokonaihinta);
-                loppuHintaLabel.setText(String.format("Yhdessä: %.2f %s", hintaDouble, valuutta));
+
+                // Get the formatted string from the resource bundle
+                String template = bundle.getString("loppuHintaLabel.text");
+
+                // Format the template with the hintaDouble and valuutta, then set the label text
+                loppuHintaLabel.setText(String.format(template, hintaDouble, valuutta));
+
             } catch (NumberFormatException e) {
-                loppuHintaLabel.setText("Yhdessä: " + kokonaihinta + " ");
+                 //If kokonaihinta is not a valid number, set the label text with the raw value
+                loppuHintaLabel.setText(" " + kokonaihinta);
+
             }
         }
 
-        Button tulostaButton = new Button("Tulosta");
+
+        Button tulostaButton = new Button(bundle.getString("loppuTulostaButton.text"));
         tulostaButton.setOnAction(e -> {
             tulostaKuitti(kuittiTable);
             kuittiStage.close();
         });
-
-        kuittiLayout.getChildren().addAll(kuittiTitle, hotelliInfo, asiakasInfo, kuittiTable, loppuHintaLabel, tulostaButton);
+        kuittiLayout.getChildren().addAll(hotelliInfo, asiakasInfo, kuittiTable, loppuHintaLabel, tulostaButton);
 
         Scene scene = new Scene(kuittiLayout, 1010, 500);
         kuittiStage.setScene(scene);
@@ -298,7 +309,7 @@ public class CheckOut {
                     laskuData.getHinta() + " | " +
                     laskuData.getSumma());
         }
-        showMessage("Kuitti", "Kuitti on tulostettu.");
+        showMessage(bundle.getString("kuitti.title"), bundle.getString("alert.kuittiTulostettu"));
     }
 
     // Populates the table with LaskuData
@@ -330,47 +341,47 @@ public class CheckOut {
         laskuTable.setPrefWidth(970);
         laskuTable.setPrefHeight(300);
 
-        TableColumn<LaskuData, Integer> laskuIdColumn = new TableColumn<>("Lasku ID");
+        TableColumn<LaskuData, Integer> laskuIdColumn = new TableColumn<>(bundle.getString("laskuIdColumn.text"));
         laskuIdColumn.setCellValueFactory(new PropertyValueFactory<>("laskuId"));
         laskuIdColumn.setPrefWidth(70);
 
-        TableColumn<LaskuData, Integer> huoneNroColumn = new TableColumn<>("Huone Nro");
+        TableColumn<LaskuData, Integer> huoneNroColumn = new TableColumn<>(bundle.getString("huoneNroColumn.text"));
         huoneNroColumn.setCellValueFactory(new PropertyValueFactory<>("huoneNro"));
         huoneNroColumn.setPrefWidth(80);
 
-        TableColumn<LaskuData, Integer> huoneTyyppiColumn = new TableColumn<>("Huone tyyppi");
+        TableColumn<LaskuData, String> huoneTyyppiColumn = new TableColumn<>(bundle.getString("huoneTyyppiColumn.text"));
         huoneTyyppiColumn.setCellValueFactory(new PropertyValueFactory<>("huoneTyyppi"));
         huoneTyyppiColumn.setPrefWidth(150);
 
-        TableColumn<LaskuData, String> maksuStatusColumn = new TableColumn<>("Status ");
+        TableColumn<LaskuData, String> maksuStatusColumn = new TableColumn<>(bundle.getString("maksuStatusColumn.text"));
         maksuStatusColumn.setCellValueFactory(new PropertyValueFactory<>("maksuStatus"));
         maksuStatusColumn.setPrefWidth(100);
 
-        TableColumn<LaskuData, String> varausMuotoColumn = new TableColumn<>("Muoto");
+        TableColumn<LaskuData, String> varausMuotoColumn = new TableColumn<>(bundle.getString("varausMuotoColumn.text"));
         varausMuotoColumn.setCellValueFactory(new PropertyValueFactory<>("varausMuoto"));
         varausMuotoColumn.setPrefWidth(120);
 
-        TableColumn<LaskuData, String> valuuttaColumn = new TableColumn<>("Valuutta");
+        TableColumn<LaskuData, String> valuuttaColumn = new TableColumn<>(bundle.getString("valuuttaColumn.text"));
         valuuttaColumn.setCellValueFactory(new PropertyValueFactory<>("valuutta"));
         valuuttaColumn.setPrefWidth(30);
 
-        TableColumn<LaskuData, String> alkuPvmColumn = new TableColumn<>("Alku Pvm");
+        TableColumn<LaskuData, String> alkuPvmColumn = new TableColumn<>(bundle.getString("alkuPvmColumn.text"));
         alkuPvmColumn.setCellValueFactory(new PropertyValueFactory<>("alkuPvm"));
         alkuPvmColumn.setPrefWidth(100);
 
-        TableColumn<LaskuData, String> loppuPvmColumn = new TableColumn<>("Loppu Pvm");
+        TableColumn<LaskuData, String> loppuPvmColumn = new TableColumn<>(bundle.getString("loppuPvmColumn.text"));
         loppuPvmColumn.setCellValueFactory(new PropertyValueFactory<>("loppuPvm"));
         loppuPvmColumn.setPrefWidth(100);
 
-        TableColumn<LaskuData, Integer> paivatColumn = new TableColumn<>("Päivät");
+        TableColumn<LaskuData, Integer> paivatColumn = new TableColumn<>(bundle.getString("paivatColumn.text"));
         paivatColumn.setCellValueFactory(new PropertyValueFactory<>("paivat"));
         paivatColumn.setPrefWidth(50);
 
-        TableColumn<LaskuData, Double> hintaColumn = new TableColumn<>("Hinta");
+        TableColumn<LaskuData, Double> hintaColumn = new TableColumn<>(bundle.getString("hintaColumn.text"));
         hintaColumn.setCellValueFactory(new PropertyValueFactory<>("hinta"));
         hintaColumn.setPrefWidth(100);
 
-        TableColumn<LaskuData, Double> summaColumn = new TableColumn<>("Summa");
+        TableColumn<LaskuData, Double> summaColumn = new TableColumn<>(bundle.getString("summaColumn.text"));
         summaColumn.setCellValueFactory(new PropertyValueFactory<>("summa"));
         summaColumn.setPrefWidth(100);
 
