@@ -12,52 +12,76 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.enteties.Asiakas;
+import model.service.LocaleManager;
 
 import java.util.List;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 public class AsiakasSivu {
     private AsiakasController asiakasController;
+    private ResourceBundle bundle;
 
+    // Constructor to initialize dependencies
     public AsiakasSivu() {
-        this.asiakasController = new AsiakasController();
+        asiakasController = new AsiakasController();
+
+        Locale currentLocale = LocaleManager.getCurrentLocale();
+        bundle = ResourceBundle.getBundle("messages", currentLocale);
     }
 
     public VBox createAsiakkaat() {
         VBox asiakkaatInfo = new VBox(10);
         asiakkaatInfo.getStyleClass().add("info");
-        Label asiakkaatOtsikkoLabel = new Label("Asiakkaat");
+        Label asiakkaatOtsikkoLabel = new Label(bundle.getString("asiakkaatOtsikkoLabelText"));
         asiakkaatOtsikkoLabel.getStyleClass().add("otsikko");
-        Button addCustomerButton = new Button("Lisää uusi asiakas");
+        Button addCustomerButton = new Button(bundle.getString("addCustomerButtonText"));
 
         TableView<Asiakas> customerTable = createCustomerTable();
 
         addCustomerButton.setOnAction(e -> openAddCustomerWindow(customerTable));
         populateCustomerTable(customerTable);
+
         asiakkaatInfo.getChildren().addAll(asiakkaatOtsikkoLabel, customerTable, addCustomerButton);
         return asiakkaatInfo;
     }
 
     private void openAddCustomerWindow(TableView<Asiakas> customerTable) {
         Stage addCustomerStage = new Stage();
-        addCustomerStage.setTitle("Lisää uusi asiakas");
+        addCustomerStage.setTitle(bundle.getString("addCustomerStageTitle"));
 
         BorderPane borderPane = new BorderPane();
         VBox formLayout = new VBox(10);
         formLayout.setAlignment(Pos.CENTER_LEFT);
         formLayout.setPadding(new Insets(20));
 
-        Label firstNameLabel = new Label("Etunimi:");
+        Label firstNameLabel = new Label(bundle.getString("firstNameLabelText"));
         TextField firstNameField = new TextField();
-        Label lastNameLabel = new Label("Sukunimi:");
+        firstNameField.setPromptText(bundle.getString("firstNameLabelText"));
+
+        Label lastNameLabel = new Label(bundle.getString("lastNameLabelText"));
         TextField lastNameField = new TextField();
-        Label emailLabel = new Label("Sähköposti:");
+        lastNameField.setPromptText(bundle.getString("lastNameLabelText"));
+
+        Label emailLabel = new Label(bundle.getString("emailLabelText"));
         TextField emailField = new TextField();
-        Label phoneLabel = new Label("Puhelin:");
+        emailField.setPromptText(bundle.getString("emailLabelText"));
+
+        Label phoneLabel = new Label(bundle.getString("phoneLabelText"));
         TextField phoneField = new TextField();
-        Label henkiloMaaraLabel = new Label("Henkilömäärä:");
+        phoneField.setPromptText(bundle.getString("phoneLabelText"));
+
+        Label henkiloMaaraLabel = new Label(bundle.getString("henkiloMaaraLabelText"));
         TextField henkiloMaaraField = new TextField();
-        Label huomioLabel = new Label("Huomio:");
+        henkiloMaaraField.setPromptText(bundle.getString("henkiloMaaraLabelText"));
+
+        Label huomioLabel = new Label(bundle.getString("huomioLabelText"));
         TextField huomioField = new TextField();
+        huomioField.setPromptText(bundle.getString("huomioLabelText"));
+
+
+        Button saveButton = new Button(bundle.getString("saveButtonText"));
+        Button cancelButton = new Button(bundle.getString("cancelButtonText"));
 
         formLayout.getChildren().addAll(
                 firstNameLabel, firstNameField,
@@ -67,9 +91,6 @@ public class AsiakasSivu {
                 henkiloMaaraLabel, henkiloMaaraField,
                 huomioLabel, huomioField
         );
-
-        Button saveButton = new Button("Lisää uusi asiakas");
-        Button cancelButton = new Button("Peruuta");
 
         HBox buttonBox = new HBox(10, saveButton, cancelButton);
         buttonBox.setAlignment(Pos.CENTER);
@@ -87,7 +108,7 @@ public class AsiakasSivu {
                 addCustomerStage.close();
                 populateCustomerTable(customerTable);  // Päivitä asiakastaulukko
             } catch (Exception ex) {
-                System.err.println("Asiakkaan lisääminen epäonnistui: " + ex.getMessage());
+                System.err.println(bundle.getString("addCustomerErrorText" )+ ex.getMessage());
             }
         });
 
@@ -121,13 +142,13 @@ public class AsiakasSivu {
             if (customers != null && !customers.isEmpty()) {
                 customerTable.getItems().setAll(customers);
             } else {
-                customerTable.setPlaceholder(new Label("No customers found"));
+                customerTable.setPlaceholder(new Label(bundle.getString("NotFoundCustomerText")));
             }
             loadingIndicator.setVisible(false);
         });
 
         fetchCustomersTask.setOnFailed(event -> {
-            customerTable.setPlaceholder(new Label("Failed to load customer data"));
+            customerTable.setPlaceholder(new Label(bundle.getString("FaildToFtechCustomerText")));
             System.err.println("Failed to fetch customers: " + fetchCustomersTask.getException());
             loadingIndicator.setVisible(false);
         });
@@ -141,37 +162,37 @@ public class AsiakasSivu {
         customerTable.setPrefWidth(940);
         customerTable.setPrefHeight(400);
 
-        TableColumn<Asiakas, Integer> idColumn = new TableColumn<>("Asiakas ID");
+        TableColumn<Asiakas, Integer> idColumn = new TableColumn<>(bundle.getString("idColumnText"));
         idColumn.setCellValueFactory(new PropertyValueFactory<>("asiakasId"));
 
 
-        TableColumn<Asiakas, String> firstNameColumn = new TableColumn<>("Etunimi");
+        TableColumn<Asiakas, String> firstNameColumn = new TableColumn<>(bundle.getString("firstNameLabelText"));
         firstNameColumn.setCellValueFactory(new PropertyValueFactory<>("etunimi"));
 
-        TableColumn<Asiakas, String> lastNameColumn = new TableColumn<>("Sukunimi");
+        TableColumn<Asiakas, String> lastNameColumn = new TableColumn<>(bundle.getString("lastNameLabelText"));
         lastNameColumn.setCellValueFactory(new PropertyValueFactory<>("sukunimi"));
 
-        TableColumn<Asiakas, String> emailColumn = new TableColumn<>("Sähköposti");
+        TableColumn<Asiakas, String> emailColumn = new TableColumn<>(bundle.getString("emailLabelText"));
         emailColumn.setCellValueFactory(new PropertyValueFactory<>("sposti"));
         emailColumn.setMinWidth(150);
 
-        TableColumn<Asiakas, String> phoneColumn = new TableColumn<>("Puhelin");
+        TableColumn<Asiakas, String> phoneColumn = new TableColumn<>(bundle.getString("phoneLabelText"));
         phoneColumn.setCellValueFactory(new PropertyValueFactory<>("puh"));
         phoneColumn.setMinWidth(100);
 
-        TableColumn<Asiakas, Integer> henkiloMaara = new TableColumn<>("Henkilömäärä");
-        henkiloMaara.setCellValueFactory(new PropertyValueFactory<>("henkiloMaara"));
+        TableColumn<Asiakas, Integer> henkiloMaaraColumn = new TableColumn<>(bundle.getString("henkiloMaaraLabelText"));
+        henkiloMaaraColumn.setCellValueFactory(new PropertyValueFactory<>("henkiloMaara"));
 
-        TableColumn<Asiakas, String> huomio = new TableColumn<>("Huomio");
-        huomio.setCellValueFactory(new PropertyValueFactory<>("huomio"));
-        huomio.setMinWidth(200);
+        TableColumn<Asiakas, String> huomioColumn = new TableColumn<>(bundle.getString("huomioLabelText"));
+        huomioColumn.setCellValueFactory(new PropertyValueFactory<>("huomio"));
+        huomioColumn.setMinWidth(200);
 
         // Create the "Actions" column for edit/delete
-        TableColumn<Asiakas, Void> actionColumn = new TableColumn<>("Toiminnot");
+        TableColumn<Asiakas, Void> actionColumn = new TableColumn<>(bundle.getString("actionColumnText"));
 
         actionColumn.setCellFactory(param -> new TableCell<>() {
-            private final Button editButton = new Button("Muokkaa");
-            private final Button deleteButton = new Button("Poista");
+            private final Button editButton = new Button(bundle.getString("editButtonText"));
+            private final Button deleteButton = new Button(bundle.getString("deleteButtonText"));
             private final HBox actionButtons = new HBox(editButton, deleteButton);
 
             {
@@ -199,21 +220,21 @@ public class AsiakasSivu {
                 if (empty) {
                     setGraphic(null);
                 } else {
+                    // Get localized button text
                     setGraphic(actionButtons);
                 }
             }
         });
 
         actionColumn.setMinWidth(150);
-
-        customerTable.getColumns().addAll(idColumn, firstNameColumn, lastNameColumn, emailColumn, phoneColumn, henkiloMaara, huomio, actionColumn);
+        customerTable.getColumns().addAll(idColumn, firstNameColumn, lastNameColumn, emailColumn, phoneColumn, henkiloMaaraColumn, huomioColumn, actionColumn);
 
         return customerTable;
     }
 
     private void openMuokkaaAsiakasWindow(Asiakas asiakas, TableView<Asiakas> customerTable) {
         Stage muokkaaAsiakasStage = new Stage();
-        muokkaaAsiakasStage.setTitle("Muokkaa asiakasta");
+        muokkaaAsiakasStage.setTitle(bundle.getString("muokkaaAsiakasStageTitle"));
 
         // Pääasettelu, joka jakaa ikkunan osiin (yläosa, keskiosa, alaosa)
         BorderPane borderPane = new BorderPane();
@@ -224,29 +245,32 @@ public class AsiakasSivu {
         formLayout.setPadding(new Insets(20)); // Asetetaan täyte
 
         // Kenttien ja tekstikenttien luonti
-        Label firstNameLabel = new Label("Etunimi:");
+        Label firstNameLabel = new Label(bundle.getString("firstNameLabelText"));
         TextField firstNameField = new TextField();
         firstNameField.setText(asiakas.getEtunimi());
 
-        Label lastNameLabel = new Label("Sukunimi:");
+        Label lastNameLabel = new Label(bundle.getString("lastNameLabelText"));
         TextField lastNameField = new TextField();
         lastNameField.setText(asiakas.getSukunimi());
 
-        Label emailLabel = new Label("Sähköposti:");
+        Label emailLabel = new Label(bundle.getString("emailLabelText"));
         TextField emailField = new TextField();
         emailField.setText(asiakas.getSposti());
 
-        Label phoneLabel = new Label("Puhelin:");
+        Label phoneLabel = new Label(bundle.getString("phoneLabelText"));
         TextField phoneField = new TextField();
         phoneField.setText(asiakas.getPuh());
 
-        Label henkiloMaaraLabel = new Label("Henkilömäärä:");
+        Label henkiloMaaraLabel = new Label(bundle.getString("henkiloMaaraLabelText"));
         TextField henkiloMaaraField = new TextField();
         henkiloMaaraField.setText(String.valueOf(asiakas.getHenkiloMaara()));
 
-        Label huomioLabel = new Label("Huomio:");
+        Label huomioLabel = new Label(bundle.getString("huomioLabelText"));
         TextField huomioField = new TextField();
         huomioField.setText(asiakas.getHuomio());
+
+        Button saveButton = new Button(bundle.getString("MuokkaaAddButtonText"));
+        Button cancelButton = new Button(bundle.getString("cancelButtonText"));
 
         // Lisätään kentät lomakkeeseen (VBox)
         formLayout.getChildren().addAll(
@@ -257,9 +281,6 @@ public class AsiakasSivu {
                 henkiloMaaraLabel, henkiloMaaraField,
                 huomioLabel, huomioField
         );
-
-        Button saveButton = new Button("Tallenna muutokset");
-        Button cancelButton = new Button("Peruuta");
 
         // HBox save and cancel buttons
         HBox buttonBox = new HBox(10, saveButton, cancelButton);

@@ -1,5 +1,6 @@
 package view;
 
+import model.service.LocaleManager;
 import model.service.UserSession;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -29,7 +30,7 @@ public class AdminGUI extends Application {
     @Override
     public void start(Stage primaryStage) {
         //Locale locale = Locale.getDefault();  // Change to preferred locale, e.g., new Locale("fi")
-        Locale locale = new Locale("sv", "SE");
+        Locale locale = LocaleManager.getCurrentLocale();
         bundle = ResourceBundle.getBundle("messages", locale);
 
         primaryStage.setTitle(bundle.getString("admin_panel_title"));

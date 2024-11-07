@@ -4,67 +4,47 @@ import model.service.UserSession;
 import controller.HuoneController;
 import controller.VarausController;
 import javafx.application.Application;
-import javafx.collections.ObservableList;
-import javafx.concurrent.Task;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.KeyCode;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
-import javafx.scene.control.ComboBox;
 
-import model.DAO.AsiakasDAO;
-import model.enteties.Huone;
-import model.enteties.Asiakas;
-import model.enteties.Varaus;
-
-import java.text.NumberFormat;
-import java.text.ParseException;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.time.Period;
-import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
-import java.util.function.ToDoubleFunction;
 
-import model.enteties.*;
 import controller.*;
-import model.service.CurrencyConverter;
 import view.sivut.*;
+import model.service.LocaleManager;
 
 // Loppusumma kommentoitu pois koska punasta viivaa
 public class OhjelmistoGUI extends Application {
 
+    //private String selectedLanguage = "Suomi";
     private HuoneController huoneController;
     private VarausController varausController;
     private AsiakasController asiakasController;
     private LaskuController laskuController;
     private HotelliController hotelliController;
     private KayttajaController kayttajaController;
-
     private ResourceBundle bundle;
-
-    private void setLocale(String languageCode) {
-        Locale locale = new Locale(languageCode);
-        bundle = ResourceBundle.getBundle("messages", locale);
-    }
+    private LocaleManager localeManager;
 
     @Override
     public void start(Stage primaryStage) {
-        primaryStage.setTitle("Hotel Management System");
+        Locale currentLocale = LocaleManager.getCurrentLocale();
+        bundle = ResourceBundle.getBundle("messages", currentLocale);
+
+        primaryStage.setTitle(bundle.getString("primaryStageTitleText"));
 
         asiakasController = new AsiakasController();
         varausController = new VarausController();
         huoneController = new HuoneController();
         laskuController = new LaskuController();
         hotelliController = new HotelliController();
+        localeManager = new LocaleManager();
 
         Etusivu etusivu = new Etusivu();
-
         HBox mainLayout = new HBox(10);
         VBox leftBar = createLeftBar(mainLayout, primaryStage);
         mainLayout.getChildren().addAll(leftBar, etusivu.createEtusivu(1));
@@ -75,57 +55,62 @@ public class OhjelmistoGUI extends Application {
         primaryStage.show();
     }
 
-
-    // Creates the left bar with buttons and user info
     private VBox createLeftBar(HBox mainLayout, Stage primaryStage) {
+        // Display the username and a placeholder for the profile image
         Label loggedInUsername = new Label(UserSession.getUsername());
         Label loggedInImage = new Label("[IMAGE]");
         HBox userBox = new HBox(10);
         userBox.getStyleClass().add("user-box");
         userBox.getChildren().addAll(loggedInImage, loggedInUsername);
 
-        Button frontPageButton = createStyledButton("Etusivu");
-        Button showRoomsButton = createStyledButton("Huoneiden hallinta");
-        Button showCustomersButton = createStyledButton("Asiakasrekisteri");
-        Button showVarauksetButton = createStyledButton("Varaukset");
-        Button checkInButton = createStyledButton("Check-In");
-        Button checkOutButton = createStyledButton("Check-Out");
+        // Create the buttons for the left sidebar
+        Button frontPageButton = createStyledButton(bundle.getString("frontPageButtonText"));
+        Button showRoomsButton = createStyledButton(bundle.getString("showRoomsButtonText"));
+        Button showCustomersButton = createStyledButton(bundle.getString("showCustomersButtonText"));
+        Button showVarauksetButton = createStyledButton(bundle.getString("showVarauksetButtonText"));
+        Button checkInButton = createStyledButton(bundle.getString("checkInButtonText"));
+        Button checkOutButton = createStyledButton(bundle.getString("checkOutButtonText"));
+
+        // Add the Admin Panel button only if the user is an admin
+        Button adminButton = new Button(bundle.getString("adminButtonText"));
+        adminButton.setPrefWidth(200);
+        adminButton.getStyleClass().add("button-admin");
+
+        // Log out button
+        Button logOutButton = new Button(bundle.getString("logOutButtonText"));
+        logOutButton.setPrefWidth(200);
+        logOutButton.getStyleClass().add("button-log-out");
+        logOutButton.setOnAction(e -> handleLogoutButtonAction(primaryStage));
 
         VBox leftButtons = new VBox(10);
-        leftButtons.getChildren().addAll(frontPageButton, showRoomsButton, showCustomersButton, showVarauksetButton, checkInButton, checkOutButton);
+        leftButtons.getChildren().addAll(
+                frontPageButton,
+                showRoomsButton,
+                showCustomersButton,
+                showVarauksetButton,
+                checkInButton,
+                checkOutButton
+        );
         leftButtons.getStyleClass().add("left-buttons");
 
-        Button logoutButton = new Button("Kirjaudu ulos");
-        logoutButton.setPrefWidth(200);
-        logoutButton.getStyleClass().add("button-log-out");
-
-        VBox leftBar = new VBox(30);
-        leftBar.getChildren().addAll(userBox, leftButtons, logoutButton);
-        leftBar.getStyleClass().add("left-bar");
-
-
-        // Check if user is an admin
         if (UserSession.getRooli().equalsIgnoreCase("Admin")) {
-            Button adminButton = new Button("Admin Panel");
-            adminButton.setPrefWidth(200);
-            adminButton.getStyleClass().add("button-admin");
-
-
-            // Open AdminGUI on button click
+            // Only show admin panel button for admin users
             adminButton.setOnAction(e -> openAdminPanel());
-
-            // Add the admin button below the logout button
-            leftBar.getChildren().add(adminButton);
+            leftButtons.getChildren().add(adminButton);
         }
 
+        // Create the left sidebar layout
+        VBox leftBar = new VBox(30);
+        leftBar.getStyleClass().add("left-bar");
+        leftBar.getChildren().addAll(userBox, leftButtons, logOutButton);
+
+        // Set up action listeners for the other navigation buttons
         frontPageButton.setOnAction(e -> handleFrontPageButtonAction(mainLayout, leftBar));
         showRoomsButton.setOnAction(e -> handleShowRoomsButtonAction(mainLayout, leftBar));
         showCustomersButton.setOnAction(e -> handleShowCustomersButtonAction(mainLayout, leftBar));
         showVarauksetButton.setOnAction(e -> handleShowVarauksetButtonAction(mainLayout, leftBar));
         checkInButton.setOnAction(e -> handleCheckInButtonAction(mainLayout, leftBar));
         checkOutButton.setOnAction(e -> handleCheckOutButtonAction(mainLayout, leftBar));
-        logoutButton.setOnAction(e -> handleLogoutButtonAction(primaryStage));
-
 
         return leftBar;
     }
@@ -190,6 +175,7 @@ public class OhjelmistoGUI extends Application {
             ex.printStackTrace();
         }
     }
+
     public static void main(String[] args) {
         launch(args);
     }

@@ -16,6 +16,7 @@ import org.mindrot.jbcrypt.BCrypt;
 
 import java.util.Locale;
 import java.util.ResourceBundle;
+import model.service.LocaleManager;
 
 public class RegistrationGui extends Application {
 
@@ -27,7 +28,7 @@ public class RegistrationGui extends Application {
     @Override
     public void start(Stage primaryStage) {
         // Use the current locale from LoginGui
-        Locale currentLocale = LoginGui.getCurrentLocale();
+        Locale currentLocale = LocaleManager.getCurrentLocale();
         bundle = ResourceBundle.getBundle("messages", currentLocale);
 
         primaryStage.setTitle(bundle.getString("title.registration"));

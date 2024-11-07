@@ -36,12 +36,17 @@
             <artifactId>javafx-swing</artifactId>
             <version>21.0.4</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-base</artifactId>
+            <version>21.0.4</version>
+        </dependency>
          <dependency>
              <groupId>org.mindrot</groupId>
              <artifactId>jbcrypt</artifactId>
              <version>0.4</version>
          </dependency>
-
 
         <!-- Persistence & Database -->
         <dependency>
@@ -49,6 +54,7 @@
             <artifactId>mariadb-java-client</artifactId>
             <version>3.1.2</version>
         </dependency>
+
         <dependency>
             <groupId>jakarta.persistence</groupId>
             <artifactId>jakarta.persistence-api</artifactId>
@@ -59,11 +65,7 @@
             <artifactId>hibernate-core</artifactId>
             <version>6.0.0.Final</version>
         </dependency>
-        <dependency>
-            <groupId>org.mariadb.jdbc</groupId>
-            <artifactId>mariadb-java-client</artifactId>
-            <version>3.1.2</version>
-        </dependency>
+
 
         <!-- Logging -->
         <dependency>
