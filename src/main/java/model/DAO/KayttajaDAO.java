@@ -204,10 +204,6 @@ public class KayttajaDAO {
                     .setParameter("email", email)
                     .getSingleResult();
             em.getTransaction().commit();
-
-            // Convert rooli from String to int
-            //int rooli = Integer.parseInt(rooliString);
-
             return rooliString;
 
         } catch (NoResultException e) {
