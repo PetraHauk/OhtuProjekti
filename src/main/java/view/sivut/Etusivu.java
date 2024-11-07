@@ -67,9 +67,9 @@ public class Etusivu {
         }
 
         // Calculate the counts using equalsIgnoreCase for case-insensitive comparison
-        long varattuCount = rooms.stream().filter(r -> r.getHuone_tila().equalsIgnoreCase("Varattu")).count();
-        long vapaaCount = rooms.stream().filter(r -> r.getHuone_tila().equalsIgnoreCase("Vapaa")).count();
-        long kaipaaSiivoustaCount = rooms.stream().filter(r -> r.getHuone_tila().equalsIgnoreCase("Siivous")).count();
+        long varattuCount = rooms.stream().filter(r -> r.getHuone_tila_fi().equalsIgnoreCase("Varattu")).count();
+        long vapaaCount = rooms.stream().filter(r -> r.getHuone_tila_fi().equalsIgnoreCase("Vapaa")).count();
+        long kaipaaSiivoustaCount = rooms.stream().filter(r -> r.getHuone_tila_fi().equalsIgnoreCase("Siivous")).count();
 
         // Create PieChart data with room counts in the label
         ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
