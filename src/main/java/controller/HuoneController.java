@@ -57,25 +57,6 @@ public class HuoneController {
         return huone;
     }
 
-    public int getHuoneNroById(int huoneId) {
-        // Assume that this method interacts with a DAO or repository to get the room number
-        Huone huone = huoneDAO.findByRoomId(huoneId);
-        return huone.getHuone_nro();
-    }
-
-
-    public Huone findHuoneByNro(int nro) {
-        return huoneDAO.findByRoomNro(nro);
-    }
-    public List<Huone> findHuoneByTila(String huone_tila) {
-
-        return huoneDAO.findByHuoneTila(huone_tila);
-    }
-
-    public List<Huone> findHuoneByTyyppi(String huone_tyyppi) {
-        return huoneDAO.findByTyyppi(huone_tyyppi);
-    }
-
     public void updateHuoneById(int id, int huone_nro, String huone_tyyppi, String huone_tila, double huone_hinta) {
         huoneDAO.updateHuoneById(id, huone_nro, huone_tyyppi, huone_tila, huone_hinta);
     }
@@ -94,7 +75,6 @@ public class HuoneController {
     public List<Huone> findVapaatHuoneetByHotelliId(int hotelli_id){
         List<Huone> huoneet = huoneDAO.haeHuoneetByHotelliId(hotelli_id);
 
-
         Iterator<Huone> huoneIterator = huoneet.iterator();
         while (huoneIterator.hasNext()) {
             Huone huone = huoneIterator.next();
@@ -107,5 +87,4 @@ public class HuoneController {
         }
         return huoneet;
     }
-
 }

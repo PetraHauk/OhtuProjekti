@@ -8,6 +8,7 @@ import model.service.LocaleManager;
 public class HuoneDAO {
 
     String selectedlanguage = LocaleManager.getLanguageName();
+
     public void persist(Huone huone) {
         EntityManager em = MariaDbConnection.getInstance();
         em.getTransaction().begin();
@@ -48,84 +49,6 @@ public class HuoneDAO {
         return null;
     }
 
-    public Huone findByRoomNro(int huone_nro) {
-        EntityManager em = MariaDbConnection.getInstance();
-        try {
-            Huone huone = em.find(Huone.class, huone_nro);
-            if (huone != null) {
-                return huone;
-            }
-        } finally {
-            if (em != null) {
-                em.close();
-            }
-        }
-        return null;
-    }
-
-
-    public List<Huone> findByHuoneTila(String huone_tila) {
-        EntityManager em = MariaDbConnection.getInstance();
-        List<Huone> huoneet = null;
-
-        // Valitse sarake nimen perusteella
-        String selectedColumn;
-        switch (selectedlanguage) {
-            case "en":
-                selectedColumn = "huone_tila_en";
-                break;
-            case "ru":
-                selectedColumn = "huone_tila_ru";
-                break;
-            case "zh":
-                selectedColumn = "huone_tila_zh";
-                break;
-            default:
-                selectedColumn = "huone_tila_fi";
-        }
-
-        try {
-            // Luo dynaaminen kysely käyttäen `selectedColumn`
-            String queryStr = "SELECT h FROM Huone h WHERE h." + selectedColumn + " = :huone_tila";
-            huoneet = em.createQuery(queryStr, Huone.class)
-                    .setParameter("huone_tila", huone_tila)
-                    .getResultList();
-
-            if (!huoneet.isEmpty()) {
-                return huoneet;
-            }
-        } finally {
-            if (em != null) {
-                em.close();
-            }
-        }
-        return null;
-    }
-
-
-    public List<Huone> findByTyyppi(String huone_tyyppi) {
-        EntityManager em = MariaDbConnection.getInstance();
-        List<Huone> huoneet = null;
-
-        // Valitse sarake nimen perusteella
-        String selectedColumn = LocaleManager.getLocalColumnName(selectedlanguage, "huone_tyyppi");
-
-        try {
-            String queryStr = "SELECT h FROM Huone h WHERE h." + selectedColumn + " = :huone_tyyppi";
-            huoneet = em.createQuery(queryStr, Huone.class)
-                    .setParameter("huone_tyyppi", huone_tyyppi)
-                    .getResultList();
-            if (!huoneet.isEmpty()) {
-                return huoneet;
-            }
-        } finally {
-            if (em != null) {
-                em.close();
-            }
-        }
-        return null;
-    }
-
     public void updateHuoneById(int id, int huone_nro,
                                 String huone_tyyppi,
                                 String huone_tila,
@@ -140,7 +63,7 @@ public class HuoneDAO {
 
 
         // Tarkistetaan, että lista ei ole null ja että se sisältää tarvittavat elementit
-        String huoneTypeFi = huoneTypeList.get(0) ;
+        String huoneTypeFi = huoneTypeList.get(0);
         String huoneTypeEn = huoneTypeList.get(1);
         String huoneTypeRu = huoneTypeList.get(2);
         String huoneTypeZh = huoneTypeList.get(3);
@@ -152,7 +75,6 @@ public class HuoneDAO {
 
         System.out.println("Localized Room Type Fi: " + huoneTypeFi);
         System.out.println("Localized Room Type En: " + huoneTypeEn);
-
 
         try {
             em.getTransaction().begin();
@@ -183,7 +105,8 @@ public class HuoneDAO {
     public void updateHuoneTilaById(int id, String huone_tila) {
         EntityManager em = MariaDbConnection.getInstance();
 
-        List<String> huoneTilaList = LocaleManager.getLocalizedTilaInput(selectedlanguage); String huoneTilaFi = (huoneTilaList != null && huoneTilaList.size() > 0) ? huoneTilaList.get(0) : "";
+        List<String> huoneTilaList = LocaleManager.getLocalizedTilaInput(selectedlanguage);
+        String huoneTilaFi = (huoneTilaList != null && huoneTilaList.size() > 0) ? huoneTilaList.get(0) : "";
         String huone_tyyppi_fi = huoneTilaList.get(0);
         String huone_tila_en = huoneTilaList.get(1);
         String huone_tila_ru = huoneTilaList.get(2);
@@ -239,64 +162,4 @@ public class HuoneDAO {
             }
         }
     }
-
-    public void UpdateHuoneHintaById(int id, double huone_hinta) {
-        EntityManager em = MariaDbConnection.getInstance();
-        try {
-            em.getTransaction().begin();
-            Huone huone = em.find(Huone.class, id);
-            if (huone != null) {
-                huone.setHuone_hinta(huone_hinta);
-            } else {
-                System.out.println("Huonetta ei löytynyt id:llä " + id);
-            }
-            em.getTransaction().commit();
-        } finally {
-            if (em != null) {
-                em.close();
-            }
-        }
-    }
-
-    public void UpdateHuoneTilaById(int id, String huone_tila) {
-        EntityManager em = MariaDbConnection.getInstance();
-
-        String selectedColumn = LocaleManager.getLocalColumnName(selectedlanguage, "huone_tila");
-        try {
-            em.getTransaction().begin();
-            Huone huone = em.find(Huone.class, id);
-            if (huone != null) {
-                huone.setHuone_tila_fi(selectedColumn);
-            } else {
-                System.out.println("Huonetta ei löytynyt id:llä " + id);
-            }
-            em.getTransaction().commit();
-        } finally {
-            if (em != null) {
-                em.close();
-            }
-        }
-    }
-
-    public void UpdateHuoneTyyppiById(int id, String huone_tyyppi) {
-        EntityManager em = MariaDbConnection.getInstance();
-        String selectedColumn = LocaleManager.getLocalColumnName(selectedlanguage, "huone_tyyppi");
-        try {
-            em.getTransaction().begin();
-            Huone huone = em.find(Huone.class, id);
-            if (huone != null) {
-                huone.setHuone_tyyppi_fi(selectedColumn);
-            } else {
-                System.out.println("Huonetta ei löytynyt id:llä " + id);
-            }
-            em.getTransaction().commit();
-        } finally {
-            if (em != null) {
-                em.close();
-            }
-        }
-    }
-
 }
-
-
