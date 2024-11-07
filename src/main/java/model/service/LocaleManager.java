@@ -74,7 +74,6 @@ public class LocaleManager {
         }
     }
 
-
     public static String getLocaliColumnName(String selectedLanguage, String columnBaseName) {
         switch (selectedLanguage) {
             case "en":
@@ -129,17 +128,18 @@ public class LocaleManager {
             tilaList.add("Бесплатно");
             tilaList.add("空闲");
         } else if (tila.equals("Varattu") || tila.equals("Reserved") || tila.equals("Сдержанный") || tila.equals("已预订")) {
+            tilaList.add("Varattu");
             tilaList.add("Reserved");
             tilaList.add("Сдержанный");
             tilaList.add("已预订");
         } else if (tila.equals("Siivous") || tila.equals("Under repair") || tila.equals("Расчистка") || tila.equals("打扫中")) {
+            tilaList.add("Siivous");
             tilaList.add("Clearout");
             tilaList.add("Расчистка");
             tilaList.add("打扫中");
         }
         return tilaList;
     }
-
 
 }
 

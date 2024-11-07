@@ -76,24 +76,10 @@ public class HuoneController {
         return huoneDAO.findByTyyppi(huone_tyyppi);
     }
 
-    public void updateHuoneById(int id, int huone_nro,
-                                String huone_tyyppi_fi,
-                                String huone_tyyppi_en,
-                                String huone_tyyppi_ru,
-                                String huone_tyyppi_zh,
-                                String huone_tila_fi,
-                                String huoneTila_en, String huoneTila_ru, String huoneTila_zh, double huone_hinta) {
-        huoneDAO.updateHuoneById(id, huone_nro,
-                huone_tyyppi_fi,
-                huone_tyyppi_en,
-                huone_tyyppi_ru,
-                huone_tyyppi_zh,
-                huone_tila_fi,
-                huone_tyyppi_en,
-                huone_tyyppi_ru,
-                huone_tyyppi_zh,
-                huone_hinta);
+    public void updateHuoneById(int id, int huone_nro, String huone_tyyppi, String huone_tila, double huone_hinta) {
+        huoneDAO.updateHuoneById(id, huone_nro, huone_tyyppi, huone_tila, huone_hinta);
     }
+
     public void updateHuoneStatusById(int id, String huone_tila) {
         huoneDAO.updateHuoneTilaById(id, huone_tila);
     }

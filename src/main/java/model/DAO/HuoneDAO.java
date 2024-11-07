@@ -127,21 +127,31 @@ public class HuoneDAO {
     }
 
     public void updateHuoneById(int id, int huone_nro,
-                                String huone_tyyppi_fi,
-                                String huone_tyyppi_en,
-                                String huone_tyyppi_ru,
-                                String huone_tyyppi_zh,
-                                String huone_tila_fi,
-                                String huone_tila_en,
-                                String huone_tila_ru,
-                                String huone_tila_zh,
+                                String huone_tyyppi,
+                                String huone_tila,
                                 double huone_hinta) {
         EntityManager em = MariaDbConnection.getInstance();
-//        List<String> huoneTilaList = LocaleManager.getLocalizedTilaInput(selectedlanguage); String huoneTilaFi = (huoneTilaList != null && huoneTilaList.size() > 0) ? huoneTilaList.get(0) : "";
-//        huone_tila_fi = (huoneTilaList != null && huoneTilaList.size() > 1) ? huoneTilaList.get(0) : "";
-//        huone_tila_en = (huoneTilaList != null && huoneTilaList.size() > 1) ? huoneTilaList.get(1) : "";
-//        huone_tila_ru = (huoneTilaList != null && huoneTilaList.size() > 2) ? huoneTilaList.get(2) : "";
-//        huone_tila_zh = (huoneTilaList != null && huoneTilaList.size() > 3) ? huoneTilaList.get(3) : "";
+
+        // Hanki käännetyt huone tyyppi ja tila
+        List<String> huoneTypeList = LocaleManager.getLocalizedTyyppiInput(huone_tyyppi);
+        List<String> huoneTilaList = LocaleManager.getLocalizedTilaInput(huone_tila);
+        System.out.println("Localized Room Type List: " + huoneTypeList);
+        System.out.println("Localized Room Status List: " + huoneTilaList);
+
+
+        // Tarkistetaan, että lista ei ole null ja että se sisältää tarvittavat elementit
+        String huoneTypeFi = huoneTypeList.get(0) ;
+        String huoneTypeEn = huoneTypeList.get(1);
+        String huoneTypeRu = huoneTypeList.get(2);
+        String huoneTypeZh = huoneTypeList.get(3);
+
+        String huoneTilaFi = huoneTilaList.get(0);
+        String huoneTilaEn = huoneTilaList.get(1);
+        String huoneTilaRu = huoneTilaList.get(2);
+        String huoneTilaZh = huoneTilaList.get(3);
+
+        System.out.println("Localized Room Type Fi: " + huoneTypeFi);
+        System.out.println("Localized Room Type En: " + huoneTypeEn);
 
 
         try {
@@ -150,14 +160,14 @@ public class HuoneDAO {
             if (huone != null) {
                 huone.setHuone_nro(huone_nro);
 
-                huone.setHuone_tyyppi_fi(huone_tyyppi_fi);
-                huone.setHuone_tyyppi_en(huone_tyyppi_en);
-                huone.setHuone_tyyppi_ru(huone_tyyppi_ru);
-                huone.setHuone_tyyppi_zh(huone_tyyppi_zh);
-                huone.setHuone_tila_fi(huone_tila_fi);
-                huone.setHuone_tila_en(huone_tila_en);
-                huone.setHuone_tila_ru(huone_tila_ru);
-                huone.setHuone_tila_zh(huone_tila_zh);
+                huone.setHuone_tyyppi_fi(huoneTypeFi);
+                huone.setHuone_tyyppi_en(huoneTypeEn);
+                huone.setHuone_tyyppi_ru(huoneTypeRu);
+                huone.setHuone_tyyppi_zh(huoneTypeZh);
+                huone.setHuone_tila_fi(huoneTilaFi);
+                huone.setHuone_tila_en(huoneTilaEn);
+                huone.setHuone_tila_ru(huoneTilaRu);
+                huone.setHuone_tila_zh(huoneTilaZh);
                 huone.setHuone_hinta(huone_hinta);
             } else {
                 System.out.println("Huonetta ei löytynyt id:llä " + id);
@@ -174,10 +184,10 @@ public class HuoneDAO {
         EntityManager em = MariaDbConnection.getInstance();
 
         List<String> huoneTilaList = LocaleManager.getLocalizedTilaInput(selectedlanguage); String huoneTilaFi = (huoneTilaList != null && huoneTilaList.size() > 0) ? huoneTilaList.get(0) : "";
-        String huone_tyyppi_fi = (huoneTilaList != null && huoneTilaList.size() > 1) ? huoneTilaList.get(0) : "";
-        String huone_tila_en = (huoneTilaList != null && huoneTilaList.size() > 1) ? huoneTilaList.get(1) : "";
-        String huone_tila_ru = (huoneTilaList != null && huoneTilaList.size() > 2) ? huoneTilaList.get(2) : "";
-        String huone_tila_zh = (huoneTilaList != null && huoneTilaList.size() > 3) ? huoneTilaList.get(3) : "";
+        String huone_tyyppi_fi = huoneTilaList.get(0);
+        String huone_tila_en = huoneTilaList.get(1);
+        String huone_tila_ru = huoneTilaList.get(2);
+        String huone_tila_zh = huoneTilaList.get(3);
 
         try {
             em.getTransaction().begin();
