@@ -4,30 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="Asiakas sivu update(pois output luokka)">
-      <change beforePath="$PROJECT_DIR$/.idea/resourceBundles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/resourceBundles.xml" afterDir="false" />
+    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="update">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/AdminGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/AdminGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/OhjelmistoGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/OhjelmistoGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/sivut/AsiakasSivu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/sivut/AsiakasSivu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/hotelli_db" beforeDir="false" afterPath="$PROJECT_DIR$/Database/hotelli_db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/HuoneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/HuoneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/HuoneDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/HuoneDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/enteties/Huone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enteties/Huone.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/service/LocaleManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/service/LocaleManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/sivut/CheckOut.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/sivut/CheckOut.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/sivut/outPut/CheckOutOutPut.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/sivut/outPut/LeftBarOutPut.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/sivut/Etusivu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/sivut/Etusivu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/sivut/HuoneSivu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/sivut/HuoneSivu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/messages_en_GB.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages_en_GB.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/messages_fi_FI.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages_fi_FI.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/messages_ru_Ru.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages_ru_Ru.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/messages_zh_CN.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages_zh_CN.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/controller/HuoneControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/controller/HuoneControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/messages_en_GB.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages_en_GB.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/messages_fi_FI.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages_fi_FI.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/messages_ru_Ru.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages_ru_Ru.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/messages_zh_CN.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages_zh_CN.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/OhjelmistoGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/OhjelmistoGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/AsiakasSivu$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/sivut/AsiakasSivu$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/AsiakasSivu$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/sivut/AsiakasSivu$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/AsiakasSivu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/sivut/AsiakasSivu.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/CheckOut.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/sivut/CheckOut.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/outPut/AsiakasOutput.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/outPut/LeftBarOutPut.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -348,23 +344,7 @@
       <workItem from="1730717989820" duration="2112000" />
       <workItem from="1730724291170" duration="300000" />
       <workItem from="1730737802323" duration="34977000" />
-      <workItem from="1730872404244" duration="16778000" />
-    </task>
-    <task id="LOCAL-00007" summary="Admin screen hommia">
-      <option name="closed" value="true" />
-      <created>1727617397344</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1727617397344</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Admin screen hommia">
-      <option name="closed" value="true" />
-      <created>1727617530695</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1727617530695</updated>
+      <workItem from="1730872404244" duration="36759000" />
     </task>
     <task id="LOCAL-00009" summary="Admin screen hommia">
       <option name="closed" value="true" />
@@ -742,7 +722,23 @@
       <option name="project" value="LOCAL" />
       <updated>1730922029043</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="Check  out sivu kännös valmis">
+      <option name="closed" value="true" />
+      <created>1730930515792</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1730930515792</updated>
+    </task>
+    <task id="LOCAL-00057" summary="update">
+      <option name="closed" value="true" />
+      <created>1730930577781</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1730930577781</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -761,7 +757,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="muuttaa pomin ja dockerfilen docker pull ja buildia varten" />
     <MESSAGE value="muuttaa pomin ja dockerfilen docker pull ja buildia varten!" />
     <MESSAGE value="pikku muutoksia" />
     <MESSAGE value="ylimääränen src kansio poistettu" />
@@ -780,13 +775,14 @@
     <MESSAGE value="Login, registeri, logIn, leftBar localisointi yhdistetty" />
     <MESSAGE value="poista ylimäärästä" />
     <MESSAGE value="lisää venäjä kieli, leftbar ja asiakas sivu" />
-    <MESSAGE value="update" />
     <MESSAGE value="Adminpanel kieli vaihtaa local mukaan" />
     <MESSAGE value="asiakas/henkilömäärä esillä" />
     <MESSAGE value="kooodin siisti" />
     <MESSAGE value="check-out kännös" />
     <MESSAGE value="Asiakas sivu update(pois output luokka)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Asiakas sivu update(pois output luokka)" />
+    <MESSAGE value="Check  out sivu kännös valmis" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -799,6 +795,11 @@
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="11" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/view/sivut/HuoneSivu.java</url>
+          <line>308</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
