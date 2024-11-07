@@ -21,6 +21,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import model.service.LocaleManager;
 
 public class CheckIn {
 
@@ -28,6 +29,7 @@ public class CheckIn {
     private final VarausController varausController;
     private final AsiakasController asiakasController;
     private final LaskuController laskuController;
+    String selectedlanguage = LocaleManager.getLanguageName();
 
     public CheckIn() {
         varausController = new VarausController();
@@ -267,16 +269,18 @@ public class CheckIn {
         numeroColumn.setCellValueFactory(new PropertyValueFactory<>("huone_nro"));
         numeroColumn.setMinWidth(94);
 
+        String huoneTyype = LocaleManager.getLocalColumnName(selectedlanguage, "huone_tyyppi");
         TableColumn<Huone, String> tyyppiColumn = new TableColumn<>("Huone Tyyppi");
-        tyyppiColumn.setCellValueFactory(new PropertyValueFactory<>("huone_tyyppi"));
+        tyyppiColumn.setCellValueFactory(new PropertyValueFactory<>(huoneTyype));
         tyyppiColumn.setMinWidth(150);
 
         TableColumn<Huone, Double> hintaColumn = new TableColumn<>("Huone Hinta");
         hintaColumn.setCellValueFactory(new PropertyValueFactory<>("huone_hinta"));
         hintaColumn.setMinWidth(150);
 
+        String huoneTila = LocaleManager.getLocalColumnName(selectedlanguage, "huone_tila");
         TableColumn<Huone, String> statusColumn = new TableColumn<>("Huone Status");
-        statusColumn.setCellValueFactory(new PropertyValueFactory<>("huone_tila"));
+        statusColumn.setCellValueFactory(new PropertyValueFactory<>(huoneTila));
         statusColumn.setMinWidth(100);
 
         huoneTableView.getColumns().add(numeroColumn);
