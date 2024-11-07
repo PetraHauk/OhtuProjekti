@@ -1,5 +1,7 @@
 package model.service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -58,4 +60,88 @@ public class LocaleManager {
                 return "English";
         }
     }
+
+    public static String getLocalizedColumn(String selectedLanguage, String columnBaseName) {
+        switch (selectedLanguage) {
+            case "en":
+                return columnBaseName + "_en";
+            case "ru":
+                return columnBaseName + "_ru";
+            case "zh":
+                return columnBaseName + "_zh";
+            default:
+                return columnBaseName + "_fi";
+        }
+    }
+
+    public static String getLocaliColumnName(String selectedLanguage, String columnBaseName) {
+        switch (selectedLanguage) {
+            case "en":
+                return columnBaseName + "_en";
+            case "ru":
+                return columnBaseName + "_ru";
+            case "zh":
+                return columnBaseName + "_zh";
+            default:
+                return columnBaseName + "_fi";
+        }
+    }
+
+    public static List<String> getLocalizedTyyppiInput(String tyyppi) {
+        List<String> tyyppiList = new ArrayList<>();
+
+        if (tyyppi.equals("Yhden hengen huone") || tyyppi.equals("Single room") || tyyppi.equals("Одноместный номер") || tyyppi.equals("单人房")) {
+            tyyppiList.add("Yhden hengen huone");
+            tyyppiList.add("Single room");
+            tyyppiList.add("Одноместный номер");
+            tyyppiList.add("单人房");
+        } else if (tyyppi.equals("Kahden hengen huone") || tyyppi.equals("Double room") || tyyppi.equals("Двухместный номер") || tyyppi.equals("双人房")) {
+            tyyppiList.add("Kahden hengen huone");
+            tyyppiList.add("Double room");
+            tyyppiList.add("Двухместный номер");
+            tyyppiList.add("双人房");
+        } else if (tyyppi.equals("Kolmen hengen huone") || tyyppi.equals("Triple room") || tyyppi.equals("Трехместный номер") || tyyppi.equals("三人房")) {
+            tyyppiList.add("Kolmen hengen huone");
+            tyyppiList.add("Triple room");
+            tyyppiList.add("Трехместный номер");
+            tyyppiList.add("三人房");
+        } else if (tyyppi.equals("Perhehuone") || tyyppi.equals("Family room") || tyyppi.equals("Семейный номер") || tyyppi.equals("家庭房")) {
+            tyyppiList.add("Perhehuone");
+            tyyppiList.add("Family room");
+            tyyppiList.add("Семейный номер");
+            tyyppiList.add("家庭房");
+        } else if (tyyppi.equals("Sviitti") || tyyppi.equals("Suite") || tyyppi.equals("люкс") || tyyppi.equals("套房")) {
+           tyyppiList.add("Sviitti");
+            tyyppiList.add("Suite");
+            tyyppiList.add("люкс");
+            tyyppiList.add("套房");
+        }
+        return tyyppiList;
+    }
+
+    public static List<String> getLocalizedTilaInput(String tila) {
+        List<String> tilaList = new ArrayList<>();
+
+        if (tila.equals("Vapaa") || tila.equals("Free") || tila.equals("Бесплатно") || tila.equals("空闲")) {
+            tilaList.add("Vapaa");
+            tilaList.add("Free");
+            tilaList.add("Бесплатно");
+            tilaList.add("空闲");
+        } else if (tila.equals("Varattu") || tila.equals("Reserved") || tila.equals("Сдержанный") || tila.equals("已预订")) {
+            tilaList.add("Varattu");
+            tilaList.add("Reserved");
+            tilaList.add("Сдержанный");
+            tilaList.add("已预订");
+        } else if (tila.equals("Siivous") || tila.equals("Under repair") || tila.equals("Расчистка") || tila.equals("打扫中")) {
+            tilaList.add("Siivous");
+            tilaList.add("Clearout");
+            tilaList.add("Расчистка");
+            tilaList.add("打扫中");
+        }
+        return tilaList;
+    }
+
 }
+
+
+

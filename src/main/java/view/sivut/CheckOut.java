@@ -41,7 +41,6 @@ public class CheckOut {
 
         Locale currentLocale = LocaleManager.getCurrentLocale();
         bundle = ResourceBundle.getBundle("messages", currentLocale);
-
     }
 
     // Creates the content for Check-out
@@ -148,7 +147,7 @@ public class CheckOut {
                                             huone.getHuone_nro(),
                                             asiakas.getEtunimi(),
                                             asiakas.getSukunimi(),
-                                            huone.getHuone_tyyppi(),
+                                            huone.getHuone_tyyppi_fi(),
                                             lasku.getMaksuStatus(),
                                             lasku.getVarausMuoto(),
                                             lasku.getValuutta(),

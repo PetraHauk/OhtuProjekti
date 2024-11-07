@@ -137,6 +137,23 @@ VALUES ('2024-12-12', '2024-12-14', 3, 2);
 INSERT INTO `huone_varaus` (`alku_pvm`, `loppu_pvm`, `huone_id`, `lasku_id`)
 VALUES ('2024-12-15', '2024-12-19', 2, 3);
 
+//-----------------------projekti 2--------------------------
+1. Lisää huone tauluun:
+    huone_tyyppi_en, huone_tyyppi_ru, huone_tyyppi_zh
+
+    ALTER TABLE huone
+    ADD COLUMN huone_tyyppi_en VARCHAR(100),
+    ADD COLUMN huone_tyyppi_ru VARCHAR(100),
+    ADD COLUMN huone_typpi_zh VARCHAR(100);
+
+    ADD COLUMN huone_tila_en VARCHAR(100),
+    ADD COLUMN huone_tila_ru VARCHAR(100),
+    ADD COLUMN huone_tila_zh VARCHAR(100);
+
+2.  sitten vaihtaa edellisen sarakkeiden nimi:
+    huone_tyyppi -> huone_tyyppi_fi
+    huone_tila ->  huone_tila_fi
+
 
 
 
