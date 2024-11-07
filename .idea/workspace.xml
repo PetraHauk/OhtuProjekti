@@ -4,21 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="getHuone_tila -&gt; getHuone_tila">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="HuoneSivu haut, lisää uusi huone ja muokkaa huone, kaikki toimi">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/HuoneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/HuoneController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/HuoneDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/HuoneDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/service/LocaleManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/service/LocaleManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/sivut/HuoneSivu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/sivut/HuoneSivu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/HuoneController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/HuoneController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/messages_en_GB.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages_en_GB.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/messages_fi_FI.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages_fi_FI.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/messages_ru_Ru.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages_ru_Ru.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/DAO/HuoneDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/DAO/HuoneDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/enteties/Huone.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/enteties/Huone.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/model/service/LocaleManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/service/LocaleManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/Etusivu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/sivut/Etusivu.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/HuoneSivu$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/sivut/HuoneSivu$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/HuoneSivu$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/sivut/HuoneSivu$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/HuoneSivu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/sivut/HuoneSivu.class" afterDir="false" />
@@ -342,15 +333,7 @@
       <workItem from="1730717989820" duration="2112000" />
       <workItem from="1730724291170" duration="300000" />
       <workItem from="1730737802323" duration="34977000" />
-      <workItem from="1730872404244" duration="40239000" />
-    </task>
-    <task id="LOCAL-00011" summary="Admin.gui muutoksia">
-      <option name="closed" value="true" />
-      <created>1727692094936</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1727692094936</updated>
+      <workItem from="1730872404244" duration="42982000" />
     </task>
     <task id="LOCAL-00012" summary="Rekisteröinti testi jenkinsiä varten, muut testit kommentoitu pois, muuttaa pom.xml jossa">
       <option name="closed" value="true" />
@@ -736,7 +719,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730985883723</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="HuoneSivu haut, lisää uusi huone ja muokkaa huone, kaikki toimi">
+      <option name="closed" value="true" />
+      <created>1730989261192</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1730989261192</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -755,7 +746,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="ylimääränen src kansio poistettu" />
     <MESSAGE value="muut testit kommentoitu pois koska virheitä jenkinsissä" />
     <MESSAGE value="pomi muutokset" />
     <MESSAGE value="Varaus Taulussa Asiakaan nimi" />
@@ -780,7 +770,8 @@
     <MESSAGE value="update" />
     <MESSAGE value="Tietokanna localsointi" />
     <MESSAGE value="getHuone_tila -&gt; getHuone_tila" />
-    <option name="LAST_COMMIT_MESSAGE" value="getHuone_tila -&gt; getHuone_tila" />
+    <MESSAGE value="HuoneSivu haut, lisää uusi huone ja muokkaa huone, kaikki toimi" />
+    <option name="LAST_COMMIT_MESSAGE" value="HuoneSivu haut, lisää uusi huone ja muokkaa huone, kaikki toimi" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -793,14 +784,10 @@
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="11" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
+        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/view/sivut/HuoneSivu.java</url>
-          <line>282</line>
-          <properties class="view.sivut.HuoneSivu" method="openMuokkaaHuoneWindow">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="21" />
+          <line>224</line>
+          <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

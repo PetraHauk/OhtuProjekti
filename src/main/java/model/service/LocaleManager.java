@@ -61,26 +61,13 @@ public class LocaleManager {
         }
     }
 
-    public static String getLocalizedColumn(String selectedLanguage, String columnBaseName) {
+    public static String getLocalColumnName(String selectedLanguage, String columnBaseName) {
         switch (selectedLanguage) {
-            case "en":
+            case "English":
                 return columnBaseName + "_en";
-            case "ru":
+            case "россия":
                 return columnBaseName + "_ru";
-            case "zh":
-                return columnBaseName + "_zh";
-            default:
-                return columnBaseName + "_fi";
-        }
-    }
-
-    public static String getLocaliColumnName(String selectedLanguage, String columnBaseName) {
-        switch (selectedLanguage) {
-            case "en":
-                return columnBaseName + "_en";
-            case "ru":
-                return columnBaseName + "_ru";
-            case "zh":
+            case "中文":
                 return columnBaseName + "_zh";
             default:
                 return columnBaseName + "_fi";

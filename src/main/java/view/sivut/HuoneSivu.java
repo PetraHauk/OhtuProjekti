@@ -24,9 +24,9 @@ public class HuoneSivu {
     private HuoneController huoneController;
     String selectedlanguage = LocaleManager.getLanguageName();
 
+
     public HuoneSivu() {
         this.huoneController = new HuoneController();
-        String selectedlanguage = LocaleManager.getLanguageName();
     }
 
     public VBox createHuoneet() {
@@ -220,13 +220,14 @@ public class HuoneSivu {
         TableColumn<Huone, Integer> numeroColumn = new TableColumn<>("Huoneen Numero");
         numeroColumn.setCellValueFactory(new PropertyValueFactory<>("huone_nro"));
         numeroColumn.setMinWidth(120);
-        
-        String huoneType = LocaleManager.getLocaliColumnName(selectedlanguage, "huone_tyyppi");
+
+        String huoneType = LocaleManager.getLocalColumnName(selectedlanguage, "huone_tyyppi");
+        System.out.println("huoneType: " + huoneType);
         TableColumn<Huone, String> tyyppiColumn = new TableColumn<>("Huone Tyyppi");
         tyyppiColumn.setCellValueFactory(new PropertyValueFactory<>(huoneType));
         tyyppiColumn.setMinWidth(293);
 
-        String huoneTila = LocaleManager.getLocaliColumnName(selectedlanguage, "huone_tila");
+        String huoneTila = LocaleManager.getLocalColumnName(selectedlanguage, "huone_tila");
         TableColumn<Huone, String> tilaColumn = new TableColumn<>("Huone Status");
         tilaColumn.setCellValueFactory(new PropertyValueFactory<>(huoneTila));
         tilaColumn.setMinWidth(203);
@@ -253,7 +254,6 @@ public class HuoneSivu {
                     openMuokkaaHuoneWindow(huone, getTableView());
                     System.out.println("Muokkaa-painiketta painettu" + huone.getHuone_id());
                 });
-
 
                 // Poista-painikeen toiminnallisuus
                 deleteButton.setOnAction(event -> {
@@ -357,8 +357,4 @@ public class HuoneSivu {
         muokkaaHuoneStage.setScene(scene);
         muokkaaHuoneStage.show(); // Tämä avaa muokkausikkunan
     }
-
-
-
-
 }

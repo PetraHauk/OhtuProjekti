@@ -108,7 +108,7 @@ public class HuoneDAO {
         List<Huone> huoneet = null;
 
         // Valitse sarake nimen perusteella
-        String selectedColumn = LocaleManager.getLocalizedColumn(selectedlanguage, "huone_tyyppi");
+        String selectedColumn = LocaleManager.getLocalColumnName(selectedlanguage, "huone_tyyppi");
 
         try {
             String queryStr = "SELECT h FROM Huone h WHERE h." + selectedColumn + " = :huone_tyyppi";
@@ -261,7 +261,7 @@ public class HuoneDAO {
     public void UpdateHuoneTilaById(int id, String huone_tila) {
         EntityManager em = MariaDbConnection.getInstance();
 
-        String selectedColumn = LocaleManager.getLocalizedColumn(selectedlanguage, "huone_tila");
+        String selectedColumn = LocaleManager.getLocalColumnName(selectedlanguage, "huone_tila");
         try {
             em.getTransaction().begin();
             Huone huone = em.find(Huone.class, id);
@@ -280,7 +280,7 @@ public class HuoneDAO {
 
     public void UpdateHuoneTyyppiById(int id, String huone_tyyppi) {
         EntityManager em = MariaDbConnection.getInstance();
-        String selectedColumn = LocaleManager.getLocalizedColumn(selectedlanguage, "huone_tyyppi");
+        String selectedColumn = LocaleManager.getLocalColumnName(selectedlanguage, "huone_tyyppi");
         try {
             em.getTransaction().begin();
             Huone huone = em.find(Huone.class, id);
