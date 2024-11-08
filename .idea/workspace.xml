@@ -5,34 +5,49 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="Merge valmis, tyylit lisätty login ja rekisteröinti, häshäys toimii">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_9_2024_12_53__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_9_2024_12_53__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_09_2024_10_00__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_09_2024_10_00__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_09_2024_11_29__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_09_2024_11_29__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/OhjelmistoGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/OhjelmistoGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/VarausHaku.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/VarausHaku.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/AsiakasController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/AsiakasController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/HuoneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/HuoneController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/LaskuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/LaskuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/VarausController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/VarausController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/AsiakasDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/AsiakasDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/HuoneDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/HuoneDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/VarausDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/VarausDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/enteties/Varaus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enteties/Varaus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/app/LaskuHaku.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/app/LaskuHaku.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/app/OhjelmistoGUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/app/OhjelmistoGUI$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/app/OhjelmistoGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/app/OhjelmistoGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/AsiakasController.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/controller/AsiakasController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/HuoneController.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/controller/HuoneController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/LaskuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/controller/LaskuController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/VarausController.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/controller/VarausController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/AsiakasDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/DAO/AsiakasDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/HuoneDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/DAO/HuoneDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/VarausDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/DAO/VarausDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/model/enteties/Varaus.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/model/enteties/Varaus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/META-INF/persistence.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/app/AnnaMain.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/app/AsiakasHaku.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/app/HotelliHaku.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/app/KayttajaHaku.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/app/LaskuHaku.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/app/LoginGui.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/app/OhjelmistoGUI$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/app/OhjelmistoGUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/app/RegistrationGui.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/app/WilmaMain.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/AsiakasController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/HomeController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/HotelliController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/HuoneController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/KayttajaController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/LaskuController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/LoginController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/VarausController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/hotelli.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/logback.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/login.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/AsiakasDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/HotelliDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/HuoneDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/KayttajaDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/LaskuDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/VarausDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/datasourse/MariaDbConnection.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/enteties/Asiakas.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/enteties/Hotelli.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/enteties/Huone.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/enteties/Kayttaja.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/enteties/Lasku.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/enteties/Varaus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/model/service/Kirjautuminen.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/utils/PasswordUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/view/home.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/view/login.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/view/register.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +66,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="d71699aa497bd716293854cc4ef24d4a495bb94e" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -78,7 +93,9 @@
   &quot;associatedIndex&quot;: 3
 }</component>
   <component name="ProjectId" id="2leYgd5LUOn8ijdYfmOTF1ggQv2" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -89,6 +106,7 @@
     "Application.MainPetra.executor": "Run",
     "Application.WilmaMain.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
+    "Maven.gui [clean].executor": "Run",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "false",
@@ -169,25 +187,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="gui" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="gui" />
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+    <list>
+      <item itemvalue="Application.AnnaMain" />
+      <item itemvalue="Application.MainPetra" />
+      <item itemvalue="Application.WilmaMain" />
+      <item itemvalue="Application.Main" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.WilmaMain" />
-        <item itemvalue="Application.Main" />
         <item itemvalue="Application.MainPetra" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.AnnaMain" />
+        <item itemvalue="Application.WilmaMain" />
       </list>
     </recent_temporary>
   </component>
