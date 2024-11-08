@@ -12,14 +12,17 @@ public class VarausController {
     private AsiakasController asiakasController;
     private LaskuController laskuController;
 
+    private HuoneController huoneController;
+
     public VarausController() {
         varausDAO = new VarausDAO();
         asiakasController = new AsiakasController();
         laskuController = new LaskuController();
+        huoneController = new HuoneController();
     }
 
     public void AddVaraus(LocalDate alkuPvm, LocalDate loppuPvm, Integer huone_id, int lasku_id) {
-        Varaus varaus = new Varaus(0, alkuPvm, loppuPvm, huone_id, lasku_id);
+        Varaus varaus = new Varaus(0,  alkuPvm, loppuPvm, huone_id, lasku_id);
         varausDAO.persist(varaus);
     }
 
@@ -47,6 +50,7 @@ public class VarausController {
         List<Varaus> varaukset = varausDAO.haeVaraukset();
         List<Varaus> varauksetByDate = new ArrayList<>();
 
+
         for (Varaus varaus : varaukset) {
             if ((varaus.getAlkuPvm().isEqual(alkuPvm) || varaus.getAlkuPvm().isAfter(alkuPvm)) &&
                     (varaus.getLoppuPvm().isEqual(loppuPvm) || varaus.getLoppuPvm().isBefore(loppuPvm))) {
@@ -56,12 +60,26 @@ public class VarausController {
         return varauksetByDate;
     }
 
-    public void findByVarausId(int varaus_id) {
-        varausDAO.haeByVarausId(varaus_id);
+    public int getOverlappingReservationsCount(LocalDate saapumisPvm, LocalDate lahtoPvm) {
+        List<Varaus> varaukset = varausDAO.haeVaraukset();
+        int overlappingReservationsCount = 0;
+
+        for (Varaus varaus : varaukset) {
+            if ((varaus.getAlkuPvm().isEqual(saapumisPvm) || varaus.getAlkuPvm().isAfter(saapumisPvm)) &&
+                    (varaus.getLoppuPvm().isEqual(lahtoPvm) || varaus.getLoppuPvm().isBefore(lahtoPvm))) {
+                overlappingReservationsCount++;
+            }
+        }
+        return overlappingReservationsCount;
     }
 
-    public void findByLaskuId (int lasku_id) {
-        varausDAO.haeByLaskuId(lasku_id);
+    public Varaus findByVarausId(int varaus_id) {
+        return varausDAO.haeByVarausId(varaus_id);
+
+    }
+
+    public List<Varaus> findByLaskuId (int lasku_id) {
+        return varausDAO.haeByLaskuId(lasku_id);
     }
 
     public void updateVarausById(int varaus_id, LocalDate alkuPvm, LocalDate loppuPvm) {
@@ -77,5 +95,14 @@ public class VarausController {
         varausDAO.removeById(id);
 
     }
+
+    public void removeVarausById(int varaus_id) {
+        varausDAO.removeById(varaus_id);
+    }
+
+    public int varausPaivat (LocalDate alkuPvm, LocalDate loppuPvm) {
+        return varausDAO.varausPaivat(alkuPvm, loppuPvm);
+    }
+
 
 }

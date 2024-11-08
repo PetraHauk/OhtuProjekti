@@ -4,50 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="Merge valmis, tyylit lisätty login ja rekisteröinti, häshäys toimii">
+    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="CheckIn sivu, vapaat huoneen taulissa tyype ja status haetaan selected kilen mukaan.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/META-INF/persistence.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/app/AnnaMain.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/app/AsiakasHaku.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/app/HotelliHaku.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/app/KayttajaHaku.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/app/LaskuHaku.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/app/LoginGui.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/app/OhjelmistoGUI$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/app/OhjelmistoGUI.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/app/RegistrationGui.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/app/WilmaMain.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/AsiakasController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/HomeController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/HotelliController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/HuoneController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/KayttajaController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/LaskuController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/LoginController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/controller/VarausController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/hotelli.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/logback.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/login.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/AsiakasDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/HotelliDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/HuoneDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/KayttajaDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/LaskuDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/model/DAO/VarausDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/model/datasourse/MariaDbConnection.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/model/enteties/Asiakas.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/model/enteties/Hotelli.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/model/enteties/Huone.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/model/enteties/Kayttaja.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/model/enteties/Lasku.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/model/enteties/Varaus.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/model/service/Kirjautuminen.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/utils/PasswordUtils.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/view/home.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/view/login.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/view/register.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/HuoneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/HuoneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/HuoneDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/HuoneDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/controller/HuoneControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/controller/HuoneControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/DAO/HuoneDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/DAO/HuoneDAO.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +21,8 @@
       <list>
         <option value="FxmlFile" />
         <option value="CSS File" />
+        <option value="Dockerfile" />
+        <option value="JUnit4 Test Class" />
         <option value="Class" />
       </list>
     </option>
@@ -70,6 +34,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="SOFT" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -77,11 +42,17 @@
     &quot;assignee&quot;: &quot;annagaom&quot;
   }
 }</component>
+  <component name="GitRewordedCommitMessages">
+    <option name="onto" value="83bee81bf495a0e12f8b366fef7362451a11c740" />
+  </component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/PetraHauk/OhtuProjekti.git&quot;,
     &quot;accountId&quot;: &quot;d12f10a6-d5cf-492d-aceb-5d1198a70491&quot;
   }
+}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
 }</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -102,19 +73,53 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Application.LoginGui.executor": "Run",
     "Application.Main.executor": "Run",
     "Application.MainPetra.executor": "Run",
     "Application.WilmaMain.executor": "Run",
+    "Docker.Dockerfile.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.AdminGUITest.executor": "Run",
+    "JUnit.AdminGUITest.testDeleteUser.executor": "Run",
+    "JUnit.AdminGUITest.testHandleAddUser.executor": "Run",
+    "JUnit.AdminGUITest.testLoadUsers.executor": "Run",
+    "JUnit.AdminGUITest.testUpdateUserById.executor": "Run",
+    "JUnit.AdminGUITest.testValidatePassword.executor": "Run",
+    "JUnit.HuoneControllerTest.findHuoneByTila.executor": "Run",
+    "JUnit.LaskuControllerTest.executor": "Run",
+    "JUnit.LoginGuiTest.executor": "Run",
+    "JUnit.LoginGuiTest.testEmptyFields.executor": "Run",
+    "JUnit.LoginGuiTest.testFailedLogin.executor": "Run",
+    "JUnit.LoginGuiTest.testOpenRegistrationPage.executor": "Run",
+    "JUnit.LoginGuiTest.testSuccessfulLogin.executor": "Run",
+    "JUnit.RegistrationGuiTest (1).executor": "Run",
+    "JUnit.RegistrationGuiTest.executor": "Profiler#1",
+    "JUnit.RegistrationGuiTest.testHandleRegister_Success (1).executor": "Run",
+    "JUnit.RegistrationGuiTest.testHandleRegister_Success.executor": "Run",
+    "JUnit.RegistrationGuiTest.testRegisterWithEmptyFields.executor": "Run",
+    "JUnit.RegistrationGuiTest.testRegisterWithExistingEmail.executor": "Run",
+    "JUnit.RegistrationGuiTest.testSuccessfulAlertDisplay.executor": "Run",
+    "JUnit.RegistrationGuiTest.testSuccessfulRegistration.executor": "Run",
+    "JUnit.VarausControllerTest.executor": "Run",
+    "JUnit.controller in gui.executor": "Run",
+    "Maven.gui [clean,javafx:run].executor": "Run",
+    "Maven.gui [clean,package].executor": "Run",
     "Maven.gui [clean].executor": "Run",
+    "Maven.gui [install].executor": "Run",
+    "Maven.gui [package].executor": "Run",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Petra",
+    "TestNG.KayttajaControllerTest.executor": "Run",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
+    "git-widget-placeholder": "anna-3",
     "jdk.selected.JAVA_MODULE": "21",
     "kotlin-language-version-configured": "true",
+    "last_directory_selection": "C:/Users/kakek/IdeaProjects/OhtuProjekti2/src/test/java/view",
     "last_opened_file_path": "C:/Users/kakek/javafx-sdk-17.0.10/lib",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
@@ -122,10 +127,10 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
+    "project.structure.last.edited": "Global Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.5482759",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "settings.editor.selected.configurable": "File.Encoding",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -134,20 +139,34 @@
     ]
   }
 }]]></component>
-  <component name="RunManager" selected="Application.WilmaMain">
-    <configuration name="AnnaMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="app.AnnaMain" />
-      <module name="gui" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="app.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\kakek\IdeaProjects\OhtuProjekti2\src" />
+      <recent name="C:\Users\kakek\IdeaProjects\OhtuProjekti2\src\src" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="view" />
+      <recent name="app" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="view.sivut" />
+      <recent name="model.enteties" />
+      <recent name="app" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean package" />
+      <command value="mvn clean javafx:run" />
+      <command value="mvn package" />
+      <command value="mvn clean" />
+      <command value="mvn install" />
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="app.Main" />
       <module name="gui" />
@@ -161,65 +180,119 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MainPetra" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="app.MainPetra" />
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <module name="gui" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="app.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WilmaMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="app.WilmaMain" />
+    <configuration name="HuoneControllerTest.findHuoneByTila" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gui" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="app.*" />
+          <option name="PATTERN" value="controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="controller" />
+      <option name="MAIN_CLASS_NAME" value="controller.HuoneControllerTest" />
+      <option name="METHOD_NAME" value="findHuoneByTila" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="HuoneControllerTest.testFindHuoneById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gui" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="controller" />
+      <option name="MAIN_CLASS_NAME" value="controller.HuoneControllerTest" />
+      <option name="METHOD_NAME" value="testFindHuoneById" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HuoneControllerTest.testFindHuoneetByHoteliId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gui" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="controller" />
+      <option name="MAIN_CLASS_NAME" value="controller.HuoneControllerTest" />
+      <option name="METHOD_NAME" value="testFindHuoneetByHoteliId" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoginGuiTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gui" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="view.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="view" />
+      <option name="MAIN_CLASS_NAME" value="view.LoginGuiTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Dockerfile" type="docker-deploy" factoryName="dockerfile" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="containerName" value="" />
+          <option name="sourceFilePath" value="Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
+      <deployment type="dockerfile">
+        <settings />
+      </deployment>
+      <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Application.AnnaMain" />
-      <item itemvalue="Application.MainPetra" />
-      <item itemvalue="Application.WilmaMain" />
+      <item itemvalue="Application.Unnamed" />
       <item itemvalue="Application.Main" />
+      <item itemvalue="Docker.Dockerfile" />
+      <item itemvalue="JUnit.HuoneControllerTest.findHuoneByTila" />
+      <item itemvalue="JUnit.HuoneControllerTest.testFindHuoneById" />
+      <item itemvalue="JUnit.HuoneControllerTest.testFindHuoneetByHoteliId" />
+      <item itemvalue="JUnit.LoginGuiTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.WilmaMain" />
-        <item itemvalue="Application.MainPetra" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.AnnaMain" />
-        <item itemvalue="Application.WilmaMain" />
+        <item itemvalue="JUnit.HuoneControllerTest.testFindHuoneetByHoteliId" />
+        <item itemvalue="JUnit.HuoneControllerTest.testFindHuoneById" />
+        <item itemvalue="JUnit.HuoneControllerTest.findHuoneByTila" />
+        <item itemvalue="JUnit.LoginGuiTest" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-17.0.10-corretto-17.0.10-f644763e9732-24fca987" />
-        <option value="jdk-21.0.2-openjdk-21.0.2-f644763e9732-c0c073db" />
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.20224.419" />
+        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-IU-242.20224.419" />
       </set>
     </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task id="LOCAL−00001" summary="Window opens and shows basic layout when WilmaMain is launched">
-      <option name="closed" value="true" />
-      <created>1726038545983</created>
-      <option name="number" value="LOCAL−00001" />
-      <option name="presentableId" value="LOCAL−00001" />
-      <updated>1726038545983</updated>
-    </task>
     <task active="true" id="Default" summary="Default task">
       <changelist id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="Window opens and shows basic layout when WilmaMain is launched" />
       <created>1726554373190</created>
@@ -232,24 +305,428 @@
       <workItem from="1727078937225" duration="158000" />
       <workItem from="1727088746951" duration="605000" />
       <workItem from="1727338859611" duration="3803000" />
+      <workItem from="1727467050175" duration="6010000" />
+      <workItem from="1727617303006" duration="3223000" />
+      <workItem from="1727681862663" duration="1674000" />
+      <workItem from="1727692025966" duration="270000" />
+      <workItem from="1727722802128" duration="1301000" />
+      <workItem from="1727762601158" duration="7387000" />
+      <workItem from="1728065113527" duration="3995000" />
+      <workItem from="1728112777104" duration="20866000" />
+      <workItem from="1728284414792" duration="4584000" />
+      <workItem from="1728318854390" duration="4828000" />
+      <workItem from="1728325623733" duration="1304000" />
+      <workItem from="1728367271377" duration="9763000" />
+      <workItem from="1729418471592" duration="165000" />
+      <workItem from="1729418669020" duration="1482000" />
+      <workItem from="1729510306030" duration="42000" />
+      <workItem from="1729676484232" duration="1211000" />
+      <workItem from="1729850000186" duration="174000" />
+      <workItem from="1730361248266" duration="953000" />
+      <workItem from="1730460337207" duration="101000" />
+      <workItem from="1730460578716" duration="150000" />
+      <workItem from="1730540268223" duration="2588000" />
+      <workItem from="1730622906119" duration="3511000" />
+      <workItem from="1730631767746" duration="1306000" />
+      <workItem from="1730708701361" duration="722000" />
+      <workItem from="1730717989820" duration="2112000" />
+      <workItem from="1730724291170" duration="300000" />
+      <workItem from="1730737802323" duration="34977000" />
+      <workItem from="1730872404244" duration="45422000" />
     </task>
-    <task id="LOCAL-00002" summary="yhdistetty wilman ja kaislan judut">
+    <task id="LOCAL-00015" summary="muuttaa pomin ja dockerfilen docker pull ja buildia varten">
       <option name="closed" value="true" />
-      <created>1726820478395</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
+      <created>1728069069699</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
       <option name="project" value="LOCAL" />
-      <updated>1726820478395</updated>
+      <updated>1728069069699</updated>
     </task>
-    <task id="LOCAL-00003" summary="Merge valmis, tyylit lisätty login ja rekisteröinti, häshäys toimii">
+    <task id="LOCAL-00016" summary="muuttaa pomin ja dockerfilen docker pull ja buildia varten">
       <option name="closed" value="true" />
-      <created>1727342662914</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
+      <created>1728070405336</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
       <option name="project" value="LOCAL" />
-      <updated>1727342662914</updated>
+      <updated>1728070405336</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00017" summary="muuttaa pomin ja dockerfilen docker pull ja buildia varten!">
+      <option name="closed" value="true" />
+      <created>1728070669088</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1728070669088</updated>
+    </task>
+    <task id="LOCAL-00018" summary="muuttaa pomin ja dockerfilen docker pull ja buildia varten!">
+      <option name="closed" value="true" />
+      <created>1728070694143</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1728070694143</updated>
+    </task>
+    <task id="LOCAL-00019" summary="pikku muutoksia">
+      <option name="closed" value="true" />
+      <created>1728071328950</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1728071328950</updated>
+    </task>
+    <task id="LOCAL-00020" summary="pikku muutoksia">
+      <option name="closed" value="true" />
+      <created>1728071359744</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1728071359744</updated>
+    </task>
+    <task id="LOCAL-00021" summary="pikku muutoksia">
+      <option name="closed" value="true" />
+      <created>1728071976972</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1728071976972</updated>
+    </task>
+    <task id="LOCAL-00022" summary="pikku muutoksia">
+      <option name="closed" value="true" />
+      <created>1728072098293</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1728072098293</updated>
+    </task>
+    <task id="LOCAL-00023" summary="pikku muutoksia">
+      <option name="closed" value="true" />
+      <created>1728072496454</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1728072496454</updated>
+    </task>
+    <task id="LOCAL-00024" summary="ylimääränen src kansio poistettu">
+      <option name="closed" value="true" />
+      <created>1728072746459</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1728072746459</updated>
+    </task>
+    <task id="LOCAL-00025" summary="ylimääränen src kansio poistettu">
+      <option name="closed" value="true" />
+      <created>1728073148078</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1728073148078</updated>
+    </task>
+    <task id="LOCAL-00026" summary="muut testit kommentoitu pois koska virheitä jenkinsissä">
+      <option name="closed" value="true" />
+      <created>1728073337116</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1728073337116</updated>
+    </task>
+    <task id="LOCAL-00027" summary="pomi muutokset">
+      <option name="closed" value="true" />
+      <created>1728285611958</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1728285611958</updated>
+    </task>
+    <task id="LOCAL-00028" summary="pomi muutokset">
+      <option name="closed" value="true" />
+      <created>1728285694382</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1728285694382</updated>
+    </task>
+    <task id="LOCAL-00029" summary="pomi muutokset">
+      <option name="closed" value="true" />
+      <created>1728288290188</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1728288290188</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Varaus Taulussa Asiakaan nimi">
+      <option name="closed" value="true" />
+      <created>1728290740215</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1728290740215</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Lisää testejä ja muuttaa AdminGUIn fiksummaksi">
+      <option name="closed" value="true" />
+      <created>1728323643467</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1728323643467</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Lisää testejä ja muuttaa AdminGUIn fiksummaksi">
+      <option name="closed" value="true" />
+      <created>1728323668919</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1728323668919</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Fiksaa testit ja vähän refactorointia">
+      <option name="closed" value="true" />
+      <created>1728326318368</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1728326318368</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Fiksaa testit ja vähän refactorointia">
+      <option name="closed" value="true" />
+      <created>1728367355159</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1728367355160</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Fiksaa testit ja vähän refactorointia">
+      <option name="closed" value="true" />
+      <created>1729676670464</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1729676670464</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Fiksaa testit ja vähän refactorointia">
+      <option name="closed" value="true" />
+      <created>1729676706661</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1729676706661</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Fiksaa testit ja vähän refactorointia">
+      <option name="closed" value="true" />
+      <created>1729677605534</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1729677605534</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Lisää kirjautumisen ja rekisteröinnin lokaalisaation">
+      <option name="closed" value="true" />
+      <created>1730542597614</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1730542597614</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Lisää Admin näkymän lokaalisaation">
+      <option name="closed" value="true" />
+      <created>1730629993970</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1730629993970</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Kirjaitumisessa nyt input kohdalla oikeat käännökset">
+      <option name="closed" value="true" />
+      <created>1730723704372</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1730723704372</updated>
+    </task>
+    <task id="LOCAL-00041" summary="defaultlocal  (fi, FI)">
+      <option name="closed" value="true" />
+      <created>1730738797226</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1730738797226</updated>
+    </task>
+    <task id="LOCAL-00042" summary="defaultlocal  (fi, FI)">
+      <option name="closed" value="true" />
+      <created>1730738813218</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1730738813218</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Bundles update">
+      <option name="closed" value="true" />
+      <created>1730739278876</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1730739278876</updated>
+    </task>
+    <task id="LOCAL-00044" summary="lisää javafx-base">
+      <option name="closed" value="true" />
+      <created>1730739985602</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1730739985602</updated>
+    </task>
+    <task id="LOCAL-00045" summary="asiakas välilehti kielivaihto">
+      <option name="closed" value="true" />
+      <created>1730745167100</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1730745167100</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Login, registeri, logIn, leftBar localisointi yhdistetty">
+      <option name="closed" value="true" />
+      <created>1730751723554</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1730751723554</updated>
+    </task>
+    <task id="LOCAL-00047" summary="poista ylimäärästä">
+      <option name="closed" value="true" />
+      <created>1730752373980</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1730752373980</updated>
+    </task>
+    <task id="LOCAL-00048" summary="lisää venäjä kieli, leftbar ja asiakas sivu">
+      <option name="closed" value="true" />
+      <created>1730753889792</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1730753889792</updated>
+    </task>
+    <task id="LOCAL-00049" summary="update">
+      <option name="closed" value="true" />
+      <created>1730754029894</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1730754029894</updated>
+    </task>
+    <task id="LOCAL-00050" summary="update">
+      <option name="closed" value="true" />
+      <created>1730754044822</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1730754044824</updated>
+    </task>
+    <task id="LOCAL-00051" summary="Adminpanel kieli vaihtaa local mukaan">
+      <option name="closed" value="true" />
+      <created>1730754294148</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1730754294148</updated>
+    </task>
+    <task id="LOCAL-00052" summary="asiakas/henkilömäärä esillä">
+      <option name="closed" value="true" />
+      <created>1730756576934</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1730756576934</updated>
+    </task>
+    <task id="LOCAL-00053" summary="kooodin siisti">
+      <option name="closed" value="true" />
+      <created>1730757025384</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1730757025384</updated>
+    </task>
+    <task id="LOCAL-00054" summary="check-out kännös">
+      <option name="closed" value="true" />
+      <created>1730842413556</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1730842413556</updated>
+    </task>
+    <task id="LOCAL-00055" summary="Asiakas sivu update(pois output luokka)">
+      <option name="closed" value="true" />
+      <created>1730922029042</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1730922029043</updated>
+    </task>
+    <task id="LOCAL-00056" summary="Check  out sivu kännös valmis">
+      <option name="closed" value="true" />
+      <created>1730930515792</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1730930515792</updated>
+    </task>
+    <task id="LOCAL-00057" summary="update">
+      <option name="closed" value="true" />
+      <created>1730930577781</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1730930577781</updated>
+    </task>
+    <task id="LOCAL-00058" summary="Tietokanna localsointi">
+      <option name="closed" value="true" />
+      <created>1730985846817</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1730985846817</updated>
+    </task>
+    <task id="LOCAL-00059" summary="getHuone_tila -&gt; getHuone_tila">
+      <option name="closed" value="true" />
+      <created>1730985883723</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1730985883723</updated>
+    </task>
+    <task id="LOCAL-00060" summary="HuoneSivu haut, lisää uusi huone ja muokkaa huone, kaikki toimi">
+      <option name="closed" value="true" />
+      <created>1730989261192</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1730989261192</updated>
+    </task>
+    <task id="LOCAL-00061" summary="Huonesivun tyypi ja tila haetaan valitettu kielen mukaan.">
+      <option name="closed" value="true" />
+      <created>1731003865262</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1731003865262</updated>
+    </task>
+    <task id="LOCAL-00062" summary="CheckIn sivu, vapaat huoneen taulissa tyype ja status haetaan selected kilen mukaan.">
+      <option name="closed" value="true" />
+      <created>1731004936803</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1731004936803</updated>
+    </task>
+    <task id="LOCAL-00063" summary="CheckIn sivu, vapaat huoneen taulissa tyype ja status haetaan selected kilen mukaan.">
+      <option name="closed" value="true" />
+      <created>1731005046751</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1731005046751</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -267,12 +744,33 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Window opens and shows basic layout when WilmaMain is launched" />
-    <MESSAGE value="...." />
-    <MESSAGE value="yhdistetty wilman ja kaislan judut" />
-    <MESSAGE value="Merge valmis, tyylit lisätty login ja rekisteröinti, häshäys toimii" />
-    <MESSAGE value="Huoneet haetaan tietokannasta taulukkoon. Uuden huoneen lisäys visuaalissa toimii." />
-    <option name="LAST_COMMIT_MESSAGE" value="Huoneet haetaan tietokannasta taulukkoon. Uuden huoneen lisäys visuaalissa toimii." />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Varaus Taulussa Asiakaan nimi" />
+    <MESSAGE value="Lisää testejä ja muuttaa AdminGUIn fiksummaksi" />
+    <MESSAGE value="Fiksaa testit ja vähän refactorointia" />
+    <MESSAGE value="Lisää kirjautumisen ja rekisteröinnin lokaalisaation" />
+    <MESSAGE value="Lisää Admin näkymän lokaalisaation" />
+    <MESSAGE value="Kirjaitumisessa nyt input kohdalla oikeat käännökset" />
+    <MESSAGE value="defaultlocal  (fi, FI)" />
+    <MESSAGE value="Bundles update" />
+    <MESSAGE value="lisää javafx-base" />
+    <MESSAGE value="asiakas välilehti kielivaihto" />
+    <MESSAGE value="Login, registeri, logIn, leftBar localisointi yhdistetty" />
+    <MESSAGE value="poista ylimäärästä" />
+    <MESSAGE value="lisää venäjä kieli, leftbar ja asiakas sivu" />
+    <MESSAGE value="Adminpanel kieli vaihtaa local mukaan" />
+    <MESSAGE value="asiakas/henkilömäärä esillä" />
+    <MESSAGE value="kooodin siisti" />
+    <MESSAGE value="check-out kännös" />
+    <MESSAGE value="Asiakas sivu update(pois output luokka)" />
+    <MESSAGE value="Check  out sivu kännös valmis" />
+    <MESSAGE value="update" />
+    <MESSAGE value="Tietokanna localsointi" />
+    <MESSAGE value="getHuone_tila -&gt; getHuone_tila" />
+    <MESSAGE value="HuoneSivu haut, lisää uusi huone ja muokkaa huone, kaikki toimi" />
+    <MESSAGE value="Huonesivun tyypi ja tila haetaan valitettu kielen mukaan." />
+    <MESSAGE value="CheckIn sivu, vapaat huoneen taulissa tyype ja status haetaan selected kilen mukaan." />
+    <option name="LAST_COMMIT_MESSAGE" value="CheckIn sivu, vapaat huoneen taulissa tyype ja status haetaan selected kilen mukaan." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -281,7 +779,17 @@
           <properties class="java.lang.IllegalStateException" package="java.lang" />
           <option name="timeStamp" value="8" />
         </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="11" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/OhtuProjekti2$RegistrationGuiTest__1_.ic" NAME="RegistrationGuiTest (1) Coverage Results" MODIFIED="1728126544540" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>view.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/OhtuProjekti2$controller_in_gui.ic" NAME="controller in gui Coverage Results" MODIFIED="1728129736984" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

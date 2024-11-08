@@ -19,6 +19,10 @@ public class HotelliController {
         return hotelliDAO.findById(id);
     }
 
+    public int getRoomCount() {
+        return hotelliDAO.getRowCount();
+    }
+
     public void removeHotelliById(int hotelli_id) {
         hotelliDAO.removeById(hotelli_id);
     }

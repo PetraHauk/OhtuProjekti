@@ -1,6 +1,9 @@
 package model.enteties;
 
 import jakarta.persistence.*;
+import model.DAO.AsiakasDAO;
+import model.DAO.LaskuDAO;
+
 import java.time.LocalDate;
 
 @Entity
@@ -22,6 +25,13 @@ public class Varaus {
 
     @Column(name = "lasku_id")
     private int laskuId;
+
+    @Transient
+    private String nimi;
+
+    @Transient
+    private Huone huone;
+
 
 
     // Parametrillinen konstruktori
@@ -69,4 +79,19 @@ public class Varaus {
         this.huoneId = huoneId;
     }
 
+    public void setHuone(Huone huone) {
+        this.huone = huone;
+    }
+
+    public void setNimi(String nimi) {
+        this.nimi = nimi;
+    }
+
+    public int getHuoneNro() {
+        return huone != null ? huone.getHuone_nro() : 0;
+    }
+
+    public String getNimi() {
+        return nimi;
+    }
 }

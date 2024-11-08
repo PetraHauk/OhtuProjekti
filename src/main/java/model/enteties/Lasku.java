@@ -31,6 +31,7 @@ public class Lasku {
         this.asiakas_id = asiakas_id;
     }
 
+
     public Lasku() {
     }
 
@@ -70,4 +71,10 @@ public class Lasku {
     public void setAsiakasId(int asiakas_id) {
         this.asiakas_id = asiakas_id;
     }
+
+
 }
+
+
+
+
