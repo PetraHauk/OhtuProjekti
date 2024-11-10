@@ -16,10 +16,13 @@ import model.enteties.Asiakas;
 import model.enteties.Huone;
 import model.enteties.Lasku;
 import model.enteties.Varaus;
+import model.service.LocaleManager;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 public class VarausSivu {
 
@@ -30,43 +33,48 @@ public class VarausSivu {
     private LaskuController laskuController;
     private HuoneController huoneController;
 
+    private ResourceBundle bundle;
+
     public VarausSivu() {
         varausController = new VarausController();
         hotelliController = new HotelliController();
         asiakasController = new AsiakasController();
         laskuController = new LaskuController();
         huoneController = new HuoneController();
+
+        Locale currentLocale = LocaleManager.getCurrentLocale();
+        bundle = ResourceBundle.getBundle("messages", currentLocale);
     }
 
     public VBox createVaraukset() {
         VBox varauksetInfo = new VBox(10);
         varauksetInfo.getStyleClass().add("info");
-        Label varauksetOtsikkoLabel = new Label("Varaukset");
+        Label varauksetOtsikkoLabel = new Label(bundle.getString("varaus.title"));
         varauksetOtsikkoLabel.getStyleClass().add("otsikko");
 
         HBox varausBox = new HBox(10);
 
         VBox luoVaraus = new VBox(0);
-        Label luoVarausLabel = new Label("Luo varaus");
+        Label luoVarausLabel = new Label(bundle.getString("varaus.createtitle"));
 
         VBox asiakasTiedot = new VBox(0);
 
-        Label asiakasEtunimiLabel = new Label("Asiakas Etunimi:");
+        Label asiakasEtunimiLabel = new Label(bundle.getString("varaus.label.firstname"));
         TextField asiakasEtunimiField = new TextField();
 
-        Label asiakasSukunimiLabel = new Label("Asiakas Sukunimi:");
+        Label asiakasSukunimiLabel = new Label(bundle.getString("varaus.label.lastname"));
         TextField asiakasSukunimiField = new TextField();
 
-        Label asiakasSpostiLabel = new Label("Asiakas Sähköposti:");
+        Label asiakasSpostiLabel = new Label(bundle.getString("varaus.label.email"));
         TextField asiakasSpostiField = new TextField();
 
-        Label asiakasPuhLabel = new Label("Asiakas Puhelin:");
+        Label asiakasPuhLabel = new Label(bundle.getString("varaus.label.phone"));
         TextField asiakasPuhField = new TextField();
 
-        Label asiakasLisatiedotLabel = new Label("Lisätiedot:");
+        Label asiakasLisatiedotLabel = new Label(bundle.getString("varaus.label.notes"));
         TextField asiakasLisatiedotField = new TextField();
 
-        Button etsiAsiakasButton = new Button("Etsi asiakas");
+        Button etsiAsiakasButton = new Button(bundle.getString("varaus.button.searchcustomer"));
         etsiAsiakasButton.getStyleClass().add("yellow-btn");
 
         asiakasTiedot.getChildren().addAll(
@@ -84,24 +92,27 @@ public class VarausSivu {
 
         VBox laskuTiedot = new VBox(0);
 
-        Label laskuMuotoLabel = new Label("Laskun Muoto:");
+        Label laskuMuotoLabel = new Label(bundle.getString("varaus.label.reservationtype"));
         ComboBox<String> laskuMuotoField = new ComboBox<>();
-        laskuMuotoField.setPromptText("Valitse laskun muoto...");
-        laskuMuotoField.getItems().addAll("All Inclusive", "Bed & Breakfast", "Room Only");
+        laskuMuotoField.setPromptText(bundle.getString("varaus.selector.placeholder"));
+        laskuMuotoField.getItems().addAll(
+                bundle.getString("varaus.selector.allinclusive"),
+                bundle.getString("varaus.selector.breakfast"),
+                bundle.getString("varaus.selector.roomonly"));
 
         laskuTiedot.getChildren().addAll(laskuMuotoLabel, laskuMuotoField);
 
         VBox varausTiedot = new VBox(0);
 
-        Label saapumisPvmLabel = new Label("Saapumispäivä:");
+        Label saapumisPvmLabel = new Label(bundle.getString("varaus.label.arrival"));
         DatePicker saapumisPvmField = new DatePicker();
 
-        Label lahtoPvmLabel = new Label("Lähtöpäivä:");
+        Label lahtoPvmLabel = new Label(bundle.getString("varaus.label.departure"));
         DatePicker lahtoPvmField = new DatePicker();
 
         varausTiedot.getChildren().addAll(saapumisPvmLabel, saapumisPvmField, lahtoPvmLabel, lahtoPvmField);
 
-        Button luoVarausButton = new Button("Luo varaus");
+        Button luoVarausButton = new Button(bundle.getString("varaus.button.create"));
         luoVarausButton.getStyleClass().add("yellow-btn");
 
         luoVaraus.getChildren().addAll(
@@ -124,11 +135,9 @@ public class VarausSivu {
                 LocalDate lahtoPvm = lahtoPvmField.getValue();
 
                 if (saapumisPvm == null || lahtoPvm == null) {
-                    System.err.println("Please enter a valid check-in and check-out date.");
+                    System.err.println(bundle.getString("varaus.error.invaliddates"));
                     return;
                 }
-
-                System.out.println("Checking room availability...");
 
                 // Get total number of rooms in the hotel
                 int totalRooms = hotelliController.getRoomCount();
@@ -137,18 +146,18 @@ public class VarausSivu {
                 int overlappingReservations = varausController.getOverlappingReservationsCount(saapumisPvm, lahtoPvm);
 
                 if (overlappingReservations >= totalRooms) {
-                    System.err.println("No rooms available for the given date range.");
+                    System.err.println(bundle.getString("varaus.error.noroomsfordates"));
                     Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Virhe");
+                    alert.setTitle(bundle.getString("varaus.error.title"));
                     alert.setHeaderText(null);
-                    alert.setContentText("Ei huoneita saatavilla valitulle päivämäärälle.");
+                    alert.setContentText(bundle.getString(bundle.getString("varaus.error.noroomsfordates")));
                     alert.showAndWait();
                     return;
                 }
 
-                System.out.println("Creating reservation...");
+                System.out.println(bundle.getString("varaus.creating"));
                 varausController.createVaraus(asiakasEtunimi, asiakasSukunimi, asiakasEmail, asiakasPuh, huomio, laskuMuoto, saapumisPvm, lahtoPvm);
-                System.out.println("Reservation created successfully");
+                System.out.println(bundle.getString("varaus.created"));
                 populateVarausTable(varausTable, null, null);
             } catch (Exception ex) {
                 System.err.println("Failed to create reservation: " + ex.getMessage());
@@ -164,24 +173,24 @@ public class VarausSivu {
 
     private void openCustomerSearchWindow(TextField firstNameField, TextField lastNameField, TextField emailField, TextField phoneField) {
         Stage searchCustomerStage = new Stage();
-        searchCustomerStage.setTitle("Etsi asiakas");
+        searchCustomerStage.setTitle(bundle.getString("varaus.searchcustomer"));
 
         VBox searchLayout = new VBox(10);
         searchLayout.setAlignment(Pos.CENTER);
 
-        Label searchLabel = new Label("Etsi asiakas");
+        Label searchLabel = new Label(bundle.getString("varaus.searchcustomer"));
         TextField searchField = new TextField();
-        Button searchButton = new Button("Etsi");
+        Button searchButton = new Button(bundle.getString("varaus.button.search"));
         searchButton.getStyleClass().add("yellow-btn");
 
         TableView<Asiakas> searchResults = createCustomerTable();
 
         HBox pageButtons = new HBox(10);
-        Button previousButton = new Button("Edellinen");
-        Button nextButton = new Button("Seuraava");
+        Button previousButton = new Button(bundle.getString("varaus.button.previous"));
+        Button nextButton = new Button(bundle.getString("varaus.button.next"));
         pageButtons.getChildren().addAll(previousButton, nextButton);
 
-        Button selectButton = new Button("Valitse");
+        Button selectButton = new Button(bundle.getString("varaus.button.select"));
         selectButton.getStyleClass().add("yellow-btn");
 
         searchLayout.getChildren().addAll(searchLabel, searchField, searchButton, searchResults, pageButtons, selectButton);
@@ -250,13 +259,13 @@ public class VarausSivu {
                 allCustomers.addAll(customers);
                 updateCustomerTable(searchResults, allCustomers, currentPage, resultsPerPage, previousButton, nextButton);
             } else {
-                searchResults.setPlaceholder(new Label("No customers found for the given search query"));
+                searchResults.setPlaceholder(new Label(bundle.getString("varaus.error.nocustomersfound")));
             }
             loadingIndicator.setVisible(false);
         });
 
         searchCustomersTask.setOnFailed(event -> {
-            searchResults.setPlaceholder(new Label("Failed to load customer data"));
+            searchResults.setPlaceholder(new Label(bundle.getString("varaus.error.loadcustomers")));
             System.err.println("Failed to fetch customers: " + searchCustomersTask.getException());
             loadingIndicator.setVisible(false);
         });
@@ -320,13 +329,13 @@ public class VarausSivu {
                     }
                     varausTable.getItems().setAll(varaukset); // Update table with new data
                 } else {
-                    varausTable.setPlaceholder(new Label("No reservations found for the given dates"));
+                    varausTable.setPlaceholder(new Label(bundle.getString("varaus.error.noreservations")));
                 }
             });
         });
 
         fetchVarauksetTask.setOnFailed(event -> {
-            varausTable.setPlaceholder(new Label("Failed to load reservation data"));
+            varausTable.setPlaceholder(new Label(bundle.getString("varaus.error.loadreservations")));
             System.err.println("Failed to fetch reservations: " + fetchVarauksetTask.getException());
             loadingIndicator.setVisible(false);
         });
@@ -337,23 +346,23 @@ public class VarausSivu {
     private TableView<Varaus> createVarausTable(){
         TableView<Varaus> varausTable = new TableView<>();
 
-        TableColumn<Varaus, Integer> idColumn = new TableColumn<>("Varaus ID");
+        TableColumn<Varaus, Integer> idColumn = new TableColumn<>(bundle.getString("varaus.table.reservationid"));
         idColumn.setCellValueFactory(new PropertyValueFactory<>("varausId"));
         idColumn.setMinWidth(135);
 
-        TableColumn<Varaus, String> asiakasColumn = new TableColumn<>("Nimi");
+        TableColumn<Varaus, String> asiakasColumn = new TableColumn<>(bundle.getString("varaus.table.customer"));
         asiakasColumn.setCellValueFactory(new PropertyValueFactory<>("nimi"));
         asiakasColumn.setMinWidth(150);
 
-        TableColumn<Varaus, Integer> roomColumn = new TableColumn<>("Huone Nro");
+        TableColumn<Varaus, Integer> roomColumn = new TableColumn<>(bundle.getString("varaus.table.roomnumber"));
         roomColumn.setCellValueFactory(new PropertyValueFactory<>("huoneNro"));
         roomColumn.setMinWidth(150);
 
-        TableColumn<Varaus, String> startDateColumn = new TableColumn<>("Alkupäivämäärä");
+        TableColumn<Varaus, String> startDateColumn = new TableColumn<>(bundle.getString("varaus.table.arrival"));
         startDateColumn.setCellValueFactory(new PropertyValueFactory<>("alkuPvm"));
         startDateColumn.setMinWidth(150);
 
-        TableColumn<Varaus, String> endDateColumn = new TableColumn<>("Loppupäivämäärä");
+        TableColumn<Varaus, String> endDateColumn = new TableColumn<>(bundle.getString("varaus.table.departure"));
         endDateColumn.setCellValueFactory(new PropertyValueFactory<>("loppuPvm"));
         endDateColumn.setMinWidth(150);
 
@@ -369,27 +378,27 @@ public class VarausSivu {
     private TableView<Asiakas> createCustomerTable() {
         TableView<Asiakas> customerTable = new TableView<>();
 
-        TableColumn<Asiakas, Integer> idColumn = new TableColumn<>("Asiakas ID");
+        TableColumn<Asiakas, Integer> idColumn = new TableColumn<>(bundle.getString("varaus.table.customerid"));
         idColumn.setCellValueFactory(new PropertyValueFactory<>("asiakasId"));
         idColumn.setMinWidth(80);
 
-        TableColumn<Asiakas, String> firstNameColumn = new TableColumn<>("Etunimi");
+        TableColumn<Asiakas, String> firstNameColumn = new TableColumn<>(bundle.getString("varaus.table.firstname"));
         firstNameColumn.setCellValueFactory(new PropertyValueFactory<>("etunimi"));
         firstNameColumn.setMinWidth(120);
 
-        TableColumn<Asiakas, String> lastNameColumn = new TableColumn<>("Sukunimi");
+        TableColumn<Asiakas, String> lastNameColumn = new TableColumn<>(bundle.getString("varaus.table.lastname"));
         lastNameColumn.setCellValueFactory(new PropertyValueFactory<>("sukunimi"));
         lastNameColumn.setMinWidth(120);
 
-        TableColumn<Asiakas, String> emailColumn = new TableColumn<>("Sähköposti");
+        TableColumn<Asiakas, String> emailColumn = new TableColumn<>(bundle.getString("varaus.table.email"));
         emailColumn.setCellValueFactory(new PropertyValueFactory<>("sposti"));
         emailColumn.setMinWidth(150);
 
-        TableColumn<Asiakas, String> phoneColumn = new TableColumn<>("Puhelin");
+        TableColumn<Asiakas, String> phoneColumn = new TableColumn<>(bundle.getString("varaus.table.phone"));
         phoneColumn.setCellValueFactory(new PropertyValueFactory<>("puh"));
         phoneColumn.setMinWidth(90);
 
-        TableColumn<Asiakas, String> huomioColumn = new TableColumn<>("Lisätiedot");
+        TableColumn<Asiakas, String> huomioColumn = new TableColumn<>(bundle.getString("varaus.table.notes"));
         huomioColumn.setCellValueFactory(new PropertyValueFactory<>("huomio"));
         huomioColumn.setMinWidth(165);
 

@@ -20,6 +20,8 @@ import model.enteties.Varaus;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 import model.service.LocaleManager;
 
@@ -30,57 +32,62 @@ public class CheckIn {
     private final AsiakasController asiakasController;
     private final LaskuController laskuController;
     String selectedlanguage = LocaleManager.getLanguageName();
+    private ResourceBundle bundle;
+
 
     public CheckIn() {
         varausController = new VarausController();
         huoneController = new HuoneController();
         laskuController = new LaskuController();
         asiakasController = new AsiakasController();
+
+        Locale currentLocale = LocaleManager.getCurrentLocale();
+        bundle = ResourceBundle.getBundle("messages", currentLocale);
     }
 
     public VBox createCheckIn() {
         VBox huoneVarausInfo = new VBox(5);
         huoneVarausInfo.getStyleClass().add("info");
 
-        Label checkInInfoLabel = new Label("Check-In");
+        Label checkInInfoLabel = new Label(bundle.getString("checkin.title"));
         checkInInfoLabel.getStyleClass().add("otsikko");
 
         VBox huoneTyyppi = new VBox(0);
-        Label huoneLabel = new Label("Huoneen tyyppi:");
+        Label huoneLabel = new Label(bundle.getString("checkin.label.huonetyyppi"));
         ComboBox<String> huoneField = new ComboBox<>();
         huoneField.getItems().addAll(
-                "Yhden hengen huone",
-                "Kahden hengen huone",
-                "Kolmen hengen huone",
-                "Perhehuone",
-                "Sviitti"
+                bundle.getString("checkin.selector.single"),
+                bundle.getString("checkin.selector.double"),
+                bundle.getString("checkin.selector.triple"),
+                bundle.getString("checkin.selector.family"),
+                bundle.getString("checkin.selector.suite")
         );
-        huoneField.setPromptText("Valitse huonetyyppi...");
+        huoneField.setPromptText(bundle.getString("checkin.selector.roomplacehoder"));
         huoneTyyppi.getChildren().addAll(huoneLabel, huoneField);
 
         VBox tuloPaiva = new VBox(0);
-        Label tuloLabel = new Label("Saapumispäivä:");
+        Label tuloLabel = new Label(bundle.getString("checkin.label.arrival"));
         DatePicker tuloDatePicker = new DatePicker();
         tuloDatePicker.setValue(LocalDate.now());
         tuloPaiva.getChildren().addAll(tuloLabel, tuloDatePicker);
 
         VBox poistumisPaiva = new VBox(0);
-        Label poistumisLabel = new Label("Lähtöpäivä:");
+        Label poistumisLabel = new Label(bundle.getString("checkin.label.departure"));
         DatePicker poistumisDatePicker = new DatePicker();
         poistumisPaiva.getChildren().addAll(poistumisLabel, poistumisDatePicker);
 
         VBox paivat = new VBox(0);
-        Label paivatLabel = new Label("Päivät:");
+        Label paivatLabel = new Label(bundle.getString("checkin.label.days"));
         Label paivatValue = new Label("0");
         paivat.getChildren().addAll(paivatLabel, paivatValue);
 
         VBox huoneHinta = new VBox(0);
-        Label hintaLabel = new Label("Huoneen hinta:");
+        Label hintaLabel = new Label(bundle.getString("checkin.label.price"));
         Label hinta = new Label("0.00 €");
         huoneHinta.getChildren().addAll(hintaLabel, hinta);
 
         VBox availableRooms = new VBox(10);
-        Label availableRoomsTitle = new Label("Vapaat huoneet:");
+        Label availableRoomsTitle = new Label(bundle.getString("checkin.label.freerooms"));
         availableRoomsTitle.getStyleClass().add("otsikko");
         TableView<Huone> huoneTable = createHuoneTable();
         huoneTable.setPrefWidth(500);
@@ -92,7 +99,7 @@ public class CheckIn {
         huoneTiedot.getChildren().addAll(huoneVarausInfo, availableRooms);
 
         VBox varausInfo = new VBox(5);
-        Label varausInfoLabel = new Label("Varaus");
+        Label varausInfoLabel = new Label(bundle.getString("checkin.label.reservations"));
         varausInfoLabel.getStyleClass().add("otsikko");
 
         TableView<Varaus> varausTable = createVarausTable();
@@ -102,7 +109,7 @@ public class CheckIn {
 
         varausInfo.getChildren().addAll(varausInfoLabel, varausTable);
 
-        Button checkInButton = new Button("Check-In");
+        Button checkInButton = new Button(bundle.getString("checkin.button.checkin"));
         checkInButton.getStyleClass().add("yellow-btn");
 
         tuloDatePicker.valueProperty().addListener((observable, oldValue, newValue) -> {
@@ -158,7 +165,7 @@ public class CheckIn {
         huoneTable.setPlaceholder(loadingIndicator);
 
         if (tuloDatePicker.getValue() != null && poistumisDatePicker.getValue() != null && tuloDatePicker.getValue().isAfter(poistumisDatePicker.getValue())) {
-            huoneTable.setPlaceholder(new Label("Check-out date must be after check-in date"));
+            huoneTable.setPlaceholder(new Label(bundle.getString("checkin.error.dateorder")));
             loadingIndicator.setVisible(false);
             return;
         }
@@ -173,12 +180,12 @@ public class CheckIn {
             if (rooms != null && !rooms.isEmpty()) {
                 huoneTable.getItems().setAll(rooms);
             } else {
-                huoneTable.setPlaceholder(new Label("No free rooms found for the given hotel ID"));
+                huoneTable.setPlaceholder(new Label(bundle.getString("checkin.error.norooms")));
             }
             loadingIndicator.setVisible(false);
         });
         fetchRoomsTask.setOnFailed(event -> {
-            huoneTable.setPlaceholder(new Label("Failed to load free room data"));
+            huoneTable.setPlaceholder(new Label(bundle.getString("checkin.error.loadrooms")));
             System.err.println("Failed to fetch free rooms: " + fetchRoomsTask.getException());
             loadingIndicator.setVisible(false);
         });
@@ -227,13 +234,13 @@ public class CheckIn {
                     }
                     varausTable.getItems().setAll(varaukset); // Update table with new data
                 } else {
-                    varausTable.setPlaceholder(new Label("No reservations found for the given dates"));
+                    varausTable.setPlaceholder(new Label(bundle.getString("checkin.error.noreservations")));
                 }
             });
         });
 
         fetchVarauksetTask.setOnFailed(event -> {
-            varausTable.setPlaceholder(new Label("Failed to load reservation data"));
+            varausTable.setPlaceholder(new Label(bundle.getString("checkin.error.loadreservations")));
             System.err.println("Failed to fetch reservations: " + fetchVarauksetTask.getException());
             loadingIndicator.setVisible(false);
         });
@@ -250,10 +257,10 @@ public class CheckIn {
             Integer previousRoom = selectedRoom.getHuone_id();
 
             if (selectedVaraus.getHuoneId() != null) {
-                huoneController.updateHuoneStatusById(selectedVaraus.getHuoneId(), "Vapaa");
+                huoneController.updateHuoneStatusById(selectedVaraus.getHuoneId(), bundle.getString("huone_tila.vapaa"));
             }
 
-            huoneController.updateHuoneStatusById(selectedRoom.getHuone_id(), "Varattu");
+            huoneController.updateHuoneStatusById(selectedRoom.getHuone_id(), bundle.getString("huone_tila.varattu"));
             varausController.updateVarausHuoneById(selectedVaraus.getVarausId(), selectedRoom.getHuone_id());
         }
 
@@ -265,21 +272,21 @@ public class CheckIn {
         huoneTableView.setPrefWidth(950);
         huoneTableView.setPrefHeight(400);
 
-        TableColumn<Huone, Integer> numeroColumn = new TableColumn<>("Huoneen Numero");
+        TableColumn<Huone, Integer> numeroColumn = new TableColumn<>(bundle.getString("checkin.table.roomnumber"));
         numeroColumn.setCellValueFactory(new PropertyValueFactory<>("huone_nro"));
         numeroColumn.setMinWidth(94);
 
         String huoneTyype = LocaleManager.getLocalColumnName(selectedlanguage, "huone_tyyppi");
-        TableColumn<Huone, String> tyyppiColumn = new TableColumn<>("Huone Tyyppi");
+        TableColumn<Huone, String> tyyppiColumn = new TableColumn<>(bundle.getString("checkin.table.roomtype"));
         tyyppiColumn.setCellValueFactory(new PropertyValueFactory<>(huoneTyype));
         tyyppiColumn.setMinWidth(150);
 
-        TableColumn<Huone, Double> hintaColumn = new TableColumn<>("Huone Hinta");
+        TableColumn<Huone, Double> hintaColumn = new TableColumn<>(bundle.getString("checkin.table.price"));
         hintaColumn.setCellValueFactory(new PropertyValueFactory<>("huone_hinta"));
         hintaColumn.setMinWidth(150);
 
         String huoneTila = LocaleManager.getLocalColumnName(selectedlanguage, "huone_tila");
-        TableColumn<Huone, String> statusColumn = new TableColumn<>("Huone Status");
+        TableColumn<Huone, String> statusColumn = new TableColumn<>(bundle.getString("checkin.table.status"));
         statusColumn.setCellValueFactory(new PropertyValueFactory<>(huoneTila));
         statusColumn.setMinWidth(100);
 
@@ -296,23 +303,23 @@ public class CheckIn {
         TableView<Varaus> varausTable = new TableView<>();
         varausTable.setPrefWidth(950);
 
-        TableColumn<Varaus, Integer> idColumn = new TableColumn<>("Varaus ID");
+        TableColumn<Varaus, Integer> idColumn = new TableColumn<>(bundle.getString("checkin.table.reservationid"));
         idColumn.setCellValueFactory(new PropertyValueFactory<>("varausId"));
         idColumn.setMinWidth(90);
 
-        TableColumn<Varaus, String> asiakasColumn = new TableColumn<>("Nimi");
+        TableColumn<Varaus, String> asiakasColumn = new TableColumn<>(bundle.getString("checkin.table.customer"));
         asiakasColumn.setCellValueFactory(new PropertyValueFactory<>("nimi"));
         asiakasColumn.setMinWidth(230);
 
-        TableColumn<Varaus, Integer> roomColumn = new TableColumn<>("Huone Nro");
+        TableColumn<Varaus, Integer> roomColumn = new TableColumn<>(bundle.getString("checkin.table.roomnumber"));
         roomColumn.setCellValueFactory(new PropertyValueFactory<>("huoneNro"));
         roomColumn.setMinWidth(90);
 
-        TableColumn<Varaus, String> startDateColumn = new TableColumn<>("Alkupäivämäärä");
+        TableColumn<Varaus, String> startDateColumn = new TableColumn<>(bundle.getString("checkin.table.arrival"));
         startDateColumn.setCellValueFactory(new PropertyValueFactory<>("alkuPvm"));
         startDateColumn.setMinWidth(153);
 
-        TableColumn<Varaus, String> endDateColumn = new TableColumn<>("Loppupäivämäärä");
+        TableColumn<Varaus, String> endDateColumn = new TableColumn<>(bundle.getString("checkin.table.departure"));
         endDateColumn.setCellValueFactory(new PropertyValueFactory<>("loppuPvm"));
         endDateColumn.setMinWidth(153);
 
