@@ -1,5 +1,5 @@
 -- Huomio:
--- muista, tnäin koodin kautta lisätty käyttäjän salasana ei ole hashed!!
+-- muista, näin koodin kautta lisätty käyttäjän salasana ei ole hashed!!
     päivitä sen kun pääset kirjautuu sisään.
 
 
