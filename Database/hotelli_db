@@ -1,3 +1,9 @@
+-- Huomio:
+-- muista, tnäin koodin kautta lisätty käyttäjän salasana ei ole hashed!!
+    päivitä sen kun pääset kirjautuu sisään.
+
+
+
 -- Tietokannan luominen UTF-8-merkistötuella
 CREATE DATABASE hotelli_db CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE hotelli_db;
@@ -92,7 +98,7 @@ INSERT INTO `kayttaja` (`etunimi`, `sukunimi`, `sposti`, `puh`, `rooli`, `salasa
 VALUES (Aanna','Ansku', 'anna.ansku@hotelli.com', '03762387168', 'normaali', 'anna');
 
 INSERT INTO `kayttaja` (`etunimi`, `sukunimi`, `sposti`, `puh`, `rooli`, `salasana`)
-VALUES ('Lisa','Paranen', 'lisa.paranen@hotelli.com', '03762387168', 'normaali', 'lisa');
+VALUES ('Admin','admin', 'admin@hotelli.com', '03762387168', 'Admin', 'admin');
 
 -- asiakas
 INSERT INTO `asiakas` (`etunimi`, `sukunimi`, `sposti`, `puh`, `henkilo_maara`, `huomio`)
@@ -160,7 +166,6 @@ VALUES ('2024-12-12', '2024-12-14', 3, 2);
 
 INSERT INTO `huone_varaus` (`alku_pvm`, `loppu_pvm`, `huone_id`, `lasku_id`)
 VALUES ('2024-12-15', '2024-12-19', 2, 3);
-
 
 
 
