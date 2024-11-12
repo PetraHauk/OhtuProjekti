@@ -64,9 +64,6 @@ public class HuoneController {
     public void updateHuoneStatusById(int id, String huone_tila) {
         huoneDAO.updateHuoneTilaById(id, huone_tila);
     }
-    public void updateHuoneTilaById(int id, String huone_tila) {
-        huoneDAO.updateHuoneTilaById(id, huone_tila);
-    }
 
     public void deleteHuone(int id) {
         huoneDAO.removeById(id);
