@@ -183,14 +183,14 @@ public class CheckOut {
                 int huoneId = laskuData.getHuoneId();
 
                 // Aseta huoneen tila siivoukselle
-                huoneController.updateHuoneTilaById(huoneId, "Siivous");
+                huoneController.updateHuoneStatusById(huoneId, "Siivous");
 
                 // Luodaan ScheduledExecutorService
                 ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
 
                 // Asetetaan tehtävä, joka suoritetaan 30 minuutin kuluttua
                 scheduler.schedule(() -> {
-                    huoneController.updateHuoneTilaById(huoneId, "Vapaa");
+                    huoneController.updateHuoneStatusById(huoneId, "Vapaa");
                 }, 30, TimeUnit.MINUTES);
 
                 //refresh table
