@@ -119,7 +119,7 @@ public class LocaleManager {
             tilaList.add("Reserved");
             tilaList.add("Сдержанный");
             tilaList.add("已预订");
-        } else if (tila.equals("Siivous") || tila.equals("Under repair") || tila.equals("Расчистка") || tila.equals("打扫中")) {
+        } else if (tila.equals("Siivous") || tila.equals("Clearout") || tila.equals("Расчистка") || tila.equals("打扫中")) {
             tilaList.add("Siivous");
             tilaList.add("Clearout");
             tilaList.add("Расчистка");
