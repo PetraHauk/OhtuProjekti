@@ -62,5 +62,4 @@ public class LaskuDAOTest {
         Lasku removedLasku = laskuDAO.haeByLaskuId(id);
         assertNull(removedLasku);
     }
-
 }
