@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="Asiakas-DAO unit testit">
-      <change afterPath="$PROJECT_DIR$/src/test/java/model/DAO/HotelliDAOTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/model/DAO/HuoneDAOTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/HotelliDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/HotelliDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/enteties/Hotelli.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enteties/Hotelli.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/enteties/Huone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enteties/Huone.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,6 +100,11 @@
     "JUnit.HotelliDAOTest.testPersistAndFindById.executor": "Run",
     "JUnit.HotelliDAOTest.testRemoveById.executor": "Run",
     "JUnit.HuoneControllerTest.findHuoneByTila.executor": "Run",
+    "JUnit.HuoneDAOTest.testHaeHuoneetByHotelliId.executor": "Run",
+    "JUnit.HuoneDAOTest.testHaeHuoneetByHotelliIdAndUpdate.executor": "Run",
+    "JUnit.HuoneDAOTest.testPersistAndFindByRoomId.executor": "Run",
+    "JUnit.HuoneDAOTest.testRemoveById.executor": "Run",
+    "JUnit.HuoneDAOTest.testUpdateHuoneById.executor": "Run",
     "JUnit.LaskuControllerTest.executor": "Run",
     "JUnit.LoginGuiTest.executor": "Run",
     "JUnit.LoginGuiTest.testEmptyFields.executor": "Run",
@@ -184,14 +187,14 @@
       <command value="mvn clean" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.HotelliDAOTest">
+  <component name="RunManager" selected="JUnit.HuoneDAOTest">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <module name="gui" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AsiakasDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="HuoneDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gui" />
       <extension name="coverage">
         <pattern>
@@ -200,13 +203,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="model.DAO" />
-      <option name="MAIN_CLASS_NAME" value="model.DAO.AsiakasDAOTest" />
+      <option name="MAIN_CLASS_NAME" value="model.DAO.HuoneDAOTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HotelliDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="HuoneDAOTest.testHaeHuoneetByHotelliId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gui" />
       <extension name="coverage">
         <pattern>
@@ -215,29 +218,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="model.DAO" />
-      <option name="MAIN_CLASS_NAME" value="model.DAO.HotelliDAOTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="HotelliDAOTest.testGetRowCount" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gui" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="model.DAO.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="model.DAO" />
-      <option name="MAIN_CLASS_NAME" value="model.DAO.HotelliDAOTest" />
-      <option name="METHOD_NAME" value="testGetRowCount" />
+      <option name="MAIN_CLASS_NAME" value="model.DAO.HuoneDAOTest" />
+      <option name="METHOD_NAME" value="testHaeHuoneetByHotelliId" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HotelliDAOTest.testPersistAndFindById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="HuoneDAOTest.testHaeHuoneetByHotelliIdAndUpdate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gui" />
       <extension name="coverage">
         <pattern>
@@ -246,14 +234,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="model.DAO" />
-      <option name="MAIN_CLASS_NAME" value="model.DAO.HotelliDAOTest" />
-      <option name="METHOD_NAME" value="testPersistAndFindById" />
+      <option name="MAIN_CLASS_NAME" value="model.DAO.HuoneDAOTest" />
+      <option name="METHOD_NAME" value="testHaeHuoneetByHotelliIdAndUpdate" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HotelliDAOTest.testRemoveById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="HuoneDAOTest.testPersistAndFindByRoomId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gui" />
       <extension name="coverage">
         <pattern>
@@ -262,8 +250,24 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="model.DAO" />
-      <option name="MAIN_CLASS_NAME" value="model.DAO.HotelliDAOTest" />
-      <option name="METHOD_NAME" value="testRemoveById" />
+      <option name="MAIN_CLASS_NAME" value="model.DAO.HuoneDAOTest" />
+      <option name="METHOD_NAME" value="testPersistAndFindByRoomId" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HuoneDAOTest.testUpdateHuoneById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gui" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="model.DAO.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="model.DAO" />
+      <option name="MAIN_CLASS_NAME" value="model.DAO.HuoneDAOTest" />
+      <option name="METHOD_NAME" value="testUpdateHuoneById" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -287,19 +291,19 @@
     <list>
       <item itemvalue="Application.Unnamed" />
       <item itemvalue="Docker.Dockerfile" />
-      <item itemvalue="JUnit.AsiakasDAOTest" />
-      <item itemvalue="JUnit.HotelliDAOTest" />
-      <item itemvalue="JUnit.HotelliDAOTest.testGetRowCount" />
-      <item itemvalue="JUnit.HotelliDAOTest.testPersistAndFindById" />
-      <item itemvalue="JUnit.HotelliDAOTest.testRemoveById" />
+      <item itemvalue="JUnit.HuoneDAOTest" />
+      <item itemvalue="JUnit.HuoneDAOTest.testHaeHuoneetByHotelliId" />
+      <item itemvalue="JUnit.HuoneDAOTest.testHaeHuoneetByHotelliIdAndUpdate" />
+      <item itemvalue="JUnit.HuoneDAOTest.testPersistAndFindByRoomId" />
+      <item itemvalue="JUnit.HuoneDAOTest.testUpdateHuoneById" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.HotelliDAOTest" />
-        <item itemvalue="JUnit.HotelliDAOTest.testRemoveById" />
-        <item itemvalue="JUnit.HotelliDAOTest.testPersistAndFindById" />
-        <item itemvalue="JUnit.HotelliDAOTest.testGetRowCount" />
-        <item itemvalue="JUnit.AsiakasDAOTest" />
+        <item itemvalue="JUnit.HuoneDAOTest" />
+        <item itemvalue="JUnit.HuoneDAOTest.testHaeHuoneetByHotelliIdAndUpdate" />
+        <item itemvalue="JUnit.HuoneDAOTest.testHaeHuoneetByHotelliId" />
+        <item itemvalue="JUnit.HuoneDAOTest.testUpdateHuoneById" />
+        <item itemvalue="JUnit.HuoneDAOTest.testPersistAndFindByRoomId" />
       </list>
     </recent_temporary>
   </component>
@@ -354,6 +358,7 @@
       <workItem from="1730737802323" duration="34977000" />
       <workItem from="1730872404244" duration="45422000" />
       <workItem from="1731263871392" duration="11946000" />
+      <workItem from="1731607548232" duration="3662000" />
     </task>
     <task id="LOCAL-00016" summary="muuttaa pomin ja dockerfilen docker pull ja buildia varten">
       <option name="closed" value="true" />
@@ -813,6 +818,21 @@
           <url>file://$PROJECT_DIR$/src/test/java/model/DAO/AsiakasDAOTest.java</url>
           <line>22</line>
           <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/model/DAO/HuoneDAOTest.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/model/DAO/HuoneDAOTest.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/model/DAO/HuoneDAOTest.java</url>
+          <line>124</line>
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
