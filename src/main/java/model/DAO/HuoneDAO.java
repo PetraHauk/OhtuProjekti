@@ -105,9 +105,9 @@ public class HuoneDAO {
     public void updateHuoneTilaById(int id, String huone_tila) {
         EntityManager em = MariaDbConnection.getInstance();
 
-        List<String> huoneTilaList = LocaleManager.getLocalizedTilaInput(selectedlanguage);
-        String huoneTilaFi = (huoneTilaList != null && huoneTilaList.size() > 0) ? huoneTilaList.get(0) : "";
-        String huone_tyyppi_fi = huoneTilaList.get(0);
+        List<String> huoneTilaList = LocaleManager.getLocalizedTilaInput(huone_tila);
+
+        String huone_tila_fi = huoneTilaList.get(0);
         String huone_tila_en = huoneTilaList.get(1);
         String huone_tila_ru = huoneTilaList.get(2);
         String huone_tila_zh = huoneTilaList.get(3);
@@ -116,7 +116,7 @@ public class HuoneDAO {
             em.getTransaction().begin();
             Huone huone = em.find(Huone.class, id);
             if (huone != null) {
-                huone.setHuone_tila_fi(huoneTilaFi);
+                huone.setHuone_tila_fi(huone_tila_fi);
                 huone.setHuone_tila_en(huone_tila_en);
                 huone.setHuone_tila_ru(huone_tila_ru);
                 huone.setHuone_tila_zh(huone_tila_zh);
