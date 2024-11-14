@@ -4,17 +4,46 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
 import model.datasourse.MariaDbConnection;
 import model.enteties.Asiakas;
-import org.checkerframework.checker.units.qual.A;
 
 import java.util.List;
 
 public class AsiakasDAO {
+
     public void persist(Asiakas asiakas) {
         EntityManager em = MariaDbConnection.getInstance();
-        em.getTransaction().begin();
-        em.persist(asiakas);
-        em.getTransaction().commit();
+
+        try {
+            em.getTransaction().begin();
+
+            // Tarkistetaan, löytyykö asiakas sähköpostin perusteella
+            Asiakas existingAsiakas = em.createQuery(
+                            "SELECT a FROM Asiakas a WHERE a.sposti = :sposti", Asiakas.class)
+                    .setParameter("sposti", asiakas.getSposti())
+                    .getResultStream()
+                    .findFirst()
+                    .orElse(null);
+
+            if (existingAsiakas == null) {
+                em.persist(asiakas);
+                em.getTransaction().commit();
+                System.out.println("Asiakas lisätty: " + asiakas.getSposti());
+            } else {
+                System.out.println("Asiakas on jo olemassa: " + asiakas.getSposti());
+                em.getTransaction().rollback();
+            }
+        } catch (Exception e) {
+            if (em.getTransaction().isActive()) {
+                em.getTransaction().rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
     }
+
+
 
     public Asiakas findByLaskuId(int lasku_id) {
         EntityManager em = MariaDbConnection.getInstance();
@@ -88,7 +117,7 @@ public class AsiakasDAO {
         return null;
     }
 
-    public List<Asiakas> findAsukkaat() {
+    public List<Asiakas> findAsiakkaat() {
         EntityManager em = MariaDbConnection.getInstance();
         List<Asiakas> asiakkaat = null;
         try {
@@ -105,30 +134,30 @@ public class AsiakasDAO {
         return null;
     }
 
-    public void createAsiakas(String etunimi, String sukunimi, String sposti, String puh, int henkiloMaara, String huomio) {
-        EntityManager em = MariaDbConnection.getInstance();
-        try {
-            em.getTransaction().begin();
-            Asiakas asiakas = new Asiakas();
-            asiakas.setEtunimi(etunimi);
-            asiakas.setSukunimi(sukunimi);
-            asiakas.setSposti(sposti);
-            asiakas.setPuh(puh);
-            asiakas.setHenkiloMaara(henkiloMaara);
-            asiakas.setHuomio(huomio);
-            em.persist(asiakas);
-            em.getTransaction().commit();
-        } catch (Exception e) {
-            if (em.getTransaction().isActive()) {
-                em.getTransaction().rollback();
-            }
-            e.printStackTrace();
-        } finally {
-            if (em != null) {
-                em.close();
-            }
-        }
-    }
+//    public void createAsiakas(String etunimi, String sukunimi, String sposti, String puh, int henkiloMaara, String huomio) {
+//        EntityManager em = MariaDbConnection.getInstance();
+//        try {
+//            em.getTransaction().begin();
+//            Asiakas asiakas = new Asiakas();
+//            asiakas.setEtunimi(etunimi);
+//            asiakas.setSukunimi(sukunimi);
+//            asiakas.setSposti(sposti);
+//            asiakas.setPuh(puh);
+//            asiakas.setHenkiloMaara(henkiloMaara);
+//            asiakas.setHuomio(huomio);
+//            em.persist(asiakas);
+//            em.getTransaction().commit();
+//        } catch (Exception e) {
+//            if (em.getTransaction().isActive()) {
+//                em.getTransaction().rollback();
+//            }
+//            e.printStackTrace();
+//        } finally {
+//            if (em != null) {
+//                em.close();
+//            }
+//        }
+    //}
 
     public void updateAsiakasById(int id, String etunimi, String sukunimi, String sposti, String puh, int henkiloMaara, String huomio) {
         EntityManager em = MariaDbConnection.getInstance();

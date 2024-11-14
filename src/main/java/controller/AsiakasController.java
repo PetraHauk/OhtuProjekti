@@ -31,7 +31,7 @@ public class AsiakasController {
         return asiakasDAO.findAsiakasByKeyword(keyword);
     }
     public List<Asiakas> findAllAsiakkaat() {
-        return asiakasDAO.findAsukkaat();
+        return asiakasDAO.findAsiakkaat();
     }
     public void paivitaAsiakas(int id, String etunimi, String sukunimi, String sposti, String puh, int henkiloMaara, String huomio) {
         asiakasDAO.updateAsiakasById(id, etunimi, sukunimi, sposti, puh, henkiloMaara, huomio);
