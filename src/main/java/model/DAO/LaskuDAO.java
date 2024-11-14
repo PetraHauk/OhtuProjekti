@@ -36,7 +36,9 @@ public class LaskuDAO {
                     .setParameter("asiakas_id", asiakas_id)
                     .getResultList();
             if (!laskut.isEmpty()) {
+                System.out.println("Laskut löytyi asiakas id:llä " + asiakas_id);
                 return laskut;
+
             } else {
                 System.out.println("Laskua ei löytynyt asiakas id:llä " + asiakas_id);
             }

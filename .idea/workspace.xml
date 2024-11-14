@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="Asiakas-DAO unit testit">
-      <change afterPath="$PROJECT_DIR$/src/test/java/model/DAO/HuoneDAOTest.java" afterDir="false" />
+    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="update">
+      <change afterPath="$PROJECT_DIR$/src/test/java/model/DAO/LaskuDAOTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/enteties/Huone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enteties/Huone.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/DAO/HuoneDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/model/DAO/HuoneDAOTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,17 +95,20 @@
     "JUnit.AsiakasDAOTest.testPersistAndFindById.executor": "Run",
     "JUnit.AsiakasDAOTest.testRemoveById.executor": "Run",
     "JUnit.AsiakasDAOTest.testUpdateAsiakasById.executor": "Run",
-    "JUnit.HotelliDAOTest.executor": "Run",
+    "JUnit.HotelliDAOTest.executor": "Coverage",
     "JUnit.HotelliDAOTest.testGetRowCount.executor": "Run",
     "JUnit.HotelliDAOTest.testPersistAndFindById.executor": "Run",
     "JUnit.HotelliDAOTest.testRemoveById.executor": "Run",
     "JUnit.HuoneControllerTest.findHuoneByTila.executor": "Run",
+    "JUnit.HuoneDAOTest.executor": "Coverage",
     "JUnit.HuoneDAOTest.testHaeHuoneetByHotelliId.executor": "Run",
     "JUnit.HuoneDAOTest.testHaeHuoneetByHotelliIdAndUpdate.executor": "Run",
     "JUnit.HuoneDAOTest.testPersistAndFindByRoomId.executor": "Run",
     "JUnit.HuoneDAOTest.testRemoveById.executor": "Run",
     "JUnit.HuoneDAOTest.testUpdateHuoneById.executor": "Run",
     "JUnit.LaskuControllerTest.executor": "Run",
+    "JUnit.LaskuDAOTest.executor": "Run",
+    "JUnit.LaskuDAOTest.testPersistLaskuAndFindById.executor": "Run",
     "JUnit.LoginGuiTest.executor": "Run",
     "JUnit.LoginGuiTest.testEmptyFields.executor": "Run",
     "JUnit.LoginGuiTest.testFailedLogin.executor": "Run",
@@ -187,9 +190,39 @@
       <command value="mvn clean" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.HuoneDAOTest">
+  <component name="RunManager" selected="JUnit.LaskuDAOTest.testPersistLaskuAndFindById">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <module name="gui" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AsiakasDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gui" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="model.DAO.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="model.DAO" />
+      <option name="MAIN_CLASS_NAME" value="model.DAO.AsiakasDAOTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HotelliDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gui" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="model.DAO.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="model.DAO" />
+      <option name="MAIN_CLASS_NAME" value="model.DAO.HotelliDAOTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -209,7 +242,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HuoneDAOTest.testHaeHuoneetByHotelliId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LaskuDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gui" />
       <extension name="coverage">
         <pattern>
@@ -218,14 +251,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="model.DAO" />
-      <option name="MAIN_CLASS_NAME" value="model.DAO.HuoneDAOTest" />
-      <option name="METHOD_NAME" value="testHaeHuoneetByHotelliId" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="model.DAO.LaskuDAOTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HuoneDAOTest.testHaeHuoneetByHotelliIdAndUpdate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LaskuDAOTest.testPersistLaskuAndFindById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gui" />
       <extension name="coverage">
         <pattern>
@@ -234,40 +266,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="model.DAO" />
-      <option name="MAIN_CLASS_NAME" value="model.DAO.HuoneDAOTest" />
-      <option name="METHOD_NAME" value="testHaeHuoneetByHotelliIdAndUpdate" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="HuoneDAOTest.testPersistAndFindByRoomId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gui" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="model.DAO.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="model.DAO" />
-      <option name="MAIN_CLASS_NAME" value="model.DAO.HuoneDAOTest" />
-      <option name="METHOD_NAME" value="testPersistAndFindByRoomId" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="HuoneDAOTest.testUpdateHuoneById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gui" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="model.DAO.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="model.DAO" />
-      <option name="MAIN_CLASS_NAME" value="model.DAO.HuoneDAOTest" />
-      <option name="METHOD_NAME" value="testUpdateHuoneById" />
+      <option name="MAIN_CLASS_NAME" value="model.DAO.LaskuDAOTest" />
+      <option name="METHOD_NAME" value="testPersistLaskuAndFindById" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -292,18 +292,18 @@
       <item itemvalue="Application.Unnamed" />
       <item itemvalue="Docker.Dockerfile" />
       <item itemvalue="JUnit.HuoneDAOTest" />
-      <item itemvalue="JUnit.HuoneDAOTest.testHaeHuoneetByHotelliId" />
-      <item itemvalue="JUnit.HuoneDAOTest.testHaeHuoneetByHotelliIdAndUpdate" />
-      <item itemvalue="JUnit.HuoneDAOTest.testPersistAndFindByRoomId" />
-      <item itemvalue="JUnit.HuoneDAOTest.testUpdateHuoneById" />
+      <item itemvalue="JUnit.LaskuDAOTest" />
+      <item itemvalue="JUnit.LaskuDAOTest.testPersistLaskuAndFindById" />
+      <item itemvalue="JUnit.AsiakasDAOTest" />
+      <item itemvalue="JUnit.HotelliDAOTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.LaskuDAOTest.testPersistLaskuAndFindById" />
+        <item itemvalue="JUnit.LaskuDAOTest" />
+        <item itemvalue="JUnit.HotelliDAOTest" />
+        <item itemvalue="JUnit.AsiakasDAOTest" />
         <item itemvalue="JUnit.HuoneDAOTest" />
-        <item itemvalue="JUnit.HuoneDAOTest.testHaeHuoneetByHotelliIdAndUpdate" />
-        <item itemvalue="JUnit.HuoneDAOTest.testHaeHuoneetByHotelliId" />
-        <item itemvalue="JUnit.HuoneDAOTest.testUpdateHuoneById" />
-        <item itemvalue="JUnit.HuoneDAOTest.testPersistAndFindByRoomId" />
       </list>
     </recent_temporary>
   </component>
@@ -358,31 +358,7 @@
       <workItem from="1730737802323" duration="34977000" />
       <workItem from="1730872404244" duration="45422000" />
       <workItem from="1731263871392" duration="11946000" />
-      <workItem from="1731607548232" duration="3662000" />
-    </task>
-    <task id="LOCAL-00016" summary="muuttaa pomin ja dockerfilen docker pull ja buildia varten">
-      <option name="closed" value="true" />
-      <created>1728070405336</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1728070405336</updated>
-    </task>
-    <task id="LOCAL-00017" summary="muuttaa pomin ja dockerfilen docker pull ja buildia varten!">
-      <option name="closed" value="true" />
-      <created>1728070669088</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1728070669088</updated>
-    </task>
-    <task id="LOCAL-00018" summary="muuttaa pomin ja dockerfilen docker pull ja buildia varten!">
-      <option name="closed" value="true" />
-      <created>1728070694143</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1728070694143</updated>
+      <workItem from="1731607548232" duration="7148000" />
     </task>
     <task id="LOCAL-00019" summary="pikku muutoksia">
       <option name="closed" value="true" />
@@ -752,7 +728,31 @@
       <option name="project" value="LOCAL" />
       <updated>1731603901383</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="Huone-DAO unit testit">
+      <option name="closed" value="true" />
+      <created>1731611539408</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1731611539409</updated>
+    </task>
+    <task id="LOCAL-00066" summary="update varaus_muodo">
+      <option name="closed" value="true" />
+      <created>1731612928047</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1731612928047</updated>
+    </task>
+    <task id="LOCAL-00067" summary="update">
+      <option name="closed" value="true" />
+      <created>1731613057404</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1731613057404</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -771,8 +771,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Lisää testejä ja muuttaa AdminGUIn fiksummaksi" />
-    <MESSAGE value="Fiksaa testit ja vähän refactorointia" />
     <MESSAGE value="Lisää kirjautumisen ja rekisteröinnin lokaalisaation" />
     <MESSAGE value="Lisää Admin näkymän lokaalisaation" />
     <MESSAGE value="Kirjaitumisessa nyt input kohdalla oikeat käännökset" />
@@ -789,14 +787,16 @@
     <MESSAGE value="check-out kännös" />
     <MESSAGE value="Asiakas sivu update(pois output luokka)" />
     <MESSAGE value="Check  out sivu kännös valmis" />
-    <MESSAGE value="update" />
     <MESSAGE value="Tietokanna localsointi" />
     <MESSAGE value="getHuone_tila -&gt; getHuone_tila" />
     <MESSAGE value="HuoneSivu haut, lisää uusi huone ja muokkaa huone, kaikki toimi" />
     <MESSAGE value="Huonesivun tyypi ja tila haetaan valitettu kielen mukaan." />
     <MESSAGE value="CheckIn sivu, vapaat huoneen taulissa tyype ja status haetaan selected kilen mukaan." />
     <MESSAGE value="Asiakas-DAO unit testit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Asiakas-DAO unit testit" />
+    <MESSAGE value="Huone-DAO unit testit" />
+    <MESSAGE value="update varaus_muodo" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -819,21 +819,6 @@
           <line>22</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/model/DAO/HuoneDAOTest.java</url>
-          <line>34</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/model/DAO/HuoneDAOTest.java</url>
-          <line>32</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/model/DAO/HuoneDAOTest.java</url>
-          <line>124</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
@@ -842,9 +827,15 @@
       <FILTER>view.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/OhtuProjekti$_default_.ic" NAME="&lt;default&gt; Coverage Results" MODIFIED="1731404908949" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
-    <SUITE FILE_PATH="coverage/OhtuProjekti$AsiakasDAOTest.ic" NAME="AsiakasDAOTest Coverage Results" MODIFIED="1731603799072" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+    <SUITE FILE_PATH="coverage/OhtuProjekti$AsiakasDAOTest.ic" NAME="AsiakasDAOTest Coverage Results" MODIFIED="1731611658262" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>model.DAO.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/OhtuProjekti$HotelliDAOTest.ic" NAME="HotelliDAOTest Coverage Results" MODIFIED="1731611676109" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>model.DAO.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/OhtuProjekti2$controller_in_gui.ic" NAME="controller in gui Coverage Results" MODIFIED="1728129736984" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/OhtuProjekti$HuoneDAOTest.ic" NAME="HuoneDAOTest Coverage Results" MODIFIED="1731611398917" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>model.DAO.*</FILTER>
+    </SUITE>
   </component>
 </project>

@@ -1,7 +1,6 @@
 package model.DAO;
 
 import static org.junit.jupiter.api.Assertions.*;
-
 import jakarta.persistence.EntityManager;
 import model.datasourse.MariaDbConnection;
 import model.enteties.Huone;
