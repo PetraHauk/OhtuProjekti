@@ -82,10 +82,6 @@ public class VarausController {
         return varausDAO.haeByLaskuId(lasku_id);
     }
 
-    public void updateVarausById(int varaus_id, LocalDate alkuPvm, LocalDate loppuPvm) {
-        varausDAO.paivitaVarausById(varaus_id, alkuPvm, loppuPvm);
-    }
-
     public void updateVarausHuoneById(int varausId, int huoneId) {
         varausDAO.paivitaVarausHuoneId(varausId, huoneId);
     }
@@ -98,10 +94,6 @@ public class VarausController {
 
     public void removeVarausById(int varaus_id) {
         varausDAO.removeById(varaus_id);
-    }
-
-    public int varausPaivat (LocalDate alkuPvm, LocalDate loppuPvm) {
-        return varausDAO.varausPaivat(alkuPvm, loppuPvm);
     }
 
 
