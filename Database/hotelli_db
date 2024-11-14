@@ -142,13 +142,13 @@ VALUES ('205', 'Sviitti', 'Suite', 'люкс', '套房', 'Siivous', 'Clearout', 
 
 -- lasku
 INSERT INTO `lasku` (`maksu_status`, `varaus_muoto`, `valuutta`, `asiakas_id`)
-VALUES ('maksamatta', 'all_inslusive', 'EUR', 1);
+VALUES ('Maksamatta', 'All_inslusive', 'EUR', 1);
 
 INSERT INTO `lasku` (`maksu_status`, `varaus_muoto`, `valuutta`, `asiakas_id`)
-VALUES ('maksamatta', 'all_inslusive', 'USD', 2);
+VALUES ('Maksamatta', 'Bed & Breakfast', 'USD', 2);
 
 INSERT INTO `lasku` (`maksu_status`, `varaus_muoto`, `valuutta`, `asiakas_id`)
-VALUES ('maksettu', 'all_inslusive', 'EUR', 3);
+VALUES ('Maksettu', 'Only room', 'EUR', 3);
 
 
 -- varaus
