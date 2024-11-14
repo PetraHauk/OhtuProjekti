@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="tyhjeriivi pois">
-      <change afterPath="$PROJECT_DIR$/src/test/java/model/DAO/KayttajaDAOTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="KayttajaDAO-DAO unit testit">
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/DAO/KayttajaDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/model/DAO/KayttajaDAOTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,6 +106,7 @@
     "JUnit.HuoneDAOTest.testUpdateHuoneById.executor": "Run",
     "JUnit.KayttajaDAOTest.testPersistAndFindById.executor": "Run",
     "JUnit.KayttajaDAOTest.testUpdateEmailById.executor": "Run",
+    "JUnit.KayttajaDAOTest.testi.executor": "Coverage",
     "JUnit.LaskuControllerTest.executor": "Run",
     "JUnit.LaskuDAOTest.executor": "Run",
     "JUnit.LaskuDAOTest.testPersistLaskuAndFindById.executor": "Coverage",
@@ -193,7 +193,7 @@
       <command value="mvn clean" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.KayttajaDAOTest.testPersistAndFindById">
+  <component name="RunManager" selected="JUnit.KayttajaDAOTest.testi">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <module name="gui" />
       <method v="2">
@@ -232,7 +232,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LaskuDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="KayttajaDAOTest.testi" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gui" />
       <extension name="coverage">
         <pattern>
@@ -241,8 +241,9 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="model.DAO" />
-      <option name="MAIN_CLASS_NAME" value="model.DAO.LaskuDAOTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="model.DAO.KayttajaDAOTest" />
+      <option name="METHOD_NAME" value="testi" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -298,17 +299,17 @@
       <item itemvalue="Docker.Dockerfile" />
       <item itemvalue="JUnit.KayttajaDAOTest.testPersistAndFindById" />
       <item itemvalue="JUnit.KayttajaDAOTest.testUpdateEmailById" />
-      <item itemvalue="JUnit.LaskuDAOTest" />
+      <item itemvalue="JUnit.KayttajaDAOTest.testi" />
       <item itemvalue="JUnit.LaskuDAOTest.testPersistLaskuAndFindById" />
       <item itemvalue="JUnit.VarausDAOTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.KayttajaDAOTest.testi" />
         <item itemvalue="JUnit.KayttajaDAOTest.testPersistAndFindById" />
         <item itemvalue="JUnit.KayttajaDAOTest.testUpdateEmailById" />
         <item itemvalue="JUnit.VarausDAOTest" />
         <item itemvalue="JUnit.LaskuDAOTest.testPersistLaskuAndFindById" />
-        <item itemvalue="JUnit.LaskuDAOTest" />
       </list>
     </recent_temporary>
   </component>
@@ -363,15 +364,7 @@
       <workItem from="1730737802323" duration="34977000" />
       <workItem from="1730872404244" duration="45422000" />
       <workItem from="1731263871392" duration="11946000" />
-      <workItem from="1731607548232" duration="12576000" />
-    </task>
-    <task id="LOCAL-00023" summary="pikku muutoksia">
-      <option name="closed" value="true" />
-      <created>1728072496454</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1728072496454</updated>
+      <workItem from="1731607548232" duration="13483000" />
     </task>
     <task id="LOCAL-00024" summary="ylimääränen src kansio poistettu">
       <option name="closed" value="true" />
@@ -757,7 +750,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731619741529</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="KayttajaDAO-DAO unit testit">
+      <option name="closed" value="true" />
+      <created>1731620769353</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1731620769353</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -776,7 +777,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Bundles update" />
     <MESSAGE value="lisää javafx-base" />
     <MESSAGE value="asiakas välilehti kielivaihto" />
     <MESSAGE value="Login, registeri, logIn, leftBar localisointi yhdistetty" />
@@ -801,7 +801,8 @@
     <MESSAGE value="Varaus-DAO unit testit" />
     <MESSAGE value="Titokannan lokalisoinnin kuva" />
     <MESSAGE value="tyhjeriivi pois" />
-    <option name="LAST_COMMIT_MESSAGE" value="tyhjeriivi pois" />
+    <MESSAGE value="KayttajaDAO-DAO unit testit" />
+    <option name="LAST_COMMIT_MESSAGE" value="KayttajaDAO-DAO unit testit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -841,6 +842,9 @@
     </SUITE>
     <SUITE FILE_PATH="coverage/OhtuProjekti2$controller_in_gui.ic" NAME="controller in gui Coverage Results" MODIFIED="1728129736984" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/OhtuProjekti$HuoneDAOTest.ic" NAME="HuoneDAOTest Coverage Results" MODIFIED="1731611398917" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>model.DAO.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/OhtuProjekti$KayttajaDAOTest_testPersistAndFindById.ic" NAME="KayttajaDAOTest.testPersistAndFindById Coverage Results" MODIFIED="1731620700518" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>model.DAO.*</FILTER>
     </SUITE>
   </component>

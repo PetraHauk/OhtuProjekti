@@ -17,7 +17,7 @@ public class KayttajaDAOTest {
     }
 
     @Test
-    public void testPersistAndFindById() {
+    public void testi() {
         Kayttaja kayttaja = new Kayttaja();
         kayttaja.setEtunimi("Test");
         kayttaja.setSukunimi("User");
@@ -37,25 +37,49 @@ public class KayttajaDAOTest {
         assertEquals("123456789", fetchedKayttaja.getPuh());
         assertEquals("Admin", fetchedKayttaja.getRooli());
 
+        //find passaword by email
+        String password = kayttajaDAO.findPasswordByEmail(kayttaja.getSposti());
+        assertNotNull(password);
+
         //update email by id
         kayttajaDAO.updateEmailById(kayttajaId, "user.test@example.com");
         Kayttaja updatedKayttajaById = kayttajaDAO.findById(kayttajaId);
         assertEquals("user.test@example.com", updatedKayttajaById.getSposti());
 
-        //update password by email
+        //Change password by email
         Kayttaja updatedKayttaja = kayttajaDAO.changePasswordByEmail("user.test@example.com", "test");
         assertNotNull(updatedKayttaja);
 
         String hashedPassword = kayttajaDAO.findPasswordByEmail("user.test@example.com");
         assertTrue(hashedPassword != null && !hashedPassword.equals("password123"));
 
-        //finf all kayttaja
+        //find all kayttaja
         List<Kayttaja> kayttajat = kayttajaDAO.findAllKayttaja();
         assertNotNull(kayttajat);
+
+        //updatekayttaja by id
+        kayttajaDAO.updateKayttajaById(kayttajaId,"Test2", "User2", "25412765", "1");
+        Kayttaja updatedkayttaja = kayttajaDAO.findById(kayttajaId);
+        assertEquals("Test2", updatedkayttaja.getEtunimi());
+        assertEquals("User2", updatedkayttaja.getSukunimi());
+        assertEquals("25412765", updatedkayttaja.getPuh());
+        assertEquals("1", updatedkayttaja.getRooli());
+
+        //onko email olemassa
+        boolean email = kayttajaDAO.onkoEmailOlemassa(updatedKayttaja.getSposti());
+        assertTrue(email);
+        boolean email2 = kayttajaDAO.onkoEmailOlemassa("test.user@example.com");
+        assertFalse(email2);
+
+        //find rooli by email
+        String rooli = kayttajaDAO.findRooliByEmail(updatedKayttaja.getSposti());
+        assertNotNull(rooli);
+        assertEquals("1", rooli);
 
         //remove by id
         kayttajaDAO.removeById(kayttajaId);
         assertNull(kayttajaDAO.findById(kayttajaId));
+
 
     }
 
