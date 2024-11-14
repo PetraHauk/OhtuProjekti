@@ -124,11 +124,6 @@ public class AsiakasDAOTest {
         assertNull(removedAsiakas);
     }
 
-//    @Test
-//    public void removeId () {
-//        asiakasDAO.removeById(39);
-//    }
-
     @AfterAll
     public void tearDown() {
         if (em != null) {
