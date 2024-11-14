@@ -1,9 +1,0 @@
-controller/KayttajaControllerTest.class
-view/RegistrationGuiTest.class
-controller/AsiakasControllerTest.class
-controller/VarausControllerTest.class
-controller/HuoneControllerTest.class
-view/LoginGuiTest.class
-controller/HotelliControllerTest.class
-view/AdminGUITest.class
-controller/LaskuControllerTest.class

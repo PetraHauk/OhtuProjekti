@@ -36,7 +36,6 @@ public class KayttajaDAO {
         }
     }
 
-
     public String findPasswordByEmail(String sposti) {
         EntityManager em = MariaDbConnection.getInstance();
         try {
@@ -56,8 +55,6 @@ public class KayttajaDAO {
             em.close(); // Ensure the EntityManager is closed
         }
     }
-
-
 
     public void updateEmailById(int id, String sposti) {
         EntityManager em = MariaDbConnection.getInstance();
@@ -174,8 +171,6 @@ public class KayttajaDAO {
         }
     }
 
-
-
     public List<Kayttaja> findAllKayttaja() {
         EntityManager em = MariaDbConnection.getInstance();
         List<Kayttaja> kayttajat = null;
@@ -188,9 +183,6 @@ public class KayttajaDAO {
         }
         return kayttajat; // Return the list of users
     }
-
-
-
 
     public boolean onkoEmailOlemassa(String sposti) {
         EntityManager em = MariaDbConnection.getInstance();
@@ -212,10 +204,6 @@ public class KayttajaDAO {
                     .setParameter("email", email)
                     .getSingleResult();
             em.getTransaction().commit();
-
-            // Convert rooli from String to int
-            //int rooli = Integer.parseInt(rooliString);
-
             return rooliString;
 
         } catch (NoResultException e) {

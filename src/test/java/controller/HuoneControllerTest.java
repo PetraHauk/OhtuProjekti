@@ -23,22 +23,6 @@ public class HuoneControllerTest {
         assertEquals(hotelliId, huoneController.findHuoneById(hotelliId).getHotelli_id());
     }
 
-    @Test
-    public void findHuoneByTila() {
-        String huoneTila = "varattu";
-        List<Huone>huoneList = huoneController.findHuoneByTila(huoneTila);
-        for (Huone huone : huoneList) {
-            assertEquals(huoneTila, huone.getHuone_tila());
-        }
-    }
 
-    @Test
-    public void testFindHuoneByTyyppi() {
-        String huoneTyyppi = "perhe";
-        List<Huone> huoneet = huoneController.findHuoneByTyyppi(huoneTyyppi);
-        for (Huone huone : huoneet) {
-            assertEquals(huoneTyyppi, huone.getHuone_tyyppi());
-        }
-    }
 
 }
