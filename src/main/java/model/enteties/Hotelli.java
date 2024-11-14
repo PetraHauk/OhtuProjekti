@@ -60,4 +60,36 @@ public class Hotelli {
         return maa;
     }
 
+    public void setNimi(String nimi) {
+        this.nimi = nimi;
+    }
+
+    public void setKaupunki(String kaupunki) {
+        this.kaupunki = kaupunki;
+    }
+
+    public void setOsoite(String osoite) {
+        this.osoite = osoite;
+    }
+
+    public void setPuh(String puh) {
+        this.puh = puh;
+    }
+
+    public void setMaa(String maa) {
+        this.maa = maa;
+    }
+
+    @Override
+    public String toString() {
+        return "Hotelli{" +
+                "hotelli_id=" + hotelli_id +
+                ", nimi='" + nimi + '\'' +
+                ", kaupunki='" + kaupunki + '\'' +
+                ", osoite='" + osoite + '\'' +
+                ", puh='" + puh + '\'' +
+                ", maa='" + maa + '\'' +
+                '}';
+    }
+
 }
