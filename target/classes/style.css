@@ -1,0 +1,127 @@
+.button-front-page {
+    -fx-background-color: #9cc7e2; /* Normal background color */
+    -fx-text-fill: #232323;
+    -fx-font-size: 16px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 5, 0.0, 0, 1);
+    -fx-background-radius: 10; /* Rounded corners */
+}
+
+.button-front-page:hover {
+    -fx-background-color: #d6e6f3; /* Background color on hover */
+}
+
+.button-selected {
+    -fx-background-color: #ffffff; /* Background color on hover */
+}
+.button-admin {
+    -fx-background-color: #ffffff; /* Background color */
+    -fx-text-fill: #000000; /* Text color */
+    -fx-font-size: 16px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 5, 0.0, 0, 1);
+    -fx-background-radius: 10; /* Rounded corners */
+}
+.button-log-out {
+    -fx-background-color: #f3c545; /* Background color */
+    -fx-text-fill: #000000; /* Text color */
+    -fx-font-size: 16px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 5, 0.0, 0, 1);
+    -fx-background-radius: 10; /* Rounded corners */
+}
+
+.yellow-btn {
+    -fx-background-color: #f3c545; /* Background color */
+    -fx-text-fill: #000000; /* Text color */
+    -fx-font-size: 14px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 5, 0.0, 0, 1);
+    -fx-background-radius: 10; /* Rounded corners */
+    -fx-padding: 5 30 5 30; /* top right bottom left padding */
+    -fx-margin: 10;
+}
+
+.left-bar {
+    -fx-background-color: #0a3f63; /* Background color */
+    -fx-padding: 10; /* Add some padding around the buttons */
+    -fx-spacing: 40; /* Space between buttons */
+}
+
+.left-buttons {
+}
+
+.user-box {
+    -fx-background-color: #ffffff; /* Background color */
+    -fx-spacing: 10; /* Space between buttons */
+    -fx-border-radius: 10; /* Rounded corners */
+    -fx-background-radius: 10; /* Rounded corners */
+    -fx-padding: 20; /* Add some padding around the buttons */
+}
+
+.otsikko {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+.info {
+    -fx-padding: 20;
+}
+
+/* Style for the table with rounded corners */
+.table-view {
+    -fx-background-color: #f9f9f9; /* Background color of the table */
+    -fx-border-color: transparent; /* Set border color to transparent */
+    -fx-border-radius: 10px; /* Rounded border */
+    -fx-background-radius: 10px; /* Rounded background */
+}
+
+/* Header column style */
+.table-view .column-header {
+    -fx-background-color: #f3c545; /* Header background color */
+    -fx-text-fill: white; /* Text color */
+    -fx-font-weight: bold; /* Make the header text bold */
+    -fx-padding: 12 5 10 5; /* Adjust padding for the header */
+    -fx-border-color: transparent; /* Remove border */
+    -fx-background-radius: 10px 10px 0 0; /* Apply rounded corners to the top */
+}
+
+/* For the rounded corner effect at the top of the table */
+.table-view .column-header-background {
+    -fx-background-color: #f3c545; /* Ensure header background matches */
+    -fx-border-color: transparent; /* Remove border */
+    -fx-background-radius: 10px 10px 0 0; /* Apply rounded corners to the top */
+}
+
+/* Cell styling */
+.table-view .table-cell {
+    -fx-padding: 10px; /* Add padding to the cells */
+    -fx-border-color: #cccccc; /* Border around cells */
+    -fx-border-width: 0 0 1px 0; /* Border on the bottom only */
+}
+
+/* Remove border and background for empty space */
+.table-view .table-row-cell:filled {
+    -fx-background-color: transparent; /* Background color of rows */
+}
+
+.table-view .table-row-cell {
+    -fx-border-color: transparent; /* Remove borders around cells */
+    -fx-padding: 0; /* Reset padding */
+}
+
+/* Style for selected cells */
+.table-view .table-row-cell:selected .table-cell {
+    -fx-background-color: #f5dc99; /* Background color when selected */
+    -fx-text-fill: black; /* Keep text color readable */
+}
+
+/* Style for focused cell */
+.table-view .table-cell:focused {
+    -fx-background-color: #f5dc99; /* Background color for focused cells */
+    -fx-text-fill: black; /* Text color when focused */
+}
+
+/* Remove border and background for empty space */
+.table-view .table-row-cell:filled {
+    -fx-background-color: transparent; /* Background color of rows */
+}
+
+
+

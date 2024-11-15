@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>VarausController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">gui</a> &gt; <a href="index.source.html" class="el_package">controller</a> &gt; <span class="el_source">VarausController.java</span></div><h1>VarausController.java</h1><pre class="source lang-java linenums">
+package controller;
+import model.enteties.Asiakas;
+import model.enteties.Varaus;
+import model.DAO.VarausDAO;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+public class VarausController {
+    private VarausDAO varausDAO;
+    private AsiakasController asiakasController;
+    private LaskuController laskuController;
+
+    private HuoneController huoneController;
+
+<span class="nc" id="L17">    public VarausController() {</span>
+<span class="nc" id="L18">        varausDAO = new VarausDAO();</span>
+<span class="nc" id="L19">        asiakasController = new AsiakasController();</span>
+<span class="nc" id="L20">        laskuController = new LaskuController();</span>
+<span class="nc" id="L21">        huoneController = new HuoneController();</span>
+<span class="nc" id="L22">    }</span>
+
+    public void AddVaraus(LocalDate alkuPvm, LocalDate loppuPvm, Integer huone_id, int lasku_id) {
+<span class="nc" id="L25">        Varaus varaus = new Varaus(0,  alkuPvm, loppuPvm, huone_id, lasku_id);</span>
+<span class="nc" id="L26">        varausDAO.persist(varaus);</span>
+<span class="nc" id="L27">    }</span>
+
+    public void createVaraus(String asiakasEtunimi, String asiakasSukunimi, String asiakasEmail, String asiakasPuh, String huomio, String laskuMuoto, LocalDate saapumisPvm, LocalDate lahtoPvm) {
+<span class="nc" id="L30">        Asiakas asiakas = asiakasController.findByEmail(asiakasEmail);</span>
+<span class="nc bnc" id="L31" title="All 2 branches missed.">        if (asiakas == null) {</span>
+<span class="nc" id="L32">            asiakasController.addAsiakas(asiakasEtunimi, asiakasSukunimi, asiakasEmail, asiakasPuh, 1, huomio);</span>
+<span class="nc" id="L33">            System.out.println(&quot;Asiakas luotu&quot;);</span>
+        }
+<span class="nc" id="L35">        asiakas = asiakasController.findByEmail(asiakasEmail);</span>
+<span class="nc" id="L36">        System.out.println(asiakas.getEtunimi());</span>
+
+<span class="nc" id="L38">        int lasku_id = laskuController.addLasku(&quot;maksamaton&quot;, laskuMuoto, &quot;EUR&quot;, asiakas.getAsiakasId());</span>
+<span class="nc" id="L39">        System.out.println(lasku_id);</span>
+<span class="nc" id="L40">        Integer huone_id = null;</span>
+<span class="nc" id="L41">        AddVaraus(saapumisPvm, lahtoPvm, huone_id, lasku_id);</span>
+<span class="nc" id="L42">    }</span>
+
+    public List&lt;Varaus&gt; findAllVaraukset() {
+<span class="nc" id="L45">        List&lt;Varaus&gt; varaukset = varausDAO.haeVaraukset();</span>
+<span class="nc" id="L46">        return varaukset;</span>
+    }
+
+    public List&lt;Varaus&gt; findVarauksetByDate(LocalDate alkuPvm, LocalDate loppuPvm) {
+<span class="nc" id="L50">        List&lt;Varaus&gt; varaukset = varausDAO.haeVaraukset();</span>
+<span class="nc" id="L51">        List&lt;Varaus&gt; varauksetByDate = new ArrayList&lt;&gt;();</span>
+
+
+<span class="nc bnc" id="L54" title="All 2 branches missed.">        for (Varaus varaus : varaukset) {</span>
+<span class="nc bnc" id="L55" title="All 4 branches missed.">            if ((varaus.getAlkuPvm().isEqual(alkuPvm) || varaus.getAlkuPvm().isAfter(alkuPvm)) &amp;&amp;</span>
+<span class="nc bnc" id="L56" title="All 4 branches missed.">                    (varaus.getLoppuPvm().isEqual(loppuPvm) || varaus.getLoppuPvm().isBefore(loppuPvm))) {</span>
+<span class="nc" id="L57">                varauksetByDate.add(varaus);</span>
+            }
+<span class="nc" id="L59">        }</span>
+<span class="nc" id="L60">        return varauksetByDate;</span>
+    }
+
+    public int getOverlappingReservationsCount(LocalDate saapumisPvm, LocalDate lahtoPvm) {
+<span class="nc" id="L64">        List&lt;Varaus&gt; varaukset = varausDAO.haeVaraukset();</span>
+<span class="nc" id="L65">        int overlappingReservationsCount = 0;</span>
+
+<span class="nc bnc" id="L67" title="All 2 branches missed.">        for (Varaus varaus : varaukset) {</span>
+<span class="nc bnc" id="L68" title="All 4 branches missed.">            if ((varaus.getAlkuPvm().isEqual(saapumisPvm) || varaus.getAlkuPvm().isAfter(saapumisPvm)) &amp;&amp;</span>
+<span class="nc bnc" id="L69" title="All 4 branches missed.">                    (varaus.getLoppuPvm().isEqual(lahtoPvm) || varaus.getLoppuPvm().isBefore(lahtoPvm))) {</span>
+<span class="nc" id="L70">                overlappingReservationsCount++;</span>
+            }
+<span class="nc" id="L72">        }</span>
+<span class="nc" id="L73">        return overlappingReservationsCount;</span>
+    }
+
+    public Varaus findByVarausId(int varaus_id) {
+<span class="nc" id="L77">        return varausDAO.haeByVarausId(varaus_id);</span>
+
+    }
+
+    public List&lt;Varaus&gt; findByLaskuId (int lasku_id) {
+<span class="nc" id="L82">        return varausDAO.haeByLaskuId(lasku_id);</span>
+    }
+
+    public void updateVarausHuoneById(int varausId, int huoneId) {
+<span class="nc" id="L86">        varausDAO.paivitaVarausHuoneId(varausId, huoneId);</span>
+<span class="nc" id="L87">    }</span>
+
+
+    public void RemoveVaraus(int id) {
+<span class="nc" id="L91">        varausDAO.removeById(id);</span>
+
+<span class="nc" id="L93">    }</span>
+
+    public void removeVarausById(int varaus_id) {
+<span class="nc" id="L96">        varausDAO.removeById(varaus_id);</span>
+<span class="nc" id="L97">    }</span>
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

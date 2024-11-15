@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>HotelliDAO.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">gui</a> &gt; <a href="index.source.html" class="el_package">model.DAO</a> &gt; <span class="el_source">HotelliDAO.java</span></div><h1>HotelliDAO.java</h1><pre class="source lang-java linenums">package model.DAO;
+
+import jakarta.persistence.EntityManager;
+import model.datasourse.MariaDbConnection;
+import model.enteties.Hotelli;
+
+import java.util.List;
+
+<span class="fc" id="L9">public class HotelliDAO {</span>
+    public void persist(Hotelli hotelli) {
+<span class="fc" id="L11">        EntityManager em = MariaDbConnection.getInstance();</span>
+<span class="fc" id="L12">        em.getTransaction().begin();</span>
+<span class="fc" id="L13">        em.persist(hotelli);</span>
+<span class="fc" id="L14">        em.getTransaction().commit();</span>
+<span class="fc" id="L15">    }</span>
+
+    public Hotelli findById(int id) {
+<span class="fc" id="L18">        EntityManager em = MariaDbConnection.getInstance();</span>
+        try {
+<span class="fc" id="L20">            return em.find(Hotelli.class, id);</span>
+        } finally {
+<span class="pc bpc" id="L22" title="1 of 2 branches missed.">            if (em != null) {</span>
+<span class="fc" id="L23">                em.close();</span>
+            }
+        }
+    }
+
+    public Hotelli findByName(String name) {
+<span class="fc" id="L29">        EntityManager em = MariaDbConnection.getInstance();</span>
+        try {
+<span class="pc" id="L31">            return em.createQuery(&quot;SELECT h FROM Hotelli h WHERE h.nimi = :name&quot;, Hotelli.class)</span>
+<span class="fc" id="L32">                    .setParameter(&quot;name&quot;, name)</span>
+<span class="nc" id="L33">                    .getSingleResult();</span>
+        } finally {
+<span class="pc bpc" id="L35" title="1 of 2 branches missed.">            if (em != null) {</span>
+<span class="fc" id="L36">                em.close();</span>
+            }
+        }
+    }
+
+    public int getRowCount() {
+<span class="fc" id="L42">        EntityManager em = MariaDbConnection.getInstance();</span>
+        try {
+<span class="fc" id="L44">            return em.createQuery(&quot;SELECT COUNT(h) FROM Hotelli h&quot;, Long.class).getSingleResult().intValue();</span>
+        } finally {
+<span class="pc bpc" id="L46" title="1 of 2 branches missed.">            if (em != null) {</span>
+<span class="fc" id="L47">                em.close();</span>
+            }
+        }
+    }
+
+    public void removeById(int hotelli_id) {
+<span class="fc" id="L53">        EntityManager em = MariaDbConnection.getInstance();</span>
+        try {
+<span class="fc" id="L55">            em.getTransaction().begin();</span>
+<span class="fc" id="L56">            Hotelli hotelli = em.find(Hotelli.class, hotelli_id);</span>
+<span class="pc bpc" id="L57" title="1 of 2 branches missed.">            if (hotelli != null) {</span>
+<span class="fc" id="L58">                em.remove(hotelli);</span>
+            }
+<span class="fc" id="L60">            em.getTransaction().commit();</span>
+        } finally {
+<span class="pc bpc" id="L62" title="1 of 2 branches missed.">            if (em != null) {</span>
+<span class="fc" id="L63">                em.close();</span>
+            }
+        }
+<span class="fc" id="L66">    }</span>
+
+    public List&lt;Hotelli&gt; getAllHotellis() {
+<span class="fc" id="L69">        EntityManager em = MariaDbConnection.getInstance();</span>
+        try {
+<span class="fc" id="L71">            return em.createQuery(&quot;SELECT h FROM Hotelli h&quot;, Hotelli.class).getResultList();</span>
+        } finally {
+<span class="pc bpc" id="L73" title="1 of 2 branches missed.">            if (em != null) {</span>
+<span class="fc" id="L74">                em.close();</span>
+            }
+        }
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

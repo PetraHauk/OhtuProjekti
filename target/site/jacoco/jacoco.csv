@@ -1,0 +1,47 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+gui,app,Main,10,0,0,0,4,0,2,0,2,0
+gui,controller,HuoneController,104,22,13,1,27,7,13,2,6,2
+gui,controller,LoginController,211,0,10,0,52,0,16,0,11,0
+gui,controller,AsiakasController,65,0,0,0,15,0,9,0,9,0
+gui,controller,HomeController,33,0,0,0,8,0,3,0,3,0
+gui,controller,HotelliController,37,0,0,0,10,0,5,0,5,0
+gui,controller,LaskuController,133,18,18,0,30,5,15,3,6,3
+gui,controller,VarausController,204,0,22,0,46,0,22,0,11,0
+gui,controller,KayttajaController,38,0,0,0,9,0,4,0,4,0
+gui,view,LoginGui,146,217,4,0,31,28,9,2,7,2
+gui,view,OhjelmistoGUI,491,0,2,0,89,0,23,0,22,0
+gui,view,AdminGUI,825,491,38,0,158,66,36,4,17,4
+gui,view,RegistrationGui,296,81,7,11,56,22,11,5,4,3
+gui,view.sivut,Etusivu,188,0,2,0,31,0,7,0,6,0
+gui,view.sivut,CheckIn,1135,0,40,0,199,0,38,0,18,0
+gui,view.sivut,CheckOut,1337,0,30,0,236,0,28,0,13,0
+gui,view.sivut,VarausSivu.new Task() {...},16,0,0,0,2,0,2,0,2,0
+gui,view.sivut,VarausSivu.new Task() {...},21,0,0,0,2,0,2,0,2,0
+gui,view.sivut,AsiakasSivu,932,0,4,0,161,0,17,0,15,0
+gui,view.sivut,VarausSivu,1407,0,34,0,242,0,36,0,19,0
+gui,view.sivut,CheckIn.new Task() {...},16,0,0,0,2,0,2,0,2,0
+gui,view.sivut,AsiakasSivu.new Task() {...},11,0,0,0,2,0,2,0,2,0
+gui,view.sivut,CheckIn.new Task() {...},21,0,0,0,2,0,2,0,2,0
+gui,view.sivut,AsiakasSivu.new TableCell() {...},110,0,2,0,21,0,5,0,4,0
+gui,view.sivut,HuoneSivu,1037,0,38,0,186,0,38,0,19,0
+gui,view.sivut,HuoneSivu.new Task() {...},16,0,0,0,2,0,2,0,2,0
+gui,view.sivut,HuoneSivu.new TableCell() {...},109,0,2,0,22,0,5,0,4,0
+gui,model.enteties,LaskuData,104,0,0,0,36,0,18,0,18,0
+gui,model.enteties,Varaus,38,34,2,0,13,15,6,10,5,10
+gui,model.enteties,Kayttaja,31,45,0,0,12,20,3,13,3,13
+gui,model.enteties,Hotelli,35,41,0,0,9,18,2,12,2,12
+gui,model.enteties,Asiakas,34,41,0,0,13,19,5,12,5,12
+gui,model.enteties,Huone,39,83,0,0,14,36,1,24,1,24
+gui,model.enteties,Lasku,18,34,0,0,7,15,1,10,1,10
+gui,model.service,UserSession,11,2,0,0,6,1,4,1,4,1
+gui,model.service,CurrencyConverter,71,0,2,0,20,0,3,0,2,0
+gui,model.service,Kirjautuminen,3,0,0,0,1,0,1,0,1,0
+gui,model.service,LocaleManager,214,176,56,24,48,29,48,7,4,6
+gui,utils,PasswordUtils,12,0,0,0,3,0,3,0,3,0
+gui,model.DAO,HuoneDAO,28,276,11,11,9,84,10,8,0,7
+gui,model.DAO,KayttajaDAO,109,263,21,11,39,85,15,12,0,11
+gui,model.DAO,HotelliDAO,5,98,6,6,1,32,6,7,0,7
+gui,model.DAO,VarausDAO,34,163,11,11,11,55,10,9,0,8
+gui,model.DAO,AsiakasDAO,49,234,19,17,19,81,16,11,0,9
+gui,model.DAO,LaskuDAO,15,168,11,13,5,59,11,9,0,8
+gui,model.datasourse,MariaDbConnection,3,7,0,0,1,2,1,2,1,2

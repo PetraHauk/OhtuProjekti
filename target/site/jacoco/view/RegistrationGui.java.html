@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RegistrationGui.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">gui</a> &gt; <a href="index.source.html" class="el_package">view</a> &gt; <span class="el_source">RegistrationGui.java</span></div><h1>RegistrationGui.java</h1><pre class="source lang-java linenums">package view;
+
+import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import model.enteties.Kayttaja;
+import model.DAO.KayttajaDAO;
+import org.mindrot.jbcrypt.BCrypt;
+
+import java.util.Locale;
+import java.util.ResourceBundle;
+import model.service.LocaleManager;
+
+<span class="fc" id="L21">public class RegistrationGui extends Application {</span>
+
+<span class="fc" id="L23">    private KayttajaDAO kayttajaDAO = new KayttajaDAO();</span>
+    private Locale currentLocale;
+    private ResourceBundle bundle;
+
+
+    @Override
+    public void start(Stage primaryStage) {
+        // Use the current locale from LoginGui
+<span class="nc" id="L31">        Locale currentLocale = LocaleManager.getCurrentLocale();</span>
+<span class="nc" id="L32">        bundle = ResourceBundle.getBundle(&quot;messages&quot;, currentLocale);</span>
+
+<span class="nc" id="L34">        primaryStage.setTitle(bundle.getString(&quot;title.registration&quot;));</span>
+
+        // Create UI elements with localized text
+<span class="nc" id="L37">        TextField etunimiField = new TextField();</span>
+<span class="nc" id="L38">        etunimiField.setPromptText(bundle.getString(&quot;label.firstname&quot;));</span>
+<span class="nc" id="L39">        etunimiField.getStyleClass().add(&quot;text-field&quot;);</span>
+
+<span class="nc" id="L41">        TextField sukunimiField = new TextField();</span>
+<span class="nc" id="L42">        sukunimiField.setPromptText(bundle.getString(&quot;label.lastname&quot;));</span>
+<span class="nc" id="L43">        sukunimiField.getStyleClass().add(&quot;text-field&quot;);</span>
+
+<span class="nc" id="L45">        TextField spostiField = new TextField();</span>
+<span class="nc" id="L46">        spostiField.setPromptText(bundle.getString(&quot;label.email&quot;));</span>
+<span class="nc" id="L47">        spostiField.getStyleClass().add(&quot;text-field&quot;);</span>
+
+<span class="nc" id="L49">        TextField puhField = new TextField();</span>
+<span class="nc" id="L50">        puhField.setPromptText(bundle.getString(&quot;label.phone&quot;));</span>
+<span class="nc" id="L51">        puhField.getStyleClass().add(&quot;text-field&quot;);</span>
+
+<span class="nc" id="L53">        PasswordField salasanaField = new PasswordField();</span>
+<span class="nc" id="L54">        salasanaField.setPromptText(bundle.getString(&quot;label.password&quot;));</span>
+<span class="nc" id="L55">        salasanaField.getStyleClass().add(&quot;password-field&quot;);</span>
+
+<span class="nc" id="L57">        Button registerButton = new Button(bundle.getString(&quot;button.register&quot;));</span>
+<span class="nc" id="L58">        registerButton.getStyleClass().add(&quot;button-one&quot;);</span>
+
+<span class="nc" id="L60">        Button backButton = new Button(bundle.getString(&quot;button.back&quot;));</span>
+<span class="nc" id="L61">        backButton.getStyleClass().add(&quot;button-two&quot;);</span>
+
+        // Layout
+<span class="nc" id="L64">        VBox vbox = new VBox(10);</span>
+<span class="nc" id="L65">        vbox.setAlignment(Pos.CENTER);</span>
+<span class="nc" id="L66">        vbox.setPadding(new Insets(20, 20, 20, 20)); // Add padding around the VBox</span>
+<span class="nc" id="L67">        vbox.getChildren().addAll(etunimiField, sukunimiField, spostiField, puhField, salasanaField, registerButton, backButton);</span>
+
+        // Event Handlers
+<span class="nc" id="L70">        registerButton.setOnAction(e -&gt; handleRegister(</span>
+<span class="nc" id="L71">                etunimiField.getText(),</span>
+<span class="nc" id="L72">                sukunimiField.getText(),</span>
+<span class="nc" id="L73">                spostiField.getText(),</span>
+<span class="nc" id="L74">                puhField.getText(),</span>
+<span class="nc" id="L75">                salasanaField.getText(),</span>
+                primaryStage
+        ));
+
+<span class="nc" id="L79">        backButton.setOnAction(e -&gt; {</span>
+<span class="nc" id="L80">            primaryStage.close();</span>
+<span class="nc" id="L81">            new LoginGui().start(new Stage()); // Return to login page</span>
+<span class="nc" id="L82">        });</span>
+
+        // Set Scene with preferred size
+<span class="nc" id="L85">        Scene scene = new Scene(vbox, 400, 400); // Increase the size of the scene</span>
+<span class="nc" id="L86">        scene.getStylesheets().add(getClass().getResource(&quot;/login.css&quot;).toExternalForm());</span>
+<span class="nc" id="L87">        primaryStage.setScene(scene);</span>
+<span class="nc" id="L88">        primaryStage.show();</span>
+<span class="nc" id="L89">    }</span>
+
+    void handleRegister(String etunimi, String sukunimi, String sposti, String puh, String salasana, Stage primaryStage) {
+<span class="fc" id="L92">        boolean isTestMode = Boolean.getBoolean(&quot;test.mode&quot;);</span>
+
+<span class="pc bpc" id="L94" title="4 of 10 branches missed.">        if (etunimi.isEmpty() || sukunimi.isEmpty() || sposti.isEmpty() || puh.isEmpty() || salasana.isEmpty()) {</span>
+<span class="pc bpc" id="L95" title="1 of 2 branches missed.">            if (!isTestMode) {</span>
+<span class="nc" id="L96">                Alert alert = new Alert(Alert.AlertType.ERROR);</span>
+<span class="nc" id="L97">                alert.setTitle(bundle.getString(&quot;alert.registration.failed.title&quot;));</span>
+<span class="nc" id="L98">                alert.setContentText(bundle.getString(&quot;alert.registration.failed.empty_fields&quot;));</span>
+<span class="nc" id="L99">                alert.showAndWait();</span>
+<span class="nc" id="L100">            }</span>
+<span class="fc bfc" id="L101" title="All 2 branches covered.">        } else if (kayttajaDAO.onkoEmailOlemassa(sposti)) {  // Check if the email already exists</span>
+<span class="pc bpc" id="L102" title="1 of 2 branches missed.">            if (!isTestMode) {</span>
+<span class="nc" id="L103">                Alert alert = new Alert(Alert.AlertType.ERROR);</span>
+<span class="nc" id="L104">                alert.setTitle(bundle.getString(&quot;alert.registration.failed.title&quot;));</span>
+<span class="nc" id="L105">                alert.setContentText(bundle.getString(&quot;alert.registration.failed.email_exists&quot;));</span>
+<span class="nc" id="L106">                alert.showAndWait();</span>
+<span class="nc" id="L107">            }</span>
+        } else {
+            // Hash the password using BCrypt
+<span class="fc" id="L110">            String hashattuSalasana = BCrypt.hashpw(salasana, BCrypt.gensalt());</span>
+
+            // Create a new Kayttaja object and set the hashed password
+<span class="fc" id="L113">            Kayttaja kayttaja = new Kayttaja();</span>
+<span class="fc" id="L114">            kayttaja.setEtunimi(etunimi);</span>
+<span class="fc" id="L115">            kayttaja.setSukunimi(sukunimi);</span>
+<span class="fc" id="L116">            kayttaja.setSposti(sposti);</span>
+<span class="fc" id="L117">            kayttaja.setPuh(puh);</span>
+<span class="fc" id="L118">            kayttaja.setSalasana(hashattuSalasana); // Store the hashed password</span>
+<span class="fc" id="L119">            kayttaja.setRooli(&quot;normaali&quot;);</span>
+
+<span class="fc" id="L121">            kayttajaDAO.persist(kayttaja);</span>
+
+<span class="pc bpc" id="L123" title="1 of 2 branches missed.">            if (!isTestMode) {</span>
+<span class="nc" id="L124">                Alert alert = new Alert(Alert.AlertType.INFORMATION);</span>
+<span class="nc" id="L125">                alert.setTitle(bundle.getString(&quot;alert.registration.success.title&quot;));</span>
+<span class="nc" id="L126">                alert.setContentText(bundle.getString(&quot;alert.registration.success.message&quot;).replace(&quot;{0}&quot;, etunimi).replace(&quot;{1}&quot;, sukunimi));</span>
+<span class="nc" id="L127">                alert.showAndWait();</span>
+            }
+
+            // Open login page and close the current stage
+<span class="fc" id="L131">            new LoginGui().start(new Stage());</span>
+<span class="fc" id="L132">            primaryStage.close(); // Close the registration stage</span>
+        }
+<span class="fc" id="L134">    }</span>
+
+    // Add this setter method
+    public void setKayttajaDAO(KayttajaDAO kayttajaDAO) {
+<span class="fc" id="L138">        this.kayttajaDAO = kayttajaDAO;</span>
+<span class="fc" id="L139">    }</span>
+
+<span class="nc" id="L141">    public static void main(String[] args) { launch(args); }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

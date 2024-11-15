@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LoginController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">gui</a> &gt; <a href="index.source.html" class="el_package">controller</a> &gt; <span class="el_source">LoginController.java</span></div><h1>LoginController.java</h1><pre class="source lang-java linenums">package controller;
+
+import javafx.fxml.FXML;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import model.enteties.Kayttaja;
+import model.DAO.KayttajaDAO;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.scene.Parent;
+import java.io.IOException;
+
+<span class="nc" id="L16">public class LoginController {</span>
+
+    @FXML
+    private TextField emailIdField;
+    @FXML
+    private PasswordField passwordField;
+
+    @FXML
+    private TextField etunimiField;
+    @FXML
+    private TextField sukunimiField;
+    @FXML
+    private TextField spostiField;
+    @FXML
+    private TextField puhField;
+    @FXML
+    private PasswordField salasanaField;
+
+<span class="nc" id="L34">    private KayttajaDAO kayttajaDAO = new KayttajaDAO();</span>
+
+    // Getters for the fields
+    public TextField getEtunimiField() {
+<span class="nc" id="L38">        return etunimiField;</span>
+    }
+
+    public TextField getSukunimiField() {
+<span class="nc" id="L42">        return sukunimiField;</span>
+    }
+
+    public TextField getSpostiField() {
+<span class="nc" id="L46">        return spostiField;</span>
+    }
+
+    public TextField getPuhField() {
+<span class="nc" id="L50">        return puhField;</span>
+    }
+
+    public PasswordField getSalasanaField() {
+<span class="nc" id="L54">        return salasanaField;</span>
+    }
+
+    public TextField getEmailIdField() {
+<span class="nc" id="L58">        return emailIdField;</span>
+    }
+
+    public PasswordField getPasswordField() {
+<span class="nc" id="L62">        return passwordField;</span>
+    }
+
+
+//    @FXML
+//    public void handleLogin() throws IOException {
+//        String email = emailIdField.getText();
+//        String password = passwordField.getText();
+//
+//        String kayttaja = kayttajaDAO.findPasswordByEmail(email);
+//
+//        if (kayttaja != null &amp;&amp; kayttaja.getSalasana().equals(password)) {
+//            // Login successful
+//            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//            alert.setTitle(&quot;Kirjautuminen onnistui&quot;);
+//            alert.setHeaderText(null);
+//            alert.setContentText(&quot;Tervetuloa &quot; + kayttaja.getEtunimi() + &quot;!&quot;);
+//            alert.showAndWait();
+//
+//            // Load the home page FXML
+//            FXMLLoader loader = new FXMLLoader(getClass().getResource(&quot;/view/home.fxml&quot;));
+//            Parent homePage = loader.load();
+//
+//            // Get the controller of the home page
+//            HomeController homeController = loader.getController();
+//
+//            // Pass the username to the home controller
+//            homeController.setUser(kayttaja.getEtunimi());
+//
+//            // Navigate to home page
+//            Stage stage = (Stage) emailIdField.getScene().getWindow(); // Get current stage
+//            stage.setScene(new Scene(homePage, 600, 400)); // Set the new scene (home page)
+//            stage.show();
+//        } else {
+//            // Login failed
+//            Alert alert = new Alert(Alert.AlertType.ERROR);
+//            alert.setTitle(&quot;Kirjautuminen epäonnistui&quot;);
+//            alert.setHeaderText(null);
+//            alert.setContentText(&quot;Tarkista sähköposti ja salasana.&quot;);
+//            alert.showAndWait();
+//        }
+//    }
+
+    @FXML
+    public void handleGoToRegister() throws IOException {
+        // Navigate to the registration page
+<span class="nc" id="L108">        Parent registerPage = FXMLLoader.load(getClass().getResource(&quot;/view/register.fxml&quot;));</span>
+<span class="nc" id="L109">        Stage stage = (Stage) emailIdField.getScene().getWindow(); // Get current stage</span>
+<span class="nc" id="L110">        stage.setScene(new Scene(registerPage, 400, 300)); // Set the new scene (registration page)</span>
+<span class="nc" id="L111">        stage.show();</span>
+<span class="nc" id="L112">    }</span>
+
+    @FXML
+    public void handleBackToLogin() throws IOException {
+        // Navigate back to the login page
+<span class="nc" id="L117">        Parent loginPage = FXMLLoader.load(getClass().getResource(&quot;/view/login.fxml&quot;));</span>
+<span class="nc" id="L118">        Stage stage = (Stage) etunimiField.getScene().getWindow(); // Get current stage</span>
+<span class="nc" id="L119">        stage.setScene(new Scene(loginPage, 400, 300)); // Set the new scene (login page)</span>
+<span class="nc" id="L120">        stage.show();</span>
+<span class="nc" id="L121">    }</span>
+
+    @FXML
+    public void handleRegister() throws IOException {
+<span class="nc" id="L125">        String etunimi = etunimiField.getText();</span>
+<span class="nc" id="L126">        String sukunimi = sukunimiField.getText();</span>
+<span class="nc" id="L127">        String sposti = spostiField.getText();</span>
+<span class="nc" id="L128">        String puh = puhField.getText();</span>
+<span class="nc" id="L129">        String salasana = salasanaField.getText();</span>
+
+        // Validate input before registering
+<span class="nc bnc" id="L132" title="All 10 branches missed.">        if (etunimi.isEmpty() || sukunimi.isEmpty() || sposti.isEmpty() || puh.isEmpty() || salasana.isEmpty()) {</span>
+<span class="nc" id="L133">            Alert alert = new Alert(Alert.AlertType.ERROR);</span>
+<span class="nc" id="L134">            alert.setTitle(&quot;Rekisteröinti epäonnistui&quot;);</span>
+<span class="nc" id="L135">            alert.setHeaderText(null);</span>
+<span class="nc" id="L136">            alert.setContentText(&quot;Täytä kaikki kohdat.&quot;);</span>
+<span class="nc" id="L137">            alert.showAndWait();</span>
+<span class="nc" id="L138">        } else {</span>
+            // Create a new Kayttaja object and register it
+<span class="nc" id="L140">            Kayttaja kayttaja = new Kayttaja();</span>
+<span class="nc" id="L141">            kayttaja.setEtunimi(etunimi);</span>
+<span class="nc" id="L142">            kayttaja.setSukunimi(sukunimi);</span>
+<span class="nc" id="L143">            kayttaja.setSposti(sposti);</span>
+<span class="nc" id="L144">            kayttaja.setPuh(puh);</span>
+<span class="nc" id="L145">            kayttaja.setSalasana(salasana);</span>
+<span class="nc" id="L146">            kayttaja.setRooli(&quot;1&quot;);</span>
+
+
+<span class="nc" id="L149">            kayttajaDAO.persist(kayttaja);</span>
+
+            // Show success message
+<span class="nc" id="L152">            Alert alert = new Alert(Alert.AlertType.INFORMATION);</span>
+<span class="nc" id="L153">            alert.setTitle(&quot;Rekisteröinti onnistui&quot;);</span>
+<span class="nc" id="L154">            alert.setHeaderText(null);</span>
+<span class="nc" id="L155">            alert.setContentText(&quot;Tervetuloa, &quot; + etunimi + &quot; &quot; + sukunimi + &quot;!&quot;);</span>
+<span class="nc" id="L156">            alert.showAndWait();</span>
+
+            // Load the home page FXML
+<span class="nc" id="L159">            FXMLLoader loader = new FXMLLoader(getClass().getResource(&quot;/view/home.fxml&quot;));</span>
+<span class="nc" id="L160">            Parent homePage = loader.load();</span>
+
+            // Get the controller of the home page
+<span class="nc" id="L163">            HomeController homeController = loader.getController();</span>
+
+            // Pass the username to the home controller
+<span class="nc" id="L166">            homeController.setUser(etunimi);</span>
+
+            // Navigate to the home page after successful registration
+<span class="nc" id="L169">            Stage stage = (Stage) etunimiField.getScene().getWindow(); // Get current stage</span>
+<span class="nc" id="L170">            stage.setScene(new Scene(homePage, 600, 400)); // Set the new scene (home page)</span>
+<span class="nc" id="L171">            stage.show();</span>
+        }
+<span class="nc" id="L173">    }</span>
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

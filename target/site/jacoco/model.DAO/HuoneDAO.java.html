@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>HuoneDAO.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">gui</a> &gt; <a href="index.source.html" class="el_package">model.DAO</a> &gt; <span class="el_source">HuoneDAO.java</span></div><h1>HuoneDAO.java</h1><pre class="source lang-java linenums">package model.DAO;
+import jakarta.persistence.EntityManager;
+import model.datasourse.MariaDbConnection;
+import model.enteties.Huone;
+import java.util.List;
+import model.service.LocaleManager;
+
+<span class="fc" id="L8">public class HuoneDAO {</span>
+
+<span class="fc" id="L10">    String selectedlanguage = LocaleManager.getLanguageName();</span>
+
+    public void persist(Huone huone) {
+<span class="fc" id="L13">        EntityManager em = MariaDbConnection.getInstance();</span>
+<span class="fc" id="L14">        em.getTransaction().begin();</span>
+<span class="fc" id="L15">        em.persist(huone);</span>
+<span class="fc" id="L16">        em.getTransaction().commit();</span>
+<span class="fc" id="L17">    }</span>
+
+    public List&lt;Huone&gt; haeHuoneetByHotelliId(int hotelli_id) {
+<span class="fc" id="L20">        EntityManager em = MariaDbConnection.getInstance();</span>
+<span class="fc" id="L21">        List&lt;Huone&gt; huoneet = null;</span>
+        try {
+<span class="fc" id="L23">            huoneet = em.createQuery(&quot;SELECT h FROM Huone h WHERE h.hotelli_id = :hotelli_id&quot;, Huone.class)</span>
+<span class="fc" id="L24">                    .setParameter(&quot;hotelli_id&quot;, hotelli_id)</span>
+<span class="fc" id="L25">                    .getResultList();</span>
+<span class="pc bpc" id="L26" title="1 of 2 branches missed.">            if (!huoneet.isEmpty()) {</span>
+<span class="fc" id="L27">                return huoneet;</span>
+            }
+        } finally {
+<span class="pc bpc" id="L30" title="1 of 2 branches missed.">            if (em != null) {</span>
+<span class="fc" id="L31">                em.close();</span>
+            }
+        }
+<span class="nc" id="L34">        return null;</span>
+    }
+
+    public Huone findByRoomId(int id) {
+<span class="fc" id="L38">        EntityManager em = MariaDbConnection.getInstance();</span>
+        try {
+<span class="fc" id="L40">            Huone huone = em.find(Huone.class, id);</span>
+<span class="fc bfc" id="L41" title="All 2 branches covered.">            if (huone != null) {</span>
+<span class="fc" id="L42">                return huone;</span>
+            }
+        } finally {
+<span class="pc bpc" id="L45" title="1 of 2 branches missed.">            if (em != null) {</span>
+<span class="fc" id="L46">                em.close();</span>
+            }
+        }
+<span class="fc" id="L49">        return null;</span>
+    }
+
+    public void updateHuoneById(int id, int huone_nro,
+                                String huone_tyyppi,
+                                String huone_tila,
+                                double huone_hinta) {
+<span class="fc" id="L56">        EntityManager em = MariaDbConnection.getInstance();</span>
+
+        // Hanki käännetyt huone tyyppi ja tila
+<span class="fc" id="L59">        List&lt;String&gt; huoneTypeList = LocaleManager.getLocalizedTyyppiInput(huone_tyyppi);</span>
+<span class="fc" id="L60">        List&lt;String&gt; huoneTilaList = LocaleManager.getLocalizedTilaInput(huone_tila);</span>
+<span class="fc" id="L61">        System.out.println(&quot;Localized Room Type List: &quot; + huoneTypeList);</span>
+<span class="fc" id="L62">        System.out.println(&quot;Localized Room Status List: &quot; + huoneTilaList);</span>
+
+
+        // Tarkistetaan, että lista ei ole null ja että se sisältää tarvittavat elementit
+<span class="fc" id="L66">        String huoneTypeFi = huoneTypeList.get(0);</span>
+<span class="fc" id="L67">        String huoneTypeEn = huoneTypeList.get(1);</span>
+<span class="fc" id="L68">        String huoneTypeRu = huoneTypeList.get(2);</span>
+<span class="fc" id="L69">        String huoneTypeZh = huoneTypeList.get(3);</span>
+
+<span class="fc" id="L71">        String huoneTilaFi = huoneTilaList.get(0);</span>
+<span class="fc" id="L72">        String huoneTilaEn = huoneTilaList.get(1);</span>
+<span class="fc" id="L73">        String huoneTilaRu = huoneTilaList.get(2);</span>
+<span class="fc" id="L74">        String huoneTilaZh = huoneTilaList.get(3);</span>
+
+<span class="fc" id="L76">        System.out.println(&quot;Localized Room Type Fi: &quot; + huoneTypeFi);</span>
+<span class="fc" id="L77">        System.out.println(&quot;Localized Room Type En: &quot; + huoneTypeEn);</span>
+
+        try {
+<span class="fc" id="L80">            em.getTransaction().begin();</span>
+<span class="fc" id="L81">            Huone huone = em.find(Huone.class, id);</span>
+<span class="pc bpc" id="L82" title="1 of 2 branches missed.">            if (huone != null) {</span>
+<span class="fc" id="L83">                huone.setHuone_nro(huone_nro);</span>
+
+<span class="fc" id="L85">                huone.setHuone_tyyppi_fi(huoneTypeFi);</span>
+<span class="fc" id="L86">                huone.setHuone_tyyppi_en(huoneTypeEn);</span>
+<span class="fc" id="L87">                huone.setHuone_tyyppi_ru(huoneTypeRu);</span>
+<span class="fc" id="L88">                huone.setHuone_tyyppi_zh(huoneTypeZh);</span>
+<span class="fc" id="L89">                huone.setHuone_tila_fi(huoneTilaFi);</span>
+<span class="fc" id="L90">                huone.setHuone_tila_en(huoneTilaEn);</span>
+<span class="fc" id="L91">                huone.setHuone_tila_ru(huoneTilaRu);</span>
+<span class="fc" id="L92">                huone.setHuone_tila_zh(huoneTilaZh);</span>
+<span class="fc" id="L93">                huone.setHuone_hinta(huone_hinta);</span>
+            } else {
+<span class="nc" id="L95">                System.out.println(&quot;Huonetta ei löytynyt id:llä &quot; + id);</span>
+            }
+<span class="fc" id="L97">            em.getTransaction().commit();</span>
+        } finally {
+<span class="pc bpc" id="L99" title="1 of 2 branches missed.">            if (em != null) {</span>
+<span class="fc" id="L100">                em.close();</span>
+            }
+        }
+<span class="fc" id="L103">    }</span>
+
+    public void updateHuoneTilaById(int id, String huone_tila) {
+<span class="fc" id="L106">        EntityManager em = MariaDbConnection.getInstance();</span>
+
+<span class="fc" id="L108">        List&lt;String&gt; huoneTilaList = LocaleManager.getLocalizedTilaInput(huone_tila);</span>
+
+<span class="fc" id="L110">        String huone_tila_fi = huoneTilaList.get(0);</span>
+<span class="fc" id="L111">        String huone_tila_en = huoneTilaList.get(1);</span>
+<span class="fc" id="L112">        String huone_tila_ru = huoneTilaList.get(2);</span>
+<span class="fc" id="L113">        String huone_tila_zh = huoneTilaList.get(3);</span>
+
+        try {
+<span class="fc" id="L116">            em.getTransaction().begin();</span>
+<span class="fc" id="L117">            Huone huone = em.find(Huone.class, id);</span>
+<span class="pc bpc" id="L118" title="1 of 2 branches missed.">            if (huone != null) {</span>
+<span class="fc" id="L119">                huone.setHuone_tila_fi(huone_tila_fi);</span>
+<span class="fc" id="L120">                huone.setHuone_tila_en(huone_tila_en);</span>
+<span class="fc" id="L121">                huone.setHuone_tila_ru(huone_tila_ru);</span>
+<span class="fc" id="L122">                huone.setHuone_tila_zh(huone_tila_zh);</span>
+            } else {
+<span class="nc" id="L124">                System.out.println(&quot;Huonetta ei löytynyt id:llä &quot; + id);</span>
+            }
+<span class="fc" id="L126">            em.getTransaction().commit();</span>
+        } finally {
+<span class="pc bpc" id="L128" title="1 of 2 branches missed.">            if (em != null) {</span>
+<span class="fc" id="L129">                em.close();</span>
+            }
+        }
+<span class="fc" id="L132">    }</span>
+
+    public void removeById(int huone_id) {
+<span class="fc" id="L135">        VarausDAO varausDAO = new VarausDAO(); // Create an instance of VarausDAO</span>
+
+<span class="fc" id="L137">        EntityManager em = MariaDbConnection.getInstance();</span>
+        try {
+<span class="fc" id="L139">            em.getTransaction().begin();</span>
+
+            // First, remove all related reservations
+<span class="fc" id="L142">            varausDAO.removeByHuoneId(huone_id);</span>
+
+<span class="fc" id="L144">            Huone huone = em.find(Huone.class, huone_id);</span>
+<span class="pc bpc" id="L145" title="1 of 2 branches missed.">            if (huone != null) {</span>
+<span class="fc" id="L146">                em.remove(huone);</span>
+<span class="fc" id="L147">                System.out.println(&quot;Huone poistettu id:llä &quot; + huone_id);</span>
+            } else {
+<span class="nc" id="L149">                System.out.println(&quot;Huonetta ei löytynyt id:llä &quot; + huone_id);</span>
+            }
+
+<span class="fc" id="L152">            em.getTransaction().commit();</span>
+<span class="nc" id="L153">        } catch (Exception e) {</span>
+<span class="nc bnc" id="L154" title="All 2 branches missed.">            if (em.getTransaction().isActive()) {</span>
+<span class="nc" id="L155">                em.getTransaction().rollback(); // Rollback in case of an error</span>
+            }
+<span class="nc" id="L157">            System.out.println(&quot;Failed to remove huone ID: &quot; + huone_id);</span>
+<span class="nc" id="L158">            e.printStackTrace();</span>
+        } finally {
+<span class="pc bpc" id="L160" title="1 of 2 branches missed.">            if (em != null) {</span>
+<span class="fc" id="L161">                em.close();</span>
+            }
+        }
+<span class="fc" id="L164">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

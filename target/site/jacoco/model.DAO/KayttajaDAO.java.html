@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>KayttajaDAO.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">gui</a> &gt; <a href="index.source.html" class="el_package">model.DAO</a> &gt; <span class="el_source">KayttajaDAO.java</span></div><h1>KayttajaDAO.java</h1><pre class="source lang-java linenums">package model.DAO;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
+import jakarta.persistence.TypedQuery;
+import model.datasourse.MariaDbConnection;
+import model.enteties.Kayttaja;
+import org.mindrot.jbcrypt.BCrypt;
+
+import java.util.List;
+
+<span class="fc" id="L12">public class KayttajaDAO {</span>
+
+    public void persist(Kayttaja kayttaja) {
+<span class="fc" id="L15">        EntityManager em = MariaDbConnection.getInstance();</span>
+        try {
+<span class="fc" id="L17">            em.getTransaction().begin();</span>
+<span class="fc" id="L18">            em.persist(kayttaja);</span>
+<span class="fc" id="L19">            em.getTransaction().commit();</span>
+<span class="nc" id="L20">        } catch (Exception e) {</span>
+<span class="nc bnc" id="L21" title="All 2 branches missed.">            if (em.getTransaction().isActive()) {</span>
+<span class="nc" id="L22">                em.getTransaction().rollback();</span>
+            }
+<span class="nc" id="L24">            e.printStackTrace();</span>
+        } finally {
+<span class="fc" id="L26">            em.close(); // Ensure the EntityManager is closed</span>
+        }
+<span class="fc" id="L28">    }</span>
+
+    public Kayttaja findById(int id) {
+<span class="fc" id="L31">        EntityManager em = MariaDbConnection.getInstance();</span>
+        try {
+<span class="fc" id="L33">            return em.find(Kayttaja.class, id);</span>
+        } finally {
+<span class="fc" id="L35">            em.close(); // Ensure the EntityManager is closed</span>
+        }
+    }
+
+    public String findPasswordByEmail(String sposti) {
+<span class="fc" id="L40">        EntityManager em = MariaDbConnection.getInstance();</span>
+        try {
+<span class="fc" id="L42">            em.getTransaction().begin();</span>
+<span class="fc" id="L43">            String salasana = em.createQuery(&quot;SELECT k.salasana FROM Kayttaja k WHERE k.sposti = :sposti&quot;, String.class)</span>
+<span class="fc" id="L44">                    .setParameter(&quot;sposti&quot;, sposti)</span>
+<span class="fc" id="L45">                    .getSingleResult();</span>
+<span class="fc" id="L46">            em.getTransaction().commit();</span>
+<span class="fc" id="L47">            return salasana;</span>
+<span class="nc" id="L48">        } catch (NoResultException e) {</span>
+<span class="nc" id="L49">            System.out.println(&quot;Käyttäjää ei löytynyt sähköpostilla: &quot; + sposti);</span>
+<span class="nc" id="L50">            return null;</span>
+<span class="nc" id="L51">        } catch (Exception e) {</span>
+<span class="nc" id="L52">            e.printStackTrace();</span>
+<span class="nc" id="L53">            return null;</span>
+        } finally {
+<span class="fc" id="L55">            em.close(); // Ensure the EntityManager is closed</span>
+        }
+    }
+
+    public void updateEmailById(int id, String sposti) {
+<span class="fc" id="L60">        EntityManager em = MariaDbConnection.getInstance();</span>
+        try {
+<span class="fc" id="L62">            em.getTransaction().begin();</span>
+<span class="fc" id="L63">            Kayttaja kayttaja = em.find(Kayttaja.class, id);</span>
+<span class="pc bpc" id="L64" title="1 of 2 branches missed.">            if (kayttaja != null) {</span>
+<span class="fc" id="L65">                kayttaja.setSposti(sposti);</span>
+<span class="fc" id="L66">                System.out.println(&quot;Käyttäjän tiedot päivitetty onnistuneesti!&quot;);</span>
+<span class="fc" id="L67">                em.getTransaction().commit();</span>
+            } else {
+<span class="nc" id="L69">                System.out.println(&quot;Kayttajaa ei löytynyt ID:llä: &quot; + id);</span>
+            }
+<span class="nc" id="L71">        } catch (Exception e) {</span>
+<span class="nc bnc" id="L72" title="All 2 branches missed.">            if (em.getTransaction().isActive()) {</span>
+<span class="nc" id="L73">                em.getTransaction().rollback();</span>
+            }
+<span class="nc" id="L75">            e.printStackTrace();</span>
+        } finally {
+<span class="pc bpc" id="L77" title="1 of 2 branches missed.">            if (em != null) {</span>
+<span class="fc" id="L78">                em.close();</span>
+            }
+        }
+<span class="fc" id="L81">    }</span>
+
+    public Kayttaja changePasswordByEmail(String sposti, String newPassword) {
+<span class="fc" id="L84">        EntityManager em = MariaDbConnection.getInstance();</span>
+<span class="fc" id="L85">        String hashattuSalasana = BCrypt.hashpw(newPassword, BCrypt.gensalt());</span>
+<span class="fc" id="L86">        Kayttaja kayttaja = null;</span>
+
+        try {
+<span class="fc" id="L89">            em.getTransaction().begin();</span>
+
+            // Hae käyttäjä sähköpostin perusteella
+<span class="fc" id="L92">            kayttaja = em.createQuery(&quot;SELECT k FROM Kayttaja k WHERE k.sposti = :sposti&quot;, Kayttaja.class)</span>
+<span class="fc" id="L93">                    .setParameter(&quot;sposti&quot;, sposti)</span>
+<span class="fc" id="L94">                    .getSingleResult();</span>
+
+            // Jos käyttäjä löytyy, vaihdetaan salasana
+<span class="fc" id="L97">            kayttaja.setSalasana(hashattuSalasana); // Aseta uusi hashattu salasana</span>
+<span class="fc" id="L98">            System.out.println(&quot;Salasana vaihdettu onnistuneesti käyttäjälle: &quot; + kayttaja.getSposti());</span>
+<span class="fc" id="L99">            em.getTransaction().commit(); // Varmista muutosten tallentaminen</span>
+
+<span class="nc" id="L101">        } catch (NoResultException e) {</span>
+<span class="nc" id="L102">            System.out.println(&quot;Käyttäjää ei löytynyt sähköpostilla: &quot; + sposti);</span>
+<span class="nc bnc" id="L103" title="All 2 branches missed.">            if (em.getTransaction().isActive()) {</span>
+<span class="nc" id="L104">                em.getTransaction().rollback(); // Perutaan muutokset</span>
+            }
+<span class="nc" id="L106">        } catch (Exception e) {</span>
+<span class="nc" id="L107">            System.out.println(&quot;Virhe tapahtui: &quot; + e.getMessage());</span>
+<span class="nc bnc" id="L108" title="All 2 branches missed.">            if (em.getTransaction().isActive()) {</span>
+<span class="nc" id="L109">                em.getTransaction().rollback(); // Perutaan muutokset virhetilanteessa</span>
+            }
+        } finally {
+<span class="pc bpc" id="L112" title="2 of 4 branches missed.">            if (em != null &amp;&amp; em.isOpen()) {</span>
+<span class="fc" id="L113">                em.close(); // Suljetaan EntityManager turvallisesti</span>
+            }
+        }
+<span class="fc" id="L116">        return kayttaja; // Palautetaan käyttäjä, jos löytyi ja salasana vaihdettiin</span>
+    }
+
+    public Kayttaja removeById(int id) {
+<span class="fc" id="L120">        EntityManager em = MariaDbConnection.getInstance();</span>
+<span class="fc" id="L121">        Kayttaja kayttaja = null;</span>
+
+        try {
+<span class="fc" id="L124">            em.getTransaction().begin();</span>
+<span class="fc" id="L125">            kayttaja = em.find(Kayttaja.class, id);</span>
+<span class="pc bpc" id="L126" title="1 of 2 branches missed.">            if (kayttaja != null) {</span>
+<span class="fc" id="L127">                em.remove(kayttaja);</span>
+<span class="fc" id="L128">                System.out.println(&quot;Kayttaja poistettu onnistuneesti!&quot;);</span>
+<span class="fc" id="L129">                em.getTransaction().commit();  // Commit transaction if removal succeeds</span>
+            } else {
+<span class="nc" id="L131">                System.out.println(&quot;Kayttajaa ei löytynyt ID:llä: &quot; + id);</span>
+            }
+<span class="nc" id="L133">        } catch (Exception e) {</span>
+            // Handle exceptions, rollback transaction if something goes wrong
+<span class="nc bnc" id="L135" title="All 2 branches missed.">            if (em.getTransaction().isActive()) {</span>
+<span class="nc" id="L136">                em.getTransaction().rollback();</span>
+            }
+<span class="nc" id="L138">            e.printStackTrace();</span>
+        } finally {
+<span class="pc bpc" id="L140" title="1 of 2 branches missed.">            if (em != null) {</span>
+<span class="fc" id="L141">                em.close();</span>
+            }
+        }
+<span class="fc" id="L144">        return kayttaja;  // Return the removed Kayttaja (or null if not found)</span>
+    }
+
+    public void updateKayttajaById(int id, String etunimi, String sukunimi, String puh, String rooli) {
+<span class="fc" id="L148">        EntityManager em = MariaDbConnection.getInstance();</span>
+        try {
+<span class="fc" id="L150">            em.getTransaction().begin();</span>
+<span class="fc" id="L151">            Kayttaja kayttaja = em.find(Kayttaja.class, id);</span>
+<span class="pc bpc" id="L152" title="1 of 2 branches missed.">            if (kayttaja != null) {</span>
+<span class="fc" id="L153">                kayttaja.setEtunimi(etunimi);</span>
+<span class="fc" id="L154">                kayttaja.setSukunimi(sukunimi);</span>
+<span class="fc" id="L155">                kayttaja.setPuh(puh);</span>
+<span class="fc" id="L156">                kayttaja.setRooli(rooli);</span>
+<span class="fc" id="L157">                System.out.println(&quot;Käyttäjän tiedot päivitetty onnistuneesti!&quot;);</span>
+<span class="fc" id="L158">                em.getTransaction().commit();</span>
+            } else {
+<span class="nc" id="L160">                System.out.println(&quot;Kayttajaa ei löytynyt ID:llä: &quot; + id);</span>
+            }
+<span class="nc" id="L162">        } catch (Exception e) {</span>
+<span class="nc bnc" id="L163" title="All 2 branches missed.">            if (em.getTransaction().isActive()) {</span>
+<span class="nc" id="L164">                em.getTransaction().rollback();</span>
+            }
+<span class="nc" id="L166">            e.printStackTrace();</span>
+        } finally {
+<span class="pc bpc" id="L168" title="1 of 2 branches missed.">            if (em != null) {</span>
+<span class="fc" id="L169">                em.close();</span>
+            }
+        }
+<span class="fc" id="L172">    }</span>
+
+    public List&lt;Kayttaja&gt; findAllKayttaja() {
+<span class="fc" id="L175">        EntityManager em = MariaDbConnection.getInstance();</span>
+<span class="fc" id="L176">        List&lt;Kayttaja&gt; kayttajat = null;</span>
+        try {
+<span class="fc" id="L178">            kayttajat = em.createQuery(&quot;SELECT k FROM Kayttaja k&quot;, Kayttaja.class).getResultList();</span>
+        } finally {
+<span class="pc bpc" id="L180" title="1 of 2 branches missed.">            if (em != null) {</span>
+<span class="fc" id="L181">                em.close(); // Ensure the EntityManager is closed</span>
+            }
+        }
+<span class="fc" id="L184">        return kayttajat; // Return the list of users</span>
+    }
+
+    public boolean onkoEmailOlemassa(String sposti) {
+<span class="fc" id="L188">        EntityManager em = MariaDbConnection.getInstance();</span>
+        try {
+<span class="fc" id="L190">            TypedQuery&lt;Long&gt; query = em.createQuery(&quot;SELECT COUNT(k) FROM Kayttaja k WHERE k.sposti = :sposti&quot;, Long.class);</span>
+<span class="fc" id="L191">            query.setParameter(&quot;sposti&quot;, sposti);</span>
+<span class="fc" id="L192">            Long count = query.getSingleResult();</span>
+<span class="fc bfc" id="L193" title="All 2 branches covered.">            return count &gt; 0;</span>
+        } finally {
+<span class="fc" id="L195">            em.close(); // Ensure the EntityManager is closed</span>
+        }
+    }
+
+    public String findRooliByEmail(String email) {
+<span class="fc" id="L200">        EntityManager em = MariaDbConnection.getInstance();</span>
+        try {
+<span class="fc" id="L202">            em.getTransaction().begin();</span>
+<span class="fc" id="L203">            String rooliString = em.createQuery(&quot;SELECT k.rooli FROM Kayttaja k WHERE k.sposti = :email&quot;, String.class)</span>
+<span class="fc" id="L204">                    .setParameter(&quot;email&quot;, email)</span>
+<span class="fc" id="L205">                    .getSingleResult();</span>
+<span class="fc" id="L206">            em.getTransaction().commit();</span>
+<span class="fc" id="L207">            return rooliString;</span>
+
+<span class="nc" id="L209">        } catch (NoResultException e) {</span>
+<span class="nc" id="L210">            System.out.println(&quot;Käyttäjää ei löytynyt sähköpostilla: &quot; + email);</span>
+<span class="nc" id="L211">            return null;</span>
+<span class="nc" id="L212">        } catch (Exception e) {</span>
+<span class="nc" id="L213">            e.printStackTrace();</span>
+<span class="nc" id="L214">            return null;</span>
+        } finally {
+<span class="fc" id="L216">            em.close();</span>
+        }
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

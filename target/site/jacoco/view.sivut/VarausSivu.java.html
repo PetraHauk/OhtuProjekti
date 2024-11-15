@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>VarausSivu.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">gui</a> &gt; <a href="index.source.html" class="el_package">view.sivut</a> &gt; <span class="el_source">VarausSivu.java</span></div><h1>VarausSivu.java</h1><pre class="source lang-java linenums">package view.sivut;
+
+import controller.*;
+import javafx.application.Platform;
+import javafx.concurrent.Task;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import model.DAO.AsiakasDAO;
+import model.enteties.Asiakas;
+import model.enteties.Huone;
+import model.enteties.Lasku;
+import model.enteties.Varaus;
+import model.service.LocaleManager;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+import java.util.ResourceBundle;
+
+public class VarausSivu {
+
+    private VarausController varausController;
+    private HotelliController hotelliController;
+    private AsiakasController asiakasController;
+
+    private LaskuController laskuController;
+    private HuoneController huoneController;
+
+    private ResourceBundle bundle;
+
+<span class="nc" id="L38">    public VarausSivu() {</span>
+<span class="nc" id="L39">        varausController = new VarausController();</span>
+<span class="nc" id="L40">        hotelliController = new HotelliController();</span>
+<span class="nc" id="L41">        asiakasController = new AsiakasController();</span>
+<span class="nc" id="L42">        laskuController = new LaskuController();</span>
+<span class="nc" id="L43">        huoneController = new HuoneController();</span>
+
+<span class="nc" id="L45">        Locale currentLocale = LocaleManager.getCurrentLocale();</span>
+<span class="nc" id="L46">        bundle = ResourceBundle.getBundle(&quot;messages&quot;, currentLocale);</span>
+<span class="nc" id="L47">    }</span>
+
+    public VBox createVaraukset() {
+<span class="nc" id="L50">        VBox varauksetInfo = new VBox(10);</span>
+<span class="nc" id="L51">        varauksetInfo.getStyleClass().add(&quot;info&quot;);</span>
+<span class="nc" id="L52">        Label varauksetOtsikkoLabel = new Label(bundle.getString(&quot;varaus.title&quot;));</span>
+<span class="nc" id="L53">        varauksetOtsikkoLabel.getStyleClass().add(&quot;otsikko&quot;);</span>
+
+<span class="nc" id="L55">        HBox varausBox = new HBox(10);</span>
+
+<span class="nc" id="L57">        VBox luoVaraus = new VBox(0);</span>
+<span class="nc" id="L58">        Label luoVarausLabel = new Label(bundle.getString(&quot;varaus.createtitle&quot;));</span>
+
+<span class="nc" id="L60">        VBox asiakasTiedot = new VBox(0);</span>
+
+<span class="nc" id="L62">        Label asiakasEtunimiLabel = new Label(bundle.getString(&quot;varaus.label.firstname&quot;));</span>
+<span class="nc" id="L63">        TextField asiakasEtunimiField = new TextField();</span>
+
+<span class="nc" id="L65">        Label asiakasSukunimiLabel = new Label(bundle.getString(&quot;varaus.label.lastname&quot;));</span>
+<span class="nc" id="L66">        TextField asiakasSukunimiField = new TextField();</span>
+
+<span class="nc" id="L68">        Label asiakasSpostiLabel = new Label(bundle.getString(&quot;varaus.label.email&quot;));</span>
+<span class="nc" id="L69">        TextField asiakasSpostiField = new TextField();</span>
+
+<span class="nc" id="L71">        Label asiakasPuhLabel = new Label(bundle.getString(&quot;varaus.label.phone&quot;));</span>
+<span class="nc" id="L72">        TextField asiakasPuhField = new TextField();</span>
+
+<span class="nc" id="L74">        Label asiakasLisatiedotLabel = new Label(bundle.getString(&quot;varaus.label.notes&quot;));</span>
+<span class="nc" id="L75">        TextField asiakasLisatiedotField = new TextField();</span>
+
+<span class="nc" id="L77">        Button etsiAsiakasButton = new Button(bundle.getString(&quot;varaus.button.searchcustomer&quot;));</span>
+<span class="nc" id="L78">        etsiAsiakasButton.getStyleClass().add(&quot;yellow-btn&quot;);</span>
+
+<span class="nc" id="L80">        asiakasTiedot.getChildren().addAll(</span>
+                asiakasEtunimiLabel, asiakasEtunimiField,
+                asiakasSukunimiLabel, asiakasSukunimiField,
+                asiakasSpostiLabel, asiakasSpostiField,
+                asiakasPuhLabel, asiakasPuhField,
+                asiakasLisatiedotLabel, asiakasLisatiedotField,
+                etsiAsiakasButton);
+<span class="nc" id="L87">        asiakasTiedot.setMargin(etsiAsiakasButton, new Insets(10));</span>
+
+<span class="nc" id="L89">        etsiAsiakasButton.setOnAction(e -&gt; {</span>
+<span class="nc" id="L90">            openCustomerSearchWindow(asiakasEtunimiField, asiakasSukunimiField, asiakasSpostiField, asiakasPuhField);</span>
+<span class="nc" id="L91">        });</span>
+
+<span class="nc" id="L93">        VBox laskuTiedot = new VBox(0);</span>
+
+<span class="nc" id="L95">        Label laskuMuotoLabel = new Label(bundle.getString(&quot;varaus.label.reservationtype&quot;));</span>
+<span class="nc" id="L96">        ComboBox&lt;String&gt; laskuMuotoField = new ComboBox&lt;&gt;();</span>
+<span class="nc" id="L97">        laskuMuotoField.setPromptText(bundle.getString(&quot;varaus.selector.placeholder&quot;));</span>
+<span class="nc" id="L98">        laskuMuotoField.getItems().addAll(</span>
+<span class="nc" id="L99">                bundle.getString(&quot;varaus.selector.allinclusive&quot;),</span>
+<span class="nc" id="L100">                bundle.getString(&quot;varaus.selector.breakfast&quot;),</span>
+<span class="nc" id="L101">                bundle.getString(&quot;varaus.selector.roomonly&quot;));</span>
+
+<span class="nc" id="L103">        laskuTiedot.getChildren().addAll(laskuMuotoLabel, laskuMuotoField);</span>
+
+<span class="nc" id="L105">        VBox varausTiedot = new VBox(0);</span>
+
+<span class="nc" id="L107">        Label saapumisPvmLabel = new Label(bundle.getString(&quot;varaus.label.arrival&quot;));</span>
+<span class="nc" id="L108">        DatePicker saapumisPvmField = new DatePicker();</span>
+
+<span class="nc" id="L110">        Label lahtoPvmLabel = new Label(bundle.getString(&quot;varaus.label.departure&quot;));</span>
+<span class="nc" id="L111">        DatePicker lahtoPvmField = new DatePicker();</span>
+
+<span class="nc" id="L113">        varausTiedot.getChildren().addAll(saapumisPvmLabel, saapumisPvmField, lahtoPvmLabel, lahtoPvmField);</span>
+
+<span class="nc" id="L115">        Button luoVarausButton = new Button(bundle.getString(&quot;varaus.button.create&quot;));</span>
+<span class="nc" id="L116">        luoVarausButton.getStyleClass().add(&quot;yellow-btn&quot;);</span>
+
+<span class="nc" id="L118">        luoVaraus.getChildren().addAll(</span>
+                luoVarausLabel, asiakasTiedot, laskuTiedot, varausTiedot, luoVarausButton);
+<span class="nc" id="L120">        luoVaraus.setMargin(luoVarausButton, new Insets(10));</span>
+
+
+<span class="nc" id="L123">        TableView&lt;Varaus&gt; varausTable = createVarausTable();</span>
+<span class="nc" id="L124">        populateVarausTable(varausTable, null, null);</span>
+
+<span class="nc" id="L126">        luoVarausButton.setOnAction(e -&gt; {</span>
+            try {
+<span class="nc" id="L128">                String asiakasEtunimi = asiakasEtunimiField.getText();</span>
+<span class="nc" id="L129">                String asiakasSukunimi = asiakasSukunimiField.getText();</span>
+<span class="nc" id="L130">                String asiakasEmail = asiakasSpostiField.getText();</span>
+<span class="nc" id="L131">                String asiakasPuh = asiakasPuhField.getText();</span>
+<span class="nc" id="L132">                String huomio = asiakasLisatiedotField.getText();</span>
+<span class="nc" id="L133">                String laskuMuoto = laskuMuotoField.getValue();</span>
+<span class="nc" id="L134">                LocalDate saapumisPvm = saapumisPvmField.getValue();</span>
+<span class="nc" id="L135">                LocalDate lahtoPvm = lahtoPvmField.getValue();</span>
+
+<span class="nc bnc" id="L137" title="All 4 branches missed.">                if (saapumisPvm == null || lahtoPvm == null) {</span>
+<span class="nc" id="L138">                    System.err.println(bundle.getString(&quot;varaus.error.invaliddates&quot;));</span>
+<span class="nc" id="L139">                    return;</span>
+                }
+
+                // Get total number of rooms in the hotel
+<span class="nc" id="L143">                int totalRooms = hotelliController.getRoomCount();</span>
+
+                // Get count of overlapping reservations for the given date range
+<span class="nc" id="L146">                int overlappingReservations = varausController.getOverlappingReservationsCount(saapumisPvm, lahtoPvm);</span>
+
+<span class="nc bnc" id="L148" title="All 2 branches missed.">                if (overlappingReservations &gt;= totalRooms) {</span>
+<span class="nc" id="L149">                    System.err.println(bundle.getString(&quot;varaus.error.noroomsfordates&quot;));</span>
+<span class="nc" id="L150">                    Alert alert = new Alert(Alert.AlertType.ERROR);</span>
+<span class="nc" id="L151">                    alert.setTitle(bundle.getString(&quot;varaus.error.title&quot;));</span>
+<span class="nc" id="L152">                    alert.setHeaderText(null);</span>
+<span class="nc" id="L153">                    alert.setContentText(bundle.getString(bundle.getString(&quot;varaus.error.noroomsfordates&quot;)));</span>
+<span class="nc" id="L154">                    alert.showAndWait();</span>
+<span class="nc" id="L155">                    return;</span>
+                }
+
+<span class="nc" id="L158">                System.out.println(bundle.getString(&quot;varaus.creating&quot;));</span>
+<span class="nc" id="L159">                varausController.createVaraus(asiakasEtunimi, asiakasSukunimi, asiakasEmail, asiakasPuh, huomio, laskuMuoto, saapumisPvm, lahtoPvm);</span>
+<span class="nc" id="L160">                System.out.println(bundle.getString(&quot;varaus.created&quot;));</span>
+<span class="nc" id="L161">                populateVarausTable(varausTable, null, null);</span>
+<span class="nc" id="L162">            } catch (Exception ex) {</span>
+<span class="nc" id="L163">                System.err.println(&quot;Failed to create reservation: &quot; + ex.getMessage());</span>
+<span class="nc" id="L164">            }</span>
+<span class="nc" id="L165">        });</span>
+
+<span class="nc" id="L167">        varausBox.getChildren().addAll(luoVaraus, varausTable);</span>
+
+<span class="nc" id="L169">        varauksetInfo.getChildren().addAll(varauksetOtsikkoLabel, varausBox);</span>
+
+<span class="nc" id="L171">        return varauksetInfo;</span>
+    }
+
+    private void openCustomerSearchWindow(TextField firstNameField, TextField lastNameField, TextField emailField, TextField phoneField) {
+<span class="nc" id="L175">        Stage searchCustomerStage = new Stage();</span>
+<span class="nc" id="L176">        searchCustomerStage.setTitle(bundle.getString(&quot;varaus.searchcustomer&quot;));</span>
+
+<span class="nc" id="L178">        VBox searchLayout = new VBox(10);</span>
+<span class="nc" id="L179">        searchLayout.setAlignment(Pos.CENTER);</span>
+
+<span class="nc" id="L181">        Label searchLabel = new Label(bundle.getString(&quot;varaus.searchcustomer&quot;));</span>
+<span class="nc" id="L182">        TextField searchField = new TextField();</span>
+<span class="nc" id="L183">        Button searchButton = new Button(bundle.getString(&quot;varaus.button.search&quot;));</span>
+<span class="nc" id="L184">        searchButton.getStyleClass().add(&quot;yellow-btn&quot;);</span>
+
+<span class="nc" id="L186">        TableView&lt;Asiakas&gt; searchResults = createCustomerTable();</span>
+
+<span class="nc" id="L188">        HBox pageButtons = new HBox(10);</span>
+<span class="nc" id="L189">        Button previousButton = new Button(bundle.getString(&quot;varaus.button.previous&quot;));</span>
+<span class="nc" id="L190">        Button nextButton = new Button(bundle.getString(&quot;varaus.button.next&quot;));</span>
+<span class="nc" id="L191">        pageButtons.getChildren().addAll(previousButton, nextButton);</span>
+
+<span class="nc" id="L193">        Button selectButton = new Button(bundle.getString(&quot;varaus.button.select&quot;));</span>
+<span class="nc" id="L194">        selectButton.getStyleClass().add(&quot;yellow-btn&quot;);</span>
+
+<span class="nc" id="L196">        searchLayout.getChildren().addAll(searchLabel, searchField, searchButton, searchResults, pageButtons, selectButton);</span>
+
+<span class="nc" id="L198">        final int[] currentPage = {1};</span>
+<span class="nc" id="L199">        final int resultsPerPage = 20;</span>
+<span class="nc" id="L200">        List&lt;Asiakas&gt; allCustomers = new ArrayList&lt;&gt;();</span>
+
+<span class="nc" id="L202">        searchButton.setOnAction(e -&gt; {</span>
+<span class="nc" id="L203">            String searchQuery = searchField.getText();</span>
+<span class="nc" id="L204">            currentPage[0] = 1; // Reset to the first page</span>
+<span class="nc" id="L205">            allCustomers.clear();</span>
+<span class="nc" id="L206">            searchCustomers(searchResults, searchQuery, allCustomers, currentPage[0], resultsPerPage, previousButton, nextButton);</span>
+<span class="nc" id="L207">        });</span>
+
+<span class="nc" id="L209">        previousButton.setOnAction(e -&gt; {</span>
+<span class="nc bnc" id="L210" title="All 2 branches missed.">            if (currentPage[0] &gt; 1) {</span>
+<span class="nc" id="L211">                currentPage[0]--;</span>
+<span class="nc" id="L212">                updateCustomerTable(searchResults, allCustomers, currentPage[0], resultsPerPage, previousButton, nextButton);</span>
+            }
+<span class="nc" id="L214">        });</span>
+
+<span class="nc" id="L216">        nextButton.setOnAction(e -&gt; {</span>
+<span class="nc bnc" id="L217" title="All 2 branches missed.">            if (currentPage[0] * resultsPerPage &lt; allCustomers.size()) {</span>
+<span class="nc" id="L218">                currentPage[0]++;</span>
+<span class="nc" id="L219">                updateCustomerTable(searchResults, allCustomers, currentPage[0], resultsPerPage, previousButton, nextButton);</span>
+            }
+<span class="nc" id="L221">        });</span>
+
+<span class="nc" id="L223">        selectButton.setOnAction(e -&gt; {</span>
+<span class="nc" id="L224">            Asiakas selectedCustomer = searchResults.getSelectionModel().getSelectedItem();</span>
+<span class="nc bnc" id="L225" title="All 2 branches missed.">            if (selectedCustomer != null) {</span>
+<span class="nc" id="L226">                firstNameField.setText(selectedCustomer.getEtunimi());</span>
+<span class="nc" id="L227">                lastNameField.setText(selectedCustomer.getSukunimi());</span>
+<span class="nc" id="L228">                emailField.setText(selectedCustomer.getSposti());</span>
+<span class="nc" id="L229">                phoneField.setText(selectedCustomer.getPuh());</span>
+
+<span class="nc" id="L231">                searchCustomerStage.close();</span>
+            }
+<span class="nc" id="L233">        });</span>
+
+<span class="nc" id="L235">        Scene scene = new Scene(searchLayout, 730, 460);</span>
+<span class="nc" id="L236">        scene.getStylesheets().add(&quot;style.css&quot;);</span>
+<span class="nc" id="L237">        searchCustomerStage.setScene(scene);</span>
+<span class="nc" id="L238">        searchCustomerStage.show();</span>
+<span class="nc" id="L239">    }</span>
+
+    private void searchCustomers(TableView&lt;Asiakas&gt; searchResults, String searchQuery, List&lt;Asiakas&gt; allCustomers, int currentPage, int resultsPerPage, Button previousButton, Button nextButton) {
+<span class="nc" id="L242">        ProgressIndicator loadingIndicator = new ProgressIndicator();</span>
+<span class="nc" id="L243">        loadingIndicator.setVisible(true);</span>
+<span class="nc" id="L244">        searchResults.getItems().clear();</span>
+<span class="nc" id="L245">        searchResults.setPlaceholder(loadingIndicator);</span>
+
+<span class="nc" id="L247">        Task&lt;List&lt;Asiakas&gt;&gt; searchCustomersTask = new Task&lt;&gt;() {</span>
+            @Override
+            protected List&lt;Asiakas&gt; call() throws Exception {
+                // Create DAO object for database access
+<span class="nc" id="L251">                return asiakasController.findByKeyword(searchQuery);</span>
+            }
+        };
+
+<span class="nc" id="L255">        searchCustomersTask.setOnSucceeded(event -&gt; {</span>
+<span class="nc" id="L256">            List&lt;Asiakas&gt; customers = searchCustomersTask.getValue();</span>
+<span class="nc" id="L257">            allCustomers.clear();</span>
+<span class="nc bnc" id="L258" title="All 4 branches missed.">            if (customers != null &amp;&amp; !customers.isEmpty()) {</span>
+<span class="nc" id="L259">                allCustomers.addAll(customers);</span>
+<span class="nc" id="L260">                updateCustomerTable(searchResults, allCustomers, currentPage, resultsPerPage, previousButton, nextButton);</span>
+            } else {
+<span class="nc" id="L262">                searchResults.setPlaceholder(new Label(bundle.getString(&quot;varaus.error.nocustomersfound&quot;)));</span>
+            }
+<span class="nc" id="L264">            loadingIndicator.setVisible(false);</span>
+<span class="nc" id="L265">        });</span>
+
+<span class="nc" id="L267">        searchCustomersTask.setOnFailed(event -&gt; {</span>
+<span class="nc" id="L268">            searchResults.setPlaceholder(new Label(bundle.getString(&quot;varaus.error.loadcustomers&quot;)));</span>
+<span class="nc" id="L269">            System.err.println(&quot;Failed to fetch customers: &quot; + searchCustomersTask.getException());</span>
+<span class="nc" id="L270">            loadingIndicator.setVisible(false);</span>
+<span class="nc" id="L271">        });</span>
+
+<span class="nc" id="L273">        new Thread(searchCustomersTask).start();</span>
+<span class="nc" id="L274">    }</span>
+
+    private void updateCustomerTable(TableView&lt;Asiakas&gt; table, List&lt;Asiakas&gt; allCustomers, int currentPage, int resultsPerPage, Button previousButton, Button nextButton) {
+<span class="nc" id="L277">        int startIndex = (currentPage - 1) * resultsPerPage;</span>
+<span class="nc" id="L278">        int endIndex = Math.min(startIndex + resultsPerPage, allCustomers.size());</span>
+
+<span class="nc" id="L280">        List&lt;Asiakas&gt; currentPageCustomers = allCustomers.subList(startIndex, endIndex);</span>
+<span class="nc" id="L281">        table.getItems().setAll(currentPageCustomers);</span>
+
+<span class="nc bnc" id="L283" title="All 2 branches missed.">        previousButton.setDisable(currentPage &lt;= 1);</span>
+<span class="nc bnc" id="L284" title="All 2 branches missed.">        nextButton.setDisable(endIndex &gt;= allCustomers.size());</span>
+<span class="nc" id="L285">    }</span>
+
+    // Check In was moved to separate class
+
+
+    private void populateVarausTable(TableView&lt;Varaus&gt; varausTable, LocalDate alkuPvm, LocalDate loppuPvm) {
+<span class="nc" id="L291">        ProgressIndicator loadingIndicator = new ProgressIndicator();</span>
+<span class="nc" id="L292">        loadingIndicator.setVisible(true);</span>
+<span class="nc" id="L293">        loadingIndicator.setPrefSize(50, 50);</span>
+
+<span class="nc" id="L295">        varausTable.getItems().clear();</span>
+<span class="nc" id="L296">        varausTable.setPlaceholder(loadingIndicator);</span>
+
+<span class="nc bnc" id="L298" title="All 2 branches missed.">        LocalDate startDate = (alkuPvm != null) ? alkuPvm : LocalDate.of(1970, 1, 1);</span>
+<span class="nc bnc" id="L299" title="All 2 branches missed.">        LocalDate endDate = (loppuPvm != null) ? loppuPvm : LocalDate.of(2100, 1, 1);</span>
+
+<span class="nc" id="L301">        Task&lt;List&lt;Varaus&gt;&gt; fetchVarauksetTask = new Task&lt;&gt;() {</span>
+            @Override
+            protected List&lt;Varaus&gt; call() throws Exception {
+<span class="nc" id="L304">                return varausController.findVarauksetByDate(startDate, endDate);</span>
+            }
+        };
+
+<span class="nc" id="L308">        fetchVarauksetTask.setOnSucceeded(event -&gt; {</span>
+<span class="nc" id="L309">            List&lt;Varaus&gt; varaukset = fetchVarauksetTask.getValue();</span>
+
+<span class="nc" id="L311">            Platform.runLater(() -&gt; {</span>
+<span class="nc" id="L312">                loadingIndicator.setVisible(false);</span>
+<span class="nc" id="L313">                varausTable.getSelectionModel().clearSelection(); // Clear selection before updating items</span>
+
+<span class="nc bnc" id="L315" title="All 4 branches missed.">                if (varaukset != null &amp;&amp; !varaukset.isEmpty()) {</span>
+<span class="nc bnc" id="L316" title="All 2 branches missed.">                    for (Varaus varaus : varaukset) {</span>
+<span class="nc bnc" id="L317" title="All 2 branches missed.">                        if (varaus.getHuoneId() != null) {</span>
+<span class="nc" id="L318">                            Huone huone = huoneController.findHuoneById(varaus.getHuoneId());</span>
+<span class="nc" id="L319">                            varaus.setHuone(huone);</span>
+                        }
+
+<span class="nc" id="L322">                        Lasku lasku = laskuController.findLaskuById(varaus.getLaskuId());</span>
+<span class="nc bnc" id="L323" title="All 2 branches missed.">                        if (lasku != null) {</span>
+<span class="nc" id="L324">                            Asiakas asiakas = asiakasController.findByLaskuId(lasku.getAsiakasId());</span>
+<span class="nc" id="L325">                            varaus.setNimi(asiakas.getEtunimi() + &quot; &quot; + asiakas.getSukunimi());</span>
+                        }
+
+
+<span class="nc" id="L329">                    }</span>
+<span class="nc" id="L330">                    varausTable.getItems().setAll(varaukset); // Update table with new data</span>
+                } else {
+<span class="nc" id="L332">                    varausTable.setPlaceholder(new Label(bundle.getString(&quot;varaus.error.noreservations&quot;)));</span>
+                }
+<span class="nc" id="L334">            });</span>
+<span class="nc" id="L335">        });</span>
+
+<span class="nc" id="L337">        fetchVarauksetTask.setOnFailed(event -&gt; {</span>
+<span class="nc" id="L338">            varausTable.setPlaceholder(new Label(bundle.getString(&quot;varaus.error.loadreservations&quot;)));</span>
+<span class="nc" id="L339">            System.err.println(&quot;Failed to fetch reservations: &quot; + fetchVarauksetTask.getException());</span>
+<span class="nc" id="L340">            loadingIndicator.setVisible(false);</span>
+<span class="nc" id="L341">        });</span>
+
+<span class="nc" id="L343">        new Thread(fetchVarauksetTask).start();</span>
+<span class="nc" id="L344">    }</span>
+
+    private TableView&lt;Varaus&gt; createVarausTable(){
+<span class="nc" id="L347">        TableView&lt;Varaus&gt; varausTable = new TableView&lt;&gt;();</span>
+
+<span class="nc" id="L349">        TableColumn&lt;Varaus, Integer&gt; idColumn = new TableColumn&lt;&gt;(bundle.getString(&quot;varaus.table.reservationid&quot;));</span>
+<span class="nc" id="L350">        idColumn.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;varausId&quot;));</span>
+<span class="nc" id="L351">        idColumn.setMinWidth(135);</span>
+
+<span class="nc" id="L353">        TableColumn&lt;Varaus, String&gt; asiakasColumn = new TableColumn&lt;&gt;(bundle.getString(&quot;varaus.table.customer&quot;));</span>
+<span class="nc" id="L354">        asiakasColumn.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;nimi&quot;));</span>
+<span class="nc" id="L355">        asiakasColumn.setMinWidth(150);</span>
+
+<span class="nc" id="L357">        TableColumn&lt;Varaus, Integer&gt; roomColumn = new TableColumn&lt;&gt;(bundle.getString(&quot;varaus.table.roomnumber&quot;));</span>
+<span class="nc" id="L358">        roomColumn.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;huoneNro&quot;));</span>
+<span class="nc" id="L359">        roomColumn.setMinWidth(150);</span>
+
+<span class="nc" id="L361">        TableColumn&lt;Varaus, String&gt; startDateColumn = new TableColumn&lt;&gt;(bundle.getString(&quot;varaus.table.arrival&quot;));</span>
+<span class="nc" id="L362">        startDateColumn.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;alkuPvm&quot;));</span>
+<span class="nc" id="L363">        startDateColumn.setMinWidth(150);</span>
+
+<span class="nc" id="L365">        TableColumn&lt;Varaus, String&gt; endDateColumn = new TableColumn&lt;&gt;(bundle.getString(&quot;varaus.table.departure&quot;));</span>
+<span class="nc" id="L366">        endDateColumn.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;loppuPvm&quot;));</span>
+<span class="nc" id="L367">        endDateColumn.setMinWidth(150);</span>
+
+<span class="nc" id="L369">        varausTable.getColumns().add(idColumn);</span>
+<span class="nc" id="L370">        varausTable.getColumns().add(roomColumn);</span>
+<span class="nc" id="L371">        varausTable.getColumns().add(asiakasColumn);</span>
+<span class="nc" id="L372">        varausTable.getColumns().add(startDateColumn);</span>
+<span class="nc" id="L373">        varausTable.getColumns().add(endDateColumn);</span>
+
+<span class="nc" id="L375">        return varausTable;</span>
+    }
+
+    private TableView&lt;Asiakas&gt; createCustomerTable() {
+<span class="nc" id="L379">        TableView&lt;Asiakas&gt; customerTable = new TableView&lt;&gt;();</span>
+
+<span class="nc" id="L381">        TableColumn&lt;Asiakas, Integer&gt; idColumn = new TableColumn&lt;&gt;(bundle.getString(&quot;varaus.table.customerid&quot;));</span>
+<span class="nc" id="L382">        idColumn.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;asiakasId&quot;));</span>
+<span class="nc" id="L383">        idColumn.setMinWidth(80);</span>
+
+<span class="nc" id="L385">        TableColumn&lt;Asiakas, String&gt; firstNameColumn = new TableColumn&lt;&gt;(bundle.getString(&quot;varaus.table.firstname&quot;));</span>
+<span class="nc" id="L386">        firstNameColumn.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;etunimi&quot;));</span>
+<span class="nc" id="L387">        firstNameColumn.setMinWidth(120);</span>
+
+<span class="nc" id="L389">        TableColumn&lt;Asiakas, String&gt; lastNameColumn = new TableColumn&lt;&gt;(bundle.getString(&quot;varaus.table.lastname&quot;));</span>
+<span class="nc" id="L390">        lastNameColumn.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;sukunimi&quot;));</span>
+<span class="nc" id="L391">        lastNameColumn.setMinWidth(120);</span>
+
+<span class="nc" id="L393">        TableColumn&lt;Asiakas, String&gt; emailColumn = new TableColumn&lt;&gt;(bundle.getString(&quot;varaus.table.email&quot;));</span>
+<span class="nc" id="L394">        emailColumn.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;sposti&quot;));</span>
+<span class="nc" id="L395">        emailColumn.setMinWidth(150);</span>
+
+<span class="nc" id="L397">        TableColumn&lt;Asiakas, String&gt; phoneColumn = new TableColumn&lt;&gt;(bundle.getString(&quot;varaus.table.phone&quot;));</span>
+<span class="nc" id="L398">        phoneColumn.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;puh&quot;));</span>
+<span class="nc" id="L399">        phoneColumn.setMinWidth(90);</span>
+
+<span class="nc" id="L401">        TableColumn&lt;Asiakas, String&gt; huomioColumn = new TableColumn&lt;&gt;(bundle.getString(&quot;varaus.table.notes&quot;));</span>
+<span class="nc" id="L402">        huomioColumn.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;huomio&quot;));</span>
+<span class="nc" id="L403">        huomioColumn.setMinWidth(165);</span>
+
+<span class="nc" id="L405">        customerTable.getColumns().addAll(idColumn, firstNameColumn, lastNameColumn, emailColumn, phoneColumn, huomioColumn);</span>
+
+<span class="nc" id="L407">        return customerTable;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

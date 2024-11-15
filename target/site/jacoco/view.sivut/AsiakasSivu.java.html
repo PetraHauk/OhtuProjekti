@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AsiakasSivu.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">gui</a> &gt; <a href="index.source.html" class="el_package">view.sivut</a> &gt; <span class="el_source">AsiakasSivu.java</span></div><h1>AsiakasSivu.java</h1><pre class="source lang-java linenums">package view.sivut;
+
+import controller.AsiakasController;
+import javafx.concurrent.Task;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import model.enteties.Asiakas;
+import model.service.LocaleManager;
+
+import java.util.List;
+import java.util.Locale;
+import java.util.ResourceBundle;
+
+public class AsiakasSivu {
+    private AsiakasController asiakasController;
+    private ResourceBundle bundle;
+
+    // Constructor to initialize dependencies
+<span class="nc" id="L26">    public AsiakasSivu() {</span>
+<span class="nc" id="L27">        asiakasController = new AsiakasController();</span>
+
+<span class="nc" id="L29">        Locale currentLocale = LocaleManager.getCurrentLocale();</span>
+<span class="nc" id="L30">        bundle = ResourceBundle.getBundle(&quot;messages&quot;, currentLocale);</span>
+<span class="nc" id="L31">    }</span>
+
+    public VBox createAsiakkaat() {
+<span class="nc" id="L34">        VBox asiakkaatInfo = new VBox(10);</span>
+<span class="nc" id="L35">        asiakkaatInfo.getStyleClass().add(&quot;info&quot;);</span>
+<span class="nc" id="L36">        Label asiakkaatOtsikkoLabel = new Label(bundle.getString(&quot;asiakkaatOtsikkoLabelText&quot;));</span>
+<span class="nc" id="L37">        asiakkaatOtsikkoLabel.getStyleClass().add(&quot;otsikko&quot;);</span>
+<span class="nc" id="L38">        Button addCustomerButton = new Button(bundle.getString(&quot;addCustomerButtonText&quot;));</span>
+
+<span class="nc" id="L40">        TableView&lt;Asiakas&gt; customerTable = createCustomerTable();</span>
+
+<span class="nc" id="L42">        addCustomerButton.setOnAction(e -&gt; openAddCustomerWindow(customerTable));</span>
+<span class="nc" id="L43">        populateCustomerTable(customerTable);</span>
+
+<span class="nc" id="L45">        asiakkaatInfo.getChildren().addAll(asiakkaatOtsikkoLabel, customerTable, addCustomerButton);</span>
+<span class="nc" id="L46">        return asiakkaatInfo;</span>
+    }
+
+    private void openAddCustomerWindow(TableView&lt;Asiakas&gt; customerTable) {
+<span class="nc" id="L50">        Stage addCustomerStage = new Stage();</span>
+<span class="nc" id="L51">        addCustomerStage.setTitle(bundle.getString(&quot;addCustomerStageTitle&quot;));</span>
+
+<span class="nc" id="L53">        BorderPane borderPane = new BorderPane();</span>
+<span class="nc" id="L54">        VBox formLayout = new VBox(10);</span>
+<span class="nc" id="L55">        formLayout.setAlignment(Pos.CENTER_LEFT);</span>
+<span class="nc" id="L56">        formLayout.setPadding(new Insets(20));</span>
+
+<span class="nc" id="L58">        Label firstNameLabel = new Label(bundle.getString(&quot;firstNameLabelText&quot;));</span>
+<span class="nc" id="L59">        TextField firstNameField = new TextField();</span>
+<span class="nc" id="L60">        firstNameField.setPromptText(bundle.getString(&quot;firstNameLabelText&quot;));</span>
+
+<span class="nc" id="L62">        Label lastNameLabel = new Label(bundle.getString(&quot;lastNameLabelText&quot;));</span>
+<span class="nc" id="L63">        TextField lastNameField = new TextField();</span>
+<span class="nc" id="L64">        lastNameField.setPromptText(bundle.getString(&quot;lastNameLabelText&quot;));</span>
+
+<span class="nc" id="L66">        Label emailLabel = new Label(bundle.getString(&quot;emailLabelText&quot;));</span>
+<span class="nc" id="L67">        TextField emailField = new TextField();</span>
+<span class="nc" id="L68">        emailField.setPromptText(bundle.getString(&quot;emailLabelText&quot;));</span>
+
+<span class="nc" id="L70">        Label phoneLabel = new Label(bundle.getString(&quot;phoneLabelText&quot;));</span>
+<span class="nc" id="L71">        TextField phoneField = new TextField();</span>
+<span class="nc" id="L72">        phoneField.setPromptText(bundle.getString(&quot;phoneLabelText&quot;));</span>
+
+<span class="nc" id="L74">        Label henkiloMaaraLabel = new Label(bundle.getString(&quot;henkiloMaaraLabelText&quot;));</span>
+<span class="nc" id="L75">        TextField henkiloMaaraField = new TextField();</span>
+<span class="nc" id="L76">        henkiloMaaraField.setPromptText(bundle.getString(&quot;henkiloMaaraLabelText&quot;));</span>
+
+<span class="nc" id="L78">        Label huomioLabel = new Label(bundle.getString(&quot;huomioLabelText&quot;));</span>
+<span class="nc" id="L79">        TextField huomioField = new TextField();</span>
+<span class="nc" id="L80">        huomioField.setPromptText(bundle.getString(&quot;huomioLabelText&quot;));</span>
+
+
+<span class="nc" id="L83">        Button saveButton = new Button(bundle.getString(&quot;saveButtonText&quot;));</span>
+<span class="nc" id="L84">        Button cancelButton = new Button(bundle.getString(&quot;cancelButtonText&quot;));</span>
+
+<span class="nc" id="L86">        formLayout.getChildren().addAll(</span>
+                firstNameLabel, firstNameField,
+                lastNameLabel, lastNameField,
+                emailLabel, emailField,
+                phoneLabel, phoneField,
+                henkiloMaaraLabel, henkiloMaaraField,
+                huomioLabel, huomioField
+        );
+
+<span class="nc" id="L95">        HBox buttonBox = new HBox(10, saveButton, cancelButton);</span>
+<span class="nc" id="L96">        buttonBox.setAlignment(Pos.CENTER);</span>
+
+<span class="nc" id="L98">        saveButton.setOnAction(e -&gt; {</span>
+            try {
+<span class="nc" id="L100">                asiakasController.addAsiakas(</span>
+<span class="nc" id="L101">                        firstNameField.getText(),</span>
+<span class="nc" id="L102">                        lastNameField.getText(),</span>
+<span class="nc" id="L103">                        emailField.getText(),</span>
+<span class="nc" id="L104">                        phoneField.getText(),</span>
+<span class="nc" id="L105">                        Integer.parseInt(henkiloMaaraField.getText()),</span>
+<span class="nc" id="L106">                        huomioField.getText()</span>
+                );
+<span class="nc" id="L108">                addCustomerStage.close();</span>
+<span class="nc" id="L109">                populateCustomerTable(customerTable);  // Päivitä asiakastaulukko</span>
+<span class="nc" id="L110">            } catch (Exception ex) {</span>
+<span class="nc" id="L111">                System.err.println(bundle.getString(&quot;addCustomerErrorText&quot; )+ ex.getMessage());</span>
+<span class="nc" id="L112">            }</span>
+<span class="nc" id="L113">        });</span>
+
+<span class="nc" id="L115">        cancelButton.setOnAction(e -&gt; addCustomerStage.close());</span>
+
+<span class="nc" id="L117">        borderPane.setCenter(formLayout);</span>
+<span class="nc" id="L118">        borderPane.setBottom(buttonBox);</span>
+<span class="nc" id="L119">        BorderPane.setMargin(buttonBox, new Insets(10));</span>
+
+<span class="nc" id="L121">        Scene scene = new Scene(borderPane, 400, 460);</span>
+<span class="nc" id="L122">        addCustomerStage.setScene(scene);</span>
+<span class="nc" id="L123">        addCustomerStage.show();</span>
+<span class="nc" id="L124">    }</span>
+
+    // Populate the customer table. Runs it in a thread and shows loading indicator.
+    private void populateCustomerTable(TableView&lt;Asiakas&gt; customerTable) {
+<span class="nc" id="L128">        ProgressIndicator loadingIndicator = new ProgressIndicator();</span>
+<span class="nc" id="L129">        loadingIndicator.setVisible(true);</span>
+<span class="nc" id="L130">        customerTable.getItems().clear();</span>
+<span class="nc" id="L131">        customerTable.setPlaceholder(loadingIndicator);</span>
+
+<span class="nc" id="L133">        Task&lt;List&lt;Asiakas&gt;&gt; fetchCustomersTask = new Task&lt;&gt;() {</span>
+            @Override
+            protected List&lt;Asiakas&gt; call() throws Exception {
+<span class="nc" id="L136">                return asiakasController.findAllAsiakkaat();</span>
+            }
+        };
+
+<span class="nc" id="L140">        fetchCustomersTask.setOnSucceeded(event -&gt; {</span>
+<span class="nc" id="L141">            List&lt;Asiakas&gt; customers = fetchCustomersTask.getValue();</span>
+<span class="nc bnc" id="L142" title="All 4 branches missed.">            if (customers != null &amp;&amp; !customers.isEmpty()) {</span>
+<span class="nc" id="L143">                customerTable.getItems().setAll(customers);</span>
+            } else {
+<span class="nc" id="L145">                customerTable.setPlaceholder(new Label(bundle.getString(&quot;NotFoundCustomerText&quot;)));</span>
+            }
+<span class="nc" id="L147">            loadingIndicator.setVisible(false);</span>
+<span class="nc" id="L148">        });</span>
+
+<span class="nc" id="L150">        fetchCustomersTask.setOnFailed(event -&gt; {</span>
+<span class="nc" id="L151">            customerTable.setPlaceholder(new Label(bundle.getString(&quot;FaildToFtechCustomerText&quot;)));</span>
+<span class="nc" id="L152">            System.err.println(&quot;Failed to fetch customers: &quot; + fetchCustomersTask.getException());</span>
+<span class="nc" id="L153">            loadingIndicator.setVisible(false);</span>
+<span class="nc" id="L154">        });</span>
+
+<span class="nc" id="L156">        new Thread(fetchCustomersTask).start();</span>
+<span class="nc" id="L157">    }</span>
+    // Method to create the Customer table view
+    private TableView&lt;Asiakas&gt; createCustomerTable() {
+<span class="nc" id="L160">        TableView&lt;Asiakas&gt; customerTable = new TableView&lt;&gt;();</span>
+        // Set the width of the table
+<span class="nc" id="L162">        customerTable.setPrefWidth(940);</span>
+<span class="nc" id="L163">        customerTable.setPrefHeight(400);</span>
+
+<span class="nc" id="L165">        TableColumn&lt;Asiakas, Integer&gt; idColumn = new TableColumn&lt;&gt;(bundle.getString(&quot;idColumnText&quot;));</span>
+<span class="nc" id="L166">        idColumn.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;asiakasId&quot;));</span>
+
+
+<span class="nc" id="L169">        TableColumn&lt;Asiakas, String&gt; firstNameColumn = new TableColumn&lt;&gt;(bundle.getString(&quot;firstNameLabelText&quot;));</span>
+<span class="nc" id="L170">        firstNameColumn.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;etunimi&quot;));</span>
+
+<span class="nc" id="L172">        TableColumn&lt;Asiakas, String&gt; lastNameColumn = new TableColumn&lt;&gt;(bundle.getString(&quot;lastNameLabelText&quot;));</span>
+<span class="nc" id="L173">        lastNameColumn.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;sukunimi&quot;));</span>
+
+<span class="nc" id="L175">        TableColumn&lt;Asiakas, String&gt; emailColumn = new TableColumn&lt;&gt;(bundle.getString(&quot;emailLabelText&quot;));</span>
+<span class="nc" id="L176">        emailColumn.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;sposti&quot;));</span>
+<span class="nc" id="L177">        emailColumn.setMinWidth(150);</span>
+
+<span class="nc" id="L179">        TableColumn&lt;Asiakas, String&gt; phoneColumn = new TableColumn&lt;&gt;(bundle.getString(&quot;phoneLabelText&quot;));</span>
+<span class="nc" id="L180">        phoneColumn.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;puh&quot;));</span>
+<span class="nc" id="L181">        phoneColumn.setMinWidth(100);</span>
+
+<span class="nc" id="L183">        TableColumn&lt;Asiakas, Integer&gt; henkiloMaaraColumn = new TableColumn&lt;&gt;(bundle.getString(&quot;henkiloMaaraLabelText&quot;));</span>
+<span class="nc" id="L184">        henkiloMaaraColumn.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;henkiloMaara&quot;));</span>
+
+<span class="nc" id="L186">        TableColumn&lt;Asiakas, String&gt; huomioColumn = new TableColumn&lt;&gt;(bundle.getString(&quot;huomioLabelText&quot;));</span>
+<span class="nc" id="L187">        huomioColumn.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;huomio&quot;));</span>
+<span class="nc" id="L188">        huomioColumn.setMinWidth(200);</span>
+
+        // Create the &quot;Actions&quot; column for edit/delete
+<span class="nc" id="L191">        TableColumn&lt;Asiakas, Void&gt; actionColumn = new TableColumn&lt;&gt;(bundle.getString(&quot;actionColumnText&quot;));</span>
+
+<span class="nc" id="L193">        actionColumn.setCellFactory(param -&gt; new TableCell&lt;&gt;() {</span>
+<span class="nc" id="L194">            private final Button editButton = new Button(bundle.getString(&quot;editButtonText&quot;));</span>
+<span class="nc" id="L195">            private final Button deleteButton = new Button(bundle.getString(&quot;deleteButtonText&quot;));</span>
+<span class="nc" id="L196">            private final HBox actionButtons = new HBox(editButton, deleteButton);</span>
+
+            {
+<span class="nc" id="L199">                actionButtons.setSpacing(10);</span>
+<span class="nc" id="L200">                actionButtons.setAlignment(Pos.CENTER);</span>
+
+                // Muokkaa-painikeen toiminnallisuus
+<span class="nc" id="L203">                editButton.setOnAction(event -&gt; {</span>
+<span class="nc" id="L204">                    Asiakas asiakas = getTableView().getItems().get(getIndex());</span>
+<span class="nc" id="L205">                    openMuokkaaAsiakasWindow(asiakas, getTableView()); // Välitetään taulukko muokkausikkunaan</span>
+<span class="nc" id="L206">                });</span>
+
+
+                // Poista-painikeen toiminnallisuus
+<span class="nc" id="L210">                deleteButton.setOnAction(event -&gt; {</span>
+<span class="nc" id="L211">                    Asiakas asiakas = getTableView().getItems().get(getIndex());</span>
+<span class="nc" id="L212">                    poistaAsiakas(asiakas);</span>
+<span class="nc" id="L213">                    getTableView().getItems().remove(asiakas); // Poistetaan asiakas listasta</span>
+<span class="nc" id="L214">                });</span>
+<span class="nc" id="L215">            }</span>
+
+            @Override
+            protected void updateItem(Void item, boolean empty) {
+<span class="nc" id="L219">                super.updateItem(item, empty);</span>
+<span class="nc bnc" id="L220" title="All 2 branches missed.">                if (empty) {</span>
+<span class="nc" id="L221">                    setGraphic(null);</span>
+                } else {
+                    // Get localized button text
+<span class="nc" id="L224">                    setGraphic(actionButtons);</span>
+                }
+<span class="nc" id="L226">            }</span>
+        });
+
+<span class="nc" id="L229">        actionColumn.setMinWidth(150);</span>
+<span class="nc" id="L230">        customerTable.getColumns().addAll(idColumn, firstNameColumn, lastNameColumn, emailColumn, phoneColumn, henkiloMaaraColumn, huomioColumn, actionColumn);</span>
+
+<span class="nc" id="L232">        return customerTable;</span>
+    }
+
+    private void openMuokkaaAsiakasWindow(Asiakas asiakas, TableView&lt;Asiakas&gt; customerTable) {
+<span class="nc" id="L236">        Stage muokkaaAsiakasStage = new Stage();</span>
+<span class="nc" id="L237">        muokkaaAsiakasStage.setTitle(bundle.getString(&quot;muokkaaAsiakasStageTitle&quot;));</span>
+
+        // Pääasettelu, joka jakaa ikkunan osiin (yläosa, keskiosa, alaosa)
+<span class="nc" id="L240">        BorderPane borderPane = new BorderPane();</span>
+
+        // Lomakkeen kenttien asettelu pystysuoraan (VBox)
+<span class="nc" id="L243">        VBox formLayout = new VBox(10);</span>
+<span class="nc" id="L244">        formLayout.setAlignment(Pos.CENTER_LEFT); // Keskitetään vasemmalle</span>
+<span class="nc" id="L245">        formLayout.setPadding(new Insets(20)); // Asetetaan täyte</span>
+
+        // Kenttien ja tekstikenttien luonti
+<span class="nc" id="L248">        Label firstNameLabel = new Label(bundle.getString(&quot;firstNameLabelText&quot;));</span>
+<span class="nc" id="L249">        TextField firstNameField = new TextField();</span>
+<span class="nc" id="L250">        firstNameField.setText(asiakas.getEtunimi());</span>
+
+<span class="nc" id="L252">        Label lastNameLabel = new Label(bundle.getString(&quot;lastNameLabelText&quot;));</span>
+<span class="nc" id="L253">        TextField lastNameField = new TextField();</span>
+<span class="nc" id="L254">        lastNameField.setText(asiakas.getSukunimi());</span>
+
+<span class="nc" id="L256">        Label emailLabel = new Label(bundle.getString(&quot;emailLabelText&quot;));</span>
+<span class="nc" id="L257">        TextField emailField = new TextField();</span>
+<span class="nc" id="L258">        emailField.setText(asiakas.getSposti());</span>
+
+<span class="nc" id="L260">        Label phoneLabel = new Label(bundle.getString(&quot;phoneLabelText&quot;));</span>
+<span class="nc" id="L261">        TextField phoneField = new TextField();</span>
+<span class="nc" id="L262">        phoneField.setText(asiakas.getPuh());</span>
+
+<span class="nc" id="L264">        Label henkiloMaaraLabel = new Label(bundle.getString(&quot;henkiloMaaraLabelText&quot;));</span>
+<span class="nc" id="L265">        TextField henkiloMaaraField = new TextField();</span>
+<span class="nc" id="L266">        henkiloMaaraField.setText(String.valueOf(asiakas.getHenkiloMaara()));</span>
+
+<span class="nc" id="L268">        Label huomioLabel = new Label(bundle.getString(&quot;huomioLabelText&quot;));</span>
+<span class="nc" id="L269">        TextField huomioField = new TextField();</span>
+<span class="nc" id="L270">        huomioField.setText(asiakas.getHuomio());</span>
+
+<span class="nc" id="L272">        Button saveButton = new Button(bundle.getString(&quot;MuokkaaAddButtonText&quot;));</span>
+<span class="nc" id="L273">        Button cancelButton = new Button(bundle.getString(&quot;cancelButtonText&quot;));</span>
+
+        // Lisätään kentät lomakkeeseen (VBox)
+<span class="nc" id="L276">        formLayout.getChildren().addAll(</span>
+                firstNameLabel, firstNameField,
+                lastNameLabel, lastNameField,
+                emailLabel, emailField,
+                phoneLabel, phoneField,
+                henkiloMaaraLabel, henkiloMaaraField,
+                huomioLabel, huomioField
+        );
+
+        // HBox save and cancel buttons
+<span class="nc" id="L286">        HBox buttonBox = new HBox(10, saveButton, cancelButton);</span>
+<span class="nc" id="L287">        buttonBox.setAlignment(Pos.CENTER);</span>
+
+        // Toiminnallisuus napille
+<span class="nc" id="L290">        saveButton.setOnAction(e -&gt; {</span>
+            // Päivitetään asiakastiedot
+<span class="nc" id="L292">            asiakasController.paivitaAsiakas(</span>
+<span class="nc" id="L293">                    asiakas.getAsiakasId(),</span>
+<span class="nc" id="L294">                    firstNameField.getText(),</span>
+<span class="nc" id="L295">                    lastNameField.getText(),</span>
+<span class="nc" id="L296">                    emailField.getText(),</span>
+<span class="nc" id="L297">                    phoneField.getText(),</span>
+<span class="nc" id="L298">                    Integer.parseInt(henkiloMaaraField.getText()), // Muunnetaan teksti kokonaisluvuksi</span>
+<span class="nc" id="L299">                    huomioField.getText()</span>
+            );
+
+            // Päivitetään taulukko
+<span class="nc" id="L303">            populateCustomerTable(customerTable);</span>
+<span class="nc" id="L304">            muokkaaAsiakasStage.close();</span>
+<span class="nc" id="L305">        });</span>
+
+<span class="nc" id="L307">        cancelButton.setOnAction(e -&gt; muokkaaAsiakasStage.close());</span>
+
+        // Asetetaan lomake ja painikkeet BorderPaneen
+<span class="nc" id="L310">        borderPane.setCenter(formLayout);</span>
+<span class="nc" id="L311">        borderPane.setBottom(buttonBox);</span>
+<span class="nc" id="L312">        BorderPane.setMargin(buttonBox, new Insets(10)); // Marginaali nappeihin</span>
+
+        // Aseta BorderPane kohtaukseksi ja näytä ikkuna
+<span class="nc" id="L315">        Scene scene = new Scene(borderPane, 400, 500);</span>
+<span class="nc" id="L316">        muokkaaAsiakasStage.setScene(scene);</span>
+<span class="nc" id="L317">        muokkaaAsiakasStage.show(); // Tämä avaa muokkausikkunan</span>
+<span class="nc" id="L318">    }</span>
+
+    private void poistaAsiakas(Asiakas asiakas) {
+<span class="nc" id="L321">        asiakasController.poistaAsiakas(asiakas.getAsiakasId());</span>
+<span class="nc" id="L322">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

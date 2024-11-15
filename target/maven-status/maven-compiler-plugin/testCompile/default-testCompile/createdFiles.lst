@@ -1,0 +1,15 @@
+controller/KayttajaControllerTest.class
+model/DAO/LaskuDAOTest.class
+controller/AsiakasControllerTest.class
+model/DAO/KayttajaDAOTest.class
+model/DAO/AsiakasDAOTest.class
+controller/HuoneControllerTest.class
+controller/HotelliControllerTest.class
+view/AdminGUITest.class
+controller/LaskuControllerTest.class
+model/DAO/HuoneDAOTest.class
+view/RegistrationGuiTest.class
+controller/VarausControllerTest.class
+view/LoginGuiTest.class
+model/DAO/HotelliDAOTest.class
+model/DAO/VarausDAOTest.class

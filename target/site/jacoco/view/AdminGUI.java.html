@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AdminGUI.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">gui</a> &gt; <a href="index.source.html" class="el_package">view</a> &gt; <span class="el_source">AdminGUI.java</span></div><h1>AdminGUI.java</h1><pre class="source lang-java linenums">package view;
+
+import model.service.LocaleManager;
+import model.service.UserSession;
+import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.geometry.Insets;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.*;
+import javafx.stage.Stage;
+import model.enteties.Kayttaja;
+import model.DAO.KayttajaDAO;
+import org.mindrot.jbcrypt.BCrypt;
+
+import java.util.List;
+import java.util.Locale;
+import java.util.ResourceBundle;
+
+
+<span class="fc" id="L22">public class AdminGUI extends Application {</span>
+
+<span class="fc" id="L24">    KayttajaDAO kayttajaDAO = new KayttajaDAO();</span>
+    TableView&lt;Kayttaja&gt; userTable;
+    private String adminEmail; // Store admin email for validation
+    private ResourceBundle bundle;
+
+
+    @Override
+    public void start(Stage primaryStage) {
+        //Locale locale = Locale.getDefault();  // Change to preferred locale, e.g., new Locale(&quot;fi&quot;)
+<span class="fc" id="L33">        Locale locale = LocaleManager.getCurrentLocale();</span>
+<span class="fc" id="L34">        bundle = ResourceBundle.getBundle(&quot;messages&quot;, locale);</span>
+
+<span class="fc" id="L36">        primaryStage.setTitle(bundle.getString(&quot;admin_panel_title&quot;));</span>
+
+        // Initialize Table to Display Users
+<span class="fc" id="L39">        userTable = new TableView&lt;&gt;();  // Initialize the userTable here</span>
+<span class="fc" id="L40">        TableColumn&lt;Kayttaja, Integer&gt; idColumn = new TableColumn&lt;&gt;(bundle.getString(&quot;user_id&quot;));</span>
+<span class="fc" id="L41">        idColumn.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;kayttajaId&quot;));</span>
+
+<span class="fc" id="L43">        TableColumn&lt;Kayttaja, String&gt; etunimiColumn = new TableColumn&lt;&gt;(bundle.getString(&quot;first_name&quot;));</span>
+<span class="fc" id="L44">        etunimiColumn.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;etunimi&quot;));</span>
+
+<span class="fc" id="L46">        TableColumn&lt;Kayttaja, String&gt; sukunimiColumn = new TableColumn&lt;&gt;(bundle.getString(&quot;last_name&quot;));</span>
+<span class="fc" id="L47">        sukunimiColumn.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;sukunimi&quot;));</span>
+
+<span class="fc" id="L49">        TableColumn&lt;Kayttaja, String&gt; emailColumn = new TableColumn&lt;&gt;(bundle.getString(&quot;email&quot;));</span>
+<span class="fc" id="L50">        emailColumn.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;sposti&quot;));</span>
+
+<span class="fc" id="L52">        TableColumn&lt;Kayttaja, String&gt; puhColumn = new TableColumn&lt;&gt;(bundle.getString(&quot;phone&quot;));</span>
+<span class="fc" id="L53">        puhColumn.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;puh&quot;));</span>
+
+<span class="fc" id="L55">        TableColumn&lt;Kayttaja, String&gt; roleColumn = new TableColumn&lt;&gt;(bundle.getString(&quot;role&quot;));</span>
+<span class="fc" id="L56">        roleColumn.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;rooli&quot;));</span>
+
+<span class="fc" id="L58">        userTable.getColumns().addAll(idColumn, etunimiColumn, sukunimiColumn, emailColumn, puhColumn, roleColumn);</span>
+<span class="fc" id="L59">        loadAndDisplayUsers();</span>
+
+
+        // Form to update user information
+<span class="fc" id="L63">        TextField idField = new TextField();</span>
+<span class="fc" id="L64">        idField.setPromptText(bundle.getString(&quot;label.user.id&quot;));</span>
+
+<span class="fc" id="L66">        TextField etunimiField = new TextField();</span>
+<span class="fc" id="L67">        etunimiField.setPromptText(bundle.getString(&quot;label.firstname&quot;));</span>
+
+<span class="fc" id="L69">        TextField sukunimiField = new TextField();</span>
+<span class="fc" id="L70">        sukunimiField.setPromptText(bundle.getString(&quot;label.lastname&quot;));</span>
+
+<span class="fc" id="L72">        TextField spostiField = new TextField();</span>
+<span class="fc" id="L73">        spostiField.setPromptText(bundle.getString(&quot;label.email&quot;));</span>
+
+<span class="fc" id="L75">        TextField puhField = new TextField();</span>
+<span class="fc" id="L76">        puhField.setPromptText(bundle.getString(&quot;label.phone&quot;));</span>
+
+<span class="fc" id="L78">        ComboBox&lt;String&gt; rooliComboBox = new ComboBox&lt;&gt;(FXCollections.observableArrayList(</span>
+<span class="fc" id="L79">                bundle.getString(&quot;role.cleaner&quot;),</span>
+<span class="fc" id="L80">                bundle.getString(&quot;role.worker&quot;),</span>
+<span class="fc" id="L81">                bundle.getString(&quot;role.admin&quot;)</span>
+        ));
+<span class="fc" id="L83">        rooliComboBox.setPromptText(bundle.getString(&quot;label.role&quot;));</span>
+
+<span class="fc" id="L85">        PasswordField passwordField = new PasswordField();</span>
+<span class="fc" id="L86">        passwordField.setPromptText(bundle.getString(&quot;label.password&quot;));</span>
+
+<span class="fc" id="L88">        Button addUserButton = new Button(bundle.getString(&quot;button.add.user&quot;));</span>
+<span class="pc" id="L89">        addUserButton.setOnAction(e -&gt; openAddUserDialog());</span>
+
+
+<span class="fc" id="L92">        Button updateUserButton = new Button(bundle.getString(&quot;button.update.user&quot;));</span>
+<span class="fc" id="L93">        updateUserButton.setOnAction(e -&gt; {</span>
+<span class="nc" id="L94">            int id = Integer.parseInt(idField.getText());</span>
+<span class="nc" id="L95">            String etunimi = etunimiField.getText();</span>
+<span class="nc" id="L96">            String sukunimi = sukunimiField.getText();</span>
+<span class="nc" id="L97">            String puh = puhField.getText();</span>
+<span class="nc" id="L98">            String rooli = rooliComboBox.getValue();</span>
+<span class="nc" id="L99">            String sposti = spostiField.getText();</span>
+<span class="nc" id="L100">            String salasana = passwordField.getText();</span>
+
+            // Update user details except email and password
+<span class="nc" id="L103">            kayttajaDAO.updateKayttajaById(id, etunimi, sukunimi, puh, rooli);</span>
+
+            // Update email if provided
+<span class="nc bnc" id="L106" title="All 2 branches missed.">            if (!sposti.isEmpty()) {</span>
+<span class="nc" id="L107">                kayttajaDAO.updateEmailById(id, sposti);</span>
+            }
+
+            // Update password if provided
+<span class="nc bnc" id="L111" title="All 2 branches missed.">            if (!salasana.isEmpty()) {</span>
+<span class="nc" id="L112">                kayttajaDAO.changePasswordByEmail(sposti, salasana);</span>
+            }
+
+            // Refresh the user table
+<span class="nc" id="L116">            loadAndDisplayUsers();</span>
+<span class="nc" id="L117">        });</span>
+                // Delete Button
+<span class="fc" id="L119">        Button deleteUserButton = new Button(bundle.getString(&quot;button.delete.user&quot;));</span>
+<span class="pc" id="L120">        deleteUserButton.setOnAction(e -&gt; deleteUser());</span>
+
+        // Form layout with labels
+<span class="fc" id="L123">        VBox form = new VBox(10,</span>
+<span class="fc" id="L124">                new Label(bundle.getString(&quot;label.edit.user&quot;)),</span>
+<span class="fc" id="L125">                new Label(bundle.getString(&quot;label.user.id&quot;)), idField,</span>
+<span class="fc" id="L126">                new Label(bundle.getString(&quot;label.firstname&quot;)), etunimiField,</span>
+<span class="fc" id="L127">                new Label(bundle.getString(&quot;label.lastname&quot;)), sukunimiField,</span>
+<span class="fc" id="L128">                new Label(bundle.getString(&quot;label.email&quot;)), spostiField,</span>
+<span class="fc" id="L129">                new Label(bundle.getString(&quot;label.phone&quot;)), puhField,</span>
+<span class="fc" id="L130">                new Label(bundle.getString(&quot;label.role&quot;)), rooliComboBox,</span>
+<span class="fc" id="L131">                new Label(bundle.getString(&quot;label.password&quot;)), passwordField,</span>
+                updateUserButton, deleteUserButton);
+<span class="fc" id="L133">        form.setPadding(new Insets(10));</span>
+
+        // Layout
+<span class="fc" id="L136">        HBox topBar = new HBox(10, addUserButton);</span>
+<span class="fc" id="L137">        topBar.setPadding(new Insets(10));</span>
+<span class="fc" id="L138">        VBox layout = new VBox(10, topBar, userTable, form);</span>
+<span class="fc" id="L139">        layout.setPadding(new Insets(10));</span>
+
+<span class="fc" id="L141">        Scene scene = new Scene(layout, 800, 800);</span>
+<span class="fc" id="L142">        primaryStage.setScene(scene);</span>
+<span class="fc" id="L143">        primaryStage.show();</span>
+
+        // Add event handler for row selection
+<span class="fc" id="L146">        userTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -&gt; {</span>
+<span class="nc bnc" id="L147" title="All 2 branches missed.">            if (newSelection != null) {</span>
+<span class="nc" id="L148">                Kayttaja selectedUser = newSelection;</span>
+<span class="nc" id="L149">                idField.setText(String.valueOf(selectedUser.getKayttajaId()));</span>
+<span class="nc" id="L150">                etunimiField.setText(selectedUser.getEtunimi());</span>
+<span class="nc" id="L151">                sukunimiField.setText(selectedUser.getSukunimi());</span>
+<span class="nc" id="L152">                spostiField.setText(selectedUser.getSposti());</span>
+<span class="nc" id="L153">                puhField.setText(selectedUser.getPuh());</span>
+<span class="nc" id="L154">                rooliComboBox.setValue(selectedUser.getRooli());</span>
+                // Password should not be shown for security reasons
+            }
+<span class="nc" id="L157">        });</span>
+<span class="fc" id="L158">        this.adminEmail = UserSession.getUsername();</span>
+<span class="fc" id="L159">    }</span>
+
+    // Load users from the database
+    List&lt;Kayttaja&gt; loadUsers() {
+<span class="fc" id="L163">        return kayttajaDAO.findAllKayttaja(); // This should retrieve all users</span>
+    }
+
+    // Update user information by ID
+    private void openAddUserDialog() {
+<span class="nc" id="L168">        Stage addUserStage = new Stage();</span>
+<span class="nc" id="L169">        addUserStage.setTitle(bundle.getString(&quot;addUser.title&quot;));</span>
+
+<span class="nc" id="L171">        TextField etunimiField = new TextField();</span>
+<span class="nc" id="L172">        etunimiField.setPromptText(bundle.getString(&quot;addUser.firstName&quot;));</span>
+
+<span class="nc" id="L174">        TextField sukunimiField = new TextField();</span>
+<span class="nc" id="L175">        sukunimiField.setPromptText(bundle.getString(&quot;addUser.lastName&quot;));</span>
+
+<span class="nc" id="L177">        TextField spostiField = new TextField();</span>
+<span class="nc" id="L178">        spostiField.setPromptText(bundle.getString(&quot;addUser.email&quot;));</span>
+
+<span class="nc" id="L180">        TextField puhField = new TextField();</span>
+<span class="nc" id="L181">        puhField.setPromptText(bundle.getString(&quot;addUser.phone&quot;));</span>
+
+<span class="nc" id="L183">        PasswordField passwordField = new PasswordField();</span>
+<span class="nc" id="L184">        passwordField.setPromptText(bundle.getString(&quot;addUser.password&quot;));</span>
+
+<span class="nc" id="L186">        ComboBox&lt;String&gt; rooliComboBox = new ComboBox&lt;&gt;(FXCollections.observableArrayList(</span>
+<span class="nc" id="L187">                bundle.getString(&quot;role.cleaner&quot;),</span>
+<span class="nc" id="L188">                bundle.getString(&quot;role.worker&quot;),</span>
+<span class="nc" id="L189">                bundle.getString(&quot;role.admin&quot;)</span>
+        ));
+<span class="nc" id="L191">        rooliComboBox.setPromptText(bundle.getString(&quot;addUser.role&quot;));</span>
+
+<span class="nc" id="L193">        Button addUserSubmitButton = new Button(bundle.getString(&quot;addUser.submitButton&quot;));</span>
+<span class="nc" id="L194">        addUserSubmitButton.setOnAction(e -&gt; {</span>
+<span class="nc" id="L195">            handleAddUser(</span>
+<span class="nc" id="L196">                    etunimiField.getText(),</span>
+<span class="nc" id="L197">                    sukunimiField.getText(),</span>
+<span class="nc" id="L198">                    spostiField.getText(),</span>
+<span class="nc" id="L199">                    puhField.getText(),</span>
+<span class="nc" id="L200">                    passwordField.getText(),</span>
+<span class="nc" id="L201">                    rooliComboBox.getValue(),</span>
+                    addUserStage
+            );
+<span class="nc" id="L204">        });</span>
+
+<span class="nc" id="L206">        VBox addUserForm = new VBox(10,</span>
+<span class="nc" id="L207">                new Label(bundle.getString(&quot;addUser.formTitle&quot;)),</span>
+<span class="nc" id="L208">                new Label(bundle.getString(&quot;addUser.firstNameLabel&quot;)), etunimiField,</span>
+<span class="nc" id="L209">                new Label(bundle.getString(&quot;addUser.lastNameLabel&quot;)), sukunimiField,</span>
+<span class="nc" id="L210">                new Label(bundle.getString(&quot;addUser.emailLabel&quot;)), spostiField,</span>
+<span class="nc" id="L211">                new Label(bundle.getString(&quot;addUser.phoneLabel&quot;)), puhField,</span>
+<span class="nc" id="L212">                new Label(bundle.getString(&quot;addUser.passwordLabel&quot;)), passwordField,</span>
+<span class="nc" id="L213">                new Label(bundle.getString(&quot;addUser.roleLabel&quot;)), rooliComboBox,</span>
+                addUserSubmitButton
+        );
+<span class="nc" id="L216">        addUserForm.setPadding(new Insets(20));</span>
+
+<span class="nc" id="L218">        Scene addUserScene = new Scene(addUserForm, 400, 400);</span>
+<span class="nc" id="L219">        addUserStage.setScene(addUserScene);</span>
+<span class="nc" id="L220">        addUserStage.show();</span>
+<span class="nc" id="L221">    }</span>
+    private void handleAddUser(String etunimi, String sukunimi, String sposti, String puh, String salasana, String rooli, Stage addUserStage) {
+
+
+<span class="nc bnc" id="L225" title="All 12 branches missed.">        if (etunimi.isEmpty() || sukunimi.isEmpty() || sposti.isEmpty() || puh.isEmpty() || salasana.isEmpty() || rooli == null) {</span>
+<span class="nc" id="L226">            Alert alert = new Alert(Alert.AlertType.ERROR);</span>
+<span class="nc" id="L227">            alert.setTitle(bundle.getString(&quot;addUser.errorTitle&quot;));</span>
+<span class="nc" id="L228">            alert.setContentText(bundle.getString(&quot;addUser.fillAllFields&quot;));</span>
+<span class="nc" id="L229">            alert.showAndWait();</span>
+<span class="nc bnc" id="L230" title="All 2 branches missed.">        } else if (kayttajaDAO.onkoEmailOlemassa(sposti)) {  // Check if the email already exists</span>
+<span class="nc" id="L231">            Alert alert = new Alert(Alert.AlertType.ERROR);</span>
+<span class="nc" id="L232">            alert.setTitle(bundle.getString(&quot;addUser.errorTitle&quot;));</span>
+<span class="nc" id="L233">            alert.setContentText(bundle.getString(&quot;addUser.emailExists&quot;));</span>
+<span class="nc" id="L234">            alert.showAndWait();</span>
+<span class="nc" id="L235">        } else {</span>
+            // Hash the password using BCrypt
+<span class="nc" id="L237">            String hashattuSalasana = BCrypt.hashpw(salasana, BCrypt.gensalt());</span>
+
+            // Create a new Kayttaja object and set the hashed password
+<span class="nc" id="L240">            Kayttaja kayttaja = new Kayttaja();</span>
+<span class="nc" id="L241">            kayttaja.setEtunimi(etunimi);</span>
+<span class="nc" id="L242">            kayttaja.setSukunimi(sukunimi);</span>
+<span class="nc" id="L243">            kayttaja.setSposti(sposti);</span>
+<span class="nc" id="L244">            kayttaja.setPuh(puh);</span>
+<span class="nc" id="L245">            kayttaja.setSalasana(hashattuSalasana);  // Store the hashed password</span>
+<span class="nc" id="L246">            kayttaja.setRooli(rooli);  // Set the role</span>
+
+            // Persist the new user to the database
+<span class="nc" id="L249">            kayttajaDAO.persist(kayttaja);</span>
+
+            // Show a success message
+<span class="nc" id="L252">            Alert alert = new Alert(Alert.AlertType.INFORMATION);</span>
+<span class="nc" id="L253">            alert.setTitle(bundle.getString(&quot;addUser.successTitle&quot;));</span>
+<span class="nc" id="L254">            alert.setContentText(String.format(bundle.getString(&quot;addUser.successMessage&quot;), etunimi, sukunimi));</span>
+<span class="nc" id="L255">            alert.showAndWait();</span>
+
+            // Close the add user stage
+<span class="nc" id="L258">            addUserStage.close();</span>
+
+            // Reload the user table with the new user added
+<span class="nc" id="L261">            loadAndDisplayUsers();</span>
+        }
+<span class="nc" id="L263">    }</span>
+
+
+    void updateUserById(int id, String etunimi, String sukunimi, String sposti, String puh, String rooli, String salasana) {
+
+
+        // Hash the password if it's not empty
+<span class="nc bnc" id="L270" title="All 2 branches missed.">        String hashattuSalasana = salasana.isEmpty() ? null : BCrypt.hashpw(salasana, BCrypt.gensalt());</span>
+
+        // Update the user information in the database
+<span class="nc" id="L273">        kayttajaDAO.updateKayttajaById(id, etunimi, sukunimi, puh, rooli);</span>
+
+        // Show an information alert after successful update
+<span class="nc" id="L276">        Alert alert = new Alert(Alert.AlertType.INFORMATION);</span>
+<span class="nc" id="L277">        alert.setTitle(bundle.getString(&quot;updateUser.title&quot;));</span>
+<span class="nc" id="L278">        alert.setHeaderText(null);</span>
+<span class="nc" id="L279">        alert.setContentText(bundle.getString(&quot;updateUser.successMessage&quot;));</span>
+<span class="nc" id="L280">        alert.showAndWait();</span>
+
+        // Reload the user table with updated information
+<span class="nc" id="L283">        loadAndDisplayUsers();</span>
+<span class="nc" id="L284">    }</span>
+
+
+
+    void deleteUser() {
+        //ResourceBundle bundle = ResourceBundle.getBundle(&quot;AdminGUI&quot;, Locale.getDefault());
+
+<span class="nc" id="L291">        Kayttaja selectedUser = userTable.getSelectionModel().getSelectedItem();</span>
+<span class="nc bnc" id="L292" title="All 2 branches missed.">        if (selectedUser == null) {</span>
+<span class="nc" id="L293">            showWarning(bundle.getString(&quot;deleteUser.noSelectionTitle&quot;), bundle.getString(&quot;deleteUser.noSelectionMessage&quot;));</span>
+<span class="nc" id="L294">            return;</span>
+        }
+
+        // Check if the selected user is an admin
+<span class="nc bnc" id="L298" title="All 2 branches missed.">        if (&quot;Admin&quot;.equals(selectedUser.getRooli())) {</span>
+<span class="nc" id="L299">            showWarning(bundle.getString(&quot;deleteUser.adminDeletionBlockedTitle&quot;), bundle.getString(&quot;deleteUser.adminDeletionBlockedMessage&quot;));</span>
+<span class="nc" id="L300">            return;</span>
+        }
+
+        // Confirm deletion
+<span class="nc" id="L304">        String confirmMessage = String.format(bundle.getString(&quot;deleteUser.confirmMessage&quot;), selectedUser.getEtunimi(), selectedUser.getSukunimi());</span>
+<span class="nc bnc" id="L305" title="All 2 branches missed.">        if (showConfirmation(bundle.getString(&quot;deleteUser.confirmTitle&quot;), confirmMessage)) {</span>
+<span class="nc" id="L306">            Dialog&lt;String&gt; passwordDialog = new Dialog&lt;&gt;();</span>
+<span class="nc" id="L307">            passwordDialog.setTitle(bundle.getString(&quot;deleteUser.passwordDialogTitle&quot;));</span>
+<span class="nc" id="L308">            passwordDialog.setHeaderText(bundle.getString(&quot;deleteUser.passwordDialogHeader&quot;));</span>
+
+            // Create PasswordField
+<span class="nc" id="L311">            PasswordField passwordField = new PasswordField();</span>
+<span class="nc" id="L312">            passwordField.setPromptText(bundle.getString(&quot;deleteUser.passwordPrompt&quot;));</span>
+
+            // Add PasswordField to dialog
+<span class="nc" id="L315">            VBox dialogPaneContent = new VBox();</span>
+<span class="nc" id="L316">            dialogPaneContent.getChildren().add(passwordField);</span>
+<span class="nc" id="L317">            passwordDialog.getDialogPane().setContent(dialogPaneContent);</span>
+
+            // Add OK and Cancel buttons
+<span class="nc" id="L320">            ButtonType okButton = new ButtonType(bundle.getString(&quot;okButton&quot;), ButtonBar.ButtonData.OK_DONE);</span>
+<span class="nc" id="L321">            ButtonType cancelButton = new ButtonType(bundle.getString(&quot;cancelButton&quot;), ButtonBar.ButtonData.CANCEL_CLOSE);</span>
+<span class="nc" id="L322">            passwordDialog.getDialogPane().getButtonTypes().addAll(okButton, cancelButton);</span>
+
+<span class="nc" id="L324">            passwordDialog.setResultConverter(dialogButton -&gt; {</span>
+<span class="nc bnc" id="L325" title="All 2 branches missed.">                if (dialogButton == okButton) {</span>
+<span class="nc" id="L326">                    return passwordField.getText(); // Return the entered password</span>
+                }
+<span class="nc" id="L328">                return null; // Cancel button was pressed</span>
+            });
+
+            // Show the dialog and handle the password
+<span class="nc" id="L332">            passwordDialog.showAndWait().ifPresent(password -&gt; {</span>
+<span class="nc bnc" id="L333" title="All 2 branches missed.">                if (validatePassword(password)) {</span>
+<span class="nc" id="L334">                    kayttajaDAO.removeById(selectedUser.getKayttajaId());</span>
+<span class="nc" id="L335">                    showInfo(bundle.getString(&quot;deleteUser.successTitle&quot;), bundle.getString(&quot;deleteUser.successMessage&quot;));</span>
+<span class="nc" id="L336">                    loadAndDisplayUsers();</span>
+                } else {
+<span class="nc" id="L338">                    showError(bundle.getString(&quot;deleteUser.errorTitle&quot;), bundle.getString(&quot;deleteUser.errorMessage&quot;));</span>
+                }
+<span class="nc" id="L340">            });</span>
+        }
+<span class="nc" id="L342">    }</span>
+
+
+
+    // Validate admin password
+    boolean validatePassword(String password) {
+<span class="nc" id="L348">        String savedHashedPassword = kayttajaDAO.findPasswordByEmail(adminEmail);</span>
+<span class="nc bnc" id="L349" title="All 4 branches missed.">        return savedHashedPassword != null &amp;&amp; BCrypt.checkpw(password, savedHashedPassword);</span>
+    }
+
+
+    // Utility methods for alerts
+    private void showWarning(String titleKey, String messageKey) {
+<span class="nc" id="L355">        Alert alert = new Alert(Alert.AlertType.WARNING);</span>
+<span class="nc" id="L356">        alert.setTitle(bundle.getString(titleKey));</span>
+<span class="nc" id="L357">        alert.setHeaderText(null);</span>
+<span class="nc" id="L358">        alert.setContentText(bundle.getString(messageKey));</span>
+<span class="nc" id="L359">        alert.showAndWait();</span>
+<span class="nc" id="L360">    }</span>
+
+    private void showInfo(String titleKey, String messageKey) {
+<span class="nc" id="L363">        Alert alert = new Alert(Alert.AlertType.INFORMATION);</span>
+<span class="nc" id="L364">        alert.setTitle(bundle.getString(titleKey));</span>
+<span class="nc" id="L365">        alert.setHeaderText(null);</span>
+<span class="nc" id="L366">        alert.setContentText(bundle.getString(messageKey));</span>
+<span class="nc" id="L367">        alert.showAndWait();</span>
+<span class="nc" id="L368">    }</span>
+
+
+    private void showError(String titleKey, String messageKey) {
+<span class="nc" id="L372">        Alert alert = new Alert(Alert.AlertType.ERROR);</span>
+<span class="nc" id="L373">        alert.setTitle(bundle.getString(titleKey));</span>
+<span class="nc" id="L374">        alert.setHeaderText(null);</span>
+<span class="nc" id="L375">        alert.setContentText(bundle.getString(messageKey));</span>
+<span class="nc" id="L376">        alert.showAndWait();</span>
+<span class="nc" id="L377">    }</span>
+
+    private boolean showConfirmation(String titleKey, String messageKey) {
+<span class="nc" id="L380">        Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);</span>
+<span class="nc" id="L381">        confirmationAlert.setTitle(bundle.getString(titleKey));</span>
+<span class="nc" id="L382">        confirmationAlert.setHeaderText(bundle.getString(messageKey));</span>
+<span class="nc" id="L383">        confirmationAlert.setContentText(bundle.getString(&quot;alert_confirm_delete_warning&quot;));</span>
+<span class="nc bnc" id="L384" title="All 2 branches missed.">        return confirmationAlert.showAndWait().orElse(ButtonType.CANCEL) == ButtonType.OK;</span>
+    }
+    private void loadAndDisplayUsers() {
+<span class="fc" id="L387">        userTable.setItems(FXCollections.observableArrayList(loadUsers())); // Load users here</span>
+<span class="fc" id="L388">    }</span>
+
+
+
+    public static void main(String[] args) {
+<span class="nc" id="L393">        launch(args);</span>
+<span class="nc" id="L394">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

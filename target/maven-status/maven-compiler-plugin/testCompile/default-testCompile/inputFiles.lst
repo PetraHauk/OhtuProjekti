@@ -1,0 +1,15 @@
+/Users/anna/IdeaProjects/OhtuProjekti/src/test/java/controller/AsiakasControllerTest.java
+/Users/anna/IdeaProjects/OhtuProjekti/src/test/java/controller/HotelliControllerTest.java
+/Users/anna/IdeaProjects/OhtuProjekti/src/test/java/controller/HuoneControllerTest.java
+/Users/anna/IdeaProjects/OhtuProjekti/src/test/java/controller/KayttajaControllerTest.java
+/Users/anna/IdeaProjects/OhtuProjekti/src/test/java/controller/LaskuControllerTest.java
+/Users/anna/IdeaProjects/OhtuProjekti/src/test/java/controller/VarausControllerTest.java
+/Users/anna/IdeaProjects/OhtuProjekti/src/test/java/model/DAO/AsiakasDAOTest.java
+/Users/anna/IdeaProjects/OhtuProjekti/src/test/java/model/DAO/HotelliDAOTest.java
+/Users/anna/IdeaProjects/OhtuProjekti/src/test/java/model/DAO/HuoneDAOTest.java
+/Users/anna/IdeaProjects/OhtuProjekti/src/test/java/model/DAO/KayttajaDAOTest.java
+/Users/anna/IdeaProjects/OhtuProjekti/src/test/java/model/DAO/LaskuDAOTest.java
+/Users/anna/IdeaProjects/OhtuProjekti/src/test/java/model/DAO/VarausDAOTest.java
+/Users/anna/IdeaProjects/OhtuProjekti/src/test/java/view/AdminGUITest.java
+/Users/anna/IdeaProjects/OhtuProjekti/src/test/java/view/LoginGuiTest.java
+/Users/anna/IdeaProjects/OhtuProjekti/src/test/java/view/RegistrationGuiTest.java
