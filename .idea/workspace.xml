@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="KayttajaDAO-DAO unit testit">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/model/DAO/VarausDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/model/DAO/VarausDAOTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="update dokerfile" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -200,8 +197,8 @@
       <command value="mvn clean package" />
       <command value="mvn clean javafx:run" />
       <command value="mvn package" />
-      <command value="mvn install" />
       <command value="mvn clean" />
+      <command value="mvn install" />
     </option>
   </component>
   <component name="RunManager" selected="JUnit.HuoneDAOTest.testPersistAndFindByRoomId">
@@ -373,63 +370,7 @@
       <workItem from="1730737802323" duration="34977000" />
       <workItem from="1730872404244" duration="45422000" />
       <workItem from="1731263871392" duration="11946000" />
-      <workItem from="1731607548232" duration="15734000" />
-    </task>
-    <task id="LOCAL-00025" summary="ylimääränen src kansio poistettu">
-      <option name="closed" value="true" />
-      <created>1728073148078</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1728073148078</updated>
-    </task>
-    <task id="LOCAL-00026" summary="muut testit kommentoitu pois koska virheitä jenkinsissä">
-      <option name="closed" value="true" />
-      <created>1728073337116</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1728073337116</updated>
-    </task>
-    <task id="LOCAL-00027" summary="pomi muutokset">
-      <option name="closed" value="true" />
-      <created>1728285611958</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1728285611958</updated>
-    </task>
-    <task id="LOCAL-00028" summary="pomi muutokset">
-      <option name="closed" value="true" />
-      <created>1728285694382</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1728285694382</updated>
-    </task>
-    <task id="LOCAL-00029" summary="pomi muutokset">
-      <option name="closed" value="true" />
-      <created>1728288290188</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1728288290188</updated>
-    </task>
-    <task id="LOCAL-00030" summary="Varaus Taulussa Asiakaan nimi">
-      <option name="closed" value="true" />
-      <created>1728290740215</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1728290740215</updated>
-    </task>
-    <task id="LOCAL-00031" summary="Lisää testejä ja muuttaa AdminGUIn fiksummaksi">
-      <option name="closed" value="true" />
-      <created>1728323643467</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1728323643467</updated>
+      <workItem from="1731607548232" duration="23526000" />
     </task>
     <task id="LOCAL-00032" summary="Lisää testejä ja muuttaa AdminGUIn fiksummaksi">
       <option name="closed" value="true" />
@@ -767,7 +708,63 @@
       <option name="project" value="LOCAL" />
       <updated>1731621686258</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="target update">
+      <option name="closed" value="true" />
+      <created>1731676257334</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1731676257334</updated>
+    </task>
+    <task id="LOCAL-00075" summary="target update">
+      <option name="closed" value="true" />
+      <created>1731676266701</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1731676266702</updated>
+    </task>
+    <task id="LOCAL-00076" summary="target update">
+      <option name="closed" value="true" />
+      <created>1731676279206</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1731676279206</updated>
+    </task>
+    <task id="LOCAL-00077" summary="update">
+      <option name="closed" value="true" />
+      <created>1731676342348</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1731676342348</updated>
+    </task>
+    <task id="LOCAL-00078" summary="update target">
+      <option name="closed" value="true" />
+      <created>1731680565331</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1731680565332</updated>
+    </task>
+    <task id="LOCAL-00079" summary="update dokerfile">
+      <option name="closed" value="true" />
+      <created>1731680583706</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1731680583706</updated>
+    </task>
+    <task id="LOCAL-00080" summary="update dokerfile">
+      <option name="closed" value="true" />
+      <created>1731680621277</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1731680621277</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -786,9 +783,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="lisää javafx-base" />
-    <MESSAGE value="asiakas välilehti kielivaihto" />
-    <MESSAGE value="Login, registeri, logIn, leftBar localisointi yhdistetty" />
     <MESSAGE value="poista ylimäärästä" />
     <MESSAGE value="lisää venäjä kieli, leftbar ja asiakas sivu" />
     <MESSAGE value="Adminpanel kieli vaihtaa local mukaan" />
@@ -805,13 +799,16 @@
     <MESSAGE value="Asiakas-DAO unit testit" />
     <MESSAGE value="Huone-DAO unit testit" />
     <MESSAGE value="update varaus_muodo" />
-    <MESSAGE value="update" />
     <MESSAGE value="Lasku-DAO unit testit" />
     <MESSAGE value="Varaus-DAO unit testit" />
     <MESSAGE value="Titokannan lokalisoinnin kuva" />
     <MESSAGE value="tyhjeriivi pois" />
     <MESSAGE value="KayttajaDAO-DAO unit testit" />
-    <option name="LAST_COMMIT_MESSAGE" value="KayttajaDAO-DAO unit testit" />
+    <MESSAGE value="target update" />
+    <MESSAGE value="update" />
+    <MESSAGE value="update target" />
+    <MESSAGE value="update dokerfile" />
+    <option name="LAST_COMMIT_MESSAGE" value="update dokerfile" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

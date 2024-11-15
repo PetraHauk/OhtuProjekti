@@ -36,17 +36,17 @@
             <artifactId>javafx-swing</artifactId>
             <version>21.0.4</version>
         </dependency>
-
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-base</artifactId>
             <version>21.0.4</version>
         </dependency>
-         <dependency>
-             <groupId>org.mindrot</groupId>
-             <artifactId>jbcrypt</artifactId>
-             <version>0.4</version>
-         </dependency>
+
+        <dependency>
+            <groupId>org.mindrot</groupId>
+            <artifactId>jbcrypt</artifactId>
+            <version>0.4</version>
+        </dependency>
 
         <!-- Persistence & Database -->
         <dependency>
@@ -65,7 +65,6 @@
             <artifactId>hibernate-core</artifactId>
             <version>6.0.0.Final</version>
         </dependency>
-
 
         <!-- Logging -->
         <dependency>
@@ -110,12 +109,6 @@
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
             <version>4.0.0</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.testfx</groupId>
-            <artifactId>testfx-junit5</artifactId>
-            <version>4.0.16-alpha</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -170,7 +163,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>3.2.0</version> <!-- Specify the version here -->
+                <version>3.2.0</version>
                 <configuration>
                     <includeSystemScope>true</includeSystemScope>
                 </configuration>
@@ -184,7 +177,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>app.Main</mainClass> <!-- Replace with your actual main class -->
+                            <mainClass>app.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -218,7 +211,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M5</version>
                 <configuration>
-                    <testFailureIgnore>true</testFailureIgnore> <!-- Set to true to ignore test failures -->
+                    <testFailureIgnore>true</testFailureIgnore>
                 </configuration>
             </plugin>
 
