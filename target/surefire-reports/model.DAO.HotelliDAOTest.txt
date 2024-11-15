@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: model.DAO.HotelliDAOTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.031 s <<< FAILURE! - in model.DAO.HotelliDAOTest
-model.DAO.HotelliDAOTest.testPersistAndFindByIdAndFindByName  Time elapsed: 0.007 s  <<< ERROR!
-jakarta.persistence.NonUniqueResultException: query did not return a unique result: 3
+Tests run: 3, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.026 s <<< FAILURE! - in model.DAO.HotelliDAOTest
+model.DAO.HotelliDAOTest.testPersistAndFindByIdAndFindByName  Time elapsed: 0.006 s  <<< ERROR!
+jakarta.persistence.NonUniqueResultException: query did not return a unique result: 4
 	at model.DAO.HotelliDAOTest.testPersistAndFindByIdAndFindByName(HotelliDAOTest.java:47)
 

@@ -1,16 +1,16 @@
 -------------------------------------------------------------------------------
 Test set: view.LoginGuiTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 1.048 s <<< FAILURE! - in view.LoginGuiTest
-view.LoginGuiTest.testFailedLogin  Time elapsed: 0.39 s  <<< ERROR!
+Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 1.026 s <<< FAILURE! - in view.LoginGuiTest
+view.LoginGuiTest.testFailedLogin  Time elapsed: 0.382 s  <<< ERROR!
 org.testfx.api.FxRobotException: the query "#emailField" returned no nodes.
 	at view.LoginGuiTest.testFailedLogin(LoginGuiTest.java:84)
 
-view.LoginGuiTest.testOpenRegistrationPage  Time elapsed: 0.285 s  <<< ERROR!
+view.LoginGuiTest.testOpenRegistrationPage  Time elapsed: 0.283 s  <<< ERROR!
 org.testfx.api.FxRobotException: the query "#registerButton" returned no nodes.
 	at view.LoginGuiTest.testOpenRegistrationPage(LoginGuiTest.java:103)
 
-view.LoginGuiTest.testSuccessfulLogin  Time elapsed: 0.363 s  <<< ERROR!
+view.LoginGuiTest.testSuccessfulLogin  Time elapsed: 0.348 s  <<< ERROR!
 org.testfx.api.FxRobotException: the query "#emailField" returned no nodes.
 	at view.LoginGuiTest.testSuccessfulLogin(LoginGuiTest.java:57)
 
