@@ -84,7 +84,7 @@ public class HuoneSivu {
     }
 
 
-    private void filterTable(TableView<Huone> roomTable, String searchText, String selectedRoomType, String selectedRoomStatus) {
+    void filterTable(TableView<Huone> roomTable, String searchText, String selectedRoomType, String selectedRoomStatus) {
         // If no searchText or filters, populate the full table
         if ((searchText == null || searchText.isEmpty()) &&
                 ("Kaikki tyypit".equals(selectedRoomType)) &&
@@ -178,7 +178,7 @@ public class HuoneSivu {
         }
     }
 
-    private void populateRoomTable(TableView<Huone> roomTable, int hotelliId) {
+    void populateRoomTable(TableView<Huone> roomTable, int hotelliId) {
         ProgressIndicator loadingIndicator = new ProgressIndicator();
         loadingIndicator.setVisible(true);
 

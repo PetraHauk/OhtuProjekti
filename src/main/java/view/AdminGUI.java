@@ -62,17 +62,22 @@ public class AdminGUI extends Application {
         // Form to update user information
         TextField idField = new TextField();
         idField.setPromptText(bundle.getString("label.user.id"));
+        idField.setId("idField");
 
         TextField etunimiField = new TextField();
+        etunimiField.setId("etunimiField");
         etunimiField.setPromptText(bundle.getString("label.firstname"));
 
         TextField sukunimiField = new TextField();
+        sukunimiField.setId("sukunimiField");
         sukunimiField.setPromptText(bundle.getString("label.lastname"));
 
         TextField spostiField = new TextField();
+        spostiField.setId("spostiField");
         spostiField.setPromptText(bundle.getString("label.email"));
 
         TextField puhField = new TextField();
+        puhField.setId("puhField");
         puhField.setPromptText(bundle.getString("label.phone"));
 
         ComboBox<String> rooliComboBox = new ComboBox<>(FXCollections.observableArrayList(
@@ -81,15 +86,19 @@ public class AdminGUI extends Application {
                 bundle.getString("role.admin")
         ));
         rooliComboBox.setPromptText(bundle.getString("label.role"));
+        rooliComboBox.setId("rooliComboBox");
 
         PasswordField passwordField = new PasswordField();
+        passwordField.setId("salasanaField");
         passwordField.setPromptText(bundle.getString("label.password"));
 
         Button addUserButton = new Button(bundle.getString("button.add.user"));
+        addUserButton.setId("addUserButton");
         addUserButton.setOnAction(e -> openAddUserDialog());
 
 
         Button updateUserButton = new Button(bundle.getString("button.update.user"));
+        updateUserButton.setId("updateUserButton");
         updateUserButton.setOnAction(e -> {
             int id = Integer.parseInt(idField.getText());
             String etunimi = etunimiField.getText();
@@ -169,18 +178,23 @@ public class AdminGUI extends Application {
         addUserStage.setTitle(bundle.getString("addUser.title"));
 
         TextField etunimiField = new TextField();
+        etunimiField.setId("firstnameField");
         etunimiField.setPromptText(bundle.getString("addUser.firstName"));
 
         TextField sukunimiField = new TextField();
+        sukunimiField.setId("lastnameField");
         sukunimiField.setPromptText(bundle.getString("addUser.lastName"));
 
         TextField spostiField = new TextField();
+        spostiField.setId("emailField");
         spostiField.setPromptText(bundle.getString("addUser.email"));
 
         TextField puhField = new TextField();
+        puhField.setId("phoneField");
         puhField.setPromptText(bundle.getString("addUser.phone"));
 
         PasswordField passwordField = new PasswordField();
+        passwordField.setId("passwordField");
         passwordField.setPromptText(bundle.getString("addUser.password"));
 
         ComboBox<String> rooliComboBox = new ComboBox<>(FXCollections.observableArrayList(
@@ -189,8 +203,10 @@ public class AdminGUI extends Application {
                 bundle.getString("role.admin")
         ));
         rooliComboBox.setPromptText(bundle.getString("addUser.role"));
+        rooliComboBox.setId("roleComboBox");
 
         Button addUserSubmitButton = new Button(bundle.getString("addUser.submitButton"));
+        addUserSubmitButton.setId("addUserSubmitButton");
         addUserSubmitButton.setOnAction(e -> {
             handleAddUser(
                     etunimiField.getText(),
@@ -215,7 +231,7 @@ public class AdminGUI extends Application {
         );
         addUserForm.setPadding(new Insets(20));
 
-        Scene addUserScene = new Scene(addUserForm, 400, 400);
+        Scene addUserScene = new Scene(addUserForm, 400, 500);
         addUserStage.setScene(addUserScene);
         addUserStage.show();
     }

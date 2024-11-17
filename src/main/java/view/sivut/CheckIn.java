@@ -158,7 +158,7 @@ public class CheckIn {
         return checkIn;
     }
 
-    private void populateFreeRoomTable(TableView<Huone> huoneTable, int hotelliId, DatePicker tuloDatePicker, DatePicker poistumisDatePicker) {
+    void populateFreeRoomTable(TableView<Huone> huoneTable, int hotelliId, DatePicker tuloDatePicker, DatePicker poistumisDatePicker) {
         ProgressIndicator loadingIndicator = new ProgressIndicator();
         loadingIndicator.setVisible(true);
         huoneTable.getItems().clear();

@@ -16,6 +16,7 @@ import model.enteties.Kayttaja;
 import model.DAO.KayttajaDAO;
 import org.mindrot.jbcrypt.BCrypt;
 import org.testfx.framework.junit5.ApplicationTest;
+import org.testfx.service.query.PointQuery;
 
 import java.util.Arrays;
 import java.util.List;
@@ -45,7 +46,7 @@ public class AdminGUITest extends ApplicationTest {
 
     @BeforeEach
     public void setUp() {
-        // Any additional setup can be done here
+
     }
 
     @Test
@@ -62,35 +63,32 @@ public class AdminGUITest extends ApplicationTest {
         verify(kayttajaDAO, times(2)).findAllKayttaja(); // Verify only once
     }
 
-    // this test is disabled because the method is not implemented
-    @Disabled
-    public void testUpdateUserById() {
+
+    @Test
+    public void testAddNewUser() {
         // Arrange
-        int id = 1;
-        String etunimi = "John";
-        String sukunimi = "Doe";
-        String sposti = "john.doe@example.com";
+        String etunimi = "Test";
+        String sukunimi = "User";
+        String sposti = "test.user@example.com";
         String puh = "1234567890";
-        String rooli = "Admin";
-        String salasana = "newpassword";
+        String salasana = "password";
+        String rooli = "Hotellityöntekijä";
 
+        when(kayttajaDAO.onkoEmailOlemassa(sposti)).thenReturn(false);
+        doNothing().when(kayttajaDAO).persist(any(Kayttaja.class));
+
+        // Act - Add User
+        clickOn("#addUserButton");
+        clickOn("#firstnameField").write(etunimi);
+        clickOn("#lastnameField").write(sukunimi);
+        clickOn("#emailField").write(sposti);
+        clickOn("#phoneField").write(puh);
+        clickOn("#passwordField").write(salasana);
+        clickOn("#roleComboBox").clickOn(rooli);
+        clickOn("#addUserSubmitButton");
+
+        // Assert - Verify User Added
+        verify(kayttajaDAO, times(1)).persist(any(Kayttaja.class));
     }
 
-    @Disabled
-    public void testDeleteUser() {
-        // Arrange
-        Kayttaja mockUser = new Kayttaja();
-        mockUser.setKayttajaId(1);
-        mockUser.setRooli("User");
-        adminGUI.userTable.setItems(FXCollections.observableArrayList(mockUser));
-        adminGUI.userTable.getSelectionModel().select(mockUser);
-
-        doNothing().when(kayttajaDAO).removeById(mockUser.getKayttajaId());
-
-        // Act
-        adminGUI.deleteUser();
-
-        // Assert
-        verify(kayttajaDAO, times(1)).removeById(mockUser.getKayttajaId());
-    }
 }
