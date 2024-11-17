@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" spacing="10" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
+    <TextField fx:id="etunimiField" promptText="First Name" />
+    <TextField fx:id="sukunimiField" promptText="Last Name" />
+    <TextField fx:id="spostiField" promptText="Email" />
+    <TextField fx:id="puhField" promptText="Phone Number" />
+    <PasswordField fx:id="salasanaField" promptText="Password" />
+    <Button text="Register" onAction="#handleRegister" />
+    <Button text="Back to Login" onAction="#handleBackToLogin" /> <!-- Button to go back to login page -->
+</VBox>
