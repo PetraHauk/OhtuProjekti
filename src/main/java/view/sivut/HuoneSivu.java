@@ -22,35 +22,38 @@ import model.service.LocaleManager;
 public class HuoneSivu {
     private AsiakasController asiakasController;
     private HuoneController huoneController;
-    String selectedlanguage = LocaleManager.getLanguageName();
+    private ResourceBundle bundle;
 
 
     public HuoneSivu() {
         this.huoneController = new HuoneController();
+
+        Locale currentLocale = LocaleManager.getCurrentLocale();
+        bundle = ResourceBundle.getBundle("messages", currentLocale);
     }
 
     public VBox createHuoneet() {
         VBox huoneetInfo = new VBox(10);
         huoneetInfo.getStyleClass().add("info");
-        Label huoneetOtsikkoLabel = new Label("Huoneet");
+        Label huoneetOtsikkoLabel = new Label(bundle.getString("HuonesivuOtsikkoLabel"));
         huoneetOtsikkoLabel.getStyleClass().add("otsikko");
 
         // Create the search bar
         TextField searchField = new TextField();
-        searchField.setPromptText("Etsi huoneita...");
+        searchField.setPromptText(bundle.getString("HuonesivuEtsiiHuoneitaLabel"));
         searchField.setMinWidth(200);
 
         // Create ComboBox for room type
         ComboBox<String> roomTypeComboBox = new ComboBox<>();
-        roomTypeComboBox.getItems().addAll("Kaikki tyypit", "Yhden hengen huone", "Kahden hengen huone", "Kolmen hengen huone", "Perhehuone", "Sviitti");
-        roomTypeComboBox.setValue("Kaikki tyypit"); // Default value
-        roomTypeComboBox.setPromptText("Valitse huonetyyppi...");
+        roomTypeComboBox.getItems().addAll(bundle.getString("HuonesivuKaikkiTyypitLabel"), bundle.getString("HuonesivuYhdenHengenLabel"), bundle.getString("HuonesivuKahdenHengenLabel"), bundle.getString("HuonesivuKolmenHengenLabel"), bundle.getString("HuonesivuPerhehuoneLabel"), bundle.getString("HuonesivuSviittiLabel"));
+        roomTypeComboBox.setValue(bundle.getString("HuonesivuKaikkiTyypitLabel")); // Default value
+        roomTypeComboBox.setPromptText(bundle.getString("HuonesivuValitseTyyppiLabel"));
 
         // Create ComboBox for room status
         ComboBox<String> roomStatusComboBox = new ComboBox<>();
-        roomStatusComboBox.getItems().addAll("Kaikki tilat", "Vapaa", "Varattu", "Siivous");
-        roomStatusComboBox.setValue("Kaikki tilat"); // Default value
-        roomStatusComboBox.setPromptText("Valitse huoneen tila...");
+        roomStatusComboBox.getItems().addAll(bundle.getString("HuonesivuKaikkiTilatLabel"), bundle.getString("EtusivuVapaaLabel"), bundle.getString("EtusivuVarattuLabel"), bundle.getString("EtusivuSiivousLabel"));
+        roomStatusComboBox.setValue(bundle.getString("HuonesivuKaikkiTilatLabel")); // Default value
+        roomStatusComboBox.setPromptText(bundle.getString("HuonesivuValitseTilaLabel"));
 
         // Create a horizontal box to hold searchField, roomTypeComboBox, and roomStatusComboBox
         HBox filterBox = new HBox(10, searchField, roomTypeComboBox, roomStatusComboBox);
@@ -75,7 +78,7 @@ public class HuoneSivu {
             filterTable(roomTable, searchField.getText(), roomTypeComboBox.getValue(), roomStatusComboBox.getValue());
         });
 
-        Button addRoomButton = new Button("Lisää uusi huone");
+        Button addRoomButton = new Button(bundle.getString("HuonesivuLisääHuoneLabel"));
         addRoomButton.setOnAction(e -> openAddRoomWindow(roomTable));
         addRoomButton.getStyleClass().add("yellow-btn");
 
@@ -87,8 +90,8 @@ public class HuoneSivu {
     private void filterTable(TableView<Huone> roomTable, String searchText, String selectedRoomType, String selectedRoomStatus) {
         // If no searchText or filters, populate the full table
         if ((searchText == null || searchText.isEmpty()) &&
-                ("Kaikki tyypit".equals(selectedRoomType)) &&
-                ("Kaikki tilat".equals(selectedRoomStatus))) {
+                (bundle.getString("HuonesivuKaikkiTyypitLabel").equals(selectedRoomType)) &&
+                (bundle.getString("HuonesivuKaikkiTilatLabel").equals(selectedRoomStatus))) {
             populateRoomTable(roomTable, 1); // Assuming hotel ID is 1 for this example
             return;
         }
@@ -103,10 +106,10 @@ public class HuoneSivu {
                             String.valueOf(huone.getHuone_hinta()).contains(searchText) ||
                             huone.getHuone_tila_fi().toLowerCase().contains(searchText.toLowerCase());
 
-                    boolean matchesRoomType = "Kaikki tyypit".equals(selectedRoomType) ||
+                    boolean matchesRoomType = bundle.getString("HuonesivuKaikkiTyypitLabel").equals(selectedRoomType) ||
                             huone.getHuone_tyyppi_fi().equalsIgnoreCase(selectedRoomType);
 
-                    boolean matchesRoomStatus = "Kaikki tilat".equals(selectedRoomStatus) ||
+                    boolean matchesRoomStatus = bundle.getString("HuonesivuKaikkiTilatLabel").equals(selectedRoomStatus) ||
                             huone.getHuone_tila_fi().equalsIgnoreCase(selectedRoomStatus);
 
                     // Return true only if all conditions match
@@ -120,23 +123,23 @@ public class HuoneSivu {
 
     private void openAddRoomWindow(TableView<Huone> roomTable) {
         Stage addRoomStage = new Stage();
-        addRoomStage.setTitle("Lisää uusi huone");
+        addRoomStage.setTitle(bundle.getString("HuonesivuLisääHuoneLabel"));
 
         VBox formLayout = new VBox(10);
         formLayout.setAlignment(Pos.CENTER);
 
-        Label numberLabel = new Label("Huoneen Numero:");
+        Label numberLabel = new Label(bundle.getString("HuonesivuHuoneNumeroLabel"));
         TextField numberField = new TextField();
 
-        Label typeLabel = new Label("Tyyppi:");
+        Label typeLabel = new Label(bundle.getString("HuonesivuHuoneTyyppiLabel"));
         ComboBox<String> typeField = new ComboBox<>();
-        typeField.getItems().addAll("Yhden hengen huone", "Kahden hengen huone", "Kolmen hengen huone", "Perhehuone", "Sviitti");
-        typeField.setPromptText("Valitse huonetyyppi...");
+        typeField.getItems().addAll(bundle.getString("HuonesivuYhdenHengenLabel"), bundle.getString("HuonesivuKahdenHengenLabel"), bundle.getString("HuonesivuKolmenHengenLabel"), bundle.getString("HuonesivuPerhehuoneLabel"), bundle.getString("HuonesivuSviittiLabel"));
+        typeField.setPromptText(bundle.getString("HuonesivuValitseTyyppiLabel"));
 
-        Label priceLabel = new Label("Hinta/Yö (€):");
+        Label priceLabel = new Label(bundle.getString("HuonesivuHuoneHintaLabel"));
         TextField priceField = new TextField();
 
-        Button saveButton = new Button("Lisää huone");
+        Button saveButton = new Button(bundle.getString("HuonesivuLisääHuoneLabel"));
         saveButton.setOnAction(e -> {
             saveNewRoom(numberField, typeField, priceField, roomTable, addRoomStage);
         });
@@ -188,6 +191,7 @@ public class HuoneSivu {
         Task<List<Huone>> fetchRoomsTask = new Task<>() {
             @Override
             protected List<Huone> call() throws Exception {
+                // Fetch rooms based on hotel ID and locale-specific data
                 return huoneController.FindHuoneetByHoteliId(hotelliId);
             }
         };
@@ -195,6 +199,7 @@ public class HuoneSivu {
         fetchRoomsTask.setOnSucceeded(event -> {
             List<Huone> rooms = fetchRoomsTask.getValue();
             if (rooms != null && !rooms.isEmpty()) {
+                // Update the table with fetched rooms
                 roomTable.getItems().setAll(rooms);
             } else {
                 roomTable.setPlaceholder(new Label("No rooms found for the given hotel ID"));
@@ -211,57 +216,62 @@ public class HuoneSivu {
         new Thread(fetchRoomsTask).start();
     }
 
+
     private TableView<Huone> createHuoneTable() {
         TableView<Huone> huoneTableView = new TableView<>();
-        // Set the width of the table
         huoneTableView.setPrefWidth(950);
         huoneTableView.setPrefHeight(400);
 
-        TableColumn<Huone, Integer> numeroColumn = new TableColumn<>("Huoneen Numero");
+        TableColumn<Huone, Integer> numeroColumn = new TableColumn<>(bundle.getString("HuonesivuHuoneNumeroLabel"));
         numeroColumn.setCellValueFactory(new PropertyValueFactory<>("huone_nro"));
         numeroColumn.setMinWidth(120);
 
-        String huoneType = LocaleManager.getLocalColumnName(selectedlanguage, "huone_tyyppi");
-        System.out.println("huoneType: " + huoneType);
-        TableColumn<Huone, String> tyyppiColumn = new TableColumn<>("Huone Tyyppi");
-        tyyppiColumn.setCellValueFactory(new PropertyValueFactory<>(huoneType));
+        // Get the current language from LocaleManager
+        String selectedLanguage = LocaleManager.getCurrentLocale().getLanguage();
+
+        // Dynamically set the column for room type based on the selected language
+        String huoneTypeColumn = LocaleManager.getLocalColumnName(selectedLanguage, "huone_tyyppi");
+
+        TableColumn<Huone, String> tyyppiColumn = new TableColumn<>(bundle.getString("HuonesivuHuoneTyyppiLabel"));
+        tyyppiColumn.setCellValueFactory(new PropertyValueFactory<>(huoneTypeColumn));
         tyyppiColumn.setMinWidth(293);
 
-        String huoneTila = LocaleManager.getLocalColumnName(selectedlanguage, "huone_tila");
-        TableColumn<Huone, String> tilaColumn = new TableColumn<>("Huone Status");
-        tilaColumn.setCellValueFactory(new PropertyValueFactory<>(huoneTila));
+        // Dynamically set the column for room status based on the selected language
+        String huoneTilaColumn = LocaleManager.getLocalColumnName(selectedLanguage, "huone_tila");
+
+        TableColumn<Huone, String> tilaColumn = new TableColumn<>(bundle.getString("HuonesivuHuoneStatusLabel"));
+        tilaColumn.setCellValueFactory(new PropertyValueFactory<>(huoneTilaColumn));
         tilaColumn.setMinWidth(203);
 
-        TableColumn<Huone, Double> hintaColumn = new TableColumn<>("Huone Hinta");
+        TableColumn<Huone, Double> hintaColumn = new TableColumn<>(bundle.getString("HuonesivuHuoneHintaLabel"));
         hintaColumn.setCellValueFactory(new PropertyValueFactory<>("huone_hinta"));
         hintaColumn.setMinWidth(200);
 
-        TableColumn<Huone, Void> actionColumn = new TableColumn<>("Toiminnot");
+        TableColumn<Huone, Void> actionColumn = new TableColumn<>(bundle.getString("HuonesivuHuoneToiminnotLabel"));
         actionColumn.setMinWidth(140);
 
         actionColumn.setCellFactory(param -> new TableCell<>() {
-            private final Button editButton = new Button("Muokkaa");
-            private final Button deleteButton = new Button("Poista");
+            private final Button editButton = new Button(bundle.getString("HuonesivuMuokkaaHuonettaLabel"));
+            private final Button deleteButton = new Button(bundle.getString("HuonesivuPoistaHuoneLabel"));
             private final HBox actionButtons = new HBox(editButton, deleteButton);
 
             {
                 actionButtons.setSpacing(10);
                 actionButtons.setAlignment(Pos.CENTER);
 
-                // Muokkaa-painikeen toiminnallisuus
+                // Handle edit and delete actions
                 editButton.setOnAction(event -> {
                     Huone huone = getTableView().getItems().get(getIndex());
                     openMuokkaaHuoneWindow(huone, getTableView());
-                    System.out.println("Muokkaa-painiketta painettu" + huone.getHuone_id());
                 });
 
-                // Poista-painikeen toiminnallisuus
                 deleteButton.setOnAction(event -> {
                     Huone huone = getTableView().getItems().get(getIndex());
-                    getTableView().getItems().remove(huone); // Poistetaan asiakas listasta
+                    getTableView().getItems().remove(huone);
                     huoneController.deleteHuone(huone.getHuone_id());
                 });
             }
+
             @Override
             protected void updateItem(Void item, boolean empty) {
                 super.updateItem(item, empty);
@@ -280,10 +290,12 @@ public class HuoneSivu {
         return huoneTableView;
     }
 
+
     private void openMuokkaaHuoneWindow(Huone huone, TableView<Huone> huoneTableView) {
-        String selectedlanguage = LocaleManager.getLanguageName();
+        String selectedLanguage = LocaleManager.getCurrentLocale().getLanguage();
+
         Stage muokkaaHuoneStage = new Stage();
-        muokkaaHuoneStage.setTitle("Muokkaa huonetta");
+        muokkaaHuoneStage.setTitle(bundle.getString("HuonesivuMuokkaaHuonettaLabel"));
 
         // Pääasettelu, joka jakaa ikkunan osiin (yläosa, keskiosa, alaosa)
         BorderPane borderPane = new BorderPane();
@@ -294,23 +306,23 @@ public class HuoneSivu {
         formLayout.setPadding(new Insets(20)); // Asetetaan täyte
 
         // Kenttien ja tekstikenttien luonti
-        Label huoneNroLabel = new Label("Huoneen numero:");
+        Label huoneNroLabel = new Label(bundle.getString("HuonesivuHuoneNumeroLabel"));
         TextField huoneNro = new TextField();
         huoneNro.setText(String.valueOf(huone.getHuone_nro())); // Convert huone_nro to string
 
-        Label huoneTypeLabel = new Label("Huone tyyppi:");
+        Label huoneTypeLabel = new Label(bundle.getString("HuonesivuHuoneTyyppiLabel"));
         ComboBox<String> huoneType = new ComboBox<>();
-        huoneType.getItems().addAll("Yhden hengen huone", "Kahden hengen huone", "Kolmen hengen huone", "Perhehuone", "Sviitti");
+        huoneType.getItems().addAll(bundle.getString("HuonesivuYhdenHengenLabel"), bundle.getString("HuonesivuKahdenHengenLabel"), bundle.getString("HuonesivuKolmenHengenLabel"), bundle.getString("HuonesivuPerhehuoneLabel"), bundle.getString("HuonesivuSviittiLabel"));
         huoneType.setValue(huone.getHuone_tyyppi_fi());
 
 
-        Label huoneTilaLabel = new Label("Huoneen tila:");
+        Label huoneTilaLabel = new Label(bundle.getString("HuonesivuHuoneStatusLabel"));
         ComboBox<String> huoneTila = new ComboBox<>();
-        huoneTila.getItems().addAll("Vapaa", "Varattu", "Siivous");
+        huoneTila.getItems().addAll(bundle.getString("EtusivuVapaaLabel"), bundle.getString("EtusivuVarattuLabel"), bundle.getString("EtusivuSiivousLabel"));
         //huoneTila.setValue(huone.getHuone_tila_fi());
         huoneTila.setValue(huone.getHuone_tila_fi());
 
-        Label huonePriceLabel = new Label("Huoneen hinta per yö:");
+        Label huonePriceLabel = new Label(bundle.getString("HuonesivuHuoneHintaLabel"));
         TextField huonePrice = new TextField();
         huonePrice.setText(String.valueOf(huone.getHuone_hinta()));
 
@@ -322,8 +334,8 @@ public class HuoneSivu {
                 huonePriceLabel, huonePrice
         );
 
-        Button saveButton = new Button("Tallenna muutokset");
-        Button cancelButton = new Button("Peruuta");
+        Button saveButton = new Button(bundle.getString("HuonesivuTallennaLabel"));
+        Button cancelButton = new Button(bundle.getString("HuonesivuPeruutaLabel"));
 
         // HBox save and cancel buttons
         HBox buttonBox = new HBox(10, saveButton, cancelButton);
