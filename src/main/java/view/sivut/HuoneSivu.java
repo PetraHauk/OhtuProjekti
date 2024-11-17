@@ -227,17 +227,19 @@ public class HuoneSivu {
         numeroColumn.setMinWidth(120);
 
         // Get the current language from LocaleManager
-        String selectedLanguage = LocaleManager.getCurrentLocale().getLanguage();
+        String selectedLanguageName = LocaleManager.getLanguageName();
+        System.out.println(selectedLanguageName);
 
         // Dynamically set the column for room type based on the selected language
-        String huoneTypeColumn = LocaleManager.getLocalColumnName(selectedLanguage, "huone_tyyppi");
+        String huoneTypeColumn = LocaleManager.getLocalColumnName(selectedLanguageName, "huone_tyyppi");
+        System.out.println(huoneTypeColumn);
 
         TableColumn<Huone, String> tyyppiColumn = new TableColumn<>(bundle.getString("HuonesivuHuoneTyyppiLabel"));
         tyyppiColumn.setCellValueFactory(new PropertyValueFactory<>(huoneTypeColumn));
         tyyppiColumn.setMinWidth(293);
 
         // Dynamically set the column for room status based on the selected language
-        String huoneTilaColumn = LocaleManager.getLocalColumnName(selectedLanguage, "huone_tila");
+        String huoneTilaColumn = LocaleManager.getLocalColumnName(selectedLanguageName, "huone_tila");
 
         TableColumn<Huone, String> tilaColumn = new TableColumn<>(bundle.getString("HuonesivuHuoneStatusLabel"));
         tilaColumn.setCellValueFactory(new PropertyValueFactory<>(huoneTilaColumn));
