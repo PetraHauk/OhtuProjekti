@@ -66,19 +66,6 @@ public class VarausDAO {
         return null;
     }
 
-    public void paivitaVarausById(int varaus_id, LocalDate alkuPvm, LocalDate loppuPvm) {
-        EntityManager em = MariaDbConnection.getInstance();
-        em.getTransaction().begin();
-        Varaus varaus = em.find(Varaus.class, varaus_id);
-        if (varaus != null) {
-            varaus.setAlkuPvm(LocalDate.now());
-            varaus.setLoppuPvm(LocalDate.now());
-        } else {
-            System.out.println("Varausta ei löytynyt id:llä " + varaus_id);
-        }
-        em.getTransaction().commit();
-    }
-
     public void paivitaVarausHuoneId(int varaus_id, Integer huone_id) {
         EntityManager em = MariaDbConnection.getInstance();
         em.getTransaction().begin();
@@ -102,11 +89,6 @@ public class VarausDAO {
         }
         em.getTransaction().commit();
     }
-
-    public int varausPaivat( LocalDate alkuPvm, LocalDate loppuPvm) {
-        return alkuPvm.compareTo(loppuPvm);
-    }
-
 
     public void removeByHuoneId(int huoneId) {
         EntityManager em = MariaDbConnection.getInstance();

@@ -9,27 +9,35 @@ import javafx.scene.layout.VBox;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.enteties.Huone;
+import model.service.LocaleManager;
 
 import java.util.List;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 public class Etusivu {
 
     private HuoneController huoneController;
     private LaskuController laskuController; // Add the LaskuController
 
+    private ResourceBundle bundle;
+
     public Etusivu() {
         this.huoneController = new HuoneController(); // Initialize the controllers
         this.laskuController = new LaskuController();
+
+        Locale currentLocale = LocaleManager.getCurrentLocale();
+        bundle = ResourceBundle.getBundle("messages", currentLocale);
     }
 
     public VBox createEtusivu(int hotelliId) {
         VBox etusivuInfo = new VBox(10);
         etusivuInfo.getStyleClass().add("info");
 
-        Label etusivuOtsikkoLabel = new Label("Etusivu");
+        Label etusivuOtsikkoLabel = new Label(bundle.getString("EtusivuOtsikkoLabel"));
         etusivuOtsikkoLabel.getStyleClass().add("otsikko");
 
-        Label introLabel = new Label("Tervetuloa hotellin hallintajärjestelmään! Tämä sivu tarjoaa yleiskatsauksen hotellin toiminnasta ja taloudellisesta tilasta.");
+        Label introLabel = new Label(bundle.getString("EtusivuIntroLabel"));
         introLabel.setWrapText(true);
         introLabel.setMaxWidth(400);
 
@@ -38,7 +46,7 @@ public class Etusivu {
 
         // Add total money for all paid invoices
         double totalPaidAmount = laskuController.calculateTotalForPaidLaskut();
-        Label totalMoneyLabel = new Label("Tuotto tässä kuussa: " + totalPaidAmount + " EUR");
+        Label totalMoneyLabel = new Label(bundle.getString("EtusivuTuottoLabel") + " " + totalPaidAmount + " " + bundle.getString("EtusivuEURLabel"));
         totalMoneyLabel.getStyleClass().add("total-money-label");
 
         // Wrap the label in a BorderPane to create a border
@@ -73,13 +81,13 @@ public class Etusivu {
 
         // Create PieChart data with room counts in the label
         ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
-                new PieChart.Data("Varattu: " + varattuCount, varattuCount),
-                new PieChart.Data("Vapaa: " + vapaaCount, vapaaCount),
-                new PieChart.Data("Kaipaa Siivousta: " + kaipaaSiivoustaCount, kaipaaSiivoustaCount)
+                new PieChart.Data(bundle.getString("EtusivuVarattuLabel") + ": " + varattuCount, varattuCount),
+                new PieChart.Data(bundle.getString("EtusivuVapaaLabel") + ": " + vapaaCount, vapaaCount),
+                new PieChart.Data(bundle.getString("EtusivuSiivousLabel") + ": " + kaipaaSiivoustaCount, kaipaaSiivoustaCount)
         );
 
         PieChart pieChart = new PieChart(pieChartData);
-        pieChart.setTitle("Huoneiden Tila");
+        pieChart.setTitle(bundle.getString("EtusivuHuoneidenTilaLabel"));
 
         return pieChart;
     }

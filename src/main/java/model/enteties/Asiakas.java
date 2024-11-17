@@ -96,4 +96,7 @@ public class Asiakas {
         this.huomio = huomio;
     }
 
+    public boolean isEmpty() {
+        return false;
+    }
 }

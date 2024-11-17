@@ -87,6 +87,10 @@ public class Varaus {
         this.nimi = nimi;
     }
 
+    public void setLaskuId(int laskuId) {
+        this.laskuId = laskuId;
+    }
+
     public int getHuoneNro() {
         return huone != null ? huone.getHuone_nro() : 0;
     }

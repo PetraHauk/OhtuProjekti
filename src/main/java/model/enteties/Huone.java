@@ -84,33 +84,6 @@ public class Huone {
         this.huone_nro = huone_nro;
     }
 
-
-   // public String getTyyppi(String selectedlanguahe) {
-//        switch (selectedlanguahe) {
-//            case "en":
-//                return huone_tyyppi_en;
-//            case "ru":
-//                return huone_tyyppi_ru;
-//            case "zh":
-//                return huone_tyyppi_zh;
-//            default:
-//                return huone_tyyppi_fi;
-//        }
-//    }
-
-    //public String getTila(String selectedlanguahe) {
-//        switch (selectedlanguahe) {
-//            case "en":
-//                return huone_tila_en;
-//            case "ru":
-//                return huone_tila_ru;
-//            case "zh":
-//                return huone_tila_zh;
-//            default:
-//                return huone_tila_fi;
-//        }
-//    }
-
     public String getHuone_tyyppi_fi() {
         return huone_tyyppi_fi;
     }
@@ -176,12 +149,11 @@ public class Huone {
     }
 
 
-
-
-
-
-
     public void setHuone_hinta(double huone_hinta) {
         this.huone_hinta = huone_hinta;
+    }
+
+    public void setHotelli_id(int hotelli_id) {
+        this.hotelli_id = hotelli_id;
     }
 }
