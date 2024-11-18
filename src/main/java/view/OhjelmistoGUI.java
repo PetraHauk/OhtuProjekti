@@ -65,20 +65,28 @@ public class OhjelmistoGUI extends Application {
 
         // Create the buttons for the left sidebar
         Button frontPageButton = createStyledButton(bundle.getString("frontPageButtonText"));
+        frontPageButton.setId("frontPageButton");
         Button showRoomsButton = createStyledButton(bundle.getString("showRoomsButtonText"));
+        showRoomsButton.setId("showRoomsButton");
         Button showCustomersButton = createStyledButton(bundle.getString("showCustomersButtonText"));
+        showCustomersButton.setId("showCustomersButton");
         Button showVarauksetButton = createStyledButton(bundle.getString("showVarauksetButtonText"));
+        showVarauksetButton.setId("showVarauksetButton");
         Button checkInButton = createStyledButton(bundle.getString("checkInButtonText"));
+        checkInButton.setId("checkInButton");
         Button checkOutButton = createStyledButton(bundle.getString("checkOutButtonText"));
+        checkOutButton.setId("checkOutButton");
 
         // Add the Admin Panel button only if the user is an admin
         Button adminButton = new Button(bundle.getString("adminButtonText"));
+        adminButton.setId("adminButton");
         adminButton.setPrefWidth(200);
         adminButton.getStyleClass().add("button-admin");
 
         // Log out button
         Button logOutButton = new Button(bundle.getString("logOutButtonText"));
         logOutButton.setPrefWidth(200);
+        logOutButton.setId("logOutButton");
         logOutButton.getStyleClass().add("button-log-out");
         logOutButton.setOnAction(e -> handleLogoutButtonAction(primaryStage));
 

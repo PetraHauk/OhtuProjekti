@@ -12,6 +12,7 @@ import model.service.UserSession;
 import model.DAO.KayttajaDAO;
 import org.mindrot.jbcrypt.BCrypt;
 
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class LoginGui extends Application {
@@ -27,6 +28,9 @@ public class LoginGui extends Application {
     public void start(Stage primaryStage) {
         // Load the ResourceBundle from LocaleManager
         bundle = LocaleManager.getBundle();
+        if (bundle == null) {
+            bundle = ResourceBundle.getBundle("MessagesBundle", Locale.getDefault());
+        }
         primaryStage.setTitle(bundle.getString("title.login"));
 
         // Language Selection ComboBox
@@ -39,14 +43,18 @@ public class LoginGui extends Application {
         loginLabel = new Label(bundle.getString("label.login"));
         emailLabel = new Label(bundle.getString("label.email"));
         emailField = new TextField();
+        emailField.setId("emailField"); // Set the id for the emailField
         emailField.setPromptText(bundle.getString("label.email"));
 
         passwordLabel = new Label(bundle.getString("label.password"));
         passwordField = new PasswordField();
+        passwordField.setId("passwordField"); // Set the id for the passwordField
         passwordField.setPromptText(bundle.getString("label.password"));
 
         loginButton = new Button(bundle.getString("button.login"));
+        loginButton.setId("loginButton"); // Set the id for the loginButton
         registerButton = new Button(bundle.getString("button.register"));
+        registerButton.setId("registerButton"); // Set the id for the registerButton
 
         // Layout
         VBox vbox = new VBox(10);
@@ -78,6 +86,7 @@ public class LoginGui extends Application {
             primaryStage.close();
             new OhjelmistoGUI().start(new Stage());
         } else {
+            System.out.println("Localized alert title: " + bundle.getString("alert.login.failed.title"));
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle(bundle.getString("alert.login.failed.title"));
             alert.setContentText(bundle.getString("alert.login.failed.message"));

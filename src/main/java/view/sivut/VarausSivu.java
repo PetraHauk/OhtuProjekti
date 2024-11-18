@@ -113,7 +113,7 @@ public class VarausSivu {
         varausTiedot.getChildren().addAll(saapumisPvmLabel, saapumisPvmField, lahtoPvmLabel, lahtoPvmField);
 
         Button luoVarausButton = new Button(bundle.getString("varaus.button.create"));
-        luoVarausButton.getStyleClass().add("yellow-btn");
+        luoVarausButton.getStyleClass().addAll("yellow-btn", "create");
 
         luoVaraus.getChildren().addAll(
                 luoVarausLabel, asiakasTiedot, laskuTiedot, varausTiedot, luoVarausButton);

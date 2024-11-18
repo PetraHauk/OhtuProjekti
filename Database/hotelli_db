@@ -1,6 +1,6 @@
 -- Huomio:
 -- muista, näin koodin kautta lisätty käyttäjän salasana ei ole hashed!!
-    päivitä sen kun pääset kirjautuu sisään.
+-- päivitä sen kun pääset kirjautuu sisään.
 
 
 
@@ -95,7 +95,7 @@ INSERT INTO `kayttaja` (`etunimi`, `sukunimi`, `sposti`, `puh`, `rooli`, `salasa
 VALUES ('Lisa','Paranen', 'lisa.paranen@hotelli.com', '03762387168', 'normaali', 'lisa');
 
 INSERT INTO `kayttaja` (`etunimi`, `sukunimi`, `sposti`, `puh`, `rooli`, `salasana`)
-VALUES (Aanna','Ansku', 'anna.ansku@hotelli.com', '03762387168', 'normaali', 'anna');
+VALUES ('Aanna','Ansku', 'anna.ansku@hotelli.com', '03762387168', 'normaali', 'anna');
 
 INSERT INTO `kayttaja` (`etunimi`, `sukunimi`, `sposti`, `puh`, `rooli`, `salasana`)
 VALUES ('Admin','admin', 'admin@hotelli.com', '03762387168', 'Admin', 'admin');

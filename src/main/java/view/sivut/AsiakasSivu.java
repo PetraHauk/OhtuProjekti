@@ -22,6 +22,9 @@ public class AsiakasSivu {
     private AsiakasController asiakasController;
     private ResourceBundle bundle;
 
+    public void setAsiakasController(AsiakasController asiakasController) {
+        this.asiakasController = asiakasController;
+    }
     // Constructor to initialize dependencies
     public AsiakasSivu() {
         asiakasController = new AsiakasController();
@@ -124,11 +127,12 @@ public class AsiakasSivu {
     }
 
     // Populate the customer table. Runs it in a thread and shows loading indicator.
-    private void populateCustomerTable(TableView<Asiakas> customerTable) {
+    void populateCustomerTable(TableView<Asiakas> customerTable) {
+        customerTable.setPlaceholder(new Label(bundle.getString("loadingText")));
         ProgressIndicator loadingIndicator = new ProgressIndicator();
-        loadingIndicator.setVisible(true);
-        customerTable.getItems().clear();
-        customerTable.setPlaceholder(loadingIndicator);
+        VBox loadingBox = new VBox(loadingIndicator);
+        loadingBox.setAlignment(Pos.CENTER);
+
 
         Task<List<Asiakas>> fetchCustomersTask = new Task<>() {
             @Override
@@ -142,21 +146,25 @@ public class AsiakasSivu {
             if (customers != null && !customers.isEmpty()) {
                 customerTable.getItems().setAll(customers);
             } else {
-                customerTable.setPlaceholder(new Label(bundle.getString("NotFoundCustomerText")));
+                customerTable.setPlaceholder(new Label(bundle.getString("loadingText")));
             }
             loadingIndicator.setVisible(false);
         });
 
         fetchCustomersTask.setOnFailed(event -> {
+            Throwable exception = fetchCustomersTask.getException();
+            if (exception != null) {
+                System.err.println("Failed to fetch customers: " + exception.getMessage());
+                exception.printStackTrace();  // For deeper insight during debugging
+            }
             customerTable.setPlaceholder(new Label(bundle.getString("FaildToFtechCustomerText")));
-            System.err.println("Failed to fetch customers: " + fetchCustomersTask.getException());
-            loadingIndicator.setVisible(false);
         });
+
 
         new Thread(fetchCustomersTask).start();
     }
     // Method to create the Customer table view
-    private TableView<Asiakas> createCustomerTable() {
+    TableView<Asiakas> createCustomerTable() {
         TableView<Asiakas> customerTable = new TableView<>();
         // Set the width of the table
         customerTable.setPrefWidth(940);
