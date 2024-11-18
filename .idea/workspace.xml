@@ -4,8 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="KayttajaDAO-DAO unit testit">
-      <change beforePath="$PROJECT_DIR$/src/test/java/model/DAO/KayttajaDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/model/DAO/KayttajaDAOTest.java" afterDir="false" />
+    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="Käyttöliittymä testejä">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_09_2024_09_03__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_09_2024_09_03__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/view/AdminGUITest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/view/AdminGUITest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/view/sivut/EtusivuTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/view/sivut/EtusivuTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/AsiakasController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/AsiakasController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/VarausController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/VarausController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/messages_en_GB.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages_en_GB.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/messages_fi_FI.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages_fi_FI.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/messages_ru_Ru.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages_ru_Ru.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/messages_sv_SE.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages_sv_SE.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/messages_zh_CN.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages_zh_CN.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/DAO/AsiakasDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/DAO/AsiakasDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/DAO/HotelliDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/DAO/HotelliDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/DAO/LaskuDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/DAO/LaskuDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/DAO/VarausDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/DAO/VarausDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/enteties/Asiakas.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/enteties/Asiakas.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/enteties/Hotelli.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/enteties/Hotelli.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/enteties/Huone.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/enteties/Huone.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/enteties/Varaus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/enteties/Varaus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/Etusivu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/sivut/Etusivu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/HuoneSivu$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/sivut/HuoneSivu$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/HuoneSivu$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/sivut/HuoneSivu$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/HuoneSivu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/sivut/HuoneSivu.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,6 +100,7 @@
     "Docker.Dockerfile.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
     "JUnit.AdminGUITest.executor": "Run",
+    "JUnit.AdminGUITest.testAddNewUser.executor": "Run",
     "JUnit.AdminGUITest.testDeleteUser.executor": "Run",
     "JUnit.AdminGUITest.testHandleAddUser.executor": "Run",
     "JUnit.AdminGUITest.testLoadUsers.executor": "Run",
@@ -127,6 +151,8 @@
     "JUnit.VarausDAOTest.executor": "Coverage",
     "JUnit.VarausDAOTest.testit.executor": "Debug",
     "JUnit.controller in gui.executor": "Run",
+    "JUnit.java in gui.executor": "Profiler#1",
+    "JUnit.view in gui.executor": "Profiler#1",
     "Maven.gui [clean,javafx:run].executor": "Run",
     "Maven.gui [clean,package].executor": "Run",
     "Maven.gui [clean].executor": "Run",
@@ -141,7 +167,7 @@
     "TestNG.KayttajaControllerTest.executor": "Run",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
-    "git-widget-placeholder": "anna-3",
+    "git-widget-placeholder": "main",
     "jdk.selected.JAVA_MODULE": "21",
     "kotlin-language-version-configured": "true",
     "last_directory_selection": "/Users/anna/IdeaProjects/OhtuProjekti/src/test/java/model/DAO",
@@ -189,92 +215,75 @@
       <command value="mvn clean package" />
       <command value="mvn clean javafx:run" />
       <command value="mvn package" />
-      <command value="mvn install" />
       <command value="mvn clean" />
+      <command value="mvn install" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.KayttajaDAOTest.testi">
+  <component name="RunManager" selected="JUnit.EtusivuTest">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <module name="gui" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="KayttajaDAOTest.testPersistAndFindById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AdminGUITest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gui" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="model.DAO.*" />
+          <option name="PATTERN" value="view.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="model.DAO" />
-      <option name="MAIN_CLASS_NAME" value="model.DAO.KayttajaDAOTest" />
-      <option name="METHOD_NAME" value="testPersistAndFindById" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="KayttajaDAOTest.testUpdateEmailById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gui" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="model.DAO.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="model.DAO" />
-      <option name="MAIN_CLASS_NAME" value="model.DAO.KayttajaDAOTest" />
-      <option name="METHOD_NAME" value="testUpdateEmailById" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="KayttajaDAOTest.testi" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gui" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="model.DAO.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="model.DAO" />
-      <option name="MAIN_CLASS_NAME" value="model.DAO.KayttajaDAOTest" />
-      <option name="METHOD_NAME" value="testi" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LaskuDAOTest.testPersistLaskuAndFindById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gui" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="model.DAO.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="model.DAO" />
-      <option name="MAIN_CLASS_NAME" value="model.DAO.LaskuDAOTest" />
-      <option name="METHOD_NAME" value="testPersistLaskuAndFindById" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="VarausDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gui" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="model.DAO.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="model.DAO" />
-      <option name="MAIN_CLASS_NAME" value="model.DAO.VarausDAOTest" />
+      <option name="PACKAGE_NAME" value="view" />
+      <option name="MAIN_CLASS_NAME" value="view.AdminGUITest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AdminGUITest.testAddNewUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gui" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="view.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="view" />
+      <option name="MAIN_CLASS_NAME" value="view.AdminGUITest" />
+      <option name="METHOD_NAME" value="testAddNewUser" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EtusivuTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gui" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="view.sivut.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="view.sivut" />
+      <option name="MAIN_CLASS_NAME" value="view.sivut.EtusivuTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="java in gui" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gui" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/src/test/java" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="view in gui" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gui" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/src/test/java/view" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -297,27 +306,27 @@
     <list>
       <item itemvalue="Application.Unnamed" />
       <item itemvalue="Docker.Dockerfile" />
-      <item itemvalue="JUnit.KayttajaDAOTest.testPersistAndFindById" />
-      <item itemvalue="JUnit.KayttajaDAOTest.testUpdateEmailById" />
-      <item itemvalue="JUnit.KayttajaDAOTest.testi" />
-      <item itemvalue="JUnit.LaskuDAOTest.testPersistLaskuAndFindById" />
-      <item itemvalue="JUnit.VarausDAOTest" />
+      <item itemvalue="JUnit.AdminGUITest" />
+      <item itemvalue="JUnit.AdminGUITest.testAddNewUser" />
+      <item itemvalue="JUnit.EtusivuTest" />
+      <item itemvalue="JUnit.java in gui" />
+      <item itemvalue="JUnit.view in gui" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.KayttajaDAOTest.testi" />
-        <item itemvalue="JUnit.KayttajaDAOTest.testPersistAndFindById" />
-        <item itemvalue="JUnit.KayttajaDAOTest.testUpdateEmailById" />
-        <item itemvalue="JUnit.VarausDAOTest" />
-        <item itemvalue="JUnit.LaskuDAOTest.testPersistLaskuAndFindById" />
+        <item itemvalue="JUnit.EtusivuTest" />
+        <item itemvalue="JUnit.view in gui" />
+        <item itemvalue="JUnit.AdminGUITest" />
+        <item itemvalue="JUnit.AdminGUITest.testAddNewUser" />
+        <item itemvalue="JUnit.java in gui" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.20224.419" />
-        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-IU-242.20224.419" />
+        <option value="jdk-17.0.10-corretto-17.0.10-f644763e9732-24fca987" />
+        <option value="jdk-21.0.2-openjdk-21.0.2-f644763e9732-c0c073db" />
       </set>
     </attachedChunks>
   </component>
@@ -365,14 +374,8 @@
       <workItem from="1730872404244" duration="45422000" />
       <workItem from="1731263871392" duration="11946000" />
       <workItem from="1731607548232" duration="13483000" />
-    </task>
-    <task id="LOCAL-00024" summary="ylimääränen src kansio poistettu">
-      <option name="closed" value="true" />
-      <created>1728072746459</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1728072746459</updated>
+      <workItem from="1731920770026" duration="999000" />
+      <workItem from="1731928496980" duration="1586000" />
     </task>
     <task id="LOCAL-00025" summary="ylimääränen src kansio poistettu">
       <option name="closed" value="true" />
@@ -758,7 +761,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731620769353</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="Käyttöliittymä testejä">
+      <option name="closed" value="true" />
+      <created>1731846230047</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1731846230049</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -777,7 +788,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="lisää javafx-base" />
     <MESSAGE value="asiakas välilehti kielivaihto" />
     <MESSAGE value="Login, registeri, logIn, leftBar localisointi yhdistetty" />
     <MESSAGE value="poista ylimäärästä" />
@@ -802,7 +812,8 @@
     <MESSAGE value="Titokannan lokalisoinnin kuva" />
     <MESSAGE value="tyhjeriivi pois" />
     <MESSAGE value="KayttajaDAO-DAO unit testit" />
-    <option name="LAST_COMMIT_MESSAGE" value="KayttajaDAO-DAO unit testit" />
+    <MESSAGE value="Käyttöliittymä testejä" />
+    <option name="LAST_COMMIT_MESSAGE" value="Käyttöliittymä testejä" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

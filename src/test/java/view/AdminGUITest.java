@@ -4,6 +4,7 @@ import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 import javafx.stage.Stage;
+import model.service.LocaleManager;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -20,6 +21,7 @@ import org.testfx.service.query.PointQuery;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 
 public class AdminGUITest extends ApplicationTest {
 
@@ -38,6 +40,7 @@ public class AdminGUITest extends ApplicationTest {
     @Override
     public void start(Stage stage) {
         // Initialize AdminGUI after mocks are set up
+        LocaleManager.setLocale(new Locale("fi", "FI"));
         adminGUI = new AdminGUI();
         adminGUI.kayttajaDAO = kayttajaDAO; // Inject mock DAO
         adminGUI.userTable = new TableView<>();
