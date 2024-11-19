@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="Käyttöliittymä testejä">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_09_2024_09_03__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_09_2024_09_03__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/sivut/HuoneSivu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/sivut/HuoneSivu.java" afterDir="false" />
+    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="huone tyyppi ja status choicebox default localisointi">
+      <change beforePath="$PROJECT_DIR$/dependency-reduced-pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dependency-reduced-pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/messages_en_GB.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages_en_GB.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/messages_fi_FI.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages_fi_FI.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/messages_ru_Ru.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages_ru_Ru.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/messages_zh_CN.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages_zh_CN.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,6 +87,7 @@
     "JUnit.AdminGUITest.testLoadUsers.executor": "Run",
     "JUnit.AdminGUITest.testUpdateUserById.executor": "Run",
     "JUnit.AdminGUITest.testValidatePassword.executor": "Run",
+    "JUnit.All in gui.executor": "Run",
     "JUnit.AsiakasDAOTest.executor": "Coverage",
     "JUnit.AsiakasDAOTest.removeAsiakasById.executor": "Run",
     "JUnit.AsiakasDAOTest.removeId.executor": "Run",
@@ -199,7 +202,7 @@
       <command value="mvn install" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.All in gui">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="app.Main" />
       <module name="gui" />
@@ -234,18 +237,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AdminGUITest.testAddNewUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="All in gui" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gui" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="view.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="view" />
-      <option name="MAIN_CLASS_NAME" value="view.AdminGUITest" />
-      <option name="METHOD_NAME" value="testAddNewUser" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -292,18 +287,18 @@
       <item itemvalue="Application.Unnamed" />
       <item itemvalue="Application.Main" />
       <item itemvalue="Docker.Dockerfile" />
+      <item itemvalue="JUnit.All in gui" />
       <item itemvalue="JUnit.AdminGUITest" />
-      <item itemvalue="JUnit.AdminGUITest.testAddNewUser" />
       <item itemvalue="JUnit.EtusivuTest" />
       <item itemvalue="JUnit.view in gui" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in gui" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.EtusivuTest" />
         <item itemvalue="JUnit.view in gui" />
         <item itemvalue="JUnit.AdminGUITest" />
-        <item itemvalue="JUnit.AdminGUITest.testAddNewUser" />
       </list>
     </recent_temporary>
   </component>
@@ -361,15 +356,7 @@
       <workItem from="1731607548232" duration="13483000" />
       <workItem from="1731920770026" duration="999000" />
       <workItem from="1731928496980" duration="1586000" />
-      <workItem from="1732045396063" duration="744000" />
-    </task>
-    <task id="LOCAL-00025" summary="ylimääränen src kansio poistettu">
-      <option name="closed" value="true" />
-      <created>1728073148078</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1728073148078</updated>
+      <workItem from="1732045396063" duration="1287000" />
     </task>
     <task id="LOCAL-00026" summary="muut testit kommentoitu pois koska virheitä jenkinsissä">
       <option name="closed" value="true" />
@@ -755,7 +742,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731846230049</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="huone tyyppi ja status choicebox default localisointi">
+      <option name="closed" value="true" />
+      <created>1732046430608</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1732046430608</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -774,7 +769,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="asiakas välilehti kielivaihto" />
     <MESSAGE value="Login, registeri, logIn, leftBar localisointi yhdistetty" />
     <MESSAGE value="poista ylimäärästä" />
     <MESSAGE value="lisää venäjä kieli, leftbar ja asiakas sivu" />
@@ -799,7 +793,8 @@
     <MESSAGE value="tyhjeriivi pois" />
     <MESSAGE value="KayttajaDAO-DAO unit testit" />
     <MESSAGE value="Käyttöliittymä testejä" />
-    <option name="LAST_COMMIT_MESSAGE" value="Käyttöliittymä testejä" />
+    <MESSAGE value="huone tyyppi ja status choicebox default localisointi" />
+    <option name="LAST_COMMIT_MESSAGE" value="huone tyyppi ja status choicebox default localisointi" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
