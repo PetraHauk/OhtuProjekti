@@ -156,4 +156,25 @@ public class Huone {
     public void setHotelli_id(int hotelli_id) {
         this.hotelli_id = hotelli_id;
     }
+
+    public String getHuoneTila(String selectedlanguage) {
+        switch (selectedlanguage) {
+            case "Suomi": return getHuone_tila_fi();
+            case "English": return getHuone_tila_en();
+            case "россия": return getHuone_tila_ru();
+            case "中文": return getHuone_tila_zh();
+            default: return null;
+        }
+    }
+
+    public String getHuoneTyyppi(String selectedlanguage) {
+        switch (selectedlanguage) {
+            case "Suomi": return getHuone_tyyppi_fi();
+            case "English": return getHuone_tyyppi_en();
+            case "россия": return getHuone_tyyppi_ru();
+            case "中文": return getHuone_tyyppi_zh();
+            default: return null;
+        }
+    }
+
 }

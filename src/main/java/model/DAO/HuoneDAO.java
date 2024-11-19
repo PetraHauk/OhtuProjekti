@@ -2,6 +2,8 @@ package model.DAO;
 import jakarta.persistence.EntityManager;
 import model.datasourse.MariaDbConnection;
 import model.enteties.Huone;
+
+import java.util.ArrayList;
 import java.util.List;
 import model.service.LocaleManager;
 

@@ -5,30 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="Käyttöliittymä testejä">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_09_2024_09_03__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_09_2024_09_03__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/view/AdminGUITest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/view/AdminGUITest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/view/sivut/EtusivuTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/view/sivut/EtusivuTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/AsiakasController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/AsiakasController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/VarausController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/VarausController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/messages_en_GB.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages_en_GB.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/messages_fi_FI.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages_fi_FI.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/messages_ru_Ru.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages_ru_Ru.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/messages_sv_SE.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages_sv_SE.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/messages_zh_CN.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages_zh_CN.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/DAO/AsiakasDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/DAO/AsiakasDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/DAO/HotelliDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/DAO/HotelliDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/DAO/LaskuDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/DAO/LaskuDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/DAO/VarausDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/DAO/VarausDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/enteties/Asiakas.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/enteties/Asiakas.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/enteties/Hotelli.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/enteties/Hotelli.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/enteties/Huone.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/enteties/Huone.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/enteties/Varaus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/enteties/Varaus.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/Etusivu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/sivut/Etusivu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/HuoneSivu$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/sivut/HuoneSivu$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/HuoneSivu$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/sivut/HuoneSivu$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/sivut/HuoneSivu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/sivut/HuoneSivu.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,6 +94,7 @@
     "JUnit.AsiakasDAOTest.testPersistAndFindById.executor": "Run",
     "JUnit.AsiakasDAOTest.testRemoveById.executor": "Run",
     "JUnit.AsiakasDAOTest.testUpdateAsiakasById.executor": "Run",
+    "JUnit.EtusivuTest.executor": "Run",
     "JUnit.HotelliDAOTest.executor": "Coverage",
     "JUnit.HotelliDAOTest.testGetRowCount.executor": "Run",
     "JUnit.HotelliDAOTest.testPersistAndFindById.executor": "Run",
@@ -167,7 +145,7 @@
     "TestNG.KayttajaControllerTest.executor": "Run",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "anna-3",
     "jdk.selected.JAVA_MODULE": "21",
     "kotlin-language-version-configured": "true",
     "last_directory_selection": "/Users/anna/IdeaProjects/OhtuProjekti/src/test/java/model/DAO",
@@ -219,7 +197,20 @@
       <command value="mvn install" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.EtusivuTest">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="app.Main" />
+      <module name="gui" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="app.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <module name="gui" />
       <method v="2">
@@ -272,14 +263,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="java in gui" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gui" />
-      <option name="TEST_OBJECT" value="directory" />
-      <dir value="$PROJECT_DIR$/src/test/java" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="view in gui" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gui" />
       <option name="TEST_OBJECT" value="directory" />
@@ -305,20 +288,20 @@
     </configuration>
     <list>
       <item itemvalue="Application.Unnamed" />
+      <item itemvalue="Application.Main" />
       <item itemvalue="Docker.Dockerfile" />
       <item itemvalue="JUnit.AdminGUITest" />
       <item itemvalue="JUnit.AdminGUITest.testAddNewUser" />
       <item itemvalue="JUnit.EtusivuTest" />
-      <item itemvalue="JUnit.java in gui" />
       <item itemvalue="JUnit.view in gui" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.EtusivuTest" />
         <item itemvalue="JUnit.view in gui" />
         <item itemvalue="JUnit.AdminGUITest" />
         <item itemvalue="JUnit.AdminGUITest.testAddNewUser" />
-        <item itemvalue="JUnit.java in gui" />
       </list>
     </recent_temporary>
   </component>
