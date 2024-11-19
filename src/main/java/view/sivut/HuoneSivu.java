@@ -23,7 +23,7 @@ public class HuoneSivu {
     private AsiakasController asiakasController;
     private HuoneController huoneController;
     private ResourceBundle bundle;
-
+    String selectedLanguage = LocaleManager.getLanguageName();
 
     public HuoneSivu() {
         this.huoneController = new HuoneController();
@@ -86,7 +86,6 @@ public class HuoneSivu {
         return huoneetInfo;
     }
 
-
     void filterTable(TableView<Huone> roomTable, String searchText, String selectedRoomType, String selectedRoomStatus) {
         // If no searchText or filters, populate the full table
         if ((searchText == null || searchText.isEmpty()) &&
@@ -102,15 +101,15 @@ public class HuoneSivu {
                 .filter(huone -> {
                     boolean matchesSearchText = searchText == null || searchText.isEmpty() ||
                             String.valueOf(huone.getHuone_nro()).contains(searchText) ||
-                            huone.getHuone_tyyppi_fi().toLowerCase().contains(searchText.toLowerCase()) ||
+                            huone.getHuoneTyyppi(selectedLanguage).toLowerCase().contains(searchText.toLowerCase()) ||
                             String.valueOf(huone.getHuone_hinta()).contains(searchText) ||
-                            huone.getHuone_tila_fi().toLowerCase().contains(searchText.toLowerCase());
+                            huone.getHuoneTila(selectedLanguage).toLowerCase().contains(searchText.toLowerCase());
 
                     boolean matchesRoomType = bundle.getString("HuonesivuKaikkiTyypitLabel").equals(selectedRoomType) ||
-                            huone.getHuone_tyyppi_fi().equalsIgnoreCase(selectedRoomType);
+                            huone.getHuoneTyyppi(selectedLanguage).equalsIgnoreCase(selectedRoomType);
 
                     boolean matchesRoomStatus = bundle.getString("HuonesivuKaikkiTilatLabel").equals(selectedRoomStatus) ||
-                            huone.getHuone_tila_fi().equalsIgnoreCase(selectedRoomStatus);
+                            huone.getHuoneTila(selectedLanguage).equalsIgnoreCase(selectedRoomStatus);
 
                     // Return true only if all conditions match
                     return matchesSearchText && matchesRoomType && matchesRoomStatus;
@@ -165,7 +164,7 @@ public class HuoneSivu {
 
             String roomTilaFi= "Vapaa";
             String roomTilaEn= "Free";
-            String roomTilaRu= "Бесплатно";
+            String roomTilaRu= "Свободно";
             String roomTilaZh= "空闲";
 
             double roomPrice = Double.parseDouble(priceField.getText());

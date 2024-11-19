@@ -5,6 +5,7 @@ import model.DAO.HuoneDAO;
 import model.enteties.Huone;
 import model.enteties.Hotelli;
 import model.DAO.HotelliDAO;
+import model.service.LocaleManager;
 
 import java.util.Iterator;
 import java.util.List;
@@ -12,6 +13,7 @@ import java.util.List;
 public class HuoneController {
     private HuoneDAO huoneDAO;
     private HotelliDAO hotelliDAO;
+    String selectedlanguage = LocaleManager.getLanguageName();
 
     public HuoneController() {
         huoneDAO = new HuoneDAO();

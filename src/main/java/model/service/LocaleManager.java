@@ -109,20 +109,20 @@ public class LocaleManager {
     public static List<String> getLocalizedTilaInput(String tila) {
         List<String> tilaList = new ArrayList<>();
 
-        if (tila.equals("Vapaa") || tila.equals("Free") || tila.equals("Бесплатно") || tila.equals("空闲")) {
+        if (tila.equals("Vapaa") || tila.equals("Free") || tila.equals("Свободно") || tila.equals("空闲")) {
             tilaList.add("Vapaa");
             tilaList.add("Free");
-            tilaList.add("Бесплатно");
+            tilaList.add("Свободно");
             tilaList.add("空闲");
-        } else if (tila.equals("Varattu") || tila.equals("Reserved") || tila.equals("Сдержанный") || tila.equals("已预订")) {
+        } else if (tila.equals("Varattu") || tila.equals("Reserved") || tila.equals("Забронировано") || tila.equals("已预订")) {
             tilaList.add("Varattu");
             tilaList.add("Reserved");
-            tilaList.add("Сдержанный");
+            tilaList.add("Забронировано");
             tilaList.add("已预订");
-        } else if (tila.equals("Siivous") || tila.equals("Clearout") || tila.equals("Расчистка") || tila.equals("打扫中")) {
+        } else if (tila.equals("Siivous") || tila.equals("Cleaning") || tila.equals("Уборка") || tila.equals("打扫中")) {
             tilaList.add("Siivous");
-            tilaList.add("Clearout");
-            tilaList.add("Расчистка");
+            tilaList.add("Cleaning");
+            tilaList.add("Уборка");
             tilaList.add("打扫中");
         }
         return tilaList;
