@@ -314,14 +314,14 @@ public class HuoneSivu {
         Label huoneTypeLabel = new Label(bundle.getString("HuonesivuHuoneTyyppiLabel"));
         ComboBox<String> huoneType = new ComboBox<>();
         huoneType.getItems().addAll(bundle.getString("HuonesivuYhdenHengenLabel"), bundle.getString("HuonesivuKahdenHengenLabel"), bundle.getString("HuonesivuKolmenHengenLabel"), bundle.getString("HuonesivuPerhehuoneLabel"), bundle.getString("HuonesivuSviittiLabel"));
-        huoneType.setValue(huone.getHuone_tyyppi_fi());
+        huoneType.setValue(bundle.getString("HuonesivuYhdenHengenLabel")); // Default value
 
 
         Label huoneTilaLabel = new Label(bundle.getString("HuonesivuHuoneStatusLabel"));
         ComboBox<String> huoneTila = new ComboBox<>();
         huoneTila.getItems().addAll(bundle.getString("EtusivuVapaaLabel"), bundle.getString("EtusivuVarattuLabel"), bundle.getString("EtusivuSiivousLabel"));
         //huoneTila.setValue(huone.getHuone_tila_fi());
-        huoneTila.setValue(huone.getHuone_tila_fi());
+        huoneTila.setValue(bundle.getString("EtusivuVapaaLabel")); // Default value
 
         Label huonePriceLabel = new Label(bundle.getString("HuonesivuHuoneHintaLabel"));
         TextField huonePrice = new TextField();
