@@ -12,15 +12,25 @@ import model.service.UserSession;
 import model.DAO.KayttajaDAO;
 import org.mindrot.jbcrypt.BCrypt;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import java.util.Locale;
 import java.util.ResourceBundle;
 
+
 public class LoginGui extends Application {
 
+    private static final  Logger logger = Logger.getLogger(LoginGui.class.getName());
+    private static final String LABEL_EMAIL = "label.email";
+    private static final String LABEL_PASSWORD = "label.password";
     private KayttajaDAO kayttajaDAO = new KayttajaDAO();
     private ResourceBundle bundle;
-    private Label loginLabel, emailLabel, passwordLabel;
-    private Button loginButton, registerButton;
+    private Label loginLabel;
+    private Label emailLabel;
+    private Label passwordLabel;
+    private Button loginButton;
+    private Button registerButton;
     private TextField emailField;
     private PasswordField passwordField;
 
@@ -41,15 +51,15 @@ public class LoginGui extends Application {
 
         // Labels and Buttons
         loginLabel = new Label(bundle.getString("label.login"));
-        emailLabel = new Label(bundle.getString("label.email"));
+        emailLabel = new Label(bundle.getString(LABEL_EMAIL));
         emailField = new TextField();
         emailField.setId("emailField"); // Set the id for the emailField
-        emailField.setPromptText(bundle.getString("label.email"));
+        emailField.setPromptText(bundle.getString(LABEL_EMAIL));
 
-        passwordLabel = new Label(bundle.getString("label.password"));
+        passwordLabel = new Label(bundle.getString(LABEL_PASSWORD));
         passwordField = new PasswordField();
         passwordField.setId("passwordField"); // Set the id for the passwordField
-        passwordField.setPromptText(bundle.getString("label.password"));
+        passwordField.setPromptText(bundle.getString(LABEL_PASSWORD));
 
         loginButton = new Button(bundle.getString("button.login"));
         loginButton.setId("loginButton"); // Set the id for the loginButton
@@ -86,7 +96,9 @@ public class LoginGui extends Application {
             primaryStage.close();
             new OhjelmistoGUI().start(new Stage());
         } else {
-            System.out.println("Localized alert title: " + bundle.getString("alert.login.failed.title"));
+            if (logger.isLoggable(Level.SEVERE)) {
+                logger.severe("Localized alert title: " + bundle.getString("alert.login.failed.title"));
+            }
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle(bundle.getString("alert.login.failed.title"));
             alert.setContentText(bundle.getString("alert.login.failed.message"));
@@ -103,12 +115,12 @@ public class LoginGui extends Application {
     private void refreshUI(Stage primaryStage) {
         primaryStage.setTitle(bundle.getString("title.login"));
         loginLabel.setText(bundle.getString("label.login"));
-        emailLabel.setText(bundle.getString("label.email"));
-        passwordLabel.setText(bundle.getString("label.password"));
+        emailLabel.setText(bundle.getString(LABEL_EMAIL));
+        passwordLabel.setText(bundle.getString(LABEL_PASSWORD));
         loginButton.setText(bundle.getString("button.login"));
         registerButton.setText(bundle.getString("button.register"));
-        emailField.setPromptText(bundle.getString("label.email"));
-        passwordField.setPromptText(bundle.getString("label.password"));
+        emailField.setPromptText(bundle.getString(LABEL_EMAIL));
+        passwordField.setPromptText(bundle.getString(LABEL_PASSWORD));
     }
 
     public static void main(String[] args) {

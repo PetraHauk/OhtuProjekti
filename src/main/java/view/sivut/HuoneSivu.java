@@ -21,7 +21,7 @@ import model.service.LocaleManager;
 
 public class HuoneSivu {
     private AsiakasController asiakasController;
-    private HuoneController huoneController;
+    HuoneController huoneController;
     private ResourceBundle bundle;
     String selectedLanguage = LocaleManager.getLanguageName();
 
@@ -150,7 +150,7 @@ public class HuoneSivu {
         addRoomStage.show();
     }
 
-    private void saveNewRoom(TextField numberField, ComboBox<String> typeField, TextField priceField, TableView<Huone> roomTable, Stage addRoomStage) {
+    void saveNewRoom(TextField numberField, ComboBox<String> typeField, TextField priceField, TableView<Huone> roomTable, Stage addRoomStage) {
 
         try {
             int roomNumber = Integer.parseInt(numberField.getText());
@@ -216,7 +216,7 @@ public class HuoneSivu {
     }
 
 
-    private TableView<Huone> createHuoneTable() {
+    TableView<Huone> createHuoneTable() {
         TableView<Huone> huoneTableView = new TableView<>();
         huoneTableView.setPrefWidth(950);
         huoneTableView.setPrefHeight(400);
@@ -292,7 +292,7 @@ public class HuoneSivu {
     }
 
 
-    private void openMuokkaaHuoneWindow(Huone huone, TableView<Huone> huoneTableView) {
+    void openMuokkaaHuoneWindow(Huone huone, TableView<Huone> huoneTableView) {
         String selectedLanguage = LocaleManager.getCurrentLocale().getLanguage();
 
         Stage muokkaaHuoneStage = new Stage();

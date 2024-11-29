@@ -115,12 +115,12 @@ VALUES ('Anna', 'Ansku', 'anna@sposti.fi', '06872398', 3, 'ei erikoista');
 INSERT INTO `huone` (`huone_nro`, `huone_tyyppi_fi`, `huone_tyyppi_en`, `huone_tyyppi_ru`, `huone_tyyppi_zh`,
 `huone_tila_fi`, `huone_tila_en`, `huone_tila_ru`, `huone_tila_zh`, `huone_hinta`, `hotelli_id`)
 VALUES ('101', 'Yhden hengen huone', 'Single room', 'Одноместный номер', '单人房',
-'Vapaa', 'Free', 'Бесплатно', '空闲', '100.00', 1);
+'Vapaa', 'Free', 'Свободно', '空闲', '100.00', 1);
 
 INSERT INTO `huone` (`huone_nro`, `huone_tyyppi_fi`, `huone_tyyppi_en`, `huone_tyyppi_ru`, `huone_tyyppi_zh`,
 `huone_tila_fi`, `huone_tila_en`, `huone_tila_ru`, `huone_tila_zh`, `huone_hinta`, `hotelli_id`)
 VALUES ('102', 'Kahden hengen huone', 'Double room', 'Двухместный номер', '双人房',
-'Varattu', 'Reserved', 'Сдержанный', '已预订', '150.00', 1);
+'Varattu', 'Reserved', 'Забронировано', '已预订', '150.00', 1);
 
 INSERT INTO `huone` (`huone_nro`, `huone_tyyppi_fi`, `huone_tyyppi_en`, `huone_tyyppi_ru`, `huone_tyyppi_zh`,
 `huone_tila_fi`, `huone_tila_en`, `huone_tila_ru`, `huone_tila_zh`, `huone_hinta`, `hotelli_id`)
@@ -137,7 +137,7 @@ VALUES ('204', 'Sviitti', 'Suite', 'люкс', '套房', 'Varattu', 'Reserved', 
 
 INSERT INTO `huone` (`huone_nro`, `huone_tyyppi_fi`, `huone_tyyppi_en`, `huone_tyyppi_ru`, `huone_tyyppi_zh`,
 `huone_tila_fi`, `huone_tila_en`, `huone_tila_ru`, `huone_tila_zh`, `huone_hinta`, `hotelli_id`)
-VALUES ('205', 'Sviitti', 'Suite', 'люкс', '套房', 'Siivous', 'Clearout', 'Расчистка', '打扫中', '200.00', 1);
+VALUES ('205', 'Sviitti', 'Suite', 'люкс', '套房', 'Siivous', 'Cleaning', 'Уборка', '打扫中', '200.00', 1);
 
 
 -- lasku

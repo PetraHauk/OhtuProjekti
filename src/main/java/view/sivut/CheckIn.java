@@ -6,23 +6,19 @@ import controller.LaskuController;
 import controller.VarausController;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
-import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import model.DAO.AsiakasDAO;
 import model.enteties.Asiakas;
 import model.enteties.Huone;
 import model.enteties.Lasku;
 import model.enteties.Varaus;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
-import java.util.stream.Collectors;
 import model.service.LocaleManager;
 
 public class CheckIn {
@@ -112,6 +108,15 @@ public class CheckIn {
         Button checkInButton = new Button(bundle.getString("checkin.button.checkin"));
         checkInButton.getStyleClass().add("yellow-btn");
 
+        huoneField.valueProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) {
+                List<Huone> filteredRooms = huoneTable.getItems().stream()
+                        .filter(huone -> huone.getHuone_tyyppi_fi().equals(newValue))
+                        .toList();
+                huoneTable.getItems().setAll(filteredRooms);
+            }
+        });
+
         tuloDatePicker.valueProperty().addListener((observable, oldValue, newValue) -> {
             if (tuloDatePicker.getValue() != null && poistumisDatePicker.getValue() != null) {
                 paivatValue.setText(String.valueOf(tuloDatePicker.getValue().until(poistumisDatePicker.getValue()).getDays()));
@@ -150,9 +155,7 @@ public class CheckIn {
 
          */
 
-        checkInButton.setOnAction(e -> {
-            CheckInButtonAction(huoneTable, varausTable);
-        });
+        checkInButton.setOnAction(e -> checkInButtonAction(huoneTable, varausTable));
         VBox checkIn = new VBox(20);
         checkIn.getChildren().addAll(huoneTiedot, varausInfo, checkInButton);
         return checkIn;
@@ -248,13 +251,10 @@ public class CheckIn {
         new Thread(fetchVarauksetTask).start();
     }
 
-
-
-    private void CheckInButtonAction(TableView<Huone> huoneTable, TableView<Varaus> varausTable) {
+    private void checkInButtonAction(TableView<Huone> huoneTable, TableView<Varaus> varausTable) {
         Huone selectedRoom = huoneTable.getSelectionModel().getSelectedItem();
         Varaus selectedVaraus = varausTable.getSelectionModel().getSelectedItem();
         if (selectedRoom != null && selectedVaraus != null) {
-            Integer previousRoom = selectedRoom.getHuone_id();
 
             if (selectedVaraus.getHuoneId() != null) {
                 huoneController.updateHuoneStatusById(selectedVaraus.getHuoneId(), bundle.getString("huone_tila.vapaa"));

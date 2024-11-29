@@ -207,17 +207,17 @@ public class AdminGUI extends Application {
 
         Button addUserSubmitButton = new Button(bundle.getString("addUser.submitButton"));
         addUserSubmitButton.setId("addUserSubmitButton");
-        addUserSubmitButton.setOnAction(e -> {
-            handleAddUser(
-                    etunimiField.getText(),
-                    sukunimiField.getText(),
-                    spostiField.getText(),
-                    puhField.getText(),
-                    passwordField.getText(),
-                    rooliComboBox.getValue(),
-                    addUserStage
-            );
-        });
+        addUserSubmitButton.setOnAction(e ->
+                handleAddUser(
+                        etunimiField.getText(),
+                        sukunimiField.getText(),
+                        spostiField.getText(),
+                        puhField.getText(),
+                        passwordField.getText(),
+                        rooliComboBox.getValue(),
+                        addUserStage
+                )
+        );
 
         VBox addUserForm = new VBox(10,
                 new Label(bundle.getString("addUser.formTitle")),
@@ -279,11 +279,9 @@ public class AdminGUI extends Application {
     }
 
 
-    void updateUserById(int id, String etunimi, String sukunimi, String sposti, String puh, String rooli, String salasana) {
+    void updateUserById(int id, String etunimi, String sukunimi, String puh, String rooli) {
 
 
-        // Hash the password if it's not empty
-        String hashattuSalasana = salasana.isEmpty() ? null : BCrypt.hashpw(salasana, BCrypt.gensalt());
 
         // Update the user information in the database
         kayttajaDAO.updateKayttajaById(id, etunimi, sukunimi, puh, rooli);
@@ -302,7 +300,6 @@ public class AdminGUI extends Application {
 
 
     void deleteUser() {
-        //ResourceBundle bundle = ResourceBundle.getBundle("AdminGUI", Locale.getDefault());
 
         Kayttaja selectedUser = userTable.getSelectionModel().getSelectedItem();
         if (selectedUser == null) {
