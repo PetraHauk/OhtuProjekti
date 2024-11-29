@@ -34,6 +34,8 @@ public class VarausSivu {
 
     private ResourceBundle bundle;
 
+    private String yellowButtonCss = "yellow-btn";
+
     public VarausSivu() {
         varausController = new VarausController();
         hotelliController = new HotelliController();
@@ -74,7 +76,7 @@ public class VarausSivu {
         TextField asiakasLisatiedotField = new TextField();
 
         Button etsiAsiakasButton = new Button(bundle.getString("varaus.button.searchcustomer"));
-        etsiAsiakasButton.getStyleClass().add("yellow-btn");
+        etsiAsiakasButton.getStyleClass().add(yellowButtonCss);
 
         asiakasTiedot.getChildren().addAll(
                 asiakasEtunimiLabel, asiakasEtunimiField,
@@ -85,9 +87,8 @@ public class VarausSivu {
                 etsiAsiakasButton);
         asiakasTiedot.setMargin(etsiAsiakasButton, new Insets(10));
 
-        etsiAsiakasButton.setOnAction(e -> {
-            openCustomerSearchWindow(asiakasEtunimiField, asiakasSukunimiField, asiakasSpostiField, asiakasPuhField);
-        });
+        etsiAsiakasButton.setOnAction(e ->
+                openCustomerSearchWindow(asiakasEtunimiField, asiakasSukunimiField, asiakasSpostiField, asiakasPuhField));
 
         VBox laskuTiedot = new VBox(0);
 
@@ -112,7 +113,7 @@ public class VarausSivu {
         varausTiedot.getChildren().addAll(saapumisPvmLabel, saapumisPvmField, lahtoPvmLabel, lahtoPvmField);
 
         Button luoVarausButton = new Button(bundle.getString("varaus.button.create"));
-        luoVarausButton.getStyleClass().addAll("yellow-btn", "create");
+        luoVarausButton.getStyleClass().addAll(yellowButtonCss, "create");
 
         luoVaraus.getChildren().addAll(
                 luoVarausLabel, asiakasTiedot, laskuTiedot, varausTiedot, luoVarausButton);
@@ -185,7 +186,7 @@ public class VarausSivu {
         Label searchLabel = new Label(bundle.getString("varaus.searchcustomer"));
         TextField searchField = new TextField();
         Button searchButton = new Button(bundle.getString("varaus.button.search"));
-        searchButton.getStyleClass().add("yellow-btn");
+        searchButton.getStyleClass().add(yellowButtonCss);
 
         TableView<Asiakas> searchResults = createCustomerTable();
 
