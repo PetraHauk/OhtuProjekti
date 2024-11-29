@@ -4,16 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="huone tyyppi ja status choicebox default localisointi">
-      <change afterPath="$PROJECT_DIR$/src/main/java/utils/Validator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/utils/ValidatorExeption.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="SonarLint analysis">
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_09_2024_09_03__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_09_2024_09_03__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/VarausController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/VarausController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/sivut/CheckIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/sivut/CheckIn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/sivut/VarausSivu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/sivut/VarausSivu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -773,7 +765,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Login, registeri, logIn, leftBar localisointi yhdistetty" />
     <MESSAGE value="poista ylimäärästä" />
     <MESSAGE value="lisää venäjä kieli, leftbar ja asiakas sivu" />
     <MESSAGE value="Adminpanel kieli vaihtaa local mukaan" />
@@ -798,7 +789,8 @@
     <MESSAGE value="KayttajaDAO-DAO unit testit" />
     <MESSAGE value="Käyttöliittymä testejä" />
     <MESSAGE value="huone tyyppi ja status choicebox default localisointi" />
-    <option name="LAST_COMMIT_MESSAGE" value="huone tyyppi ja status choicebox default localisointi" />
+    <MESSAGE value="SonarLint analysis" />
+    <option name="LAST_COMMIT_MESSAGE" value="SonarLint analysis" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
