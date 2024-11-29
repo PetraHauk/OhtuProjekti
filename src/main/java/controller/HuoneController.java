@@ -42,7 +42,7 @@ public class HuoneController {
 
         // Jos hotelli löytyy, lisätään huone
         Huone huone = new Huone(0, huone_nro, huone_tyyppi_fi, huone_tyyppi_en, huone_tyyppi_ru, huone_tyyppi_zh,
-               huone_tila_fi, huone_tila_en, huone_tila_ru, huone_tila_zh, huone_hinta, hotelli_id);
+                huone_tila_fi, huone_tila_en, huone_tila_ru, huone_tila_zh, huone_hinta, hotelli_id);
         huoneDAO.persist(huone);
         System.out.println("Huone lisätty onnistuneesti hotelliin ID:llä " + hotelli_id);
     }

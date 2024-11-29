@@ -2,3 +2,4 @@
 
 src/main/resources/META-INF/persistence.xml
 /src/target/
+/target/

@@ -20,35 +20,35 @@ import model.service.LocaleManager;
 
 public class RegistrationGui extends Application {
 
+    private static final String TEXT_FIELD = "text-field";
     private KayttajaDAO kayttajaDAO = new KayttajaDAO();
-    private Locale currentLocale;
     private ResourceBundle bundle;
 
 
     @Override
     public void start(Stage primaryStage) {
         // Use the current locale from LoginGui
-        Locale currentLocale = LocaleManager.getCurrentLocale();
-        bundle = ResourceBundle.getBundle("messages", currentLocale);
+        Locale locale = LocaleManager.getCurrentLocale();
+        bundle = ResourceBundle.getBundle("messages", locale);
 
         primaryStage.setTitle(bundle.getString("title.registration"));
 
         // Create UI elements with localized text
         TextField etunimiField = new TextField();
         etunimiField.setPromptText(bundle.getString("label.firstname"));
-        etunimiField.getStyleClass().add("text-field");
+        etunimiField.getStyleClass().add(TEXT_FIELD);
 
         TextField sukunimiField = new TextField();
         sukunimiField.setPromptText(bundle.getString("label.lastname"));
-        sukunimiField.getStyleClass().add("text-field");
+        sukunimiField.getStyleClass().add(TEXT_FIELD);
 
         TextField spostiField = new TextField();
         spostiField.setPromptText(bundle.getString("label.email"));
-        spostiField.getStyleClass().add("text-field");
+        spostiField.getStyleClass().add(TEXT_FIELD);
 
         TextField puhField = new TextField();
         puhField.setPromptText(bundle.getString("label.phone"));
-        puhField.getStyleClass().add("text-field");
+        puhField.getStyleClass().add(TEXT_FIELD);
 
         PasswordField salasanaField = new PasswordField();
         salasanaField.setPromptText(bundle.getString("label.password"));
