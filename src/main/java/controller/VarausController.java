@@ -99,13 +99,13 @@ public class VarausController {
     }
 
 
-    public void removeVaraus(int id) {
-        varausDAO.removeById(id);
+//    public void removeVaraus(int id) {
+//        varausDAO.removeById(id);
+//
+//    }
 
-    }
-
-    public void removeVarausById(int varausId) {
-        varausDAO.removeById(varausId);
-    }
+//    public void removeVarausById(int varausId) {
+//        varausDAO.removeById(varausId);
+//    }
 
 }

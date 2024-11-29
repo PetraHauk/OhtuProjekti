@@ -25,11 +25,11 @@ public class HuoneDAOTest {
     public void testPersistAndFindByRoomId() {
         Huone huone = new Huone();
         // Assuming hotel ID 1 exists
-        huone.setHuone_nro(1001);
-        huone.setHuone_tyyppi_fi("Yhden hengen huone");
-        huone.setHuone_tyyppi_en("Single room");
-        huone.setHuone_tyyppi_ru("Одноместный номер");
-        huone.setHuone_tyyppi_zh("单人间");
+        huone.setHuoneNro(1001);
+        huone.setHuoneTyyppiFi("Yhden hengen huone");
+        huone.setHuoneTyyppiEn("Single room");
+        huone.setHuoneTyyppiRu("Одноместный номер");
+        huone.setHuoneTyyppiZh("单人间");
         huone.setHuone_tila_fi("Vapaa");
         huone.setHuone_tila_en("Free");
         huone.setHuone_tila_ru("Свободно");
@@ -39,13 +39,13 @@ public class HuoneDAOTest {
 
         huoneDAO.persist(huone);
 
-        Huone fetchedHuone = huoneDAO.findByRoomId(huone.getHuone_id());
+        Huone fetchedHuone = huoneDAO.findByRoomId(huone.getHuoneId());
         assertNotNull(fetchedHuone);
-        assertEquals(1001, fetchedHuone.getHuone_nro());
-        assertEquals("Yhden hengen huone", fetchedHuone.getHuone_tyyppi_fi());
-        assertEquals("Single room", fetchedHuone.getHuone_tyyppi_en());
-        assertEquals("Одноместный номер", fetchedHuone.getHuone_tyyppi_ru());
-        assertEquals("单人间", fetchedHuone.getHuone_tyyppi_zh());
+        assertEquals(1001, fetchedHuone.getHuoneNro());
+        assertEquals("Yhden hengen huone", fetchedHuone.getHuoneTyyppiFi());
+        assertEquals("Single room", fetchedHuone.getHuoneTyyppiEn());
+        assertEquals("Одноместный номер", fetchedHuone.getHuoneTyyppiRu());
+        assertEquals("单人间", fetchedHuone.getHuoneTyyppiZh());
         assertEquals("Vapaa", fetchedHuone.getHuone_tila_fi());
         assertEquals("Free", fetchedHuone.getHuone_tila_en());
         assertEquals("Свободно", fetchedHuone.getHuone_tila_ru());
@@ -58,8 +58,8 @@ public class HuoneDAOTest {
     public void testHaeByHotelliIdAndUpdateAndRemove() {
         // Create a new Huone object and set its properties
         Huone huone = new Huone();
-        huone.setHuone_nro(1003);
-        huone.setHuone_tyyppi_fi("Perhehuone");
+        huone.setHuoneNro(1003);
+        huone.setHuoneTyyppiFi("Perhehuone");
         huone.setHuone_hinta(150.0);
         huone.setHotelli_id(3);
         huoneDAO.persist(huone);
@@ -70,25 +70,25 @@ public class HuoneDAOTest {
 
         // Assert that the list contains the room we just persisted
         boolean huoneFound = huoneet.stream()
-                .anyMatch(h -> h.getHuone_nro() == huone.getHuone_nro() &&
-                        h.getHuone_tyyppi_fi().equals(huone.getHuone_tyyppi_fi()) &&
+                .anyMatch(h -> h.getHuoneNro() == huone.getHuoneNro() &&
+                        h.getHuoneTyyppiFi().equals(huone.getHuoneTyyppiFi()) &&
                         h.getHuone_hinta() == huone.getHuone_hinta() &&
                         h.getHotelli_id() == huone.getHotelli_id());
         assertTrue(huoneFound);
 
         //update huone by huonee_id
-        huoneDAO.updateHuoneById(huone.getHuone_id(), 1003, "Sviitti", "Vapaa", 350.0);
-        Huone updatedHuone = huoneDAO.findByRoomId(huone.getHuone_id());
+        huoneDAO.updateHuoneById(huone.getHuoneId(), 1003, "Sviitti", "Vapaa", 350.0);
+        Huone updatedHuone = huoneDAO.findByRoomId(huone.getHuoneId());
 
         List<String> huoneTypeList = LocaleManager.getLocalizedTyyppiInput("Sviitti");
         List<String> huoneTilaList = LocaleManager.getLocalizedTilaInput("Vapaa");
 
         assertNotNull(updatedHuone);
-        assertEquals(1003, updatedHuone.getHuone_nro());
-        assertEquals(huoneTypeList.get(0), updatedHuone.getHuone_tyyppi_fi());
-        assertEquals(huoneTypeList.get(1), updatedHuone.getHuone_tyyppi_en());
-        assertEquals(huoneTypeList.get(2), updatedHuone.getHuone_tyyppi_ru());
-        assertEquals(huoneTypeList.get(3), updatedHuone.getHuone_tyyppi_zh());
+        assertEquals(1003, updatedHuone.getHuoneNro());
+        assertEquals(huoneTypeList.get(0), updatedHuone.getHuoneTyyppiFi());
+        assertEquals(huoneTypeList.get(1), updatedHuone.getHuoneTyyppiEn());
+        assertEquals(huoneTypeList.get(2), updatedHuone.getHuoneTyyppiRu());
+        assertEquals(huoneTypeList.get(3), updatedHuone.getHuoneTyyppiZh());
         assertEquals(huoneTilaList.get(0), updatedHuone.getHuone_tila_fi());
         assertEquals(huoneTilaList.get(1), updatedHuone.getHuone_tila_en());
         assertEquals(huoneTilaList.get(2), updatedHuone.getHuone_tila_ru());
@@ -97,8 +97,8 @@ public class HuoneDAOTest {
         assertEquals(350.0, updatedHuone.getHuone_hinta(), 0.0);
 
         //update huone_tila by huone_id
-        huoneDAO.updateHuoneTilaById(huone.getHuone_id(), "Varattu");
-        Huone updatedHuone2 = huoneDAO.findByRoomId(huone.getHuone_id());
+        huoneDAO.updateHuoneTilaById(huone.getHuoneId(), "Varattu");
+        Huone updatedHuone2 = huoneDAO.findByRoomId(huone.getHuoneId());
         List<String> huoneTilaList2 = LocaleManager.getLocalizedTilaInput("Varattu");
         assertEquals(huoneTilaList2.get(0), updatedHuone2.getHuone_tila_fi());
         assertEquals(huoneTilaList2.get(1), updatedHuone2.getHuone_tila_en());
@@ -108,14 +108,14 @@ public class HuoneDAOTest {
 
         //remove by huone id
         // Check that the room exists
-        Huone fetchedHuone = huoneDAO.findByRoomId(huone.getHuone_id());
+        Huone fetchedHuone = huoneDAO.findByRoomId(huone.getHuoneId());
         assertNotNull(fetchedHuone);
 
         // Remove the room
-        huoneDAO.removeById(huone.getHuone_id());
+        huoneDAO.removeById(huone.getHuoneId());
 
         // Verify it has been removed
-        fetchedHuone = huoneDAO.findByRoomId(huone.getHuone_id());
+        fetchedHuone = huoneDAO.findByRoomId(huone.getHuoneId());
         assertNull(fetchedHuone);
     }
 

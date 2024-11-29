@@ -1,14 +1,10 @@
 package model.DAO;
 
-import static org.junit.Assert.*;
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityTransaction;
 import model.datasourse.MariaDbConnection;
 import model.enteties.Hotelli;
-import org.checkerframework.checker.units.qual.N;
 import org.junit.jupiter.api.*;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -35,7 +31,7 @@ public class HotelliDAOTest {
         hotelliDAO.persist(hotelli);
 
         //test find hotelli by id
-        Hotelli fetchedHotelli = hotelliDAO.findById(hotelli.getHotelli_id());
+        Hotelli fetchedHotelli = hotelliDAO.findById(hotelli.getHotelliId());
         assertNotNull(fetchedHotelli);
         assertEquals("Testihotelli", fetchedHotelli.getNimi());
         assertEquals("Testikaupunki", fetchedHotelli.getKaupunki());
@@ -66,7 +62,7 @@ public class HotelliDAOTest {
         hotelli.setMaa("Poistomaa");
         hotelliDAO.persist(hotelli);
 
-        int id = hotelli.getHotelli_id();
+        int id = hotelli.getHotelliId();
         hotelliDAO.removeById(id);
         Hotelli removedHotelli = hotelliDAO.findById(id);
         assertEquals(null, removedHotelli);

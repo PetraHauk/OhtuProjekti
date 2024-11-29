@@ -1,8 +1,6 @@
 package controller;
 
-import model.enteties.Huone;
 import org.junit.jupiter.api.Test;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -13,7 +11,7 @@ public class HuoneControllerTest {
     public void testFindHuoneById() {
         int huoneId = 1;
         huoneController.findHuoneById(huoneId);
-        assertEquals(huoneId, huoneController.findHuoneById(huoneId).getHuone_id());
+        assertEquals(huoneId, huoneController.findHuoneById(huoneId).getHuoneId());
     }
 
     @Test

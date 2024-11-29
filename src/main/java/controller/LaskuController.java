@@ -16,8 +16,8 @@ public class LaskuController {
         laskuDAO = new LaskuDAO();
     }
 
-    public int addLasku(String maksu_status, String varaus_muoto, String valuutta, int asiakas_id) {
-        Lasku lasku = new Lasku(0, maksu_status, varaus_muoto, valuutta, asiakas_id);
+    public int addLasku(String maksuStatus, String varausMuoto, String valuutta, int asiakasId) {
+        Lasku lasku = new Lasku(0, maksuStatus, varausMuoto, valuutta, asiakasId);
         laskuDAO.persist(lasku);
         // Return the id of the new lasku
         return lasku.getLaskuId();
@@ -27,19 +27,19 @@ public class LaskuController {
         return laskuDAO.haeByLaskuId(id);
     }
 
-    public List<Lasku> findLaskuByAsiakasId(int asiakas_id) {
-        return laskuDAO.haeByAsiakasId(asiakas_id);
+    public List<Lasku> findLaskuByAsiakasId(int asiakasId) {
+        return laskuDAO.haeByAsiakasId(asiakasId);
     }
-    public void updateLaskuById(int id, String maksu_status, String varaus_muoto, String valuutta, int asiakas_id) {
-        laskuDAO.updateLaskuById(id, maksu_status, varaus_muoto, valuutta, asiakas_id);
-    }
-
-    public void updateMaksuStatusById(int id, String maksu_status) {
-        laskuDAO.updateStatusById(id, maksu_status);
+    public void updateLaskuById(int id, String maksuStatus, String varausMuoto, String valuutta, int asiakasId) {
+        laskuDAO.updateLaskuById(id, maksuStatus, varausMuoto, valuutta, asiakasId);
     }
 
-    public void removeLaskuById(int lasku_id) {
-        laskuDAO.removeById(lasku_id);
+    public void updateMaksuStatusById(int id, String maksuStatus) {
+        laskuDAO.updateStatusById(id, maksuStatus);
+    }
+
+    public void removeLaskuById(int laskuId) {
+        laskuDAO.removeById(laskuId);
     }
 
     public List<Lasku> findAllLaskut() {return laskuDAO.haeKaikkilaskut();

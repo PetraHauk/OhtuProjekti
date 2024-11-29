@@ -4,15 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="huone tyyppi ja status choicebox default localisointi">
-      <change afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/AsiakasController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/AsiakasController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/HotelliController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/HotelliController.java" afterDir="false" />
+    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="update">
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/KayttajaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/KayttajaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/LaskuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/LaskuController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/VarausController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/VarausController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/enteties/Varaus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enteties/Varaus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/controller/KayttajaControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/controller/KayttajaControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/controller/LaskuControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/controller/LaskuControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/controller/VarausControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/controller/VarausControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,6 +117,7 @@
     "JUnit.KayttajaDAOTest.testUpdateEmailById.executor": "Run",
     "JUnit.KayttajaDAOTest.testi.executor": "Coverage",
     "JUnit.LaskuControllerTest.executor": "Run",
+    "JUnit.LaskuControllerTest.testFindLaskuById.executor": "Run",
     "JUnit.LaskuDAOTest.executor": "Run",
     "JUnit.LaskuDAOTest.testPersistLaskuAndFindById.executor": "Coverage",
     "JUnit.LoginGuiTest.executor": "Run",
@@ -149,6 +149,7 @@
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "TestNG.<default>.executor": "Coverage",
     "TestNG.KayttajaControllerTest.executor": "Run",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
@@ -205,7 +206,7 @@
       <command value="mvn clean" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.LaskuControllerTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="app.Main" />
       <module name="gui" />
@@ -221,21 +222,6 @@
     </configuration>
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <module name="gui" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AdminGUITest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gui" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="view.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="view" />
-      <option name="MAIN_CLASS_NAME" value="view.AdminGUITest" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -263,10 +249,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="view in gui" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LaskuControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gui" />
-      <option name="TEST_OBJECT" value="directory" />
-      <dir value="$PROJECT_DIR$/src/test/java/view" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="controller" />
+      <option name="MAIN_CLASS_NAME" value="controller.LaskuControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LaskuControllerTest.testFindLaskuById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gui" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="controller" />
+      <option name="MAIN_CLASS_NAME" value="controller.LaskuControllerTest" />
+      <option name="METHOD_NAME" value="testFindLaskuById" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -290,18 +299,18 @@
       <item itemvalue="Application.Unnamed" />
       <item itemvalue="Application.Main" />
       <item itemvalue="Docker.Dockerfile" />
+      <item itemvalue="JUnit.LaskuControllerTest" />
+      <item itemvalue="JUnit.LaskuControllerTest.testFindLaskuById" />
       <item itemvalue="JUnit.All in gui" />
-      <item itemvalue="JUnit.AdminGUITest" />
       <item itemvalue="JUnit.EtusivuTest" />
-      <item itemvalue="JUnit.view in gui" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.LaskuControllerTest" />
+        <item itemvalue="JUnit.LaskuControllerTest.testFindLaskuById" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.All in gui" />
         <item itemvalue="JUnit.EtusivuTest" />
-        <item itemvalue="JUnit.view in gui" />
-        <item itemvalue="JUnit.AdminGUITest" />
       </list>
     </recent_temporary>
   </component>
@@ -360,54 +369,6 @@
       <workItem from="1731928496980" duration="1586000" />
       <workItem from="1732045396063" duration="1287000" />
       <workItem from="1732880533094" duration="683000" />
-    </task>
-    <task id="LOCAL-00026" summary="muut testit kommentoitu pois koska virheitä jenkinsissä">
-      <option name="closed" value="true" />
-      <created>1728073337116</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1728073337116</updated>
-    </task>
-    <task id="LOCAL-00027" summary="pomi muutokset">
-      <option name="closed" value="true" />
-      <created>1728285611958</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1728285611958</updated>
-    </task>
-    <task id="LOCAL-00028" summary="pomi muutokset">
-      <option name="closed" value="true" />
-      <created>1728285694382</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1728285694382</updated>
-    </task>
-    <task id="LOCAL-00029" summary="pomi muutokset">
-      <option name="closed" value="true" />
-      <created>1728288290188</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1728288290188</updated>
-    </task>
-    <task id="LOCAL-00030" summary="Varaus Taulussa Asiakaan nimi">
-      <option name="closed" value="true" />
-      <created>1728290740215</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1728290740215</updated>
-    </task>
-    <task id="LOCAL-00031" summary="Lisää testejä ja muuttaa AdminGUIn fiksummaksi">
-      <option name="closed" value="true" />
-      <created>1728323643467</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1728323643467</updated>
     </task>
     <task id="LOCAL-00032" summary="Lisää testejä ja muuttaa AdminGUIn fiksummaksi">
       <option name="closed" value="true" />
@@ -753,7 +714,55 @@
       <option name="project" value="LOCAL" />
       <updated>1732046430608</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="Sonarlint analyysi, Dao">
+      <option name="closed" value="true" />
+      <created>1732921458674</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1732921458674</updated>
+    </task>
+    <task id="LOCAL-00076" summary="Sonarlint analyysi, Main">
+      <option name="closed" value="true" />
+      <created>1732921472359</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1732921472359</updated>
+    </task>
+    <task id="LOCAL-00077" summary="Sonarlint analyysi, controller">
+      <option name="closed" value="true" />
+      <created>1732921514904</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1732921514904</updated>
+    </task>
+    <task id="LOCAL-00078" summary="Sonarlint analyysi, controller">
+      <option name="closed" value="true" />
+      <created>1732921538839</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1732921538839</updated>
+    </task>
+    <task id="LOCAL-00079" summary="update">
+      <option name="closed" value="true" />
+      <created>1732921625582</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1732921625582</updated>
+    </task>
+    <task id="LOCAL-00080" summary="update">
+      <option name="closed" value="true" />
+      <created>1732921641357</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1732921641357</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -772,9 +781,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Login, registeri, logIn, leftBar localisointi yhdistetty" />
-    <MESSAGE value="poista ylimäärästä" />
-    <MESSAGE value="lisää venäjä kieli, leftbar ja asiakas sivu" />
     <MESSAGE value="Adminpanel kieli vaihtaa local mukaan" />
     <MESSAGE value="asiakas/henkilömäärä esillä" />
     <MESSAGE value="kooodin siisti" />
@@ -789,7 +795,6 @@
     <MESSAGE value="Asiakas-DAO unit testit" />
     <MESSAGE value="Huone-DAO unit testit" />
     <MESSAGE value="update varaus_muodo" />
-    <MESSAGE value="update" />
     <MESSAGE value="Lasku-DAO unit testit" />
     <MESSAGE value="Varaus-DAO unit testit" />
     <MESSAGE value="Titokannan lokalisoinnin kuva" />
@@ -797,7 +802,11 @@
     <MESSAGE value="KayttajaDAO-DAO unit testit" />
     <MESSAGE value="Käyttöliittymä testejä" />
     <MESSAGE value="huone tyyppi ja status choicebox default localisointi" />
-    <option name="LAST_COMMIT_MESSAGE" value="huone tyyppi ja status choicebox default localisointi" />
+    <MESSAGE value="Sonarlint analyysi, Dao" />
+    <MESSAGE value="Sonarlint analyysi, Main" />
+    <MESSAGE value="Sonarlint analyysi, controller" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -2,7 +2,6 @@ package controller;
 
 import model.DAO.AsiakasDAO;
 import model.enteties.Asiakas;
-import model.enteties.Varaus;
 
 import java.util.List;
 

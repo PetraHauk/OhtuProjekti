@@ -1,6 +1,5 @@
 package model.DAO;
 
-import controller.VarausController;
 import model.datasourse.MariaDbConnection;
 import model.enteties.Lasku;
 import model.enteties.Varaus;
@@ -50,11 +49,11 @@ public class VarausDAOTest {
 
         //uusi huone
         Huone huone = new Huone();
-        huone.setHuone_nro(1001);
-        huone.setHuone_tyyppi_fi("Yhden hengen huone");
-        huone.setHuone_tyyppi_en("Single room");
-        huone.setHuone_tyyppi_ru("Одноместный номер");
-        huone.setHuone_tyyppi_zh("单人间");
+        huone.setHuoneNro(1001);
+        huone.setHuoneTyyppiFi("Yhden hengen huone");
+        huone.setHuoneTyyppiEn("Single room");
+        huone.setHuoneTyyppiRu("Одноместный номер");
+        huone.setHuoneTyyppiZh("单人间");
         huone.setHuone_tila_fi("Vapaa");
         huone.setHuone_tila_en("Free");
         huone.setHuone_tila_ru("Свободно");
@@ -62,7 +61,7 @@ public class VarausDAOTest {
         huone.setHuone_hinta(100.0);
         huone.setHotelli_id(2);
         huoneDAO.persist(huone);
-        int huoneId = huone.getHuone_id();
+        int huoneId = huone.getHuoneId();
 
         // Step 1: Create and persist a Varaus
         Varaus varaus = new Varaus();

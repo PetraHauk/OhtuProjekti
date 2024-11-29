@@ -4,7 +4,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import model.enteties.Kayttaja;
 import model.DAO.KayttajaDAO;
 import javafx.fxml.FXMLLoader;

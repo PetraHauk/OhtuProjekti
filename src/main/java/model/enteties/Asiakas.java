@@ -29,6 +29,7 @@ public class Asiakas {
     private String huomio;
 
     public Asiakas(int asiakasId, String etunimi, String sukunimi, String sposti, String puh, int henkiloMaara, String huomio) {
+        this.asiakasId = asiakasId;
         this.etunimi = etunimi;
         this.sukunimi = sukunimi;
         this.sposti = sposti;
