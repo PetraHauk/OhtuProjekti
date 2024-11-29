@@ -11,7 +11,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import model.DAO.AsiakasDAO;
 import model.enteties.Asiakas;
 import model.enteties.Huone;
 import model.enteties.Lasku;
@@ -133,6 +132,11 @@ public class VarausSivu {
                 String laskuMuoto = laskuMuotoField.getValue();
                 LocalDate saapumisPvm = saapumisPvmField.getValue();
                 LocalDate lahtoPvm = lahtoPvmField.getValue();
+
+                if (asiakasEtunimi.isEmpty() || asiakasSukunimi.isEmpty() || asiakasEmail.isEmpty() || asiakasPuh.isEmpty()) {
+                    System.err.println(bundle.getString("varaus.error.missingfields"));
+                    return;
+                }
 
                 if (saapumisPvm == null || lahtoPvm == null) {
                     System.err.println(bundle.getString("varaus.error.invaliddates"));

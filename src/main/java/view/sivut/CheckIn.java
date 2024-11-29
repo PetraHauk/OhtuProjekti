@@ -112,6 +112,15 @@ public class CheckIn {
         Button checkInButton = new Button(bundle.getString("checkin.button.checkin"));
         checkInButton.getStyleClass().add("yellow-btn");
 
+        huoneField.valueProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) {
+                List<Huone> filteredRooms = huoneTable.getItems().stream()
+                        .filter(huone -> huone.getHuone_tyyppi_fi().equals(newValue))
+                        .collect(Collectors.toList());
+                huoneTable.getItems().setAll(filteredRooms);
+            }
+        });
+
         tuloDatePicker.valueProperty().addListener((observable, oldValue, newValue) -> {
             if (tuloDatePicker.getValue() != null && poistumisDatePicker.getValue() != null) {
                 paivatValue.setText(String.valueOf(tuloDatePicker.getValue().until(poistumisDatePicker.getValue()).getDays()));
