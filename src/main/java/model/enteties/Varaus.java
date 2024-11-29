@@ -1,8 +1,6 @@
 package model.enteties;
 
 import jakarta.persistence.*;
-import model.DAO.AsiakasDAO;
-import model.DAO.LaskuDAO;
 
 import java.time.LocalDate;
 
