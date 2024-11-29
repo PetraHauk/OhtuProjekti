@@ -5,11 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="huone tyyppi ja status choicebox default localisointi">
-      <change beforePath="$PROJECT_DIR$/dependency-reduced-pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dependency-reduced-pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/messages_en_GB.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages_en_GB.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/messages_fi_FI.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages_fi_FI.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/messages_ru_Ru.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages_ru_Ru.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/messages_zh_CN.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages_zh_CN.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/messages_en_GB.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/messages_fi_FI.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/messages_ru_Ru.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/messages_sv_SE.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/messages_zh_CN.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/DAO/LaskuDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/enteties/Varaus.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,8 +26,8 @@
         <option value="FxmlFile" />
         <option value="CSS File" />
         <option value="Dockerfile" />
-        <option value="Class" />
         <option value="JUnit4 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -150,7 +154,7 @@
     "TestNG.KayttajaControllerTest.executor": "Run",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
-    "git-widget-placeholder": "#55 on main",
+    "git-widget-placeholder": "#56 on anna-3",
     "jdk.selected.JAVA_MODULE": "21",
     "kotlin-language-version-configured": "true",
     "last_directory_selection": "/Users/anna/IdeaProjects/OhtuProjekti/src/test/java/model/DAO",
@@ -164,7 +168,7 @@
     "project.structure.last.edited": "Global Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.5482759",
-    "settings.editor.selected.configurable": "File.Encoding",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -198,11 +202,11 @@
       <command value="mvn clean package" />
       <command value="mvn clean javafx:run" />
       <command value="mvn package" />
-      <command value="mvn clean" />
       <command value="mvn install" />
+      <command value="mvn clean" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.All in gui">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="app.Main" />
       <module name="gui" />
@@ -294,8 +298,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.All in gui" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.All in gui" />
         <item itemvalue="JUnit.EtusivuTest" />
         <item itemvalue="JUnit.view in gui" />
         <item itemvalue="JUnit.AdminGUITest" />
@@ -305,8 +309,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.20224.419" />
-        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-IU-242.20224.419" />
+        <option value="jdk-21.0.2-openjdk-21.0.2-f644763e9732-c0c073db" />
       </set>
     </attachedChunks>
   </component>
@@ -357,6 +360,7 @@
       <workItem from="1731920770026" duration="999000" />
       <workItem from="1731928496980" duration="1586000" />
       <workItem from="1732045396063" duration="1287000" />
+      <workItem from="1732880533094" duration="683000" />
     </task>
     <task id="LOCAL-00026" summary="muut testit kommentoitu pois koska virheitä jenkinsissä">
       <option name="closed" value="true" />
