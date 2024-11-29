@@ -5,19 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="huone tyyppi ja status choicebox default localisointi">
-      <change beforePath="$PROJECT_DIR$/.gitIgnore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitIgnore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/utils/Validator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/utils/ValidatorExeption.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_09_2024_09_03__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_09_2024_09_03__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/HuoneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/HuoneController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/AdminGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/AdminGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/LoginGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/LoginGui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/RegistrationGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/RegistrationGui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/sivut/HuoneSivu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/sivut/HuoneSivu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/VarausController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/VarausController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/sivut/CheckIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/sivut/CheckIn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/sivut/VarausSivu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/sivut/VarausSivu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/view/RegistrationGuiTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/view/RegistrationGuiTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/view/sivut/HuoneSivuTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/view/sivut/HuoneSivuTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,8 +26,8 @@
         <option value="FxmlFile" />
         <option value="CSS File" />
         <option value="Dockerfile" />
-        <option value="Class" />
         <option value="JUnit4 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -206,24 +202,11 @@
       <command value="mvn clean package" />
       <command value="mvn clean javafx:run" />
       <command value="mvn package" />
-      <command value="mvn clean" />
       <command value="mvn install" />
+      <command value="mvn clean" />
     </option>
   </component>
   <component name="RunManager" selected="Application.Main">
-    <configuration name="LoginGui" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="view.LoginGui" />
-      <module name="gui" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="view.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="app.Main" />
       <module name="gui" />
@@ -239,6 +222,21 @@
     </configuration>
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <module name="gui" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AdminGUITest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gui" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="view.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="view" />
+      <option name="MAIN_CLASS_NAME" value="view.AdminGUITest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -291,27 +289,26 @@
     </configuration>
     <list>
       <item itemvalue="Application.Unnamed" />
-      <item itemvalue="Application.LoginGui" />
       <item itemvalue="Application.Main" />
       <item itemvalue="Docker.Dockerfile" />
       <item itemvalue="JUnit.All in gui" />
+      <item itemvalue="JUnit.AdminGUITest" />
       <item itemvalue="JUnit.EtusivuTest" />
       <item itemvalue="JUnit.view in gui" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.LoginGui" />
         <item itemvalue="JUnit.All in gui" />
         <item itemvalue="JUnit.EtusivuTest" />
         <item itemvalue="JUnit.view in gui" />
+        <item itemvalue="JUnit.AdminGUITest" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-17.0.10-corretto-17.0.10-f644763e9732-24fca987" />
         <option value="jdk-21.0.2-openjdk-21.0.2-f644763e9732-c0c073db" />
       </set>
     </attachedChunks>
@@ -363,7 +360,7 @@
       <workItem from="1731920770026" duration="999000" />
       <workItem from="1731928496980" duration="1586000" />
       <workItem from="1732045396063" duration="1287000" />
-      <workItem from="1732880104389" duration="3034000" />
+      <workItem from="1732880533094" duration="683000" />
     </task>
     <task id="LOCAL-00026" summary="muut testit kommentoitu pois koska virheitä jenkinsissä">
       <option name="closed" value="true" />

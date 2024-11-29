@@ -11,7 +11,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import model.DAO.AsiakasDAO;
 import model.enteties.Asiakas;
 import model.enteties.Huone;
 import model.enteties.Lasku;
@@ -34,6 +33,8 @@ public class VarausSivu {
     private HuoneController huoneController;
 
     private ResourceBundle bundle;
+
+    private String yellowButtonCss = "yellow-btn";
 
     public VarausSivu() {
         varausController = new VarausController();
@@ -75,7 +76,7 @@ public class VarausSivu {
         TextField asiakasLisatiedotField = new TextField();
 
         Button etsiAsiakasButton = new Button(bundle.getString("varaus.button.searchcustomer"));
-        etsiAsiakasButton.getStyleClass().add("yellow-btn");
+        etsiAsiakasButton.getStyleClass().add(yellowButtonCss);
 
         asiakasTiedot.getChildren().addAll(
                 asiakasEtunimiLabel, asiakasEtunimiField,
@@ -86,9 +87,8 @@ public class VarausSivu {
                 etsiAsiakasButton);
         asiakasTiedot.setMargin(etsiAsiakasButton, new Insets(10));
 
-        etsiAsiakasButton.setOnAction(e -> {
-            openCustomerSearchWindow(asiakasEtunimiField, asiakasSukunimiField, asiakasSpostiField, asiakasPuhField);
-        });
+        etsiAsiakasButton.setOnAction(e ->
+                openCustomerSearchWindow(asiakasEtunimiField, asiakasSukunimiField, asiakasSpostiField, asiakasPuhField));
 
         VBox laskuTiedot = new VBox(0);
 
@@ -113,7 +113,7 @@ public class VarausSivu {
         varausTiedot.getChildren().addAll(saapumisPvmLabel, saapumisPvmField, lahtoPvmLabel, lahtoPvmField);
 
         Button luoVarausButton = new Button(bundle.getString("varaus.button.create"));
-        luoVarausButton.getStyleClass().addAll("yellow-btn", "create");
+        luoVarausButton.getStyleClass().addAll(yellowButtonCss, "create");
 
         luoVaraus.getChildren().addAll(
                 luoVarausLabel, asiakasTiedot, laskuTiedot, varausTiedot, luoVarausButton);
@@ -133,6 +133,11 @@ public class VarausSivu {
                 String laskuMuoto = laskuMuotoField.getValue();
                 LocalDate saapumisPvm = saapumisPvmField.getValue();
                 LocalDate lahtoPvm = lahtoPvmField.getValue();
+
+                if (asiakasEtunimi.isEmpty() || asiakasSukunimi.isEmpty() || asiakasEmail.isEmpty() || asiakasPuh.isEmpty()) {
+                    System.err.println(bundle.getString("varaus.error.missingfields"));
+                    return;
+                }
 
                 if (saapumisPvm == null || lahtoPvm == null) {
                     System.err.println(bundle.getString("varaus.error.invaliddates"));
@@ -181,7 +186,7 @@ public class VarausSivu {
         Label searchLabel = new Label(bundle.getString("varaus.searchcustomer"));
         TextField searchField = new TextField();
         Button searchButton = new Button(bundle.getString("varaus.button.search"));
-        searchButton.getStyleClass().add("yellow-btn");
+        searchButton.getStyleClass().add(yellowButtonCss);
 
         TableView<Asiakas> searchResults = createCustomerTable();
 
