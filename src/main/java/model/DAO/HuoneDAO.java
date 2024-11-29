@@ -98,12 +98,12 @@ public class HuoneDAO {
             em.getTransaction().begin();
             Huone huone = em.find(Huone.class, id);
             if (huone != null) {
-                huone.setHuone_nro(huoneNro);
+                huone.setHuoneNro(huoneNro);
 
-                huone.setHuone_tyyppi_fi(huoneTypeFi);
-                huone.setHuone_tyyppi_en(huoneTypeEn);
-                huone.setHuone_tyyppi_ru(huoneTypeRu);
-                huone.setHuone_tyyppi_zh(huoneTypeZh);
+                huone.setHuoneTyyppiFi(huoneTypeFi);
+                huone.setHuoneTyyppiEn(huoneTypeEn);
+                huone.setHuoneTyyppiRu(huoneTypeRu);
+                huone.setHuoneTyyppiZh(huoneTypeZh);
                 huone.setHuone_tila_fi(huoneTilaFi);
                 huone.setHuone_tila_en(huoneTilaEn);
                 huone.setHuone_tila_ru(huoneTilaRu);

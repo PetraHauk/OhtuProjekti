@@ -23,8 +23,8 @@ public class HotelliController {
         return hotelliDAO.getRowCount();
     }
 
-    public void removeHotelliById(int hotelli_id) {
-        hotelliDAO.removeById(hotelli_id);
+    public void removeHotelliById(int hotelliId) {
+        hotelliDAO.removeById(hotelliId);
     }
 
 }

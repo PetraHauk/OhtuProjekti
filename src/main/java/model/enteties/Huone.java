@@ -8,22 +8,22 @@ public class Huone {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Tämä mahdollistaa automaattisen ID:n generoinnin
-    private int huone_id;
+    private int huoneId;
 
     @Column(name = "huone_nro")
-    private int huone_nro;
+    private int huoneNro;
 
     @Column(name = "huone_tyyppi_fi")
-    private String huone_tyyppi_fi;
+    private String huoneTyyppiFi;
 
     @Column(name = "huone_tyyppi_en")
-    private String huone_tyyppi_en;
+    private String huoneTyyppiEn;
 
     @Column(name = "huone_tyyppi_ru")
-    private String huone_tyyppi_ru;
+    private String huoneTyyppiRu;
 
     @Column(name = "huone_tyyppi_zh")
-    private String huone_tyyppi_zh;
+    private String huoneTyyppiZh;
 
     @Column(name = "huone_tila_en")
     private String huone_tila_en;
@@ -43,16 +43,16 @@ public class Huone {
     @Column(name = "hotelli_id")
     private int hotelli_id;
 
-    public Huone(int huone_id, int huone_nro,
-                 String huone_tyyppi_fi,  String huone_tyyppi_en,  String huone_tyyppi_ru, String huone_tyyppi_zh,
+    public Huone(int huoneId, int huoneNro,
+                 String huoneTyyppiFi, String huoneTyyppiEn, String huoneTyyppiRu, String huone_tyyppi_zh,
                  String huone_tila_fi, String huone_tila_en, String huone_tila_ru, String huone_tila_zh,
                  double huone_hinta, int hotelli_id) {
-        this.huone_id = huone_id;
-        this.huone_nro = huone_nro;
-        this.huone_tyyppi_fi = huone_tyyppi_fi;
-        this.huone_tyyppi_en = huone_tyyppi_en;
-        this.huone_tyyppi_ru = huone_tyyppi_ru;
-        this.huone_tyyppi_zh = huone_tyyppi_zh;
+        this.huoneId = huoneId;
+        this.huoneNro = huoneNro;
+        this.huoneTyyppiFi = huoneTyyppiFi;
+        this.huoneTyyppiEn = huoneTyyppiEn;
+        this.huoneTyyppiRu = huoneTyyppiRu;
+        this.huoneTyyppiZh = huone_tyyppi_zh;
         this.huone_tila_fi = huone_tila_fi;
         this.huone_tila_en = huone_tila_en;
         this.huone_tila_ru = huone_tila_ru;
@@ -64,12 +64,12 @@ public class Huone {
     public Huone() {
     }
 
-    public int getHuone_id() {
-        return huone_id;
+    public int getHuoneId() {
+        return huoneId;
     }
 
-    public int getHuone_nro() {
-        return huone_nro;
+    public int getHuoneNro() {
+        return huoneNro;
     }
 
     public double getHuone_hinta() {
@@ -80,24 +80,24 @@ public class Huone {
         return hotelli_id;
     }
 
-    public void setHuone_nro(int huone_nro) {
-        this.huone_nro = huone_nro;
+    public void setHuoneNro(int huone_nro) {
+        this.huoneNro = huone_nro;
     }
 
-    public String getHuone_tyyppi_fi() {
-        return huone_tyyppi_fi;
+    public String getHuoneTyyppiFi() {
+        return huoneTyyppiFi;
     }
 
-    public String getHuone_tyyppi_en() {
-        return huone_tyyppi_en;
+    public String getHuoneTyyppiEn() {
+        return huoneTyyppiEn;
     }
 
-    public String getHuone_tyyppi_ru() {
-        return huone_tyyppi_ru;
+    public String getHuoneTyyppiRu() {
+        return huoneTyyppiRu;
     }
 
-    public String getHuone_tyyppi_zh() {
-        return huone_tyyppi_zh;
+    public String getHuoneTyyppiZh() {
+        return huoneTyyppiZh;
     }
 
     public String getHuone_tila_fi() {
@@ -116,20 +116,20 @@ public class Huone {
         return huone_tila_zh;
     }
 
-    public void setHuone_tyyppi_fi(String huone_tyyppi_fi) {
-        this.huone_tyyppi_fi = huone_tyyppi_fi;
+    public void setHuoneTyyppiFi(String huone_tyyppi_fi) {
+        this.huoneTyyppiFi = huone_tyyppi_fi;
     }
 
-    public void setHuone_tyyppi_en(String huone_tyyppi_en) {
-        this.huone_tyyppi_en = huone_tyyppi_en;
+    public void setHuoneTyyppiEn(String huone_tyyppi_en) {
+        this.huoneTyyppiEn = huone_tyyppi_en;
     }
 
-    public void setHuone_tyyppi_ru(String huone_tyyppi_ru) {
-        this.huone_tyyppi_ru = huone_tyyppi_ru;
+    public void setHuoneTyyppiRu(String huone_tyyppi_ru) {
+        this.huoneTyyppiRu = huone_tyyppi_ru;
     }
 
-    public void setHuone_tyyppi_zh(String huone_tyyppi_zh) {
-        this.huone_tyyppi_zh = huone_tyyppi_zh;
+    public void setHuoneTyyppiZh(String huone_tyyppi_zh) {
+        this.huoneTyyppiZh = huone_tyyppi_zh;
     }
 
     public void setHuone_tila_fi(String huone_tila_fi) {
@@ -169,10 +169,10 @@ public class Huone {
 
     public String getHuoneTyyppi(String selectedlanguage) {
         switch (selectedlanguage) {
-            case "Suomi": return getHuone_tyyppi_fi();
-            case "English": return getHuone_tyyppi_en();
-            case "россия": return getHuone_tyyppi_ru();
-            case "中文": return getHuone_tyyppi_zh();
+            case "Suomi": return getHuoneTyyppiFi();
+            case "English": return getHuoneTyyppiEn();
+            case "россия": return getHuoneTyyppiRu();
+            case "中文": return getHuoneTyyppiZh();
             default: return null;
         }
     }

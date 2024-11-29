@@ -4,7 +4,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import model.enteties.Kayttaja;
 import model.DAO.KayttajaDAO;
 import javafx.fxml.FXMLLoader;
@@ -61,46 +60,6 @@ public class LoginController {
     public PasswordField getPasswordField() {
         return passwordField;
     }
-
-
-//    @FXML
-//    public void handleLogin() throws IOException {
-//        String email = emailIdField.getText();
-//        String password = passwordField.getText();
-//
-//        String kayttaja = kayttajaDAO.findPasswordByEmail(email);
-//
-//        if (kayttaja != null && kayttaja.getSalasana().equals(password)) {
-//            // Login successful
-//            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-//            alert.setTitle("Kirjautuminen onnistui");
-//            alert.setHeaderText(null);
-//            alert.setContentText("Tervetuloa " + kayttaja.getEtunimi() + "!");
-//            alert.showAndWait();
-//
-//            // Load the home page FXML
-//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/home.fxml"));
-//            Parent homePage = loader.load();
-//
-//            // Get the controller of the home page
-//            HomeController homeController = loader.getController();
-//
-//            // Pass the username to the home controller
-//            homeController.setUser(kayttaja.getEtunimi());
-//
-//            // Navigate to home page
-//            Stage stage = (Stage) emailIdField.getScene().getWindow(); // Get current stage
-//            stage.setScene(new Scene(homePage, 600, 400)); // Set the new scene (home page)
-//            stage.show();
-//        } else {
-//            // Login failed
-//            Alert alert = new Alert(Alert.AlertType.ERROR);
-//            alert.setTitle("Kirjautuminen epäonnistui");
-//            alert.setHeaderText(null);
-//            alert.setContentText("Tarkista sähköposti ja salasana.");
-//            alert.showAndWait();
-//        }
-//    }
 
     @FXML
     public void handleGoToRegister() throws IOException {

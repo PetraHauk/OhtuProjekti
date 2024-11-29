@@ -111,7 +111,7 @@ public class CheckIn {
         huoneField.valueProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
                 List<Huone> filteredRooms = huoneTable.getItems().stream()
-                        .filter(huone -> huone.getHuone_tyyppi_fi().equals(newValue))
+                        .filter(huone -> huone.getHuoneTyyppiFi().equals(newValue))
                         .toList();
                 huoneTable.getItems().setAll(filteredRooms);
             }
@@ -260,8 +260,8 @@ public class CheckIn {
                 huoneController.updateHuoneStatusById(selectedVaraus.getHuoneId(), bundle.getString("huone_tila.vapaa"));
             }
 
-            huoneController.updateHuoneStatusById(selectedRoom.getHuone_id(), bundle.getString("huone_tila.varattu"));
-            varausController.updateVarausHuoneById(selectedVaraus.getVarausId(), selectedRoom.getHuone_id());
+            huoneController.updateHuoneStatusById(selectedRoom.getHuoneId(), bundle.getString("huone_tila.varattu"));
+            varausController.updateVarausHuoneById(selectedVaraus.getVarausId(), selectedRoom.getHuoneId());
         }
 
     }

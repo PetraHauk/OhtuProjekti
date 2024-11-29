@@ -100,7 +100,7 @@ public class HuoneSivu {
         List<Huone> filteredRooms = allRooms.stream()
                 .filter(huone -> {
                     boolean matchesSearchText = searchText == null || searchText.isEmpty() ||
-                            String.valueOf(huone.getHuone_nro()).contains(searchText) ||
+                            String.valueOf(huone.getHuoneNro()).contains(searchText) ||
                             huone.getHuoneTyyppi(selectedLanguage).toLowerCase().contains(searchText.toLowerCase()) ||
                             String.valueOf(huone.getHuone_hinta()).contains(searchText) ||
                             huone.getHuoneTila(selectedLanguage).toLowerCase().contains(searchText.toLowerCase());
@@ -269,7 +269,7 @@ public class HuoneSivu {
                 deleteButton.setOnAction(event -> {
                     Huone huone = getTableView().getItems().get(getIndex());
                     getTableView().getItems().remove(huone);
-                    huoneController.deleteHuone(huone.getHuone_id());
+                    huoneController.deleteHuone(huone.getHuoneId());
                 });
             }
 
@@ -309,7 +309,7 @@ public class HuoneSivu {
         // Kenttien ja tekstikenttien luonti
         Label huoneNroLabel = new Label(bundle.getString("HuonesivuHuoneNumeroLabel"));
         TextField huoneNro = new TextField();
-        huoneNro.setText(String.valueOf(huone.getHuone_nro())); // Convert huone_nro to string
+        huoneNro.setText(String.valueOf(huone.getHuoneNro())); // Convert huone_nro to string
 
         Label huoneTypeLabel = new Label(bundle.getString("HuonesivuHuoneTyyppiLabel"));
         ComboBox<String> huoneType = new ComboBox<>();
@@ -346,7 +346,7 @@ public class HuoneSivu {
         saveButton.setOnAction(e -> {
             // Päivitetään huoneen tiedot
             huoneController.updateHuoneById(
-                    huone.getHuone_id(),
+                    huone.getHuoneId(),
                     Integer.parseInt(huoneNro.getText()),
                     huoneType.getValue(),
                     huoneTila.getValue(),
