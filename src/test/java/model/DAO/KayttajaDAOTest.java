@@ -7,17 +7,17 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class KayttajaDAOTest {
+class KayttajaDAOTest {
 
     private KayttajaDAO kayttajaDAO;
 
     @BeforeAll
-    public void setUp() {
+    void setUp() {
         kayttajaDAO = new KayttajaDAO();
     }
 
     @Test
-    public void testi() {
+    void testi() {
         Kayttaja kayttaja = new Kayttaja();
         kayttaja.setEtunimi("Test");
         kayttaja.setSukunimi("User");
@@ -84,7 +84,7 @@ public class KayttajaDAOTest {
     }
 
     @AfterAll
-    public void tearDown() {
+    void tearDown() {
         MariaDbConnection.getInstance().close();
     }
 }

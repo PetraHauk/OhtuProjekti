@@ -4,18 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="Sonarlint analyysi, Hotelli">
+    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="SonarLint-analyysi: test/controlllerin luokat">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/LaskuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/LaskuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/VarausController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/VarausController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/LaskuDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/LaskuDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/enteties/Lasku.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enteties/Lasku.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/enteties/LaskuData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enteties/LaskuData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/service/LocaleManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/service/LocaleManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/sivut/CheckOut.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/sivut/CheckOut.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/model/DAO/VarausDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/model/DAO/VarausDAOTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/DAO/LaskuDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/DAO/LaskuDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/enteties/Varaus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/enteties/Varaus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/HotelliDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/HotelliDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/enteties/Hotelli.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enteties/Hotelli.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/DAO/AsiakasDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/model/DAO/AsiakasDAOTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/DAO/HotelliDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/model/DAO/HotelliDAOTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,8 +22,8 @@
         <option value="FxmlFile" />
         <option value="CSS File" />
         <option value="Dockerfile" />
-        <option value="JUnit4 Test Class" />
         <option value="Class" />
+        <option value="JUnit4 Test Class" />
       </list>
     </option>
   </component>
@@ -94,7 +88,8 @@
     "JUnit.AdminGUITest.testUpdateUserById.executor": "Run",
     "JUnit.AdminGUITest.testValidatePassword.executor": "Run",
     "JUnit.All in gui.executor": "Run",
-    "JUnit.AsiakasDAOTest.executor": "Coverage",
+    "JUnit.AsiakasControllerTest.executor": "Run",
+    "JUnit.AsiakasDAOTest.executor": "Run",
     "JUnit.AsiakasDAOTest.removeAsiakasById.executor": "Run",
     "JUnit.AsiakasDAOTest.removeId.executor": "Run",
     "JUnit.AsiakasDAOTest.testFindAsiakasByKeyword.executor": "Run",
@@ -106,11 +101,16 @@
     "JUnit.AsiakasDAOTest.testRemoveById.executor": "Run",
     "JUnit.AsiakasDAOTest.testUpdateAsiakasById.executor": "Run",
     "JUnit.EtusivuTest.executor": "Run",
-    "JUnit.HotelliDAOTest.executor": "Coverage",
+    "JUnit.HotelliControllerTest.executor": "Run",
+    "JUnit.HotelliDAOTest.executor": "Run",
     "JUnit.HotelliDAOTest.testGetRowCount.executor": "Run",
     "JUnit.HotelliDAOTest.testPersistAndFindById.executor": "Run",
+    "JUnit.HotelliDAOTest.testPersistAndFindByIdAndFindByName.executor": "Debug",
     "JUnit.HotelliDAOTest.testRemoveById.executor": "Run",
+    "JUnit.HuoneControllerTest.executor": "Run",
     "JUnit.HuoneControllerTest.findHuoneByTila.executor": "Run",
+    "JUnit.HuoneControllerTest.testFindHuoneById.executor": "Run",
+    "JUnit.HuoneControllerTest.testFindHuoneetByHoteliId.executor": "Run",
     "JUnit.HuoneDAOTest.executor": "Coverage",
     "JUnit.HuoneDAOTest.testHaeHuoneetByHotelliId.executor": "Run",
     "JUnit.HuoneDAOTest.testHaeHuoneetByHotelliIdAndUpdate.executor": "Run",
@@ -161,7 +161,7 @@
     "git-widget-placeholder": "anna-1",
     "jdk.selected.JAVA_MODULE": "21",
     "kotlin-language-version-configured": "true",
-    "last_directory_selection": "/Users/anna/IdeaProjects/OhtuProjekti/src/test/java/model/DAO",
+    "last_directory_selection": "/Users/anna/IdeaProjects/OhtuProjekti/src/test/java/controller",
     "last_opened_file_path": "C:/Users/kakek/javafx-sdk-17.0.10/lib",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
@@ -191,6 +191,7 @@
       <recent name="C:\Users\kakek\IdeaProjects\OhtuProjekti2\src\src" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="controller" />
       <recent name="model.DAO" />
       <recent name="view" />
       <recent name="app" />
@@ -210,76 +211,84 @@
       <command value="mvn clean" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="app.Main" />
-      <module name="gui" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="app.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.VarausDAOTest">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <module name="gui" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="All in gui" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gui" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="EtusivuTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AsiakasDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gui" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="view.sivut.*" />
+          <option name="PATTERN" value="model.DAO.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="view.sivut" />
-      <option name="MAIN_CLASS_NAME" value="view.sivut.EtusivuTest" />
+      <option name="PACKAGE_NAME" value="model.DAO" />
+      <option name="MAIN_CLASS_NAME" value="model.DAO.AsiakasDAOTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LaskuControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="HuoneDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gui" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="controller.*" />
+          <option name="PATTERN" value="model.DAO.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="controller" />
-      <option name="MAIN_CLASS_NAME" value="controller.LaskuControllerTest" />
+      <option name="PACKAGE_NAME" value="model.DAO" />
+      <option name="MAIN_CLASS_NAME" value="model.DAO.HuoneDAOTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LaskuControllerTest.testFindLaskuById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="KayttajaDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gui" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="controller.*" />
+          <option name="PATTERN" value="model.DAO.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="controller" />
-      <option name="MAIN_CLASS_NAME" value="controller.LaskuControllerTest" />
-      <option name="METHOD_NAME" value="testFindLaskuById" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="model.DAO" />
+      <option name="MAIN_CLASS_NAME" value="model.DAO.KayttajaDAOTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LaskuDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gui" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="model.DAO.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="model.DAO" />
+      <option name="MAIN_CLASS_NAME" value="model.DAO.LaskuDAOTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VarausDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gui" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="model.DAO.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="model.DAO" />
+      <option name="MAIN_CLASS_NAME" value="model.DAO.VarausDAOTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -301,20 +310,20 @@
     </configuration>
     <list>
       <item itemvalue="Application.Unnamed" />
-      <item itemvalue="Application.Main" />
       <item itemvalue="Docker.Dockerfile" />
-      <item itemvalue="JUnit.LaskuControllerTest" />
-      <item itemvalue="JUnit.LaskuControllerTest.testFindLaskuById" />
-      <item itemvalue="JUnit.All in gui" />
-      <item itemvalue="JUnit.EtusivuTest" />
+      <item itemvalue="JUnit.AsiakasDAOTest" />
+      <item itemvalue="JUnit.HuoneDAOTest" />
+      <item itemvalue="JUnit.KayttajaDAOTest" />
+      <item itemvalue="JUnit.LaskuDAOTest" />
+      <item itemvalue="JUnit.VarausDAOTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.LaskuControllerTest" />
-        <item itemvalue="JUnit.LaskuControllerTest.testFindLaskuById" />
-        <item itemvalue="JUnit.All in gui" />
-        <item itemvalue="JUnit.EtusivuTest" />
+        <item itemvalue="JUnit.VarausDAOTest" />
+        <item itemvalue="JUnit.LaskuDAOTest" />
+        <item itemvalue="JUnit.KayttajaDAOTest" />
+        <item itemvalue="JUnit.HuoneDAOTest" />
+        <item itemvalue="JUnit.AsiakasDAOTest" />
       </list>
     </recent_temporary>
   </component>
@@ -373,30 +382,6 @@
       <workItem from="1731928496980" duration="1586000" />
       <workItem from="1732045396063" duration="1287000" />
       <workItem from="1732880533094" duration="683000" />
-    </task>
-    <task id="LOCAL-00036" summary="Fiksaa testit ja vähän refactorointia">
-      <option name="closed" value="true" />
-      <created>1729676706661</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1729676706661</updated>
-    </task>
-    <task id="LOCAL-00037" summary="Fiksaa testit ja vähän refactorointia">
-      <option name="closed" value="true" />
-      <created>1729677605534</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1729677605534</updated>
-    </task>
-    <task id="LOCAL-00038" summary="Lisää kirjautumisen ja rekisteröinnin lokaalisaation">
-      <option name="closed" value="true" />
-      <created>1730542597614</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1730542597614</updated>
     </task>
     <task id="LOCAL-00039" summary="Lisää Admin näkymän lokaalisaation">
       <option name="closed" value="true" />
@@ -766,7 +751,31 @@
       <option name="project" value="LOCAL" />
       <updated>1732963950105</updated>
     </task>
-    <option name="localTasksCounter" value="85" />
+    <task id="LOCAL-00085" summary="Sonarlint analyysi, lasku, varaus ja niiden liittyvät">
+      <option name="closed" value="true" />
+      <created>1732967297239</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1732967297239</updated>
+    </task>
+    <task id="LOCAL-00086" summary="koodin siistimistä">
+      <option name="closed" value="true" />
+      <created>1732967351004</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1732967351004</updated>
+    </task>
+    <task id="LOCAL-00087" summary="SonarLint-analyysi: test/controlllerin luokat">
+      <option name="closed" value="true" />
+      <created>1732970838298</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1732970838298</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -785,9 +794,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Asiakas sivu update(pois output luokka)" />
-    <MESSAGE value="Check  out sivu kännös valmis" />
-    <MESSAGE value="Tietokanna localsointi" />
     <MESSAGE value="getHuone_tila -&gt; getHuone_tila" />
     <MESSAGE value="HuoneSivu haut, lisää uusi huone ja muokkaa huone, kaikki toimi" />
     <MESSAGE value="Huonesivun tyypi ja tila haetaan valitettu kielen mukaan." />
@@ -810,7 +816,10 @@
     <MESSAGE value="Sonarlint analyysi, huone liityvät" />
     <MESSAGE value="Sonarlint analyysi, Asiakas liityvät" />
     <MESSAGE value="Sonarlint analyysi, Hotelli" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sonarlint analyysi, Hotelli" />
+    <MESSAGE value="Sonarlint analyysi, lasku, varaus ja niiden liittyvät" />
+    <MESSAGE value="koodin siistimistä" />
+    <MESSAGE value="SonarLint-analyysi: test/controlllerin luokat" />
+    <option name="LAST_COMMIT_MESSAGE" value="SonarLint-analyysi: test/controlllerin luokat" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -837,6 +846,16 @@
           <url>file://$PROJECT_DIR$/src/main/java/view/sivut/HuoneSivu.java</url>
           <line>223</line>
           <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/model/DAO/HotelliDAOTest.java</url>
+          <line>11</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/model/DAO/HotelliDAO.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="31" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

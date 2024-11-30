@@ -1,7 +1,6 @@
 package model.DAO;
 
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityTransaction;
 import model.datasourse.MariaDbConnection;
 import model.enteties.Asiakas;
 import org.junit.jupiter.api.*;
@@ -11,7 +10,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class AsiakasDAOTest {
+class AsiakasDAOTest {
 
     private AsiakasDAO asiakasDAO;
     private EntityManager em;
@@ -23,7 +22,7 @@ public class AsiakasDAOTest {
     }
 
     @Test
-    public void testPersist() {
+    void testPersist() {
         Asiakas asiakas = asiakasDAO.findByEmail("anna.mallinen@example.com");
         if (asiakas.isEmpty()) {
             asiakas.setEtunimi("Anna");
@@ -40,7 +39,7 @@ public class AsiakasDAOTest {
     }
 
     @Test
-    public void testPersistAndFindById() {
+   void testPersistAndFindById() {
         Asiakas asiakas = asiakasDAO.findByEmail("anna.mallinen@example.com");
         Asiakas fetchedAsiakas = asiakasDAO.findByLaskuId(asiakas.getAsiakasId());
         assertNotNull(fetchedAsiakas);
@@ -48,14 +47,14 @@ public class AsiakasDAOTest {
     }
 
     @Test
-    public void testFindByEmail() {
+    void testFindByEmail() {
         Asiakas fetchedAsiakas = asiakasDAO.findByEmail("anna.mallinen@example.com");
         assertNotNull(fetchedAsiakas);
         assertEquals("Anna", fetchedAsiakas.getEtunimi());
     }
 
     @Test
-    public void testFindByNimet() {
+    void testFindByNimet() {
 
         List<Asiakas> asiakkaat = asiakasDAO.findByNImet("Anna", "Mallinen");
         for (Asiakas asiakas : asiakkaat) {
@@ -65,7 +64,7 @@ public class AsiakasDAOTest {
     }
 
     @Test
-    public void testUpdateAsiakasById() {
+    void testUpdateAsiakasById() {
         Asiakas asiakas = new Asiakas();
         asiakas.setEtunimi("Pekka");
         asiakas.setSukunimi("Puupää");
@@ -83,7 +82,7 @@ public class AsiakasDAOTest {
     }
 
     @Test
-    public void testFindAsiakasByKeyword() {
+    void testFindAsiakasByKeyword() {
         Asiakas asiakas1 = new Asiakas();
         asiakas1.setEtunimi("Eero");
         asiakas1.setSukunimi("Esimerkki");
@@ -102,13 +101,13 @@ public class AsiakasDAOTest {
     }
 
     @Test
-    public void testFindAsiakkaat() {
+    void testFindAsiakkaat() {
         List<Asiakas> asiakkaat = asiakasDAO.findAsiakkaat();
         assertFalse(asiakkaat.isEmpty());
     }
 
     @Test
-    public void TestrRemoveAsiakasById() {
+    void TestrRemoveAsiakasById() {
         Asiakas asiakas = new Asiakas();
         asiakas.setEtunimi("Pekka");
         asiakas.setSukunimi("Puupää");

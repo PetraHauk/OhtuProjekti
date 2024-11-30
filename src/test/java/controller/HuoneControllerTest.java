@@ -1,8 +1,9 @@
 package controller;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class HuoneControllerTest {
     HuoneController huoneController = new HuoneController();
@@ -20,7 +21,4 @@ public class HuoneControllerTest {
         huoneController.findHuoneById(hotelliId);
         assertEquals(hotelliId, huoneController.findHuoneById(hotelliId).getHotelliId());
     }
-
-
-
 }
