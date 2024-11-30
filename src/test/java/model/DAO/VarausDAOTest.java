@@ -12,7 +12,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class VarausDAOTest {
+class VarausDAOTest {
 
     private VarausDAO varausDAO;
     private LaskuDAO laskuDAO;
@@ -20,24 +20,24 @@ public class VarausDAOTest {
 
 
     @BeforeAll
-    public void setUp() {
+    void setUp() {
         varausDAO = new VarausDAO();
         laskuDAO = new LaskuDAO();
         huoneDAO = new HuoneDAO();
     }
 
     @BeforeEach
-    public void beginTransaction() {
+    void beginTransaction() {
         MariaDbConnection.getInstance().getTransaction().begin();
     }
 
     @AfterEach
-    public void rollbackTransaction() {
+    void rollbackTransaction() {
         MariaDbConnection.getInstance().getTransaction().rollback();
     }
 
     @Test
-    public void testit() {
+    void testit() {
         //uusi lasku
         Lasku lasku = new Lasku();
         lasku.setMaksuStatus("Maksamatta");

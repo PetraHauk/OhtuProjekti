@@ -9,19 +9,19 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class HotelliDAOTest {
+class HotelliDAOTest {
 
     private HotelliDAO hotelliDAO;
     private EntityManager em;
 
     @BeforeAll
-    public void setUp() {
+    void setUp() {
         hotelliDAO = new HotelliDAO();
         em = MariaDbConnection.getInstance();
     }
 
     @Test
-    public void testPersistAndFindByIdAndFindByName() {
+    void testPersistAndFindByIdAndFindByName() {
         Hotelli hotelli = new Hotelli();
         hotelli.setNimi("Testihotelli");
         hotelli.setKaupunki("Testikaupunki");
@@ -39,21 +39,28 @@ public class HotelliDAOTest {
         assertEquals("123456789", fetchedHotelli.getPuh());
         assertEquals("Testimaa", fetchedHotelli.getMaa());
 
+
         //test find hotelli by name
         Hotelli fetchedHotelliByName = hotelliDAO.findByName("Testihotelli");
         assertNotNull(fetchedHotelliByName);
-        assertEquals(fetchedHotelli.getNimi(), fetchedHotelliByName.getNimi());
+        assertEquals("Testihotelli", fetchedHotelliByName.getNimi());
+        assertEquals("Testikaupunki", fetchedHotelliByName.getKaupunki());
+        assertEquals("Testiosoite", fetchedHotelliByName.getOsoite());
+        assertEquals("123456789", fetchedHotelliByName.getPuh());
+        assertEquals("Testimaa", fetchedHotelliByName.getMaa());
+
+        hotelliDAO.removeById(hotelli.getHotelliId());
     }
 
     @Test
-    public void testGetRowCount() {
+    void testGetRowCount() {
         int rowCount = hotelliDAO.getRowCount();
         int hotelliCount = hotelliDAO.getAllHotellis().size();
         assertEquals(hotelliCount, rowCount);
     }
 
     @Test
-    public void testRemoveById() {
+    void testRemoveById() {
         Hotelli hotelli = new Hotelli();
         hotelli.setNimi("Poistettava Hotelli");
         hotelli.setKaupunki("Poistokaupunki");

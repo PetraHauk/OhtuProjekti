@@ -1,7 +1,6 @@
 package model.DAO;
 
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityTransaction;
 import model.datasourse.MariaDbConnection;
 import model.enteties.Asiakas;
 import org.junit.jupiter.api.*;
@@ -11,7 +10,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class AsiakasDAOTest {
+class AsiakasDAOTest {
 
     private AsiakasDAO asiakasDAO;
     private EntityManager em;

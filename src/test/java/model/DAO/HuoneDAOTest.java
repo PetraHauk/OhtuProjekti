@@ -10,19 +10,19 @@ import org.junit.jupiter.api.*;
 import java.util.List;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class HuoneDAOTest {
+class HuoneDAOTest {
 
     private HuoneDAO huoneDAO;
     private EntityManager em;
 
     @BeforeAll
-    public void setUp() {
+    void setUp() {
         huoneDAO = new HuoneDAO();
         em = MariaDbConnection.getInstance();
     }
 
     @Test
-    public void testPersistAndFindByRoomId() {
+    void testPersistAndFindByRoomId() {
         Huone huone = new Huone();
         // Assuming hotel ID 1 exists
         huone.setHuoneNro(1001);
@@ -55,7 +55,7 @@ public class HuoneDAOTest {
     }
 
     @Test
-    public void testHaeByHotelliIdAndUpdateAndRemove() {
+    void testHaeByHotelliIdAndUpdateAndRemove() {
         // Create a new Huone object and set its properties
         Huone huone = new Huone();
         huone.setHuoneNro(1003);
@@ -120,7 +120,7 @@ public class HuoneDAOTest {
     }
 
     @AfterAll
-    public void tearDown() {
+    void tearDown() {
         if (em != null) {
             em.close();
         }

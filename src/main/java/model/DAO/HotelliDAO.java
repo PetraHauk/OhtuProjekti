@@ -1,6 +1,7 @@
 package model.DAO;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.NonUniqueResultException;
 import model.datasourse.MariaDbConnection;
 import model.enteties.Hotelli;
 import java.util.List;
@@ -35,6 +36,19 @@ public class HotelliDAO {
      * @param name The name of the hotel
      * @return The hotel with the given name, or null if not found
      */
+//    public Hotelli findByName(String name) {
+//        EntityManager em = MariaDbConnection.getInstance();
+//        try {
+//            return em.createQuery("SELECT h FROM Hotelli h WHERE h.nimi = :name", Hotelli.class)
+//                    .setParameter("name", name)
+//                    .getSingleResult();
+//        } finally {
+//            if (em != null) {
+//                em.close();
+//            }
+//        }
+//    }
+
     public Hotelli findByName(String name) {
         EntityManager em = MariaDbConnection.getInstance();
         try {

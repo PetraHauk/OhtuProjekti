@@ -8,19 +8,19 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class LaskuDAOTest {
+class LaskuDAOTest {
 
     private LaskuDAO laskuDAO;
-    public EntityManager em;
+    EntityManager em;
 
     @BeforeAll
-    public void setUp() {
+    void setUp() {
         laskuDAO = new LaskuDAO();
         em = MariaDbConnection.getInstance();
     }
 
     @Test
-    public void testPersistLaskuAndFindById() {
+    void testPersistLaskuAndFindById() {
         // Create a Lasku object to persist
         Lasku lasku = new Lasku();
         lasku.setMaksuStatus("Maksamatta");
