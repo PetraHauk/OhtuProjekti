@@ -45,9 +45,9 @@ public class Asiakas {
         return asiakasId;
     }
 
-    public void setAsiakasId(int asiakasId) {
-        this.asiakasId = asiakasId;
-    }
+//    public void setAsiakasId(int asiakasId) {
+//        this.asiakasId = asiakasId;
+//    }
 
     public String getEtunimi() {
         return etunimi;

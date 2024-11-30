@@ -7,6 +7,7 @@ public class Hotelli {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Tämä mahdollistaa automaattisen ID:n generoinnin
+    @Column(name = "hotelli_id")
     private int hotelliId;
 
     @Column(name = "nimi")
@@ -80,16 +81,16 @@ public class Hotelli {
         this.maa = maa;
     }
 
-    @Override
-    public String toString() {
-        return "Hotelli{" +
-                "hotelli_id=" + hotelliId +
-                ", nimi='" + nimi + '\'' +
-                ", kaupunki='" + kaupunki + '\'' +
-                ", osoite='" + osoite + '\'' +
-                ", puh='" + puh + '\'' +
-                ", maa='" + maa + '\'' +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "Hotelli{" +
+//                "hotelli_id=" + hotelliId +
+//                ", nimi='" + nimi + '\'' +
+//                ", kaupunki='" + kaupunki + '\'' +
+//                ", osoite='" + osoite + '\'' +
+//                ", puh='" + puh + '\'' +
+//                ", maa='" + maa + '\'' +
+//                '}';
+//    }
 
 }

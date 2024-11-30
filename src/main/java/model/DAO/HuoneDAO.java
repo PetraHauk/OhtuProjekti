@@ -2,6 +2,8 @@ package model.DAO;
 import jakarta.persistence.EntityManager;
 import model.datasourse.MariaDbConnection;
 import model.enteties.Huone;
+
+import java.util.Collections;
 import java.util.List;
 import model.service.LocaleManager;
 import org.slf4j.Logger;
@@ -27,19 +29,19 @@ public class HuoneDAO {
      */
     public List<Huone> haeHuoneetByHotelliId(int hotelliId) {
         EntityManager em = MariaDbConnection.getInstance();
-        List<Huone> huoneet = null;
         try {
-            huoneet = em.createQuery("SELECT h FROM Huone h WHERE h.hotelli_id = :hotelli_id", Huone.class)
-                    .setParameter("hotelli_id", hotelliId)
+            return em.createQuery("SELECT h FROM Huone h WHERE h.hotelliId = :hotelliId", Huone.class)
+                    .setParameter("hotelliId", hotelliId)
                     .getResultList();
-            if (!huoneet.isEmpty()) {
-                return huoneet;
-            }
+        } catch (Exception e) {
+            // Log the exception
+            e.printStackTrace();
+            return Collections.emptyList();
         } finally {
             em.close();
         }
-        return huoneet;
     }
+
 
     /**
      * Find a room by its ID
@@ -104,11 +106,11 @@ public class HuoneDAO {
                 huone.setHuoneTyyppiEn(huoneTypeEn);
                 huone.setHuoneTyyppiRu(huoneTypeRu);
                 huone.setHuoneTyyppiZh(huoneTypeZh);
-                huone.setHuone_tila_fi(huoneTilaFi);
-                huone.setHuone_tila_en(huoneTilaEn);
-                huone.setHuone_tila_ru(huoneTilaRu);
-                huone.setHuone_tila_zh(huoneTilaZh);
-                huone.setHuone_hinta(huoneHinta);
+                huone.setHuoneTilaFi(huoneTilaFi);
+                huone.setHuoneTilaEn(huoneTilaEn);
+                huone.setHuoneTilaRu(huoneTilaRu);
+                huone.setHuoneTilaZh(huoneTilaZh);
+                huone.setHuoneHinta(huoneHinta);
             } else {
                 logger.warn("Huonetta ei löytynyt id:llä  {}", id);
             }
@@ -137,10 +139,10 @@ public class HuoneDAO {
             em.getTransaction().begin();
             Huone huone = em.find(Huone.class, id);
             if (huone != null) {
-                huone.setHuone_tila_fi(huoneTilaFi);
-                huone.setHuone_tila_en(huoneTilaEn);
-                huone.setHuone_tila_ru(huoneTilaRu);
-                huone.setHuone_tila_zh(huoneTilaZh);
+                huone.setHuoneTilaFi(huoneTilaFi);
+                huone.setHuoneTilaEn(huoneTilaEn);
+                huone.setHuoneTilaRu(huoneTilaRu);
+                huone.setHuoneTilaZh(huoneTilaZh);
             } else {
                 logger.warn("Huonetta ei löytynyt id:llä {}", id);
             }

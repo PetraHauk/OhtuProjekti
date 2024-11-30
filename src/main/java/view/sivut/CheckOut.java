@@ -127,7 +127,7 @@ public class CheckOut {
                             if (loppuPvm.isAfter(LocalDate.now()) || loppuPvm.isEqual(LocalDate.now())) {
                                 Huone huone = huoneController.findHuoneById(varaus.getHuoneId());
                                 if (huone != null) {
-                                    double hinta = huone.getHuone_hinta();
+                                    double hinta = huone.getHuoneHinta();
                                     if (valuutta.equals("USD")) {
                                         hinta = CurrencyConverter.convertCurrency("EUR", "USD", hinta);
                                     }
@@ -142,7 +142,7 @@ public class CheckOut {
                                     // Populate the table with the invoice data
                                     populateLaskuTable(laskuTable, new LaskuData(
                                             lasku.getLaskuId(),
-                                            huone.getHotelli_id(),
+                                            huone.getHotelliId(),
                                             huone.getHuoneId(),
                                             huone.getHuoneNro(),
                                             asiakas.getEtunimi(),
