@@ -131,7 +131,7 @@ public class CheckIn {
         // Event listener for the room table. Calculate the price of the selected room
         huoneTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
-                double price = newValue.getHuone_hinta() * Integer.parseInt(paivatValue.getText());
+                double price = newValue.getHuoneHinta() * Integer.parseInt(paivatValue.getText());
                 hinta.setText(String.format("%.2f €", price));
             }
         });
@@ -273,21 +273,19 @@ public class CheckIn {
         huoneTableView.setPrefHeight(400);
 
         TableColumn<Huone, Integer> numeroColumn = new TableColumn<>(bundle.getString("checkin.table.roomnumber"));
-        numeroColumn.setCellValueFactory(new PropertyValueFactory<>("huone_nro"));
+        numeroColumn.setCellValueFactory(new PropertyValueFactory<>("huoneNro"));
         numeroColumn.setMinWidth(94);
 
-        String huoneTyype = LocaleManager.getLocalColumnName(selectedlanguage, "huone_tyyppi");
         TableColumn<Huone, String> tyyppiColumn = new TableColumn<>(bundle.getString("checkin.table.roomtype"));
-        tyyppiColumn.setCellValueFactory(new PropertyValueFactory<>(huoneTyype));
+        tyyppiColumn.setCellValueFactory(new PropertyValueFactory<>("huoneTyypi"));
         tyyppiColumn.setMinWidth(150);
 
         TableColumn<Huone, Double> hintaColumn = new TableColumn<>(bundle.getString("checkin.table.price"));
-        hintaColumn.setCellValueFactory(new PropertyValueFactory<>("huone_hinta"));
+        hintaColumn.setCellValueFactory(new PropertyValueFactory<>("huoneHinta"));
         hintaColumn.setMinWidth(150);
 
-        String huoneTila = LocaleManager.getLocalColumnName(selectedlanguage, "huone_tila");
         TableColumn<Huone, String> statusColumn = new TableColumn<>(bundle.getString("checkin.table.status"));
-        statusColumn.setCellValueFactory(new PropertyValueFactory<>(huoneTila));
+        statusColumn.setCellValueFactory(new PropertyValueFactory<>("huoneTila"));
         statusColumn.setMinWidth(100);
 
         huoneTableView.getColumns().add(numeroColumn);

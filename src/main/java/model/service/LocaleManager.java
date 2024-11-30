@@ -64,13 +64,13 @@ public class LocaleManager {
     public static String getLocalColumnName(String selectedLanguage, String columnBaseName) {
         switch (selectedLanguage) {
             case "English":
-                return columnBaseName + "_en";
+                return columnBaseName + "En";
             case "россия":
-                return columnBaseName + "_ru";
+                return columnBaseName + "Ru";
             case "中文":
-                return columnBaseName + "_zh";
+                return columnBaseName + "Zh";
             default:
-                return columnBaseName + "_fi";
+                return columnBaseName + "Fi";
         }
     }
 

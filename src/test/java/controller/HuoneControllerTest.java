@@ -18,7 +18,7 @@ public class HuoneControllerTest {
     public void testFindHuoneetByHoteliId() {
         int hotelliId = 1;
         huoneController.findHuoneById(hotelliId);
-        assertEquals(hotelliId, huoneController.findHuoneById(hotelliId).getHotelli_id());
+        assertEquals(hotelliId, huoneController.findHuoneById(hotelliId).getHotelliId());
     }
 
 

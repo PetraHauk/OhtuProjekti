@@ -67,7 +67,7 @@ public class Etusivu {
 
     private PieChart createRoomStatusChart(int hotelliId) {
         // Get the room status data
-        List<Huone> rooms = huoneController.FindHuoneetByHoteliId(hotelliId);
+        List<Huone> rooms = huoneController.findHuoneetByHoteliId(hotelliId);
 
         // if rooms is null
         if (rooms == null) {
@@ -75,9 +75,9 @@ public class Etusivu {
         }
 
         // Calculate the counts using equalsIgnoreCase for case-insensitive comparison
-        long varattuCount = rooms.stream().filter(r -> r.getHuone_tila_fi().equalsIgnoreCase("Varattu")).count();
-        long vapaaCount = rooms.stream().filter(r -> r.getHuone_tila_fi().equalsIgnoreCase("Vapaa")).count();
-        long kaipaaSiivoustaCount = rooms.stream().filter(r -> r.getHuone_tila_fi().equalsIgnoreCase("Siivous")).count();
+        long varattuCount = rooms.stream().filter(r -> r.getHuoneTilaFi().equalsIgnoreCase("Varattu")).count();
+        long vapaaCount = rooms.stream().filter(r -> r.getHuoneTilaFi().equalsIgnoreCase("Vapaa")).count();
+        long kaipaaSiivoustaCount = rooms.stream().filter(r -> r.getHuoneTilaFi().equalsIgnoreCase("Siivous")).count();
 
         // Create PieChart data with room counts in the label
         ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
