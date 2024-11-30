@@ -81,16 +81,15 @@ public class Hotelli {
         this.maa = maa;
     }
 
-//    @Override
-//    public String toString() {
-//        return "Hotelli{" +
-//                "hotelli_id=" + hotelliId +
-//                ", nimi='" + nimi + '\'' +
-//                ", kaupunki='" + kaupunki + '\'' +
-//                ", osoite='" + osoite + '\'' +
-//                ", puh='" + puh + '\'' +
-//                ", maa='" + maa + '\'' +
-//                '}';
-//    }
-
+    @Override
+    public String toString() {
+        return "Hotelli{" +
+                "hotelli_id=" + hotelliId +
+                ", nimi='" + nimi + '\'' +
+                ", kaupunki='" + kaupunki + '\'' +
+                ", osoite='" + osoite + '\'' +
+                ", puh='" + puh + '\'' +
+                ", maa='" + maa + '\'' +
+                '}';
+    }
 }
