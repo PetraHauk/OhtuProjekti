@@ -73,7 +73,7 @@ public class LaskuData {
         return maksuStatus;
     }
 
-    public void SetMaksuStatus(String maksuStatus) {
+    public void setMaksuStatus(String maksuStatus) {
         this.maksuStatus = maksuStatus;
     }
 

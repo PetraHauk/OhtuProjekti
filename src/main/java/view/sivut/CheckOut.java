@@ -179,7 +179,7 @@ public class CheckOut {
             }
             for (LaskuData laskuData : laskuTable.getItems()) {
                 laskuController.updateMaksuStatusById(laskuData.getLaskuId(), "Maksettu");
-                laskuData.SetMaksuStatus("Maksettu");
+                laskuData.setMaksuStatus("Maksettu");
                 int huoneId = laskuData.getHuoneId();
 
                 // Aseta huoneen tila siivoukselle

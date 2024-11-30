@@ -87,7 +87,6 @@ public class VarausController {
 
     public Varaus findByVarausId(int varausId) {
         return varausDAO.haeByVarausId(varausId);
-
     }
 
     public List<Varaus> findByLaskuId (int laskuId) {
@@ -98,14 +97,11 @@ public class VarausController {
         varausDAO.paivitaVarausHuoneId(varausId, huoneId);
     }
 
+    public void removeVaraus(int id) {
+        varausDAO.removeById(id);
+    }
 
-//    public void removeVaraus(int id) {
-//        varausDAO.removeById(id);
-//
-//    }
-
-//    public void removeVarausById(int varausId) {
-//        varausDAO.removeById(varausId);
-//    }
-
+    public void removeVarausById(int varausId) {
+        varausDAO.removeById(varausId);
+    }
 }
