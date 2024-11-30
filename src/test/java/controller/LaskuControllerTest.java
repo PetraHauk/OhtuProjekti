@@ -1,24 +1,26 @@
 package controller;
 
 import model.enteties.Lasku;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
 import java.util.List;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class LaskuControllerTest {
     LaskuController laskuController = new LaskuController();
+
     @Test
-    void testFindLaskuById() {
+    public void testFindLaskuById() {
         Lasku lasku = laskuController.findLaskuById(1);
-        assertEquals(1, lasku.getLaskuId());
+        Assertions.assertEquals(1, lasku.getLaskuId());
     }
 
     @Test
-    void testFindLaskuByAsiakasId() {
+    public void testFindLaskuByAsiakasId() {
         List<Lasku> laskuList = laskuController.findLaskuByAsiakasId(1);
         assertFalse(laskuList.isEmpty());
         for (Lasku lasku : laskuList) {
-            assertEquals(1, lasku.getAsiakasId());
+            Assertions.assertEquals(1, lasku.getAsiakasId());
         }
     }
 

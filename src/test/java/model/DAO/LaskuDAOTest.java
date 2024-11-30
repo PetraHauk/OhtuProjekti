@@ -1,7 +1,6 @@
 package model.DAO;
 
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityTransaction;
 import model.datasourse.MariaDbConnection;
 import model.enteties.Lasku;
 import org.junit.jupiter.api.*;
@@ -12,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class LaskuDAOTest {
 
     private LaskuDAO laskuDAO;
-    private EntityManager em;
+    public EntityManager em;
 
     @BeforeAll
     public void setUp() {
