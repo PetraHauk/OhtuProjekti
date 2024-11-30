@@ -4,14 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="update">
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/KayttajaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/KayttajaController.java" afterDir="false" />
+    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="Sonarlint analyysi, Hotelli">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/LaskuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/LaskuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/VarausController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/VarausController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/controller/KayttajaControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/controller/KayttajaControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/controller/LaskuControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/controller/LaskuControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/controller/VarausControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/controller/VarausControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/LaskuDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/LaskuDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/enteties/Lasku.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enteties/Lasku.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/enteties/LaskuData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enteties/LaskuData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/service/LocaleManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/service/LocaleManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/sivut/CheckOut.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/sivut/CheckOut.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/DAO/VarausDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/model/DAO/VarausDAOTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/DAO/LaskuDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/DAO/LaskuDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/enteties/Varaus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/enteties/Varaus.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -206,7 +210,7 @@
       <command value="mvn clean" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.LaskuControllerTest">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="app.Main" />
       <module name="gui" />
@@ -306,9 +310,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.LaskuControllerTest" />
         <item itemvalue="JUnit.LaskuControllerTest.testFindLaskuById" />
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.All in gui" />
         <item itemvalue="JUnit.EtusivuTest" />
       </list>
@@ -369,38 +373,6 @@
       <workItem from="1731928496980" duration="1586000" />
       <workItem from="1732045396063" duration="1287000" />
       <workItem from="1732880533094" duration="683000" />
-    </task>
-    <task id="LOCAL-00032" summary="Lisää testejä ja muuttaa AdminGUIn fiksummaksi">
-      <option name="closed" value="true" />
-      <created>1728323668919</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1728323668919</updated>
-    </task>
-    <task id="LOCAL-00033" summary="Fiksaa testit ja vähän refactorointia">
-      <option name="closed" value="true" />
-      <created>1728326318368</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1728326318368</updated>
-    </task>
-    <task id="LOCAL-00034" summary="Fiksaa testit ja vähän refactorointia">
-      <option name="closed" value="true" />
-      <created>1728367355159</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1728367355160</updated>
-    </task>
-    <task id="LOCAL-00035" summary="Fiksaa testit ja vähän refactorointia">
-      <option name="closed" value="true" />
-      <created>1729676670464</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1729676670464</updated>
     </task>
     <task id="LOCAL-00036" summary="Fiksaa testit ja vähän refactorointia">
       <option name="closed" value="true" />
@@ -762,7 +734,39 @@
       <option name="project" value="LOCAL" />
       <updated>1732921641357</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL-00081" summary="Sonarlint analyysi">
+      <option name="closed" value="true" />
+      <created>1732923362796</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1732923362797</updated>
+    </task>
+    <task id="LOCAL-00082" summary="Sonarlint analyysi, huone liityvät">
+      <option name="closed" value="true" />
+      <created>1732963905805</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1732963905805</updated>
+    </task>
+    <task id="LOCAL-00083" summary="Sonarlint analyysi, Asiakas liityvät">
+      <option name="closed" value="true" />
+      <created>1732963926166</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1732963926167</updated>
+    </task>
+    <task id="LOCAL-00084" summary="Sonarlint analyysi, Hotelli">
+      <option name="closed" value="true" />
+      <created>1732963950105</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1732963950105</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -781,10 +785,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Adminpanel kieli vaihtaa local mukaan" />
-    <MESSAGE value="asiakas/henkilömäärä esillä" />
-    <MESSAGE value="kooodin siisti" />
-    <MESSAGE value="check-out kännös" />
     <MESSAGE value="Asiakas sivu update(pois output luokka)" />
     <MESSAGE value="Check  out sivu kännös valmis" />
     <MESSAGE value="Tietokanna localsointi" />
@@ -806,7 +806,11 @@
     <MESSAGE value="Sonarlint analyysi, Main" />
     <MESSAGE value="Sonarlint analyysi, controller" />
     <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value="Sonarlint analyysi" />
+    <MESSAGE value="Sonarlint analyysi, huone liityvät" />
+    <MESSAGE value="Sonarlint analyysi, Asiakas liityvät" />
+    <MESSAGE value="Sonarlint analyysi, Hotelli" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sonarlint analyysi, Hotelli" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -823,6 +827,16 @@
           <url>file://$PROJECT_DIR$/src/test/java/model/DAO/HuoneDAOTest.java</url>
           <line>19</line>
           <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/view/sivut/HuoneSivu.java</url>
+          <line>224</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/view/sivut/HuoneSivu.java</url>
+          <line>223</line>
+          <option name="timeStamp" value="25" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

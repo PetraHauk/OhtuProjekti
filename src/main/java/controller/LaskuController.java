@@ -73,7 +73,7 @@ public class LaskuController {
                         long days = java.time.temporal.ChronoUnit.DAYS.between(varaus.getAlkuPvm(), varaus.getLoppuPvm());
 
                         // Multiply the number of days by the room price and add to total
-                        totalAmount += days * huone.getHuone_hinta();
+                        totalAmount += days * huone.getHuoneHinta();
                     }
                 }
             }

@@ -54,12 +54,12 @@ public class VarausDAOTest {
         huone.setHuoneTyyppiEn("Single room");
         huone.setHuoneTyyppiRu("Одноместный номер");
         huone.setHuoneTyyppiZh("单人间");
-        huone.setHuone_tila_fi("Vapaa");
-        huone.setHuone_tila_en("Free");
-        huone.setHuone_tila_ru("Свободно");
-        huone.setHuone_tila_zh("空闲");
-        huone.setHuone_hinta(100.0);
-        huone.setHotelli_id(2);
+        huone.setHuoneTilaFi("Vapaa");
+        huone.setHuoneTilaEn("Free");
+        huone.setHuoneTilaRu("Свободно");
+        huone.setHuoneTilaZh("空闲");
+        huone.setHuoneHinta(100.0);
+        huone.setHotelliId(2);
         huoneDAO.persist(huone);
         int huoneId = huone.getHuoneId();
 
