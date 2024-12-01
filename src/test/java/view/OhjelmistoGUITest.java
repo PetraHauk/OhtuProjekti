@@ -4,13 +4,12 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.service.UserSession;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.testfx.framework.junit5.ApplicationTest;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-public class OhjelmistoGUITest extends ApplicationTest {
+class OhjelmistoGUITest extends ApplicationTest {
 
     private OhjelmistoGUI ohjelmistoGUI;
 
@@ -22,7 +21,7 @@ public class OhjelmistoGUITest extends ApplicationTest {
         ohjelmistoGUI.start(stage);
     }
     @Test
-    public void testShowRoomsButtonAction() {
+    void testShowRoomsButtonAction() {
         // Find the "showRoomsButton" and click it
         Button showRoomsButton = lookup("#showRoomsButton").queryButton();
         assertNotNull(showRoomsButton);
@@ -33,7 +32,7 @@ public class OhjelmistoGUITest extends ApplicationTest {
         assertNotNull(huoneetView);
     }
     @Test
-    public void testShowCustomersButtonAction() {
+    void testShowCustomersButtonAction() {
         // Find the "showCustomersButton" and click it
         Button showCustomersButton = lookup("#showCustomersButton").queryButton();
         assertNotNull(showCustomersButton);
