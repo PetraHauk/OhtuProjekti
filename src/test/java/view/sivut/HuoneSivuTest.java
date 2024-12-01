@@ -2,18 +2,13 @@ package view.sivut;
 
 import javafx.application.Application;
 import javafx.application.Platform;
-import javafx.collections.FXCollections;
 import javafx.scene.Scene;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.enteties.Huone;
 import model.service.LocaleManager;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.testfx.framework.junit5.ApplicationTest;
 import org.testfx.util.WaitForAsyncUtils;
@@ -25,7 +20,7 @@ import java.util.ResourceBundle;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class HuoneSivuTest extends ApplicationTest {
+class HuoneSivuTest extends ApplicationTest {
 
     private HuoneSivu huoneSivu;
 
@@ -45,7 +40,7 @@ public class HuoneSivuTest extends ApplicationTest {
     }
 
     @Test
-    public void testCreateHuoneet() {
+    void testCreateHuoneet() {
         VBox huoneetVBox = huoneSivu.createHuoneet();
         assertNotNull(huoneetVBox, "Huoneet VBox should not be null");
         assertTrue(huoneetVBox.getChildren().size() > 0, "Huoneet VBox should have children");
@@ -61,14 +56,14 @@ public class HuoneSivuTest extends ApplicationTest {
     }
 
     @Test
-    public void testLocalizationHuoneet() {
+    void testLocalizationHuoneet() {
         // Define the expected values for each locale
         Map<Locale, String> expectedValues = new HashMap<>();
-        expectedValues.put(new Locale("fi", "FI"), "Huoneet");
-        expectedValues.put(new Locale("ru", "RU"), "Номера");
-        expectedValues.put(new Locale("sv", "SE"), "Rum");
-        expectedValues.put(new Locale("zh", "CN"), "房间");
-        expectedValues.put(new Locale("en", "GB"), "Rooms");
+        expectedValues.put(new Locale.Builder().setLanguage("fi").setRegion("FI").build(), "Huoneet");
+        expectedValues.put(new Locale.Builder().setLanguage("ru").setRegion("RU").build(), "Номера");
+        expectedValues.put(new Locale.Builder().setLanguage("sv").setRegion("SE").build(), "Rum");
+        expectedValues.put(new Locale.Builder().setLanguage("zh").setRegion("CN").build(), "房间");
+        expectedValues.put(new Locale.Builder().setLanguage("en").setRegion("GB").build(), "Rooms");
 
         for (Map.Entry<Locale, String> entry : expectedValues.entrySet()) {
             Locale locale = entry.getKey();
@@ -87,7 +82,7 @@ public class HuoneSivuTest extends ApplicationTest {
     }
 
     @Test
-    public void testFilterRooms() {
+    void testFilterRooms() {
         TableView<Huone> roomTable = huoneSivu.createHuoneTable();
         huoneSivu.populateRoomTable(roomTable, 1); // Assuming hotel ID is 1
 
@@ -100,7 +95,7 @@ public class HuoneSivuTest extends ApplicationTest {
     }
 
     @Test
-    public void testEditRoom() {
+    void testEditRoom() {
         TableView<Huone> roomTable = huoneSivu.createHuoneTable();
         Huone testRoom = new Huone();
         roomTable.getItems().add(testRoom); // Add mock data for testing

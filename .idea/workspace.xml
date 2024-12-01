@@ -4,16 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="huone tyyppi ja status choicebox default localisointi">
-      <change afterPath="$PROJECT_DIR$/src/main/java/utils/Validator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/utils/ValidatorExeption.java" afterDir="false" />
+    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="SonarLint juttuja">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_09_2024_09_03__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_09_2024_09_03__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/VarausController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/VarausController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/sivut/CheckIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/sivut/CheckIn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/sivut/VarausSivu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/sivut/VarausSivu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/view/OhjelmistoGUITest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/view/OhjelmistoGUITest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/view/RegistrationGuiTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/view/RegistrationGuiTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/view/sivut/AsiakasSivuTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/view/sivut/AsiakasSivuTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/view/sivut/CheckInTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/view/sivut/CheckInTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/view/sivut/CheckOutTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/view/sivut/CheckOutTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/view/sivut/EtusivuTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/view/sivut/EtusivuTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/view/sivut/HuoneSivuTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/view/sivut/HuoneSivuTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/view/sivut/VarausSivuTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/view/sivut/VarausSivuTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,6 +151,7 @@
     &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
     &quot;TestNG.&lt;default&gt;.executor&quot;: &quot;Coverage&quot;,
     &quot;TestNG.KayttajaControllerTest.executor&quot;: &quot;Run&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit4&quot;,
@@ -309,6 +311,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
+        <option value="jdk-17.0.10-corretto-17.0.10-f644763e9732-24fca987" />
         <option value="jdk-21.0.2-openjdk-21.0.2-f644763e9732-c0c073db" />
       </set>
     </attachedChunks>
@@ -361,14 +364,7 @@
       <workItem from="1731928496980" duration="1586000" />
       <workItem from="1732045396063" duration="1287000" />
       <workItem from="1732880533094" duration="683000" />
-    </task>
-    <task id="LOCAL-00026" summary="muut testit kommentoitu pois koska virheitä jenkinsissä">
-      <option name="closed" value="true" />
-      <created>1728073337116</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1728073337116</updated>
+      <workItem from="1733055048485" duration="950000" />
     </task>
     <task id="LOCAL-00027" summary="pomi muutokset">
       <option name="closed" value="true" />
@@ -754,7 +750,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732046430608</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="SonarLint juttuja">
+      <option name="closed" value="true" />
+      <created>1732883458162</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1732883458162</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -773,7 +777,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Login, registeri, logIn, leftBar localisointi yhdistetty" />
     <MESSAGE value="poista ylimäärästä" />
     <MESSAGE value="lisää venäjä kieli, leftbar ja asiakas sivu" />
     <MESSAGE value="Adminpanel kieli vaihtaa local mukaan" />
@@ -798,7 +801,8 @@
     <MESSAGE value="KayttajaDAO-DAO unit testit" />
     <MESSAGE value="Käyttöliittymä testejä" />
     <MESSAGE value="huone tyyppi ja status choicebox default localisointi" />
-    <option name="LAST_COMMIT_MESSAGE" value="huone tyyppi ja status choicebox default localisointi" />
+    <MESSAGE value="SonarLint juttuja" />
+    <option name="LAST_COMMIT_MESSAGE" value="SonarLint juttuja" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

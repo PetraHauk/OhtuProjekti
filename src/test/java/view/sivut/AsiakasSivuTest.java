@@ -21,7 +21,7 @@ import java.util.List;
 /**
  * Test class for AsiakasSivu
  */
-public class AsiakasSivuTest extends ApplicationTest {
+class AsiakasSivuTest extends ApplicationTest {
 
     private AsiakasSivu asiakasSivu;
     private AsiakasController mockController;
@@ -34,7 +34,7 @@ public class AsiakasSivuTest extends ApplicationTest {
     }
 
     @Test
-    public void testPopulateCustomerTable_Success() {
+    void testPopulateCustomerTable_Success() {
         // Arrange
         List<Asiakas> mockCustomers = Arrays.asList(
                 new Asiakas(1, "John", "Doe", "john.doe@example.com", "123456789", 4, "VIP"),
@@ -53,7 +53,7 @@ public class AsiakasSivuTest extends ApplicationTest {
     }
 
     @Test
-    public void testPopulateCustomerTable_Failure() {
+    void testPopulateCustomerTable_Failure() {
         // Arrange
         when(mockController.findAllAsiakkaat()).thenThrow(new RuntimeException("Database error"));
 
@@ -70,7 +70,7 @@ public class AsiakasSivuTest extends ApplicationTest {
     }
 
     @Test
-    public void testAddCustomerButton_TriggersAction() {
+    void testAddCustomerButton_TriggersAction() {
         Platform.runLater(() -> {
             VBox vbox = asiakasSivu.createAsiakkaat();
             Button addButton = (Button) vbox.getChildren().get(2); // Assuming button is the third child
