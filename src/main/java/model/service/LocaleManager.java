@@ -6,7 +6,9 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class LocaleManager {
-    private static Locale currentLocale = new Locale("fi", "FI"); // Default locale
+
+    // Default locale
+    private static Locale currentLocale = new Locale("fi", "FI");
     private static ResourceBundle bundle = ResourceBundle.getBundle("messages", currentLocale);
 
     public static Locale getCurrentLocale() {
@@ -33,14 +35,11 @@ public class LocaleManager {
             case "中文":
                 setLocale(new Locale("zh", "CN"));
                 break;
-            case "Suomi":
-                setLocale(new Locale("fi", "FI"));
-                break;
             case "россия":
                 setLocale(new Locale("ru", "RU"));
                 break;
             default:
-                setLocale(new Locale("en", "GB")); // Default fallback
+                setLocale(new Locale("fi", "FI")); // Default fallback
         }
     }
 
@@ -52,25 +51,23 @@ public class LocaleManager {
                 return "Svenska";
             case "zh":
                 return "中文";
-            case "fi":
-                return "Suomi";
             case "ru":
                 return "россия";
             default:
-                return "English";
+                return "Suomi";
         }
     }
 
     public static String getLocalColumnName(String selectedLanguage, String columnBaseName) {
         switch (selectedLanguage) {
             case "English":
-                return columnBaseName + "_en";
+                return columnBaseName + "En";
             case "россия":
-                return columnBaseName + "_ru";
+                return columnBaseName + "Ru";
             case "中文":
-                return columnBaseName + "_zh";
+                return columnBaseName + "Zh";
             default:
-                return columnBaseName + "_fi";
+                return columnBaseName + "Fi";
         }
     }
 
@@ -127,7 +124,6 @@ public class LocaleManager {
         }
         return tilaList;
     }
-
 }
 
 

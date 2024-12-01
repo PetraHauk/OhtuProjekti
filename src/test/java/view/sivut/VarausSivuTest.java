@@ -18,7 +18,7 @@ import org.testfx.util.WaitForAsyncUtils;
 import java.time.LocalDate;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class VarausSivuTest extends ApplicationTest {
+class VarausSivuTest extends ApplicationTest {
 
     private VarausSivu varausSivu;
 
@@ -42,15 +42,15 @@ public class VarausSivuTest extends ApplicationTest {
     }
 
     @Test
-    public void testCreateVarauksetNotNull() {
-        VBox varaukset = varausSivu.createVaraukset();
-        assertNotNull(varaukset, "The created VBox should not be null");
+    void testCreateVarauksetNotNull() {
+        VBox createdVaraukset = varausSivu.createVaraukset();
+        assertNotNull(createdVaraukset, "The created VBox should not be null");
     }
 
     @Test
-    public void testCreateVarausButtonIsPresent() {
-        VBox varaukset = varausSivu.createVaraukset();
-        Button createButton = (Button) varaukset.lookup(".button.create");
+    void testCreateVarausButtonIsPresent() {
+        VBox createdvaraukset = varausSivu.createVaraukset();
+        Button createButton = (Button) createdvaraukset.lookup(".button.create");
         assertNotNull(createButton, "Create reservation button should be present");
         assertEquals("Luo varaus", createButton.getText(), "Button should have the label ''");
     }
@@ -58,7 +58,7 @@ public class VarausSivuTest extends ApplicationTest {
 
 
     @Test
-    public void testInvalidDateValidation() {
+    void testInvalidDateValidation() {
         LocalDate currentDate = LocalDate.now(); // Capture current date at the start
 
         // Declare DatePicker variables here to ensure they're in the method scope
@@ -88,20 +88,20 @@ public class VarausSivuTest extends ApplicationTest {
         // Wait for the UI thread to complete
         WaitForAsyncUtils.waitForFxEvents();
         assertEquals(currentDate, arrivalDate[0].getValue(), "Arrival date should be today");
-        //assertNotEquals(departureDate[0].getValue(), arrivalDate[0].getValue(), "Departure date should not be the same as arrival date");
+        assertEquals(currentDate, departureDate[0].getValue(), "Departure date should be today");
     }
 
     @Test
-    public void testSearchCustomerButtonIsFunctional() {
+    void testSearchCustomerButtonIsFunctional() {
         Platform.runLater(() -> {
-            VBox varaukset = varausSivu.createVaraukset();
-            Scene scene = new Scene(varaukset);
+            VBox createdvaraukset = varausSivu.createVaraukset();
+            Scene scene = new Scene(createdvaraukset);
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.show();
 
             // Now look for the button within the VBox
-            Button searchCustomerButton = (Button) varaukset.lookup(".button");
+            Button searchCustomerButton = (Button) createdvaraukset.lookup(".button");
             assertNotNull(searchCustomerButton, "Search customer button should be present");
 
             // Simulate a click event
@@ -113,10 +113,10 @@ public class VarausSivuTest extends ApplicationTest {
 
 
     @Test
-    public void testDropdownOptions() {
+    void testDropdownOptions() {
         Platform.runLater(() -> {
-            VBox varaukset = varausSivu.createVaraukset();
-            ComboBox<String> comboBox = (ComboBox<String>) varaukset.lookup(".combo-box");
+            VBox createdvaraukset = varausSivu.createVaraukset();
+            ComboBox<String> comboBox = (ComboBox<String>) createdvaraukset.lookup(".combo-box");
             assertNotNull(comboBox, "Dropdown should be present");
 
             // Check that dropdown has expected items

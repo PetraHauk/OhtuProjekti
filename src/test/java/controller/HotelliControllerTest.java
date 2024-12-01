@@ -11,6 +11,6 @@ public class HotelliControllerTest {
     @Test
     public void testFindHotelliById() {
         Hotelli hotelli = hotelliController.findHotelliById(1);
-        assertEquals(1, hotelli.getHotelli_id());
+        assertEquals(1, hotelli.getHotelliId());
     }
 }

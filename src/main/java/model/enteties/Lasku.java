@@ -7,28 +7,29 @@ public class Lasku {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Tämä mahdollistaa automaattisen ID:n generoinnin
-    private int lasku_id;
+    @Column(name = "lasku_id")
+    private int laskuId;
 
     @Column(name = "maksu_status")
-    private String maksu_status;
+    private String maksuStatus;
 
     @Column(name = "varaus_muoto")
-    private String varaus_muoto;
+    private String varausMuoto;
 
     @Column(name = "valuutta")
     private String valuutta;
 
     @Column(name = "asiakas_id")
-    private int asiakas_id;
+    private int asiakasId;
 
 
     // Parametrillinen konstruktori
-    public Lasku(int lasku_id, String maksu_status, String varaus_muoto, String valuutta, int asiakas_id) {
-        this.lasku_id = lasku_id;
-        this.maksu_status = maksu_status;
-        this.varaus_muoto = varaus_muoto;
+    public Lasku(int laskuId, String maksuStatus, String varausMuoto, String valuutta, int asiakasId) {
+        this.laskuId = laskuId;
+        this.maksuStatus = maksuStatus;
+        this.varausMuoto = varausMuoto;
         this.valuutta = valuutta;
-        this.asiakas_id = asiakas_id;
+        this.asiakasId = asiakasId;
     }
 
 
@@ -37,15 +38,15 @@ public class Lasku {
 
     // Getterit ja setterit
     public int getLaskuId() {
-        return lasku_id;
+        return laskuId;
     }
 
     public String getMaksuStatus() {
-        return maksu_status;
+        return maksuStatus;
     }
 
     public String getVarausMuoto() {
-        return varaus_muoto;
+        return varausMuoto;
     }
 
     public String getValuutta() {
@@ -53,23 +54,23 @@ public class Lasku {
     }
 
     public int getAsiakasId() {
-        return asiakas_id;
+        return asiakasId;
     }
 
-    public void setMaksuStatus(String maksu_status) {
-        this.maksu_status = maksu_status;
+    public void setMaksuStatus(String maksuStatus) {
+        this.maksuStatus = maksuStatus;
     }
 
-    public void setVarausMuoto(String varaus_muoto) {
-        this.varaus_muoto = varaus_muoto;
+    public void setVarausMuoto(String varausMuoto) {
+        this.varausMuoto = varausMuoto;
     }
 
     public void setValuutta(String valuutta) {
         this.valuutta = valuutta;
     }
 
-    public void setAsiakasId(int asiakas_id) {
-        this.asiakas_id = asiakas_id;
+    public void setAsiakasId(int asiakasId) {
+        this.asiakasId = asiakasId;
     }
 
 

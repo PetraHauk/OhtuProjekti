@@ -1,7 +1,6 @@
 package controller;
 
 import org.testng.annotations.Test;
-
 import static org.junit.Assert.*;
 
 public class KayttajaControllerTest {
@@ -11,6 +10,6 @@ public class KayttajaControllerTest {
     @Test
     public void testFindKayttajaByI() {
         int id = 2;
-        assertEquals(2, kayttajaController.haeKayttajaById(2).getKayttajaId());
+        assertEquals(id, kayttajaController.haeKayttajaById(2).getKayttajaId());
     }
 }

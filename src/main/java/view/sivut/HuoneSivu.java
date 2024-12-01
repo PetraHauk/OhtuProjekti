@@ -100,9 +100,9 @@ public class HuoneSivu {
         List<Huone> filteredRooms = allRooms.stream()
                 .filter(huone -> {
                     boolean matchesSearchText = searchText == null || searchText.isEmpty() ||
-                            String.valueOf(huone.getHuone_nro()).contains(searchText) ||
+                            String.valueOf(huone.getHuoneNro()).contains(searchText) ||
                             huone.getHuoneTyyppi(selectedLanguage).toLowerCase().contains(searchText.toLowerCase()) ||
-                            String.valueOf(huone.getHuone_hinta()).contains(searchText) ||
+                            String.valueOf(huone.getHuoneHinta()).contains(searchText) ||
                             huone.getHuoneTila(selectedLanguage).toLowerCase().contains(searchText.toLowerCase());
 
                     boolean matchesRoomType = bundle.getString("HuonesivuKaikkiTyypitLabel").equals(selectedRoomType) ||
@@ -191,7 +191,7 @@ public class HuoneSivu {
             @Override
             protected List<Huone> call() throws Exception {
                 // Fetch rooms based on hotel ID and locale-specific data
-                return huoneController.FindHuoneetByHoteliId(hotelliId);
+                return huoneController.findHuoneetByHoteliId(hotelliId);
             }
         };
 
@@ -222,7 +222,7 @@ public class HuoneSivu {
         huoneTableView.setPrefHeight(400);
 
         TableColumn<Huone, Integer> numeroColumn = new TableColumn<>(bundle.getString("HuonesivuHuoneNumeroLabel"));
-        numeroColumn.setCellValueFactory(new PropertyValueFactory<>("huone_nro"));
+        numeroColumn.setCellValueFactory(new PropertyValueFactory<>("huoneNro"));
         numeroColumn.setMinWidth(120);
 
         // Get the current language from LocaleManager
@@ -230,7 +230,7 @@ public class HuoneSivu {
         System.out.println(selectedLanguageName);
 
         // Dynamically set the column for room type based on the selected language
-        String huoneTypeColumn = LocaleManager.getLocalColumnName(selectedLanguageName, "huone_tyyppi");
+        String huoneTypeColumn = LocaleManager.getLocalColumnName(selectedLanguageName, "huoneTyyppi");
         System.out.println(huoneTypeColumn);
 
         TableColumn<Huone, String> tyyppiColumn = new TableColumn<>(bundle.getString("HuonesivuHuoneTyyppiLabel"));
@@ -238,14 +238,14 @@ public class HuoneSivu {
         tyyppiColumn.setMinWidth(293);
 
         // Dynamically set the column for room status based on the selected language
-        String huoneTilaColumn = LocaleManager.getLocalColumnName(selectedLanguageName, "huone_tila");
+        String huoneTilaColumn = LocaleManager.getLocalColumnName(selectedLanguageName, "huoneTila");
 
         TableColumn<Huone, String> tilaColumn = new TableColumn<>(bundle.getString("HuonesivuHuoneStatusLabel"));
         tilaColumn.setCellValueFactory(new PropertyValueFactory<>(huoneTilaColumn));
         tilaColumn.setMinWidth(203);
 
         TableColumn<Huone, Double> hintaColumn = new TableColumn<>(bundle.getString("HuonesivuHuoneHintaLabel"));
-        hintaColumn.setCellValueFactory(new PropertyValueFactory<>("huone_hinta"));
+        hintaColumn.setCellValueFactory(new PropertyValueFactory<>("huoneHinta"));
         hintaColumn.setMinWidth(200);
 
         TableColumn<Huone, Void> actionColumn = new TableColumn<>(bundle.getString("HuonesivuHuoneToiminnotLabel"));
@@ -269,7 +269,7 @@ public class HuoneSivu {
                 deleteButton.setOnAction(event -> {
                     Huone huone = getTableView().getItems().get(getIndex());
                     getTableView().getItems().remove(huone);
-                    huoneController.deleteHuone(huone.getHuone_id());
+                    huoneController.deleteHuone(huone.getHuoneId());
                 });
             }
 
@@ -309,7 +309,7 @@ public class HuoneSivu {
         // Kenttien ja tekstikenttien luonti
         Label huoneNroLabel = new Label(bundle.getString("HuonesivuHuoneNumeroLabel"));
         TextField huoneNro = new TextField();
-        huoneNro.setText(String.valueOf(huone.getHuone_nro())); // Convert huone_nro to string
+        huoneNro.setText(String.valueOf(huone.getHuoneNro())); // Convert huone_nro to string
 
         Label huoneTypeLabel = new Label(bundle.getString("HuonesivuHuoneTyyppiLabel"));
         ComboBox<String> huoneType = new ComboBox<>();
@@ -325,7 +325,7 @@ public class HuoneSivu {
 
         Label huonePriceLabel = new Label(bundle.getString("HuonesivuHuoneHintaLabel"));
         TextField huonePrice = new TextField();
-        huonePrice.setText(String.valueOf(huone.getHuone_hinta()));
+        huonePrice.setText(String.valueOf(huone.getHuoneHinta()));
 
         // Lisätään kentät lomakkeeseen (VBox)
         formLayout.getChildren().addAll(
@@ -346,7 +346,7 @@ public class HuoneSivu {
         saveButton.setOnAction(e -> {
             // Päivitetään huoneen tiedot
             huoneController.updateHuoneById(
-                    huone.getHuone_id(),
+                    huone.getHuoneId(),
                     Integer.parseInt(huoneNro.getText()),
                     huoneType.getValue(),
                     huoneTila.getValue(),

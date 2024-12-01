@@ -47,25 +47,28 @@ public class LaskuDAO {
      * @param asiakasId int
      * @return List of Lasku objects
      */
-    public List<Lasku> haeByAsiakasId(int asiakasId) {
-        EntityManager em = MariaDbConnection.getInstance();
-        List<Lasku> laskut = null;
-        try {
-            laskut = em.createQuery("SELECT l FROM Lasku l WHERE l.asiakas_id = :asiakas_id", Lasku.class)
-                    .setParameter("asiakas_id", asiakasId)
-                    .getResultList();
-            if (!laskut.isEmpty()) {
-                logger.info("Laskut löytyi asiakas id:llä {}", asiakasId);
-                return laskut;
 
-            } else {
-                logger.warn("Laskua ei löytynyt asiakas id:llä {}", asiakasId);
-            }
-        } finally {
-            em.close();
-        }
-        return laskut;
-    }
+     public List<Lasku> haeByAsiakasId(int asiakasId) {
+         EntityManager em = MariaDbConnection.getInstance();
+         List<Lasku> laskut = null;
+         try {
+             laskut = em.createQuery("SELECT l FROM Lasku l WHERE l.asiakasId = :asiakasId", Lasku.class)
+                     .setParameter("asiakasId", asiakasId)
+                     .getResultList();
+             if (!laskut.isEmpty()) {
+                 logger.info("Laskut löytyi asiakas id:llä {}", asiakasId);
+                 return laskut;
+             } else {
+                 logger.warn("Laskua ei löytynyt asiakas id:llä {}", asiakasId);
+             }
+         } catch (Exception e) {
+             logger.error("Error fetching Lasku for asiakas id: {}", asiakasId, e);
+         } finally {
+             em.close();
+         }
+         return laskut;
+     }
+
 
     /**
      * updateLaskuById method is used to update Lasku object by id.

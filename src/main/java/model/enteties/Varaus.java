@@ -1,8 +1,6 @@
 package model.enteties;
 
 import jakarta.persistence.*;
-import model.DAO.AsiakasDAO;
-import model.DAO.LaskuDAO;
 
 import java.time.LocalDate;
 
@@ -92,7 +90,7 @@ public class Varaus {
     }
 
     public int getHuoneNro() {
-        return huone != null ? huone.getHuone_nro() : 0;
+        return huone != null ? huone.getHuoneNro() : 0;
     }
 
     public String getNimi() {

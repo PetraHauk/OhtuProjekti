@@ -9,8 +9,12 @@ import utils.ValidatorExeption;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class VarausController {
+    private static final Logger logger = LoggerFactory.getLogger(VarausController.class);
+
     private VarausDAO varausDAO;
     private AsiakasController asiakasController;
     private LaskuController laskuController;
@@ -29,7 +33,9 @@ public class VarausController {
         varausDAO.persist(varaus);
     }
 
-    public void createVaraus(String asiakasEtunimi, String asiakasSukunimi, String asiakasEmail, String asiakasPuh, String huomio, String laskuMuoto, LocalDate saapumisPvm, LocalDate lahtoPvm) {
+    public void createVaraus(String asiakasEtunimi, String asiakasSukunimi, String asiakasEmail,
+                             String asiakasPuh, String huomio, String laskuMuoto,
+                             LocalDate saapumisPvm, LocalDate lahtoPvm) {
         if (!validate.validateEmail(asiakasEmail)) {
             throw new ValidatorExeption("Virheellinen sähköposti");
         }
@@ -44,16 +50,12 @@ public class VarausController {
 
         }
         asiakas = asiakasController.findByEmail(asiakasEmail);
-        System.out.println(asiakas.getEtunimi());
+        logger.info(asiakas.getEtunimi());
 
         int laskuId = laskuController.addLasku("maksamaton", laskuMuoto, "EUR", asiakas.getAsiakasId());
-        System.out.println(laskuId);
+        logger.info("Lasku id: {}", laskuId);
         Integer huoneId = null;
         addVaraus(saapumisPvm, lahtoPvm, huoneId, laskuId);
-    }
-
-    public List<Varaus> findAllVaraukset() {
-         return varausDAO.haeVaraukset();
     }
 
     public List<Varaus> findVarauksetByDate(LocalDate alkuPvm, LocalDate loppuPvm) {
@@ -85,7 +87,6 @@ public class VarausController {
 
     public Varaus findByVarausId(int varausId) {
         return varausDAO.haeByVarausId(varausId);
-
     }
 
     public List<Varaus> findByLaskuId (int laskuId) {
@@ -96,14 +97,11 @@ public class VarausController {
         varausDAO.paivitaVarausHuoneId(varausId, huoneId);
     }
 
-
     public void removeVaraus(int id) {
         varausDAO.removeById(id);
-
     }
 
     public void removeVarausById(int varausId) {
         varausDAO.removeById(varausId);
     }
-
 }

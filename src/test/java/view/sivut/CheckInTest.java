@@ -6,11 +6,11 @@ import javafx.stage.Stage;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.testfx.framework.junit5.ApplicationTest;
-import view.sivut.CheckIn;
+
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class CheckInTest extends ApplicationTest {
+class CheckInTest extends ApplicationTest {
 
     private CheckIn checkIn;
 
@@ -29,7 +29,7 @@ public class CheckInTest extends ApplicationTest {
     }
 
     @Test
-    public void testCreateCheckIn() {
+    void testCreateCheckIn() {
         VBox checkInVBox = checkIn.createCheckIn();
         assertNotNull(checkInVBox, "CheckIn VBox should not be null");
         assertTrue(checkInVBox.getChildren().size() > 0, "CheckIn VBox should have children");

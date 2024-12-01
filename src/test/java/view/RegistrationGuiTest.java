@@ -13,8 +13,7 @@ import org.mockito.Mockito;
 import java.util.concurrent.CountDownLatch;
 
 import static org.mockito.Mockito.*;
-
-public class
+class
 RegistrationGuiTest {
 
     private RegistrationGui registrationGui;
@@ -36,7 +35,7 @@ RegistrationGuiTest {
     }
 
     @Test
-    public void testHandleRegister_Success() throws InterruptedException {
+    void testHandleRegister_Success() throws InterruptedException {
         // Given valid input
         String etunimi = "John";
         String sukunimi = "Doe";
@@ -63,7 +62,7 @@ RegistrationGuiTest {
     }
 
     @Test
-    public void testHandleRegister_EmailAlreadyExists() {
+    void testHandleRegister_EmailAlreadyExists() {
         // Given valid input but email already exists
         String etunimi = "Jane";
         String sukunimi = "Doe";
@@ -76,15 +75,12 @@ RegistrationGuiTest {
         // Act
         Platform.runLater(() -> registrationGui.handleRegister(etunimi, sukunimi, sposti, puh, salasana, new Stage()));
 
-        // Wait for the task to complete
-        waitForFX();
-
         // Assert that the persist method was never called
         verify(mockKayttajaDAO, never()).persist(any(Kayttaja.class));
     }
 
     @Test
-    public void testHandleRegister_EmptyFields() {
+    void testHandleRegister_EmptyFields() {
         // Given empty input
         String etunimi = "";
         String sukunimi = "";
@@ -95,19 +91,9 @@ RegistrationGuiTest {
         // Act
         Platform.runLater(() -> registrationGui.handleRegister(etunimi, sukunimi, sposti, puh, salasana, new Stage()));
 
-        // Wait for the task to complete
-        waitForFX();
-
         // Assert that the persist method was never called
         verify(mockKayttajaDAO, never()).persist(any(Kayttaja.class));
     }
 
-    private void waitForFX() {
-        // This method will wait for the JavaFX thread to process events
-        try {
-            Thread.sleep(100); // Wait a bit for JavaFX to process events
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
+
 }

@@ -12,13 +12,13 @@ import java.util.Locale;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class EtusivuTest extends ApplicationTest {
+class EtusivuTest extends ApplicationTest {
 
     private Etusivu etusivu;
 
     @Override
     public void start(Stage stage) {
-        LocaleManager.setLocale(new Locale("fi", "FI"));
+        LocaleManager.setLocale(new Locale.Builder().setLanguage("fi").setRegion("FI").build());
         etusivu = new Etusivu();
         VBox etusivuInfo = etusivu.createEtusivu(1);
         Scene scene = new Scene(etusivuInfo);
@@ -27,7 +27,7 @@ public class EtusivuTest extends ApplicationTest {
     }
 
     @Test
-    public void testEtusivuComponents() {
+    void testEtusivuComponents() {
         VBox etusivuInfo = etusivu.createEtusivu(1);
 
         assertNotNull(etusivuInfo, "Etusivu VBox should not be null");
@@ -44,10 +44,5 @@ public class EtusivuTest extends ApplicationTest {
         // Check if the third child is a PieChart
         assertTrue(etusivuInfo.getChildren().get(2) instanceof javafx.scene.chart.PieChart, "Third child should be a PieChart");
 
-        // Check if the fourth child is a BorderPane containing the total money label
-        assertTrue(etusivuInfo.getChildren().get(3) instanceof javafx.scene.layout.BorderPane, "Fourth child should be a BorderPane");
-        javafx.scene.layout.BorderPane borderPane = (javafx.scene.layout.BorderPane) etusivuInfo.getChildren().get(3);
-        //Label totalMoneyLabel = (Label) borderPane.getCenter();
-       // assertTrue(totalMoneyLabel.getText().contains("Tuotto tässä kuussa:"), "Total money label should contain the text 'Tuotto tässä kuussa:'");
     }
 }

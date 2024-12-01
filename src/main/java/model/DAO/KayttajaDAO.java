@@ -16,6 +16,8 @@ import java.util.List;
 public class KayttajaDAO {
     private static final Logger logger = LoggerFactory.getLogger(KayttajaDAO.class);
     private static final String USER_NOT_FOUND_MESSAGE = "Käyttäjää ei löytynyt sähköpostilla: {}";
+    private static final String USER_NOT_FOUND_ID_MESSAGE = "Käyttäjää ei löytynyt ID:llä: {}";
+    String spostiStr = "sposti";
 
     /**
      * Persist a new user to the database
@@ -61,7 +63,7 @@ public class KayttajaDAO {
         try {
             em.getTransaction().begin();
             String salasana = em.createQuery("SELECT k.salasana FROM Kayttaja k WHERE k.sposti = :sposti", String.class)
-                    .setParameter("sposti", sposti)
+                    .setParameter(spostiStr, sposti)
                     .getSingleResult();
             em.getTransaction().commit();
             return salasana;
@@ -91,7 +93,7 @@ public class KayttajaDAO {
                 logger.info("Käyttäjän tiedot päivitetty onnistuneesti!");
                 em.getTransaction().commit();
             } else {
-                logger.warn("Kayttajaa ei löytynyt ID:llä: {}", id);
+                logger.warn(USER_NOT_FOUND_ID_MESSAGE, id);
             }
         } catch (Exception e) {
             if (em.getTransaction().isActive()) {
@@ -119,7 +121,7 @@ public class KayttajaDAO {
 
             // Hae käyttäjä sähköpostin perusteella
             kayttaja = em.createQuery("SELECT k FROM Kayttaja k WHERE k.sposti = :sposti", Kayttaja.class)
-                    .setParameter("sposti", sposti)
+                    .setParameter(spostiStr, sposti)
                     .getSingleResult();
 
             // Jos käyttäjä löytyy, vaihdetaan salasana
@@ -226,7 +228,7 @@ public class KayttajaDAO {
         EntityManager em = MariaDbConnection.getInstance();
         try {
             TypedQuery<Long> query = em.createQuery("SELECT COUNT(k) FROM Kayttaja k WHERE k.sposti = :sposti", Long.class);
-            query.setParameter("sposti", sposti);
+            query.setParameter(spostiStr, sposti);
             Long count = query.getSingleResult();
             return count > 0;
         } finally {

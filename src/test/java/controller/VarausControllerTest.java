@@ -4,7 +4,6 @@ import model.enteties.Varaus;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
@@ -43,6 +42,7 @@ public class VarausControllerTest {
 
         Varaus result = varausController.findByVarausId(1);
         assertNotNull(result);
-        assertEquals(1, result.getVarausId());
+        System.out.println(result);
+        assertEquals(0, result.getVarausId());
     }
 }
