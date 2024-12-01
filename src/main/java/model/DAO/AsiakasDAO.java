@@ -1,14 +1,24 @@
-
 package model.DAO;
+
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
+import java.util.List;
 import model.datasourse.MariaDbConnection;
 import model.enteties.Asiakas;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import java.util.List;
-
+/**
+ * Data Access Object for the Asiakas entity
+ */
 public class AsiakasDAO {
+    // Create a logger instance for this class
+    private static final Logger logger = LoggerFactory.getLogger(AsiakasDAO.class);
 
+    /**
+     * Persist a new customer to the database
+     * @param asiakas The customer to be persisted
+     */
     public void persist(Asiakas asiakas) {
         EntityManager em = MariaDbConnection.getInstance();
 
@@ -26,40 +36,45 @@ public class AsiakasDAO {
             if (existingAsiakas == null) {
                 em.persist(asiakas);
                 em.getTransaction().commit();
-                System.out.println("Asiakas lisätty: " + asiakas.getSposti());
+                logger.info("Asiakas lisätty: {}", asiakas.getSposti());
             } else {
-                System.out.println("Asiakas on jo olemassa: " + asiakas.getSposti());
+                logger.warn("Asiakas on jo olemassa: {}", asiakas.getSposti());
                 em.getTransaction().rollback();
             }
         } catch (Exception e) {
             if (em.getTransaction().isActive()) {
                 em.getTransaction().rollback();
             }
+            logger.error("Virhe lisättäessä asiakasta: {}", asiakas.getSposti());
             e.printStackTrace();
         } finally {
-            if (em != null) {
-                em.close();
-            }
+            em.close();
         }
     }
 
-
-
-    public Asiakas findByLaskuId(int lasku_id) {
+    /**
+     * Find a customer by their ID
+     * @param laskuId The ID of the customer
+     * @return The customer with the given ID, or null if not found
+     */
+    public Asiakas findByLaskuId(int laskuId) {
         EntityManager em = MariaDbConnection.getInstance();
         try {
-            Asiakas asikas = em.find(Asiakas.class, lasku_id);
-            if (asikas != null) {
-                return asikas;
+            Asiakas foundAasikas = em.find(Asiakas.class, laskuId);
+            if (foundAasikas != null) {
+                return foundAasikas;
             }
         } finally {
-            if (em != null) {
-                em.close();
-            }
+            em.close();
         }
         return null;
     }
 
+    /**
+     * Find a customer by their email address
+     * @param email The email address of the customer
+     * @return The customer with the given email address, or null if not found
+     */
     public Asiakas findByEmail(String email) {
         EntityManager em = MariaDbConnection.getInstance();
         try {
@@ -72,13 +87,16 @@ public class AsiakasDAO {
             return null;
         } finally {
             // Ensure the EntityManager is closed
-            if (em != null) {
-                em.close();
-            }
+            em.close();
         }
     }
 
-
+    /**
+     * Find a customer by their first and last name
+     * @param etunimi The first name of the customer
+     * @param sukunimi The last name of the customer
+     * @return A list of customers with the given first and last name
+     */
     public List <Asiakas> findByNImet(String etunimi, String sukunimi) {
         EntityManager em = MariaDbConnection.getInstance();
         List <Asiakas> asiakkaat = null;
@@ -91,14 +109,16 @@ public class AsiakasDAO {
                 return asiakkaat;
             }
         } finally {
-            if (em != null) {
-                em.close();
-            }
+            em.close();
         }
-        return null;
-
+        return asiakkaat;
     }
 
+    /**
+     * Find customers by a keyword
+     * @param keyword The keyword to search for
+     * @return A list of customers that match the keyword
+     */
     public List<Asiakas> findAsiakasByKeyword(String keyword) {
         EntityManager em = MariaDbConnection.getInstance();
         List<Asiakas> asiakkaat = null;
@@ -110,13 +130,15 @@ public class AsiakasDAO {
                 return asiakkaat;
             }
         } finally {
-            if (em != null) {
-                em.close();
-            }
+            em.close();
         }
-        return null;
+        return asiakkaat;
     }
 
+    /**
+     * Find all customers
+     * @return A list of all customers
+     */
     public List<Asiakas> findAsiakkaat() {
         EntityManager em = MariaDbConnection.getInstance();
         List<Asiakas> asiakkaat = null;
@@ -127,38 +149,21 @@ public class AsiakasDAO {
                 return asiakkaat;
             }
         } finally {
-            if (em != null) {
-                em.close();
-            }
+            em.close();
         }
-        return null;
+        return asiakkaat;
     }
 
-//    public void createAsiakas(String etunimi, String sukunimi, String sposti, String puh, int henkiloMaara, String huomio) {
-//        EntityManager em = MariaDbConnection.getInstance();
-//        try {
-//            em.getTransaction().begin();
-//            Asiakas asiakas = new Asiakas();
-//            asiakas.setEtunimi(etunimi);
-//            asiakas.setSukunimi(sukunimi);
-//            asiakas.setSposti(sposti);
-//            asiakas.setPuh(puh);
-//            asiakas.setHenkiloMaara(henkiloMaara);
-//            asiakas.setHuomio(huomio);
-//            em.persist(asiakas);
-//            em.getTransaction().commit();
-//        } catch (Exception e) {
-//            if (em.getTransaction().isActive()) {
-//                em.getTransaction().rollback();
-//            }
-//            e.printStackTrace();
-//        } finally {
-//            if (em != null) {
-//                em.close();
-//            }
-//        }
-    //}
-
+    /**
+     * Update a customer by their ID
+     * @param id The ID of the customer
+     * @param etunimi The first name of the customer
+     * @param sukunimi The last name of the customer
+     * @param sposti The email address of the customer
+     * @param puh The phone number of the customer
+     * @param henkiloMaara The number of people in the customer's party
+     * @param huomio Any additional notes about the customer
+     */
     public void updateAsiakasById(int id, String etunimi, String sukunimi, String sposti, String puh, int henkiloMaara, String huomio) {
         EntityManager em = MariaDbConnection.getInstance();
         try {
@@ -172,10 +177,10 @@ public class AsiakasDAO {
                 asiakas.setHenkiloMaara(henkiloMaara);
                 asiakas.setHuomio(huomio);
 
-                System.out.println("Asiakkaan tiedot päivitetty onnistuneesti!");
+                logger.info("Asiakkaan tiedot päivitetty onnistuneesti!");
                 em.getTransaction().commit();
             } else {
-                System.out.println("Asiakas ei löytynyt ID:llä: " + id);
+                logger.warn("Asiakas ei löytynyt ID:llä: {}", id);
             }
         } catch (Exception e) {
             if (em.getTransaction().isActive()) {
@@ -183,11 +188,14 @@ public class AsiakasDAO {
             }
             e.printStackTrace();
         } finally {
-            if (em != null) {
-                em.close();
-            }
+            em.close();
         }
     }
+
+    /**
+     * Remove a customer by their ID
+     * @param id The ID of the customer
+     */
     public void removeById(int id) {
         EntityManager em = MariaDbConnection.getInstance();
         try {
@@ -195,10 +203,10 @@ public class AsiakasDAO {
             Asiakas asiakas = em.find(Asiakas.class, id);
             if (asiakas != null) {
                 em.remove(asiakas);
-                System.out.println("Asiakas poistettu onnistuneesti!");
+                logger.info("Asiakas poistettu onnistuneesti!");
                 em.getTransaction().commit();
             } else {
-                System.out.println("Asiakasta ei löytynyt ID:llä: " + id);
+                logger.warn("Asiakasta ei löytynyt ID:llä: {}", id);
             }
         } catch (Exception e) {
             if (em.getTransaction().isActive()) {
@@ -206,10 +214,7 @@ public class AsiakasDAO {
             }
             e.printStackTrace();
         } finally {
-            if (em != null) {
-                em.close();
-            }
+            em.close();
         }
     }
-
 }

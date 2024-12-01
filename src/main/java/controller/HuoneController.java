@@ -5,15 +5,17 @@ import model.DAO.HuoneDAO;
 import model.enteties.Huone;
 import model.enteties.Hotelli;
 import model.DAO.HotelliDAO;
-import model.service.LocaleManager;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Iterator;
 import java.util.List;
 
 public class HuoneController {
+    private static final Logger logger = LoggerFactory.getLogger(HuoneController.class);
+
     private HuoneDAO huoneDAO;
     private HotelliDAO hotelliDAO;
-    String selectedlanguage = LocaleManager.getLanguageName();
 
     public HuoneController() {
         huoneDAO = new HuoneDAO();
@@ -21,34 +23,34 @@ public class HuoneController {
     }
 
     public void lisaaHuone(
-            int huone_nro,
-            String huone_tyyppi_fi,
-            String huone_tyyppi_en,
-            String huone_tyyppi_ru,
-            String huone_tyyppi_zh,
-            String huone_tila_fi,
-            String huone_tila_en,
-            String huone_tila_ru,
-            String huone_tila_zh,
-            double huone_hinta,
-            int hotelli_id) {
+            int huoneNro,
+            String huoneTyyppiFi,
+            String huoneTyyppiEn,
+            String huoneTyyppiRu,
+            String huoneTyyppiZh,
+            String huoneTilaFi,
+            String huoneTilaEn,
+            String huoneTilaRu,
+            String huoneTilaZh,
+            double huoneHinta,
+            int hotelliId) {
 
         // Tarkista, onko hotelli olemassa
-        Hotelli hotelli = hotelliDAO.findById(hotelli_id);
+        Hotelli hotelli = hotelliDAO.findById(hotelliId);
         if (hotelli == null) {
-            System.out.println("Hotellia ei löytynyt ID:llä " + hotelli_id);
+            logger.info("Hotellia ei löytynyt ID:llä {}", hotelliId);
             return; // Lopetetaan toiminto, jos hotellia ei löydy
         }
 
         // Jos hotelli löytyy, lisätään huone
-        Huone huone = new Huone(0, huone_nro, huone_tyyppi_fi, huone_tyyppi_en, huone_tyyppi_ru, huone_tyyppi_zh,
-                huone_tila_fi, huone_tila_en, huone_tila_ru, huone_tila_zh, huone_hinta, hotelli_id);
+        Huone huone = new Huone(0, huoneNro, huoneTyyppiFi, huoneTyyppiEn, huoneTyyppiRu, huoneTyyppiZh,
+                huoneTilaFi, huoneTilaEn, huoneTilaRu, huoneTilaZh, huoneHinta, hotelliId);
         huoneDAO.persist(huone);
-        System.out.println("Huone lisätty onnistuneesti hotelliin ID:llä " + hotelli_id);
+        logger.info("Huone lisätty onnistuneesti hotelliin ID:llä {}", hotelliId);
     }
 
-    public List<Huone> FindHuoneetByHoteliId(int hotelli_id) {
-        return huoneDAO.haeHuoneetByHotelliId(hotelli_id);
+    public List<Huone> findHuoneetByHoteliId(int hotelliId) {
+        return huoneDAO.haeHuoneetByHotelliId(hotelliId);
     }
 
     public Huone findHuoneById(int id) {
@@ -59,28 +61,28 @@ public class HuoneController {
         return huone;
     }
 
-    public void updateHuoneById(int id, int huone_nro, String huone_tyyppi, String huone_tila, double huone_hinta) {
-        huoneDAO.updateHuoneById(id, huone_nro, huone_tyyppi, huone_tila, huone_hinta);
+    public void updateHuoneById(int id, int huoneNro, String huoneTyyppi, String huoneTila, double huoneHinta) {
+        huoneDAO.updateHuoneById(id, huoneNro, huoneTyyppi, huoneTila, huoneHinta);
     }
 
-    public void updateHuoneStatusById(int id, String huone_tila) {
-        huoneDAO.updateHuoneTilaById(id, huone_tila);
+    public void updateHuoneStatusById(int id, String huoneTila) {
+        huoneDAO.updateHuoneTilaById(id, huoneTila);
     }
 
     public void deleteHuone(int id) {
         huoneDAO.removeById(id);
     }
 
-    public List<Huone> findVapaatHuoneetByHotelliId(int hotelli_id){
-        List<Huone> huoneet = huoneDAO.haeHuoneetByHotelliId(hotelli_id);
+    public List<Huone> findVapaatHuoneetByHotelliId(int hotelliId){
+        List<Huone> huoneet = huoneDAO.haeHuoneetByHotelliId(hotelliId);
 
         Iterator<Huone> huoneIterator = huoneet.iterator();
         while (huoneIterator.hasNext()) {
             Huone huone = huoneIterator.next();
-            if ("Varattu".equals(huone.getHuone_tila_fi())
-                    || "Reserved".equals(huone.getHuone_tila_fi())
-                    || "Сдержанный".equals(huone.getHuone_tila_fi())
-                    || "已预订".equals(huone.getHuone_tila_fi())) {
+            if ("Varattu".equals(huone.getHuoneTilaFi())
+                    || "Reserved".equals(huone.getHuoneTilaFi())
+                    || "Сдержанный".equals(huone.getHuoneTilaFi())
+                    || "已预订".equals(huone.getHuoneTilaFi())) {
                 huoneIterator.remove();
             }
         }

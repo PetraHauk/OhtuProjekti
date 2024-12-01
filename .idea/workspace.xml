@@ -4,17 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="SonarLint juttuja">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="SonarLint-analyysi: test/controlllerin luokat">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/view/OhjelmistoGUITest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/view/OhjelmistoGUITest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/view/RegistrationGuiTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/view/RegistrationGuiTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/view/sivut/AsiakasSivuTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/view/sivut/AsiakasSivuTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/view/sivut/CheckInTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/view/sivut/CheckInTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/view/sivut/CheckOutTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/view/sivut/CheckOutTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/view/sivut/EtusivuTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/view/sivut/EtusivuTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/view/sivut/HuoneSivuTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/view/sivut/HuoneSivuTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/view/sivut/VarausSivuTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/view/sivut/VarausSivuTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/HotelliDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/HotelliDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/enteties/Hotelli.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enteties/Hotelli.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/DAO/AsiakasDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/model/DAO/AsiakasDAOTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/DAO/HotelliDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/model/DAO/HotelliDAOTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,8 +22,8 @@
         <option value="FxmlFile" />
         <option value="CSS File" />
         <option value="Dockerfile" />
-        <option value="JUnit4 Test Class" />
         <option value="Class" />
+        <option value="JUnit4 Test Class" />
       </list>
     </option>
   </component>
@@ -76,109 +71,116 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Application.LoginGui.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MainPetra.executor&quot;: &quot;Run&quot;,
-    &quot;Application.WilmaMain.executor&quot;: &quot;Run&quot;,
-    &quot;Docker.Dockerfile.executor&quot;: &quot;Run&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;JUnit.AdminGUITest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AdminGUITest.testAddNewUser.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AdminGUITest.testDeleteUser.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AdminGUITest.testHandleAddUser.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AdminGUITest.testLoadUsers.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AdminGUITest.testUpdateUserById.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AdminGUITest.testValidatePassword.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.All in gui.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AsiakasDAOTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.AsiakasDAOTest.removeAsiakasById.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AsiakasDAOTest.removeId.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AsiakasDAOTest.testFindAsiakasByKeyword.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AsiakasDAOTest.testFindAsukkaat.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AsiakasDAOTest.testFindByEmail.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AsiakasDAOTest.testFindByNimet.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AsiakasDAOTest.testPersist.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AsiakasDAOTest.testPersistAndFindById.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AsiakasDAOTest.testRemoveById.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AsiakasDAOTest.testUpdateAsiakasById.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.EtusivuTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.HotelliDAOTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.HotelliDAOTest.testGetRowCount.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.HotelliDAOTest.testPersistAndFindById.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.HotelliDAOTest.testRemoveById.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.HuoneControllerTest.findHuoneByTila.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.HuoneDAOTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.HuoneDAOTest.testHaeHuoneetByHotelliId.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.HuoneDAOTest.testHaeHuoneetByHotelliIdAndUpdate.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.HuoneDAOTest.testPersistAndFindByRoomId.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.HuoneDAOTest.testRemoveById.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.HuoneDAOTest.testUpdateHuoneById.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.KayttajaDAOTest.testPersistAndFindById.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.KayttajaDAOTest.testUpdateEmailById.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.KayttajaDAOTest.testi.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.LaskuControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.LaskuDAOTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.LaskuDAOTest.testPersistLaskuAndFindById.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.LoginGuiTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.LoginGuiTest.testEmptyFields.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.LoginGuiTest.testFailedLogin.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.LoginGuiTest.testOpenRegistrationPage.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.LoginGuiTest.testSuccessfulLogin.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RegistrationGuiTest (1).executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RegistrationGuiTest.executor&quot;: &quot;Profiler#1&quot;,
-    &quot;JUnit.RegistrationGuiTest.testHandleRegister_Success (1).executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RegistrationGuiTest.testHandleRegister_Success.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RegistrationGuiTest.testRegisterWithEmptyFields.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RegistrationGuiTest.testRegisterWithExistingEmail.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RegistrationGuiTest.testSuccessfulAlertDisplay.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RegistrationGuiTest.testSuccessfulRegistration.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.VarausControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.VarausDAOTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.VarausDAOTest.testit.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.controller in gui.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.java in gui.executor&quot;: &quot;Profiler#1&quot;,
-    &quot;JUnit.view in gui.executor&quot;: &quot;Profiler#1&quot;,
-    &quot;Maven.gui [clean,javafx:run].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.gui [clean,package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.gui [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.gui [install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.gui [package].executor&quot;: &quot;Run&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;TestNG.&lt;default&gt;.executor&quot;: &quot;Coverage&quot;,
-    &quot;TestNG.KayttajaControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit4&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;21&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_directory_selection&quot;: &quot;/Users/anna/IdeaProjects/OhtuProjekti/src/test/java/model/DAO&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/kakek/javafx-sdk-17.0.10/lib&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Global Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.5482759&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Application.LoginGui.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Application.MainPetra.executor": "Run",
+    "Application.WilmaMain.executor": "Run",
+    "Docker.Dockerfile.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.AdminGUITest.executor": "Run",
+    "JUnit.AdminGUITest.testAddNewUser.executor": "Run",
+    "JUnit.AdminGUITest.testDeleteUser.executor": "Run",
+    "JUnit.AdminGUITest.testHandleAddUser.executor": "Run",
+    "JUnit.AdminGUITest.testLoadUsers.executor": "Run",
+    "JUnit.AdminGUITest.testUpdateUserById.executor": "Run",
+    "JUnit.AdminGUITest.testValidatePassword.executor": "Run",
+    "JUnit.All in gui.executor": "Run",
+    "JUnit.AsiakasControllerTest.executor": "Run",
+    "JUnit.AsiakasDAOTest.executor": "Run",
+    "JUnit.AsiakasDAOTest.removeAsiakasById.executor": "Run",
+    "JUnit.AsiakasDAOTest.removeId.executor": "Run",
+    "JUnit.AsiakasDAOTest.testFindAsiakasByKeyword.executor": "Run",
+    "JUnit.AsiakasDAOTest.testFindAsukkaat.executor": "Run",
+    "JUnit.AsiakasDAOTest.testFindByEmail.executor": "Run",
+    "JUnit.AsiakasDAOTest.testFindByNimet.executor": "Run",
+    "JUnit.AsiakasDAOTest.testPersist.executor": "Run",
+    "JUnit.AsiakasDAOTest.testPersistAndFindById.executor": "Run",
+    "JUnit.AsiakasDAOTest.testRemoveById.executor": "Run",
+    "JUnit.AsiakasDAOTest.testUpdateAsiakasById.executor": "Run",
+    "JUnit.EtusivuTest.executor": "Run",
+    "JUnit.HotelliControllerTest.executor": "Run",
+    "JUnit.HotelliDAOTest.executor": "Run",
+    "JUnit.HotelliDAOTest.testGetRowCount.executor": "Run",
+    "JUnit.HotelliDAOTest.testPersistAndFindById.executor": "Run",
+    "JUnit.HotelliDAOTest.testPersistAndFindByIdAndFindByName.executor": "Debug",
+    "JUnit.HotelliDAOTest.testRemoveById.executor": "Run",
+    "JUnit.HuoneControllerTest.executor": "Run",
+    "JUnit.HuoneControllerTest.findHuoneByTila.executor": "Run",
+    "JUnit.HuoneControllerTest.testFindHuoneById.executor": "Run",
+    "JUnit.HuoneControllerTest.testFindHuoneetByHoteliId.executor": "Run",
+    "JUnit.HuoneDAOTest.executor": "Coverage",
+    "JUnit.HuoneDAOTest.testHaeHuoneetByHotelliId.executor": "Run",
+    "JUnit.HuoneDAOTest.testHaeHuoneetByHotelliIdAndUpdate.executor": "Run",
+    "JUnit.HuoneDAOTest.testPersistAndFindByRoomId.executor": "Run",
+    "JUnit.HuoneDAOTest.testRemoveById.executor": "Run",
+    "JUnit.HuoneDAOTest.testUpdateHuoneById.executor": "Run",
+    "JUnit.KayttajaDAOTest.testPersistAndFindById.executor": "Run",
+    "JUnit.KayttajaDAOTest.testUpdateEmailById.executor": "Run",
+    "JUnit.KayttajaDAOTest.testi.executor": "Coverage",
+    "JUnit.LaskuControllerTest.executor": "Run",
+    "JUnit.LaskuControllerTest.testFindLaskuById.executor": "Run",
+    "JUnit.LaskuDAOTest.executor": "Run",
+    "JUnit.LaskuDAOTest.testPersistLaskuAndFindById.executor": "Coverage",
+    "JUnit.LoginGuiTest.executor": "Run",
+    "JUnit.LoginGuiTest.testEmptyFields.executor": "Run",
+    "JUnit.LoginGuiTest.testFailedLogin.executor": "Run",
+    "JUnit.LoginGuiTest.testOpenRegistrationPage.executor": "Run",
+    "JUnit.LoginGuiTest.testSuccessfulLogin.executor": "Run",
+    "JUnit.RegistrationGuiTest (1).executor": "Run",
+    "JUnit.RegistrationGuiTest.executor": "Profiler#1",
+    "JUnit.RegistrationGuiTest.testHandleRegister_Success (1).executor": "Run",
+    "JUnit.RegistrationGuiTest.testHandleRegister_Success.executor": "Run",
+    "JUnit.RegistrationGuiTest.testRegisterWithEmptyFields.executor": "Run",
+    "JUnit.RegistrationGuiTest.testRegisterWithExistingEmail.executor": "Run",
+    "JUnit.RegistrationGuiTest.testSuccessfulAlertDisplay.executor": "Run",
+    "JUnit.RegistrationGuiTest.testSuccessfulRegistration.executor": "Run",
+    "JUnit.VarausControllerTest.executor": "Run",
+    "JUnit.VarausDAOTest.executor": "Coverage",
+    "JUnit.VarausDAOTest.testit.executor": "Debug",
+    "JUnit.controller in gui.executor": "Run",
+    "JUnit.java in gui.executor": "Profiler#1",
+    "JUnit.view in gui.executor": "Profiler#1",
+    "Maven.gui [clean,javafx:run].executor": "Run",
+    "Maven.gui [clean,package].executor": "Run",
+    "Maven.gui [clean].executor": "Run",
+    "Maven.gui [install].executor": "Run",
+    "Maven.gui [package].executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "TestNG.<default>.executor": "Coverage",
+    "TestNG.KayttajaControllerTest.executor": "Run",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
+    "git-widget-placeholder": "anna-1",
+    "jdk.selected.JAVA_MODULE": "21",
+    "kotlin-language-version-configured": "true",
+    "last_directory_selection": "/Users/anna/IdeaProjects/OhtuProjekti/src/test/java/controller",
+    "last_opened_file_path": "C:/Users/kakek/javafx-sdk-17.0.10/lib",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Global Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.5482759",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mariadb&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mariadb"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -189,6 +191,7 @@
       <recent name="C:\Users\kakek\IdeaProjects\OhtuProjekti2\src\src" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="controller" />
       <recent name="model.DAO" />
       <recent name="view" />
       <recent name="app" />
@@ -208,68 +211,84 @@
       <command value="mvn clean" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="app.Main" />
-      <module name="gui" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="app.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.VarausDAOTest">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <module name="gui" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AdminGUITest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AsiakasDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gui" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="view.*" />
+          <option name="PATTERN" value="model.DAO.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="view" />
-      <option name="MAIN_CLASS_NAME" value="view.AdminGUITest" />
+      <option name="PACKAGE_NAME" value="model.DAO" />
+      <option name="MAIN_CLASS_NAME" value="model.DAO.AsiakasDAOTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="All in gui" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gui" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="EtusivuTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="HuoneDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gui" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="view.sivut.*" />
+          <option name="PATTERN" value="model.DAO.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="view.sivut" />
-      <option name="MAIN_CLASS_NAME" value="view.sivut.EtusivuTest" />
+      <option name="PACKAGE_NAME" value="model.DAO" />
+      <option name="MAIN_CLASS_NAME" value="model.DAO.HuoneDAOTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="view in gui" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="KayttajaDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gui" />
-      <option name="TEST_OBJECT" value="directory" />
-      <dir value="$PROJECT_DIR$/src/test/java/view" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="model.DAO.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="model.DAO" />
+      <option name="MAIN_CLASS_NAME" value="model.DAO.KayttajaDAOTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LaskuDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gui" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="model.DAO.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="model.DAO" />
+      <option name="MAIN_CLASS_NAME" value="model.DAO.LaskuDAOTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VarausDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gui" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="model.DAO.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="model.DAO" />
+      <option name="MAIN_CLASS_NAME" value="model.DAO.VarausDAOTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -291,27 +310,26 @@
     </configuration>
     <list>
       <item itemvalue="Application.Unnamed" />
-      <item itemvalue="Application.Main" />
       <item itemvalue="Docker.Dockerfile" />
-      <item itemvalue="JUnit.All in gui" />
-      <item itemvalue="JUnit.AdminGUITest" />
-      <item itemvalue="JUnit.EtusivuTest" />
-      <item itemvalue="JUnit.view in gui" />
+      <item itemvalue="JUnit.AsiakasDAOTest" />
+      <item itemvalue="JUnit.HuoneDAOTest" />
+      <item itemvalue="JUnit.KayttajaDAOTest" />
+      <item itemvalue="JUnit.LaskuDAOTest" />
+      <item itemvalue="JUnit.VarausDAOTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.All in gui" />
-        <item itemvalue="JUnit.EtusivuTest" />
-        <item itemvalue="JUnit.view in gui" />
-        <item itemvalue="JUnit.AdminGUITest" />
+        <item itemvalue="JUnit.VarausDAOTest" />
+        <item itemvalue="JUnit.LaskuDAOTest" />
+        <item itemvalue="JUnit.KayttajaDAOTest" />
+        <item itemvalue="JUnit.HuoneDAOTest" />
+        <item itemvalue="JUnit.AsiakasDAOTest" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-17.0.10-corretto-17.0.10-f644763e9732-24fca987" />
         <option value="jdk-21.0.2-openjdk-21.0.2-f644763e9732-c0c073db" />
       </set>
     </attachedChunks>
@@ -364,103 +382,6 @@
       <workItem from="1731928496980" duration="1586000" />
       <workItem from="1732045396063" duration="1287000" />
       <workItem from="1732880533094" duration="683000" />
-      <workItem from="1733055048485" duration="950000" />
-    </task>
-    <task id="LOCAL-00027" summary="pomi muutokset">
-      <option name="closed" value="true" />
-      <created>1728285611958</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1728285611958</updated>
-    </task>
-    <task id="LOCAL-00028" summary="pomi muutokset">
-      <option name="closed" value="true" />
-      <created>1728285694382</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1728285694382</updated>
-    </task>
-    <task id="LOCAL-00029" summary="pomi muutokset">
-      <option name="closed" value="true" />
-      <created>1728288290188</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1728288290188</updated>
-    </task>
-    <task id="LOCAL-00030" summary="Varaus Taulussa Asiakaan nimi">
-      <option name="closed" value="true" />
-      <created>1728290740215</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1728290740215</updated>
-    </task>
-    <task id="LOCAL-00031" summary="Lisää testejä ja muuttaa AdminGUIn fiksummaksi">
-      <option name="closed" value="true" />
-      <created>1728323643467</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1728323643467</updated>
-    </task>
-    <task id="LOCAL-00032" summary="Lisää testejä ja muuttaa AdminGUIn fiksummaksi">
-      <option name="closed" value="true" />
-      <created>1728323668919</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1728323668919</updated>
-    </task>
-    <task id="LOCAL-00033" summary="Fiksaa testit ja vähän refactorointia">
-      <option name="closed" value="true" />
-      <created>1728326318368</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1728326318368</updated>
-    </task>
-    <task id="LOCAL-00034" summary="Fiksaa testit ja vähän refactorointia">
-      <option name="closed" value="true" />
-      <created>1728367355159</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1728367355160</updated>
-    </task>
-    <task id="LOCAL-00035" summary="Fiksaa testit ja vähän refactorointia">
-      <option name="closed" value="true" />
-      <created>1729676670464</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1729676670464</updated>
-    </task>
-    <task id="LOCAL-00036" summary="Fiksaa testit ja vähän refactorointia">
-      <option name="closed" value="true" />
-      <created>1729676706661</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1729676706661</updated>
-    </task>
-    <task id="LOCAL-00037" summary="Fiksaa testit ja vähän refactorointia">
-      <option name="closed" value="true" />
-      <created>1729677605534</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1729677605534</updated>
-    </task>
-    <task id="LOCAL-00038" summary="Lisää kirjautumisen ja rekisteröinnin lokaalisaation">
-      <option name="closed" value="true" />
-      <created>1730542597614</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1730542597614</updated>
     </task>
     <task id="LOCAL-00039" summary="Lisää Admin näkymän lokaalisaation">
       <option name="closed" value="true" />
@@ -750,15 +671,111 @@
       <option name="project" value="LOCAL" />
       <updated>1732046430608</updated>
     </task>
-    <task id="LOCAL-00075" summary="SonarLint juttuja">
+    <task id="LOCAL-00075" summary="Sonarlint analyysi, Dao">
       <option name="closed" value="true" />
-      <created>1732883458162</created>
+      <created>1732921458674</created>
       <option name="number" value="00075" />
       <option name="presentableId" value="LOCAL-00075" />
       <option name="project" value="LOCAL" />
-      <updated>1732883458162</updated>
+      <updated>1732921458674</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="Sonarlint analyysi, Main">
+      <option name="closed" value="true" />
+      <created>1732921472359</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1732921472359</updated>
+    </task>
+    <task id="LOCAL-00077" summary="Sonarlint analyysi, controller">
+      <option name="closed" value="true" />
+      <created>1732921514904</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1732921514904</updated>
+    </task>
+    <task id="LOCAL-00078" summary="Sonarlint analyysi, controller">
+      <option name="closed" value="true" />
+      <created>1732921538839</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1732921538839</updated>
+    </task>
+    <task id="LOCAL-00079" summary="update">
+      <option name="closed" value="true" />
+      <created>1732921625582</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1732921625582</updated>
+    </task>
+    <task id="LOCAL-00080" summary="update">
+      <option name="closed" value="true" />
+      <created>1732921641357</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1732921641357</updated>
+    </task>
+    <task id="LOCAL-00081" summary="Sonarlint analyysi">
+      <option name="closed" value="true" />
+      <created>1732923362796</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1732923362797</updated>
+    </task>
+    <task id="LOCAL-00082" summary="Sonarlint analyysi, huone liityvät">
+      <option name="closed" value="true" />
+      <created>1732963905805</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1732963905805</updated>
+    </task>
+    <task id="LOCAL-00083" summary="Sonarlint analyysi, Asiakas liityvät">
+      <option name="closed" value="true" />
+      <created>1732963926166</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1732963926167</updated>
+    </task>
+    <task id="LOCAL-00084" summary="Sonarlint analyysi, Hotelli">
+      <option name="closed" value="true" />
+      <created>1732963950105</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1732963950105</updated>
+    </task>
+    <task id="LOCAL-00085" summary="Sonarlint analyysi, lasku, varaus ja niiden liittyvät">
+      <option name="closed" value="true" />
+      <created>1732967297239</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1732967297239</updated>
+    </task>
+    <task id="LOCAL-00086" summary="koodin siistimistä">
+      <option name="closed" value="true" />
+      <created>1732967351004</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1732967351004</updated>
+    </task>
+    <task id="LOCAL-00087" summary="SonarLint-analyysi: test/controlllerin luokat">
+      <option name="closed" value="true" />
+      <created>1732970838298</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1732970838298</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -777,15 +794,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="poista ylimäärästä" />
-    <MESSAGE value="lisää venäjä kieli, leftbar ja asiakas sivu" />
-    <MESSAGE value="Adminpanel kieli vaihtaa local mukaan" />
-    <MESSAGE value="asiakas/henkilömäärä esillä" />
-    <MESSAGE value="kooodin siisti" />
-    <MESSAGE value="check-out kännös" />
-    <MESSAGE value="Asiakas sivu update(pois output luokka)" />
-    <MESSAGE value="Check  out sivu kännös valmis" />
-    <MESSAGE value="Tietokanna localsointi" />
     <MESSAGE value="getHuone_tila -&gt; getHuone_tila" />
     <MESSAGE value="HuoneSivu haut, lisää uusi huone ja muokkaa huone, kaikki toimi" />
     <MESSAGE value="Huonesivun tyypi ja tila haetaan valitettu kielen mukaan." />
@@ -793,7 +801,6 @@
     <MESSAGE value="Asiakas-DAO unit testit" />
     <MESSAGE value="Huone-DAO unit testit" />
     <MESSAGE value="update varaus_muodo" />
-    <MESSAGE value="update" />
     <MESSAGE value="Lasku-DAO unit testit" />
     <MESSAGE value="Varaus-DAO unit testit" />
     <MESSAGE value="Titokannan lokalisoinnin kuva" />
@@ -801,8 +808,18 @@
     <MESSAGE value="KayttajaDAO-DAO unit testit" />
     <MESSAGE value="Käyttöliittymä testejä" />
     <MESSAGE value="huone tyyppi ja status choicebox default localisointi" />
-    <MESSAGE value="SonarLint juttuja" />
-    <option name="LAST_COMMIT_MESSAGE" value="SonarLint juttuja" />
+    <MESSAGE value="Sonarlint analyysi, Dao" />
+    <MESSAGE value="Sonarlint analyysi, Main" />
+    <MESSAGE value="Sonarlint analyysi, controller" />
+    <MESSAGE value="update" />
+    <MESSAGE value="Sonarlint analyysi" />
+    <MESSAGE value="Sonarlint analyysi, huone liityvät" />
+    <MESSAGE value="Sonarlint analyysi, Asiakas liityvät" />
+    <MESSAGE value="Sonarlint analyysi, Hotelli" />
+    <MESSAGE value="Sonarlint analyysi, lasku, varaus ja niiden liittyvät" />
+    <MESSAGE value="koodin siistimistä" />
+    <MESSAGE value="SonarLint-analyysi: test/controlllerin luokat" />
+    <option name="LAST_COMMIT_MESSAGE" value="SonarLint-analyysi: test/controlllerin luokat" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -819,6 +836,26 @@
           <url>file://$PROJECT_DIR$/src/test/java/model/DAO/HuoneDAOTest.java</url>
           <line>19</line>
           <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/view/sivut/HuoneSivu.java</url>
+          <line>224</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/view/sivut/HuoneSivu.java</url>
+          <line>223</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/model/DAO/HotelliDAOTest.java</url>
+          <line>11</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/model/DAO/HotelliDAO.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="31" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

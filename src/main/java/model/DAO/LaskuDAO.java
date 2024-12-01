@@ -4,8 +4,19 @@ import jakarta.persistence.EntityManager;
 import model.datasourse.MariaDbConnection;
 import model.enteties.Lasku;
 import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+/**
+ * LaskuDAO class is used to manage Lasku objects in the database.
+ */
 public class LaskuDAO {
+    private static final Logger logger = LoggerFactory.getLogger(LaskuDAO.class);
+
+    /**
+     * Persist method is used to save Lasku object to the database.
+     * @param lasku Lasku object
+     */
     public void persist(Lasku lasku) {
         EntityManager em = MariaDbConnection.getInstance();
         em.getTransaction().begin();
@@ -13,43 +24,60 @@ public class LaskuDAO {
         em.getTransaction().commit();
     }
 
-    public Lasku haeByLaskuId(int lasku_id) {
+    /**
+     * haeByLaskuId method is used to find Lasku object by id.
+     * @param laskuId int
+     * @return Lasku object
+     */
+    public Lasku haeByLaskuId(int laskuId) {
         EntityManager em = MariaDbConnection.getInstance();
         try {
-            Lasku lasku = em.find(Lasku.class, lasku_id);
+            Lasku lasku = em.find(Lasku.class, laskuId);
             if (lasku != null) {
                 return lasku;
             }
         } finally {
-            if (em != null) {
-                em.close();
-            }
+            em.close();
         }
         return null;
     }
 
-    public List<Lasku> haeByAsiakasId(int asiakas_id) {
-        EntityManager em = MariaDbConnection.getInstance();
-        List<Lasku> laskut = null;
-        try {
-            laskut = em.createQuery("SELECT l FROM Lasku l WHERE l.asiakas_id = :asiakas_id", Lasku.class)
-                    .setParameter("asiakas_id", asiakas_id)
-                    .getResultList();
-            if (!laskut.isEmpty()) {
-                System.out.println("Laskut löytyi asiakas id:llä " + asiakas_id);
-                return laskut;
+     /**
+     * haeByAsiakasId method is used to find Lasku objects by asiakas id.
+     * @param asiakasId int
+     * @return List of Lasku objects
+     */
 
-            } else {
-                System.out.println("Laskua ei löytynyt asiakas id:llä " + asiakas_id);
-            }
-        } finally {
-            if (em != null) {
-                em.close();
-            }
-        }
-        return null;
-    }
+     public List<Lasku> haeByAsiakasId(int asiakasId) {
+         EntityManager em = MariaDbConnection.getInstance();
+         List<Lasku> laskut = null;
+         try {
+             laskut = em.createQuery("SELECT l FROM Lasku l WHERE l.asiakasId = :asiakasId", Lasku.class)
+                     .setParameter("asiakasId", asiakasId)
+                     .getResultList();
+             if (!laskut.isEmpty()) {
+                 logger.info("Laskut löytyi asiakas id:llä {}", asiakasId);
+                 return laskut;
+             } else {
+                 logger.warn("Laskua ei löytynyt asiakas id:llä {}", asiakasId);
+             }
+         } catch (Exception e) {
+             logger.error("Error fetching Lasku for asiakas id: {}", asiakasId, e);
+         } finally {
+             em.close();
+         }
+         return laskut;
+     }
 
+
+    /**
+     * updateLaskuById method is used to update Lasku object by id.
+     * @param id int
+     * @param maksuStatus String
+     * @param varausMuoto String
+     * @param valuutta String
+     * @param asiakasId int
+     */
     public void updateLaskuById(int id, String maksuStatus, String varausMuoto, String valuutta, int asiakasId) {
         EntityManager em = MariaDbConnection.getInstance();
         try {
@@ -62,12 +90,15 @@ public class LaskuDAO {
             }
             em.getTransaction().commit();
         } finally {
-            if (em != null) {
-                em.close();
-            }
+            em.close();
         }
     }
 
+    /**
+     * updateStatusById method is used to update Lasku object status by id.
+     * @param id int
+     * @param tila String
+     */
     public void updateStatusById(int id, String tila) {
         EntityManager em = MariaDbConnection.getInstance();
         try {
@@ -78,12 +109,14 @@ public class LaskuDAO {
             }
             em.getTransaction().commit();
         } finally {
-            if (em != null) {
-                em.close();
-            }
+            em.close();
         }
     }
 
+    /**
+     * removeById method is used to remove Lasku object from the database by id.
+     * @param id int
+     */
     public void removeById(int id) {
         EntityManager em = MariaDbConnection.getInstance();
         try{
@@ -92,16 +125,18 @@ public class LaskuDAO {
             if (lasku != null) {
                 em.remove(lasku);
             } else {
-                System.out.println("Laskua ei löytynyt id:llä " + id);
+                logger.warn("Laskua ei löytynyt id:llä {}", id);
             }
             em.getTransaction().commit();
         } finally {
-            if (em != null) {
-                em.close();
-            }
+            em.close();
         }
     }
 
+    /**
+     * haeKaikkilaskut method is used to find all Lasku objects from the database.
+     * @return List of Lasku objects
+     */
     public List<Lasku> haeKaikkilaskut() {
         EntityManager em = MariaDbConnection.getInstance();
         List<Lasku> laskut = null;
@@ -110,13 +145,11 @@ public class LaskuDAO {
             if (!laskut.isEmpty()) {
                 return laskut;
             } else {
-                System.out.println("Lasku lista on tyhje.");
+                logger.info("Lasku lista on tyhje.");
             }
         } finally {
-            if (em != null) {
-                em.close();
-            }
+            em.close();
         }
-        return null;
+        return laskut;
     }
 }

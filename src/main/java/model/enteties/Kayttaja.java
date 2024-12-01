@@ -46,10 +46,6 @@ public class Kayttaja {
         return kayttajaId;
     }
 
-    public void setKayttajaId(int kayttajaId) {
-        this.kayttajaId = kayttajaId;
-    }
-
     public String getEtunimi() {
         return etunimi;
     }
@@ -88,10 +84,6 @@ public class Kayttaja {
 
     public void setRooli(String rooli) {
         this.rooli = rooli;
-    }
-
-    public String getSalasana() {
-        return salasana;
     }
 
     public void setSalasana(String salasana) {

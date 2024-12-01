@@ -1,6 +1,5 @@
 package model.DAO;
 
-import controller.VarausController;
 import model.datasourse.MariaDbConnection;
 import model.enteties.Lasku;
 import model.enteties.Varaus;
@@ -13,7 +12,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class VarausDAOTest {
+class VarausDAOTest {
 
     private VarausDAO varausDAO;
     private LaskuDAO laskuDAO;
@@ -21,24 +20,24 @@ public class VarausDAOTest {
 
 
     @BeforeAll
-    public void setUp() {
+    void setUp() {
         varausDAO = new VarausDAO();
         laskuDAO = new LaskuDAO();
         huoneDAO = new HuoneDAO();
     }
 
     @BeforeEach
-    public void beginTransaction() {
+    void beginTransaction() {
         MariaDbConnection.getInstance().getTransaction().begin();
     }
 
     @AfterEach
-    public void rollbackTransaction() {
+    void rollbackTransaction() {
         MariaDbConnection.getInstance().getTransaction().rollback();
     }
 
     @Test
-    public void testit() {
+    void testit() {
         //uusi lasku
         Lasku lasku = new Lasku();
         lasku.setMaksuStatus("Maksamatta");
@@ -50,19 +49,19 @@ public class VarausDAOTest {
 
         //uusi huone
         Huone huone = new Huone();
-        huone.setHuone_nro(1001);
-        huone.setHuone_tyyppi_fi("Yhden hengen huone");
-        huone.setHuone_tyyppi_en("Single room");
-        huone.setHuone_tyyppi_ru("Одноместный номер");
-        huone.setHuone_tyyppi_zh("单人间");
-        huone.setHuone_tila_fi("Vapaa");
-        huone.setHuone_tila_en("Free");
-        huone.setHuone_tila_ru("Свободно");
-        huone.setHuone_tila_zh("空闲");
-        huone.setHuone_hinta(100.0);
-        huone.setHotelli_id(2);
+        huone.setHuoneNro(1001);
+        huone.setHuoneTyyppiFi("Yhden hengen huone");
+        huone.setHuoneTyyppiEn("Single room");
+        huone.setHuoneTyyppiRu("Одноместный номер");
+        huone.setHuoneTyyppiZh("单人间");
+        huone.setHuoneTilaFi("Vapaa");
+        huone.setHuoneTilaEn("Free");
+        huone.setHuoneTilaRu("Свободно");
+        huone.setHuoneTilaZh("空闲");
+        huone.setHuoneHinta(100.0);
+        huone.setHotelliId(2);
         huoneDAO.persist(huone);
-        int huoneId = huone.getHuone_id();
+        int huoneId = huone.getHuoneId();
 
         // Step 1: Create and persist a Varaus
         Varaus varaus = new Varaus();

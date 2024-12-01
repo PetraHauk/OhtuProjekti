@@ -90,7 +90,7 @@ class HuoneSivuTest extends ApplicationTest {
         huoneSivu.filterTable(roomTable, "", "Yhden hengen", "Kaikki tilat");
 
         for (Huone huone : roomTable.getItems()) {
-            assertEquals("Yhden hengen", huone.getHuone_tyyppi_fi(), "Room type should match the filter");
+            assertEquals("Yhden hengen", huone.getHuoneTyyppiFi(), "Room type should match the filter");
         }
     }
 
@@ -104,19 +104,19 @@ class HuoneSivuTest extends ApplicationTest {
         assertFalse(roomTable.getItems().isEmpty(), "Room table should not be empty");
 
         Huone roomToEdit = roomTable.getItems().get(0);
-        int roomId = roomToEdit.getHuone_id();
+        int roomId = roomToEdit.getHuoneId();
 
         // Simulate editing a room
         Platform.runLater(() -> {
-            roomToEdit.setHuone_nro(102);
-            roomToEdit.setHuone_hinta(150.0);
+            roomToEdit.setHuoneNro(102);
+            roomToEdit.setHuoneHinta(150.0);
             huoneSivu.openMuokkaaHuoneWindow(roomToEdit, roomTable);
 
             // Verify the room was edited
-            Huone editedRoom = roomTable.getItems().stream().filter(huone -> huone.getHuone_id() == roomId).findFirst().orElse(null);
+            Huone editedRoom = roomTable.getItems().stream().filter(huone -> huone.getHuoneId() == roomId).findFirst().orElse(null);
             assertNotNull(editedRoom, "Edited room should be present in the table");
-            assertEquals(102, editedRoom.getHuone_nro(), "Room number should be updated");
-            assertEquals(150.0, editedRoom.getHuone_hinta(), "Room price should be updated");
+            assertEquals(102, editedRoom.getHuoneNro(), "Room number should be updated");
+            assertEquals(150.0, editedRoom.getHuoneHinta(), "Room price should be updated");
         });
 
         // Wait for the JavaFX operations to complete
