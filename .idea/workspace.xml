@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="SonarLint-analyysi: test/controlllerin luokat">
+    <list default="true" id="5f9b1963-5e5e-418c-8cfc-2cd516380252" name="Changes" comment="SonarLint-analyysi: test/Dao/luokat">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/DAO/HotelliDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DAO/HotelliDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/enteties/Hotelli.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enteties/Hotelli.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/model/DAO/AsiakasDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/model/DAO/AsiakasDAOTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/model/DAO/HotelliDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/model/DAO/HotelliDAOTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/service/LocaleManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/service/LocaleManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/PasswordUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/LoginGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/LoginGui.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,116 +70,118 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Application.LoginGui.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.MainPetra.executor": "Run",
-    "Application.WilmaMain.executor": "Run",
-    "Docker.Dockerfile.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "false",
-    "JUnit.AdminGUITest.executor": "Run",
-    "JUnit.AdminGUITest.testAddNewUser.executor": "Run",
-    "JUnit.AdminGUITest.testDeleteUser.executor": "Run",
-    "JUnit.AdminGUITest.testHandleAddUser.executor": "Run",
-    "JUnit.AdminGUITest.testLoadUsers.executor": "Run",
-    "JUnit.AdminGUITest.testUpdateUserById.executor": "Run",
-    "JUnit.AdminGUITest.testValidatePassword.executor": "Run",
-    "JUnit.All in gui.executor": "Run",
-    "JUnit.AsiakasControllerTest.executor": "Run",
-    "JUnit.AsiakasDAOTest.executor": "Run",
-    "JUnit.AsiakasDAOTest.removeAsiakasById.executor": "Run",
-    "JUnit.AsiakasDAOTest.removeId.executor": "Run",
-    "JUnit.AsiakasDAOTest.testFindAsiakasByKeyword.executor": "Run",
-    "JUnit.AsiakasDAOTest.testFindAsukkaat.executor": "Run",
-    "JUnit.AsiakasDAOTest.testFindByEmail.executor": "Run",
-    "JUnit.AsiakasDAOTest.testFindByNimet.executor": "Run",
-    "JUnit.AsiakasDAOTest.testPersist.executor": "Run",
-    "JUnit.AsiakasDAOTest.testPersistAndFindById.executor": "Run",
-    "JUnit.AsiakasDAOTest.testRemoveById.executor": "Run",
-    "JUnit.AsiakasDAOTest.testUpdateAsiakasById.executor": "Run",
-    "JUnit.EtusivuTest.executor": "Run",
-    "JUnit.HotelliControllerTest.executor": "Run",
-    "JUnit.HotelliDAOTest.executor": "Run",
-    "JUnit.HotelliDAOTest.testGetRowCount.executor": "Run",
-    "JUnit.HotelliDAOTest.testPersistAndFindById.executor": "Run",
-    "JUnit.HotelliDAOTest.testPersistAndFindByIdAndFindByName.executor": "Debug",
-    "JUnit.HotelliDAOTest.testRemoveById.executor": "Run",
-    "JUnit.HuoneControllerTest.executor": "Run",
-    "JUnit.HuoneControllerTest.findHuoneByTila.executor": "Run",
-    "JUnit.HuoneControllerTest.testFindHuoneById.executor": "Run",
-    "JUnit.HuoneControllerTest.testFindHuoneetByHoteliId.executor": "Run",
-    "JUnit.HuoneDAOTest.executor": "Coverage",
-    "JUnit.HuoneDAOTest.testHaeHuoneetByHotelliId.executor": "Run",
-    "JUnit.HuoneDAOTest.testHaeHuoneetByHotelliIdAndUpdate.executor": "Run",
-    "JUnit.HuoneDAOTest.testPersistAndFindByRoomId.executor": "Run",
-    "JUnit.HuoneDAOTest.testRemoveById.executor": "Run",
-    "JUnit.HuoneDAOTest.testUpdateHuoneById.executor": "Run",
-    "JUnit.KayttajaDAOTest.testPersistAndFindById.executor": "Run",
-    "JUnit.KayttajaDAOTest.testUpdateEmailById.executor": "Run",
-    "JUnit.KayttajaDAOTest.testi.executor": "Coverage",
-    "JUnit.LaskuControllerTest.executor": "Run",
-    "JUnit.LaskuControllerTest.testFindLaskuById.executor": "Run",
-    "JUnit.LaskuDAOTest.executor": "Run",
-    "JUnit.LaskuDAOTest.testPersistLaskuAndFindById.executor": "Coverage",
-    "JUnit.LoginGuiTest.executor": "Run",
-    "JUnit.LoginGuiTest.testEmptyFields.executor": "Run",
-    "JUnit.LoginGuiTest.testFailedLogin.executor": "Run",
-    "JUnit.LoginGuiTest.testOpenRegistrationPage.executor": "Run",
-    "JUnit.LoginGuiTest.testSuccessfulLogin.executor": "Run",
-    "JUnit.RegistrationGuiTest (1).executor": "Run",
-    "JUnit.RegistrationGuiTest.executor": "Profiler#1",
-    "JUnit.RegistrationGuiTest.testHandleRegister_Success (1).executor": "Run",
-    "JUnit.RegistrationGuiTest.testHandleRegister_Success.executor": "Run",
-    "JUnit.RegistrationGuiTest.testRegisterWithEmptyFields.executor": "Run",
-    "JUnit.RegistrationGuiTest.testRegisterWithExistingEmail.executor": "Run",
-    "JUnit.RegistrationGuiTest.testSuccessfulAlertDisplay.executor": "Run",
-    "JUnit.RegistrationGuiTest.testSuccessfulRegistration.executor": "Run",
-    "JUnit.VarausControllerTest.executor": "Run",
-    "JUnit.VarausDAOTest.executor": "Coverage",
-    "JUnit.VarausDAOTest.testit.executor": "Debug",
-    "JUnit.controller in gui.executor": "Run",
-    "JUnit.java in gui.executor": "Profiler#1",
-    "JUnit.view in gui.executor": "Profiler#1",
-    "Maven.gui [clean,javafx:run].executor": "Run",
-    "Maven.gui [clean,package].executor": "Run",
-    "Maven.gui [clean].executor": "Run",
-    "Maven.gui [install].executor": "Run",
-    "Maven.gui [package].executor": "Run",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "TestNG.<default>.executor": "Coverage",
-    "TestNG.KayttajaControllerTest.executor": "Run",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
-    "git-widget-placeholder": "anna-1",
-    "jdk.selected.JAVA_MODULE": "21",
-    "kotlin-language-version-configured": "true",
-    "last_directory_selection": "/Users/anna/IdeaProjects/OhtuProjekti/src/test/java/controller",
-    "last_opened_file_path": "C:/Users/kakek/javafx-sdk-17.0.10/lib",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Global Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.5482759",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Application.LoginGui.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MainPetra.executor&quot;: &quot;Run&quot;,
+    &quot;Application.WilmaMain.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.Dockerfile.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;JUnit.AdminGUITest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AdminGUITest.testAddNewUser.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AdminGUITest.testDeleteUser.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AdminGUITest.testHandleAddUser.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AdminGUITest.testLoadUsers.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AdminGUITest.testUpdateUserById.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AdminGUITest.testValidatePassword.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.All in gui.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AsiakasControllerTest and 4 more.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AsiakasControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AsiakasDAOTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AsiakasDAOTest.removeAsiakasById.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AsiakasDAOTest.removeId.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AsiakasDAOTest.testFindAsiakasByKeyword.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AsiakasDAOTest.testFindAsukkaat.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AsiakasDAOTest.testFindByEmail.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AsiakasDAOTest.testFindByNimet.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AsiakasDAOTest.testPersist.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AsiakasDAOTest.testPersistAndFindById.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AsiakasDAOTest.testRemoveById.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AsiakasDAOTest.testUpdateAsiakasById.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.EtusivuTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HotelliControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HotelliDAOTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HotelliDAOTest.testGetRowCount.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HotelliDAOTest.testPersistAndFindById.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HotelliDAOTest.testPersistAndFindByIdAndFindByName.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.HotelliDAOTest.testRemoveById.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HuoneControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HuoneControllerTest.findHuoneByTila.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HuoneControllerTest.testFindHuoneById.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HuoneControllerTest.testFindHuoneetByHoteliId.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HuoneDAOTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.HuoneDAOTest.testHaeHuoneetByHotelliId.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HuoneDAOTest.testHaeHuoneetByHotelliIdAndUpdate.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HuoneDAOTest.testPersistAndFindByRoomId.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HuoneDAOTest.testRemoveById.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HuoneDAOTest.testUpdateHuoneById.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HuoneSivuTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.KayttajaDAOTest.testPersistAndFindById.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.KayttajaDAOTest.testUpdateEmailById.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.KayttajaDAOTest.testi.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.LaskuControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LaskuControllerTest.testFindLaskuById.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LaskuDAOTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LaskuDAOTest.testPersistLaskuAndFindById.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.LoginGuiTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LoginGuiTest.testEmptyFields.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LoginGuiTest.testFailedLogin.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LoginGuiTest.testOpenRegistrationPage.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LoginGuiTest.testSuccessfulLogin.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RegistrationGuiTest (1).executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RegistrationGuiTest.executor&quot;: &quot;Profiler#1&quot;,
+    &quot;JUnit.RegistrationGuiTest.testHandleRegister_Success (1).executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RegistrationGuiTest.testHandleRegister_Success.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RegistrationGuiTest.testRegisterWithEmptyFields.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RegistrationGuiTest.testRegisterWithExistingEmail.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RegistrationGuiTest.testSuccessfulAlertDisplay.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RegistrationGuiTest.testSuccessfulRegistration.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VarausControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VarausDAOTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.VarausDAOTest.testit.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.controller in gui.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.java in gui.executor&quot;: &quot;Profiler#1&quot;,
+    &quot;JUnit.view in gui.executor&quot;: &quot;Profiler#1&quot;,
+    &quot;Maven.gui [clean,javafx:run].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.gui [clean,package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.gui [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.gui [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.gui [package].executor&quot;: &quot;Run&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;TestNG.&lt;default&gt;.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.KayttajaControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit4&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;anna-1&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;21&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_directory_selection&quot;: &quot;/Users/anna/IdeaProjects/OhtuProjekti/src/test/java/controller&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/kakek/javafx-sdk-17.0.10/lib&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Global Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.5482759&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mariadb"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mariadb&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -207,72 +208,54 @@
       <command value="mvn clean package" />
       <command value="mvn clean javafx:run" />
       <command value="mvn package" />
-      <command value="mvn install" />
       <command value="mvn clean" />
+      <command value="mvn install" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.VarausDAOTest">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="app.Main" />
+      <module name="gui" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="app.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <module name="gui" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AsiakasDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AsiakasControllerTest and 4 more" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gui" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="model.DAO.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="model.DAO" />
-      <option name="MAIN_CLASS_NAME" value="model.DAO.AsiakasDAOTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="pattern" />
+      <patterns>
+        <pattern testClass="controller.AsiakasControllerTest" />
+        <pattern testClass="controller.HotelliControllerTest" />
+        <pattern testClass="controller.HuoneControllerTest" />
+        <pattern testClass="controller.LaskuControllerTest" />
+        <pattern testClass="controller.VarausControllerTest" />
+      </patterns>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HuoneDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="HuoneSivuTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gui" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="model.DAO.*" />
+          <option name="PATTERN" value="view.sivut.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="model.DAO" />
-      <option name="MAIN_CLASS_NAME" value="model.DAO.HuoneDAOTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="KayttajaDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gui" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="model.DAO.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="model.DAO" />
-      <option name="MAIN_CLASS_NAME" value="model.DAO.KayttajaDAOTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LaskuDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gui" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="model.DAO.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="model.DAO" />
-      <option name="MAIN_CLASS_NAME" value="model.DAO.LaskuDAOTest" />
+      <option name="PACKAGE_NAME" value="view.sivut" />
+      <option name="MAIN_CLASS_NAME" value="view.sivut.HuoneSivuTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -289,6 +272,16 @@
       <option name="PACKAGE_NAME" value="model.DAO" />
       <option name="MAIN_CLASS_NAME" value="model.DAO.VarausDAOTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="&lt;default&gt;" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="gui" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="PACKAGE" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -310,27 +303,28 @@
     </configuration>
     <list>
       <item itemvalue="Application.Unnamed" />
+      <item itemvalue="Application.Main" />
       <item itemvalue="Docker.Dockerfile" />
-      <item itemvalue="JUnit.AsiakasDAOTest" />
-      <item itemvalue="JUnit.HuoneDAOTest" />
-      <item itemvalue="JUnit.KayttajaDAOTest" />
-      <item itemvalue="JUnit.LaskuDAOTest" />
+      <item itemvalue="JUnit.AsiakasControllerTest and 4 more" />
+      <item itemvalue="JUnit.HuoneSivuTest" />
       <item itemvalue="JUnit.VarausDAOTest" />
+      <item itemvalue="TestNG.&lt;default&gt;" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.AsiakasControllerTest and 4 more" />
+        <item itemvalue="TestNG.&lt;default&gt;" />
+        <item itemvalue="JUnit.HuoneSivuTest" />
         <item itemvalue="JUnit.VarausDAOTest" />
-        <item itemvalue="JUnit.LaskuDAOTest" />
-        <item itemvalue="JUnit.KayttajaDAOTest" />
-        <item itemvalue="JUnit.HuoneDAOTest" />
-        <item itemvalue="JUnit.AsiakasDAOTest" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-21.0.2-openjdk-21.0.2-f644763e9732-c0c073db" />
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.20224.419" />
+        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-IU-242.20224.419" />
       </set>
     </attachedChunks>
   </component>
@@ -382,6 +376,8 @@
       <workItem from="1731928496980" duration="1586000" />
       <workItem from="1732045396063" duration="1287000" />
       <workItem from="1732880533094" duration="683000" />
+      <workItem from="1733140573532" duration="3601000" />
+      <workItem from="1733298640878" duration="2000" />
     </task>
     <task id="LOCAL-00039" summary="Lisää Admin näkymän lokaalisaation">
       <option name="closed" value="true" />
@@ -832,31 +828,6 @@
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="11" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/model/DAO/HuoneDAOTest.java</url>
-          <line>19</line>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/view/sivut/HuoneSivu.java</url>
-          <line>224</line>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/view/sivut/HuoneSivu.java</url>
-          <line>223</line>
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/model/DAO/HotelliDAOTest.java</url>
-          <line>11</line>
-          <option name="timeStamp" value="30" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/model/DAO/HotelliDAO.java</url>
-          <line>43</line>
-          <option name="timeStamp" value="31" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
@@ -871,12 +842,16 @@
       <FILTER>view.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/OhtuProjekti$_default_.ic" NAME="&lt;default&gt; Coverage Results" MODIFIED="1731404908949" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/OhtuProjekti$HuoneSivuTest.ic" NAME="HuoneSivuTest Coverage Results" MODIFIED="1733084101418" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>view.sivut.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/OhtuProjekti$AsiakasDAOTest.ic" NAME="AsiakasDAOTest Coverage Results" MODIFIED="1731611658262" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>model.DAO.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/OhtuProjekti$HotelliDAOTest.ic" NAME="HotelliDAOTest Coverage Results" MODIFIED="1731611676109" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>model.DAO.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/OhtuProjekti$AsiakasControllerTest_and_4_more.ic" NAME="AsiakasControllerTest and 4 more Coverage Results" MODIFIED="1733084194211" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/OhtuProjekti2$controller_in_gui.ic" NAME="controller in gui Coverage Results" MODIFIED="1728129736984" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/OhtuProjekti$HuoneDAOTest.ic" NAME="HuoneDAOTest Coverage Results" MODIFIED="1731611398917" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>model.DAO.*</FILTER>
