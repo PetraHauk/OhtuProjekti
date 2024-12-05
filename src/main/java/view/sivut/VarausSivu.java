@@ -16,12 +16,15 @@ import model.enteties.Huone;
 import model.enteties.Lasku;
 import model.enteties.Varaus;
 import model.service.LocaleManager;
+import utils.Validator;
+import utils.ValidatorExeption;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import java.util.logging.Logger;
 
 public class VarausSivu {
 
@@ -36,6 +39,10 @@ public class VarausSivu {
 
     private String yellowButtonCss = "yellow-btn";
 
+    Logger logger = Logger.getLogger(VarausSivu.class.getName());
+
+    private Validator validate;
+
     public VarausSivu() {
         varausController = new VarausController();
         hotelliController = new HotelliController();
@@ -45,6 +52,8 @@ public class VarausSivu {
 
         Locale currentLocale = LocaleManager.getCurrentLocale();
         bundle = ResourceBundle.getBundle("messages", currentLocale);
+
+        validate = new Validator();
     }
 
     public VBox createVaraukset() {
@@ -125,49 +134,52 @@ public class VarausSivu {
 
         luoVarausButton.setOnAction(e -> {
             try {
-                String asiakasEtunimi = asiakasEtunimiField.getText();
-                String asiakasSukunimi = asiakasSukunimiField.getText();
-                String asiakasEmail = asiakasSpostiField.getText();
-                String asiakasPuh = asiakasPuhField.getText();
-                String huomio = asiakasLisatiedotField.getText();
+                String asiakasEtunimi = asiakasEtunimiField.getText().trim();
+                String asiakasSukunimi = asiakasSukunimiField.getText().trim();
+                String asiakasEmail = asiakasSpostiField.getText().trim();
+                String asiakasPuh = asiakasPuhField.getText().trim();
+                String huomio = asiakasLisatiedotField.getText().trim();
                 String laskuMuoto = laskuMuotoField.getValue();
                 LocalDate saapumisPvm = saapumisPvmField.getValue();
                 LocalDate lahtoPvm = lahtoPvmField.getValue();
 
+                // Validate required fields
                 if (asiakasEtunimi.isEmpty() || asiakasSukunimi.isEmpty() || asiakasEmail.isEmpty() || asiakasPuh.isEmpty()) {
-                    System.err.println(bundle.getString("varaus.error.missingfields"));
+                    showAlert(Alert.AlertType.ERROR, "error.title", "varaus.error.missingfields");
                     return;
                 }
 
-                if (saapumisPvm == null || lahtoPvm == null) {
-                    System.err.println(bundle.getString("varaus.error.invaliddates"));
+                // Validate dates
+                if (saapumisPvm == null || lahtoPvm == null || !lahtoPvm.isAfter(saapumisPvm)) {
+                    showAlert(Alert.AlertType.ERROR, "error.title", "varaus.error.invaliddates");
                     return;
                 }
 
-                // Get total number of rooms in the hotel
+                // Check room availability
                 int totalRooms = hotelliController.getRoomCount();
-
-                // Get count of overlapping reservations for the given date range
                 int overlappingReservations = varausController.getOverlappingReservationsCount(saapumisPvm, lahtoPvm);
 
                 if (overlappingReservations >= totalRooms) {
-                    System.err.println(bundle.getString("varaus.error.noroomsfordates"));
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle(bundle.getString("varaus.error.title"));
-                    alert.setHeaderText(null);
-                    alert.setContentText(bundle.getString(bundle.getString("varaus.error.noroomsfordates")));
-                    alert.showAndWait();
+                    showAlert(Alert.AlertType.ERROR, "error.title", "varaus.error.noroomsfordates");
                     return;
                 }
 
-                System.out.println(bundle.getString("varaus.creating"));
+                // Proceed with creating the reservation
+                logger.info("varaus.creating");
                 varausController.createVaraus(asiakasEtunimi, asiakasSukunimi, asiakasEmail, asiakasPuh, huomio, laskuMuoto, saapumisPvm, lahtoPvm);
-                System.out.println(bundle.getString("varaus.created"));
+                logger.info("varaus.created");
                 populateVarausTable(varausTable, null, null);
+
+            } catch (ValidatorExeption ex) {
+                logger.warning("varaus.error.failedtocreate" + ex.getErrorKey());
+                showAlert(Alert.AlertType.ERROR, "error.title", ex.getErrorKey());
+
             } catch (Exception ex) {
-                System.err.println("Failed to create reservation: " + ex.getMessage());
+                logger.warning("varaus.error.failedtocreate" + ex.getMessage());
+                showAlert(Alert.AlertType.ERROR, "error.title", "varaus.error.failedtocreate");
             }
         });
+
 
         varausBox.getChildren().addAll(luoVaraus, varausTable);
 
@@ -271,7 +283,7 @@ public class VarausSivu {
 
         searchCustomersTask.setOnFailed(event -> {
             searchResults.setPlaceholder(new Label(bundle.getString("varaus.error.loadcustomers")));
-            System.err.println("Failed to fetch customers: " + searchCustomersTask.getException());
+            logger.warning("varaus.error.failedtoloadcustomers" + searchCustomersTask.getException());
             loadingIndicator.setVisible(false);
         });
 
@@ -341,7 +353,7 @@ public class VarausSivu {
 
         fetchVarauksetTask.setOnFailed(event -> {
             varausTable.setPlaceholder(new Label(bundle.getString("varaus.error.loadreservations")));
-            System.err.println("Failed to fetch reservations: " + fetchVarauksetTask.getException());
+            logger.warning("varaus.error.failedtoloadreservations" + fetchVarauksetTask.getException());
             loadingIndicator.setVisible(false);
         });
 
@@ -410,5 +422,13 @@ public class VarausSivu {
         customerTable.getColumns().addAll(idColumn, firstNameColumn, lastNameColumn, emailColumn, phoneColumn, huomioColumn);
 
         return customerTable;
+    }
+
+    private void showAlert(Alert.AlertType type, String titleKey, String messageKey) {
+        Alert alert = new Alert(type);
+        alert.setTitle(bundle.getString(titleKey));
+        alert.setHeaderText(null);
+        alert.setContentText(bundle.getString(messageKey));
+        alert.showAndWait();
     }
 }
