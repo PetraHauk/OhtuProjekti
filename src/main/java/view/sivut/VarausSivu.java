@@ -12,16 +12,16 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.enteties.Asiakas;
-import model.enteties.Huone;
-import model.enteties.Lasku;
 import model.enteties.Varaus;
 import model.service.LocaleManager;
+import utils.ValidatorExeption;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import java.util.logging.Logger;
 
 public class VarausSivu {
 
@@ -29,19 +29,18 @@ public class VarausSivu {
     private HotelliController hotelliController;
     private AsiakasController asiakasController;
 
-    private LaskuController laskuController;
-    private HuoneController huoneController;
-
     private ResourceBundle bundle;
 
     private String yellowButtonCss = "yellow-btn";
+    private String failedToCreate = "varaus.error.failedtocreate";
+    private String errorTitle = "error.title";
+
+    Logger logger = Logger.getLogger(VarausSivu.class.getName());
 
     public VarausSivu() {
         varausController = new VarausController();
         hotelliController = new HotelliController();
         asiakasController = new AsiakasController();
-        laskuController = new LaskuController();
-        huoneController = new HuoneController();
 
         Locale currentLocale = LocaleManager.getCurrentLocale();
         bundle = ResourceBundle.getBundle("messages", currentLocale);
@@ -125,49 +124,49 @@ public class VarausSivu {
 
         luoVarausButton.setOnAction(e -> {
             try {
-                String asiakasEtunimi = asiakasEtunimiField.getText();
-                String asiakasSukunimi = asiakasSukunimiField.getText();
-                String asiakasEmail = asiakasSpostiField.getText();
-                String asiakasPuh = asiakasPuhField.getText();
-                String huomio = asiakasLisatiedotField.getText();
+                String asiakasEtunimi = asiakasEtunimiField.getText().trim();
+                String asiakasSukunimi = asiakasSukunimiField.getText().trim();
+                String asiakasEmail = asiakasSpostiField.getText().trim();
+                String asiakasPuh = asiakasPuhField.getText().trim();
+                String huomio = asiakasLisatiedotField.getText().trim();
                 String laskuMuoto = laskuMuotoField.getValue();
                 LocalDate saapumisPvm = saapumisPvmField.getValue();
                 LocalDate lahtoPvm = lahtoPvmField.getValue();
 
                 if (asiakasEtunimi.isEmpty() || asiakasSukunimi.isEmpty() || asiakasEmail.isEmpty() || asiakasPuh.isEmpty()) {
-                    System.err.println(bundle.getString("varaus.error.missingfields"));
+                    showAlert(Alert.AlertType.ERROR, errorTitle, "varaus.error.missingfields");
                     return;
                 }
 
-                if (saapumisPvm == null || lahtoPvm == null) {
-                    System.err.println(bundle.getString("varaus.error.invaliddates"));
+                if (saapumisPvm == null || lahtoPvm == null || !lahtoPvm.isAfter(saapumisPvm)) {
+                    showAlert(Alert.AlertType.ERROR, errorTitle, "varaus.error.invaliddates");
                     return;
                 }
 
-                // Get total number of rooms in the hotel
-                int totalRooms = hotelliController.getRoomCount();
+                // Check room availability
+                boolean isFilled = varausController.areAllRoomsFilled(saapumisPvm, lahtoPvm);
 
-                // Get count of overlapping reservations for the given date range
-                int overlappingReservations = varausController.getOverlappingReservationsCount(saapumisPvm, lahtoPvm);
-
-                if (overlappingReservations >= totalRooms) {
-                    System.err.println(bundle.getString("varaus.error.noroomsfordates"));
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle(bundle.getString("varaus.error.title"));
-                    alert.setHeaderText(null);
-                    alert.setContentText(bundle.getString(bundle.getString("varaus.error.noroomsfordates")));
-                    alert.showAndWait();
+                if (isFilled) {
+                    showAlert(Alert.AlertType.ERROR, errorTitle, "varaus.error.noroomsfordates");
                     return;
                 }
 
-                System.out.println(bundle.getString("varaus.creating"));
+                // Proceed with creating the reservation
+                logger.info("varaus.creating");
                 varausController.createVaraus(asiakasEtunimi, asiakasSukunimi, asiakasEmail, asiakasPuh, huomio, laskuMuoto, saapumisPvm, lahtoPvm);
-                System.out.println(bundle.getString("varaus.created"));
+                logger.info("varaus.created");
                 populateVarausTable(varausTable, null, null);
+
+            } catch (ValidatorExeption ex) {
+                logger.warning(failedToCreate + ex.getErrorKey());
+                showAlert(Alert.AlertType.ERROR, errorTitle, ex.getErrorKey());
+
             } catch (Exception ex) {
-                System.err.println("Failed to create reservation: " + ex.getMessage());
+                logger.warning(failedToCreate + ex.getMessage());
+                showAlert(Alert.AlertType.ERROR, errorTitle, failedToCreate);
             }
         });
+
 
         varausBox.getChildren().addAll(luoVaraus, varausTable);
 
@@ -244,10 +243,7 @@ public class VarausSivu {
     }
 
     private void searchCustomers(TableView<Asiakas> searchResults, String searchQuery, List<Asiakas> allCustomers, int currentPage, int resultsPerPage, Button previousButton, Button nextButton) {
-        ProgressIndicator loadingIndicator = new ProgressIndicator();
-        loadingIndicator.setVisible(true);
-        searchResults.getItems().clear();
-        searchResults.setPlaceholder(loadingIndicator);
+        ProgressIndicator loadingIndicator = initializeLoadingIndicator(searchResults);
 
         Task<List<Asiakas>> searchCustomersTask = new Task<>() {
             @Override
@@ -271,7 +267,7 @@ public class VarausSivu {
 
         searchCustomersTask.setOnFailed(event -> {
             searchResults.setPlaceholder(new Label(bundle.getString("varaus.error.loadcustomers")));
-            System.err.println("Failed to fetch customers: " + searchCustomersTask.getException());
+            logger.warning("varaus.error.failedtoloadcustomers" + searchCustomersTask.getException());
             loadingIndicator.setVisible(false);
         });
 
@@ -293,12 +289,7 @@ public class VarausSivu {
 
 
     private void populateVarausTable(TableView<Varaus> varausTable, LocalDate alkuPvm, LocalDate loppuPvm) {
-        ProgressIndicator loadingIndicator = new ProgressIndicator();
-        loadingIndicator.setVisible(true);
-        loadingIndicator.setPrefSize(50, 50);
-
-        varausTable.getItems().clear();
-        varausTable.setPlaceholder(loadingIndicator);
+        ProgressIndicator loadingIndicator = initializeLoadingIndicator(varausTable);
 
         LocalDate startDate = (alkuPvm != null) ? alkuPvm : LocalDate.of(1970, 1, 1);
         LocalDate endDate = (loppuPvm != null) ? loppuPvm : LocalDate.of(2100, 1, 1);
@@ -306,7 +297,7 @@ public class VarausSivu {
         Task<List<Varaus>> fetchVarauksetTask = new Task<>() {
             @Override
             protected List<Varaus> call() throws Exception {
-                return varausController.findVarauksetByDate(startDate, endDate);
+                return varausController.getVarauksetWithDates(startDate, endDate);
             }
         };
 
@@ -315,35 +306,23 @@ public class VarausSivu {
 
             Platform.runLater(() -> {
                 loadingIndicator.setVisible(false);
-                varausTable.getSelectionModel().clearSelection(); // Clear selection before updating items
+                varausTable.getSelectionModel().clearSelection();
 
                 if (varaukset != null && !varaukset.isEmpty()) {
-                    for (Varaus varaus : varaukset) {
-                        if (varaus.getHuoneId() != null) {
-                            Huone huone = huoneController.findHuoneById(varaus.getHuoneId());
-                            varaus.setHuone(huone);
-                        }
-
-                        Lasku lasku = laskuController.findLaskuById(varaus.getLaskuId());
-                        if (lasku != null) {
-                            Asiakas asiakas = asiakasController.findByLaskuId(lasku.getAsiakasId());
-                            varaus.setNimi(asiakas.getEtunimi() + " " + asiakas.getSukunimi());
-                        }
-
-
-                    }
-                    varausTable.getItems().setAll(varaukset); // Update table with new data
+                    varausTable.getItems().setAll(varaukset);
                 } else {
                     varausTable.setPlaceholder(new Label(bundle.getString("varaus.error.noreservations")));
                 }
             });
         });
 
-        fetchVarauksetTask.setOnFailed(event -> {
-            varausTable.setPlaceholder(new Label(bundle.getString("varaus.error.loadreservations")));
-            System.err.println("Failed to fetch reservations: " + fetchVarauksetTask.getException());
-            loadingIndicator.setVisible(false);
-        });
+        fetchVarauksetTask.setOnFailed(event ->
+            Platform.runLater(() -> {
+                varausTable.setPlaceholder(new Label(bundle.getString("varaus.error.loadreservations")));
+                logger.warning("varaus.error.failedtoloadreservations" + fetchVarauksetTask.getException());
+                loadingIndicator.setVisible(false);
+            })
+        );
 
         new Thread(fetchVarauksetTask).start();
     }
@@ -410,5 +389,22 @@ public class VarausSivu {
         customerTable.getColumns().addAll(idColumn, firstNameColumn, lastNameColumn, emailColumn, phoneColumn, huomioColumn);
 
         return customerTable;
+    }
+
+    private <T> ProgressIndicator initializeLoadingIndicator(TableView<T> table) {
+        ProgressIndicator loadingIndicator = new ProgressIndicator();
+        loadingIndicator.setVisible(true);
+        loadingIndicator.setPrefSize(50, 50);
+        table.getItems().clear();
+        table.setPlaceholder(loadingIndicator);
+        return loadingIndicator;
+    }
+
+    private void showAlert(Alert.AlertType type, String titleKey, String messageKey) {
+        Alert alert = new Alert(type);
+        alert.setTitle(bundle.getString(titleKey));
+        alert.setHeaderText(null);
+        alert.setContentText(bundle.getString(messageKey));
+        alert.showAndWait();
     }
 }

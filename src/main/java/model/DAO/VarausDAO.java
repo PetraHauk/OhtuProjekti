@@ -97,6 +97,17 @@ public class VarausDAO {
     }
 
     /**
+     * Päivitä varaus.
+     * @param varaus Varaus
+     */
+    public void paivitaVaraus(Varaus varaus) {
+        EntityManager em = MariaDbConnection.getInstance();
+        em.getTransaction().begin();
+        em.merge(varaus);
+        em.getTransaction().commit();
+    }
+
+    /**
      * Poista varaus id:n perusteella.
      * @param id int
      */

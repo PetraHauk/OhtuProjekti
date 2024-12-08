@@ -370,4 +370,12 @@ public class HuoneSivu {
         muokkaaHuoneStage.setScene(scene);
         muokkaaHuoneStage.show(); // Tämä avaa muokkausikkunan
     }
+
+    private void showAlert(Alert.AlertType type, String titleKey, String messageKey) {
+        Alert alert = new Alert(type);
+        alert.setTitle(bundle.getString(titleKey));
+        alert.setHeaderText(null);
+        alert.setContentText(bundle.getString(messageKey));
+        alert.showAndWait();
+    }
 }

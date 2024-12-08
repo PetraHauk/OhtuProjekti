@@ -61,6 +61,21 @@ public class HuoneDAO {
         return null;
     }
 
+    public int getTotalRooms(int hotelliId) {
+        EntityManager em = MariaDbConnection.getInstance();
+        try {
+            return em.createQuery("SELECT COUNT(h) FROM Huone h WHERE h.hotelliId = :hotelliId", Long.class)
+                    .setParameter("hotelliId", hotelliId)
+                    .getSingleResult().intValue();
+        } catch (Exception e) {
+            // Log the exception
+            e.printStackTrace();
+            return 0;
+        } finally {
+            em.close();
+        }
+    }
+
     /**
      * Update a room by its ID
      * @param id The ID of the room
@@ -129,6 +144,9 @@ public class HuoneDAO {
         EntityManager em = MariaDbConnection.getInstance();
 
         List<String> huoneTilaList = LocaleManager.getLocalizedTilaInput(huoneTila);
+        if (huoneTilaList == null || huoneTilaList.size() < 4) {
+            throw new IllegalArgumentException("Invalid localized huoneTila list: " + huoneTilaList);
+        }
 
         String huoneTilaFi = huoneTilaList.get(0);
         String huoneTilaEn = huoneTilaList.get(1);
@@ -137,16 +155,25 @@ public class HuoneDAO {
 
         try {
             em.getTransaction().begin();
+
             Huone huone = em.find(Huone.class, id);
             if (huone != null) {
                 huone.setHuoneTilaFi(huoneTilaFi);
                 huone.setHuoneTilaEn(huoneTilaEn);
                 huone.setHuoneTilaRu(huoneTilaRu);
                 huone.setHuoneTilaZh(huoneTilaZh);
+                logger.info("Updated Huone ID: {}, new status: {}", id, huoneTilaList);
             } else {
-                logger.warn("Huonetta ei löytynyt id:llä {}", id);
+                logger.warn("Huone not found for ID: {}", id);
             }
+
             em.getTransaction().commit();
+        } catch (Exception e) {
+            if (em.getTransaction().isActive()) {
+                em.getTransaction().rollback();
+            }
+            logger.error("Error updating Huone with ID {}: {}", id, e.getMessage());
+            throw e;
         } finally {
             em.close();
         }

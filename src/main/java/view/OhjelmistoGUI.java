@@ -10,6 +10,8 @@ import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -101,11 +103,15 @@ public class OhjelmistoGUI extends Application {
         );
         leftButtons.getStyleClass().add("left-buttons");
 
-        if (UserSession.getRooli().equalsIgnoreCase("Admin")) {
+        if ("Admin".equalsIgnoreCase(getInternalRole(UserSession.getRooli()))) {
             // Only show admin panel button for admin users
             adminButton.setOnAction(e -> openAdminPanel());
             leftButtons.getChildren().add(adminButton);
+        } else {
+            // Handle non-admin roles or null roles
+            // Optionally log or show a warning if the role is not recognized
         }
+
 
         // Create the left sidebar layout
         VBox leftBar = new VBox(30);
@@ -122,7 +128,24 @@ public class OhjelmistoGUI extends Application {
 
         return leftBar;
     }
+    private String getInternalRole(String localizedRole) {
+        System.out.println("Localized role: " + localizedRole);
+        List<String> adminRoles = Arrays.asList(
+                bundle.getString("role.admin"), // English
+                "管理员", // Chinese
+                "Ylläpitäjä", // Finnish
+                "Admin" // Add other translations as needed
+        );
 
+        if (adminRoles.contains(localizedRole)) {
+            return "Admin";
+        } else if (localizedRole.equals(bundle.getString("role.worker"))) {
+            return "Worker";
+        } else if (localizedRole.equals(bundle.getString("role.cleaner"))) {
+            return "Cleaner";
+        }
+        return null;
+    }
     private void openAdminPanel() {
         new AdminGUI().start(new Stage());
     }
