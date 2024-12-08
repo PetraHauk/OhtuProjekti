@@ -154,7 +154,7 @@
     &quot;JUnit.RegistrationGuiTest.testSuccessfulAlertDisplay.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.RegistrationGuiTest.testSuccessfulRegistration.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.VarausControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.VarausDAOTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.VarausDAOTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.VarausDAOTest.testit.executor&quot;: &quot;Debug&quot;,
     &quot;JUnit.controller in gui.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.java in gui.executor&quot;: &quot;Profiler#1&quot;,
@@ -169,6 +169,7 @@
     &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
     &quot;TestNG.&lt;default&gt;.executor&quot;: &quot;Run&quot;,
     &quot;TestNG.KayttajaControllerTest.executor&quot;: &quot;Run&quot;,
@@ -190,119 +191,13 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.5482759&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Application.LoginGui.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.MainPetra.executor": "Run",
-    "Application.WilmaMain.executor": "Run",
-    "Docker.Dockerfile.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "false",
-    "JUnit.AdminGUITest.executor": "Run",
-    "JUnit.AdminGUITest.testAddNewUser.executor": "Run",
-    "JUnit.AdminGUITest.testDeleteUser.executor": "Run",
-    "JUnit.AdminGUITest.testHandleAddUser.executor": "Run",
-    "JUnit.AdminGUITest.testLoadUsers.executor": "Run",
-    "JUnit.AdminGUITest.testUpdateUserById.executor": "Run",
-    "JUnit.AdminGUITest.testValidatePassword.executor": "Run",
-    "JUnit.All in gui.executor": "Run",
-    "JUnit.AsiakasControllerTest and 4 more.executor": "Run",
-    "JUnit.AsiakasControllerTest.executor": "Run",
-    "JUnit.AsiakasDAOTest.executor": "Run",
-    "JUnit.AsiakasDAOTest.removeAsiakasById.executor": "Run",
-    "JUnit.AsiakasDAOTest.removeId.executor": "Run",
-    "JUnit.AsiakasDAOTest.testFindAsiakasByKeyword.executor": "Run",
-    "JUnit.AsiakasDAOTest.testFindAsukkaat.executor": "Run",
-    "JUnit.AsiakasDAOTest.testFindByEmail.executor": "Run",
-    "JUnit.AsiakasDAOTest.testFindByNimet.executor": "Run",
-    "JUnit.AsiakasDAOTest.testPersist.executor": "Run",
-    "JUnit.AsiakasDAOTest.testPersistAndFindById.executor": "Run",
-    "JUnit.AsiakasDAOTest.testRemoveById.executor": "Run",
-    "JUnit.AsiakasDAOTest.testUpdateAsiakasById.executor": "Run",
-    "JUnit.EtusivuTest.executor": "Run",
-    "JUnit.HotelliControllerTest.executor": "Run",
-    "JUnit.HotelliDAOTest.executor": "Run",
-    "JUnit.HotelliDAOTest.testGetRowCount.executor": "Run",
-    "JUnit.HotelliDAOTest.testPersistAndFindById.executor": "Run",
-    "JUnit.HotelliDAOTest.testPersistAndFindByIdAndFindByName.executor": "Debug",
-    "JUnit.HotelliDAOTest.testRemoveById.executor": "Run",
-    "JUnit.HuoneControllerTest.executor": "Run",
-    "JUnit.HuoneControllerTest.findHuoneByTila.executor": "Run",
-    "JUnit.HuoneControllerTest.testFindHuoneById.executor": "Run",
-    "JUnit.HuoneControllerTest.testFindHuoneetByHoteliId.executor": "Run",
-    "JUnit.HuoneDAOTest.executor": "Coverage",
-    "JUnit.HuoneDAOTest.testHaeHuoneetByHotelliId.executor": "Run",
-    "JUnit.HuoneDAOTest.testHaeHuoneetByHotelliIdAndUpdate.executor": "Run",
-    "JUnit.HuoneDAOTest.testPersistAndFindByRoomId.executor": "Run",
-    "JUnit.HuoneDAOTest.testRemoveById.executor": "Run",
-    "JUnit.HuoneDAOTest.testUpdateHuoneById.executor": "Run",
-    "JUnit.HuoneSivuTest.executor": "Coverage",
-    "JUnit.KayttajaDAOTest.testPersistAndFindById.executor": "Run",
-    "JUnit.KayttajaDAOTest.testUpdateEmailById.executor": "Run",
-    "JUnit.KayttajaDAOTest.testi.executor": "Coverage",
-    "JUnit.LaskuControllerTest.executor": "Run",
-    "JUnit.LaskuControllerTest.testFindLaskuById.executor": "Run",
-    "JUnit.LaskuDAOTest.executor": "Run",
-    "JUnit.LaskuDAOTest.testPersistLaskuAndFindById.executor": "Coverage",
-    "JUnit.LoginGuiTest.executor": "Run",
-    "JUnit.LoginGuiTest.testEmptyFields.executor": "Run",
-    "JUnit.LoginGuiTest.testFailedLogin.executor": "Run",
-    "JUnit.LoginGuiTest.testOpenRegistrationPage.executor": "Run",
-    "JUnit.LoginGuiTest.testSuccessfulLogin.executor": "Run",
-    "JUnit.RegistrationGuiTest (1).executor": "Run",
-    "JUnit.RegistrationGuiTest.executor": "Profiler#1",
-    "JUnit.RegistrationGuiTest.testHandleRegister_Success (1).executor": "Run",
-    "JUnit.RegistrationGuiTest.testHandleRegister_Success.executor": "Run",
-    "JUnit.RegistrationGuiTest.testRegisterWithEmptyFields.executor": "Run",
-    "JUnit.RegistrationGuiTest.testRegisterWithExistingEmail.executor": "Run",
-    "JUnit.RegistrationGuiTest.testSuccessfulAlertDisplay.executor": "Run",
-    "JUnit.RegistrationGuiTest.testSuccessfulRegistration.executor": "Run",
-    "JUnit.VarausControllerTest.executor": "Run",
-    "JUnit.VarausDAOTest.executor": "Run",
-    "JUnit.VarausDAOTest.testit.executor": "Debug",
-    "JUnit.controller in gui.executor": "Run",
-    "JUnit.java in gui.executor": "Profiler#1",
-    "JUnit.view in gui.executor": "Profiler#1",
-    "Maven.gui [clean,javafx:run].executor": "Run",
-    "Maven.gui [clean,package].executor": "Run",
-    "Maven.gui [clean].executor": "Run",
-    "Maven.gui [install].executor": "Run",
-    "Maven.gui [package].executor": "Run",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "TestNG.<default>.executor": "Run",
-    "TestNG.KayttajaControllerTest.executor": "Run",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
-    "git-widget-placeholder": "main",
-    "jdk.selected.JAVA_MODULE": "21",
-    "kotlin-language-version-configured": "true",
-    "last_directory_selection": "/Users/anna/IdeaProjects/OhtuProjekti/src/test/java/controller",
-    "last_opened_file_path": "C:/Users/kakek/javafx-sdk-17.0.10/lib",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Global Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.5482759",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mariadb"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mariadb&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -443,16 +338,14 @@
       <list>
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.VarausDAOTest" />
-        <item itemvalue="JUnit.LaskuDAOTest" />
-        <item itemvalue="JUnit.KayttajaDAOTest" />
-        <item itemvalue="JUnit.HuoneDAOTest" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-21.0.2-openjdk-21.0.2-f644763e9732-c0c073db" />
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.20224.419" />
+        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-IU-242.20224.419" />
       </set>
     </attachedChunks>
   </component>
@@ -506,7 +399,14 @@
       <workItem from="1732880533094" duration="683000" />
       <workItem from="1733140573532" duration="3601000" />
       <workItem from="1733298640878" duration="2000" />
-      <workItem from="1733575509551" duration="14874000" />
+    </task>
+    <task id="LOCAL-00039" summary="Lisää Admin näkymän lokaalisaation">
+      <option name="closed" value="true" />
+      <created>1730629993970</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1730629993970</updated>
     </task>
     <task id="LOCAL-00040" summary="Kirjaitumisessa nyt input kohdalla oikeat käännökset">
       <option name="closed" value="true" />
@@ -892,32 +792,7 @@
       <option name="project" value="LOCAL" />
       <updated>1732970838298</updated>
     </task>
-    <task id="LOCAL-00088" summary="Validation +  Error things">
-      <option name="closed" value="true" />
-      <created>1733428830219</created>
-      <option name="number" value="00088" />
-      <option name="presentableId" value="LOCAL-00088" />
-      <option name="project" value="LOCAL" />
-      <updated>1733428830220</updated>
-    </task>
-    <option name="localTasksCounter" value="89" />
-    <task id="LOCAL-00088" summary="pois ruotsi, kielen valinnoista">
-      <option name="closed" value="true" />
-      <created>1733430347133</created>
-      <option name="number" value="00088" />
-      <option name="presentableId" value="LOCAL-00088" />
-      <option name="project" value="LOCAL" />
-      <updated>1733430347133</updated>
-    </task>
-    <task id="LOCAL-00089" summary="SonarLink korjaus">
-      <option name="closed" value="true" />
-      <created>1733430410728</created>
-      <option name="number" value="00089" />
-      <option name="presentableId" value="LOCAL-00089" />
-      <option name="project" value="LOCAL" />
-      <updated>1733430410728</updated>
-    </task>
-    <option name="localTasksCounter" value="90" />
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -936,6 +811,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="getHuone_tila -&gt; getHuone_tila" />
     <MESSAGE value="HuoneSivu haut, lisää uusi huone ja muokkaa huone, kaikki toimi" />
     <MESSAGE value="Huonesivun tyypi ja tila haetaan valitettu kielen mukaan." />
     <MESSAGE value="CheckIn sivu, vapaat huoneen taulissa tyype ja status haetaan selected kilen mukaan." />
@@ -960,11 +836,7 @@
     <MESSAGE value="Sonarlint analyysi, lasku, varaus ja niiden liittyvät" />
     <MESSAGE value="koodin siistimistä" />
     <MESSAGE value="SonarLint-analyysi: test/controlllerin luokat" />
-    <MESSAGE value="pois ruotsi, kielen valinnoista" />
-    <MESSAGE value="SonarLink korjaus" />
-    <option name="LAST_COMMIT_MESSAGE" value="SonarLink korjaus" />
-    <MESSAGE value="Validation +  Error things" />
-    <option name="LAST_COMMIT_MESSAGE" value="Validation +  Error things" />
+    <option name="LAST_COMMIT_MESSAGE" value="SonarLint-analyysi: test/controlllerin luokat" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -977,19 +849,6 @@
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="11" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/view/sivut/CheckIn.java</url>
-          <line>143</line>
-          <properties>
-            <option name="lambda-ordinal" value="-1" />
-          </properties>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/view/sivut/CheckIn.java</url>
-          <line>224</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
