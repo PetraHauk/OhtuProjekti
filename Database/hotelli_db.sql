@@ -2,6 +2,7 @@
 # muista, näin koodin kautta lisätty käyttäjän salasana ei ole hashed!!
 päivitä sen kun pääset kirjautuu sisään.
 
+DROP DATABASE IF EXISTS hotelli_db;
 
 # Tietokannan luominen UTF-8-merkistötuella
 CREATE DATABASE hotelli_db CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;

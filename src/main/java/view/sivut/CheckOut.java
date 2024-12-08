@@ -22,6 +22,7 @@ import java.util.ResourceBundle;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Logger;
 
 public class CheckOut {
 
@@ -31,7 +32,10 @@ public class CheckOut {
     private VarausController varausController;
     private HotelliController hotelliController;
     private ResourceBundle bundle;
+    private Logger logger = Logger.getLogger(CheckOut.class.getName());
 
+    private String alertTitle = "alert.error";
+    private final static String BUTTONCSS = "yellow-btn";
     public CheckOut() {
         laskuController = new LaskuController();
         huoneController = new HuoneController();
@@ -67,7 +71,7 @@ public class CheckOut {
 
         // Button for fetching invoices
         Button haeLaskutButton = new Button(bundle.getString("haeLaskutButton.text"));
-        haeLaskutButton.getStyleClass().add("yellow-btn");
+        haeLaskutButton.getStyleClass().add(BUTTONCSS);
 
         // Layout for customer search (on a single row)
         HBox customerSearchRow = new HBox(10);  // Horizontal layout for name inputs and the button
@@ -82,9 +86,9 @@ public class CheckOut {
         TableView<LaskuData> laskuTable = createLaskuTable();
         Label loppuHintaLabel = new Label(bundle.getString("loppuHintaLabel.text"));
         Button maksuButton = new Button(bundle.getString("button.maksaa"));
-        maksuButton.getStyleClass().add("yellow-btn");
+        maksuButton.getStyleClass().add(BUTTONCSS);
         Button printButton = new Button(bundle.getString("printButton.kuitti"));
-        printButton.getStyleClass().add("yellow-btn");
+        printButton.getStyleClass().add(BUTTONCSS);
 
         // Adding all invoice-related components to one VBox
         maksattavaLaskut.getChildren().addAll(maksattavaLaskuOtsikko, laskuTable, loppuHintaLabel, maksuButton, printButton);
@@ -100,7 +104,7 @@ public class CheckOut {
             // Retrieve customers by first and last name
             List<Asiakas> asiakkaat = asiakasController.findByNimet(asiakasEtunimiInput.getText(), asiakasSukunimiInput.getText());
             if (asiakkaat == null || asiakkaat.isEmpty()) {
-                showAlert(bundle.getString("alert.error"), bundle.getString("alert.asiakasNotFound"));
+                showAlert(bundle.getString(alertTitle), bundle.getString("alert.asiakasNotFound"));
                 return;
             }
 
@@ -159,7 +163,7 @@ public class CheckOut {
                                             kokonaishintaStr
                                     ));
                                 } else {
-                                    showAlert(bundle.getString("alert.error"), bundle.getString("alert.huoneNroError"));
+                                    showAlert(bundle.getString(alertTitle), bundle.getString("alert.huoneNroError"));
                                 }
                             }
                         }
@@ -174,7 +178,7 @@ public class CheckOut {
         // Handle payment button logic
         maksuButton.setOnAction(e -> {
             if (laskuTable.getItems().isEmpty()) {
-                showAlert(bundle.getString("alert.error"), bundle.getString("alert.laskuEiValittu "));
+                showAlert(bundle.getString(alertTitle), bundle.getString("alert.laskuEiValittu "));
                 return;
             }
             for (LaskuData laskuData : laskuTable.getItems()) {
@@ -293,12 +297,10 @@ public class CheckOut {
     }
 
     private void tulostaKuitti(TableView<LaskuData> laskuTable) {
-        System.out.println("Kuitti");
-        System.out.println("Lasku ID | Status | Muoto | Valuutta | Alku Pvm | Loppu Pvm | Päivät | Hinta | Summa");
+        logger.info("Kuitti");
+        logger.info("Lasku ID | Status | Muoto | Valuutta | Alku Pvm | Loppu Pvm | Päivät | Hinta | Summa");
         for (LaskuData laskuData : laskuTable.getItems()) {
-            System.out.println(laskuData.getLaskuId() + " | " +
-                    laskuData.getHuoneNro() + " | " +
-                    laskuData.getHuoneTyyppi() + " | " +
+            logger.info(laskuData.getLaskuId() + " | " +
                     laskuData.getMaksuStatus() + " | " +
                     laskuData.getVarausMuoto() + " | " +
                     laskuData.getValuutta() + " | " +

@@ -26,7 +26,6 @@ import java.util.ResourceBundle;
 public class AsiakasSivu {
     private AsiakasController asiakasController;
     private ResourceBundle bundle;
-
     private Validator validate;
     public void setAsiakasController(AsiakasController asiakasController) {
         this.asiakasController = asiakasController;
@@ -123,12 +122,8 @@ public class AsiakasSivu {
 
                 // Validate numeric field (henkiloMaara)
                 int henkiloMaara;
-                try {
-                    henkiloMaara = Integer.parseInt(henkiloMaaraStr);
-                    if (henkiloMaara <= 0) {
-                        throw new NumberFormatException(); // Will be caught below
-                    }
-                } catch (NumberFormatException ex) {
+                henkiloMaara = Integer.parseInt(henkiloMaaraStr);
+                if (henkiloMaara <= 0) {
                     showAlert(Alert.AlertType.ERROR, "error.title", "addCustomerErrorInvalidHenkiloMaara");
                     return;
                 }

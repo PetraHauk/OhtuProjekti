@@ -1,8 +1,6 @@
 package view.sivut;
 
-import controller.AsiakasController;
 import controller.HuoneController;
-import controller.LaskuController;
 import controller.VarausController;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
@@ -10,9 +8,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import model.enteties.Asiakas;
 import model.enteties.Huone;
-import model.enteties.Lasku;
 import model.enteties.Varaus;
 
 import java.time.LocalDate;
@@ -27,8 +23,6 @@ public class CheckIn {
 
     private final HuoneController huoneController;
     private final VarausController varausController;
-    private final AsiakasController asiakasController;
-    private final LaskuController laskuController;
     String selectedLanguage = LocaleManager.getLanguageName();
     private ResourceBundle bundle;
     private String otsikkoCss = "otsikko";
@@ -38,8 +32,6 @@ public class CheckIn {
     public CheckIn() {
         varausController = new VarausController();
         huoneController = new HuoneController();
-        laskuController = new LaskuController();
-        asiakasController = new AsiakasController();
 
         Locale currentLocale = LocaleManager.getCurrentLocale();
         bundle = ResourceBundle.getBundle("messages", currentLocale);
@@ -68,7 +60,6 @@ public class CheckIn {
         VBox tuloPaiva = new VBox(0);
         Label tuloLabel = new Label(bundle.getString("checkin.label.arrival"));
         DatePicker tuloDatePicker = new DatePicker();
-        tuloDatePicker.setValue(LocalDate.now());
         tuloPaiva.getChildren().addAll(tuloLabel, tuloDatePicker);
 
         VBox poistumisPaiva = new VBox(0);
@@ -105,7 +96,7 @@ public class CheckIn {
         TableView<Varaus> varausTable = createVarausTable();
         varausTable.setPrefWidth(500);
         varausTable.setPrefHeight(200);
-        populateVarausTable(varausTable, tuloDatePicker.getValue(), poistumisDatePicker.getValue());
+        populateVarausTable(varausTable, tuloDatePicker, poistumisDatePicker);
 
         varausInfo.getChildren().addAll(varausInfoLabel, varausTable);
 
@@ -143,24 +134,21 @@ public class CheckIn {
         // Event listeners for the date pickers. Populate the free room table and the reservation table
         tuloDatePicker.valueProperty().addListener((observable, oldValue, newValue) -> {
             populateFreeRoomTable(huoneTable, 1, tuloDatePicker, poistumisDatePicker);
-            populateVarausTable(varausTable, tuloDatePicker.getValue(), poistumisDatePicker.getValue());
+            populateVarausTable(varausTable, tuloDatePicker, poistumisDatePicker);
         });
         poistumisDatePicker.valueProperty().addListener((observable, oldValue, newValue) -> {
             populateFreeRoomTable(huoneTable, 1, tuloDatePicker, poistumisDatePicker);
-            populateVarausTable(varausTable, tuloDatePicker.getValue(), poistumisDatePicker.getValue());
+            populateVarausTable(varausTable, tuloDatePicker, poistumisDatePicker);
         });
 
-        checkInButton.setOnAction(e -> checkInButtonAction(huoneTable, varausTable));
+        checkInButton.setOnAction(e -> checkInButtonAction(huoneTable, varausTable, tuloDatePicker));
         VBox checkIn = new VBox(20);
         checkIn.getChildren().addAll(huoneTiedot, varausInfo, checkInButton);
         return checkIn;
     }
 
     void populateFreeRoomTable(TableView<Huone> huoneTable, int hotelliId, DatePicker tuloDatePicker, DatePicker poistumisDatePicker) {
-        ProgressIndicator loadingIndicator = new ProgressIndicator();
-        loadingIndicator.setVisible(true);
-        huoneTable.getItems().clear();
-        huoneTable.setPlaceholder(loadingIndicator);
+        ProgressIndicator loadingIndicator = initializeLoadingIndicator(huoneTable);
 
         if (tuloDatePicker.getValue() != null && poistumisDatePicker.getValue() != null && tuloDatePicker.getValue().isAfter(poistumisDatePicker.getValue())) {
             huoneTable.setPlaceholder(new Label(bundle.getString("checkin.error.dateorder")));
@@ -190,13 +178,11 @@ public class CheckIn {
         new Thread(fetchRoomsTask).start();
     }
 
-    private void populateVarausTable(TableView<Varaus> varausTable, LocalDate alkuPvm, LocalDate loppuPvm) {
-        ProgressIndicator loadingIndicator = new ProgressIndicator();
-        loadingIndicator.setVisible(true);
-        loadingIndicator.setPrefSize(50, 50);
+    private void populateVarausTable(TableView<Varaus> varausTable, DatePicker tuloDatePicker, DatePicker lahtoDatePicker) {
+        ProgressIndicator loadingIndicator = initializeLoadingIndicator(varausTable);
 
-        varausTable.getItems().clear();
-        varausTable.setPlaceholder(loadingIndicator);
+        LocalDate alkuPvm = tuloDatePicker.getValue();
+        LocalDate loppuPvm = lahtoDatePicker.getValue();
 
         LocalDate startDate = (alkuPvm != null) ? alkuPvm : LocalDate.of(1970, 1, 1);
         LocalDate endDate = (loppuPvm != null) ? loppuPvm : LocalDate.of(2100, 1, 1);
@@ -204,7 +190,8 @@ public class CheckIn {
         Task<List<Varaus>> fetchVarauksetTask = new Task<>() {
             @Override
             protected List<Varaus> call() throws Exception {
-                return varausController.findVarauksetByDate(startDate, endDate);
+                // Delegate to controller to fetch and enrich the data
+                return varausController.getVarauksetWithDates(startDate, endDate);
             }
         };
 
@@ -213,40 +200,28 @@ public class CheckIn {
 
             Platform.runLater(() -> {
                 loadingIndicator.setVisible(false);
-                varausTable.getSelectionModel().clearSelection(); // Clear selection before updating items
+                varausTable.getSelectionModel().clearSelection();
 
                 if (varaukset != null && !varaukset.isEmpty()) {
-                    for (Varaus varaus : varaukset) {
-                        if (varaus.getHuoneId() != null) {
-                            Huone huone = huoneController.findHuoneById(varaus.getHuoneId());
-                            varaus.setHuone(huone);
-                        }
-
-                        Lasku lasku = laskuController.findLaskuById(varaus.getLaskuId());
-                        if (lasku != null) {
-                            Asiakas asiakas = asiakasController.findByLaskuId(lasku.getAsiakasId());
-                            varaus.setNimi(asiakas.getEtunimi() + " " + asiakas.getSukunimi());
-                        }
-
-
-                    }
-                    varausTable.getItems().setAll(varaukset); // Update table with new data
+                    varausTable.getItems().setAll(varaukset); // Update table with enriched data
                 } else {
                     varausTable.setPlaceholder(new Label(bundle.getString("checkin.error.noreservations")));
                 }
             });
         });
 
-        fetchVarauksetTask.setOnFailed(event -> {
-            varausTable.setPlaceholder(new Label(bundle.getString("checkin.error.loadreservations")));
-            logger.severe("Failed to fetch reservations: " + fetchVarauksetTask.getException());
-            loadingIndicator.setVisible(false);
-        });
+        fetchVarauksetTask.setOnFailed(event ->
+            Platform.runLater(() -> {
+                varausTable.setPlaceholder(new Label(bundle.getString("checkin.error.loadreservations")));
+                logger.severe("Failed to fetch reservations: " + fetchVarauksetTask.getException());
+                loadingIndicator.setVisible(false);
+            })
+        );
 
         new Thread(fetchVarauksetTask).start();
     }
 
-    private void checkInButtonAction(TableView<Huone> huoneTable, TableView<Varaus> varausTable) {
+    private void checkInButtonAction(TableView<Huone> huoneTable, TableView<Varaus> varausTable, DatePicker today) {
         Huone selectedRoom = huoneTable.getSelectionModel().getSelectedItem();
         Varaus selectedVaraus = varausTable.getSelectionModel().getSelectedItem();
         if (selectedRoom != null && selectedVaraus != null) {
@@ -257,6 +232,17 @@ public class CheckIn {
 
             huoneController.updateHuoneStatusById(selectedRoom.getHuoneId(), bundle.getString("huone_tila.varattu"));
             varausController.updateVarausHuoneById(selectedVaraus.getVarausId(), selectedRoom.getHuoneId());
+
+            DatePicker endDate = new DatePicker(selectedVaraus.getLoppuPvm());
+
+            populateFreeRoomTable(huoneTable, 1, today, endDate);
+            populateVarausTable(varausTable, today, endDate);
+        } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle(bundle.getString("error.title"));
+            alert.setHeaderText(null);
+            alert.setContentText(bundle.getString("checkin.error.noselection"));
+            alert.showAndWait();
         }
 
     }
@@ -325,6 +311,15 @@ public class CheckIn {
         varausTable.getColumns().add(endDateColumn);
 
         return varausTable;
+    }
+
+    private <T> ProgressIndicator initializeLoadingIndicator(TableView<T> table) {
+        ProgressIndicator loadingIndicator = new ProgressIndicator();
+        loadingIndicator.setVisible(true);
+        loadingIndicator.setPrefSize(50, 50);
+        table.getItems().clear();
+        table.setPlaceholder(loadingIndicator);
+        return loadingIndicator;
     }
 
 }

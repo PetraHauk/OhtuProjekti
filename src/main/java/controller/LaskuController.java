@@ -30,6 +30,7 @@ public class LaskuController {
     public List<Lasku> findLaskuByAsiakasId(int asiakasId) {
         return laskuDAO.haeByAsiakasId(asiakasId);
     }
+
     public void updateLaskuById(int id, String maksuStatus, String varausMuoto, String valuutta, int asiakasId) {
         laskuDAO.updateLaskuById(id, maksuStatus, varausMuoto, valuutta, asiakasId);
     }

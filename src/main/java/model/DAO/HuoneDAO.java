@@ -61,6 +61,21 @@ public class HuoneDAO {
         return null;
     }
 
+    public int getTotalRooms(int hotelliId) {
+        EntityManager em = MariaDbConnection.getInstance();
+        try {
+            return em.createQuery("SELECT COUNT(h) FROM Huone h WHERE h.hotelliId = :hotelliId", Long.class)
+                    .setParameter("hotelliId", hotelliId)
+                    .getSingleResult().intValue();
+        } catch (Exception e) {
+            // Log the exception
+            e.printStackTrace();
+            return 0;
+        } finally {
+            em.close();
+        }
+    }
+
     /**
      * Update a room by its ID
      * @param id The ID of the room

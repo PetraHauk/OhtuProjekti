@@ -1,18 +1,16 @@
 
 package controller;
 import model.enteties.Asiakas;
+import model.enteties.Huone;
+import model.enteties.Lasku;
 import model.enteties.Varaus;
 import model.DAO.VarausDAO;
-import model.service.LocaleManager;
 import utils.Validator;
 import utils.ValidatorExeption;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
-import java.util.ResourceBundle;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,12 +23,14 @@ public class VarausController {
     private VarausDAO varausDAO;
     private AsiakasController asiakasController;
     private LaskuController laskuController;
+    private HuoneController huoneController;
     private Validator validate;
 
     public VarausController() {
         varausDAO = new VarausDAO();
         asiakasController = new AsiakasController();
         laskuController = new LaskuController();
+        huoneController = new HuoneController();
 
         validate = new Validator();
     }
@@ -102,21 +102,46 @@ public class VarausController {
         return varauksetByDate;
     }
 
+    public List<Varaus> getVarauksetWithDates(LocalDate startDate, LocalDate endDate) {
+        List<Varaus> varaukset = findVarauksetByDate(startDate, endDate);
+        if (varaukset != null) {
+            for (Varaus varaus : varaukset) {
+                if (varaus.getHuoneId() != null) {
+                    Huone huone = huoneController.findHuoneById(varaus.getHuoneId());
+                    varaus.setHuone(huone);
+                }
+
+                Lasku lasku = laskuController.findLaskuById(varaus.getLaskuId());
+                if (lasku != null) {
+                    Asiakas asiakas = asiakasController.findByLaskuId(lasku.getAsiakasId());
+                    varaus.setNimi(asiakas.getEtunimi() + " " + asiakas.getSukunimi());
+                }
+            }
+        }
+        return varaukset;
+    }
+
+
     /**
      * Hae kaikki varaukset tietokannasta, jotka menevät päällekkäin annettujen päivämäärien kanssa.
      * @return Lista varaus olioista.
      */
-    public int getOverlappingReservationsCount(LocalDate saapumisPvm, LocalDate lahtoPvm) {
+    public boolean areAllRoomsFilled(LocalDate saapumisPvm, LocalDate lahtoPvm) {
         List<Varaus> varaukset = varausDAO.haeVaraukset();
         int overlappingReservationsCount = 0;
 
         for (Varaus varaus : varaukset) {
-            if ((varaus.getAlkuPvm().isEqual(saapumisPvm) || varaus.getAlkuPvm().isAfter(saapumisPvm)) &&
-                    (varaus.getLoppuPvm().isEqual(lahtoPvm) || varaus.getLoppuPvm().isBefore(lahtoPvm))) {
+            // Check if the date ranges overlap
+            if (varaus.getLoppuPvm().isAfter(saapumisPvm) && varaus.getAlkuPvm().isBefore(lahtoPvm)) {
                 overlappingReservationsCount++;
             }
         }
-        return overlappingReservationsCount;
+
+        // Assuming you have a method to get the total number of rooms
+        int totalRooms = huoneController.getTotalRooms(1);
+
+        // Return true if all rooms are filled, otherwise false
+        return overlappingReservationsCount >= totalRooms;
     }
 
     /**
@@ -139,7 +164,7 @@ public class VarausController {
      * Päivitä varaus tietokantaan varaus id:n perusteella.
      * @return Lista varaus olioista.
      */
-    public void updateVaraus(String laskuMuoto, LocalDate saapumisPvm, LocalDate lahtoPvm, int varausId) {
+    public void updateVaraus(LocalDate saapumisPvm, LocalDate lahtoPvm, int varausId) {
         Varaus varaus = findByVarausId(varausId);
         varaus.setAlkuPvm(saapumisPvm);
         varaus.setLoppuPvm(lahtoPvm);
