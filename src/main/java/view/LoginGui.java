@@ -45,7 +45,7 @@ public class LoginGui extends Application {
 
         // Language Selection ComboBox
         ComboBox<String> languageSelector = new ComboBox<>();
-        languageSelector.getItems().addAll("English", "Svenska", "中文", "Suomi", "россия");
+        languageSelector.getItems().addAll("English", "中文", "Suomi", "россия");
         languageSelector.setValue(LocaleManager.getLanguageName()); // Default selection
         languageSelector.setOnAction(e -> updateLanguage(languageSelector.getValue(), primaryStage));
 

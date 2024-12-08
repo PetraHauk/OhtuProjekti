@@ -29,9 +29,6 @@ public class LocaleManager {
             case "English":
                 setLocale(new Locale("en", "GB"));
                 break;
-            case "Svenska":
-                setLocale(new Locale("sv", "SE"));
-                break;
             case "中文":
                 setLocale(new Locale("zh", "CN"));
                 break;
@@ -47,8 +44,6 @@ public class LocaleManager {
         switch (currentLocale.getLanguage()) {
             case "en":
                 return "English";
-            case "sv":
-                return "Svenska";
             case "zh":
                 return "中文";
             case "ru":

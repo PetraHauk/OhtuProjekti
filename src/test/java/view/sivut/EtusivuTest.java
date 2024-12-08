@@ -42,7 +42,6 @@ class EtusivuTest extends ApplicationTest {
         assertTrue(introLabel.getText().contains("Tervetuloa hotellin hallintajärjestelmään!"), "Second label should contain the intro text");
 
         // Check if the third child is a PieChart
-        assertTrue(etusivuInfo.getChildren().get(2) instanceof javafx.scene.chart.PieChart, "Third child should be a PieChart");
-
+        assertInstanceOf(javafx.scene.chart.PieChart.class, etusivuInfo.getChildren().get(2), "Third child should be a PieChart");
     }
 }

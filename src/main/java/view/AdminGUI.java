@@ -25,6 +25,9 @@ public class AdminGUI extends Application {
     TableView<Kayttaja> userTable;
     private String adminEmail; // Store admin email for validation
     private ResourceBundle bundle;
+    private static final String ROLE_WORKER = "role.worker";
+    private static final String ROLE_CLEANER = "role.cleaner";
+    private static final String ROLE_ADMIN = "role.admin";
 
 
     @Override
@@ -36,7 +39,7 @@ public class AdminGUI extends Application {
         primaryStage.setTitle(bundle.getString("admin_panel_title"));
 
         // Initialize Table to Display Users
-        userTable = new TableView<>();  // Initialize the userTable here
+        userTable = new TableView<>();
         TableColumn<Kayttaja, Integer> idColumn = new TableColumn<>(bundle.getString("user_id"));
         idColumn.setCellValueFactory(new PropertyValueFactory<>("kayttajaId"));
 
@@ -81,9 +84,9 @@ public class AdminGUI extends Application {
         puhField.setPromptText(bundle.getString("label.phone"));
 
         ComboBox<String> rooliComboBox = new ComboBox<>(FXCollections.observableArrayList(
-                bundle.getString("role.cleaner"),
-                bundle.getString("role.worker"),
-                bundle.getString("role.admin")
+                bundle.getString(ROLE_CLEANER),
+                bundle.getString(ROLE_WORKER),
+                bundle.getString(ROLE_ADMIN)
         ));
         rooliComboBox.setPromptText(bundle.getString("label.role"));
         rooliComboBox.setId("rooliComboBox");
@@ -198,9 +201,9 @@ public class AdminGUI extends Application {
         passwordField.setPromptText(bundle.getString("addUser.password"));
 
         ComboBox<String> rooliComboBox = new ComboBox<>(FXCollections.observableArrayList(
-                bundle.getString("role.cleaner"),
-                bundle.getString("role.worker"),
-                bundle.getString("role.admin")
+                bundle.getString(ROLE_CLEANER),
+                bundle.getString(ROLE_WORKER),
+                bundle.getString(ROLE_ADMIN)
         ));
         rooliComboBox.setPromptText(bundle.getString("addUser.role"));
         rooliComboBox.setId("roleComboBox");
@@ -300,22 +303,20 @@ public class AdminGUI extends Application {
 
 
     void deleteUser() {
-
         Kayttaja selectedUser = userTable.getSelectionModel().getSelectedItem();
         if (selectedUser == null) {
-            showWarning(bundle.getString("deleteUser.noSelectionTitle"), bundle.getString("deleteUser.noSelectionMessage"));
+            showWarning("deleteUser.noSelectionTitle", "deleteUser.noSelectionMessage");
             return;
         }
 
         // Check if the selected user is an admin
         if ("Admin".equals(selectedUser.getRooli())) {
-            showWarning(bundle.getString("deleteUser.adminDeletionBlockedTitle"), bundle.getString("deleteUser.adminDeletionBlockedMessage"));
+            showWarning("deleteUser.adminDeletionBlockedTitle", "deleteUser.adminDeletionBlockedMessage");
             return;
         }
 
         // Confirm deletion
-        String confirmMessage = String.format(bundle.getString("deleteUser.confirmMessage"), selectedUser.getEtunimi(), selectedUser.getSukunimi());
-        if (showConfirmation(bundle.getString("deleteUser.confirmTitle"), confirmMessage)) {
+        if (showConfirmation("deleteUser.confirmTitle", "deleteUser.confirmMessage", selectedUser.getEtunimi(), selectedUser.getSukunimi())) {
             Dialog<String> passwordDialog = new Dialog<>();
             passwordDialog.setTitle(bundle.getString("deleteUser.passwordDialogTitle"));
             passwordDialog.setHeaderText(bundle.getString("deleteUser.passwordDialogHeader"));
@@ -345,15 +346,14 @@ public class AdminGUI extends Application {
             passwordDialog.showAndWait().ifPresent(password -> {
                 if (validatePassword(password)) {
                     kayttajaDAO.removeById(selectedUser.getKayttajaId());
-                    showInfo(bundle.getString("deleteUser.successTitle"), bundle.getString("deleteUser.successMessage"));
+                    showInfo("deleteUser.successTitle", "deleteUser.successMessage");
                     loadAndDisplayUsers();
                 } else {
-                    showError(bundle.getString("deleteUser.errorTitle"), bundle.getString("deleteUser.errorMessage"));
+                    showError("deleteUser.errorTitle", "deleteUser.errorMessage");
                 }
             });
         }
     }
-
 
 
     // Validate admin password
@@ -389,17 +389,33 @@ public class AdminGUI extends Application {
         alert.showAndWait();
     }
 
-    private boolean showConfirmation(String titleKey, String messageKey) {
+    private boolean showConfirmation(String titleKey, String messageKey, String firstName, String lastName) {
         Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
         confirmationAlert.setTitle(bundle.getString(titleKey));
-        confirmationAlert.setHeaderText(bundle.getString(messageKey));
-        confirmationAlert.setContentText(bundle.getString("alert_confirm_delete_warning"));
+        confirmationAlert.setHeaderText(null);
+        confirmationAlert.setContentText(String.format(bundle.getString(messageKey), firstName, lastName));
         return confirmationAlert.showAndWait().orElse(ButtonType.CANCEL) == ButtonType.OK;
     }
-    private void loadAndDisplayUsers() {
-        userTable.setItems(FXCollections.observableArrayList(loadUsers())); // Load users here
+// Add this helper method to translate roles
+    private String translateRole(String role) {
+        if (role.equals("Admin") || role.equals("管理员") || role.equals("Ylläpitäjä")) {
+            return bundle.getString(ROLE_ADMIN);
+        } else if (role.equals("Worker") || role.equals("工人") || role.equals("Työntekijä")) {
+            return bundle.getString(ROLE_WORKER);
+        } else if (role.equals("Cleaner") || role.equals("清洁工") || role.equals("Siivooja")) {
+            return bundle.getString(ROLE_CLEANER);
+        }
+        return role; // Return the original role if no translation is found
     }
 
+    // Update the loadAndDisplayUsers method
+    void loadAndDisplayUsers() {
+        List<Kayttaja> users = loadUsers();
+        for (Kayttaja user : users) {
+            user.setRooli(translateRole(user.getRooli()));
+        }
+        userTable.setItems(FXCollections.observableArrayList(users));
+    }
 
 
     public static void main(String[] args) {

@@ -3,33 +3,32 @@ package view;
 import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.*;
 
+import javafx.application.Platform;
 import javafx.stage.Stage;
 import model.service.LocaleManager;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import javafx.collections.FXCollections;
 import javafx.scene.control.TableView;
 import model.enteties.Kayttaja;
 import model.DAO.KayttajaDAO;
-import org.mindrot.jbcrypt.BCrypt;
 import org.testfx.framework.junit5.ApplicationTest;
-import org.testfx.service.query.PointQuery;
+import org.testfx.util.WaitForAsyncUtils;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
-public class AdminGUITest extends ApplicationTest {
+class AdminGUITest extends ApplicationTest {
 
     @Mock
     private KayttajaDAO kayttajaDAO;
 
     @InjectMocks
     private AdminGUI adminGUI;
+    private Kayttaja testUser;
 
     @Override
     public void init() throws Exception {
@@ -47,13 +46,9 @@ public class AdminGUITest extends ApplicationTest {
         adminGUI.start(stage);
     }
 
-    @BeforeEach
-    public void setUp() {
-
-    }
 
     @Test
-    public void testLoadUsers() {
+    void testLoadUsers() {
         // Arrange
         List<Kayttaja> mockUsers = Arrays.asList(new Kayttaja(), new Kayttaja());
         when(kayttajaDAO.findAllKayttaja()).thenReturn(mockUsers);
@@ -68,7 +63,7 @@ public class AdminGUITest extends ApplicationTest {
 
 
     @Test
-    public void testAddNewUser() {
+    void testAddNewUser() {
         // Arrange
         String etunimi = "Test";
         String sukunimi = "User";
@@ -92,6 +87,30 @@ public class AdminGUITest extends ApplicationTest {
 
         // Assert - Verify User Added
         verify(kayttajaDAO, times(1)).persist(any(Kayttaja.class));
+
+        // Save the test user for deletion
+        testUser = new Kayttaja();
+        testUser.setEtunimi(etunimi);
+        testUser.setSukunimi(sukunimi);
+        testUser.setSposti(sposti);
+        testUser.setPuh(puh);
+        testUser.setSalasana(salasana);
+        testUser.setRooli(rooli);
     }
+
+    @AfterEach
+    void tearDown() {
+        if (testUser != null) {
+            when(kayttajaDAO.findAllKayttaja()).thenReturn(Arrays.asList(testUser));
+            Platform.runLater(() -> {
+                adminGUI.loadAndDisplayUsers();
+                adminGUI.userTable.getSelectionModel().select(testUser);
+                adminGUI.deleteUser();
+            });
+            WaitForAsyncUtils.waitForFxEvents();
+            verify(kayttajaDAO, times(1)).removeById(testUser.getKayttajaId());
+        }
+    }
+
 
 }
