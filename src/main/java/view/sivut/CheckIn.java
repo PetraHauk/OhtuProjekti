@@ -224,13 +224,14 @@ public class CheckIn {
     private void checkInButtonAction(TableView<Huone> huoneTable, TableView<Varaus> varausTable, DatePicker today) {
         Huone selectedRoom = huoneTable.getSelectionModel().getSelectedItem();
         Varaus selectedVaraus = varausTable.getSelectionModel().getSelectedItem();
+
         if (selectedRoom != null && selectedVaraus != null) {
 
             if (selectedVaraus.getHuoneId() != null) {
-                huoneController.updateHuoneStatusById(selectedVaraus.getHuoneId(), bundle.getString("huone_tila.vapaa"));
+                huoneController.updateHuoneStatusById(selectedVaraus.getHuoneId(), "Vapaa");
             }
 
-            huoneController.updateHuoneStatusById(selectedRoom.getHuoneId(), bundle.getString("huone_tila.varattu"));
+            huoneController.updateHuoneStatusById(selectedRoom.getHuoneId(), "Varattu");
             varausController.updateVarausHuoneById(selectedVaraus.getVarausId(), selectedRoom.getHuoneId());
 
             DatePicker endDate = new DatePicker(selectedVaraus.getLoppuPvm());
