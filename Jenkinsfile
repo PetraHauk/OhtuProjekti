@@ -2,11 +2,9 @@ pipeline {
     agent any
 
     environment {
-        // Define Docker Hub repository name and image tag
-        DOCKERHUB_CREDENTIALS_ID = 'docker_credentials'
-        DOCKERHUB_REPO = ''annagaom/ohtuprojekti'
-        DOCKER_IMAGE_TAG = 'ver1'
-    }
+            DOCKERHUB_REPO = 'annagaom/ohtuprojekti' // Docker Hub repository
+            DOCKER_IMAGE_TAG = 'latest'   // Docker image tag
+        }
 
     tools {
         // Docker tool from Jenkins global configuration
@@ -17,20 +15,20 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout code from Git repository
-                git url: 'https://github.com/PetraHauk/OhtuProjekti.git', branch: 'main'
+                git url: 'https://github.com/PetraHauk/OhtuProjekti.git', branch: 'anna-1'
             }
         }
          stage('Run Tests') {
             steps {
                 // Run the tests first to generate data for Jacoco and JUnit
-                bat 'mvn clean test' // For Windows agents
+                sh 'mvn clean test' // For Windows agents
                 // sh 'mvn clean test' // Uncomment if on a Linux agent
             }
         }
         stage('Code Coverage') {
             steps {
                 // Generate Jacoco report after the tests have run
-                bat 'mvn jacoco:report'
+                sh 'mvn jacoco:report'
             }
         }
         stage('Publish Test Results') {
@@ -49,24 +47,36 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    // Build Docker image
-                    docker.build("${DOCKERHUB_REPO}:${DOCKER_IMAGE_TAG}")
+                    withEnv(["PATH=/usr/local/bin:/usr/bin:/bin"]) {
+                        // Build the Docker image for a specific platform
+                        sh """
+                            docker buildx build --platform linux/amd64 \
+                            -t ${DOCKERHUB_REPO}:${DOCKER_IMAGE_TAG} .
+                        """
+                    }
                 }
             }
         }
 
         stage('Push Docker Image to Docker Hub') {
-            steps {
-                script {
-                    // Switch to the 'default' Docker context
-                    bat 'docker context use default'
-
-                    // Push the Docker image to Docker Hub using Jenkins credentials
-                    docker.withRegistry('https://index.docker.io/v1/', 'dockerhub_credential') {
-                        docker.image("${DOCKERHUB_REPO}:${DOCKER_IMAGE_TAG}").push()
-                    }
-                }
-            }
+           steps {
+               script {
+                   withEnv(["PATH=/usr/local/bin:/usr/bin:/bin"]) {
+                       // Use Jenkins credentials to log in to Docker Hub
+                       withCredentials([usernamePassword(
+                           credentialsId: 'docker_credentials', // Replace with your Jenkins credentials ID
+                           usernameVariable: 'DOCKER_USER',
+                           passwordVariable: 'DOCKER_PASS'
+                       )]) {
+                           sh """
+                               docker login -u ${DOCKER_USER} -p ${DOCKER_PASS}
+                               docker push ${DOCKERHUB_REPO}:${DOCKER_IMAGE_TAG}
+                               docker logout
+                           """
+                       }
+                   }
+               }
+           }
         }
     }
 }
