@@ -111,6 +111,11 @@ VALUES ('Mia', 'Makki', 'mia@sposti.fi', '0923456', 2, 'Rauhallinen huone');
 INSERT INTO `asiakas` (`etunimi`, `sukunimi`, `sposti`, `puh`, `henkilo_maara`, `huomio`)
 VALUES ('Anna', 'Ansku', 'anna@sposti.fi', '06872398', 3, 'ei erikoista');
 
+INSERT INTO `asiakas` (`etunimi`, `sukunimi`, `sposti`, `puh`, `henkilo_maara`, `huomio`)
+VALUES ('Anna', 'Mallinen', 'anna.mallinen@example.com', '0687473898', 3, 'ei erikoista');
+
+
+
 
 # huone
 INSERT INTO `huone` (`huone_nro`, `huone_tyyppi_fi`, `huone_tyyppi_en`, `huone_tyyppi_ru`, `huone_tyyppi_zh`,

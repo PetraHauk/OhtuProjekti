@@ -79,6 +79,7 @@ class AsiakasDAOTest {
         Asiakas updatedAsiakas = asiakasDAO.findByLaskuId(asiakas.getAsiakasId());
         assertNotNull(updatedAsiakas);
         assertEquals("UusiSukunimi", updatedAsiakas.getSukunimi());
+        asiakasDAO.removeById(asiakas.getAsiakasId());
     }
 
     @Test
