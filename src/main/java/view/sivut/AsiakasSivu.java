@@ -13,15 +13,20 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.enteties.Asiakas;
 import model.service.LocaleManager;
+import utils.Validator;
+import utils.ValidatorExeption;
 
 import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
+/**
+ * AsiakasSivu-luokka, joka luo asiakas sivu UI:n.
+ */
 public class AsiakasSivu {
     private AsiakasController asiakasController;
     private ResourceBundle bundle;
-
+    private Validator validate;
     public void setAsiakasController(AsiakasController asiakasController) {
         this.asiakasController = asiakasController;
     }
@@ -31,6 +36,8 @@ public class AsiakasSivu {
 
         Locale currentLocale = LocaleManager.getCurrentLocale();
         bundle = ResourceBundle.getBundle("messages", currentLocale);
+
+        validate = new Validator();
     }
 
     public VBox createAsiakkaat() {
@@ -100,18 +107,42 @@ public class AsiakasSivu {
 
         saveButton.setOnAction(e -> {
             try {
+                String firstName = firstNameField.getText().trim();
+                String lastName = lastNameField.getText().trim();
+                String email = emailField.getText().trim();
+                String phone = phoneField.getText().trim();
+                String huomio = huomioField.getText().trim();
+                String henkiloMaaraStr = henkiloMaaraField.getText().trim();
+
+                // Validate required fields
+                if (firstName.isEmpty() || lastName.isEmpty() || email.isEmpty() || phone.isEmpty() || henkiloMaaraStr.isEmpty()) {
+                    showAlert(Alert.AlertType.ERROR, "error.title", "error.requiredfields");
+                    return;
+                }
+
+                // Validate numeric field (henkiloMaara)
+                int henkiloMaara;
+                henkiloMaara = Integer.parseInt(henkiloMaaraStr);
+                if (henkiloMaara <= 0) {
+                    showAlert(Alert.AlertType.ERROR, "error.title", "addCustomerErrorInvalidHenkiloMaara");
+                    return;
+                }
+
+                // Proceed to add the customer
                 asiakasController.addAsiakas(
-                        firstNameField.getText(),
-                        lastNameField.getText(),
-                        emailField.getText(),
-                        phoneField.getText(),
-                        Integer.parseInt(henkiloMaaraField.getText()),
-                        huomioField.getText()
+                        firstName,
+                        lastName,
+                        email,
+                        phone,
+                        henkiloMaara,
+                        huomio
                 );
                 addCustomerStage.close();
-                populateCustomerTable(customerTable);  // Päivitä asiakastaulukko
+                populateCustomerTable(customerTable); // Update the customer table
+            } catch (ValidatorExeption ex) {
+                showAlert(Alert.AlertType.ERROR, "error.title", ex.getErrorKey());
             } catch (Exception ex) {
-                System.err.println(bundle.getString("addCustomerErrorText" )+ ex.getMessage());
+                showAlert(Alert.AlertType.ERROR, "error.title", "asiakas.error.add");
             }
         });
 
@@ -132,7 +163,6 @@ public class AsiakasSivu {
         ProgressIndicator loadingIndicator = new ProgressIndicator();
         VBox loadingBox = new VBox(loadingIndicator);
         loadingBox.setAlignment(Pos.CENTER);
-
 
         Task<List<Asiakas>> fetchCustomersTask = new Task<>() {
             @Override
@@ -296,21 +326,29 @@ public class AsiakasSivu {
 
         // Toiminnallisuus napille
         saveButton.setOnAction(e -> {
-            // Päivitetään asiakastiedot
-            asiakasController.paivitaAsiakas(
-                    asiakas.getAsiakasId(),
-                    firstNameField.getText(),
-                    lastNameField.getText(),
-                    emailField.getText(),
-                    phoneField.getText(),
-                    Integer.parseInt(henkiloMaaraField.getText()), // Muunnetaan teksti kokonaisluvuksi
-                    huomioField.getText()
-            );
+            try {
+                // Get the input fields
+                // Päivitetään asiakastiedot
+                asiakasController.paivitaAsiakas(
+                        asiakas.getAsiakasId(),
+                        firstNameField.getText(),
+                        lastNameField.getText(),
+                        emailField.getText(),
+                        phoneField.getText(),
+                        Integer.parseInt(henkiloMaaraField.getText()), // Muunnetaan teksti kokonaisluvuksi
+                        huomioField.getText()
+                );
 
-            // Päivitetään taulukko
-            populateCustomerTable(customerTable);
-            muokkaaAsiakasStage.close();
+                // Päivitetään taulukko
+                populateCustomerTable(customerTable);
+                muokkaaAsiakasStage.close();
+            } catch (ValidatorExeption ex) {
+                showAlert(Alert.AlertType.ERROR, "error.title", ex.getErrorKey());
+            } catch (Exception ex) {
+                showAlert(Alert.AlertType.ERROR, "error.title", "asiakas.error.update");
+            }
         });
+
 
         cancelButton.setOnAction(e -> muokkaaAsiakasStage.close());
 
@@ -329,4 +367,11 @@ public class AsiakasSivu {
         asiakasController.poistaAsiakas(asiakas.getAsiakasId());
     }
 
+    private void showAlert(Alert.AlertType type, String titleKey, String messageKey) {
+        Alert alert = new Alert(type);
+        alert.setTitle(bundle.getString(titleKey));
+        alert.setHeaderText(null);
+        alert.setContentText(bundle.getString(messageKey));
+        alert.showAndWait();
+    }
 }

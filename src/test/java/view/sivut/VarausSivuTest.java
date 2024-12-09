@@ -5,11 +5,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import model.enteties.Asiakas;
-import model.enteties.Varaus;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.testfx.framework.junit5.ApplicationTest;
@@ -113,6 +110,7 @@ class VarausSivuTest extends ApplicationTest {
 
 
     @Test
+    @SuppressWarnings("unchecked")
     void testDropdownOptions() {
         Platform.runLater(() -> {
             VBox createdvaraukset = varausSivu.createVaraukset();

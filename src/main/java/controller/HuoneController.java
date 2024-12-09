@@ -61,6 +61,10 @@ public class HuoneController {
         return huone;
     }
 
+    public int getTotalRooms(int hotelliId) {
+        return huoneDAO.getTotalRooms(hotelliId);
+    }
+
     public void updateHuoneById(int id, int huoneNro, String huoneTyyppi, String huoneTila, double huoneHinta) {
         huoneDAO.updateHuoneById(id, huoneNro, huoneTyyppi, huoneTila, huoneHinta);
     }
@@ -73,16 +77,16 @@ public class HuoneController {
         huoneDAO.removeById(id);
     }
 
-    public List<Huone> findVapaatHuoneetByHotelliId(int hotelliId){
+    public List<Huone> findVapaatHuoneetByHotelliId(int hotelliId) {
         List<Huone> huoneet = huoneDAO.haeHuoneetByHotelliId(hotelliId);
 
         Iterator<Huone> huoneIterator = huoneet.iterator();
         while (huoneIterator.hasNext()) {
             Huone huone = huoneIterator.next();
-            if ("Varattu".equals(huone.getHuoneTilaFi())
-                    || "Reserved".equals(huone.getHuoneTilaFi())
-                    || "Сдержанный".equals(huone.getHuoneTilaFi())
-                    || "已预订".equals(huone.getHuoneTilaFi())) {
+            if (!"Vapaa".equals(huone.getHuoneTilaFi())
+                    && !"Free".equals(huone.getHuoneTilaEn())
+                    && !"Свободно".equals(huone.getHuoneTilaRu())
+                    && !"空闲".equals(huone.getHuoneTilaZh())) {
                 huoneIterator.remove();
             }
         }
