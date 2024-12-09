@@ -21,7 +21,7 @@ pipeline {
          stage('Run Tests') {
             steps {
                 // Run the tests first to generate data for Jacoco and JUnit
-                sh 'mvn clean test' // For Windows agents
+                sh 'maven3' // For Windows agents
                 // sh 'mvn clean test' // Uncomment if on a Linux agent
             }
         }
