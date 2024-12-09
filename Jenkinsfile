@@ -8,7 +8,7 @@ pipeline {
 
     tools {
         // Docker tool from Jenkins global configuration
-        dockerTool 'DockerHub'
+        dockerTool 'dockerHub'
     }
 
     stages {
